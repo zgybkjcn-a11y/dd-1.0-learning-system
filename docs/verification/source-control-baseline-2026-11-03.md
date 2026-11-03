@@ -6,4 +6,6 @@
 
 根目录 `.gitignore` 覆盖运行数据、附件/备份/导出、环境凭证、数据库/WAL、Python 缓存和本地开发工具状态。`git check-ignore -v` 实际确认 `data/`、`learning_data/`、`.env`、`.pytest_cache/`、`/docker-compose.yml` 与 `/batch_ingest.py` 命中精确规则；`.dockerignore` 仍独立控制镜像构建上下文。两个原有顶层文件留在本机并按精确路径忽略，不纳入公开仓库；数据库和运行资料也已忽略。
 
-这建立了后续可审阅的源码版本历史，并保留了安全忽略规则。初始快照前没有仓库元数据，因此无法可靠区分哪些既有文件曾由用户单独修改；后续 diff 从该基线开始。脱敏发布状态和运行边界见 `docs/verification/release-manifest-2026-11-03.json` 与 `docs/verification/baseline.md`。GitHub 公开仓库及推送状态将在本次发布核验后补记。
+这建立了后续可审阅的源码版本历史，并保留了安全忽略规则。初始快照前没有仓库元数据，因此无法可靠区分哪些既有文件曾由用户单独修改；后续 diff 从该基线开始。脱敏发布状态和运行边界见 `docs/verification/release-manifest-2026-11-03.json` 与 `docs/verification/baseline.md`。
+
+2026-11-03 发布核验：公开仓库为 <https://github.com/zgybkjcn-a11y/dd-1.0-learning-system>，默认分支 `master`。初始交付提交 `ed67875d4eb189a226f30a38f71456be5b3233c7` 已推送；`git ls-remote` 与本地 `HEAD` 一致，GitHub API 确认仓库可见性为 `PUBLIC`。提交作者使用 GitHub noreply 地址。发布前 `pytest -q` 为 78 passed，Goal 一致性、compileall、Compose 配置与 `git diff --check` 均通过。
