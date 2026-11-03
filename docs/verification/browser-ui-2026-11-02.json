@@ -1,0 +1,20 @@
+{
+  "service": "local isolated service (host port omitted)",
+  "synthetic": true,
+  "steps": [
+    "context_and_learners",
+    "upload",
+    "batch_and_analysis",
+    "candidate_read",
+    "candidate_review_saved",
+    "trusted_confirmation",
+    "mistake_book"
+  ],
+  "document_id": "doc_QkUJo0chiFzK2k1m6XS1Ng",
+  "batch_id": "batch_TmrZUna-n_Bg7NIcerUbsQ",
+  "item_id": "item_yRjKJN_B_gSJbI5wrNhyhA",
+  "initial_revision": 1,
+  "review_revision": 2,
+  "mistakes": "active mistake for obj-browser",
+  "screenshot": "docs/verification/browser-ui-2026-11-02.png"
+}

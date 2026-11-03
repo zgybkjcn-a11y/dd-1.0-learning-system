@@ -1,0 +1,36 @@
+{
+  "audited_at": "2026-11-02T11:46:07.103301+08:00",
+  "project_path": "project root (local path omitted)",
+  "runtime": {
+    "version_api": "0.12.5",
+    "version_package_json": "0.12.5",
+    "status": "verified at the time of the historical snapshot; current runtime not implied",
+    "image_reference": "ghcr.io/open-webui/open-webui:main",
+    "repo_digest": "omitted from the public snapshot",
+    "port_mapping": "omitted from the public snapshot",
+    "verified_via": [
+      "docker compose ps",
+      "docker inspect",
+      "docker image inspect",
+      "container /app/package.json",
+      "GET /api/version",
+      "GET /health"
+    ]
+  },
+  "database_read_only": true,
+  "safe_config": "Omitted: machine-specific runtime settings are not part of the public engineering baseline.",
+  "findings": [
+    "Compose contains a plaintext application secret; value deliberately omitted.",
+    "batch_ingest.py contains a hardcoded session credential; value deliberately omitted.",
+    "No custom learning-loop business tables detected in the inspected database.",
+    "Existing diagram tool does not implement wrong-question review scheduling."
+  ],
+  "not_verified": [
+    "Provider reachability and live tool-calling reliability",
+    "OCR fidelity of formulas, diagrams and handwriting",
+    "Actual quality of knowledge retrieval",
+    "Restorability of existing backups",
+    "Learning outcomes"
+  ],
+  "local_inventory": "Omitted: account, knowledge-base, model, tool, and file inventory is specific to the original local installation."
+}

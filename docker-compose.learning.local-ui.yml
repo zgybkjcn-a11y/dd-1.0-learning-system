@@ -1,0 +1,4 @@
+services:
+  learning-api:
+    ports:
+      - "127.0.0.1:${LEARNING_BIND_PORT:-31010}:31010"

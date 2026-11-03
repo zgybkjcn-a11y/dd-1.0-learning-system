@@ -1,0 +1,25 @@
+FROM python:3.12-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app \
+    LEARNING_DATA_DIR=/var/lib/dd-learning \
+    LEARNING_DB_PATH=/var/lib/dd-learning/learning.db \
+    LEARNING_ATTACHMENT_DIR=/var/lib/dd-learning/attachments \
+    LEARNING_EXPORT_DIR=/var/lib/dd-learning/exports \
+    LEARNING_DOCUMENT_PROVIDER=mock-document-v1 \
+    LEARNING_DIAGNOSIS_PROVIDER=mock-diagnosis-v1 \
+    LEARNING_VARIANT_PROVIDER=mock-variant-v1
+
+WORKDIR /app
+COPY requirements-learning.txt /app/requirements-learning.txt
+RUN pip install --no-cache-dir -r /app/requirements-learning.txt
+COPY learning_service /app/learning_service
+
+RUN useradd --create-home --uid 10001 learning \
+    && mkdir -p /var/lib/dd-learning/attachments /var/lib/dd-learning/exports \
+    && chown -R learning:learning /var/lib/dd-learning
+USER learning
+
+EXPOSE 31010
+CMD ["python", "-m", "learning_service.app"]

@@ -1,0 +1,75 @@
+{
+  "manifest_version": "dd-release-manifest-v1",
+  "generated_at": "2026-11-03",
+  "goal_id": "01a19afc-30a8-78f3-aa59-e73e24ea4e84",
+  "release_kind": "isolated-technical-delivery-candidate",
+  "approval": {
+    "production_cutover": "not_authorized",
+    "real_student_data_export": "not_authorized",
+    "paid_provider_calls": "not_authorized",
+    "continuous_trial": "blocked_pending_real_conditions"
+  },
+  "components": {
+    "open_webui_baseline": {
+      "version": "0.12.5",
+      "image_reference": "ghcr.io/open-webui/open-webui:main",
+      "recorded_digest": "omitted_from_public_manifest",
+      "source": "docs/AUDIT_BASELINE_2026-11-02.json",
+      "real_combination_verified": false
+    },
+    "learning_service": {
+      "version": "0.1.0",
+      "schema_revision": 6,
+      "scheduler_version": "interval-v1",
+      "source": "learning_service/"
+    },
+    "tools_adapter": {
+      "module": "learning_service.tools.Tools",
+      "interface": "thin-http-adapter",
+      "real_open_webui_registration": "verified_in_isolated_open_webui_0.12.5",
+      "isolated_tool_id": "dd_learning_v1",
+      "browser_combination_and_final_trusted_ui_callback": "pending"
+    },
+    "runtime": {
+      "image_definition": "Dockerfile.learning",
+      "compose_definition": "docker-compose.learning.yml",
+      "data_root": "/var/lib/dd-learning",
+      "formal_open_webui_data_mount": false
+    },
+    "dependencies": {
+      "lock_file": "requirements-learning.txt",
+      "versions_verified": true
+    }
+  },
+  "configuration_sources": {
+    "provider_ids": "LEARNING_*_PROVIDER environment variables; defaults are deterministic mock providers",
+    "secrets": "LEARNING_ADMIN_SECRET and LEARNING_ADAPTER_SECRET supplied at runtime; values omitted",
+    "paths": "LEARNING_DATA_DIR, LEARNING_DB_PATH, LEARNING_ATTACHMENT_DIR and LEARNING_EXPORT_DIR",
+    "external_egress": "no real provider egress exercised"
+  },
+  "evidence": {
+    "automated_tests": "pytest -q: 78 passed (64 learning service + 11 Tools adapter + 3 Open WebUI compatibility)",
+    "agent_actions": "docs/verification/agent-actions-2026-11-03.md",
+    "openapi_contract": "docs/contracts/openapi-v1.json (55 paths, 19 schemas)",
+    "migration_and_concurrency": "docs/verification/migration-atomicity-2026-11-03.md",
+    "runtime_boundary": "docs/verification/runtime-boundary-2026-11-03.md",
+    "compose_isolation": "docs/verification/compose-isolation-2026-11-03-revision7.md",
+    "browser_workbench": "docs/verification/browser-test-workbench-2026-11-03.md",
+    "backup_recovery": "docs/verification/observability-recovery-2026-11-02.md",
+    "database_process_recovery": "docs/verification/database-process-recovery-2026-11-03.md",
+    "trial_readiness": "docs/verification/trial-readiness-2026-11-03.md (prepared_only; trial not authorized or started)",
+    "page_revision_review": "docs/verification/page-revision-review-request-2026-11-03.md",
+    "open_webui_isolated_registration": "docs/verification/open-webui-tools-registration-2026-11-03.md",
+    "open_webui_browser_probe": "docs/verification/open-webui-browser-probe-2026-11-03.md",
+    "five_verdict_confirmation": "docs/verification/import-confirmation-five-verdicts-2026-11-03.md",
+    "trusted_ui_timeout": "docs/verification/trusted-ui-timeout-2026-11-03.md",
+    "import_browser_recheck": "docs/verification/import-browser-recheck-2026-11-03.md"
+  },
+  "known_limitations": [
+    "Real Open WebUI browser combination and final trusted UI confirmation/submission callbacks are not verified; isolated Tool registration and native loader are verified",
+    "Real OCR/model provider, subject quality labels and human variant review are not verified",
+    "External database service, object storage and provider network fault drills remain pending",
+    "T23 requires real learners, manual sampling and 7-14 days of observation"
+  ],
+  "status": "goal_blocked_not_complete"
+}

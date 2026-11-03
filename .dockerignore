@@ -1,0 +1,15 @@
+data/
+learning_data/
+.git/
+.agents/
+.aws/
+.codex/
+.pytest_cache/
+docs/
+tests/
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.pyc
+__pycache__/

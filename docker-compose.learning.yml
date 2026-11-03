@@ -1,0 +1,59 @@
+services:
+  learning-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.learning
+    image: dd-learning:local
+    restart: unless-stopped
+    networks:
+      - learning-internal
+    environment:
+      LEARNING_DATA_DIR: /var/lib/dd-learning
+      LEARNING_DB_PATH: /var/lib/dd-learning/learning.db
+      LEARNING_ATTACHMENT_DIR: /var/lib/dd-learning/attachments
+      LEARNING_EXPORT_DIR: /var/lib/dd-learning/exports
+      LEARNING_DOCUMENT_PROVIDER: "${LEARNING_DOCUMENT_PROVIDER:-mock-document-v1}"
+      LEARNING_DIAGNOSIS_PROVIDER: "${LEARNING_DIAGNOSIS_PROVIDER:-mock-diagnosis-v1}"
+      LEARNING_VARIANT_PROVIDER: "${LEARNING_VARIANT_PROVIDER:-mock-variant-v1}"
+      LEARNING_HOST: "0.0.0.0"
+      LEARNING_DEV_MODE: "0"
+      LEARNING_ADMIN_SECRET: "${LEARNING_ADMIN_SECRET:?set LEARNING_ADMIN_SECRET for the isolated service}"
+      LEARNING_ADAPTER_SECRET: "${LEARNING_ADAPTER_SECRET:?set LEARNING_ADAPTER_SECRET for the trusted adapter}"
+      LEARNING_PORT: "31010"
+    volumes:
+      - dd_learning_data:/var/lib/dd-learning
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:31010/health', timeout=2)"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  learning-worker:
+    image: dd-learning:local
+    restart: unless-stopped
+    networks:
+      - learning-internal
+    depends_on:
+      learning-api:
+        condition: service_healthy
+    environment:
+      LEARNING_DATA_DIR: /var/lib/dd-learning
+      LEARNING_DB_PATH: /var/lib/dd-learning/learning.db
+      LEARNING_ATTACHMENT_DIR: /var/lib/dd-learning/attachments
+      LEARNING_EXPORT_DIR: /var/lib/dd-learning/exports
+      LEARNING_DOCUMENT_PROVIDER: "${LEARNING_DOCUMENT_PROVIDER:-mock-document-v1}"
+      LEARNING_DIAGNOSIS_PROVIDER: "${LEARNING_DIAGNOSIS_PROVIDER:-mock-diagnosis-v1}"
+      LEARNING_VARIANT_PROVIDER: "${LEARNING_VARIANT_PROVIDER:-mock-variant-v1}"
+      LEARNING_DEV_MODE: "0"
+      LEARNING_ADMIN_SECRET: "${LEARNING_ADMIN_SECRET:?set LEARNING_ADMIN_SECRET for the isolated service}"
+      LEARNING_WORKER_INTERVAL: "2"
+    volumes:
+      - dd_learning_data:/var/lib/dd-learning
+    command: ["python", "-m", "learning_service.worker"]
+
+volumes:
+  dd_learning_data:
+
+networks:
+  learning-internal:
+    internal: true

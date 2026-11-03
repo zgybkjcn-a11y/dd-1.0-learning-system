@@ -1,0 +1,36 @@
+{
+  "service": "local isolated service (host port omitted)",
+  "synthetic": true,
+  "dev_mode_workbench": true,
+  "browser": "Google Chrome (/usr/bin/google-chrome)",
+  "viewport_css_px": {
+    "width": 390,
+    "height": 844
+  },
+  "steps": [
+    "context_and_learners",
+    "upload",
+    "batch_and_analysis",
+    "candidate_read",
+    "candidate_review_saved",
+    "trusted_confirmation",
+    "mistake_book"
+  ],
+  "document_id": "doc_9t73uKaBuMYcBegwH9kn5A",
+  "batch_id": "batch_6CO6mvCnLC2_-LAVaxEBdA",
+  "item_id": "item_290EHPb-nOhbgoyDUiAsTg",
+  "initial_revision": 1,
+  "review_revision": 2,
+  "confirmation_completed": true,
+  "mistakes_contains_active": true,
+  "horizontal_overflow": false,
+  "mobile_horizontal_overflow": false,
+  "desktop_horizontal_overflow": false,
+  "overflow_elements": {
+    "innerWidth": 390,
+    "scrollWidth": 390,
+    "bodyScrollWidth": 390,
+    "elements": []
+  },
+  "health_schema_revision": 4
+}

@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>数轴实验室 · 减去负数</title>
+  <style>
+    :root{color-scheme:light;--ink:#142c45;--muted:#52667b;--blue:#155dce;--teal:#087e70;--amber:#a35b00;--line:#dce5ef;--paper:#fff}
+    *{box-sizing:border-box}body{margin:0;background:#f1f5fa;color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Noto Sans CJK SC","Microsoft YaHei",sans-serif}
+    main{max-width:1080px;margin:auto;padding:34px 24px 44px}header{display:flex;justify-content:space-between;gap:22px;align-items:flex-start;margin-bottom:24px}.eyebrow{color:var(--blue);font-size:13px;letter-spacing:.08em;font-weight:750;margin:0 0 8px}h1{font-size:clamp(28px,4vw,39px);letter-spacing:-.03em;margin:0 0 8px;line-height:1.3}h2{font-size:18px;margin:0 0 12px}p{margin:0}.intro{color:var(--muted);max-width:650px}.tag{font-size:12px;color:#52627b;background:#e4ecf6;border-radius:100px;padding:7px 12px;white-space:nowrap;margin-top:6px}
+    .flow{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;font-size:13px;color:var(--muted)}.flow span{padding:7px 13px;border:1px solid var(--line);background:#fff;border-radius:8px}.flow b{color:var(--blue);padding-right:7px}
+    .top-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px}.problem{background:#eef5ff;border-color:#c8daf5}.question{font-size:clamp(32px,5vw,46px);font-weight:760;letter-spacing:.02em;margin:14px 0}.small{font-size:13px;color:var(--muted)}.count{font-size:12px;font-weight:650;color:var(--blue)}label{font-weight:600;font-size:14px}.input-row{display:flex;gap:10px;margin:9px 0 12px}input[type=number]{min-width:0;width:100%;border:1px solid #b3c3d4;border-radius:9px;padding:11px 13px;font:inherit;background:#fff;color:var(--ink)}
+    button{font:inherit;font-size:14px;font-weight:650;border:1px solid #bdcddd;border-radius:9px;padding:10px 15px;background:#fff;color:var(--ink);cursor:pointer;white-space:nowrap}button:hover:enabled{background:#eef4fa}button:disabled{opacity:.45;cursor:not-allowed}.primary{background:var(--blue);border-color:var(--blue);color:white}.primary:hover:enabled{background:#114da9}.quiet{padding:7px 0;border:0;background:transparent;color:var(--blue);font-size:13px}.quiet:hover:enabled{background:transparent;text-decoration:underline}:focus-visible{outline:3px solid #eca633;outline-offset:3px}
+    .feedback{min-height:51px;font-size:14px;color:var(--muted)}.feedback.good{color:var(--teal)}.feedback.notice{color:var(--amber)}.stage{margin-top:18px}.stage-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.mode{font-size:12px;padding:5px 10px;border-radius:30px;background:#edf3fa;color:var(--muted)}.mode.assisted{background:#fff3df;color:#8f5300}.scene-scroll{overflow:hidden;margin:4px -4px 0;border-radius:10px;background:linear-gradient(180deg,#fff,#f8fbff)}svg{display:block;width:100%;min-width:0;height:auto}svg text{font-family:inherit}.legend{display:flex;flex-wrap:wrap;gap:20px;font-size:13px;color:var(--muted);margin-top:2px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;background:var(--blue)}.dot.teal{background:var(--teal)}.dot.amber{background:#cc7b12}
+    .explanation{padding:15px 17px;background:#f1f6fb;border-radius:12px;margin:18px 0;color:#284560;min-height:58px}.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.controls .push{margin-left:auto}.slider-row{display:flex;gap:15px;align-items:center;margin:17px 0 10px}.slider-row label{white-space:nowrap}.slider-row input{width:100%;accent-color:var(--blue)}output{font-size:13px;white-space:nowrap;min-width:65px;text-align:right}.motion-setting{display:flex;gap:8px;align-items:center;font-size:13px;font-weight:400;color:var(--muted);margin-top:15px}
+    .insight{margin-top:18px;border-left:4px solid var(--teal);background:#eaf6f2;padding:16px 18px;border-radius:0 12px 12px 0}.insight strong{display:block;margin-bottom:3px}.footer{font-size:12px;color:var(--muted);margin-top:23px;max-width:900px}.next-note{font-size:13px;color:var(--muted);margin-top:12px}[hidden]{display:none!important}
+    @media(max-width:690px){main{padding:22px 14px 30px}header{display:block}.tag{display:inline-block;margin-top:14px}.top-grid{grid-template-columns:1fr}.card{padding:18px}.controls .push{margin-left:0}.controls button{flex:1}.stage-heading{align-items:flex-start}.flow{gap:6px}.flow span{padding:6px 9px}.input-row{flex-wrap:wrap}.input-row input{flex:1;min-width:100px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div><p class="eyebrow">七年级数学 · 有理数运算</p><h1>减去负数，往哪边走？</h1><p class="intro">先做一个预测，再让数轴把关键的一步演出来。看懂之后，换一道题检查自己的想法。</p></div>
+    <span class="tag">离线教学原型 · 不保存成绩</span>
+  </header>
+  <div class="flow" aria-label="学习步骤"><span><b>1</b>先预测</span><span><b>2</b>看变化</span><span><b>3</b>找差别</span><span><b>4</b>做变式</span></div>
+  <section class="top-grid">
+    <div class="card problem"><span class="count" id="question-count"></span><div class="question" id="question"></div><p id="problem-description"></p><button type="button" class="quiet" id="hint">先给我一个提示（辅助学习）</button></div>
+    <div class="card"><h2>你预测最终会停在哪里？</h2><form id="prediction-form"><label for="prediction">输入一个整数</label><div class="input-row"><input id="prediction" type="number" step="1" min="-20" max="20" required autocomplete="off" placeholder="先想一想"><button class="primary" id="submit" type="submit">提交预测</button></div></form><p id="feedback" class="feedback" role="status" aria-live="polite">可以先提交预测，也可以直接查看教学演示。</p></div>
+  </section>
+  <section class="card stage" aria-labelledby="stage-title">
+    <div class="stage-heading"><h2 id="stage-title">把运算变成看得见的移动</h2><span class="mode" id="mode">尚未查看提示</span></div>
+    <div class="scene-scroll" aria-label="数轴示意图，每一格代表1">
+      <svg id="scene" viewBox="0 0 920 265" role="img" aria-labelledby="scene-title scene-description">
+        <title id="scene-title">减去负数的数轴示意</title><desc id="scene-description">先预测，再逐步查看移动过程。</desc>
+        <defs><marker id="correct-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#087e70"/></marker><marker id="wrong-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#cc7b12"/></marker></defs>
+        <line id="axis-line" x1="44" y1="131" x2="882" y2="131" stroke="#96a9bc" stroke-width="2"/>
+        <g id="ticks"></g>
+        <line id="zero-guide" y1="60" y2="212" stroke="#dce5ef" stroke-width="2" stroke-dasharray="4 5"/>
+        <line id="movement" y1="84" y2="84" stroke="#087e70" stroke-width="5" marker-end="url(#correct-arrow)" visibility="hidden"/>
+        <line id="mistake" y1="204" y2="204" stroke="#cc7b12" stroke-width="4" stroke-dasharray="7 5" marker-end="url(#wrong-arrow)" visibility="hidden"/>
+        <circle id="start" cy="131" r="8" fill="#155dce"/><text id="start-label" y="35" font-size="20" fill="#155dce" text-anchor="middle"></text>
+        <circle id="moving" cy="84" r="10" fill="#087e70" visibility="hidden"/><text id="moving-label" y="59" font-size="20" font-weight="700" fill="#087e70" text-anchor="middle"></text>
+        <text id="wrong-label" y="243" font-size="18" fill="#a35b00" text-anchor="middle"></text>
+        <text id="path-label" x="460" y="183" font-size="18" fill="#52667b" text-anchor="middle">先预测，再看方向与步数</text>
+      </svg>
+    </div>
+    <div class="legend"><span><i class="dot"></i>蓝点：起点 · 每格为 1</span><span><i class="dot teal"></i>实线：正确移动</span><span><i class="dot amber"></i>虚线：错误路径对照</span></div>
+    <p class="explanation" id="explanation">先想想减号作用在什么数上。点击“演示过程”后，会展开规则并显示移动。</p>
+    <div class="controls"><button type="button" class="primary" id="play">演示过程</button><button type="button" id="step">向前看一格</button><button type="button" id="compare" disabled>对照错误路径</button><button type="button" id="reset">重置本题</button><button type="button" id="next" class="push">换一道变式 →</button></div>
+    <div class="slider-row"><label for="progress">移动进度</label><input id="progress" type="range" min="0" max="5" step="1" value="0"><output id="progress-label" for="progress">0 / 5 格</output></div>
+    <label class="motion-setting"><input id="reduced-motion" type="checkbox">减少连续运动：使用逐格操作，播放时直接显示终点</label>
+    <div class="insight" id="insight" hidden><strong>现在，试着用自己的话解释。</strong><p>为什么这里向右走？如果向左走，实际上算的是哪一道式子？</p></div>
+    <p class="next-note">换题后图解和提示重新隐藏。看过本题图解后再修改预测，只属于辅助练习。</p>
+  </section>
+  <p class="footer">本页展示教学交互思路，不是正式考试。全部数字由本地代码计算；没有账号、联网请求、模型调用或数据保存，刷新即重置。正式系统必须使用已鉴权的真实输入与服务端判分；本页不能作为掌握度或成绩依据。</p>
+</main>
+<script>
+'use strict';
+(() => {
+  const questions = [{a:-3,b:-5},{a:-4,b:-7},{a:2,b:-4},{a:-6,b:-2},{a:0,b:-3},{a:5,b:-2}];
+  const $ = id => document.getElementById(id);
+  const elements = Object.fromEntries(['question','question-count','problem-description','prediction','prediction-form','submit','feedback','hint','mode','scene-description','ticks','zero-guide','movement','mistake','start','start-label','moving','moving-label','wrong-label','path-label','explanation','play','step','compare','reset','next','progress','progress-label','reduced-motion','insight'].map(id => [id,$(id)]));
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const state = {index:0,progress:0,assisted:false,comparison:false,playing:false,prediction:null};
+  let frame = 0, lastTime = null;
+  const layout={min:-12,max:10,width:920,compact:false,signature:''};
+  function calculate(a,b){
+    if(!Number.isInteger(a)||!Number.isInteger(b)||Math.abs(a)>10||b>=0||b< -10) throw new RangeError('本原型仅支持限定范围内减去负整数。');
+    return {a,b,delta:-b,result:a-b,wrong:a+b};
+  }
+  function current(){return calculate(questions[state.index].a,questions[state.index].b);}
+  function format(n){return String(n).replace('-', '−');}
+  function equation(q){return `${format(q.a)} − (${format(q.b)})`;}
+  function x(n){return 65+(n-layout.min)*(layout.width-130)/(layout.max-layout.min);}
+  function position(q,p){return q.a+q.delta*Math.max(0,Math.min(1,p));}
+  function text(id,value){elements[id].textContent=value;}
+  function attr(id,key,value){elements[id].setAttribute(key,String(value));}
+  function stop(){cancelAnimationFrame(frame);frame=0;lastTime=null;state.playing=false;}
+  function markAssisted(){state.assisted=true;}
+  function tickMarks(q){
+    const compact=window.innerWidth<=690;
+    const signature=`${q.a}:${q.b}:${compact}`;
+    if(layout.signature===signature)return;
+    Object.assign(layout,{min:Math.min(q.a,q.result,q.wrong,0)-2,max:Math.max(q.a,q.result,q.wrong,0)+2,width:compact?620:920,compact,signature});
+    $('scene').setAttribute('viewBox',`0 0 ${layout.width} 265`);
+    $('axis-line').setAttribute('x1','44');$('axis-line').setAttribute('x2',String(layout.width-38));
+    elements.ticks.replaceChildren();
+    const important=new Set([q.a,q.result,q.wrong,0]);
+    for(let i=layout.min;i<=layout.max;i++){
+      const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+      const line=document.createElementNS(g.namespaceURI,'line');
+      for(const [k,v] of Object.entries({x1:x(i),x2:x(i),y1:123,y2:139,stroke:i===0?'#52667b':'#b8c6d4','stroke-width':i===0?2.5:1.5}))line.setAttribute(k,String(v));
+      const label=document.createElementNS(g.namespaceURI,'text');
+      for(const [k,v] of Object.entries({x:x(i),y:162,'text-anchor':'middle','font-size':compact?22:17,fill:i===0?'#142c45':'#52667b'}))label.setAttribute(k,String(v));
+      const nearImportant=[...important].some(n=>Math.abs(n-i)<2);
+      label.textContent=(!compact||important.has(i)||(i%2===0&&!nearImportant))?format(i):'';g.append(line,label);elements.ticks.append(g);
+    }
+    attr('path-label','x',layout.width/2);
+    for(const id of ['start-label','moving-label'])attr(id,'font-size',compact?24:20);
+    for(const id of ['path-label','wrong-label'])attr(id,'font-size',compact?21:18);
+  }
+  function render(){
+    const q=current(),p=state.progress,at=position(q,p),done=p>=1;
+    tickMarks(q);
+    text('question',`${equation(q)} = ?`);
+    text('question-count',`示例 ${state.index+1} / ${questions.length}`);
+    text('problem-description',`从 ${format(q.a)} 出发，完成这次运算。`);
+    attr('zero-guide','x1',x(0));attr('zero-guide','x2',x(0));attr('start','cx',x(q.a));attr('start-label','x',x(q.a));text('start-label',`起点 ${format(q.a)}`);
+    attr('movement','x1',x(q.a));attr('movement','x2',x(at));attr('movement','visibility',p>0?'visible':'hidden');
+    attr('moving','cx',x(at));attr('moving','visibility',p>0?'visible':'hidden');attr('moving-label','x',x(at));
+    text('moving-label',p>0?(done?`终点 ${format(q.result)}`:`位置 ${format(Number(at.toFixed(1)))}`):'');
+    attr('mistake','x1',x(q.a));attr('mistake','x2',x(q.wrong));attr('mistake','visibility',done&&state.comparison?'visible':'hidden');
+    attr('wrong-label','x',(x(q.a)+x(q.wrong))/2);
+    text('wrong-label',done&&state.comparison?`误向左 ${q.delta} 格：${format(q.a)} + (${format(q.b)}) = ${format(q.wrong)}`:'');
+    text('path-label',state.assisted?`向右移动 ${q.delta} 格，对应加上 ${q.delta}`:'先预测，再看方向与步数');
+    text('mode',state.assisted?'已查看提示 / 辅助学习':'尚未查看提示');elements.mode.classList.toggle('assisted',state.assisted);
+    const explanation=done?`${equation(q)} = ${format(q.a)} + ${q.delta} = ${format(q.result)}。起点不变，向右移动 ${q.delta} 格。`:state.assisted?`减去一个数，等于加上这个数的相反数。${format(q.b)} 的相反数是 +${q.delta}，所以从 ${format(q.a)} 向右走。`:'先想想减号作用在什么数上。点击“演示过程”后，会展开规则并显示移动。';
+    text('explanation',explanation);text('scene-description',state.assisted?explanation:`数轴上的起点是 ${format(q.a)}，待计算 ${equation(q)}，终点尚未揭示。`);
+    elements.progress.max=String(q.delta);elements.progress.value=String(Math.round(p*q.delta));text('progress-label',`${Math.round(p*q.delta)} / ${q.delta} 格`);
+    text('play',state.playing?'暂停':done?'重新演示':'演示过程');elements.compare.disabled=!done;text('compare',state.comparison?'隐藏错误路径':'对照错误路径');elements.insight.hidden=!done;
+  }
+  function advance(time){
+    if(!state.playing)return;
+    if(lastTime===null)lastTime=time;
+    state.progress=Math.min(1,state.progress+(time-lastTime)/(current().delta*420));lastTime=time;
+    if(state.progress>=1){stop();render();return;}
+    render();frame=requestAnimationFrame(advance);
+  }
+  function reset(){
+    stop();Object.assign(state,{progress:0,assisted:false,comparison:false,prediction:null});
+    elements.prediction.value='';elements.prediction.disabled=false;elements.submit.disabled=false;
+    text('feedback','可以先提交预测，也可以直接查看教学演示。');elements.feedback.className='feedback';render();
+  }
+  elements['prediction-form'].addEventListener('submit',event=>{
+    event.preventDefault();const raw=elements.prediction.value.trim();const value=Number(raw);
+    if(raw===''||!Number.isInteger(value)||value< -20||value>20){text('feedback','请输入 −20 到 20 之间的整数。');return;}
+    if(state.prediction!==null)return;
+    state.prediction=value;elements.prediction.disabled=true;elements.submit.disabled=true;
+    const correct=value===current().result;
+    text('feedback',state.assisted?(correct?'这次预测与计算一致；因为已看过提示，只作为辅助练习。':'这次预测还不一致，可以逐格查看后解释方向。'):(correct?'预测与计算一致。接着解释：为什么朝这个方向走？':'这次预测与计算还不一致。先检查减号后面是什么数。'));
+    elements.feedback.className=`feedback ${correct?'good':'notice'}`;
+  });
+  elements.hint.addEventListener('click',()=>{markAssisted();render();});
+  elements.play.addEventListener('click',()=>{
+    if(state.playing){stop();render();return;}
+    if(state.progress>=1)state.progress=0;
+    markAssisted();state.comparison=false;
+    if(elements['reduced-motion'].checked){state.progress=1;render();return;}
+    state.playing=true;lastTime=null;render();frame=requestAnimationFrame(advance);
+  });
+  elements.step.addEventListener('click',()=>{stop();markAssisted();const n=current().delta;state.progress=Math.min(1,(Math.floor(state.progress*n+1e-8)+1)/n);render();});
+  elements.progress.addEventListener('input',()=>{stop();markAssisted();state.progress=Number(elements.progress.value)/current().delta;if(state.progress<1)state.comparison=false;render();});
+  elements.compare.addEventListener('click',()=>{if(state.progress<1)return;markAssisted();state.comparison=!state.comparison;render();});
+  elements.reset.addEventListener('click',reset);elements.next.addEventListener('click',()=>{state.index=(state.index+1)%questions.length;reset();elements.prediction.focus();});
+  elements['reduced-motion'].checked=reduced.matches;
+  elements['reduced-motion'].addEventListener('change',()=>{stop();render();});
+  reduced.addEventListener('change',e=>{elements['reduced-motion'].checked=e.matches;stop();render();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){stop();render();}});
+  window.addEventListener('resize',render);
+  // Test hooks are local-only. This demonstrator deliberately has no production assessment security.
+  window.learningDemo=Object.freeze({calculate,position,getState:()=>({...state}),getQuestion:()=>({...current()})});
+  reset();
+})();
+</script>
+</body>
+</html>

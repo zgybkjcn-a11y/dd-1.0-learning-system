@@ -1,0 +1,10 @@
+# DD-1.0 learning service runtime (versions verified in the isolated 2026-11-02 environment)
+fastapi==0.136.1
+uvicorn==0.44.0
+pydantic==2.12.5
+python-multipart==0.0.26
+Pillow==12.1.1
+PyMuPDF==1.27.2.2
+
+# Test tooling is kept out of the runtime image.
+# pytest==9.0.3
