@@ -1,5 +1,7 @@
 # DD-1.0 V1 交接
 
+> 本会话的任务清单、当前状态、剩余门槛和续跑指令见 [`HANDOFF-SESSION-2026-11-03.md`](HANDOFF-SESSION-2026-11-03.md)。本文件保留完整运行入口与历史验收证据。
+
 状态：Goal `blocked`，尚不可标记 `complete`。本地可实施项已完成；恢复需满足 `docs/goal/BLOCKERS.md` 所列真实外部条件。
 
 运行：
