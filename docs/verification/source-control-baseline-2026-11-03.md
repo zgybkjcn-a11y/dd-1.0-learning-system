@@ -8,4 +8,4 @@
 
 这建立了后续可审阅的源码版本历史，并保留了安全忽略规则。初始快照前没有仓库元数据，因此无法可靠区分哪些既有文件曾由用户单独修改；后续 diff 从该基线开始。脱敏发布状态和运行边界见 `docs/verification/release-manifest-2026-11-03.json` 与 `docs/verification/baseline.md`。
 
-2026-11-03 发布核验：公开仓库为 <https://github.com/zgybkjcn-a11y/dd-1.0-learning-system>，默认分支 `master`。初始交付提交 `ed67875d4eb189a226f30a38f71456be5b3233c7` 已推送；`git ls-remote` 与本地 `HEAD` 一致，GitHub API 确认仓库可见性为 `PUBLIC`。提交作者使用 GitHub noreply 地址。发布前 `pytest -q` 为 78 passed，Goal 一致性、compileall、Compose 配置与 `git diff --check` 均通过。
+2026-11-03 发布核验：公开仓库为 <https://github.com/zgybkjcn-a11y/dd-1.0-learning-system>，默认分支为 `main`，远端 `master` 已删除。初始交付提交 `ed67875d4eb189a226f30a38f71456be5b3233c7` 已包含在 `main` 历史中；GitHub API 确认仓库可见性为 `PUBLIC`，`git ls-remote` 与本地分支核对一致。提交作者使用 GitHub noreply 地址。发布前 `pytest -q` 为 78 passed，Goal 一致性、compileall、Compose 配置与 `git diff --check` 均通过。
