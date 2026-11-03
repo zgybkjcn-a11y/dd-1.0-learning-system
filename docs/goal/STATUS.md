@@ -26,6 +26,6 @@ Goal：`01a19afc-30a8-78f3-aa59-e73e24ea4e84`（blocked）
 
 源码管理：已在确认项目根和父级没有仓库后建立 Git 基线，并发布至 https://github.com/zgybkjcn-a11y/dd-1.0-learning-system（公开，默认分支 `main`；旧 `master` 已删除）；初始交付提交 `ed67875d4eb189a226f30a38f71456be5b3233c7` 已包含在远端历史中。`.gitignore` 已通过 `git check-ignore` 验证数据、凭证与缓存排除。原有 `docker-compose.yml` 与 `batch_ingest.py` 留在本机并按精确路径忽略，不纳入公开版本；此前缺失的用户修改历史无法恢复。T01 已依据当前源码基线证据标为 `verified`，详见 `docs/verification/source-control-baseline-2026-11-03.md`。
 
-当前未满足：真实 Open WebUI 聊天模型 tool call 与浏览器最终可信 UI 回调、真实 OCR/模型提供商、整卷脱敏标注质量报告、外部数据库服务/对象存储/provider 网络故障演练和 T23 真实试用。T23 的试用准备见 `docs/verification/trial-readiness-2026-11-03.md`；未启动真实试用或创建虚构日志。
+当前未满足：在不升级生产的前提下，于隔离预发布 Open WebUI + Learning Service 中完成真实聊天模型 tool call 与浏览器最终可信 UI 回调、真实 OCR/模型提供商、整卷脱敏标注质量报告、外部数据库服务/对象存储/provider 网络故障演练和 T23 真实试用。T23 的试用准备见 `docs/verification/trial-readiness-2026-11-03.md`；未启动真实试用或创建虚构日志。预发布通过不等于正式切换，生产仍保持不变并需单独授权。
 
 Goal 当前为 blocked、尚不可 complete：本地可实施的源码、部署、恢复、确定性故障与合成浏览器工作已完成并留证；继续完成核心验收必须改变外部条件。恢复所需最小输入为隔离模型/provider 及明确调用预算和外发范围、脱敏整卷与人工参考判定、隔离 Open WebUI 模型/账号和真实可信 UI 回调入口；T23 另需参与者/监护人同意、连续观察授权与 7–14 天真实时间。正式切换、付费调用和真实资料外发仍分别按授权流程执行。收到相应条件后从 T03/T04/T05 和对应 QA 门槛续验，不把隔离注册、合成资料或 mock provider 标为真实通过。
