@@ -21,17 +21,21 @@ def _sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
-def backup_data(source_dir: Path, destination: Path) -> dict[str, object]:
+def backup_data(source_dir: Path, destination: Path, *, writers_stopped: bool = False) -> dict[str, object]:
     """Back up the database through SQLite's online backup API and copy assets."""
     source_dir = source_dir.resolve()
     destination = destination.resolve()
     db_path = source_dir / "learning.db"
     attachments = source_dir / "attachments"
+    if destination == source_dir or any(destination.is_relative_to(source_dir / name) for name in ("attachments", "exports")):
+        raise ValueError("backup destination must be outside copied asset directories")
+    if db_path.is_symlink() or any(p.is_symlink() for name in ("attachments", "exports") for p in [source_dir/name, *(source_dir/name).rglob("*")]):
+        raise ValueError("backup source must not contain symlinks")
     if not db_path.is_file():
         raise FileNotFoundError(db_path)
     destination.mkdir(parents=True, exist_ok=False)
     backup_db = destination / "learning.db"
-    source = sqlite3.connect(db_path)
+    source = sqlite3.connect(db_path.as_uri() + "?mode=ro", uri=True)
     target = sqlite3.connect(backup_db)
     try:
         source.backup(target)
@@ -48,6 +52,7 @@ def backup_data(source_dir: Path, destination: Path) -> dict[str, object]:
         "format": "dd-learning-backup-v1",
         "created_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
         "source_dir": str(source_dir),
+        "consistency": "caller_asserted_writers_stopped" if writers_stopped else "online_database_snapshot_with_sequential_asset_copy",
         "files": {name: _sha256(destination / name) for name in sorted(files)},
     }
     (destination / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -90,7 +95,15 @@ def restore_data(backup_dir: Path, target_dir: Path) -> dict[str, object]:
         # A backup may come from a previous schema revision. Apply the current
         # migrations before replaying lifecycle tombstones so newly introduced
         # cleanup columns and tables are available during recovery.
-        Database(target_dir / "learning.db")
+        restored_db = Database(target_dir / "learning.db")
+        # A restored snapshot must not revive previously logged-out browser
+        # sessions. The gateway performs a fresh login after recovery.
+        with restored_db.session(write=True) as conn:
+            conn.execute("UPDATE browser_sessions SET revoked_at=COALESCE(revoked_at,datetime('now'))")
+            conn.execute("UPDATE account_contexts SET learner_id=NULL,revision=revision+1,updated_at=datetime('now')")
+            conn.execute("UPDATE interaction_challenges SET consumed_at=COALESCE(consumed_at,datetime('now'))")
+            conn.execute("UPDATE provider_control SET paused=1,updated_at=datetime('now') WHERE id=1")
+            conn.execute("UPDATE provider_calls SET state='unknown',error_code='RESTORED_PENDING_CALL' WHERE state='reserved'")
         integrity = sqlite3.connect(target_dir / "learning.db")
         try:
             result = integrity.execute("PRAGMA integrity_check").fetchone()[0]
@@ -148,6 +161,9 @@ def _replay_deletions(data_dir: Path) -> None:
                     conn.execute("UPDATE attempts SET status='deleted' WHERE id=?", (resource_id,))
                 elif resource_type == "review_request":
                     conn.execute("UPDATE review_requests SET status='cancelled',updated_at=datetime('now') WHERE id=?", (resource_id,))
+                elif resource_type == "private_question":
+                    conn.execute("UPDATE questions SET approval='retracted' WHERE id=?", (resource_id,))
+                    conn.execute("UPDATE question_versions SET approval='retracted' WHERE question_id=?", (resource_id,))
                 elif resource_type == "export_artifact":
                     conn.execute("UPDATE export_jobs SET status='cancelled',error_code='DATA_DELETED',completed_at=COALESCE(completed_at, datetime('now')) WHERE id=?", (resource_id,))
                 conn.execute("UPDATE deletion_records SET cleanup_state='completed',deleted_at=COALESCE(deleted_at, datetime('now')) WHERE resource_type=? AND resource_id=?", (resource_type, resource_id))
@@ -168,11 +184,12 @@ def main() -> None:
     backup_parser = subparsers.add_parser("backup")
     backup_parser.add_argument("source_dir", type=Path)
     backup_parser.add_argument("destination", type=Path)
+    backup_parser.add_argument("--writers-stopped", action="store_true", help="Record the operator's maintenance assertion; does not stop processes")
     restore_parser = subparsers.add_parser("restore")
     restore_parser.add_argument("backup_dir", type=Path)
     restore_parser.add_argument("target_dir", type=Path)
     args = parser.parse_args()
-    result = backup_data(args.source_dir, args.destination) if args.command == "backup" else restore_data(args.backup_dir, args.target_dir)
+    result = backup_data(args.source_dir, args.destination, writers_stopped=args.writers_stopped) if args.command == "backup" else restore_data(args.backup_dir, args.target_dir)
     print(json.dumps(result, ensure_ascii=False, indent=2))
 
 

@@ -1,0 +1,161 @@
+{
+  "document_kind": "planning_inputs_not_executable_production_configuration",
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "user_confirmed": {
+    "access_url": "http://172.19.116.53:53001/",
+    "deployment_method": "docker_compose",
+    "login_method": "builtin_accounts",
+    "docker_host": "local_machine",
+    "reuse_existing_production_openwebui": true,
+    "https_origin": "https://172.19.116.53",
+    "https_hostname_or_ip_choice": "retain_current_ip",
+    "https_target_port": 443
+  },
+  "readonly_metadata": {
+    "checked_at_utc": "2026-11-04 10:14:09 UTC",
+    "container": "open-webui",
+    "compose_project": "open-webui",
+    "compose_service": "open-webui",
+    "version": "0.12.5",
+    "state": "running",
+    "health": "healthy",
+    "image_id": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
+    "repo_digests": [
+      "ghcr.io/open-webui/open-webui@sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd"
+    ],
+    "host_port": 53001,
+    "container_port": 8080,
+    "host_bind_addresses": [
+      "0.0.0.0",
+      "::"
+    ],
+    "networks": [
+      "open-webui_default"
+    ],
+    "mounts": [
+      {
+        "type": "bind",
+        "source": "/home/deniskorfei/projects/open-webui/data",
+        "destination": "/app/backend/data",
+        "read_write": true
+      }
+    ],
+    "configuration_environment_or_secret_store_read": false,
+    "authenticated_login_or_tool_call_verified": false,
+    "protocol_source_reviewed": [
+      "open_webui/routers/auths.py",
+      "open_webui/utils/auth.py"
+    ],
+    "protocol_source_findings": {
+      "human_session_endpoint": "GET /api/v1/auths/",
+      "cookie_name": "token",
+      "upstream_response_may_contain_token_and_personal_fields": true,
+      "upstream_response_not_collected": true
+    }
+  },
+  "existing_learning_baseline": {
+    "source_schema_revision": 9,
+    "openapi_paths": 61,
+    "openapi_schemas": 22,
+    "focused_tests_passed": 102,
+    "prior_full_suite_baseline": 101,
+    "p0_snapshot_schema_revision": 7,
+    "source_candidate_files": 29,
+    "learning_image_digest": null
+  },
+  "recommended_design": {
+    "new_https_proxy_to_existing_container": true,
+    "new_production_openwebui_instance": false,
+    "https_port_preferred": 443,
+    "public_learning_base_path": "/learning",
+    "private_openwebui_upstream": "http://open-webui:8080",
+    "separate_learning_compose_project": true,
+    "separate_learning_data_volume": true,
+    "learning_api_host_port_published": false,
+    "chat_model_cost_control_separate_from_learning_ledger": true
+  },
+  "pending_confirmation": {
+    "certificate_and_client_trust_method": null,
+    "https_443_available": null,
+    "host_ip_stability": null,
+    "legacy_http_53001_policy": null,
+    "approved_operator_and_binding_manifest": null,
+    "chat_model_and_budget": null,
+    "learning_model_and_budget": null,
+    "ocr_provider_and_budget": null,
+    "real_call_and_data_scope": null,
+    "review_dataset_and_reviewer": null,
+    "quality_thresholds": null,
+    "production_capacity_and_architecture": null,
+    "backup_retention_and_restore_targets": null,
+    "maintenance_window_and_recovery_owner": null,
+    "trial_participants_and_time_window": null
+  },
+  "current_authorization": {
+    "documentation_and_readonly_inventory": true,
+    "production_change": true,
+    "real_model_or_ocr_calls": false,
+    "real_student_data_export": false,
+    "trial_start": false,
+    "goal_create_or_complete": false,
+    "local_engineering_and_synthetic_validation": true,
+    "production_scope": "family_math_pilot_only",
+    "family_pilot_use": true
+  },
+  "constraints": {
+    "preserve_uncommitted_changes": true,
+    "single_executor": true,
+    "forbidden_root_files": [
+      "docker-compose.yml",
+      "batch_ingest.py"
+    ],
+    "formal_openwebui_secret_store_not_read": true,
+    "default_learning_providers_mock": true,
+    "default_learning_egress_enabled": false,
+    "default_learning_budgets_zero": true,
+    "existing_webui_model_configuration_not_inspected": true,
+    "source_candidate_not_overwritten": true,
+    "p0_not_mutated": true
+  },
+  "references": {
+    "planning": "docs/open-webui-reuse/01-PLANNING-2026-11-04.md",
+    "technical": "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+    "work_plan": "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+    "handoff": "docs/goal/HANDOFF-SESSION-2026-11-04-OPENWEBUI-REUSE.md"
+  },
+  "readonly_local_tcp_check": {
+    "checked_date": "2026-11-04",
+    "port": 443,
+    "listener_observed": false,
+    "bind_firewall_certificate_or_client_trust_verified": false
+  },
+  "current_local_engineering": {
+    "source_schema_revision": 11,
+    "openapi_paths": 66,
+    "openapi_schemas": 24,
+    "source_candidate_files": 50,
+    "source_profile": "reuse-runtime-v1",
+    "learning_image_digest": null,
+    "local_image_id": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+    "deployed": false,
+    "isolated_synthetic_runtime_verified": true,
+    "evidence": "docs/verification/reuse-runtime-recovery-2026-11-04.json"
+  },
+  "updated_at": "2026-11-05",
+  "family_pilot": {
+    "scope": "one_parent_two_math_profiles",
+    "status": "deployed_parent_activation_pending",
+    "entry": "https://172.19.116.53/learning/auth/login",
+    "project": "dd-family-math",
+    "volume": "dd-family-math_data",
+    "certificate": "dedicated_local_CA_IP_SAN_client_import_pending",
+    "binding": "first_verified_existing_WebUI_parent_with_one_time_setup_code",
+    "existing_webui_unchanged": true,
+    "http_53001_preserved": true,
+    "actual_production_evidence": "learning_data/verification/family-pilot-20261105/production-final-checks.json",
+    "deployment_record": "learning_data/deployments/family-math-20261105/deployment-final.json",
+    "handoff": "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md",
+    "prior_input_sections": "historical_full_V1_inputs_not_pilot_blockers"
+  }
+}

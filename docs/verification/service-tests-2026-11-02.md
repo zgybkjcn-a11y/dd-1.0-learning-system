@@ -4,12 +4,12 @@
 
 命令：`pytest -q tests/test_learning_service.py`
 
-历史基线结果：`37 passed`，无 warning。2026-11-03 中间快照为 62 passed（服务 53、Tools/Open WebUI 兼容 9）；之后全量回归曾为 76/77 passed；最新为 78 passed（服务 64、Tools 11、Open WebUI 兼容 3），当前 schema revision 6。维护准入和 practice 隔离见 `docs/verification/maintenance-gate-2026-11-03.md`，migration 原子性见 `docs/verification/migration-atomicity-2026-11-03.md`，SQLite 进程恢复见 `docs/verification/database-process-recovery-2026-11-03.md`，Tools/Agent 适配器见 `docs/verification/tools-agent-2026-11-03.md`，Agent 动作与诊断 worker 见 `docs/verification/agent-actions-2026-11-03.md`，可信 UI callback 超时回归见 `docs/verification/trusted-ui-timeout-2026-11-03.md`。
+历史基线结果：`37 passed`，无 warning。2026-11-03 中间快照为 62 passed（服务 53、Tools/Open WebUI 兼容 9）；之后全量回归曾为 76/77/78 passed；当前为 91 passed（服务 71、Tools 11、Open WebUI 兼容 3、隔离 Compose preflight 6），当前 schema revision 7。维护准入和 practice 隔离见 `docs/verification/maintenance-gate-2026-11-03.md`，migration 原子性见 `docs/verification/migration-atomicity-2026-11-03.md`，SQLite 进程恢复见 `docs/verification/database-process-recovery-2026-11-03.md`，Tools/Agent 适配器见 `docs/verification/tools-agent-2026-11-03.md`，Agent 动作与诊断 worker 见 `docs/verification/agent-actions-2026-11-03.md`，可信 UI callback 超时回归见 `docs/verification/trusted-ui-timeout-2026-11-03.md`。
 
 覆盖：
 
 - 新库迁移、两个账号/学习者授权隔离和完整独立 `/ui` 工作台内容；
-- 历史基线从仅有 migration 001 的旧库升级到 revision 3，并确认新增页资产/答案文档列及导出/删除生命周期列；之后 revision 5 的升级与变式字段、当前 revision 6 的迁移和恢复由 2026-11-03 增量报告复验；
+- 历史基线从仅有 migration 001 的旧库升级到 revision 3，并确认新增页资产/答案文档列及导出/删除生命周期列；之后 revision 5 的升级与变式字段、revision 6 阶段的迁移和恢复；当前 revision 7由 2026-11-03 增量报告复验；
 - 有效图片、损坏图片和损坏 PDF 的失败状态；
 - 多页 PDF 的逐页 PNG 派生资产、尺寸元数据、私有页内容回查和备份关联；
 - 挑战生成、一次性消费、重放拒绝、过期/换人拒绝、批量确认、同键异载荷冲突和正式错题来源；

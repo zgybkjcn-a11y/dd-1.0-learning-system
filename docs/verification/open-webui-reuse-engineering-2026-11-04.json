@@ -1,0 +1,130 @@
+{
+  "evidence_kind": "local_engineering_and_synthetic_validation_not_real_acceptance",
+  "date": "2026-11-04",
+  "branch": "main",
+  "https_target": "https://172.19.116.53",
+  "existing_http_url": "http://172.19.116.53:53001/",
+  "source_schema_revision": 10,
+  "openapi_paths": 61,
+  "openapi_schemas": 22,
+  "tests": {
+    "counts": {
+      "tests": 74,
+      "errors": 0,
+      "failures": 0,
+      "skipped": 0
+    },
+    "final_result": "74 passed in 18.32s",
+    "junit_xml_sha256": "e5422ef0d5a7951bab60831f31afe7c1e35221f8b666fff82777ce5a01e6101a",
+    "focused_files": [
+      "tests/test_login_gateway.py",
+      "tests/test_learner_context.py",
+      "tests/test_identity_admin.py",
+      "tests/test_gateway_http.py",
+      "tests/test_browser_auth.py",
+      "tests/test_learning_release.py"
+    ],
+    "focused_legacy_tests": [
+      "test_migration_and_learner_isolation",
+      "test_concurrent_fresh_database_migrations_serialize",
+      "test_restore_migrates_legacy_tombstone_schema_before_replay"
+    ],
+    "full_suite_run": false,
+    "four_format_persistence_rerun": false,
+    "p0_rerun": false
+  },
+  "browser_evidence": "docs/verification/reuse-gateway-browser-2026-11-04.json",
+  "browser_redirect_follow": "emulated_after_ASGI_303_to_keep_browser_requests_intercepted",
+  "real_auth_tls_tool_callback": false,
+  "source_candidate": {
+    "directory": "learning_data/release-preparation/dd-v1-reuse-gateway-20261104",
+    "schema_revision": 10,
+    "source_set_sha256": "0a5352c5d9bfb22f39a2015c054442c930067ed2d5fcad9891b1316f4a598b85",
+    "archive_sha256": "2b6655c58d7a5af50e8b9712f7268baab50913fc91bf7c36298b0b0a5042a17c",
+    "image_digest": null,
+    "files": 35,
+    "source_matches_current_whitelist": true
+  },
+  "legacy_candidate": {
+    "directory": "learning_data/release-preparation/dd-v1-provider-auth-20261104",
+    "schema_revision": 9,
+    "files": 29,
+    "source_set_sha256": "974dc7e5dbd3b5fbee77b5559754a8c4b44004f092d36cac96371d6cc36ee335",
+    "archive_sha256": "b01a718aac46eacdebffcdb5729265a516d8e7e1f27aa99ae2cca563a3472230",
+    "unchanged_and_new_verifier_compatible": true
+  },
+  "goal_api": null,
+  "task_and_qa_statuses_promoted": false,
+  "final_audit": {
+    "baseline_files": 87,
+    "preserved_files": 58,
+    "intentionally_modified_files": [
+      ".env.example",
+      "docs/README.md",
+      "docs/contracts/README.md",
+      "docs/contracts/openapi-v1.json",
+      "docs/goal/BLOCKERS.md",
+      "docs/goal/DECISIONS.md",
+      "docs/goal/HANDOFF.md",
+      "docs/goal/STATUS.md",
+      "docs/goal/TASKS.json",
+      "docs/verification/qa-matrix-2026-11-03.md",
+      "learning_service/app.py",
+      "learning_service/backup.py",
+      "learning_service/config.py",
+      "tests/test_learning_service.py",
+      "docs/PROVIDER_CONFIGURATION.md",
+      "docs/goal/HANDOFF-SESSION-2026-11-04-OPENWEBUI-REUSE.md",
+      "docs/goal/NEXT-TASK-PLAN-2026-11-04.md",
+      "docs/open-webui-reuse/01-PLANNING-2026-11-04.md",
+      "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+      "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+      "docs/open-webui-reuse/README.md",
+      "docs/open-webui-reuse/deployment-inputs-2026-11-04.json",
+      "docs/open-webui-reuse/work-plan-2026-11-04.json",
+      "docs/releases/README.md",
+      "docs/releases/production-config.template.env",
+      "learning_service/browser_auth.py",
+      "scripts/prepare_learning_release.py",
+      "scripts/probe_browser_sessions.py",
+      "tests/test_learning_release.py"
+    ],
+    "missing": [],
+    "unexpected_changes": []
+  },
+  "boundaries": {
+    "single_executor": true,
+    "production_change": false,
+    "real_model_ocr_calls": false,
+    "real_student_data_export": false,
+    "formal_webui_database_or_secrets_read": false,
+    "forbidden_root_files_read_or_modified": false,
+    "goal_mutated": false,
+    "p0_mutated": false,
+    "source_package_built_or_deployed": false,
+    "defaults_mock_egress_disabled_budgets_zero": true,
+    "reset_checkout_clean_commit_push": false
+  },
+  "remaining": [
+    "IP SAN certificate and client trust",
+    "IP stability, port/firewall and legacy HTTP policy",
+    "formal identity manifest/operator/Learning database",
+    "W04 complete product routes/cache/recovery",
+    "W05 Tools context/version/minimal outputs",
+    "W06 variant human review/publication",
+    "W07 independent configuration/image/network reconnect",
+    "real runtime authentication/TLS/DNS/fault/backup gates",
+    "real models/OCR/billing/data/quality/trial permissions and evidence"
+  ],
+  "checks": {
+    "markdown_files": 14,
+    "local_links_checked": 86,
+    "missing_links": [],
+    "json_files_parsed": 5,
+    "work_packages": 14,
+    "dependencies_acyclic": true,
+    "goal_consistency": "tasks=26, evidence paths=267, backlog task rows=26, QA matrix rows=17, manifest path references=24, release authorization boundaries intact",
+    "compile_files": 13,
+    "diff_check": true
+  }
+}

@@ -10,7 +10,7 @@
 
 ```text
 pytest -q
-47 passed in 16.79s (the focused report snapshot; the latest full regression is 78 passed, including later migration, provider-boundary, WAL startup, Agent-action, SQLite process-recovery, test-workbench, trusted UI callback-timeout and Open WebUI compatibility regressions).
+47 passed in 16.79s (the focused report snapshot; the current full regression is 91 passed, including later migration, provider-boundary, WAL startup, Agent-action, SQLite process-recovery, test-workbench, trusted UI callback-timeout, Open WebUI compatibility and isolated Compose preflight regressions).
 
 python3 -m compileall -q learning_service tests
 passed

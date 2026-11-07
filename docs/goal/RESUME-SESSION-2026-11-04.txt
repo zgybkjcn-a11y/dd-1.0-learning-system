@@ -1,0 +1,31 @@
+当前续跑入口（2026-11-05 最新）：docs/goal/HANDOFF-SESSION-2026-11-05-SESSION-SUMMARY.md；可复制指令见 docs/goal/RESUME-SESSION-2026-11-05.txt。下文保留此前交接历史，以最新总结为准。
+用户已把目标收窄为数学、一个现有家长账号切换七年级/二年级档案，并明确授权“继续，不要停，直到完成生产上线的任务”。两人版已在 https://172.19.116.53/learning/auth/login 上部署，dd-family-math 四服务保持运行；旧 HTTP53001 和 WebUI 未变。设备根证书现已导入当前 Windows 用户受信任根存储且系统 TLS 校验通过；真实家长首次启用和实际学习待用户操作。
+下一步先处理首次使用反馈与数学内容需求。复杂监控、完整恢复/跨快照日志、商业化功能和其他学科暂缓；不要继续旧工程清单或停止生产项目做测试清理。
+保留所有未提交改动、旧候选与证据，单执行者；不读改根 docker-compose.yml、batch_ingest.py、既有 WebUI 数据/秘密；不真实模型/OCR或学生资料外发，mock/外发关/学习预算0；不创建、更新或完成 Goal，不重跑 P0/四格式。
+按最新交接核对 STATUS/TASKS/BLOCKERS/DECISIONS、机器工作计划、部署输入、QA、Git与只读Goal。原完整V1的T/QA状态不因本家庭版部署而整体提升。
+
+以下原续跑指令只作历史；其中禁止生产与下一步监控/完整恢复条款已在本家庭版范围内被新授权和优先级取代。
+
+最新跨日补充（2026-11-05）：先读docs/verification/reuse-monitoring-recovery-plan-2026-11-05.md及docs/open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md。周期监控21项聚焦/新隔离验证已完成；SQL只读但WAL辅助文件需数据卷写权限。七组件完整恢复只有设计，回执是合成夹具。全部新容器已停止；status/smoke退出2是预期attention。五文件运维补充包dd-v1-monitor-20261105独立于原50文件应用候选，不重建镜像。下一步可接实际备份/校验/恢复回执及跨备份删除/费用日志；不要无变更重跑监控/P0/四格式，全部原限制继续。
+
+最新故障补充：先读docs/verification/reuse-fault-isolation-2026-11-04.md及W07–W10交接。新隔离故障/WSS/受控SIGKILL恢复已留证；nginx解析/连接超时3秒、10项新增防护通过；新50文件候选dd-v1-reuse-faults-20261104未构建，应用镜像输入保持。六个新测试容器已退出0，卷/旧失败报告保留。不要重跑原阶段目录；正式门槛、旧137根因与全部执行限制保留。
+
+最新补充：docs/verification/reuse-graceful-shutdown-2026-11-04.md；W07–W10交接顶部已纳入停止工具60秒宽限/退出码检查和9项验证。只改编排脚本，新50文件候选dd-v1-reuse-shutdown-20261104未构建；应用镜像输入保持。原137未充分定位，正式门槛/全部限制保留。
+
+最新续跑请先读docs/goal/HANDOFF-SESSION-2026-11-04-W07-W10.md。W04–W06旧验证不重跑；W07–W10本轮工程与实际隔离HTTP/TLS/恢复证据以该交接为准，正式条件和全部执行限制保留。以下旧续跑文本作为历史。
+
+最新续跑请先读docs/goal/HANDOFF-SESSION-2026-11-04-W04-W06.md。schema11/66/24、Tools1.1.0，W04/W05/W06已本地实现并有合成证据，89/19两组有重叠聚焦与390/1280px通过，正式门槛/T/QA/Goal保留。下一批从W07独立配置/镜像准备、W08预算监控、W09恢复和W10新隔离组合继续，不无变更重跑W04/W05/W06。以下原续跑文本保留首批历史与全部执行限制，进度描述以最新交接为准。
+
+继续DD-1.0 V1学习服务和复用现有Open WebUI任务。工作目录：/home/deniskorfei/projects/open-webui。
+
+先读取docs/goal/HANDOFF-SESSION-2026-11-04-SESSION-SUMMARY.md；再按其中清单读取STATUS.md、TASKS.json、BLOCKERS.md、DECISIONS.md、第一批工程交接、docs/open-webui-reuse中的技术/实际实现/工作计划与机器计划、QA矩阵和工程JSON。P0/provider旧交接仅作历史依据。检查git status --short --branch与只读Goal API。
+
+已确认：复用本机Docker Compose/内置账号的http://172.19.116.53:53001/，沿用当前IP，HTTPS开发目标为https://172.19.116.53默认443。现有正式部署未改变；证书/客户端信任、IP稳定性、旧HTTP策略、正式绑定清单/操作人/学习库仍缺。
+
+当前源码schema10、OpenAPI61paths/22schemas；W01部分输入固定，W02网关/W03身份CLI与共享上下文本地实现并有合成验证，W04仅前缀/版本基础，W05–W14仍planned。74是本轮聚焦，102是此前provider聚焦，101是更早全量；390/1280px为合成ASGI浏览器，303后续导航由探针模拟，不是正式登录/TLS/真实回调。P0/schema7、四格式持久化已完成；P2仍空模板。不要无变更重跑这些通过项。
+
+从W04/W05接续：完善工作台产品入口/代表上传和测验恢复，处理身份/学习者变化后的缓存与异步响应；适配Tools读取服务端learner-context并携带context_version，模型不能选择/覆盖学习者，完成最小结果投影和固定HTTPS工作台链接。旧Tools尚未适配共享模式写入版本，不能宣称两端已同步。随后推进W06人工变式审核/冻结版本/幂等发布，W07以后独立配置/镜像/监控/完整恢复准备。已有诊断/变式/费用台账是本地实现，真实模型/价格/账单/网络/资料质量仍缺。
+
+保留所有未提交改动，不reset、checkout、clean、提交或push；不读取/修改根docker-compose.yml、batch_ingest.py，不读取正式WebUI data/环境秘密。不操作正式容器/网络/Tools/证书信任，不部署生产；保持OCR/学习模型默认mock、外发关闭、预算0，不调用真实模型/OCR或外发真实学生资料。聊天费用不属于学习台账。不要把mock/合成/loader/ASGI写成真实验收，不创建/更新/complete Goal，T/QA状态按真实证据保留，T24–T26不启动。
+
+默认单执行者，不启用子代理。旧schema9/29文件与schema10/35文件源码包保留，源码变化后只在新目录封包，image_digest仍null。只做变化相关的必要验证，更新任务证据/缺项/QA/交接；缺正式输入时继续可独立推进的本地工程，不自签真实门槛。

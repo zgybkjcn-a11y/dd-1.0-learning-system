@@ -1,0 +1,68 @@
+# Optional local-file collector; review inputs before explicitly enabling this profile.
+# Separate from the application sidecar; no Docker socket or delivery credentials.
+services:
+  learning-monitor:
+    profiles: [monitoring]
+    image: "${DD_LEARNING_IMAGE:?fixed learning image required}"
+    pull_policy: never
+    restart: "no"
+    user: "10001:10001"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 32
+    mem_limit: 128m
+    cpus: 0.25
+    tmpfs: [/tmp]
+    networks: [learning-monitor-internal]
+    entrypoint: [python, /opt/collect_learning_monitor.py]
+    command:
+      - collect
+      - --db
+      - /learning/learning.db
+      - --storage
+      - /learning
+      - --state-dir
+      - /monitor-state
+      - --backup-receipt
+      - /backup-observation/latest.json
+      - --upstream
+      - http://learning-api:31010
+      - --cycles
+      - "1000000"
+      - --interval
+      - "60"
+    volumes:
+      - type: volume
+        source: monitor-learning-data
+        target: /learning
+        # SQLite mode=ro/query_only still needs writable WAL/SHM side files
+        # when the API closes its last connection. Never use immutable=1.
+        # This grants filesystem write capability; reviewed script/UID required.
+        read_only: false
+      - type: bind
+        source: "${DD_MONITOR_SCRIPT:?absolute reviewed collector path required}"
+        target: /opt/collect_learning_monitor.py
+        read_only: true
+        bind: {create_host_path: false}
+      - type: bind
+        source: "${DD_MONITOR_STATE:?private UID10001 mode0700 directory required}"
+        target: /monitor-state
+        bind: {create_host_path: false}
+      - type: bind
+        source: "${DD_BACKUP_OBSERVATION_DIR:?explicit aggregate receipt directory required}"
+        target: /backup-observation
+        read_only: true
+        bind: {create_host_path: false}
+    logging:
+      driver: json-file
+      options: {max-size: 1m, max-file: "2"}
+
+networks:
+  learning-monitor-internal:
+    external: true
+    name: "${DD_LEARNING_INTERNAL_NETWORK:?verify existing network Internal=true}"
+volumes:
+  monitor-learning-data:
+    external: true
+    name: "${DD_LEARNING_DATA_VOLUME:?explicit learning volume required}"

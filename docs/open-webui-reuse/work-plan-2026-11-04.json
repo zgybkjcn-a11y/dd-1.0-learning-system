@@ -1,0 +1,553 @@
+{
+  "document_kind": "planned_subpackages_not_goal_or_task_status_promotions",
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "executor": "single",
+  "status": "family_math_pilot_deployed_full_v1_states_preserved",
+  "original_task_registry": "docs/goal/TASKS.json",
+  "effort_unit": "engineering_workdays_excluding_external_wait_and_human_labeling",
+  "work_packages": [
+    {
+      "id": "W01",
+      "title": "环境/TLS/身份协议定稿",
+      "status": "inputs_partially_fixed",
+      "dependencies": [],
+      "engineering_days": {
+        "min": 0.5,
+        "max": 1
+      },
+      "task_ids": [
+        "T01",
+        "T03",
+        "T22"
+      ],
+      "qa_ids": [
+        "QA01",
+        "QA15"
+      ],
+      "condition_ids": [
+        "TLS_ORIGIN",
+        "CERTIFICATE_TRUST",
+        "LEGACY_HTTP_POLICY"
+      ],
+      "acceptance": "固定 HTTPS/网络/身份输入和可审阅配置边界",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "IP/HTTPS目标已确定；443无监听只读证据；证书信任/IP稳定性/旧HTTP处理仍缺",
+      "evidence": [
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/open-webui-reuse/04-LOCAL-IMPLEMENTATION-2026-11-04.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
+      ],
+      "family_pilot_note": "家庭数学版已部署；设备证书信任与真实家长首次绑定待操作，完整V1验收状态保留。"
+    },
+    {
+      "id": "W02",
+      "title": "内置登录桥接网关",
+      "status": "local_implemented_synthetic_verified",
+      "dependencies": [
+        "W01"
+      ],
+      "engineering_days": {
+        "min": 2,
+        "max": 3
+      },
+      "task_ids": [
+        "T03",
+        "T06",
+        "T07"
+      ],
+      "qa_ids": [
+        "QA01",
+        "QA15"
+      ],
+      "condition_ids": [],
+      "acceptance": "上游身份验证、登录CSRF、服务器声明交换与最小转发",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "合成网关/HTTP安全用例通过；实际认证/TLS/容器未验收",
+      "evidence": [
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/open-webui-reuse/04-LOCAL-IMPLEMENTATION-2026-11-04.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
+      ],
+      "family_pilot_note": "家庭数学版已部署；设备证书信任与真实家长首次绑定待操作，完整V1验收状态保留。"
+    },
+    {
+      "id": "W03",
+      "title": "正式初始化/绑定/来源会话/上下文",
+      "status": "local_implemented_synthetic_verified",
+      "dependencies": [
+        "W01"
+      ],
+      "engineering_days": {
+        "min": 1.5,
+        "max": 2.5
+      },
+      "task_ids": [
+        "T06",
+        "T07",
+        "T20"
+      ],
+      "qa_ids": [
+        "QA01",
+        "QA05",
+        "QA08"
+      ],
+      "condition_ids": [],
+      "acceptance": "CLI、迁移、审计、解绑撤销与统一上下文",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "迁移/身份CLI/来源绑定/共享上下文/撤销与恢复通过；正式清单和库未操作",
+      "evidence": [
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/open-webui-reuse/04-LOCAL-IMPLEMENTATION-2026-11-04.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
+      ],
+      "family_pilot_note": "家庭数学版已部署；设备证书信任与真实家长首次绑定待操作，完整V1验收状态保留。"
+    },
+    {
+      "id": "W04",
+      "title": "工作台路径与产品入口",
+      "status": "local_implemented_synthetic_verified",
+      "dependencies": [
+        "W02",
+        "W03"
+      ],
+      "engineering_days": {
+        "min": 1.5,
+        "max": 2.5
+      },
+      "task_ids": [
+        "T03",
+        "T11",
+        "T16",
+        "T20"
+      ],
+      "qa_ids": [
+        "QA05",
+        "QA08",
+        "QA15"
+      ],
+      "condition_ids": [],
+      "acceptance": "前缀、登录、资产、上传测验和缓存身份隔离",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "产品导航/今日任务/错题详情/代表PNG/测验恢复和上下文/账号/异步/缓存清理本地浏览器通过；目标TLS/账号组合未验收",
+      "evidence": [
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
+      ],
+      "family_pilot_note": "家庭数学版已部署；设备证书信任与真实家长首次绑定待操作，完整V1验收状态保留。"
+    },
+    {
+      "id": "W05",
+      "title": "正式Tools与学习教练配置",
+      "status": "local_implemented_synthetic_verified",
+      "dependencies": [
+        "W03",
+        "W04"
+      ],
+      "engineering_days": {
+        "min": 1,
+        "max": 2
+      },
+      "task_ids": [
+        "T03",
+        "T18",
+        "T19",
+        "T20"
+      ],
+      "qa_ids": [
+        "QA01",
+        "QA08",
+        "QA11",
+        "QA12"
+      ],
+      "condition_ids": [],
+      "acceptance": "最小结果、固定入口、上下文与可信回调边界",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "11方法共享上下文/版本/最小投影/固定链接与四种可信交互本地合成验证；教练/访问仅配置草稿，正式分享/模型绑定/最终原生回调未验收",
+      "evidence": [
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json"
+      ],
+      "family_pilot_note": "扩展范围暂缓，不作为两人版上线前置；既有实现/证据保留。"
+    },
+    {
+      "id": "W06",
+      "title": "人工变式审核发布",
+      "status": "local_implemented_synthetic_verified",
+      "dependencies": [
+        "W03"
+      ],
+      "engineering_days": {
+        "min": 1.5,
+        "max": 2.5
+      },
+      "task_ids": [
+        "T13",
+        "T14",
+        "T16"
+      ],
+      "qa_ids": [
+        "QA06",
+        "QA07",
+        "QA09",
+        "QA13"
+      ],
+      "condition_ids": [],
+      "acceptance": "人工审核、冻结版本、范围验证与幂等投放",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "受限人工approve/reject、当前指纹/说明/幂等/冻结私有版本/撤销与既有成绩保留本地通过；真实母题/审核人/质量未验收",
+      "evidence": [
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json"
+      ],
+      "family_pilot_note": "扩展范围暂缓，不作为两人版上线前置；既有实现/证据保留。"
+    },
+    {
+      "id": "W07",
+      "title": "独立配置与固定镜像",
+      "status": "local_image_configuration_verified_formal_inputs_pending",
+      "dependencies": [
+        "W02",
+        "W03",
+        "W04",
+        "W05",
+        "W06"
+      ],
+      "engineering_days": {
+        "min": 1,
+        "max": 2
+      },
+      "task_ids": [
+        "T02",
+        "T20",
+        "T22"
+      ],
+      "qa_ids": [
+        "QA15"
+      ],
+      "condition_ids": [],
+      "acceptance": "新白名单候选、镜像、sidecar/代理与网络重连",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "50文件新profile、16个wheel hash、固定基础OCI与无缓存/无网络构建、sidecar/代理/秘密/网络重连工具；正式接入未执行；故障补充：新隔离认证WSS/网关与API故障隔离/受控SIGKILL及恢复已留证，nginx解析/连接超时3秒；10项新增编排防护通过，正式门槛和原137根因保留",
+      "evidence": [
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "docs/verification/reuse-fault-isolation-2026-11-04.md",
+        "docs/verification/reuse-fault-isolation-2026-11-04.json",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
+      ],
+      "family_pilot_note": "家庭数学版已部署；设备证书信任与真实家长首次绑定待操作，完整V1验收状态保留。"
+    },
+    {
+      "id": "W08",
+      "title": "三通道预算/网络/监控",
+      "status": "local_configuration_monitoring_verified_external_controls_pending",
+      "dependencies": [
+        "W01",
+        "W02",
+        "W03",
+        "W05"
+      ],
+      "engineering_days": {
+        "min": 1,
+        "max": 1.5
+      },
+      "task_ids": [
+        "T05",
+        "T18",
+        "T21"
+      ],
+      "qa_ids": [
+        "QA11",
+        "QA14"
+      ],
+      "condition_ids": [],
+      "acceptance": "聊天/学习/OCR分账控制、脱敏告警与默认关闭配置",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "API/worker配置一致、mock/外发0/预算0、聚合告警与隔离internal网络；聊天正式费用/监控/网络及三通道实际账单仍缺；2026-11-05：本地周期监控与独立失联检查、容量/合成备份回执已有21项聚焦和新隔离证据；SQL只读/SQLite辅助文件需卷写权限；完整恢复七组件和顺序设计完成，自动回执/跨备份增量/正式输入与RPO/RTO仍缺",
+      "evidence": [
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.md",
+        "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.json",
+        "docs/open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md"
+      ],
+      "family_pilot_note": "扩展范围暂缓，不作为两人版上线前置；既有实现/证据保留。"
+    },
+    {
+      "id": "W09",
+      "title": "迁移、完整备份与恢复",
+      "status": "isolated_learning_restore_verified_formal_architecture_pending",
+      "dependencies": [
+        "W03",
+        "W06",
+        "W07",
+        "W08"
+      ],
+      "engineering_days": {
+        "min": 1.5,
+        "max": 2
+      },
+      "task_ids": [
+        "T02",
+        "T21",
+        "T22"
+      ],
+      "qa_ids": [
+        "QA13",
+        "QA14",
+        "QA15"
+      ],
+      "condition_ids": [],
+      "acceptance": "新副本迁移、会话/上下文/审核/附件/费用对账与恢复",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "停止API/worker并核验状态，只读WAL源hash复制、新卷恢复与会话/上下文/审核/成绩/附件/未知费用对账；原WebUI/正式完整架构与RPO/RTO未验收；2026-11-05：本地周期监控与独立失联检查、容量/合成备份回执已有21项聚焦和新隔离证据；SQL只读/SQLite辅助文件需卷写权限；完整恢复七组件和顺序设计完成，自动回执/跨备份增量/正式输入与RPO/RTO仍缺",
+      "evidence": [
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.md",
+        "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.json",
+        "docs/open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md"
+      ],
+      "family_pilot_note": "扩展范围暂缓，不作为两人版上线前置；既有实现/证据保留。"
+    },
+    {
+      "id": "W10",
+      "title": "新隔离组合验收",
+      "status": "isolated_http_tls_synthetic_verified_native_browser_pending",
+      "dependencies": [
+        "W04",
+        "W05",
+        "W06",
+        "W07",
+        "W08",
+        "W09"
+      ],
+      "engineering_days": {
+        "min": 1,
+        "max": 2
+      },
+      "task_ids": [
+        "T03",
+        "T16",
+        "T20",
+        "T22"
+      ],
+      "qa_ids": [
+        "QA01",
+        "QA05",
+        "QA08",
+        "QA14",
+        "QA15"
+      ],
+      "condition_ids": [],
+      "acceptance": "新项目/独立卷认证、路由、代表链路与恢复证据",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "progress_note": "新project/卷/internal网络/无端口，实际内置合成账号Cookie和内部TLS代理/网关/API、原生loader与恢复；正式IP信任/模型最终浏览器回调/真实质量仍缺；停机补充：固定ID/退出码检查与60秒宽限，新隔离合成正常停止、9项测试；旧137原因未充分定位，正式负载/故障场景仍缺；故障补充：新隔离认证WSS/网关与API故障隔离/受控SIGKILL及恢复已留证，nginx解析/连接超时3秒；10项新增编排防护通过，正式门槛和原137根因保留",
+      "evidence": [
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "docs/verification/reuse-graceful-shutdown-2026-11-04.md",
+        "docs/verification/reuse-graceful-shutdown-2026-11-04.json",
+        "docs/verification/reuse-fault-isolation-2026-11-04.md",
+        "docs/verification/reuse-fault-isolation-2026-11-04.json"
+      ]
+    },
+    {
+      "id": "W11",
+      "title": "P1/P3真实tool call/provider",
+      "status": "planned",
+      "dependencies": [
+        "W10"
+      ],
+      "engineering_days": {
+        "min": 1,
+        "max": 3
+      },
+      "task_ids": [
+        "T03",
+        "T05",
+        "T16",
+        "T18",
+        "T20"
+      ],
+      "qa_ids": [
+        "QA01",
+        "QA06",
+        "QA07",
+        "QA08",
+        "QA11",
+        "QA14"
+      ],
+      "condition_ids": [
+        "REAL_CALL_PERMISSION",
+        "MODEL_ENDPOINT_BUDGET",
+        "TRUSTED_BROWSER"
+      ],
+      "acceptance": "实际模型发起的最终原生回调与受控provider/费用报告",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "family_pilot_note": "扩展范围暂缓，不作为两人版上线前置；既有实现/证据保留。"
+    },
+    {
+      "id": "W12",
+      "title": "P2/P4人工资料与质量",
+      "status": "planned",
+      "dependencies": [
+        "W06",
+        "W10",
+        "W11"
+      ],
+      "engineering_days": {
+        "min": 2,
+        "max": 4
+      },
+      "task_ids": [
+        "T04",
+        "T09",
+        "T10",
+        "T12",
+        "T13",
+        "T14"
+      ],
+      "qa_ids": [
+        "QA02",
+        "QA03",
+        "QA04",
+        "QA06",
+        "QA07",
+        "QA13"
+      ],
+      "condition_ids": [
+        "DATA_AND_REVIEWER",
+        "FROZEN_QUALITY_POLICY"
+      ],
+      "acceptance": "整卷参考、人工审核、质量和资料生命周期报告",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "family_pilot_note": "扩展范围暂缓，不作为两人版上线前置；既有实现/证据保留。"
+    },
+    {
+      "id": "W13",
+      "title": "生产接入审阅与维护切换",
+      "status": "planned",
+      "dependencies": [
+        "W09",
+        "W10",
+        "W11",
+        "W12"
+      ],
+      "engineering_days": {
+        "min": 0.5,
+        "max": 1
+      },
+      "task_ids": [
+        "T22"
+      ],
+      "qa_ids": [
+        "QA15"
+      ],
+      "condition_ids": [
+        "CONCRETE_RELEASE_REVIEW",
+        "PRODUCTION_PERMISSION"
+      ],
+      "acceptance": "具体发布审阅、现有WebUI接入、停用/恢复及切换记录",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "family_pilot_note": "家庭数学版已部署；设备证书信任与真实家长首次绑定待操作，完整V1验收状态保留。",
+      "evidence": [
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
+      ]
+    },
+    {
+      "id": "W14",
+      "title": "P6/P7小范围试用",
+      "status": "planned",
+      "dependencies": [
+        "W13"
+      ],
+      "engineering_days": {
+        "min": 1,
+        "max": 2
+      },
+      "task_ids": [
+        "T23"
+      ],
+      "qa_ids": [],
+      "condition_ids": [
+        "PARTICIPANT_CONSENT",
+        "TRIAL_PERMISSION",
+        "TRIAL_BUDGET"
+      ],
+      "acceptance": "7–14自然日实际观察、人工抽检与报告复核",
+      "owner": "single_development_executor_with_named_input_owners_pending",
+      "actual_observation_calendar_days": {
+        "min": 7,
+        "max": 14
+      },
+      "family_pilot_note": "用户已授权两人试用并已提供入口；实际操作/自然日观察尚未发生，正式T23不提升。"
+    }
+  ],
+  "effort_totals": {
+    "W01_W10": {
+      "min": 12.5,
+      "max": 21
+    },
+    "W11_W13": {
+      "min": 3.5,
+      "max": 8
+    },
+    "W14_report": {
+      "min": 1,
+      "max": 2
+    },
+    "W14_observation_calendar_days": {
+      "min": 7,
+      "max": 14
+    }
+  },
+  "authorization": {
+    "documentation_and_readonly_metadata": true,
+    "production": true,
+    "real_model_ocr_calls": false,
+    "real_student_data_export": false,
+    "trial_start": false,
+    "goal_create_complete": false,
+    "local_engineering_and_synthetic_validation": true,
+    "production_scope": "family_math_pilot_only",
+    "family_pilot_use": true
+  },
+  "references": {
+    "human_work_plan": "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+    "technical": "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+    "inputs": "docs/open-webui-reuse/deployment-inputs-2026-11-04.json"
+  },
+  "next_local_batch": [],
+  "next_external_gated_batch": [],
+  "updated_at": "2026-11-05",
+  "current_delivery": {
+    "scope": "one_parent_two_math_profiles",
+    "status": "deployed_parent_activation_pending",
+    "entry": "https://172.19.116.53/learning/auth/login",
+    "evidence": "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md",
+    "next_actions": [
+      "user_device_CA_import",
+      "existing_parent_first_activation",
+      "address_actual_pilot_feedback"
+    ],
+    "deferred_for_pilot": [
+      "W05_formal_chat_tools",
+      "W06_real_model_variants",
+      "W08_complex_monitoring",
+      "W09_full_architecture_recovery",
+      "W11_real_calls",
+      "W12_full_dataset_quality",
+      "W14_formal_7_14_day_acceptance"
+    ]
+  }
+}

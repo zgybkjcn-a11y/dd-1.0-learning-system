@@ -1,0 +1,27 @@
+{
+  "policy_version": "dd-quality-policy-v1",
+  "status": "pending_human_signoff",
+  "approved_by_reviewer_id": null,
+  "approved_at": null,
+  "supported_question_types": [],
+  "question_counting_rule": null,
+  "cross_page_matching_rule": null,
+  "coordinate_frame": "original_page_pixels",
+  "region_match_min_iou": null,
+  "raw_text_normalization_rule": null,
+  "failed_page_denominator_policy": "include_all_input_pages_and_report_failures",
+  "abstention_policy": "report_separately_do_not_count_manual_review_as_model_success",
+  "reference_verdicts": ["correct", "incorrect", "partial", "unanswered", "undetermined"],
+  "thresholds": {
+    "minimum_page_coverage": null,
+    "minimum_question_recall": null,
+    "minimum_question_precision": null,
+    "maximum_raw_text_error_rate": null,
+    "minimum_verdict_precision": null,
+    "minimum_verdict_recall": null,
+    "maximum_abstention_rate": null
+  },
+  "zero_denominator_result": "not_computable",
+  "missing_threshold_decision": "not_ready_for_acceptance",
+  "results": null
+}

@@ -1,0 +1,35 @@
+{
+  "format": "dd-learning-coach-template-v1",
+  "version": "2026-11-04-w05",
+  "state": "reviewable_local_template_not_applied",
+  "model_id": null,
+  "tool_id": "dd_learning_v1",
+  "tool_source_version": "1.2.0",
+  "workbench_url": "https://172.19.116.53/learning/ui",
+  "allowed_account_ids": [],
+  "share_with_all_users": false,
+  "valves": {
+    "DD_LEARNING_BASE_URL": "http://learning-api:31010",
+    "DD_LEARNING_ADAPTER_SECRET": "",
+    "DD_TRUSTED_PROVIDER": "open-webui",
+    "DD_TRUSTED_ISSUER": "FORMAL_INSTALLATION_ID_PENDING",
+    "DD_TRUSTED_SUBJECT": "",
+    "DD_SHARED_LEARNER_CONTEXT": true,
+    "DD_WORKBENCH_URL": "https://172.19.116.53/learning/ui"
+  },
+  "system_prompt": "你是DD-1.0学习教练。先根据服务端Tools的最小状态组织今日任务。学习者由用户在固定工作台选择；遇到上下文缺失或变化，引导用户打开工作台确认，再重试。不得根据名字、聊天输入或模型猜测选择学习者。原卷、原始作答、完整错题与提示由用户在工作台查看，避免要求粘贴到聊天。保存学习记录、批量确认与提交答案只能通过四种固定可信原生交互或工作台明确操作；不得自行创建挑战、批准变式、修改成绩或复习阶段。needs_review、queued和202不是正式入库、最终成绩或真实质量验收。取消或超时停止提交，保留服务端进度供恢复。所有入口使用https://172.19.116.53/learning/ui。数学参考使用get_math_scope、get_math_question_reference和get_math_concept_reference；仅返回当前档案已映射的概念及原页位置。可能核对点不代表已确认错因，先修参考不代表掌握程度，不将教材参考当作判分依据；在工作台查看和作答。其他学科可使用get_study_support获取当前课本的阅读问题串；reading_scaffold_only不代表已审核学科答案。",
+  "chat_egress_and_cost": {
+    "permission": "not_authorized",
+    "provider": null,
+    "budget": null,
+    "data_scope": null,
+    "controlled_by_learning_ledger": false
+  },
+  "application_gates": [
+    "formal_installation_identity_and_named_accounts",
+    "trusted_ip_san_certificate_and_https_runtime",
+    "explicit_chat_model_data_scope_budget_permission",
+    "reviewed_target_version_sharing_and_model_binding",
+    "real_native_final_callback_acceptance"
+  ]
+}

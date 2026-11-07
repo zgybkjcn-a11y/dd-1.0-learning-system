@@ -1,0 +1,1593 @@
+{
+  "concepts": {
+    "g2-groups": {
+      "book_id": "math-g2-upper",
+      "chapters": [
+        "2",
+        "3",
+        "5"
+      ],
+      "checks": [
+        "把每组数量与组数相加了没有？",
+        "有没有另加或拿走的部分？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "先找每组有多少，再找有几组；相同的组可以用乘法求总数。",
+      "grade": 2,
+      "id": "g2-groups",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+      "textbook_pages": [
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "2",
+          "chapter_title": "二 1～6的表内乘法",
+          "eligible_as_grading_basis": false,
+          "label": "相同加数与乘法的联系",
+          "pdf_page": 17,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 12
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "2",
+          "chapter_title": "二 1～6的表内乘法",
+          "eligible_as_grading_basis": false,
+          "label": "每行、每列和相同组的图示",
+          "pdf_page": 18,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 13
+        }
+      ],
+      "title": "几个相同的组"
+    },
+    "g2-large-table": {
+      "book_id": "math-g2-upper",
+      "chapters": [
+        "5"
+      ],
+      "checks": [
+        "口诀算对后，是否还需要加减或求剩余？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "涉及7、8、9的乘法或求商，核对相应乘法口诀，并看清总数和份数。",
+      "grade": 2,
+      "id": "g2-large-table",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+      "textbook_pages": [
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "5",
+          "chapter_title": "五 7～9的表内乘、除法",
+          "eligible_as_grading_basis": false,
+          "label": "7的口诀与已有口诀的联系",
+          "pdf_page": 78,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 73
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "5",
+          "chapter_title": "五 7～9的表内乘、除法",
+          "eligible_as_grading_basis": false,
+          "label": "8的口诀",
+          "pdf_page": 80,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 75
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "5",
+          "chapter_title": "五 7～9的表内乘、除法",
+          "eligible_as_grading_basis": false,
+          "label": "9的口诀",
+          "pdf_page": 82,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 77
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "5",
+          "chapter_title": "五 7～9的表内乘、除法",
+          "eligible_as_grading_basis": false,
+          "label": "7～9的口诀求商",
+          "pdf_page": 86,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 81
+        }
+      ],
+      "title": "7～9的乘、除法"
+    },
+    "g2-pack": {
+      "book_id": "math-g2-upper",
+      "chapters": [
+        "3",
+        "5"
+      ],
+      "checks": [
+        "已经拿走的部分是否先扣除了？",
+        "结果单位是份数还是物品数量？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "已知总数与每份数量，用总数除以每份数量求有几份。",
+      "grade": 2,
+      "id": "g2-pack",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+      "textbook_pages": [
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "3",
+          "chapter_title": "三 1～6的表内除法",
+          "eligible_as_grading_basis": false,
+          "label": "已知每份数量，求份数的操作",
+          "pdf_page": 36,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 31
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "3",
+          "chapter_title": "三 1～6的表内除法",
+          "eligible_as_grading_basis": false,
+          "label": "用除法求份数",
+          "pdf_page": 42,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 37
+        }
+      ],
+      "title": "按每份数量求份数"
+    },
+    "g2-share": {
+      "book_id": "math-g2-upper",
+      "chapters": [
+        "3",
+        "5"
+      ],
+      "checks": [
+        "题目给的是份数，还是每份数量？",
+        "最终问每份多少，还是剩下多少？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "总数平均分成已知的几份，用总数除以份数求每份数量。",
+      "grade": 2,
+      "id": "g2-share",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+      "textbook_pages": [
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "3",
+          "chapter_title": "三 1～6的表内除法",
+          "eligible_as_grading_basis": false,
+          "label": "平均分的共同含义",
+          "pdf_page": 36,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 31
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "3",
+          "chapter_title": "三 1～6的表内除法",
+          "eligible_as_grading_basis": false,
+          "label": "已知份数，求每份数量的操作",
+          "pdf_page": 38,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 33
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "3",
+          "chapter_title": "三 1～6的表内除法",
+          "eligible_as_grading_basis": false,
+          "label": "用除法求每份数量",
+          "pdf_page": 43,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 38
+        }
+      ],
+      "title": "平均分，求每份数量"
+    },
+    "g2-small-table": {
+      "book_id": "math-g2-upper",
+      "chapters": [
+        "2",
+        "3"
+      ],
+      "checks": [
+        "想的口诀与题中两个数是否对应？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "用乘法口诀核对结果；求商时，可以想哪个数乘除数等于被除数。",
+      "grade": 2,
+      "id": "g2-small-table",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+      "textbook_pages": [
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "2",
+          "chapter_title": "二 1～6的表内乘法",
+          "eligible_as_grading_basis": false,
+          "label": "5的口诀",
+          "pdf_page": 21,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 16
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "2",
+          "chapter_title": "二 1～6的表内乘法",
+          "eligible_as_grading_basis": false,
+          "label": "1～4的口诀",
+          "pdf_page": 22,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 17
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "2",
+          "chapter_title": "二 1～6的表内乘法",
+          "eligible_as_grading_basis": false,
+          "label": "6的口诀",
+          "pdf_page": 27,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 22
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "3",
+          "chapter_title": "三 1～6的表内除法",
+          "eligible_as_grading_basis": false,
+          "label": "用口诀求商",
+          "pdf_page": 46,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 41
+        }
+      ],
+      "title": "1～6的乘法口诀"
+    },
+    "g2-target": {
+      "book_id": "math-g2-upper",
+      "chapters": [
+        "2",
+        "3",
+        "5"
+      ],
+      "checks": [
+        "中间结果是否被当成最终答案？",
+        "比较、找零或拿走一份之后是否继续计算？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "把每一步求出的量写清，再回答题目最后问的数量。",
+      "grade": 2,
+      "id": "g2-target",
+      "location_status": "local_check_no_textbook_page_claim",
+      "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+      "textbook_pages": [],
+      "title": "分步核对最终所求量"
+    },
+    "g7-absolute": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "1",
+        "2"
+      ],
+      "checks": [
+        "最终问的是带正负号的位置，还是到原点的距离？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "绝对值表示数轴上的点到原点的距离；位置可以为负，距离不能为负。",
+      "grade": 7,
+      "id": "g7-absolute",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "1",
+          "chapter_title": "第一章 有理数",
+          "eligible_as_grading_basis": false,
+          "label": "点到原点的距离与绝对值",
+          "pdf_page": 20,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 13
+        }
+      ],
+      "title": "位置与距离"
+    },
+    "g7-add": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "2"
+      ],
+      "checks": [
+        "异号相加是否比较了绝对值并确定符号？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "同号相加保留符号并加绝对值；异号相加，绝对值相减并取绝对值较大加数的符号；绝对值相同则结果为0。",
+      "grade": 7,
+      "id": "g7-add",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "chapter_title": "第二章 有理数的运算",
+          "eligible_as_grading_basis": false,
+          "label": "用正负数表示变化并相加",
+          "pdf_page": 32,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 25
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "chapter_title": "第二章 有理数的运算",
+          "eligible_as_grading_basis": false,
+          "label": "加法法则中的符号与绝对值",
+          "pdf_page": 34,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 27
+        }
+      ],
+      "title": "有理数加法"
+    },
+    "g7-check": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "5"
+      ],
+      "checks": [
+        "结果代回以后，两边是否相等？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "把求出的量代回原条件，检查等量关系、范围与单位是否都满足。",
+      "grade": 7,
+      "id": "g7-check",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "求解后代入原方程核对",
+          "pdf_page": 124,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 117
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "检验结果并回答实际问题",
+          "pdf_page": 141,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 134
+        }
+      ],
+      "title": "把结果代回原条件"
+    },
+    "g7-equality": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "5"
+      ],
+      "checks": [
+        "两边做的是相同运算吗？",
+        "乘或除以的数是否为非零数？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "等式两边加或减同一个数，仍然相等；同乘同一个数也保持相等。解方程时，为保持等价，同乘、同除以同一个非零数；最后可代回核对。",
+      "grade": 7,
+      "id": "g7-equality",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "等式性质和简单方程变形",
+          "pdf_page": 123,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 116
+        }
+      ],
+      "title": "等式的基本性质"
+    },
+    "g7-expression": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "3",
+        "5"
+      ],
+      "checks": [
+        "固定费用和变化费用是否都计入？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "把固定费用与按数量变化的费用分开，再写出总量表达式。",
+      "grade": 7,
+      "id": "g7-expression",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "3",
+          "chapter_title": "第三章 代数式",
+          "eligible_as_grading_basis": false,
+          "label": "用式子表示数量关系",
+          "pdf_page": 76,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 69
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "固定购入费用与随时间变化的费用",
+          "pdf_page": 145,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 138
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "费用表达式的比较",
+          "pdf_page": 146,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 139
+        }
+      ],
+      "title": "数量与费用表达式"
+    },
+    "g7-model": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "5"
+      ],
+      "checks": [
+        "未知数代表什么？",
+        "等式两边表示的是同一类量吗？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "设所求量为未知数，把同一个量的两种表达列成等式。",
+      "grade": 7,
+      "id": "g7-model",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "同一距离的两种表达列等式",
+          "pdf_page": 118,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 111
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "数量关系到方程的归纳",
+          "pdf_page": 120,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 113
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "实际问题建模的基本过程",
+          "pdf_page": 141,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 134
+        }
+      ],
+      "title": "找等量关系列方程"
+    },
+    "g7-opposite": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "1",
+        "2"
+      ],
+      "checks": [
+        "转成相反数时是否只改变符号？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "只有符号不同的两个数互为相反数，0的相反数仍是0。",
+      "grade": 7,
+      "id": "g7-opposite",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "1",
+          "chapter_title": "第一章 有理数",
+          "eligible_as_grading_basis": false,
+          "label": "相反数的数轴表示",
+          "pdf_page": 18,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 11
+        }
+      ],
+      "title": "相反数"
+    },
+    "g7-percent": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "5"
+      ],
+      "checks": [
+        "百分比的基数是原价、售价还是进价？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "八折表示原价的80%；算百分比时要明确以哪个量为基数。",
+      "grade": 7,
+      "id": "g7-percent",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "3",
+          "chapter_title": "第三章 代数式",
+          "eligible_as_grading_basis": false,
+          "label": "按折扣表示售价的例子",
+          "pdf_page": 77,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 70
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "销售盈亏中百分比基数的相关应用",
+          "pdf_page": 142,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 135
+        }
+      ],
+      "title": "折扣与基数"
+    },
+    "g7-sign": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "1",
+        "2"
+      ],
+      "checks": [
+        "正方向和零点是否按题目规定？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "先确认零点和正方向，再用正负数记录位置或变化。",
+      "grade": 7,
+      "id": "g7-sign",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "1",
+          "chapter_title": "第一章 有理数",
+          "eligible_as_grading_basis": false,
+          "label": "正数、负数和符号",
+          "pdf_page": 9,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 2
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "1",
+          "chapter_title": "第一章 有理数",
+          "eligible_as_grading_basis": false,
+          "label": "数轴原点与方向",
+          "pdf_page": 16,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 9
+        }
+      ],
+      "title": "正负号与基准"
+    },
+    "g7-solve": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "5"
+      ],
+      "checks": [
+        "等式两边是否做了相同的运算？",
+        "求出的未知数是否符合题意？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "运用等式的性质变形，求出未知数，再代回题意核对。",
+      "grade": 7,
+      "id": "g7-solve",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "解一元一次方程的起步情境",
+          "pdf_page": 127,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 120
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "label": "解方程步骤与依据的归纳",
+          "pdf_page": 135,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 128
+        }
+      ],
+      "title": "解一元一次方程"
+    },
+    "g7-subtract": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "2"
+      ],
+      "checks": [
+        "减去负数时，是否转成了加正数？",
+        "温差是否用较高温度减较低温度？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "减去一个数，可以转成加上这个数的相反数。",
+      "grade": 7,
+      "id": "g7-subtract",
+      "location_status": "selected_original_location_checked",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "chapter_title": "第二章 有理数的运算",
+          "eligible_as_grading_basis": false,
+          "label": "温差的减法情境",
+          "pdf_page": 37,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 30
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "chapter_title": "第二章 有理数的运算",
+          "eligible_as_grading_basis": false,
+          "label": "减法转成加相反数",
+          "pdf_page": 38,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 31
+        }
+      ],
+      "title": "有理数减法"
+    },
+    "g7-target": {
+      "book_id": "math-g7-upper",
+      "chapters": [
+        "2",
+        "5"
+      ],
+      "checks": [
+        "所求量与最后输出的量是否一致？"
+      ],
+      "eligible_as_grading_basis": false,
+      "explanation": "先辨认题目最终求的是位置、变化、距离、人数、费用还是时间，再检查单位。",
+      "grade": 7,
+      "id": "g7-target",
+      "location_status": "local_check_no_textbook_page_claim",
+      "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "textbook_pages": [],
+      "title": "核对题意和单位"
+    }
+  },
+  "eligible_as_grading_basis": false,
+  "format": "dd-family-math-reference-v1",
+  "fully_reviewed_textbook_pages": 0,
+  "pdf_sha256": {
+    "math-g2-upper": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+    "math-g7-upper": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8"
+  },
+  "peer_relations": [
+    {
+      "concepts": [
+        "g2-share",
+        "g2-pack"
+      ],
+      "eligible_as_grading_basis": false,
+      "printed_pages": [
+        31,
+        33,
+        37,
+        38
+      ],
+      "reason": "已知份数与已知每份数量是平均分的并列情境；页序或共用除法不能证明单向先修。",
+      "relation": "parallel_division_situations",
+      "removed_prerequisite": [
+        "g2-pack",
+        "g2-share"
+      ],
+      "role": "reference_only"
+    }
+  ],
+  "prerequisite_edges": [
+    {
+      "eligible_as_grading_basis": false,
+      "pages": [
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "2",
+          "chapter_title": "二 1～6的表内乘法",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g2-upper-p012.png",
+          "label": "关系依据",
+          "pdf_page": 17,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 12
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "2",
+          "chapter_title": "二 1～6的表内乘法",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g2-upper-p016.png",
+          "label": "关系依据",
+          "pdf_page": 21,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 16
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "3",
+          "chapter_title": "三 1～6的表内除法",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g2-upper-p041.png",
+          "label": "关系依据",
+          "pdf_page": 46,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 41
+        }
+      ],
+      "prerequisite": "g2-groups",
+      "rationale": "口诀基于相同组的乘法；求商还需辨认除法情境。",
+      "role": "reference_only",
+      "scope_change": false,
+      "strength": "soft",
+      "target": "g2-small-table"
+    },
+    {
+      "eligible_as_grading_basis": false,
+      "pages": [
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "2",
+          "chapter_title": "二 1～6的表内乘法",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g2-upper-p012.png",
+          "label": "关系依据",
+          "pdf_page": 17,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 12
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "5",
+          "chapter_title": "五 7～9的表内乘、除法",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g2-upper-p073.png",
+          "label": "关系依据",
+          "pdf_page": 78,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 73
+        },
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "5",
+          "chapter_title": "五 7～9的表内乘、除法",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g2-upper-p081.png",
+          "label": "关系依据",
+          "pdf_page": 86,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 81
+        }
+      ],
+      "prerequisite": "g2-groups",
+      "rationale": "较大口诀继续使用相同组与乘除关系，作为回顾线索。",
+      "role": "reference_only",
+      "scope_change": false,
+      "strength": "soft",
+      "target": "g2-large-table"
+    },
+    {
+      "eligible_as_grading_basis": false,
+      "pages": [
+        {
+          "book_id": "math-g2-upper",
+          "chapter_id": "5",
+          "chapter_title": "五 7～9的表内乘、除法",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g2-upper-p073.png",
+          "label": "关系依据",
+          "pdf_page": 78,
+          "pdf_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+          "precision": "selected_original_location",
+          "printed_page": 73
+        }
+      ],
+      "prerequisite": "g2-small-table",
+      "rationale": "本页明确从已学1～6口诀出发编7的口诀；不是作答准入门槛。",
+      "role": "reference_only",
+      "scope_change": false,
+      "strength": "soft",
+      "target": "g2-large-table"
+    },
+    {
+      "eligible_as_grading_basis": false,
+      "pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "1",
+          "chapter_title": "第一章 有理数",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p002.png",
+          "label": "关系依据",
+          "pdf_page": 9,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 2
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "chapter_title": "第二章 有理数的运算",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p027.png",
+          "label": "关系依据",
+          "pdf_page": 34,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 27
+        }
+      ],
+      "prerequisite": "g7-sign",
+      "rationale": "使用加法法则需要区分同号和异号。",
+      "role": "reference_only",
+      "scope_change": false,
+      "strength": "hard",
+      "target": "g7-add"
+    },
+    {
+      "eligible_as_grading_basis": false,
+      "pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "1",
+          "chapter_title": "第一章 有理数",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p013.png",
+          "label": "关系依据",
+          "pdf_page": 20,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 13
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "chapter_title": "第二章 有理数的运算",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p027.png",
+          "label": "关系依据",
+          "pdf_page": 34,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 27
+        }
+      ],
+      "prerequisite": "g7-absolute",
+      "rationale": "加法法则使用绝对值的和、差及大小比较。",
+      "role": "reference_only",
+      "scope_change": false,
+      "strength": "hard",
+      "target": "g7-add"
+    },
+    {
+      "eligible_as_grading_basis": false,
+      "pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "chapter_title": "第二章 有理数的运算",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p025.png",
+          "label": "关系依据",
+          "pdf_page": 32,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 25
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "chapter_title": "第二章 有理数的运算",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p031.png",
+          "label": "关系依据",
+          "pdf_page": 38,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 31
+        }
+      ],
+      "prerequisite": "g7-add",
+      "rationale": "减法法则把运算转成加法。",
+      "role": "reference_only",
+      "scope_change": false,
+      "strength": "hard",
+      "target": "g7-subtract"
+    },
+    {
+      "eligible_as_grading_basis": false,
+      "pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "1",
+          "chapter_title": "第一章 有理数",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p011.png",
+          "label": "关系依据",
+          "pdf_page": 18,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 11
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "chapter_title": "第二章 有理数的运算",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p031.png",
+          "label": "关系依据",
+          "pdf_page": 38,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 31
+        }
+      ],
+      "prerequisite": "g7-opposite",
+      "rationale": "转化时需要取减数的相反数。",
+      "role": "reference_only",
+      "scope_change": false,
+      "strength": "hard",
+      "target": "g7-subtract"
+    },
+    {
+      "eligible_as_grading_basis": false,
+      "pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "3",
+          "chapter_title": "第三章 代数式",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p069.png",
+          "label": "关系依据",
+          "pdf_page": 76,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 69
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p111.png",
+          "label": "关系依据",
+          "pdf_page": 118,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 111
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p113.png",
+          "label": "关系依据",
+          "pdf_page": 120,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 113
+        }
+      ],
+      "prerequisite": "g7-expression",
+      "rationale": "用含未知数的式子表达数量关系有助于列方程，作为回顾参考。",
+      "role": "reference_only",
+      "scope_change": false,
+      "strength": "soft",
+      "target": "g7-model"
+    },
+    {
+      "eligible_as_grading_basis": false,
+      "pages": [
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p116.png",
+          "label": "关系依据",
+          "pdf_page": 123,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 116
+        },
+        {
+          "book_id": "math-g7-upper",
+          "chapter_id": "5",
+          "chapter_title": "第五章 一元一次方程",
+          "eligible_as_grading_basis": false,
+          "image_asset": "assets/math-g7-upper-p128.png",
+          "label": "关系依据",
+          "pdf_page": 135,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "precision": "selected_original_location",
+          "printed_page": 128
+        }
+      ],
+      "prerequisite": "g7-equality",
+      "rationale": "方程的等价变形以等式性质为重要依据；等式同乘零仅保等值，不保原解约束。",
+      "role": "reference_only",
+      "scope_change": false,
+      "strength": "hard",
+      "target": "g7-solve"
+    }
+  ],
+  "provenance": {
+    "commit": "508748a2c8dddc1253100b2d10d91c9526903f67",
+    "descriptions": "locally authored; no upstream textbook prose",
+    "graph_excerpt_license": "CC BY-NC-SA 4.0",
+    "page_locations": "current_hash_bound_PEP_originals; local_selected_location_review_only",
+    "question_adaptations_license": "CC BY-NC 4.0",
+    "reference_metadata_snapshot_sha256": "97e652cf6f93456d06fe3178ac9c68b14bdd134cec73146fae1684ece36ffdf3",
+    "structure_reference": "dangjian/faststudy-knowledge",
+    "student_data": "synthetic only"
+  },
+  "question_bank_sha256": "38e0903024ed9c402a8c66e8b02a3afd3e304ad55913fbdb0572a16589d211ef",
+  "question_mappings": {
+    "family-word-cnm_012_q5-v1": {
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "concept_ids": [
+        "g7-subtract",
+        "g7-sign",
+        "g7-target"
+      ],
+      "difficulty": "easy",
+      "grade": 7,
+      "mapping_role": "direct",
+      "question_sha256": "39dd4af0990c0c8a1933ca45810a78b2d307f5b473196a1e63f5cd4472e77978",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_012_q5",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "6fb28d6b62641b637905f2758fcf26018a3347a630011db171c2be63a357a35a",
+      "title": "记录一天温差"
+    },
+    "family-word-cnm_045_q3-v1": {
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "concept_ids": [
+        "g7-model",
+        "g7-solve",
+        "g7-check"
+      ],
+      "difficulty": "easy",
+      "grade": 7,
+      "mapping_role": "direct",
+      "question_sha256": "8b2176d98c4c8277265c41e0dd5287768c00a3f3895a4e113fee3427402b492c",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_045_q3",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "6a1acc7f1ae3f0aef0f4097a11c5f5721d6712c1b37e63fd7addf2f7f73f5125",
+      "title": "班级人数"
+    },
+    "family-word-cnm_048_q2-v1": {
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "concept_ids": [
+        "g7-percent",
+        "g7-target"
+      ],
+      "difficulty": "easy",
+      "grade": 7,
+      "mapping_role": "supporting",
+      "question_sha256": "6b922d70b5ededa4324d344bf34253a8620a7fa46d5ca1b38435f9dc0b64287e",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_048_q2",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "acc7c6eaf5957035885125f15b51166cfb9342f46067ff13f41caf4d150df8f7",
+      "title": "商店打折"
+    },
+    "family-word-cnm_049_q2-v1": {
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "concept_ids": [
+        "g7-expression",
+        "g7-target"
+      ],
+      "difficulty": "easy",
+      "grade": 7,
+      "mapping_role": "supporting",
+      "question_sha256": "8d3a7c78234d25f95de844a89fe75de777f306387217727b2ef9676483b70985",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_049_q2",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "bf81de3657c5bc28ea490423212d472a83d16c3b0c0056f0577a2f33f5d1eebb",
+      "title": "通话费用"
+    },
+    "family-word-cnm_049_q3-v1": {
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "concept_ids": [
+        "g7-model",
+        "g7-expression",
+        "g7-solve",
+        "g7-check"
+      ],
+      "difficulty": "normal",
+      "grade": 7,
+      "mapping_role": "direct",
+      "question_sha256": "243daf8bfe56f84b6c1ed983389b59371b84043797989848684963511727d79b",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_049_q3",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "f1bed1558a7c5b12265d868279a6f3b1b5d5de1e6fa29802a10392ac7d3e6b27",
+      "title": "两种租车方案"
+    },
+    "family-word-cnm_p039_q1-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "concept_ids": [
+        "g2-groups",
+        "g2-small-table"
+      ],
+      "difficulty": "easy",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "1d8d8948ada5b6098f71fc07deeb2b60720f25b4e48d0e885b6cdf4f2eef5825",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_p039_q1",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "8e3be17158981d9840286deb0d60d4b3423144279d7c788e349d273e3f642127",
+      "title": "小剧场排座位"
+    },
+    "family-word-cnm_p039_q4-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "concept_ids": [
+        "g2-groups",
+        "g2-small-table",
+        "g2-target"
+      ],
+      "difficulty": "normal",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "fa0e85cc54babdc21196261621e8673fb6a148ad11042feec419f8fc1e65c01a",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_p039_q4",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "651214f0b76c6ef6316684da23316c88efe979bb49429634e9068b56415ac29d",
+      "title": "植树后再添两棵"
+    },
+    "family-word-cnm_p042_q1-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "concept_ids": [
+        "g2-groups",
+        "g2-large-table"
+      ],
+      "difficulty": "easy",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "14fd63869d196b26911935d8aeeb39d4b8dead7786ed09984bbc31197926e4e6",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_p042_q1",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "c19b736e48ee39f8fc2d816ab025206acf74d34258d63f0145eb5203ef99c9c1",
+      "title": "礼堂座位"
+    },
+    "family-word-cnm_p046_q4-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "concept_ids": [
+        "g2-pack",
+        "g2-small-table",
+        "g2-target"
+      ],
+      "difficulty": "normal",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "43cc5bb8d198959179f62429b1a6b5f61a562eea5ea397b3056434e7d29ff06b",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_p046_q4",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "0cffc1bb070d077308ef0e143a4f7dbc6b6bdf02429d9b5c09b8db6625c3b3fd",
+      "title": "还要装几袋球"
+    },
+    "family-word-cnm_p268_q3-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "concept_ids": [
+        "g2-share",
+        "g2-large-table",
+        "g2-target"
+      ],
+      "difficulty": "normal",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "7974cf45946b407dfa307bbbd51b467fd53f84f4b64e2d16f402b5bcc0780f21",
+      "source": {
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "id": "cnm_p268_q3",
+        "kind": "adapted",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "upstream_teacher_reviewed": false,
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json"
+      },
+      "stored_version_sha256": "03faa0ec2b3f7de6368fb048b67b55f66e8d8976c17a5ceab064b73cac07e2d8",
+      "title": "拿走一份气球"
+    },
+    "family-word-g2-leftovers-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "concept_ids": [
+        "g2-share",
+        "g2-target"
+      ],
+      "difficulty": "hard",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "52cd354dd73aed4b8a7e90c706465ca3ce80cbe366df4f3e28284329ed107d17",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "4c7fb524cbd1e6820a1ca91a2da57d804c6b84d5c18ff8c5d2a85849b6cc7996",
+      "title": "先留再分"
+    },
+    "family-word-g2-missing-seats-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "concept_ids": [
+        "g2-groups",
+        "g2-small-table",
+        "g2-target"
+      ],
+      "difficulty": "hard",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "6b560a6dca62203ed7353c37e50e192652b045a664438d0c77cb642137687084",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "08ae687c564419b75b6c183e36d7110884180137aac2d24c7163a852841d7a7f",
+      "title": "找出空座位"
+    },
+    "family-word-g2-recover-total-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "concept_ids": [
+        "g2-groups",
+        "g2-pack",
+        "g2-small-table"
+      ],
+      "difficulty": "hard",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "4f6a973cd5d4369f284424b452c75e9f6f4bc30c747b5e24c38850a9115d8576",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "2869b2257440d4685e3daf5972298e8f6a34c8797131a7d9a2039e952619867c",
+      "title": "找回总数"
+    },
+    "family-word-g2-same-pencils-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "concept_ids": [
+        "g2-groups",
+        "g2-small-table",
+        "g2-target"
+      ],
+      "difficulty": "hard",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "e077751e3d9e1f60fcbdb6b894abc9103a3099fb535e42bfd0ade17d81965cd1",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "952131b2cc9b3f6b1574151ea930888f1322f50d53fa1416913dd3c1d7643d28",
+      "title": "两种买法谁多"
+    },
+    "family-word-g2-share-1-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "concept_ids": [
+        "g2-share",
+        "g2-small-table"
+      ],
+      "difficulty": "easy",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "d25679a2b850d5ca8774a3e40d49583e56d619dac878f2b928ccce1b48ae1424",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "cc54148ca0e9ce9e614fdf1fba5453d4ecdeabacfaf115aaf441c7e85f9af44f",
+      "title": "把苹果平均分"
+    },
+    "family-word-g2-share-63-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "concept_ids": [
+        "g2-share",
+        "g2-large-table"
+      ],
+      "difficulty": "easy",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "fcff3907c9818dbbd6ac51e9af2d1859a14826e54e298fbb8e2c977c538ad0ec",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "3c52cea4965417ee87cb3d7250060a016524cb33a7999ef2cf28f86fb5b85920",
+      "title": "分发卡片"
+    },
+    "family-word-g2-two-prices-v1": {
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "concept_ids": [
+        "g2-large-table",
+        "g2-target"
+      ],
+      "difficulty": "hard",
+      "grade": 2,
+      "mapping_role": "direct",
+      "question_sha256": "c30c176e9a35ec782074159e189bade2a8ec3daa9b442b94b67fee65dbc29fc6",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "6835314c54e0a85997e4792240154359f725f025586eadc3b7308fc2d401af86",
+      "title": "买票找零"
+    },
+    "family-word-g7-robot-route-v1": {
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "concept_ids": [
+        "g7-add",
+        "g7-sign",
+        "g7-absolute",
+        "g7-target"
+      ],
+      "difficulty": "hard",
+      "grade": 7,
+      "mapping_role": "direct",
+      "question_sha256": "3bbfd4e83c65a98f249b94a40dec8f69774fc93e9860a36a03f0ba3dcb9d4867",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "c85dff487c2fae67a460233a23b42f78082327ec954210b9cfe7491a777acdc7",
+      "title": "机器人回到哪里"
+    },
+    "family-word-g7-sea-rise-v1": {
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "concept_ids": [
+        "g7-add",
+        "g7-sign",
+        "g7-target"
+      ],
+      "difficulty": "easy",
+      "grade": 7,
+      "mapping_role": "direct",
+      "question_sha256": "ff3de1b11c8954adc293fbeb099a3fde991b9ce8db1d7c62ac99e029e2fb1d48",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "7b7114ada18fa4cf2f0e5fda0bd9d78407db9cc6c3d87e04a0d21ec44d5b5c86",
+      "title": "潜水员上升"
+    },
+    "family-word-g7-storage-compare-v1": {
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "concept_ids": [
+        "g7-subtract",
+        "g7-target"
+      ],
+      "difficulty": "hard",
+      "grade": 7,
+      "mapping_role": "direct",
+      "question_sha256": "81dc429418b727fa6a2a85323d567531bff42687633e108b15b3f8af268f4e62",
+      "source": {
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "kind": "authored",
+        "license": "project-authored"
+      },
+      "stored_version_sha256": "a0b6b9c62e3940f7c7b3268bda925f804c61f94f3905ee4d2fd4ffd80550b52f",
+      "title": "两天的温度变化"
+    }
+  },
+  "reference_only": true,
+  "reviewed_locations_sha256": "a656380246f29d067d669b435377bb1736c87376c9c7c4076194de78f7b719e1",
+  "reviewed_sample_sha256": "3a9b9b8b29fb6533f880eea02e1c1890606d859227eadda27103611b34de8860",
+  "teacher_reviewed": false,
+  "version": "2026-11-06-original-location-v1"
+}

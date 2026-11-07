@@ -1,0 +1,195 @@
+{
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "evidence_kind": "planning_documents_and_readonly_inventory",
+  "status": "verified_documents_only_not_implemented_not_deployed",
+  "initial_goal_api": null,
+  "repository_goal_state": "blocked",
+  "artifacts": [
+    "docs/open-webui-reuse/README.md",
+    "docs/open-webui-reuse/01-PLANNING-2026-11-04.md",
+    "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+    "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+    "docs/open-webui-reuse/deployment-inputs-2026-11-04.json",
+    "docs/open-webui-reuse/work-plan-2026-11-04.json",
+    "docs/goal/HANDOFF-SESSION-2026-11-04-OPENWEBUI-REUSE.md"
+  ],
+  "user_confirmed": {
+    "url": "http://172.19.116.53:53001/",
+    "deployment": "local_docker_compose",
+    "login": "builtin_accounts",
+    "reuse_existing_webui": true
+  },
+  "readonly_inventory": {
+    "version": "0.12.5",
+    "container": "open-webui",
+    "compose_project": "open-webui",
+    "compose_service": "open-webui",
+    "host_port": 53001,
+    "container_port": 8080,
+    "network": "open-webui_default",
+    "state": "running",
+    "health": "healthy",
+    "metadata_file": "docs/open-webui-reuse/deployment-inputs-2026-11-04.json",
+    "source_auth_protocol_reviewed": true,
+    "real_session_auth_verified": false
+  },
+  "baselines_not_rerun": {
+    "focused_tests": 102,
+    "prior_full_suite": 101,
+    "current_learning_schema": 9,
+    "current_openapi_paths": 61,
+    "current_openapi_schemas": 22,
+    "p0_schema": 7
+  },
+  "boundaries": {
+    "production_config_or_runtime_mutated": false,
+    "containers_started_stopped_or_rebuilt": false,
+    "tools_or_network_mutated": false,
+    "formal_database_or_secret_store_read": false,
+    "forbidden_root_files_read_or_modified": false,
+    "real_model_or_ocr_calls": false,
+    "real_student_data_sent": false,
+    "tests_or_browser_or_p0_rerun": false,
+    "goal_created_updated_or_completed": false,
+    "task_or_qa_status_promoted": false,
+    "trial_started": false,
+    "committed_or_pushed": false
+  },
+  "preservation_baseline": "/tmp/dd-openwebui-reuse-planning-20261104-start.json",
+  "verification": {
+    "checked_at_utc": "2026-11-04 10:29:43 UTC",
+    "scope": "documents_inputs_dependencies_and_preservation_only",
+    "goal_consistency": {
+      "command": "python3 scripts/verify_goal_consistency.py",
+      "result": "passed",
+      "summary": "tasks=26, evidence paths=231, backlog task rows=26, QA matrix rows=17, manifest path references=24, release authorization boundaries intact"
+    },
+    "diff_check": {
+      "command": "git diff --check -- . ':!docker-compose.yml' ':!batch_ingest.py'",
+      "result": "passed"
+    },
+    "documentation_audit": {
+      "markdown_files": 13,
+      "local_links": 84,
+      "missing_links": [],
+      "json_files": 5,
+      "json_examples": 1,
+      "work_packages": 14,
+      "dependencies": "valid_acyclic",
+      "human_machine_plan": "IDs/dependencies/T/QA/effort_match",
+      "effort_totals": {
+        "W01_W10": {
+          "min": 12.5,
+          "max": 21
+        },
+        "W11_W13": {
+          "min": 3.5,
+          "max": 8
+        },
+        "W14_report": {
+          "min": 1,
+          "max": 2
+        },
+        "W14_observation_calendar_days": {
+          "min": 7,
+          "max": 14
+        }
+      },
+      "task_statuses": {
+        "verified": [
+          "T01",
+          "T02",
+          "T06",
+          "T07",
+          "T08",
+          "T11",
+          "T15",
+          "T17",
+          "T19"
+        ],
+        "implemented": [
+          "T03",
+          "T09",
+          "T10",
+          "T12",
+          "T13",
+          "T14",
+          "T16",
+          "T18",
+          "T20",
+          "T21",
+          "T22"
+        ],
+        "blocked": [
+          "T04",
+          "T05",
+          "T23"
+        ],
+        "deferred": [
+          "T24",
+          "T25",
+          "T26"
+        ]
+      },
+      "qa_statuses": {
+        "QA01": "verified-local",
+        "QA02": "verified-local",
+        "QA03": "partial",
+        "QA04": "partial",
+        "QA05": "verified-local",
+        "QA06": "partial",
+        "QA07": "partial",
+        "QA08": "verified-local",
+        "QA09": "verified-local",
+        "QA10": "verified-local",
+        "QA11": "verified-local",
+        "QA12": "verified-local",
+        "QA13": "verified-local",
+        "QA14": "partial",
+        "QA15": "partial",
+        "QA16": "deferred",
+        "QA17": "deferred"
+      },
+      "preservation": {
+        "baseline_files": 78,
+        "intentional_modified_existing": [
+          "docs/goal/BLOCKERS.md",
+          "docs/goal/DECISIONS.md",
+          "docs/goal/HANDOFF-SESSION-2026-11-04-PROVIDERS.md",
+          "docs/goal/HANDOFF.md",
+          "docs/goal/NEXT-TASK-PLAN-2026-11-04.md",
+          "docs/goal/STATUS.md",
+          "docs/goal/TASKS.json",
+          "docs/verification/qa-matrix-2026-11-03.md"
+        ],
+        "unchanged_existing_files": 70,
+        "missing_existing": [],
+        "unexpected_modified_existing": []
+      },
+      "candidate": {
+        "files": 29,
+        "source_mismatches": [],
+        "source_set_sha256": "974dc7e5dbd3b5fbee77b5559754a8c4b44004f092d36cac96371d6cc36ee335",
+        "archive_sha256": "b01a718aac46eacdebffcdb5729265a516d8e7e1f27aa99ae2cca563a3472230",
+        "image_digest": null
+      },
+      "default_source_contract_preserved": true,
+      "authorizations_preserved": true
+    },
+    "candidate_archive": {
+      "command": "python3 scripts/prepare_learning_release.py verify --destination learning_data/release-preparation/dd-v1-provider-auth-20261104",
+      "result": "passed",
+      "state": "local_source_candidate_not_built_not_deployed",
+      "schema_revision": 9,
+      "source_files": 29,
+      "source_set_sha256": "974dc7e5dbd3b5fbee77b5559754a8c4b44004f092d36cac96371d6cc36ee335",
+      "archive_sha256": "b01a718aac46eacdebffcdb5729265a516d8e7e1f27aa99ae2cca563a3472230",
+      "image_digest": null
+    },
+    "goal_api_final": null,
+    "implementation_started": false,
+    "production_deployed": false,
+    "prior_tests_reused_not_rerun": true
+  }
+}

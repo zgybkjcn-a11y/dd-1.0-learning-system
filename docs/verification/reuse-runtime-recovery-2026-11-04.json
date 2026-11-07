@@ -1,0 +1,685 @@
+{
+  "date": "2026-11-04",
+  "evidence_kind": "local_fixed_build_and_new_isolated_HTTP_TLS_synthetic_runtime_recovery",
+  "git_head": "0fa02712ceda049b14d4b556faef3fdb2fa985ed",
+  "current_source": {
+    "schema_revision": 11,
+    "openapi_paths": 66,
+    "openapi_schemas": 24,
+    "tools_version": "1.1.0"
+  },
+  "work_package_statuses": {
+    "W01": "inputs_partially_fixed",
+    "W02": "local_implemented_synthetic_verified",
+    "W03": "local_implemented_synthetic_verified",
+    "W04": "local_implemented_synthetic_verified",
+    "W05": "local_implemented_synthetic_verified",
+    "W06": "local_implemented_synthetic_verified",
+    "W07": "local_image_configuration_verified_formal_inputs_pending",
+    "W08": "local_configuration_monitoring_verified_external_controls_pending",
+    "W09": "isolated_learning_restore_verified_formal_architecture_pending",
+    "W10": "isolated_http_tls_synthetic_verified_native_browser_pending",
+    "W11": "planned",
+    "W12": "planned",
+    "W13": "planned",
+    "W14": "planned"
+  },
+  "authorization": {
+    "single_executor": true,
+    "production_change": false,
+    "real_model_ocr_calls": 0,
+    "real_student_data_export": false,
+    "goal_created_updated_completed": false,
+    "git_reset_checkout_clean_commit_push": false
+  },
+  "inputs": {
+    "https_target": "https://172.19.116.53",
+    "existing_http_url": "http://172.19.116.53:53001/",
+    "formal_inputs_unchanged": true
+  },
+  "source_candidate": {
+    "directory": "learning_data/release-preparation/dd-v1-reuse-runtime-20261104-final",
+    "source_profile": "reuse-runtime-v1",
+    "files": 50,
+    "source_set_sha256": "5e5dae5d58c0d04b8e7f91632e2eb6ececad7765163dd89df5aae6f404d8bd20",
+    "archive_sha256": "c0caf5fd20e1a92943b6ae3b51cf810c72a8d0fbc1ab11882580f5f49b40e7bd",
+    "image_digest": null,
+    "matches_current_whitelist": true
+  },
+  "build": {
+    "source_set_sha256": "5e5dae5d58c0d04b8e7f91632e2eb6ececad7765163dd89df5aae6f404d8bd20",
+    "archive_sha256": "c0caf5fd20e1a92943b6ae3b51cf810c72a8d0fbc1ab11882580f5f49b40e7bd",
+    "image_id": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+    "image_tag": "dd-learning:reuse-runtime-20261104-final",
+    "registry_image_digest": null,
+    "no_cache": true,
+    "dependency_hashes_required": true,
+    "base_image": "python@sha256:b18b261e1b4974b4f321451ad5251ded85abb22c2b8b262da527dda1d031ab30",
+    "source_files": 50,
+    "published": false,
+    "deployed_to_production": false,
+    "dependency_wheel_sha256": {
+      "anyio-4.16.0-py3-none-any.whl": "c66ae634e0b8228396b801741beb3294326d4b6102f7bba4041c0dfb58c29026",
+      "python_multipart-0.0.26-py3-none-any.whl": "c0b169f8c4484c13b0dcf2ef0ec3a4adb255c4b7d18d8e420477d2b1dd03f185",
+      "click-8.5.0-py3-none-any.whl": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "h11-0.16.0-py3-none-any.whl": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86",
+      "pydantic-2.12.5-py3-none-any.whl": "e561593fccf61e8a20fc46dfc2dfe075b8be7d0188df33f221ad1f0139180f9d",
+      "starlette-1.10.0-py3-none-any.whl": "478c0ab3b4ced6e82719849c118fa406f0278a3499c1a898cd15cd31bdc38ce4",
+      "pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "eceb81a8d74f9267ef4081e246ffd6d129da5d87e37a77c9bde550cb04870c1c",
+      "annotated_doc-0.0.5-py3-none-any.whl": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101",
+      "typing_inspection-0.4.5-py3-none-any.whl": "bc210535442b39e1bf2805e0c7a17dfd6a4ace760c84c7f7d16245d23a6b1c39",
+      "pymupdf-1.27.2.2-cp310-abi3-manylinux_2_28_x86_64.whl": "892698c9768457eb0991c102c96a856c0a7062539371df5e6bee0816f3ef498e",
+      "uvicorn-0.44.0-py3-none-any.whl": "ce937c99a2cc70279556967274414c087888e8cec9f9c94644dfca11bd3ced89",
+      "fastapi-0.136.1-py3-none-any.whl": "a6e9d7eeada96c93a4d69cb03836b44fa34e2854accb7244a1ece36cd4781c3f",
+      "annotated_types-0.8.0-py3-none-any.whl": "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0",
+      "idna-3.20-py3-none-any.whl": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "pillow-12.1.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl": "7aac39bcf8d4770d089588a2e1dd111cbaa42df5a94be3114222057d68336bd0",
+      "typing_extensions-4.16.0-py3-none-any.whl": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+    },
+    "build_network": "none",
+    "base_archive_sha256": "ec1b43837cdb89f87d42297fb12f3393c0ecc30e878106df0e97d5e45d870bed",
+    "base_source": "local_OCI_export_checked_against_recorded_registry_digest"
+  },
+  "build_evidence": "learning_data/verification/w07-w10-20261104/build-final/build.json",
+  "preserved_candidates": [
+    {
+      "schema_revision": 9,
+      "files": 29,
+      "source_set_sha256": "974dc7e5dbd3b5fbee77b5559754a8c4b44004f092d36cac96371d6cc36ee335",
+      "archive_sha256": "b01a718aac46eacdebffcdb5729265a516d8e7e1f27aa99ae2cca563a3472230",
+      "image_digest": null,
+      "new_verifier_compatible": true
+    },
+    {
+      "schema_revision": 10,
+      "files": 35,
+      "source_set_sha256": "0a5352c5d9bfb22f39a2015c054442c930067ed2d5fcad9891b1316f4a598b85",
+      "archive_sha256": "2b6655c58d7a5af50e8b9712f7268baab50913fc91bf7c36298b0b0a5042a17c",
+      "image_digest": null,
+      "new_verifier_compatible": true
+    },
+    {
+      "directory": "learning_data/release-preparation/dd-v1-workbench-tools-review-20261104",
+      "schema_revision": 11,
+      "files": 38,
+      "source_set_sha256": "45cdc05d601ccfadb7bccd90c2eba253f30608759d2fd1838ee4056bb99c4522",
+      "archive_sha256": "97fbac6ee46f8375797e5b41119e43c8fb506e7a8bc1c5141c562b8946e3a161",
+      "image_digest": null
+    }
+  ],
+  "focused_tests": {
+    "result": "56 passed in 19.28s",
+    "log": "learning_data/verification/w07-w10-20261104/pytest-final.txt",
+    "full_suite_run": false,
+    "p0_rerun": false,
+    "four_format_rerun": false,
+    "earlier_19_and_3_overlap_and_are_not_added": true
+  },
+  "isolated_runtime": {
+    "passed": true,
+    "schema_revision": 11,
+    "real_model_ocr_calls": 0,
+    "http_mode": "actual_TLS_proxy_gateway_API_and_isolated_WebUI_cookie_with_synthetic_account",
+    "formal_IP_certificate_trust": false,
+    "native_model_callback": false,
+    "manual_idempotency": true,
+    "representative_PNG_uploaded": true,
+    "review_freeze_grade_revoke": true,
+    "monitor": {
+      "status": "ok",
+      "alerts": [],
+      "chat_costs_covered": false,
+      "student_payload_included": false
+    },
+    "runtime_networks_internal": {
+      "learning-internal": true,
+      "webui-upstream": true
+    }
+  },
+  "runtime_boundaries": {
+    "project": "dd-learning-reuse-20261104-final",
+    "services": [
+      {
+        "service": "learning-worker",
+        "image": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+        "ports_published": false,
+        "networks": [
+          "dd-learning-reuse-20261104-final_learning-internal"
+        ],
+        "state": "running"
+      },
+      {
+        "service": "learning-api",
+        "image": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+        "ports_published": false,
+        "networks": [
+          "dd-learning-reuse-20261104-final_learning-internal"
+        ],
+        "state": "running"
+      },
+      {
+        "service": "learning-gateway",
+        "image": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+        "ports_published": false,
+        "networks": [
+          "dd-learning-reuse-20261104-final_learning-internal",
+          "dd-learning-reuse-20261104-final_webui-upstream"
+        ],
+        "state": "running"
+      },
+      {
+        "service": "learning-proxy",
+        "image": "sha256:1d13701a5f9f3fb01aaa88cef2344d65b6b5bf6b7d9fa4cf0dca557a8d7702ba",
+        "ports_published": false,
+        "networks": [
+          "dd-learning-reuse-20261104-final_learning-internal",
+          "dd-learning-reuse-20261104-final_webui-upstream"
+        ],
+        "state": "running"
+      },
+      {
+        "service": "open-webui",
+        "image": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
+        "ports_published": false,
+        "networks": [
+          "dd-learning-reuse-20261104-final_learning-internal",
+          "dd-learning-reuse-20261104-final_webui-upstream"
+        ],
+        "state": "running"
+      }
+    ],
+    "formal_network_connected": false
+  },
+  "image_and_contract": {
+    "image_learning_files_matched": 30,
+    "contract_paths": 66,
+    "contract_schemas": 24,
+    "correct_frozen_grade_count": 1
+  },
+  "native_tools": {
+    "register": {
+      "tool_id": "dd_learning_v1",
+      "tool_sha256": "f6cebcc795bb7372576fcb25fc8936fafc981e71fdc6fc2bee24e2ca4f872cda",
+      "model_count": 0,
+      "registration": "current_source_in_fresh_isolated_instance"
+    },
+    "load": {
+      "tool_sha256": "f6cebcc795bb7372576fcb25fc8936fafc981e71fdc6fc2bee24e2ca4f872cda",
+      "public_method_count": 11,
+      "native_loader": "passed_current_source",
+      "authorized_learner_count": 1,
+      "host_identity_and_user_valves": "passed_isolated_synthetic_identity",
+      "real_model_tool_call": "not_executed",
+      "trusted_browser_callback": "not_executed"
+    },
+    "scope": {
+      "learner_count_projection": true,
+      "shared_context_reads": true,
+      "mistakes_and_progress_minimal_projection": true,
+      "formal_tool_sharing": false,
+      "model_call": false,
+      "native_browser_callback": false,
+      "probe_sha256": "cd8be5cc39931f631cd648d63c421431115c3d6d0fb6cfe9e637041753378d9a",
+      "protocol_source_sha256": "b704c1d01da2da3318fd10adc97bc3acbe267b5198bc3c7bd49efef71daa4f83"
+    }
+  },
+  "recovery": {
+    "verification": {
+      "status": "passed",
+      "errors": [],
+      "scope": "isolated_learning_database_and_assets",
+      "webui_database_backed_up": false,
+      "formal_RPO_RTO_verified": false
+    },
+    "before": {
+      "integrity": "ok",
+      "foreign_key_errors": 0,
+      "missing_assets": 0,
+      "schema_revision": 11,
+      "business_fingerprints": {
+        "variant_reviews": {
+          "count": 1,
+          "sha256": "a8e195815d19a0636eeb7961747e9ab9642110094b4886df5d5b79911e83472d"
+        },
+        "variant_revocations": {
+          "count": 1,
+          "sha256": "7fb4b89a4e196340a9ea2a73963aeff0379738dc683c60a587d7fe8b68302c32"
+        },
+        "attempts": {
+          "count": 1,
+          "sha256": "66c175ad575c14fea08d92c50592ad2b7a6899715677473f2fd9f650a7051114"
+        },
+        "grade_versions": {
+          "count": 1,
+          "sha256": "cd6fa1cf692d1f0f848a5254ebea7f396cff6c800916f4774951b14f72613ecc"
+        },
+        "review_events": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "test_sessions": {
+          "count": 2,
+          "sha256": "b55a78c61c4ba8277e6a214ce95ac850f66ab975ac93f21217144f19f3bad2b5"
+        },
+        "test_items": {
+          "count": 2,
+          "sha256": "a03133d92a87be2987176479fa2d6652f5b4dfce23557243375297a6533fdee5"
+        },
+        "learning_events": {
+          "count": 1,
+          "sha256": "a7f2878464027441e8e4817d68439932872b8ba8d21490d13e9d38b7cdc7b0bc"
+        },
+        "identity_bindings": {
+          "count": 1,
+          "sha256": "8455dfd93af5b04dec12576cfb5a532e08d4d5b78472248353a1aa18226b4e38"
+        },
+        "learner_access": {
+          "count": 1,
+          "sha256": "fe96bff484d2a36d79a0a88c937e4f8898a012a1332dd435821c468a29c81942"
+        },
+        "accounts": {
+          "count": 1,
+          "sha256": "678048e94002c4c05aa5e056731386bfc8c4e25a1eb01742054a5d0f33840e1c"
+        },
+        "learners": {
+          "count": 1,
+          "sha256": "c013b2aec98d896db642eb02a43b085f6098a04408ee9ff62aa1473754e274ac"
+        },
+        "source_documents": {
+          "count": 1,
+          "sha256": "e4299866e15de5676d912accde65b1cae6bf8e0893aa3b1fa6cfb20aa6431fef"
+        },
+        "source_pages": {
+          "count": 1,
+          "sha256": "62aec65ff36c5849adb5aff12c1a8ca81d475c95da232e51db0f6707d9114fde"
+        },
+        "import_items": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "import_judgments": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "mistake_entries": {
+          "count": 1,
+          "sha256": "cc2911cbc7a64291526e09e223f04d3cce6df425562dda52b10b34f2ae2d1bf7"
+        },
+        "mistake_sources": {
+          "count": 1,
+          "sha256": "a6955bbd928116683e44a2b873611af249bd36aa24db03a08cb065b1bb1f9330"
+        },
+        "review_requests": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "idempotency_records": {
+          "count": 4,
+          "sha256": "44dc572ffb3a44ddcef7890c605b7f9a3b4b028e7aed29ff5bcc99871b02e864"
+        },
+        "published_versions": {
+          "count": 1,
+          "sha256": "b7ad44cf36fa3eaddd90be9b9ca34c5e4b80a7fc7af03634d9c9653949efc739"
+        }
+      },
+      "provider_call_count": 1,
+      "provider_reserved_cost_micros": 17,
+      "provider_reconciled_cost_micros": 0,
+      "active_browser_sessions": 1,
+      "selected_contexts": 1,
+      "unconsumed_challenges": 1,
+      "reserved_calls": 1,
+      "unknown_calls": 0,
+      "provider_paused": false
+    },
+    "after": {
+      "integrity": "ok",
+      "foreign_key_errors": 0,
+      "missing_assets": 0,
+      "schema_revision": 11,
+      "business_fingerprints": {
+        "variant_reviews": {
+          "count": 1,
+          "sha256": "a8e195815d19a0636eeb7961747e9ab9642110094b4886df5d5b79911e83472d"
+        },
+        "variant_revocations": {
+          "count": 1,
+          "sha256": "7fb4b89a4e196340a9ea2a73963aeff0379738dc683c60a587d7fe8b68302c32"
+        },
+        "attempts": {
+          "count": 1,
+          "sha256": "66c175ad575c14fea08d92c50592ad2b7a6899715677473f2fd9f650a7051114"
+        },
+        "grade_versions": {
+          "count": 1,
+          "sha256": "cd6fa1cf692d1f0f848a5254ebea7f396cff6c800916f4774951b14f72613ecc"
+        },
+        "review_events": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "test_sessions": {
+          "count": 2,
+          "sha256": "b55a78c61c4ba8277e6a214ce95ac850f66ab975ac93f21217144f19f3bad2b5"
+        },
+        "test_items": {
+          "count": 2,
+          "sha256": "a03133d92a87be2987176479fa2d6652f5b4dfce23557243375297a6533fdee5"
+        },
+        "learning_events": {
+          "count": 1,
+          "sha256": "a7f2878464027441e8e4817d68439932872b8ba8d21490d13e9d38b7cdc7b0bc"
+        },
+        "identity_bindings": {
+          "count": 1,
+          "sha256": "8455dfd93af5b04dec12576cfb5a532e08d4d5b78472248353a1aa18226b4e38"
+        },
+        "learner_access": {
+          "count": 1,
+          "sha256": "fe96bff484d2a36d79a0a88c937e4f8898a012a1332dd435821c468a29c81942"
+        },
+        "accounts": {
+          "count": 1,
+          "sha256": "678048e94002c4c05aa5e056731386bfc8c4e25a1eb01742054a5d0f33840e1c"
+        },
+        "learners": {
+          "count": 1,
+          "sha256": "c013b2aec98d896db642eb02a43b085f6098a04408ee9ff62aa1473754e274ac"
+        },
+        "source_documents": {
+          "count": 1,
+          "sha256": "e4299866e15de5676d912accde65b1cae6bf8e0893aa3b1fa6cfb20aa6431fef"
+        },
+        "source_pages": {
+          "count": 1,
+          "sha256": "62aec65ff36c5849adb5aff12c1a8ca81d475c95da232e51db0f6707d9114fde"
+        },
+        "import_items": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "import_judgments": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "mistake_entries": {
+          "count": 1,
+          "sha256": "cc2911cbc7a64291526e09e223f04d3cce6df425562dda52b10b34f2ae2d1bf7"
+        },
+        "mistake_sources": {
+          "count": 1,
+          "sha256": "a6955bbd928116683e44a2b873611af249bd36aa24db03a08cb065b1bb1f9330"
+        },
+        "review_requests": {
+          "count": 0,
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        "idempotency_records": {
+          "count": 4,
+          "sha256": "44dc572ffb3a44ddcef7890c605b7f9a3b4b028e7aed29ff5bcc99871b02e864"
+        },
+        "published_versions": {
+          "count": 1,
+          "sha256": "b7ad44cf36fa3eaddd90be9b9ca34c5e4b80a7fc7af03634d9c9653949efc739"
+        }
+      },
+      "provider_call_count": 1,
+      "provider_reserved_cost_micros": 17,
+      "provider_reconciled_cost_micros": 0,
+      "active_browser_sessions": 0,
+      "selected_contexts": 0,
+      "unconsumed_challenges": 0,
+      "reserved_calls": 0,
+      "unknown_calls": 1,
+      "provider_paused": true
+    },
+    "readonly_source_hashes_unchanged": true,
+    "WAL_replayed_in_verified_copy": true,
+    "running_restored_api": {
+      "old_cookie_rejected": true,
+      "fresh_login_and_selection": true,
+      "frozen_grade_read_after_restore": true
+    },
+    "writers_stopped_metadata_checked": true,
+    "source_volume_preserved": true
+  },
+  "recovery_scope_limit": "learning SQLite/WAL/attachments/exports; formal WebUI/secret stores/external services and RPO/RTO excluded",
+  "stopped_projects": {
+    "dd-learning-reuse-20261104-b": [
+      {
+        "service": "learning-worker",
+        "status": "exited",
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "service": "learning-gateway",
+        "status": "exited",
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "service": "learning-proxy",
+        "status": "exited",
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "service": "learning-api",
+        "status": "exited",
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "service": "open-webui",
+        "status": "exited",
+        "exit_code": 137,
+        "oom_killed": false
+      }
+    ],
+    "dd-learning-reuse-20261104-final": [
+      {
+        "service": "learning-worker",
+        "status": "exited",
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "service": "learning-api",
+        "status": "exited",
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "service": "learning-gateway",
+        "status": "exited",
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "service": "learning-proxy",
+        "status": "exited",
+        "exit_code": 0,
+        "oom_killed": false
+      },
+      {
+        "service": "open-webui",
+        "status": "exited",
+        "exit_code": 137,
+        "oom_killed": false
+      }
+    ]
+  },
+  "volumes_and_local_images_preserved": true,
+  "stop_limitation": "New isolated WebUI exited 137 after Compose stop, OOMKilled=false; graceful WebUI shutdown timing not validated. API/worker/gateway/proxy exited 0.",
+  "formal_gates_verified": {
+    "IP_SAN_certificate_and_client_trust": false,
+    "formal_accounts_and_binding_manifest": false,
+    "production_network_reconnect": false,
+    "formal_Tools_sharing": false,
+    "model_final_native_browser_callback": false,
+    "real_provider_billing_quality": false,
+    "full_architecture_RPO_RTO": false,
+    "trial": false
+  },
+  "cost_boundaries": {
+    "defaults_mock_egress_disabled_learning_budgets_zero": true,
+    "learning_ledger_covers_chat": false,
+    "OCR_and_learning_share_existing_global_provider_budget": true,
+    "synthetic_pending_hold_micros": 17,
+    "real_invoices_recorded": 0
+  },
+  "corrections_and_attempts": [
+    {
+      "candidate": "a",
+      "reason": "registry metadata resolver stalled; task build stopped; switched to recorded-base OCI input"
+    },
+    {
+      "candidate": "b",
+      "reason": "nginx read-only temp directories and representative document upload probe path corrected; debug runtime retained and stopped"
+    },
+    {
+      "candidate": "c",
+      "reason": "read-only WAL source required verified writable inspection copy; no source mutation"
+    },
+    {
+      "candidate": "d",
+      "reason": "release README final boundary changed; resealed final candidate"
+    },
+    {
+      "probe": "native loader",
+      "reason": "historical learners items assertion updated to current count-only minimal projection; service code unchanged"
+    }
+  ],
+  "intermediate_candidates_preserved": [
+    "dd-v1-reuse-runtime-20261104-a",
+    "dd-v1-reuse-runtime-20261104-b",
+    "dd-v1-reuse-runtime-20261104-c",
+    "dd-v1-reuse-runtime-20261104-d"
+  ],
+  "goal_api": null,
+  "repository_goal_status": "blocked",
+  "task_qa_statuses_promoted": false,
+  "task_statuses": {
+    "T01": "verified",
+    "T02": "verified",
+    "T03": "implemented",
+    "T04": "blocked",
+    "T05": "blocked",
+    "T06": "verified",
+    "T07": "verified",
+    "T08": "verified",
+    "T09": "implemented",
+    "T10": "implemented",
+    "T11": "verified",
+    "T12": "implemented",
+    "T13": "implemented",
+    "T14": "implemented",
+    "T15": "verified",
+    "T16": "implemented",
+    "T17": "verified",
+    "T18": "implemented",
+    "T19": "verified",
+    "T20": "implemented",
+    "T21": "implemented",
+    "T22": "implemented",
+    "T23": "blocked",
+    "T24": "deferred",
+    "T25": "deferred",
+    "T26": "deferred"
+  },
+  "qa_statuses": {
+    "QA01": "verified-local",
+    "QA02": "verified-local",
+    "QA03": "partial",
+    "QA04": "partial",
+    "QA05": "verified-local",
+    "QA06": "partial",
+    "QA07": "partial",
+    "QA08": "verified-local",
+    "QA09": "verified-local",
+    "QA10": "verified-local",
+    "QA11": "verified-local",
+    "QA12": "verified-local",
+    "QA13": "verified-local",
+    "QA14": "partial",
+    "QA15": "partial",
+    "QA16": "deferred",
+    "QA17": "deferred"
+  },
+  "remaining": [
+    "formal TLS/IP stability/firewall/legacy HTTP policy",
+    "formal issuer/identity/operator/learning database inputs",
+    "chat budget/egress/monitoring and three-channel real billing",
+    "full architecture restore/capacity and RPO/RTO",
+    "isolated WebUI graceful shutdown timing",
+    "formal Tools sharing/model native browser callback",
+    "approved provider calls/data and human-quality inputs",
+    "W13 release/cutover authorization",
+    "W14 participant consent and 7-14 actual calendar day trial"
+  ],
+  "final_audit": {
+    "baseline_files": 122,
+    "preserved_files": 102,
+    "intentionally_modified_files": [
+      "docs/README.md",
+      "docs/goal/BLOCKERS.md",
+      "docs/goal/DECISIONS.md",
+      "docs/goal/HANDOFF-SESSION-2026-11-04-SESSION-SUMMARY.md",
+      "docs/goal/HANDOFF.md",
+      "docs/goal/RESUME-SESSION-2026-11-04.txt",
+      "docs/goal/STATUS.md",
+      "docs/goal/TASKS.json",
+      "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+      "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+      "docs/open-webui-reuse/README.md",
+      "docs/open-webui-reuse/deployment-inputs-2026-11-04.json",
+      "docs/open-webui-reuse/work-plan-2026-11-04.json",
+      "docs/releases/README.md",
+      "docs/verification/qa-matrix-2026-11-03.md",
+      "learning_service/backup.py",
+      "learning_service/config.py",
+      "learning_service/login_gateway.py",
+      "scripts/prepare_learning_release.py",
+      "tests/test_learning_release.py"
+    ],
+    "missing": [],
+    "unexpected_changes": [],
+    "head_unchanged": true,
+    "new_or_newly_modified_files": [
+      "deploy/open-webui-reuse/Dockerfile",
+      "deploy/open-webui-reuse/compose.learning-sidecar.yml",
+      "deploy/open-webui-reuse/nginx.learning.conf",
+      "deploy/open-webui-reuse/requirements.lock",
+      "deploy/open-webui-reuse/runtime.template.env",
+      "docs/goal/HANDOFF-SESSION-2026-11-04-W07-W10.md",
+      "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+      "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+      "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+      "learning_service/operations.py",
+      "learning_service/secret_files.py",
+      "scripts/build_learning_candidate.py",
+      "scripts/check_reuse_compose.py",
+      "scripts/probe_reuse_runtime.py",
+      "scripts/probe_reuse_runtime_tools.py",
+      "scripts/reconnect_learning_network.py",
+      "scripts/reuse_runtime_http_probe.py",
+      "tests/test_reuse_operations.py"
+    ],
+    "current_dirty_file_count": 140
+  },
+  "checks": {
+    "markdown_files": 14,
+    "local_links_checked": 159,
+    "missing_links": [],
+    "json_files_parsed": 4,
+    "python_files_compiled": 14,
+    "work_packages": 14,
+    "dependencies_acyclic": true,
+    "task_statuses_unchanged": true,
+    "qa_statuses_unchanged": true,
+    "final_candidate_files_matched": 50,
+    "goal_consistency": "tasks=26, evidence paths=335, backlog task rows=26, QA matrix rows=17, manifest path references=24, release authorization boundaries intact",
+    "diff_check": true
+  }
+}

@@ -1,0 +1,22 @@
+继续 DD-1.0 家庭学习与 Open WebUI 主站伴学。工作目录：/home/deniskorfei/projects/open-webui。
+
+先读取：
+1. docs/goal/HANDOFF-SESSION-2026-11-07-SESSION-SUMMARY.md（最新总交接，优先于旧交接里的状态）。
+2. docs/goal/TEXTBOOK-POLICY.md。
+3. docs/open-webui-reuse/main-chat-tools.md 和 docs/verification/main-chat-study-2026-11-07.md。
+4. docs/open-webui-reuse/scenarios-adoption.md、docs/verification/main-study-knowledge-2026-11-07.md、docs/verification/main-study-classroom-2026-11-07.md。
+5. 需要处理教材时，再读 docs/verification/math-g2-lower-offline-ocr-2026-11-06.md。
+
+只读核对 git status --short --branch、当前 Compose ps、Open WebUI 状态和 get_goal。不要创建、更新或完成 Goal。
+
+当前 Compose 是 learning_data/deployments/family-math-20261105/compose-main-study-20261106.json；家庭服务镜像 sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0。当前静态快照 main-study-20261106/assets/chat-20261107/。主站 https://172.19.116.53/，家庭登录 https://172.19.116.53/learning/auth/login。
+
+家长已绑定、两个档案可用；之前 LEARNING_IDENTITY_MISMATCH 重新进入后用户确认恢复。主站私有六方法“课本伴学（只读）”（dd_family_study_readonly_v1）已正式注册，不要重复安装；旧十五方法适配器未注册。主站已支持家庭/学科入口、书章同步、分步课堂、离线 HTML、知识路线/关联练习和教材检索/原页引用/快捷草稿。教材“检错”已明确为“检索”。真实模型效果仍待家长体验；不要自行发送真实模型请求。
+
+接下来先消化最新体验反馈；如没有新故障，按总交接第 7 节推进后续小样本：等式性质交互演示、已有概念的可视化知识路线、章节复习 PDF。沿用现有学习服务和主站入口，在已有授权内先完成可逆候选及隔离验证。这三项此前仅提出建议，尚未实现或上线；不要把建议当成已完成，也不要据此整套安装新的平台。保留现有功能，按实际变更做必要测试；已有通过且未变化的测试不重复跑。
+
+题库仍为 74 道（29 道 cn-math-taxonomy 署名改编）；精确映射仅 20 题/18 概念，二上第二/三/五单元和七上第二/五章局部覆盖，其他学科主要是阅读问题串。faststudy-knowledge 固定 commit 508748a2c8dddc1253100b2d10d91c9526903f67，代码 MIT、图谱 CC BY-NC-SA 4.0、教材版权归出版社且没有题库。新引入的组件需按选定版本核查来源与许可，不能直接复制未核验教材正文或写生产向量库。
+
+二下数学 106 页已完成本机离线 OCR，完整页双重审核通过数仍为 0。下一步是逐页分别核对转写与数学内容，不是重新识别；通过前不得入检索/生产向量库或用于出题判分。二下语文已用原生 PDF 作阅读参考，无需继续旧图片 OCR。
+
+持续约束：保留所有未提交改动；不要 reset/checkout/clean/commit/push，不重建卷、不重绑、不用旧 Compose 覆盖当前部署。不读改根 docker-compose.yml、batch_ingest.py、环境秘密、无关聊天/账号/模型配置。正式 WebUI data 仅有此前已完成的目标 Tool 注册窄范围例外，不是一般数据库读写授权。不调用真实模型/embedding、付费或外部 OCR，不外发学生资料，仅按已有授权对公开教材做本机离线 OCR。不写 Goal。

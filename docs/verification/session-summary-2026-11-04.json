@@ -1,0 +1,75 @@
+{
+  "evidence_kind": "documentation_handoff_summary_readonly_audit",
+  "date": "2026-11-04",
+  "latest_handoff": "docs/goal/HANDOFF-SESSION-2026-11-04-SESSION-SUMMARY.md",
+  "resume_instructions": "docs/goal/RESUME-SESSION-2026-11-04.txt",
+  "goal_api": null,
+  "repository_goal_status": "blocked",
+  "source_schema_revision": 10,
+  "openapi_paths": 61,
+  "openapi_schemas": 22,
+  "work_packages": {
+    "W01": "inputs_partially_fixed",
+    "W02": "local_implemented_synthetic_verified",
+    "W03": "local_implemented_synthetic_verified",
+    "W04": "partially_implemented",
+    "W05_W14": "planned"
+  },
+  "test_facts_reused_from_prior_engineering": {
+    "focused_passed": 74,
+    "prior_provider_focused_passed": 102,
+    "older_full_baseline_passed": 101,
+    "chromium_widths": [
+      390,
+      1280
+    ],
+    "real_acceptance": false,
+    "redirect_follow_emulated": true
+  },
+  "current_source_candidate": {
+    "source_set_sha256": "0a5352c5d9bfb22f39a2015c054442c930067ed2d5fcad9891b1316f4a598b85",
+    "archive_sha256": "2b6655c58d7a5af50e8b9712f7268baab50913fc91bf7c36298b0b0a5042a17c",
+    "source_files": 35,
+    "source_matches": true,
+    "image_digest": null
+  },
+  "change_preservation": {
+    "baseline_files": 105,
+    "unchanged": 100,
+    "intended_document_edits": [
+      "docs/README.md",
+      "docs/goal/HANDOFF.md",
+      "docs/goal/STATUS.md",
+      "docs/goal/HANDOFF-SESSION-2026-11-04-REUSE-ENGINEERING.md",
+      "docs/open-webui-reuse/README.md"
+    ],
+    "missing": [],
+    "unexpected_edits": []
+  },
+  "resume_prompt_matches_embedded_text": true,
+  "this_summary_actions": {
+    "pytest_run": false,
+    "browser_probe_run": false,
+    "four_format_or_p0_rerun": false,
+    "business_code_or_tests_changed": false,
+    "production_or_container_network_changes": false,
+    "real_model_ocr_calls": false,
+    "real_student_data_export": false,
+    "forbidden_root_files_read_or_modified": false,
+    "formal_webui_database_or_secrets_read": false,
+    "goal_mutated": false,
+    "task_or_qa_statuses_changed": false,
+    "source_candidate_modified": false,
+    "reset_checkout_clean_commit_push": false,
+    "single_executor": true
+  },
+  "verification": {
+    "document_links": {
+      "markdown_files": 5,
+      "local_links_checked": 57,
+      "missing": []
+    },
+    "task_consistency": "tasks=26, evidence paths=267, backlog task rows=26, QA matrix rows=17, manifest path references=24, release authorization boundaries intact",
+    "diff_check": true
+  }
+}

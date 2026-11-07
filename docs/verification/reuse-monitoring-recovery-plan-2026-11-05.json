@@ -1,0 +1,565 @@
+{
+  "date": "2026-11-05",
+  "started_date": "2026-11-04",
+  "evidence_kind": "local_periodic_monitoring_and_full_recovery_design_only",
+  "git_head": "0fa02712ceda049b14d4b556faef3fdb2fa985ed",
+  "project": "dd-learning-reuse-monitor-20261104",
+  "focused_tests": {
+    "command": "python -m pytest -q tests/test_learning_monitor.py",
+    "result": "21 passed in 1.48s",
+    "prior_suites_rerun": false,
+    "p0_rerun": false,
+    "four_format_rerun": false
+  },
+  "sources": {
+    "readonly-mount-attempt": {
+      "path": "learning_data/verification/reuse-monitor-20261104/readonly-mount-attempt.json",
+      "sha256": "5f31631946e637aaf4403dbbef7c38b2b3310f60b5e2d4e2bfc9ca193807a303",
+      "result": {
+        "status": "failed",
+        "reason": "SQLite mode=ro cannot create missing WAL/SHM on a read-only filesystem",
+        "sqlite_errorname": "SQLITE_CANTOPEN",
+        "snapshot": {
+          "alerts": [
+            "BACKUP_UNOBSERVED",
+            "METRICS_UNAVAILABLE"
+          ],
+          "chat_costs_covered": false,
+          "checked_at": 1793808072,
+          "delivery": "local_file_only",
+          "event": "reminder",
+          "format": "dd-learning-monitor-v1",
+          "full_architecture_backup_covered": false,
+          "last_event_at": 1793808072,
+          "opened": [],
+          "resolved": [],
+          "sequence": 37,
+          "status": "attention",
+          "student_payload_included": false
+        }
+      }
+    },
+    "collector-wal-start": {
+      "path": "learning_data/verification/reuse-monitor-20261104/collector-wal-start.json",
+      "sha256": "a3702400dfd6d6014f1f985a9c2735a17b65c211861d96c4d267b6a6b3cf61bf",
+      "result": {
+        "id": "7bf9c86db384569165fd6046e02082e264090eb5d119239ecd15e8f32d722a6d",
+        "image": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+        "project": "dd-learning-reuse-monitor-20261104",
+        "user": "10001:10001",
+        "filesystem_write_capability_for_sqlite_side_files": true,
+        "sql_mode": "ro_and_query_only",
+        "no_credentials_mounted": true,
+        "interval_seconds": 2,
+        "cycles": 200
+      }
+    },
+    "schedule-initial": {
+      "path": "learning_data/verification/reuse-monitor-20261104/schedule-initial.json",
+      "sha256": "09cf01435d1e2f61ada96b8b5e74bfeef0d7727a0c8799a17964fdc72057a8a2",
+      "result": {
+        "alerts": [
+          "BACKUP_UNOBSERVED",
+          "PROVIDER_DISPATCH_PAUSED",
+          "PROVIDER_USAGE_UNKNOWN",
+          "QUEUE_AGE_EXCEEDED"
+        ],
+        "chat_costs_covered": false,
+        "checked_at": 1793808193,
+        "delivery": "local_file_only",
+        "event": "none",
+        "format": "dd-learning-monitor-v1",
+        "full_architecture_backup_covered": false,
+        "last_event_at": 1793808175,
+        "opened": [],
+        "resolved": [],
+        "sequence": 26,
+        "status": "attention",
+        "student_payload_included": false
+      }
+    },
+    "schedule-dedup-reminder": {
+      "path": "learning_data/verification/reuse-monitor-20261104/schedule-dedup-reminder.json",
+      "sha256": "79d2f3532ba82a557acfe58c5da5dbf5f82f1836d7006b591187666362ba3cf5",
+      "result": {
+        "initial": 1,
+        "suppressed": 22,
+        "reminders": 3
+      }
+    },
+    "overlap-rejected": {
+      "path": "learning_data/verification/reuse-monitor-20261104/overlap-rejected.json",
+      "sha256": "8d02c7cb6fd09851d304244f6a91233e386774a2e282ccdfedad95108eb2b669",
+      "result": {
+        "status": "busy",
+        "error_code": "MONITOR_ALREADY_RUNNING"
+      }
+    },
+    "backup-failed": {
+      "path": "learning_data/verification/reuse-monitor-20261104/backup-failed.json",
+      "sha256": "f86a98c0c88ea6630ab9bbc1dd9bd4d757d590ad37bea90e3e0809b2d0fbcbc4",
+      "result": {
+        "alerts": [
+          "BACKUP_FAILED",
+          "PROVIDER_DISPATCH_PAUSED",
+          "PROVIDER_USAGE_UNKNOWN",
+          "QUEUE_AGE_EXCEEDED"
+        ],
+        "chat_costs_covered": false,
+        "checked_at": 1793808204,
+        "delivery": "local_file_only",
+        "event": "changed",
+        "format": "dd-learning-monitor-v1",
+        "full_architecture_backup_covered": false,
+        "last_event_at": 1793808204,
+        "opened": [
+          "BACKUP_FAILED"
+        ],
+        "resolved": [
+          "API_UNAVAILABLE",
+          "BACKUP_UNOBSERVED"
+        ],
+        "sequence": 28,
+        "status": "attention",
+        "student_payload_included": false
+      }
+    },
+    "alerts-resolved-hold-retained": {
+      "path": "learning_data/verification/reuse-monitor-20261104/alerts-resolved-hold-retained.json",
+      "sha256": "f81313372775c4411389446525cd1057eae9b4a824f817081898d64e7cf821ec",
+      "result": {
+        "alerts": [
+          "PROVIDER_USAGE_UNKNOWN"
+        ],
+        "chat_costs_covered": false,
+        "checked_at": 1793808209,
+        "delivery": "local_file_only",
+        "event": "changed",
+        "format": "dd-learning-monitor-v1",
+        "full_architecture_backup_covered": false,
+        "last_event_at": 1793808209,
+        "opened": [],
+        "resolved": [
+          "BACKUP_FAILED",
+          "PROVIDER_DISPATCH_PAUSED",
+          "QUEUE_AGE_EXCEEDED"
+        ],
+        "sequence": 29,
+        "status": "attention",
+        "student_payload_included": false
+      }
+    },
+    "api-stop": {
+      "path": "learning_data/verification/reuse-monitor-20261104/api-stop.json",
+      "sha256": "fbd1054ec39c4caf2f1b3d54673add6ec66cdfa0a7e7aa12beada053b27cb511",
+      "result": {
+        "status": "passed",
+        "project": "dd-learning-reuse-monitor-20261104",
+        "grace_seconds": 60,
+        "elapsed_seconds": 1.746,
+        "stopped_now": 1,
+        "already_stopped": 0,
+        "containers": [
+          {
+            "id": "328d7501d566336ad5e08f0ec87715661288d4ba3f8142fff05a548af5e676c3",
+            "project": "dd-learning-reuse-monitor-20261104",
+            "service": "learning-api",
+            "running": false,
+            "status": "exited",
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 0
+          }
+        ],
+        "errors": [],
+        "volumes_preserved": true,
+        "production_change": false
+      }
+    },
+    "api-unavailable": {
+      "path": "learning_data/verification/reuse-monitor-20261104/api-unavailable.json",
+      "sha256": "532ea15a41ca9d388df1c0da23a1ccfad99b2f8a5dfb263629a1d0cf5f08f254",
+      "result": {
+        "alerts": [
+          "API_UNAVAILABLE",
+          "PROVIDER_USAGE_UNKNOWN"
+        ],
+        "chat_costs_covered": false,
+        "checked_at": 1793808214,
+        "delivery": "local_file_only",
+        "event": "changed",
+        "format": "dd-learning-monitor-v1",
+        "full_architecture_backup_covered": false,
+        "last_event_at": 1793808214,
+        "opened": [
+          "API_UNAVAILABLE"
+        ],
+        "resolved": [],
+        "sequence": 30,
+        "status": "attention",
+        "student_payload_included": false
+      }
+    },
+    "api-recovered": {
+      "path": "learning_data/verification/reuse-monitor-20261104/api-recovered.json",
+      "sha256": "be3e18f68c0ec7f83778129b6ccd0d5414c140c2cdd4d18b22487790de29a99b",
+      "result": {
+        "alerts": [
+          "PROVIDER_USAGE_UNKNOWN"
+        ],
+        "chat_costs_covered": false,
+        "checked_at": 1793808218,
+        "delivery": "local_file_only",
+        "event": "changed",
+        "format": "dd-learning-monitor-v1",
+        "full_architecture_backup_covered": false,
+        "last_event_at": 1793808218,
+        "opened": [],
+        "resolved": [
+          "API_UNAVAILABLE"
+        ],
+        "sequence": 31,
+        "status": "attention",
+        "student_payload_included": false
+      }
+    },
+    "capacity-threshold-fixture": {
+      "path": "learning_data/verification/reuse-monitor-20261104/capacity-threshold-fixture.json",
+      "sha256": "094fce63d21e8ab27c6906e1d53c420eee32f7b612b0fee3771ed0dec405b4fa",
+      "result": {
+        "format": "dd-learning-monitor-v1",
+        "checked_at": 1793808226,
+        "alerts": [
+          "PROVIDER_USAGE_UNKNOWN",
+          "STORAGE_BYTES_LOW",
+          "STORAGE_INODES_LOW"
+        ],
+        "status": "attention",
+        "sequence": 1,
+        "event": "initial",
+        "opened": [
+          "PROVIDER_USAGE_UNKNOWN",
+          "STORAGE_BYTES_LOW",
+          "STORAGE_INODES_LOW"
+        ],
+        "resolved": [],
+        "last_event_at": 1793808226,
+        "delivery": "local_file_only",
+        "student_payload_included": false,
+        "chat_costs_covered": false,
+        "full_architecture_backup_covered": false
+      }
+    },
+    "backup-stale": {
+      "path": "learning_data/verification/reuse-monitor-20261104/backup-stale.json",
+      "sha256": "581aaced08f60ae27e29779961b5de9deef0fda39853f0ecf58844c4badc2fb4",
+      "result": {
+        "alerts": [
+          "BACKUP_STALE",
+          "PROVIDER_USAGE_UNKNOWN"
+        ],
+        "chat_costs_covered": false,
+        "checked_at": 1793808230,
+        "delivery": "local_file_only",
+        "event": "changed",
+        "format": "dd-learning-monitor-v1",
+        "full_architecture_backup_covered": false,
+        "last_event_at": 1793808230,
+        "opened": [
+          "BACKUP_STALE"
+        ],
+        "resolved": [
+          "API_UNAVAILABLE"
+        ],
+        "sequence": 33,
+        "status": "attention",
+        "student_payload_included": false
+      }
+    },
+    "backup-fresh": {
+      "path": "learning_data/verification/reuse-monitor-20261104/backup-fresh.json",
+      "sha256": "e9f1d7c9dd6d07a8bd24df9388d8dbc6248187e282052b3d80f0604e7c75cb5d",
+      "result": {
+        "alerts": [
+          "PROVIDER_USAGE_UNKNOWN"
+        ],
+        "chat_costs_covered": false,
+        "checked_at": 1793808235,
+        "delivery": "local_file_only",
+        "event": "changed",
+        "format": "dd-learning-monitor-v1",
+        "full_architecture_backup_covered": false,
+        "last_event_at": 1793808235,
+        "opened": [],
+        "resolved": [
+          "BACKUP_STALE"
+        ],
+        "sequence": 34,
+        "status": "attention",
+        "student_payload_included": false
+      }
+    },
+    "database-preserved": {
+      "path": "learning_data/verification/reuse-monitor-20261104/database-preserved.json",
+      "sha256": "a834759faa9b5d7d8e95154d66396444c72f27b314d0614cfb7db8be68005c79",
+      "result": {
+        "integrity": "ok",
+        "unknown_hold_micros": 17,
+        "provider_calls": 1,
+        "actual_provider_requests": 0
+      }
+    },
+    "monitor-stale-detected": {
+      "path": "learning_data/verification/reuse-monitor-20261104/monitor-stale-detected.json",
+      "sha256": "cb6e404fd34c1013a9bfdd22976d9b26c6229107dc0d6cf9036734bda78a51d6",
+      "result": {
+        "status": "attention",
+        "alerts": [
+          "MONITOR_STALE"
+        ]
+      }
+    },
+    "final-api-stop": {
+      "path": "learning_data/verification/reuse-monitor-20261104/final-api-stop.json",
+      "sha256": "f0f0cc5bccff18700e8d986b9f7ec67b7d2ab8474a9e1138141f817156b9acbf",
+      "result": {
+        "status": "passed",
+        "project": "dd-learning-reuse-monitor-20261104",
+        "grace_seconds": 60,
+        "elapsed_seconds": 1.004,
+        "stopped_now": 1,
+        "already_stopped": 0,
+        "containers": [
+          {
+            "id": "328d7501d566336ad5e08f0ec87715661288d4ba3f8142fff05a548af5e676c3",
+            "project": "dd-learning-reuse-monitor-20261104",
+            "service": "learning-api",
+            "running": false,
+            "status": "exited",
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 0
+          }
+        ],
+        "errors": [],
+        "volumes_preserved": true,
+        "production_change": false
+      }
+    },
+    "final-source-smoke": {
+      "path": "learning_data/verification/reuse-monitor-20261104/final-source-smoke.json",
+      "sha256": "cfb27099a2457f9834bd299234b14dfd4a1b88ae3f99d3646468bcfedfc5cefe",
+      "result": {
+        "result": {
+          "format": "dd-learning-monitor-v1",
+          "checked_at": 1793808442,
+          "alerts": [
+            "API_UNAVAILABLE",
+            "BACKUP_UNOBSERVED",
+            "PROVIDER_USAGE_UNKNOWN"
+          ],
+          "status": "attention",
+          "sequence": 1,
+          "event": "initial",
+          "opened": [
+            "API_UNAVAILABLE",
+            "BACKUP_UNOBSERVED",
+            "PROVIDER_USAGE_UNKNOWN"
+          ],
+          "resolved": [],
+          "last_event_at": 1793808442,
+          "delivery": "local_file_only",
+          "student_payload_included": false,
+          "chat_costs_covered": false,
+          "full_architecture_backup_covered": false
+        },
+        "exit_code": 2,
+        "final_source": true,
+        "api_intentionally_stopped": true
+      }
+    },
+    "all-final-containers": {
+      "path": "learning_data/verification/reuse-monitor-20261104/all-final-containers.json",
+      "sha256": "41144c03f0243f0191a045100905283d8ef0cbc09907680999ba5c1a9c9fbd09",
+      "result": {
+        "containers": [
+          {
+            "name": "/dd-learning-reuse-monitor-20261104-learning-api-1",
+            "running": false,
+            "pid": 0,
+            "exit_code": 0,
+            "oom": false
+          },
+          {
+            "name": "/dd-learning-reuse-monitor-20261104-collector",
+            "running": false,
+            "pid": 0,
+            "exit_code": 0,
+            "oom": false
+          },
+          {
+            "name": "/dd-learning-reuse-monitor-20261104-collector-wal",
+            "running": false,
+            "pid": 0,
+            "exit_code": 0,
+            "oom": false
+          },
+          {
+            "name": "/dd-learning-reuse-monitor-20261104-state-init",
+            "running": false,
+            "pid": 0,
+            "exit_code": 0,
+            "oom": false
+          },
+          {
+            "name": "/dd-learning-reuse-monitor-20261104-stale-check",
+            "running": false,
+            "pid": 0,
+            "exit_code": 2,
+            "oom": false
+          },
+          {
+            "name": "/dd-learning-reuse-monitor-20261104-final-smoke",
+            "running": false,
+            "pid": 0,
+            "exit_code": 2,
+            "oom": false
+          }
+        ],
+        "expected_attention_exit2": [
+          "stale-check",
+          "final-smoke"
+        ],
+        "volumes_preserved": true
+      }
+    },
+    "configuration-checks": {
+      "path": "learning_data/verification/reuse-monitor-20261104/configuration-checks.json",
+      "sha256": "ca5d229cd445de22be432bbab29787081a4b111084a86b544e7f741aada26217",
+      "result": {
+        "compose_rendered": true,
+        "started_from_template": false,
+        "no_ports_secrets_or_docker_socket": true,
+        "pids_limit": 32,
+        "memory_bytes": 134217728,
+        "cpus": 0.25,
+        "data_filesystem_writable_for_sqlite_side_files": true,
+        "full_recovery_components": 7,
+        "formal_sources_read": false,
+        "recovery_plan_incomplete": true,
+        "formal_execution_authorized": false
+      }
+    },
+    "operations-bundle": {
+      "path": "learning_data/verification/reuse-monitor-20261104/operations-bundle.json",
+      "sha256": "b3ee33c9cb4455ebd8cdcd1ce978fdeb42a5f362a475254250b76ebdc3bcd2d0",
+      "result": {
+        "path": "learning_data/operations-preparation/dd-v1-monitor-20261105",
+        "format": "dd-learning-operations-source-v1",
+        "state": "local_supplement_not_built_not_deployed",
+        "created_date": "2026-11-05",
+        "files": {
+          "deploy/open-webui-reuse/compose.monitor.template.yml": "bc189a1af70e5f499b912230b8a6f615c979640c6aa7e02e108901351917d78d",
+          "docs/open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md": "a0acfda3d3c3dce52f1e4d9d3de981b7cb6b344868c97b3ef2dd958c0ad182e2",
+          "docs/open-webui-reuse/full-recovery-plan.template.json": "d8ddc345578cab72edf559af627e8cbd90d45a85d10cacbc92aeb4c0ab1e818e",
+          "scripts/collect_learning_monitor.py": "80dd22436d06d1db851ce80f29319e61bcdee95491f9f6f6f4504bb43a3cd459",
+          "tests/test_learning_monitor.py": "e57df2b7ccf0663836d1723c06f29293ca72867cc392b9f4ee025406655e1e2c"
+        },
+        "archive_sha256": "19ca3a8aee87c9ec1e5cc7c395a6c2b8c418cf8a855125647b6a2df94fbe445d",
+        "source_set_sha256": "ec2a525e50de947349e235a221acffb9bbe89e133ec21637ba51a7d16b69964b",
+        "requires_schema": 11,
+        "application_image_id": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+        "application_image_contains_this_collector": false,
+        "image_built": false,
+        "production_deployed": false,
+        "formal_full_recovery_executed": false
+      }
+    }
+  },
+  "retained_logs": {
+    "learning_data/verification/reuse-monitor-20261104/readonly-mount-attempt.ndjson": "e56a64a5a6aa4c94d52fd383656e5e31ddb21190d2020784b2c90d5a924a4f67",
+    "learning_data/verification/reuse-monitor-20261104/collector-wal.ndjson": "29c67a563d37ce40b01ef8237b078835125a96f828dff2a68c7235469902d967",
+    "learning_data/verification/reuse-monitor-20261104/run-monitor-checks.py": "6df1557a66c2477297c422617c936c371f0762d461dbeae811b9136537a63c1a"
+  },
+  "implementation": {
+    "sql_readonly": true,
+    "query_only": true,
+    "immutable_mode": false,
+    "data_filesystem_write_capability": true,
+    "sqlite_auxiliary_file_creation_required": true,
+    "image_contains_new_collector": false,
+    "no_credentials_or_docker_socket": true,
+    "health_child_timeout_seconds": 4,
+    "local_state_only": true,
+    "synthetic_backup_receipts": true,
+    "full_recovery_design_components": 7
+  },
+  "remaining_gates": [
+    "formal monitoring thresholds/capacity and independent observer/delivery",
+    "review writable SQLite data mount or introduce least-privilege monitoring endpoint",
+    "automatic backup/verification/restore receipts",
+    "post-snapshot deletion and usage journals",
+    "formal source owners/encryption/maintenance/complete architecture RPO RTO",
+    "formal TLS/accounts/native browser model callback/quality/trial"
+  ],
+  "boundaries": {
+    "new_application_image": false,
+    "application_source_changed": false,
+    "production_changed": false,
+    "real_model_calls": 0,
+    "real_ocr_calls": 0,
+    "student_data_exported": false,
+    "formal_webui_or_secrets_read": false,
+    "goal_written": false,
+    "full_backup_or_restore_executed_this_batch": false,
+    "T_QA_W_statuses_changed": false
+  },
+  "goal_api_readonly": null,
+  "final_audit": {
+    "head_unchanged": true,
+    "baseline_files": 148,
+    "unchanged_files": 137,
+    "intentional_changes": [
+      "docs/goal/BLOCKERS.md",
+      "docs/goal/DECISIONS.md",
+      "docs/goal/HANDOFF-SESSION-2026-11-04-W07-W10.md",
+      "docs/goal/RESUME-SESSION-2026-11-04.txt",
+      "docs/goal/STATUS.md",
+      "docs/goal/TASKS.json",
+      "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+      "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+      "docs/open-webui-reuse/README.md",
+      "docs/open-webui-reuse/work-plan-2026-11-04.json",
+      "docs/verification/qa-matrix-2026-11-03.md"
+    ],
+    "missing": [],
+    "unexpected": [],
+    "new_paths": [
+      "deploy/open-webui-reuse/compose.monitor.template.yml",
+      "docs/open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md",
+      "docs/open-webui-reuse/full-recovery-plan.template.json",
+      "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.json",
+      "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.md",
+      "scripts/collect_learning_monitor.py",
+      "tests/test_learning_monitor.py"
+    ],
+    "markdown_files": 10,
+    "local_links": 124,
+    "tasks_status_unchanged": 26,
+    "qa_status_unchanged": 17,
+    "work_packages_status_unchanged": 14,
+    "work_packages_acyclic": true,
+    "application_candidate_50_files_unchanged": true,
+    "operations_bundle_5_files_verified": true,
+    "source_reports_verified": 20,
+    "retained_logs_and_probe_hashes_verified": 3
+  },
+  "final_checks": {
+    "task_evidence_references": 356,
+    "goal_consistency": "passed",
+    "python_compiled_files": 2,
+    "diff_check": "passed",
+    "goal_api_readonly": null,
+    "new_containers_running": 0
+  }
+}

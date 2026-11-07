@@ -1,6 +1,6 @@
 {
   "goal_id": "01a19afc-30a8-78f3-aa59-e73e24ea4e84",
-  "updated_at": "2026-11-03",
+  "updated_at": "2026-11-05",
   "tasks": {
     "T01": {
       "status": "verified",
@@ -8,8 +8,11 @@
         "docs/verification/baseline.md",
         "docs/verification/qa-matrix-2026-11-03.md",
         ".gitignore",
-        "docs/verification/source-control-baseline-2026-11-03.md"
-      ]
+        "docs/verification/source-control-baseline-2026-11-03.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/01-PLANNING-2026-11-04.md"
+      ],
+      "notes": "复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W01为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。"
     },
     "T02": {
       "status": "verified",
@@ -23,9 +26,28 @@
         "docs/verification/release-manifest-2026-11-03.json",
         "learning_service/migrations/005_review_requests.sql",
         "docs/verification/page-revision-review-request-2026-11-03.md",
-        "learning_service/migrations/006_agent_budget_started_at.sql"
+        "learning_service/migrations/006_agent_budget_started_at.sql",
+        "learning_service/migrations/007_manual_mistakes_and_office_text.sql",
+        "learning_service/migrations/008_provider_usage.sql",
+        "learning_service/migrations/009_browser_sessions.sql",
+        "tests/test_browser_auth.py",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "learning_service/migrations/010_session_identity_and_context.sql",
+        "tests/test_learner_context.py",
+        "tests/test_learning_release.py",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.json",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "tests/test_reuse_operations.py"
       ],
-      "notes": "migration 001 旧库升级到当前 revision 6 已验证；失败 DDL 与版本记录原子回滚、修复后重试、WAL 协商有界重试和双进程并发初始化已验证；migration 004 的变式字段、migration 005 的复核申请、migration 006 的 Agent 预算字段、PDF 页级资产和删除 tombstone 已验证备份恢复与管理员删除生命周期；manifest 漂移、校验和篡改、非空恢复目标和恢复后 integrity_check 已验证；脱敏发布 manifest 固定隔离路径、依赖和未授权外部调用状态；页面修订 CAS、完整页面集合和复核申请生命周期已验证"
+      "notes": "migration 001 旧库升级到当前 revision 7 已验证；失败 DDL 与版本记录原子回滚、修复后重试、WAL 协商有界重试和双进程并发初始化已验证；migration 004 的变式字段、migration 005 的复核申请、migration 006 的 Agent 预算字段、migration 007 的手动错题与 Office 文本字段、PDF 页级资产和删除 tombstone 已验证备份恢复与管理员删除生命周期；manifest 漂移、校验和篡改、非空恢复目标和恢复后 integrity_check 已验证；脱敏发布 manifest 固定隔离路径、依赖和未授权外部调用状态；页面修订 CAS、完整页面集合和复核申请生命周期已验证 本轮相关回归确认新库/旧库升级与恢复至 schema 9，新增用量/会话；恢复撤销会话并暂停 provider，保留未对账预留。不代表实际生产恢复或账单对账通过。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W07,W09为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第一批复用工程更新：schema10，网关/身份CLI/来源绑定/共享上下文及前缀基础已本地实现，74聚焦与390/1280px合成浏览器通过；替代前述相应“仅规划/待开发”描述。正式认证/TLS/Tools两端/发布与真实验收仍缺，T状态保留。 第二批W04/W05/W06续跑：schema11人工审核/私有冻结版本的升级、导出/删除与本地副本恢复有证据；完整现场恢复仍缺。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。 第三批W07–W10：schema11/66/24保留，50文件profile/16个hash依赖/固定基础OCI本地无缓存镜像与新隔离HTTP/TLS、原生loader及学习恢复证据见本轮报告；T状态不提升。"
     },
     "T03": {
       "status": "implemented",
@@ -41,30 +63,106 @@
         "docs/verification/open-webui-browser-probe-2026-11-03.md",
         "learning_service/tools.py",
         "tests/test_learning_tools.py",
-        "docs/verification/trusted-ui-timeout-2026-11-03.md"
+        "docs/verification/trusted-ui-timeout-2026-11-03.md",
+        "docs/verification/p0-isolated-runtime-2026-11-04.md",
+        "learning_service/browser_auth.py",
+        "tests/test_browser_auth.py",
+        "docs/verification/browser-auth-local-2026-11-04.json",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "learning_service/login_gateway.py",
+        "learning_service/gateway_http.py",
+        "tests/test_login_gateway.py",
+        "tests/test_gateway_http.py",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.json",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "tests/test_reuse_operations.py",
+        "docs/verification/reuse-fault-isolation-2026-11-04.md",
+        "docs/verification/reuse-fault-isolation-2026-11-04.json",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
       ],
-      "notes": "隔离 Open WebUI 0.12.5 中已实际注册 dd_learning_v1，并通过原生 get_tools loader、实例 Valves、per-user UserValves、宿主 __user__ subject 和合成服务回调探针；异步原生 UI 回调的超时、取消和错误结果均 fail closed，超时不创建确认或答案 challenge；本轮 trusted-header 浏览器首页与 Tools 管理页读取另有证据；本地 /ui Chrome 闭环另有证据。",
-      "unmet": "未配置可调用模型/provider，真实模型发起的浏览器 tool call 和最终浏览器可信回调仍待验证"
+      "notes": "隔离 Open WebUI 0.12.5 中已实际注册 dd_learning_v1，并通过原生 get_tools loader、实例 Valves、per-user UserValves、宿主 __user__ subject 和合成服务回调探针；异步原生 UI 回调的超时、取消和错误结果均 fail closed，超时不创建确认或答案 challenge；本轮 trusted-header 浏览器首页与 Tools 管理页读取另有证据；本地 /ui Chrome 闭环另有证据。 P0 新隔离 project 已实测 schema 7/Open WebUI 0.12.5、当前源码/完整契约、原生 loader/合成身份及停止恢复；新实例模型数为 0，真实模型 tool call 和最终浏览器回调未执行，原有 unmet 保留。 本轮补齐独立网关签名声明/服务端会话与 Origin/CSRF/撤销的本地准备及合成回归；实际登录网关实现、TLS/目标入口和原生最终回调仍未验收。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W01,W02,W04,W05,W10,W11为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第一批复用工程更新：schema10，网关/身份CLI/来源绑定/共享上下文及前缀基础已本地实现，74聚焦与390/1280px合成浏览器通过；替代前述相应“仅规划/待开发”描述。正式认证/TLS/Tools两端/发布与真实验收仍缺，T状态保留。 第二批W04/W05/W06续跑：W04工作台和W05共享Tools/最小结果/固定链接本地合成通过，实际TLS账号/分享/模型/最终原生回调仍缺。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。 第三批W07–W10：schema11/66/24保留，50文件profile/16个hash依赖/固定基础OCI本地无缓存镜像与新隔离HTTP/TLS、原生loader及学习恢复证据见本轮报告；T状态不提升。 W10故障补充：新隔离网关/API/WebUI停机隔离、认证WSS断开与同Cookie恢复、受控SIGKILL137和合成库完整性留证；代理解析/连接超时3秒，新增10项编排防护通过。原137根因及正式负载/完整架构/原生浏览器回调门槛保留，状态不提升。 2026-11-05：按用户缩小范围及生产授权，家庭数学版已部署；设备信任/首次家长绑定/真实学习观察待用户操作，原完整V1状态保留。",
+      "unmet": "当前schema11/66/24与50文件固定源码/本地镜像已有工程证据；新隔离合成账号Cookie/内部TLS/原生loader、代表链路与学习新卷恢复已验证。仍缺正式IP SAN证书/客户端信任/账号与安装issuer清单、正式Tools分享/模型最终原生浏览器回调、聊天费用/网络/容量/告警、完整架构/外部服务故障与正式RPO/RTO、真实provider/账单/人工资料质量及试用条件；未生产接入，原状态保留。"
     },
     "T04": {
       "status": "blocked",
-      "unmet": "整卷脱敏标注集和人工参考判定未提供"
+      "unmet": "整卷脱敏标注集和人工参考判定未提供",
+      "evidence": [
+        "docs/quality/README.md",
+        "docs/quality/reference-dataset.template.json",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md"
+      ],
+      "notes": "仅准备空人工参考规范、零记录 CSV 和空 JSON；没有真实脱敏资料、人工标注或审核结论，阈值未签核，仍 blocked。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W12为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。"
     },
     "T05": {
       "status": "blocked",
-      "unmet": "没有授权的真实 OCR/模型调用"
+      "unmet": "没有授权的真实 OCR/诊断/变式模型调用；实际模型/端点协议兼容、外发范围、费率/预算和真实账单仍缺。adapter、逐次用量/金额控制已本地实现并合成验证，不能代替真实接入与费用验收。 WebUI聊天模型与学习模型/OCR为独立费用和资料通道；当前学习台账不覆盖聊天费用，WebUI模型配置本轮未读取。",
+      "notes": "历史 P0 复核：生产就绪复核：真实诊断/变式 adapter 仍需实现；实际外部用量/费用控制未完成，非仅缺凭据。 本轮本地闭项：OpenAI 兼容诊断/变式 adapter、schema/引用/范围/迟到校验、共享用量/预留/限额/暂停/对账已补齐本地实现，腾讯受同一预算控制；真实调用和价格/账单未发生。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W08,W11为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第三批W07–W10：schema11/66/24保留，50文件profile/16个hash依赖/固定基础OCI本地无缓存镜像与新隔离HTTP/TLS、原生loader及学习恢复证据见本轮报告；T状态不提升。",
+      "evidence": [
+        "learning_service/providers.py",
+        "learning_service/model_providers.py",
+        "learning_service/provider_http.py",
+        "learning_service/provider_usage.py",
+        "tests/test_model_providers.py",
+        "docs/PROVIDER_CONFIGURATION.md",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "tests/test_reuse_operations.py"
+      ],
+      "historical_unmet": [
+        "没有授权的真实 OCR/模型调用；生产就绪复核：真实诊断/变式 adapter 仍需实现；实际外部用量/费用控制未完成，非仅缺凭据。"
+      ]
     },
     "T06": {
       "status": "verified",
       "evidence": [
-        "tests/test_learning_service.py"
-      ]
+        "tests/test_learning_service.py",
+        "learning_service/browser_auth.py",
+        "tests/test_browser_auth.py",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "learning_service/identity_admin.py",
+        "scripts/manage_learning_identities.py",
+        "tests/test_identity_admin.py",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.json",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
+      ],
+      "notes": "本轮补齐独立网关签名声明/服务端会话与 Origin/CSRF/撤销的本地准备及合成回归；实际登录网关实现、TLS/目标入口和原生最终回调仍未验收。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W02,W03为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第一批复用工程更新：schema10，网关/身份CLI/来源绑定/共享上下文及前缀基础已本地实现，74聚焦与390/1280px合成浏览器通过；替代前述相应“仅规划/待开发”描述。正式认证/TLS/Tools两端/发布与真实验收仍缺，T状态保留。 2026-11-05：按用户缩小范围及生产授权，家庭数学版已部署；设备信任/首次家长绑定/真实学习观察待用户操作，原完整V1状态保留。"
     },
     "T07": {
       "status": "verified",
       "evidence": [
-        "tests/test_learning_service.py"
-      ]
+        "tests/test_learning_service.py",
+        "learning_service/browser_auth.py",
+        "tests/test_browser_auth.py",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "learning_service/learner_context.py",
+        "learning_service/db.py",
+        "tests/test_learner_context.py",
+        "tests/test_identity_admin.py",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.json",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
+      ],
+      "notes": "本轮补齐独立网关签名声明/服务端会话与 Origin/CSRF/撤销的本地准备及合成回归；实际登录网关实现、TLS/目标入口和原生最终回调仍未验收。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W02,W03为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第一批复用工程更新：schema10，网关/身份CLI/来源绑定/共享上下文及前缀基础已本地实现，74聚焦与390/1280px合成浏览器通过；替代前述相应“仅规划/待开发”描述。正式认证/TLS/Tools两端/发布与真实验收仍缺，T状态保留。 第二批W04/W05/W06续跑：Tools绑定服务端上下文版本、ABA切换拒绝，审核幂等/冲突与事务角色复核本地通过。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。 2026-11-05：按用户缩小范围及生产授权，家庭数学版已部署；设备信任/首次家长绑定/真实学习观察待用户操作，原完整V1状态保留。"
     },
     "T08": {
       "status": "verified",
@@ -82,18 +180,25 @@
         "tests/test_learning_service.py",
         "learning_service/migrations/005_review_requests.sql",
         "docs/verification/page-revision-review-request-2026-11-03.md",
-        "docs/verification/import-browser-recheck-2026-11-03.md"
+        "docs/verification/import-browser-recheck-2026-11-03.md",
+        "learning_service/migrations/007_manual_mistakes_and_office_text.sql",
+        "docs/PAPER_HOMEWORK_IMPORT_DESIGN.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md"
       ],
-      "unmet": "真实多页 OCR/分题质量待验证；确定性页级资产、回查、备份恢复和删除生命周期已验证"
+      "unmet": "真实多页 OCR/分题质量待验证；确定性页级资产、回查、备份恢复和删除生命周期已验证；DOCX/XLSX 仅完成本地结构化文本提取与待复核候选，不能替代真实 OCR/版面质量验证",
+      "notes": "复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W12为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。"
     },
     "T10": {
       "status": "implemented",
       "evidence": [
         "learning_service/app.py",
         "tests/test_learning_service.py",
-        "docs/verification/import-confirmation-five-verdicts-2026-11-03.md"
+        "docs/verification/import-confirmation-five-verdicts-2026-11-03.md",
+        "docs/PAPER_HOMEWORK_IMPORT_DESIGN.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md"
       ],
-      "unmet": "人工题型覆盖待提供"
+      "unmet": "人工题型覆盖待提供；DOCX/XLSX 文本提取候选仍需真实题型人工抽检，未宣称 OCR 质量",
+      "notes": "复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W12为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。"
     },
     "T11": {
       "status": "verified",
@@ -101,8 +206,15 @@
         "learning_service/app.py",
         "tests/test_learning_service.py",
         "docs/verification/import-confirmation-five-verdicts-2026-11-03.md",
-        "docs/verification/import-browser-recheck-2026-11-03.md"
-      ]
+        "docs/verification/import-browser-recheck-2026-11-03.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
+      ],
+      "notes": "复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W04为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第二批W04/W05/W06续跑：代表合成PNG经新前缀工作台复核确认；身份切换清理/迟到响应与来源URL撤销通过；四格式未重跑。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。 2026-11-05：按用户缩小范围及生产授权，家庭数学版已部署；设备信任/首次家长绑定/真实学习观察待用户操作，原完整V1状态保留。"
     },
     "T12": {
       "status": "implemented",
@@ -110,18 +222,39 @@
         "learning_service/app.py",
         "tests/test_learning_service.py",
         "docs/verification/observability-recovery-2026-11-02.md",
-        "docs/verification/import-browser-recheck-2026-11-03.md"
+        "docs/verification/import-browser-recheck-2026-11-03.md",
+        "docs/verification/mistake-import-content-persistence-2026-11-04.md",
+        "learning_service/migrations/007_manual_mistakes_and_office_text.sql",
+        "docs/PAPER_HOMEWORK_IMPORT_DESIGN.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md"
       ],
-      "unmet": "真实资料逐条回查、真实再错去重及撤回后后续证据保留待验证"
+      "notes": "导入确认后的四种文件格式回归已核对错题本列表/详情、mistake_entries.content_json、来源判定证据和 active 复习卡；内容写入缺口已修复。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W12为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第二批W04/W05/W06续跑：工作台错题详情与原始表单隔离已补；新增私有冻结版本生命周期本地通过，真实资料仍缺。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。",
+      "unmet": "真实资料逐条回查、真实再错去重及撤回后后续证据保留待验证；手动录入与 DOCX/XLSX 候选确认链路已有本地回归，但 Office 文本提取不等同试卷 OCR"
     },
     "T13": {
       "status": "implemented",
       "evidence": [
         "learning_service/app.py",
         "docs/verification/agent-actions-2026-11-03.md",
-        "docs/verification/page-revision-review-request-2026-11-03.md"
+        "docs/verification/page-revision-review-request-2026-11-03.md",
+        "learning_service/providers.py",
+        "learning_service/model_providers.py",
+        "tests/test_model_providers.py",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md"
       ],
-      "unmet": "诊断保留待复核，未宣称自动正确；真实 provider 与人工诊断抽检仍待外部条件"
+      "unmet": "诊断仍待复核，真实诊断 provider/目标端点与人工抽检未验收；本地 adapter、证据逐字引用/知识点范围、证据变更的迟到拒绝和 worker 复用已有合成回归。后续证据变更的人工失效复核仍待质量流程。",
+      "notes": "历史 P0 复核：工厂 diagnosis_provider 目前仅支持 mock，其他配置返回 UnconfiguredProvider；真实适配器需本地实现后再做获准实测。 本轮本地闭项：已实现 openai-compatible-diagnosis-v1，服务端当前错题/来源/已判作答的最小证据、引用/课程范围、澄清、超时降级及证据修订拒绝；模型/提示词元数据来自配置，结果 needs_review；不声称真实模型或诊断正确性。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W06,W12为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第二批W04/W05/W06续跑：W06复核草稿的来源快照/母题/范围，未新增真实诊断或人工质量证据。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。",
+      "historical_unmet": [
+        "诊断保留待复核，未宣称自动正确；真实 provider 与人工诊断抽检仍待外部条件；工厂 diagnosis_provider 目前仅支持 mock，其他配置返回 UnconfiguredProvider；真实适配器需本地实现后再做获准实测。"
+      ]
     },
     "T14": {
       "status": "implemented",
@@ -129,9 +262,22 @@
         "learning_service/app.py",
         "learning_service/migrations/004_maintenance_gate.sql",
         "tests/test_learning_service.py",
-        "docs/verification/maintenance-gate-2026-11-03.md"
+        "docs/verification/maintenance-gate-2026-11-03.md",
+        "learning_service/providers.py",
+        "learning_service/model_providers.py",
+        "tests/test_model_providers.py",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md"
       ],
-      "unmet": "变式人工审核和真实题库待提供"
+      "unmet": "变式人工审核、真实母题/题库、实际 provider 与审核发布投放联调未完成；本地 adapter 仅支持已有数轴整数模板与有参数的已审核母题，不扩大题型范围。 正式人工审核/冻结发布接口与工作台仍待工程实现，不能启用正式模式下关闭的seed接口替代。",
+      "notes": "历史 P0 复核：工厂 variant_provider 目前仅支持 mock，其他配置返回 UnconfiguredProvider；真实适配器需本地实现及合成响应回归，实际题目仍需人工审核。 本轮本地闭项：已实现 openai-compatible-variant-v1，母题/目标/学习者/定义域/单位/整数参数与程序答案校验，题干/答案由程序重建，迟到/撤销审核拒绝；草稿仅保存 job，仍须人工审核，未投放独立测验。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W06,W12为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第二批W04/W05/W06续跑：W06受限人工审核/冻结私有版本/幂等投放/拒绝/撤销已本地合成通过；真实母题/审核人/质量仍缺。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。",
+      "historical_unmet": [
+        "变式人工审核和真实题库待提供；工厂 variant_provider 目前仅支持 mock，其他配置返回 UnconfiguredProvider；真实适配器需本地实现及合成响应回归，实际题目仍需人工审核。"
+      ]
     },
     "T15": {
       "status": "verified",
@@ -147,10 +293,26 @@
         "learning_service/app.py",
         "tests/test_learning_service.py",
         "docs/verification/browser-test-workbench-2026-11-03.md",
-        "docs/verification/browser-test-workbench-2026-11-03.png"
+        "docs/verification/browser-test-workbench-2026-11-03.png",
+        "docs/verification/browser-auth-local-2026-11-04.json",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "scripts/probe_reuse_gateway.py",
+        "docs/verification/reuse-gateway-browser-2026-11-04.json",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.json",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "tests/test_reuse_operations.py",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
       ],
-      "notes": "独立 /ui 在 Chromium 390px 和 1280px 完成启动、刷新恢复、提示暴露、POST challenge/答案提交、服务端最终判分、复核申请和取消闭环；提示后 assessment_eligibility=false，响应不泄露原答案或答案键。",
-      "unmet": "隔离 Open WebUI 聊天发起的真实模型 tool call 与浏览器最终可信回调仍待验证；真实 provider、真实资料和人工验收仍待外部条件"
+      "notes": "独立 /ui 在 Chromium 390px 和 1280px 完成启动、刷新恢复、提示暴露、POST challenge/答案提交、服务端最终判分、复核申请和取消闭环；提示后 assessment_eligibility=false，响应不泄露原答案或答案键。 本轮补齐独立网关签名声明/服务端会话与 Origin/CSRF/撤销的本地准备及合成回归；实际登录网关实现、TLS/目标入口和原生最终回调仍未验收。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W04,W06,W10,W11为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第一批复用工程更新：schema10，网关/身份CLI/来源绑定/共享上下文及前缀基础已本地实现，74聚焦与390/1280px合成浏览器通过；替代前述相应“仅规划/待开发”描述。正式认证/TLS/Tools两端/发布与真实验收仍缺，T状态保留。 第二批W04/W05/W06续跑：W04今日版本选择、测验刷新恢复/作答/取消/复核本地浏览器通过；撤销版本新投放拒绝，pending/已用成绩不改写。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。 第三批W07–W10：schema11/66/24保留，50文件profile/16个hash依赖/固定基础OCI本地无缓存镜像与新隔离HTTP/TLS、原生loader及学习恢复证据见本轮报告；T状态不提升。 2026-11-05：按用户缩小范围及生产授权，家庭数学版已部署；设备信任/首次家长绑定/真实学习观察待用户操作，原完整V1状态保留。",
+      "unmet": "当前schema11/66/24与50文件固定源码/本地镜像已有工程证据；新隔离合成账号Cookie/内部TLS/原生loader、代表链路与学习新卷恢复已验证。仍缺正式IP SAN证书/客户端信任/账号与安装issuer清单、正式Tools分享/模型最终原生浏览器回调、聊天费用/网络/容量/告警、完整架构/外部服务故障与正式RPO/RTO、真实provider/账单/人工资料质量及试用条件；未生产接入，原状态保留。"
     },
     "T17": {
       "status": "verified",
@@ -168,17 +330,31 @@
         "docs/verification/tools-agent-2026-11-03.md",
         "docs/verification/agent-actions-2026-11-03.md",
         "docs/verification/open-webui-tools-registration-2026-11-03.md",
-        "docs/verification/open-webui-browser-probe-2026-11-03.md"
+        "docs/verification/open-webui-browser-probe-2026-11-03.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "tests/test_reuse_operations.py"
       ],
-      "notes": "Agent 读操作、整卷分析委托、诊断/变式/提示/数轴动作均执行学习者范围校验并写入持久化状态；诊断 worker 重新校验 lease；Agent 可信交互 action 仅返回 requires_trusted_ui UI-only handoff，不创建/消费 challenge、不返回 nonce、不执行确认或答案提交；Open WebUI 薄 Tools 适配器另通过原生 input/confirmation 回调并在用户接受后消费 challenge；未知 Agent 实现分支显式返回 AGENT_ACTION_NOT_IMPLEMENTED，不产生成功语义",
-      "unmet": "真实 provider、真实浏览器组合及最终可信 UI 回调仍待验证"
+      "notes": "Agent 读操作、整卷分析委托、诊断/变式/提示/数轴动作均执行学习者范围校验并写入持久化状态；诊断 worker 重新校验 lease；Agent 可信交互 action 仅返回 requires_trusted_ui UI-only handoff，不创建/消费 challenge、不返回 nonce、不执行确认或答案提交；Open WebUI 薄 Tools 适配器另通过原生 input/confirmation 回调并在用户接受后消费 challenge；未知 Agent 实现分支显式返回 AGENT_ACTION_NOT_IMPLEMENTED，不产生成功语义 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W05,W08,W11为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第二批W04/W05/W06续跑：W05结果最小投影/共享上下文/可信回调四种固定交互本地通过；模型无选择或审批入口，真实模型仍缺。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。 第三批W07–W10：schema11/66/24保留，50文件profile/16个hash依赖/固定基础OCI本地无缓存镜像与新隔离HTTP/TLS、原生loader及学习恢复证据见本轮报告；T状态不提升。",
+      "unmet": "真实 provider、真实浏览器组合及最终可信 UI 回调仍待验证 复用接入还需Tools最小结果投影、实际模型/分享范围和聊天通道资料/费用控制。"
     },
     "T19": {
       "status": "verified",
       "evidence": [
         "tests/test_learning_service.py",
-        "docs/prototypes/README.md"
-      ]
+        "docs/prototypes/README.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md"
+      ],
+      "notes": "复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W05为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第二批W04/W05/W06续跑：数轴内容与整数域/程序答案在人工批准边界再次校验；真实模型视觉展示未验收。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。"
     },
     "T20": {
       "status": "implemented",
@@ -203,10 +379,35 @@
         "docs/verification/compose-isolation-2026-11-03-revision6.md",
         "docs/verification/open-webui-browser-probe-2026-11-03.md",
         "docs/verification/trusted-ui-timeout-2026-11-03.md",
-        "docs/verification/import-browser-recheck-2026-11-03.md"
+        "docs/verification/import-browser-recheck-2026-11-03.md",
+        "docs/PAPER_HOMEWORK_IMPORT_DESIGN.md",
+        "docs/verification/p0-isolated-runtime-2026-11-04.md",
+        "learning_service/browser_auth.py",
+        "docs/releases/README.md",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "docs/open-webui-reuse/01-PLANNING-2026-11-04.md",
+        "learning_service/login_gateway.py",
+        "learning_service/identity_admin.py",
+        "learning_service/learner_context.py",
+        "docs/verification/reuse-gateway-browser-2026-11-04.json",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.json",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "tests/test_reuse_operations.py",
+        "docs/verification/reuse-graceful-shutdown-2026-11-04.md",
+        "docs/verification/reuse-graceful-shutdown-2026-11-04.json",
+        "tests/test_reuse_shutdown.py",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
       ],
-      "notes": "薄适配器已在隔离 Open WebUI 0.12.5 实际注册；原生 loader 验证公开方法、实例 Valves、UserValves learner 上下文、宿主 __user__ subject 注入和 原生可信 UI 回调内 challenge 消费；异步 callback 超时保护及确认/答案写入不发生由定时回归验证；trusted-header 浏览器已读取 Tools 页面。Tools/Open WebUI 兼容聚焦回归 14 项通过。",
-      "unmet": "未配置可调用模型/provider，真实模型 tool call、最终可信 UI 回调和真实资料授权仍待完成"
+      "notes": "薄适配器已在隔离 Open WebUI 0.12.5 实际注册；原生 loader 验证公开方法、实例 Valves、UserValves learner 上下文、宿主 __user__ subject 注入和 原生可信 UI 回调内 challenge 消费；异步 callback 超时保护及确认/答案写入不发生由定时回归验证；trusted-header 浏览器已读取 Tools 页面。Tools/Open WebUI 兼容聚焦回归 14 项通过。 P0 新隔离 project 已实测 schema 7/Open WebUI 0.12.5、当前源码/完整契约、原生 loader/合成身份及停止恢复；新实例模型数为 0，真实模型 tool call 和最终浏览器回调未执行，原有 unmet 保留。 本轮补齐独立网关签名声明/服务端会话与 Origin/CSRF/撤销的本地准备及合成回归；实际登录网关实现、TLS/目标入口和原生最终回调仍未验收。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W03,W04,W05,W07,W10,W11为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第一批复用工程更新：schema10，网关/身份CLI/来源绑定/共享上下文及前缀基础已本地实现，74聚焦与390/1280px合成浏览器通过；替代前述相应“仅规划/待开发”描述。正式认证/TLS/Tools两端/发布与真实验收仍缺，T状态保留。 第二批W04/W05/W06续跑：W04/W05入口、11方法上下文与最小投影、固定链接和教练空配置草稿已实现；正式分享/模型配置/原生回调未应用。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。 第三批W07–W10：schema11/66/24保留，50文件profile/16个hash依赖/固定基础OCI本地无缓存镜像与新隔离HTTP/TLS、原生loader及学习恢复证据见本轮报告；T状态不提升。 停机补充：隔离工具检查固定ID/退出码与60秒宽限，新隔离合成正常停止及9项回归通过；原137原因未充分定位，正式负载/完整恢复仍待，状态不提升。 2026-11-05：按用户缩小范围及生产授权，家庭数学版已部署；设备信任/首次家长绑定/真实学习观察待用户操作，原完整V1状态保留。",
+      "unmet": "当前schema11/66/24与50文件固定源码/本地镜像已有工程证据；新隔离合成账号Cookie/内部TLS/原生loader、代表链路与学习新卷恢复已验证。仍缺正式IP SAN证书/客户端信任/账号与安装issuer清单、正式Tools分享/模型最终原生浏览器回调、聊天费用/网络/容量/告警、完整架构/外部服务故障与正式RPO/RTO、真实provider/账单/人工资料质量及试用条件；未生产接入，原状态保留。"
     },
     "T21": {
       "status": "implemented",
@@ -217,10 +418,31 @@
         "docs/verification/observability-recovery-2026-11-02.md",
         "docs/verification/migration-atomicity-2026-11-03.md",
         "docs/verification/database-process-recovery-2026-11-03.md",
-        "docs/verification/release-manifest-2026-11-03.json"
+        "docs/verification/release-manifest-2026-11-03.json",
+        "learning_service/provider_usage.py",
+        "learning_service/migrations/008_provider_usage.sql",
+        "tests/test_model_providers.py",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "tests/test_reuse_operations.py",
+        "docs/verification/reuse-graceful-shutdown-2026-11-04.md",
+        "docs/verification/reuse-graceful-shutdown-2026-11-04.json",
+        "tests/test_reuse_shutdown.py",
+        "docs/verification/reuse-fault-isolation-2026-11-04.md",
+        "docs/verification/reuse-fault-isolation-2026-11-04.json",
+        "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.md",
+        "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.json",
+        "docs/open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md"
       ],
-      "notes": "聚合 metrics、worker 子进程和 SQLite writer 子进程 SIGKILL 后事务回滚、过期 lease 重领、多类确定性故障注入、provider 外部调用期间第二 SQLite 连接写入，以及 migration 失败回滚/WAL 协商有界重试/并发初始化已验证",
-      "unmet": "外部数据库服务、对象存储和真实 provider 网络故障仍待验证"
+      "notes": "历史 P0 复核：聚合 metrics、worker 子进程和 SQLite writer 子进程 SIGKILL 后事务回滚、过期 lease 重领、多类确定性故障注入、provider 外部调用期间第二 SQLite 连接写入，以及 migration 失败回滚/WAL 协商有界重试/并发初始化已验证 external_calls.tracked=false；真实调用统计、金额限额/停用和费用对账仍需工程补齐，Agent 步数/时间预算不代表费用受控。 本轮本地闭项：新增持久逐次台账、保守金额预留、累计/UTC 日/单次金额、日/分钟次数、并发与暂停、重试逐次占用、申报用量估算及管理员账单引用对账；没有真实费用。恢复副本暂停调用、保留费用并撤销旧会话。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W08,W09为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第三批W07–W10：schema11/66/24保留，50文件profile/16个hash依赖/固定基础OCI本地无缓存镜像与新隔离HTTP/TLS、原生loader及学习恢复证据见本轮报告；T状态不提升。 停机补充：隔离工具检查固定ID/退出码与60秒宽限，新隔离合成正常停止及9项回归通过；原137原因未充分定位，正式负载/完整恢复仍待，状态不提升。 W10故障补充：新隔离网关/API/WebUI停机隔离、认证WSS断开与同Cookie恢复、受控SIGKILL137和合成库完整性留证；代理解析/连接超时3秒，新增10项编排防护通过。原137根因及正式负载/完整架构/原生浏览器回调门槛保留，状态不提升。 2026-11-05 W08/W09补充：周期聚合监控/去重提醒/容量与备份回执/独立失联检查已本地实现，21项新增聚焦和新隔离组合通过；SQL只读但SQLite辅助文件需要数据卷写权限。完整恢复七组件/顺序设计已形成，正式来源/秘密/RPO/RTO仍空；回执为合成夹具，不是新实际备份。状态保持。",
+      "unmet": "当前schema11/66/24与50文件固定源码/本地镜像已有工程证据；新隔离合成账号Cookie/内部TLS/原生loader、代表链路与学习新卷恢复已验证。仍缺正式IP SAN证书/客户端信任/账号与安装issuer清单、正式Tools分享/模型最终原生浏览器回调、聊天费用/网络/容量/告警、完整架构/外部服务故障与正式RPO/RTO、真实provider/账单/人工资料质量及试用条件；未生产接入，原状态保留。",
+      "historical_unmet": [
+        "外部数据库服务、对象存储和真实 provider 网络故障仍待验证；external_calls.tracked=false；真实调用统计、金额限额/停用和费用对账仍需工程补齐，Agent 步数/时间预算不代表费用受控。"
+      ]
     },
     "T22": {
       "status": "implemented",
@@ -254,17 +476,55 @@
         "learning_service/migrations/006_agent_budget_started_at.sql",
         "docs/verification/compose-isolation-2026-11-03-revision6.md",
         "docs/verification/compose-isolation-2026-11-03-revision7.md",
-        "docs/verification/open-webui-tools-registration-2026-11-03.md"
+        "docs/verification/open-webui-tools-registration-2026-11-03.md",
+        "scripts/check_isolated_compose.py",
+        "tests/test_isolated_compose.py",
+        "docs/verification/compose-preflight-2026-11-03.md",
+        "learning_service/migrations/007_manual_mistakes_and_office_text.sql",
+        "docs/verification/p0-isolated-runtime-2026-11-04.md",
+        "learning_service/migrations/009_browser_sessions.sql",
+        "scripts/prepare_learning_release.py",
+        "scripts/probe_browser_sessions.py",
+        "tests/test_learning_release.py",
+        "docs/releases/README.md",
+        "docs/releases/production-config.template.env",
+        "docs/verification/provider-auth-release-local-2026-11-04.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/02-TECHNICAL-DESIGN-2026-11-04.md",
+        "docs/open-webui-reuse/01-PLANNING-2026-11-04.md",
+        "learning_service/migrations/010_session_identity_and_context.sql",
+        "docs/open-webui-reuse/04-LOCAL-IMPLEMENTATION-2026-11-04.md",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.md",
+        "docs/verification/open-webui-reuse-engineering-2026-11-04.json",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.md",
+        "docs/verification/reuse-workbench-tools-review-2026-11-04.json",
+        "docs/open-webui-reuse/05-WORKBENCH-TOOLS-REVIEW-2026-11-04.md",
+        "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.md",
+        "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+        "tests/test_reuse_operations.py",
+        "docs/verification/reuse-graceful-shutdown-2026-11-04.md",
+        "docs/verification/reuse-graceful-shutdown-2026-11-04.json",
+        "tests/test_reuse_shutdown.py",
+        "docs/verification/reuse-fault-isolation-2026-11-04.md",
+        "docs/verification/reuse-fault-isolation-2026-11-04.json",
+        "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.md",
+        "docs/verification/reuse-monitoring-recovery-plan-2026-11-05.json",
+        "docs/open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
       ],
-      "unmet": "真实模型发起的 Open WebUI 浏览器 tool call/最终可信回调、外部数据库服务/对象存储等剩余故障注入和真实资料仍待外部条件；本地 Tools 兼容 harness、trusted-header 浏览器 Tools 页面、revision 6 生产模式 bootstrap 404、隔离健康探针、本地 /ui Chrome 上传→复核→可信确认→错题本及桌面/390px 无溢出证据已更新",
-      "notes": "schema revision 6；独立生产 Compose 无宿主端口映射、internal network=true、health 200、bootstrap 404；revision 7 另以全新 project 实际完成干净启动、合成账号/附件备份恢复、API 重启持久性核对并清理临时卷。隔离 Open WebUI 0.12.5 已实际注册 dd_learning_v1 并用原生 loader 执行合成探针。真实浏览器/最终可信回调、外部数据库/对象存储故障及真实资料仍待外部条件。"
+      "unmet": "当前schema11/66/24与50文件固定源码/本地镜像已有工程证据；新隔离合成账号Cookie/内部TLS/原生loader、代表链路与学习新卷恢复已验证。仍缺正式IP SAN证书/客户端信任/账号与安装issuer清单、正式Tools分享/模型最终原生浏览器回调、聊天费用/网络/容量/告警、完整架构/外部服务故障与正式RPO/RTO、真实provider/账单/人工资料质量及试用条件；未生产接入，原状态保留。",
+      "notes": "schema revision 7；独立生产 Compose 无宿主端口映射、internal network=true、health 200、bootstrap 404；revision 7 另以全新 project 实际完成干净启动、合成账号/附件备份恢复、API 重启持久性核对并清理临时卷。静态 preflight 对当前 tracked Compose 做配置解析，拒绝宿主端口/bind mount/非隔离网络/非 mock provider/开发模式和提权旁路，不启动容器。隔离 Open WebUI 0.12.5 已实际注册 dd_learning_v1 并用原生 loader 执行合成探针。手动错题、DOCX/XLSX 本地文本提取、损坏文件和旧格式拒绝由服务回归覆盖；这些检查不证明运行时防火墙或外部服务故障恢复。真实浏览器/最终可信回调、外部数据库/对象存储/provider 网络故障及真实资料仍待外部条件。 P0 新隔离 project 已实测 schema 7/Open WebUI 0.12.5、当前源码/完整契约、原生 loader/合成身份及停止恢复；新实例模型数为 0，真实模型 tool call 和最终浏览器回调未执行，原有 unmet 保留。 本轮固定含未提交改动的 29 文件源码候选，新增会话/费用恢复边界；image_digest=null，未构建、签名、发布或部署。102 是本轮聚焦总数，101 为此前全量基线。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W01,W07,W09,W10,W13为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 第一批复用工程更新：schema10，网关/身份CLI/来源绑定/共享上下文及前缀基础已本地实现，74聚焦与390/1280px合成浏览器通过；替代前述相应“仅规划/待开发”描述。正式认证/TLS/Tools两端/发布与真实验收仍缺，T状态保留。 第二批W04/W05/W06续跑：新schema11/38文件源码包，旧schema9/29及schema10/35保留兼容校验；无新镜像或目标组合，W07以后继续。 89项主聚焦/19项有重叠契约复核，schema11/66/24；T状态保留。 第三批W07–W10：schema11/66/24保留，50文件profile/16个hash依赖/固定基础OCI本地无缓存镜像与新隔离HTTP/TLS、原生loader及学习恢复证据见本轮报告；T状态不提升。 停机补充：隔离工具检查固定ID/退出码与60秒宽限，新隔离合成正常停止及9项回归通过；原137原因未充分定位，正式负载/完整恢复仍待，状态不提升。 W10故障补充：新隔离网关/API/WebUI停机隔离、认证WSS断开与同Cookie恢复、受控SIGKILL137和合成库完整性留证；代理解析/连接超时3秒，新增10项编排防护通过。原137根因及正式负载/完整架构/原生浏览器回调门槛保留，状态不提升。 2026-11-05 W08/W09补充：周期聚合监控/去重提醒/容量与备份回执/独立失联检查已本地实现，21项新增聚焦和新隔离组合通过；SQL只读但SQLite辅助文件需要数据卷写权限。完整恢复七组件/顺序设计已形成，正式来源/秘密/RPO/RTO仍空；回执为合成夹具，不是新实际备份。状态保持。 2026-11-05：按用户缩小范围及生产授权，家庭数学版已部署；设备信任/首次家长绑定/真实学习观察待用户操作，原完整V1状态保留。"
     },
     "T23": {
       "status": "blocked",
       "evidence": [
-        "docs/verification/trial-readiness-2026-11-03.md"
+        "docs/verification/trial-readiness-2026-11-03.md",
+        "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+        "docs/open-webui-reuse/01-PLANNING-2026-11-04.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md"
       ],
-      "notes": "试用前清单、观察字段和停止条件已形成，尚未启动真实试用；隔离 Tool 注册已完成，但真实浏览器组合/最终可信回调、真实参与者、provider/预算、脱敏样本和人工抽检及连续 7–14 天观察仍未满足。",
+      "notes": "试用前清单、观察字段和停止条件已形成，尚未启动真实试用；隔离 Tool 注册已完成，但真实浏览器组合/最终可信回调、真实参与者、provider/预算、脱敏样本和人工抽检及连续 7–14 天观察仍未满足。 复用现有WebUI规划：用户确认本机Docker Compose/内置账号/HTTP53001，W14为本任务的待实施子包；本轮只有文档和只读元数据/源码协议，未完成新增工程或真实验收，原状态保留。 2026-11-05：按用户缩小范围及生产授权，家庭数学版已部署；设备信任/首次家长绑定/真实学习观察待用户操作，原完整V1状态保留。",
       "unmet": "需要明确试用授权、真实学习者/监护人同意、脱敏整卷和人工抽检、真实浏览器组合与最终可信回调、provider 预算以及连续 7–14 天观察"
     },
     "T24": {
@@ -276,5 +536,18 @@
     "T26": {
       "status": "deferred"
     }
+  },
+  "current_delivery": {
+    "scope": "one_parent_two_math_profiles",
+    "status": "deployed_parent_activation_pending",
+    "evidence": "docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md",
+    "full_v1_task_statuses_preserved": true,
+    "deferred_for_pilot": [
+      "commercial_features",
+      "complex_monitoring",
+      "full_architecture_recovery",
+      "incremental_backup_journals",
+      "other_subjects"
+    ]
   }
 }

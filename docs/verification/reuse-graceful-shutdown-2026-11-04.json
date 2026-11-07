@@ -1,0 +1,275 @@
+{
+  "date": "2026-11-04",
+  "evidence_kind": "new_isolated_WebUI_shutdown_and_host_orchestration_fix",
+  "git_head": "0fa02712ceda049b14d4b556faef3fdb2fa985ed",
+  "implementation": {
+    "file": "scripts/probe_reuse_runtime.py",
+    "default_grace_seconds": 60,
+    "allowed_grace_seconds": [
+      1,
+      60
+    ],
+    "verified_container_ids_only": true,
+    "foreign_project_rejected": true,
+    "nonzero_exit_or_OOM_fails": true,
+    "container_replacement_fails": true,
+    "already_stopped_failure_not_erased": true,
+    "per_attempt_report_immutable": true,
+    "volumes_preserved": true
+  },
+  "focused_tests": {
+    "command": "pytest -q tests/test_reuse_shutdown.py",
+    "observed_result": "9 passed in 0.08s",
+    "source": "tool_execution_output",
+    "full_suite_run": false,
+    "prior_56_suite_rerun": false,
+    "p0_rerun": false,
+    "four_format_rerun": false
+  },
+  "baseline_shutdown": {
+    "grace_seconds": 60,
+    "elapsed_seconds": 5.66,
+    "exit_code": 0,
+    "oom_killed": false,
+    "running": false,
+    "events": [
+      {
+        "action": "kill",
+        "signal": "15",
+        "exit_code": null
+      },
+      {
+        "action": "stop",
+        "signal": null,
+        "exit_code": null
+      },
+      {
+        "action": "die",
+        "signal": null,
+        "exit_code": "0"
+      }
+    ]
+  },
+  "authenticated_shutdown": {
+    "grace_seconds": 60,
+    "elapsed_seconds": 4.04,
+    "exit_code": 0,
+    "oom_killed": false,
+    "running": false,
+    "events": [
+      {
+        "action": "kill",
+        "signal": "15",
+        "exit_code": null
+      },
+      {
+        "action": "stop",
+        "signal": null,
+        "exit_code": null
+      },
+      {
+        "action": "die",
+        "signal": null,
+        "exit_code": "0"
+      }
+    ]
+  },
+  "tool_validation": {
+    "grace_seconds": 60,
+    "elapsed_seconds": 5.66,
+    "exit_code": 0,
+    "oom_killed": false,
+    "running": false,
+    "events": [
+      {
+        "action": "kill",
+        "signal": "15",
+        "exit_code": null
+      },
+      {
+        "action": "stop",
+        "signal": null,
+        "exit_code": null
+      },
+      {
+        "action": "die",
+        "signal": null,
+        "exit_code": "0"
+      }
+    ],
+    "stop_tool": {
+      "status": "passed",
+      "project": "dd-learning-reuse-shutdown-20261104",
+      "grace_seconds": 60,
+      "elapsed_seconds": 5.25,
+      "stopped_now": 1,
+      "already_stopped": 0,
+      "containers": [
+        {
+          "id": "0fecc4b366430756c0f2de28aa573be0cd39f59a5ff8f8c5d5bd96f7fc83fd81",
+          "project": "dd-learning-reuse-shutdown-20261104",
+          "service": "open-webui",
+          "running": false,
+          "status": "exited",
+          "exit_code": 0,
+          "oom_killed": false,
+          "pid": 0
+        }
+      ],
+      "errors": [],
+      "volumes_preserved": true,
+      "production_change": false
+    }
+  },
+  "runtime": {
+    "project": "dd-learning-reuse-shutdown-20261104",
+    "only_started_service": "open-webui",
+    "image_id": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
+    "final_running": false,
+    "final_exit_code": 0,
+    "oom_killed": false,
+    "host_ports_published": false,
+    "networks_internal": {
+      "dd-learning-reuse-shutdown-20261104_learning-internal": true,
+      "dd-learning-reuse-shutdown-20261104_webui-upstream": true
+    },
+    "volume_preserved": true,
+    "model_count": 0,
+    "synthetic_account": true
+  },
+  "root_cause_boundary": "Prior two exit137 results are preserved and not fully explained. These healthy/synthetic-authenticated runs exited 0; a longer grace alone is not proven to fix the previous failures.",
+  "source_candidate": {
+    "directory": "learning_data/release-preparation/dd-v1-reuse-shutdown-20261104",
+    "profile": "reuse-runtime-v1",
+    "files": 50,
+    "schema_revision": 11,
+    "source_set_sha256": "926d5738a04bdecc121e07c180be0446cd1b384ba3ed1f747befb0768f5bb954",
+    "archive_sha256": "2a5dacd79acfe096f1ca47541d05f24af1a8ee377561ce71a9b0e5aece80e0ef",
+    "image_digest": null,
+    "built": false,
+    "changed_from_previous_candidate": [
+      "scripts/probe_reuse_runtime.py"
+    ],
+    "current_whitelist_matches": true
+  },
+  "previous_built_image": {
+    "image_id": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+    "application_image_inputs_unchanged": true,
+    "learning_source_migration_files_unchanged": 30,
+    "is_build_of_new_candidate": false
+  },
+  "previous_candidate_preserved": {
+    "directory": "learning_data/release-preparation/dd-v1-reuse-runtime-20261104-final",
+    "source_set_sha256": "5e5dae5d58c0d04b8e7f91632e2eb6ececad7765163dd89df5aae6f404d8bd20",
+    "archive_sha256": "c0caf5fd20e1a92943b6ae3b51cf810c72a8d0fbc1ab11882580f5f49b40e7bd"
+  },
+  "probe_evidence_directory": "learning_data/verification/reuse-shutdown-20261104",
+  "readonly_webui_start_script_sha256": "40fef6f5b49405e27e3367b1a119469c10aba35c1f342632e59726198c195f2a",
+  "boundaries": {
+    "single_executor": true,
+    "production_containers_networks_tools_or_trust_modified": false,
+    "formal_data_or_secrets_read": false,
+    "forbidden_root_files_read_modified": false,
+    "real_model_OCR_calls": 0,
+    "real_student_data_export": false,
+    "git_reset_checkout_clean_commit_push": false,
+    "goal_created_updated_completed": false
+  },
+  "goal_api": null,
+  "repository_goal_status": "blocked",
+  "task_statuses": {
+    "T01": "verified",
+    "T02": "verified",
+    "T03": "implemented",
+    "T04": "blocked",
+    "T05": "blocked",
+    "T06": "verified",
+    "T07": "verified",
+    "T08": "verified",
+    "T09": "implemented",
+    "T10": "implemented",
+    "T11": "verified",
+    "T12": "implemented",
+    "T13": "implemented",
+    "T14": "implemented",
+    "T15": "verified",
+    "T16": "implemented",
+    "T17": "verified",
+    "T18": "implemented",
+    "T19": "verified",
+    "T20": "implemented",
+    "T21": "implemented",
+    "T22": "implemented",
+    "T23": "blocked",
+    "T24": "deferred",
+    "T25": "deferred",
+    "T26": "deferred"
+  },
+  "qa_statuses": {
+    "QA01": "verified-local",
+    "QA02": "verified-local",
+    "QA03": "partial",
+    "QA04": "partial",
+    "QA05": "verified-local",
+    "QA06": "partial",
+    "QA07": "partial",
+    "QA08": "verified-local",
+    "QA09": "verified-local",
+    "QA10": "verified-local",
+    "QA11": "verified-local",
+    "QA12": "verified-local",
+    "QA13": "verified-local",
+    "QA14": "partial",
+    "QA15": "partial",
+    "QA16": "deferred",
+    "QA17": "deferred"
+  },
+  "task_QA_statuses_promoted": false,
+  "remaining": [
+    "prior exit137 root cause not fully reproduced",
+    "shutdown under formal workload/background tasks/websockets",
+    "formal certificate/trust/identity/network inputs",
+    "chat cost/egress/monitoring and real billing controls",
+    "full architecture RPO/RTO",
+    "real models/OCR/final native browser callback/human-quality gates",
+    "W13 production review and W14 consented actual trial"
+  ],
+  "final_audit": {
+    "baseline_files": 140,
+    "preserved_files": 129,
+    "intentionally_modified_files": [
+      "docs/goal/BLOCKERS.md",
+      "docs/goal/DECISIONS.md",
+      "docs/goal/HANDOFF-SESSION-2026-11-04-W07-W10.md",
+      "docs/goal/HANDOFF.md",
+      "docs/goal/RESUME-SESSION-2026-11-04.txt",
+      "docs/goal/STATUS.md",
+      "docs/goal/TASKS.json",
+      "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+      "docs/open-webui-reuse/work-plan-2026-11-04.json",
+      "docs/verification/qa-matrix-2026-11-03.md",
+      "scripts/probe_reuse_runtime.py"
+    ],
+    "new_files": [
+      "docs/verification/reuse-graceful-shutdown-2026-11-04.json",
+      "docs/verification/reuse-graceful-shutdown-2026-11-04.md",
+      "tests/test_reuse_shutdown.py"
+    ],
+    "missing": [],
+    "unexpected_changes": [],
+    "head_unchanged": true,
+    "current_dirty_files": 143
+  },
+  "checks": {
+    "markdown_files": 8,
+    "local_links_checked": 81,
+    "missing_links": [],
+    "json_files_parsed": 3,
+    "changed_python_files_compiled": 2,
+    "task_statuses_unchanged": true,
+    "qa_statuses_unchanged": true,
+    "goal_consistency": "tasks=26, evidence paths=344, backlog task rows=26, QA matrix rows=17, manifest path references=24",
+    "diff_check": true,
+    "current_candidate_files_matched": 50
+  }
+}

@@ -1,0 +1,1050 @@
+{
+  "date": "2026-11-04",
+  "evidence_kind": "new_isolated_synthetic_faults_authenticated_WSS_and_bounded_proxy_connect",
+  "project": "dd-learning-reuse-faults-20261104",
+  "git_head": "0fa02712ceda049b14d4b556faef3fdb2fa985ed",
+  "source_reports": {
+    "baseline": {
+      "path": "learning_data/verification/reuse-faults-20261104/baseline.json",
+      "sha256": "1bfbb7da783cca682525c778f353837b315cc22e8502246144d07c7c8bcacfa9",
+      "result": {
+        "webui": {
+          "status": 200,
+          "seconds": 0.055,
+          "same_subject": true
+        },
+        "learning": {
+          "status": 200,
+          "seconds": 0.056,
+          "same_account": true
+        },
+        "learning_health": {
+          "status": 200,
+          "seconds": 0.006
+        }
+      }
+    },
+    "initial-gateway-attempt": {
+      "path": "learning_data/verification/reuse-faults-20261104/initial-gateway-attempt.json",
+      "sha256": "ef7cf35c5524ff3f4633a7856307288b4a9f263cf5247a8c2300677adaf17eb2",
+      "result": {
+        "status": "incomplete",
+        "observation": "immediate status assertion failed; first response not captured; later check WebUI200 learning502 API health200",
+        "gateway_exit_code": 0,
+        "websocket_self_timeout": true,
+        "claim": "not accepted as websocket fault evidence"
+      }
+    },
+    "gateway-outage": {
+      "path": "learning_data/verification/reuse-faults-20261104/gateway-outage.json",
+      "sha256": "aee4da301ca45204d5ee1409ea4127e36a444baeb8b62234e1fb58c6d7e299c6",
+      "result": {
+        "project": "dd-learning-reuse-faults-20261104",
+        "phase": "gateway-outage",
+        "status": "passed",
+        "production_change": false,
+        "steps": {
+          "before": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.06,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.121,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.006
+            }
+          },
+          "websocket-connected": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": true,
+            "elapsed_seconds": 0,
+            "self_timeout": false,
+            "server_disconnect_observed": false,
+            "transport": "websocket"
+          },
+          "nonce-issued": {
+            "nonce_issued": true
+          },
+          "learning-gateway-stop": {
+            "id": "5cecafde94cba977dca0bc1705628b91384a8096d74b661ba5f2ea472ccf1af6",
+            "service": "learning-gateway",
+            "running": false,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 0,
+            "operation": "stop",
+            "seconds": 0.62,
+            "events": [
+              {
+                "action": "kill",
+                "signal": "15",
+                "exit_code": null
+              },
+              {
+                "action": "stop",
+                "signal": null,
+                "exit_code": null
+              },
+              {
+                "action": "die",
+                "signal": null,
+                "exit_code": "0"
+              }
+            ]
+          },
+          "outage-observations": [
+            {
+              "webui": {
+                "status": 200,
+                "seconds": 0.023,
+                "same_subject": true
+              },
+              "learning": {
+                "status": null,
+                "transport_error": true,
+                "seconds": 12.015
+              },
+              "learning_health": {
+                "status": 200,
+                "seconds": 0.015
+              }
+            },
+            {
+              "webui": {
+                "status": 200,
+                "seconds": 0.033,
+                "same_subject": true
+              },
+              "learning": {
+                "status": 502,
+                "seconds": 0.003
+              },
+              "learning_health": {
+                "status": 200,
+                "seconds": 0.007
+              }
+            }
+          ],
+          "websocket-during-outage": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": true,
+            "elapsed_seconds": 18.068,
+            "self_timeout": false,
+            "server_disconnect_observed": false,
+            "transport": "websocket"
+          },
+          "learning-gateway-start": {
+            "id": "5cecafde94cba977dca0bc1705628b91384a8096d74b661ba5f2ea472ccf1af6",
+            "service": "learning-gateway",
+            "running": true,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 92768,
+            "operation": "start",
+            "seconds": 0.448,
+            "events": [
+              {
+                "action": "start",
+                "signal": null,
+                "exit_code": null
+              }
+            ]
+          },
+          "old-nonce-rejected": {
+            "stale_nonce_rejected_after_gateway_restart": true
+          },
+          "new-session": {
+            "learning_session_created": true
+          },
+          "recovered-existing-cookies": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.035,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.031,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.008
+            }
+          }
+        }
+      }
+    },
+    "api-outage": {
+      "path": "learning_data/verification/reuse-faults-20261104/api-outage.json",
+      "sha256": "b12fbb3b3c8d3e834ae9a8bb3f520df6adef3b383804abe8cccee7125d02d4da",
+      "result": {
+        "project": "dd-learning-reuse-faults-20261104",
+        "phase": "api-outage",
+        "status": "passed",
+        "production_change": false,
+        "steps": {
+          "before": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.026,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.18,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.006
+            }
+          },
+          "learning-worker-stop": {
+            "id": "12a4492e3f9361713b4c7c8fdefa3f17168273f746dcef3059c92c7faac6b7b7",
+            "service": "learning-worker",
+            "running": false,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 0,
+            "operation": "stop",
+            "seconds": 2.275,
+            "events": [
+              {
+                "action": "kill",
+                "signal": "15",
+                "exit_code": null
+              },
+              {
+                "action": "stop",
+                "signal": null,
+                "exit_code": null
+              },
+              {
+                "action": "die",
+                "signal": null,
+                "exit_code": "0"
+              }
+            ]
+          },
+          "learning-api-stop": {
+            "id": "4443deb9d760e738192d9b58e1b99006fda8e5ff83656b67a9e7722573d16a6b",
+            "service": "learning-api",
+            "running": false,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 0,
+            "operation": "stop",
+            "seconds": 0.869,
+            "events": [
+              {
+                "action": "kill",
+                "signal": "15",
+                "exit_code": null
+              },
+              {
+                "action": "stop",
+                "signal": null,
+                "exit_code": null
+              },
+              {
+                "action": "die",
+                "signal": null,
+                "exit_code": "0"
+              }
+            ]
+          },
+          "outage": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.023,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 503,
+              "seconds": 0.022,
+              "error_code": "LEARNING_UPSTREAM_UNAVAILABLE"
+            },
+            "learning_health": {
+              "status": null,
+              "transport_error": true,
+              "seconds": 0.002
+            }
+          },
+          "learning-api-start": {
+            "id": "4443deb9d760e738192d9b58e1b99006fda8e5ff83656b67a9e7722573d16a6b",
+            "service": "learning-api",
+            "running": true,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 93216,
+            "operation": "start",
+            "seconds": 0.415,
+            "events": [
+              {
+                "action": "start",
+                "signal": null,
+                "exit_code": null
+              }
+            ]
+          },
+          "learning-worker-start": {
+            "id": "12a4492e3f9361713b4c7c8fdefa3f17168273f746dcef3059c92c7faac6b7b7",
+            "service": "learning-worker",
+            "running": true,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 93293,
+            "operation": "start",
+            "seconds": 0.558,
+            "events": [
+              {
+                "action": "start",
+                "signal": null,
+                "exit_code": null
+              }
+            ]
+          },
+          "recovered-existing-cookies": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.026,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.057,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.007
+            }
+          }
+        }
+      }
+    },
+    "webui-stop": {
+      "path": "learning_data/verification/reuse-faults-20261104/webui-stop.json",
+      "sha256": "006ddd85f5a14d13270a2d926695d8ea915bc23244971147808a37af97c04783",
+      "result": {
+        "project": "dd-learning-reuse-faults-20261104",
+        "phase": "webui-stop",
+        "status": "failed",
+        "production_change": false,
+        "steps": {
+          "before": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.034,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.048,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.012
+            }
+          },
+          "websocket-connected": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": true,
+            "elapsed_seconds": 57.104,
+            "self_timeout": false,
+            "server_disconnect_observed": false,
+            "transport": "websocket"
+          },
+          "open-webui-stop": {
+            "id": "2b45b088011a0ec659e1d37611e18b2acc76616ddd6e0dec36437b952370c7b8",
+            "service": "open-webui",
+            "running": false,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 0,
+            "operation": "stop",
+            "seconds": 5.346,
+            "events": [
+              {
+                "action": "kill",
+                "signal": "15",
+                "exit_code": null
+              },
+              {
+                "action": "stop",
+                "signal": null,
+                "exit_code": null
+              },
+              {
+                "action": "die",
+                "signal": null,
+                "exit_code": "0"
+              }
+            ]
+          },
+          "websocket-disconnected": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": false,
+            "elapsed_seconds": 57.503,
+            "self_timeout": false,
+            "server_disconnect_observed": true,
+            "transport": "websocket"
+          },
+          "outage": {
+            "webui": {
+              "status": null,
+              "transport_error": true,
+              "seconds": 12.013
+            },
+            "learning": {
+              "status": 503,
+              "seconds": 0.018,
+              "error_code": "AUTH_UPSTREAM_UNAVAILABLE"
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.007
+            }
+          }
+        }
+      }
+    },
+    "proxy-timeout-change": {
+      "path": "learning_data/verification/reuse-faults-20261104/proxy-timeout-change.json",
+      "sha256": "4590c0cd7ce5a05bb168e7dcc219beaf4498bdf6278d453ffc0460db9b36347a",
+      "result": {
+        "new_sha256": "9893a9776a143f092e71cfcd5bc0b56e99b5478a19e7b7fde2e3acc2419901cc",
+        "previous_sha256": "19c43a1197931165a26ba96326fbc8832f5899518aa6cb22aedcaf515d1dfa65",
+        "resolver_timeout_seconds": 3,
+        "connect_timeout_seconds": 3,
+        "mounted_hash_verified": true,
+        "nginx_config_test": true,
+        "isolated_proxy_reload": true
+      }
+    },
+    "webui-stop-bounded": {
+      "path": "learning_data/verification/reuse-faults-20261104/webui-stop-bounded.json",
+      "sha256": "83926b8d0bed9d94e02b12a5c0a7e58c6881814226ed44783b9fe6aff56dfc87",
+      "result": {
+        "project": "dd-learning-reuse-faults-20261104",
+        "phase": "webui-stop",
+        "status": "passed",
+        "production_change": false,
+        "steps": {
+          "before": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.037,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.031,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.006
+            }
+          },
+          "websocket-connected": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": true,
+            "elapsed_seconds": 0,
+            "self_timeout": false,
+            "server_disconnect_observed": false,
+            "transport": "websocket"
+          },
+          "open-webui-stop": {
+            "id": "2b45b088011a0ec659e1d37611e18b2acc76616ddd6e0dec36437b952370c7b8",
+            "service": "open-webui",
+            "running": false,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 0,
+            "operation": "stop",
+            "seconds": 3.993,
+            "events": [
+              {
+                "action": "kill",
+                "signal": "15",
+                "exit_code": null
+              },
+              {
+                "action": "stop",
+                "signal": null,
+                "exit_code": null
+              },
+              {
+                "action": "die",
+                "signal": null,
+                "exit_code": "0"
+              }
+            ]
+          },
+          "websocket-disconnected": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": false,
+            "elapsed_seconds": 0.354,
+            "self_timeout": false,
+            "server_disconnect_observed": true,
+            "transport": "websocket"
+          },
+          "outage": {
+            "webui": {
+              "status": 504,
+              "seconds": 3.008
+            },
+            "learning": {
+              "status": 503,
+              "seconds": 0.008,
+              "error_code": "AUTH_UPSTREAM_UNAVAILABLE"
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.008
+            }
+          },
+          "open-webui-start": {
+            "id": "2b45b088011a0ec659e1d37611e18b2acc76616ddd6e0dec36437b952370c7b8",
+            "service": "open-webui",
+            "running": true,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 98270,
+            "operation": "start",
+            "seconds": 0.414,
+            "events": [
+              {
+                "action": "start",
+                "signal": null,
+                "exit_code": null
+              }
+            ]
+          },
+          "recovered-existing-cookies": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.036,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.037,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.008
+            }
+          }
+        }
+      }
+    },
+    "gateway-outage-bounded": {
+      "path": "learning_data/verification/reuse-faults-20261104/gateway-outage-bounded.json",
+      "sha256": "3337a25318d6824ee7a4b9b1b2433fb693c4f0e38b6cd8f3806530cf77df9ea5",
+      "result": {
+        "project": "dd-learning-reuse-faults-20261104",
+        "phase": "gateway-outage",
+        "status": "passed",
+        "production_change": false,
+        "steps": {
+          "before": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.049,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.041,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.006
+            }
+          },
+          "websocket-connected": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": true,
+            "elapsed_seconds": 0,
+            "self_timeout": false,
+            "server_disconnect_observed": false,
+            "transport": "websocket"
+          },
+          "nonce-issued": {
+            "nonce_issued": true
+          },
+          "learning-gateway-stop": {
+            "id": "5cecafde94cba977dca0bc1705628b91384a8096d74b661ba5f2ea472ccf1af6",
+            "service": "learning-gateway",
+            "running": false,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 0,
+            "operation": "stop",
+            "seconds": 0.791,
+            "events": [
+              {
+                "action": "kill",
+                "signal": "15",
+                "exit_code": null
+              },
+              {
+                "action": "stop",
+                "signal": null,
+                "exit_code": null
+              },
+              {
+                "action": "die",
+                "signal": null,
+                "exit_code": "0"
+              }
+            ]
+          },
+          "outage-observations": [
+            {
+              "webui": {
+                "status": 200,
+                "seconds": 0.023,
+                "same_subject": true
+              },
+              "learning": {
+                "status": 504,
+                "seconds": 3.006
+              },
+              "learning_health": {
+                "status": 200,
+                "seconds": 0.008
+              }
+            }
+          ],
+          "websocket-during-outage": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": true,
+            "elapsed_seconds": 7.052,
+            "self_timeout": false,
+            "server_disconnect_observed": false,
+            "transport": "websocket"
+          },
+          "learning-gateway-start": {
+            "id": "5cecafde94cba977dca0bc1705628b91384a8096d74b661ba5f2ea472ccf1af6",
+            "service": "learning-gateway",
+            "running": true,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 1408,
+            "operation": "start",
+            "seconds": 0.473,
+            "events": [
+              {
+                "action": "start",
+                "signal": null,
+                "exit_code": null
+              }
+            ]
+          },
+          "old-nonce-rejected": {
+            "stale_nonce_rejected_after_gateway_restart": true
+          },
+          "new-session": {
+            "learning_session_created": true
+          },
+          "recovered-existing-cookies": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.027,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.032,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.007
+            }
+          }
+        }
+      }
+    },
+    "webui-kill": {
+      "path": "learning_data/verification/reuse-faults-20261104/webui-kill.json",
+      "sha256": "a9e3d9b0081e2d439b391ab2a81be65fdde491a6ae0a33ff9fcd1ad8f73874c2",
+      "result": {
+        "project": "dd-learning-reuse-faults-20261104",
+        "phase": "webui-kill",
+        "status": "passed",
+        "production_change": false,
+        "steps": {
+          "before": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.032,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.033,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.006
+            }
+          },
+          "websocket-connected": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": true,
+            "elapsed_seconds": 35.077,
+            "self_timeout": false,
+            "server_disconnect_observed": false,
+            "transport": "websocket"
+          },
+          "open-webui-kill": {
+            "id": "2b45b088011a0ec659e1d37611e18b2acc76616ddd6e0dec36437b952370c7b8",
+            "service": "open-webui",
+            "running": false,
+            "exit_code": 137,
+            "oom_killed": false,
+            "pid": 0,
+            "operation": "kill",
+            "seconds": 0.974,
+            "events": [
+              {
+                "action": "kill",
+                "signal": "9",
+                "exit_code": null
+              },
+              {
+                "action": "die",
+                "signal": null,
+                "exit_code": "137"
+              }
+            ]
+          },
+          "websocket-disconnected": {
+            "authenticated_join": true,
+            "connected": true,
+            "currently_connected": false,
+            "elapsed_seconds": 36.076,
+            "self_timeout": false,
+            "server_disconnect_observed": true,
+            "transport": "websocket"
+          },
+          "outage": {
+            "webui": {
+              "status": 504,
+              "seconds": 3.01
+            },
+            "learning": {
+              "status": 503,
+              "seconds": 0.008,
+              "error_code": "AUTH_UPSTREAM_UNAVAILABLE"
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.006
+            }
+          },
+          "open-webui-start": {
+            "id": "2b45b088011a0ec659e1d37611e18b2acc76616ddd6e0dec36437b952370c7b8",
+            "service": "open-webui",
+            "running": true,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 2972,
+            "operation": "start",
+            "seconds": 0.437,
+            "events": [
+              {
+                "action": "start",
+                "signal": null,
+                "exit_code": null
+              }
+            ]
+          },
+          "recovered-existing-cookies": {
+            "webui": {
+              "status": 200,
+              "seconds": 0.039,
+              "same_subject": true
+            },
+            "learning": {
+              "status": 200,
+              "seconds": 0.03,
+              "same_account": true
+            },
+            "learning_health": {
+              "status": 200,
+              "seconds": 0.006
+            }
+          }
+        }
+      }
+    },
+    "post-kill-integrity": {
+      "path": "learning_data/verification/reuse-faults-20261104/post-kill-integrity.json",
+      "sha256": "90c2d3c15af9a85ace20c4b5dc29a78f2069ecd3c419054b62a4ffe28afe7444",
+      "result": {
+        "webui": {
+          "integrity": "ok",
+          "synthetic_user_count": 1
+        },
+        "learning": {
+          "integrity": "ok",
+          "foreign_key_violations": 0,
+          "synthetic_identity_counts": {
+            "accounts": 1,
+            "identity_bindings": 1,
+            "learners": 1,
+            "learner_access": 1
+          }
+        },
+        "source": "new isolated volumes only",
+        "writes_during_sigkill": false
+      }
+    },
+    "runtime-boundaries": {
+      "path": "learning_data/verification/reuse-faults-20261104/runtime-boundaries.json",
+      "sha256": "465518fa6eb9677fe91cf82e6bb5ac5e0801a7a0a3213263af9488578a2813c1",
+      "result": {
+        "static_isolated_validation": true,
+        "networks_internal": {
+          "learning-internal": true,
+          "webui-upstream": true
+        },
+        "services": [
+          {
+            "service": "learning-api",
+            "image": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+            "host_ports": {}
+          },
+          {
+            "service": "learning-gateway",
+            "image": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+            "host_ports": {}
+          },
+          {
+            "service": "learning-proxy",
+            "image": "sha256:1d13701a5f9f3fb01aaa88cef2344d65b6b5bf6b7d9fa4cf0dca557a8d7702ba",
+            "host_ports": {}
+          },
+          {
+            "service": "learning-worker",
+            "image": "sha256:b67894e6bb8a7023d392a4dd4547e77b0c1d9b39912da3ddd1a50aefbd2b8cbb",
+            "host_ports": {}
+          },
+          {
+            "service": "open-webui",
+            "image": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
+            "host_ports": {}
+          }
+        ],
+        "new_synthetic_account_only": true,
+        "models_at_login": 0,
+        "production_change": false
+      }
+    },
+    "finish": {
+      "path": "learning_data/verification/reuse-faults-20261104/finish.json",
+      "sha256": "9c0bcd6c6034e049776713ecedbf062b9a3e54efdf611eeacfcd9ba6c35ef46e",
+      "result": {
+        "project": "dd-learning-reuse-faults-20261104",
+        "phase": "finish",
+        "status": "passed",
+        "production_change": false,
+        "steps": {
+          "observer-stopped": {
+            "running": false,
+            "exit_code": 0,
+            "oom_killed": false,
+            "pid": 0
+          },
+          "compose-stopped": {
+            "status": "passed",
+            "project": "dd-learning-reuse-faults-20261104",
+            "grace_seconds": 60,
+            "elapsed_seconds": 6.307,
+            "stopped_now": 5,
+            "already_stopped": 0,
+            "containers": [
+              {
+                "id": "4443deb9d760e738192d9b58e1b99006fda8e5ff83656b67a9e7722573d16a6b",
+                "project": "dd-learning-reuse-faults-20261104",
+                "service": "learning-api",
+                "running": false,
+                "status": "exited",
+                "exit_code": 0,
+                "oom_killed": false,
+                "pid": 0
+              },
+              {
+                "id": "5cecafde94cba977dca0bc1705628b91384a8096d74b661ba5f2ea472ccf1af6",
+                "project": "dd-learning-reuse-faults-20261104",
+                "service": "learning-gateway",
+                "running": false,
+                "status": "exited",
+                "exit_code": 0,
+                "oom_killed": false,
+                "pid": 0
+              },
+              {
+                "id": "48ae5167c5574d1aa0eea39a3e19e44b33faf6ee5c69028b7818343d078f9883",
+                "project": "dd-learning-reuse-faults-20261104",
+                "service": "learning-proxy",
+                "running": false,
+                "status": "exited",
+                "exit_code": 0,
+                "oom_killed": false,
+                "pid": 0
+              },
+              {
+                "id": "12a4492e3f9361713b4c7c8fdefa3f17168273f746dcef3059c92c7faac6b7b7",
+                "project": "dd-learning-reuse-faults-20261104",
+                "service": "learning-worker",
+                "running": false,
+                "status": "exited",
+                "exit_code": 0,
+                "oom_killed": false,
+                "pid": 0
+              },
+              {
+                "id": "2b45b088011a0ec659e1d37611e18b2acc76616ddd6e0dec36437b952370c7b8",
+                "project": "dd-learning-reuse-faults-20261104",
+                "service": "open-webui",
+                "running": false,
+                "status": "exited",
+                "exit_code": 0,
+                "oom_killed": false,
+                "pid": 0
+              }
+            ],
+            "errors": [],
+            "volumes_preserved": true,
+            "production_change": false
+          }
+        }
+      }
+    }
+  },
+  "focused_tests": {
+    "command": "python -m pytest -q tests/test_reuse_faults.py",
+    "result": "10 passed in 0.10s",
+    "prior_56_rerun": false,
+    "previous_shutdown_9_rerun": false,
+    "p0_rerun": false,
+    "four_format_rerun": false,
+    "browser_rerun": false
+  },
+  "supplementary_source_sha256": {
+    "scripts/probe_reuse_faults.py": "1f8e25978fbe769c36112fb043eee96d78d02b50d4f8880b447ab72f9401a5d9",
+    "scripts/reuse_fault_client.py": "89a03b363294de67d711da00483dbb1d35ebee41e839bcc4cebe9375a4cbc16a",
+    "tests/test_reuse_faults.py": "b3d44b343fd4815fbcf3a0bb5fc639c525d61e8f41368e237a19c274da507856"
+  },
+  "candidate": {
+    "path": "learning_data/release-preparation/dd-v1-reuse-faults-20261104",
+    "files": 50,
+    "schema_revision": 11,
+    "source_set_sha256": "6ff57b37a85a233682a8161d9f203d77b8b9b8f9841cf6152650a5c52fe899c7",
+    "archive_sha256": "d7b3a24373f19417224466113f88b0cdea91d49a4f80383e060ba95a3775587f",
+    "changed_since_previous": [
+      "deploy/open-webui-reuse/nginx.learning.conf"
+    ],
+    "image_digest": null,
+    "new_image_built": false,
+    "application_image_inputs_unchanged": true
+  },
+  "boundaries": {
+    "production_change": false,
+    "goal_write": false,
+    "real_model_calls": 0,
+    "real_ocr_calls": 0,
+    "real_student_data_export": false,
+    "formal_ip_certificate_or_browser_callback_acceptance": false,
+    "original_137_root_cause_proven": false,
+    "formal_rpo_rto_accepted": false,
+    "concurrent_business_writes_during_sigkill": false,
+    "volumes_preserved": true
+  },
+  "limitations": [
+    "Synthetic no-model authenticated SocketIO client is not final browser model tool callback.",
+    "Intentional SIGKILL does not explain earlier unplanned exit137.",
+    "DNS failure not separately injected; three-second resolver timeout is configuration only.",
+    "First manual gateway attempt incomplete and first WebUI stop phase failed due to HTTP timeout; retained.",
+    "Observer uses alternate Python entrypoint; inherited WebUI healthcheck is inapplicable."
+  ],
+  "task_and_qa_statuses_changed": false,
+  "goal_api_readonly": null,
+  "final_audit": {
+    "head_unchanged": true,
+    "baseline_files": 143,
+    "unchanged_count": 132,
+    "intentional_changes": [
+      "deploy/open-webui-reuse/nginx.learning.conf",
+      "docs/goal/BLOCKERS.md",
+      "docs/goal/DECISIONS.md",
+      "docs/goal/HANDOFF-SESSION-2026-11-04-W07-W10.md",
+      "docs/goal/RESUME-SESSION-2026-11-04.txt",
+      "docs/goal/STATUS.md",
+      "docs/goal/TASKS.json",
+      "docs/open-webui-reuse/03-WORK-PLAN-2026-11-04.md",
+      "docs/open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md",
+      "docs/open-webui-reuse/work-plan-2026-11-04.json",
+      "docs/verification/qa-matrix-2026-11-03.md"
+    ],
+    "missing": [],
+    "unexpected_changes": [],
+    "forbidden_not_read": [
+      "batch_ingest.py",
+      "docker-compose.yml"
+    ],
+    "baseline_skipped": [],
+    "new_dirty_paths": [
+      "docs/verification/reuse-fault-isolation-2026-11-04.json",
+      "docs/verification/reuse-fault-isolation-2026-11-04.md",
+      "scripts/probe_reuse_faults.py",
+      "scripts/reuse_fault_client.py",
+      "tests/test_reuse_faults.py"
+    ],
+    "markdown_files": 8,
+    "local_links": 87,
+    "tasks_status_unchanged": 26,
+    "qa_status_unchanged": 17,
+    "work_packages_status_unchanged": 14,
+    "work_packages_acyclic": true,
+    "new_candidate_sources_match": true,
+    "previous_candidate_verified": true,
+    "built_candidate_verified": true,
+    "application_image_input_files_unchanged": 32,
+    "source_report_hashes_verified": 12,
+    "supplementary_source_hashes_verified": 3
+  },
+  "final_checks": {
+    "goal_consistency": "26 tasks, 350 evidence paths, 17 QA rows; authorization boundaries intact",
+    "git_diff_check": "passed",
+    "python_compile_files": 3,
+    "goal_api_readonly": null,
+    "six_new_containers_stopped_exit0": true
+  }
+}

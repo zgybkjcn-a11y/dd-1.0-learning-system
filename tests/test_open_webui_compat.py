@@ -2,9 +2,16 @@ from __future__ import annotations
 
 import json
 import asyncio
+import pytest
 from pathlib import Path
 
 from open_webui_harness import call_tool, call_tool_async, discover_functions, inject_valves, load_tool_module, parse_tool_metadata, visible_parameters
+
+
+@pytest.fixture(autouse=True)
+def legacy_loader_profile(monkeypatch):
+    monkeypatch.setenv('DD_SHARED_LEARNER_CONTEXT', 'false')
+    monkeypatch.setenv('DD_WORKBENCH_URL', '')
 
 
 class _Response:
@@ -23,6 +30,10 @@ class _Response:
 
 TOOL_SOURCE = Path(__file__).parents[1] / "learning_service" / "tools.py"
 EXPECTED_FUNCTIONS = {
+    "get_study_support",
+    "get_math_scope",
+    "get_math_question_reference",
+    "get_math_concept_reference",
     "get_attempt",
     "get_mistakes",
     "get_progress",
@@ -44,7 +55,7 @@ def test_tool_metadata_is_parseable_and_pins_compatibility_contract():
         "author": "DD-1.0",
         "description": "Thin adapter for the isolated DD-1.0 learning service.",
         "required_open_webui_version": "0.12.5",
-        "version": "1.0.0",
+        "version": "1.2.0",
     }
 
 
@@ -60,6 +71,7 @@ def test_loader_valves_and_signature_filter_match_open_webui(monkeypatch):
             "DD_LEARNING_ADAPTER_SECRET": "valve-secret",
             "DD_TRUSTED_PROVIDER": "open-webui-test",
             "DD_TRUSTED_ISSUER": "isolated-installation",
+            "DD_SHARED_LEARNER_CONTEXT": False, "DD_WORKBENCH_URL": "",
         },
     )
 
@@ -85,7 +97,7 @@ def test_loader_valves_and_signature_filter_match_open_webui(monkeypatch):
             {"id": "trusted-open-webui-user", "email": "not-used@example.test"},
         )
     )
-    assert result == {"learner_id": "learner-1"}
+    assert result == {"cards": [], "attempts": {}}
     request = observed["request"]
     assert request.full_url == "http://isolated-learning:32000/api/v1/progress"
     assert request.get_header("X-adapter-secret") == "valve-secret"
@@ -107,7 +119,7 @@ def test_loader_valves_and_signature_filter_match_open_webui(monkeypatch):
 
 def test_trusted_interaction_uses_native_input_callback_and_keeps_answer_out_of_tool_result(monkeypatch):
     module, tool = load_tool_module(TOOL_SOURCE)
-    inject_valves(tool, {"DD_LEARNING_BASE_URL": "http://isolated-learning:32000"})
+    inject_valves(tool, {"DD_LEARNING_BASE_URL": "http://isolated-learning:32000", "DD_SHARED_LEARNER_CONTEXT": False, "DD_WORKBENCH_URL": ""})
     observed = []
 
     def fake_urlopen(request, timeout):

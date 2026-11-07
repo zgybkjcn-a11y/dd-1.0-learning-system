@@ -10,7 +10,7 @@ pytest -q tests/test_learning_service.py -k migration
 python3 -m compileall -q learning_service tests
 ```
 
-结果：该次聚焦回归为 `3 passed, 50 deselected`；编译检查通过。当时全量快照为 62 passed；之后全量回归曾为 76/77 passed，最新 `pytest -q` 为 78 passed。双进程首次启动压力复跑 20 轮（每轮两个进程）均成功。
+结果：该次聚焦回归为 `3 passed, 50 deselected`；编译检查通过。当时全量快照为 62 passed；之后全量回归曾为 76/77/78 passed，当前 `pytest -q` 为 91 passed。双进程首次启动压力复跑 20 轮（每轮两个进程）均成功。
 
 ## 覆盖内容
 

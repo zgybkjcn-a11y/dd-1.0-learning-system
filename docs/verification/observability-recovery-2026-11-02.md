@@ -2,11 +2,11 @@
 
 日期：2026-11-02（Asia/Shanghai，历史基线）
 
-本报告只记录隔离临时目录、合成账号和合成资料的确定性验证，不把它们描述成真实 Open WebUI、真实 provider、对象存储或真实学习者验收。最新全量回归为 `78 passed`、schema revision 6；页面修订/复核申请、维护准入、migration 原子性、SQLite 进程恢复和可信 UI callback 超时增量分别见 `docs/verification/maintenance-gate-2026-11-03.md`、`docs/verification/migration-atomicity-2026-11-03.md`、`docs/verification/database-process-recovery-2026-11-03.md` 和 `docs/verification/trusted-ui-timeout-2026-11-03.md`；本文件中的 revision 3 运行细节保持为历史快照。
+本报告只记录隔离临时目录、合成账号和合成资料的确定性验证，不把它们描述成真实 Open WebUI、真实 provider、对象存储或真实学习者验收。当前全量回归为 `91 passed`、schema revision 7；页面修订/复核申请、维护准入、migration 原子性、SQLite 进程恢复和可信 UI callback 超时增量分别见 `docs/verification/maintenance-gate-2026-11-03.md`、`docs/verification/migration-atomicity-2026-11-03.md`、`docs/verification/database-process-recovery-2026-11-03.md` 和 `docs/verification/trusted-ui-timeout-2026-11-03.md`；本文件中的 revision 3 运行细节保持为历史快照。
 
 ## 命令与结果
 
-- 历史基线 `pytest -q`：`37 passed`，无 warning；当前全量回归为 `78 passed`，维护准入、migration 原子性、SQLite 进程恢复和可信 UI callback 超时增量见 `docs/verification/maintenance-gate-2026-11-03.md`、`docs/verification/migration-atomicity-2026-11-03.md`、`docs/verification/database-process-recovery-2026-11-03.md`、`docs/verification/trusted-ui-timeout-2026-11-03.md`。
+- 历史基线 `pytest -q`：`37 passed`，无 warning；当前全量回归为 `91 passed`，维护准入、migration 原子性、SQLite 进程恢复和可信 UI callback 超时增量见 `docs/verification/maintenance-gate-2026-11-03.md`、`docs/verification/migration-atomicity-2026-11-03.md`、`docs/verification/database-process-recovery-2026-11-03.md`、`docs/verification/trusted-ui-timeout-2026-11-03.md`。
 - `python3 -m compileall -q learning_service tests`：通过。
 - `python3 -m json.tool docs/goal/TASKS.json`：通过。
 - `LEARNING_ADMIN_SECRET=dev LEARNING_ADAPTER_SECRET=adapter docker compose -f docker-compose.learning.yml config --quiet`：通过。

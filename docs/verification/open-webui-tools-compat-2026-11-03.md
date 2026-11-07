@@ -19,13 +19,13 @@ pytest -q tests/test_learning_tools.py tests/test_open_webui_compat.py
 13 passed (10 Tools adapter + 3 Open WebUI compatibility)
 
 pytest -q
-76 passed（63 service + 10 Tools + 3 Open WebUI compatibility；本报告生成时的快照，后续曾为 77 passed，最新全量回归为 78 passed）
+76 passed（63 service + 10 Tools + 3 Open WebUI compatibility；本报告生成时的快照，后续曾为 77/78 passed，当前全量回归为 91 passed，含 6 项隔离 Compose preflight）
 
 python3 -m compileall -q learning_service tests
 passed
 
 OpenAPI runtime == docs/contracts/openapi-v1.json
-55 paths / 19 schemas
+报告生成时 OpenAPI 快照：55 paths / 19 schemas；当前为 56 paths / 20 schemas，见 `openapi-contract-2026-11-03.md`
 ```
 
 `tests/open_webui_harness.py` 通过临时 Python module 执行适配器源码，模拟实例化和宿主注入；`tests/test_open_webui_compat.py` 进一步断言：

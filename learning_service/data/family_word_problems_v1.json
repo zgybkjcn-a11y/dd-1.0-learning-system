@@ -1,0 +1,1828 @@
+{
+  "format": "dd-family-word-problems-v1",
+  "questions": [
+    {
+      "id": "family-word-cnm_p039_q1-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "小剧场排座位",
+      "prompt": "每行 2 个座位，有 6 行。一共有多少个座位？\n请只填最后所求的数值（单位：个）。",
+      "answer": "12",
+      "units": [
+        "个"
+      ],
+      "hint": "一行有几个？这样的行有几行？",
+      "explanation": "6 行，每行 2 个，合起来是 2＋2＋2＋2＋2＋2＝12 个座位。",
+      "independent_check": "2+2+2+2+2+2",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p039_q1",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p262_q1-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "文具店买铅笔",
+      "prompt": "每支铅笔 2 元，买 5 支。一共要付多少元？\n请只填最后所求的数值（单位：元）。",
+      "answer": "10",
+      "units": [
+        "元"
+      ],
+      "hint": "每支同价，把 5 支的价钱合起来。",
+      "explanation": "5 支，每支 2 元：2＋2＋2＋2＋2＝10 元。",
+      "independent_check": "2+2+2+2+2",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p262_q1",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p038_q3-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "小组去春游",
+      "prompt": "春游时，同学们分成 4 组，每组有 3 人。一共有多少人？\n请只填最后所求的数值（单位：人）。",
+      "answer": "12",
+      "units": [
+        "人"
+      ],
+      "hint": "有几个同样多的小组？",
+      "explanation": "4 组各 3 人：3＋3＋3＋3＝12 人。",
+      "independent_check": "3+3+3+3",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p038_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p039_q3-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "体育室数皮球",
+      "prompt": "每盒有 5 个皮球，一共 6 盒。一共有多少个？\n请只填最后所求的数值（单位：个）。",
+      "answer": "30",
+      "units": [
+        "个"
+      ],
+      "hint": "每盒同样多，用每盒个数乘盒数。",
+      "explanation": "6 盒各 5 个：5＋5＋5＋5＋5＋5＝30 个。",
+      "independent_check": "5+5+5+5+5+5",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p039_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p039_q4-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "植树后再添两棵",
+      "prompt": "每行 4 棵树，有 3 行。又在旁边单种了 2 棵。树一共有多少棵？\n请只填最后所求的数值（单位：棵）。",
+      "answer": "14",
+      "units": [
+        "棵"
+      ],
+      "hint": "先数整齐的几行，再加单种的树。",
+      "explanation": "3 行各 4 棵共有 12 棵，另加 2 棵，共 14 棵。",
+      "independent_check": "4+4+4+2",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p039_q4",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p048_q4-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "整理小书架",
+      "prompt": "书架上有 3 层，每层 6 本书，又单放了 2 本。一共有多少本？\n请只填最后所求的数值（单位：本）。",
+      "answer": "20",
+      "units": [
+        "本"
+      ],
+      "hint": "每层相同的先合起来，再加单放的。",
+      "explanation": "三层共 6＋6＋6＝18 本，另放 2 本，共 20 本。",
+      "independent_check": "6+6+6+2",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p048_q4",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p057_q3-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "整盒和零散的笔",
+      "prompt": "每盒 4 支笔，买 3 盒，又单买 2 支。一共有多少支？\n请只填最后所求的数值（单位：支）。",
+      "answer": "14",
+      "units": [
+        "支"
+      ],
+      "hint": "整盒的笔与零散的笔要分两步数。",
+      "explanation": "3 盒有 4＋4＋4＝12 支，再加 2 支，共 14 支。",
+      "independent_check": "4+4+4+2",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p057_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p262_q3-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "彩笔和橡皮",
+      "prompt": "橡皮每块 1 元，彩笔每盒 6 元。买 1 块橡皮和 2 盒彩笔，一共多少元？\n请只填最后所求的数值（单位：元）。",
+      "answer": "13",
+      "units": [
+        "元"
+      ],
+      "hint": "先算两盒彩笔，再加橡皮的价钱。",
+      "explanation": "彩笔 6＋6＝12 元，加 1 元橡皮，共 13 元。",
+      "independent_check": "6+6+1",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p262_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-missing-seats-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "找出空座位",
+      "prompt": "小剧场摆了 4 行椅子，每行 6 把。来了 19 位小朋友，每人坐一把。还有几把空椅子？\n请只填最后所求的数值（单位：把）。",
+      "answer": "5",
+      "units": [
+        "把"
+      ],
+      "hint": "先数全部椅子，再去掉已经坐人的椅子。",
+      "explanation": "椅子共 6×4＝24 把，空椅子有 24－19＝5 把。",
+      "independent_check": "6+6+6+6-19",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-same-pencils-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "两种买法谁多",
+      "prompt": "小林买了 4 盒铅笔，每盒 5 支；小安买了 3 盒，每盒 6 支。小林比小安多买几支？\n请只填最后所求的数值（单位：支）。",
+      "answer": "2",
+      "units": [
+        "支"
+      ],
+      "hint": "分别算出两人的总数，再比较。",
+      "explanation": "小林 5×4＝20 支，小安 6×3＝18 支，相差 20－18＝2 支。",
+      "independent_check": "(5+5+5+5)-(6+6+6)",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-incomplete-row-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "少了两块的方阵",
+      "prompt": "同学们用积木摆 5 行，每行原计划摆 4 块，最后一行少了 2 块。实际用了多少块积木？\n请只填最后所求的数值（单位：块）。",
+      "answer": "18",
+      "units": [
+        "块"
+      ],
+      "hint": "先按每行都摆满来想，再减去缺的。",
+      "explanation": "摆满应有 4×5＝20 块，少 2 块，实际 18 块。",
+      "independent_check": "4+4+4+4+2",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-ribbon-saving-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "买练习本找零",
+      "prompt": "每本练习本 6 元，买 4 本，付给店员 30 元。应找回多少元？\n请只填最后所求的数值（单位：元）。",
+      "answer": "6",
+      "units": [
+        "元"
+      ],
+      "hint": "先求四本的总价，再算找零。",
+      "explanation": "总价 6×4＝24 元，找回 30－24＝6 元。",
+      "independent_check": "30-6-6-6-6",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-share-1-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "easy",
+      "title": "把苹果平均分",
+      "prompt": "有 12 个苹果，平均放到 3 个盘子里。每个盘子放多少个？\n请只填最后所求的数值（单位：个）。",
+      "answer": "4",
+      "units": [
+        "个"
+      ],
+      "hint": "平均分后每份一样多，想想哪句乘法口诀能帮忙。",
+      "explanation": "12÷3＝4，每份 4 个。验算：4×3＝12。",
+      "independent_check": "12/3",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-share-2-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "easy",
+      "title": "把铅笔平均分",
+      "prompt": "有 20 支铅笔，平均放到 5 个笔筒里。每个笔筒放多少支？\n请只填最后所求的数值（单位：支）。",
+      "answer": "4",
+      "units": [
+        "支"
+      ],
+      "hint": "平均分后每份一样多，想想哪句乘法口诀能帮忙。",
+      "explanation": "20÷5＝4，每份 4 支。验算：4×5＝20。",
+      "independent_check": "20/5",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-share-3-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "easy",
+      "title": "把积木平均分",
+      "prompt": "有 24 块积木，平均放到 4 个盒子里。每个盒子放多少块？\n请只填最后所求的数值（单位：块）。",
+      "answer": "6",
+      "units": [
+        "块"
+      ],
+      "hint": "平均分后每份一样多，想想哪句乘法口诀能帮忙。",
+      "explanation": "24÷4＝6，每份 6 块。验算：6×4＝24。",
+      "independent_check": "24/4",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-share-4-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "easy",
+      "title": "把书平均分",
+      "prompt": "有 30 本书，平均放到 6 个书箱里。每个书箱放多少本？\n请只填最后所求的数值（单位：本）。",
+      "answer": "5",
+      "units": [
+        "本"
+      ],
+      "hint": "平均分后每份一样多，想想哪句乘法口诀能帮忙。",
+      "explanation": "30÷6＝5，每份 5 本。验算：5×6＝30。",
+      "independent_check": "30/6",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p046_q4-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "还要装几袋球",
+      "prompt": "30 个皮球，每 5 个装一袋，已经装了 2 袋。还能再装几袋？\n请只填最后所求的数值（单位：袋）。",
+      "answer": "4",
+      "units": [
+        "袋"
+      ],
+      "hint": "先求总共可以装几袋，再扣除已装好的。",
+      "explanation": "6 袋共能装 30 个，已经装 2 袋，还能装 4 袋。",
+      "independent_check": "(30-5-5)/5",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p046_q4",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-share-then-give-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "分贴纸再分享",
+      "prompt": "24 张贴纸平均分给 4 人，小美把自己分到的贴纸送给妹妹 2 张。小美还剩几张？\n请只填最后所求的数值（单位：张）。",
+      "answer": "4",
+      "units": [
+        "张"
+      ],
+      "hint": "先算小美分到几张，再减去送出的。",
+      "explanation": "24÷4＝6 张，6－2＝4 张。",
+      "independent_check": "(24-4*2)/4",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-bags-then-give-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "送出整袋橘子",
+      "prompt": "18 个橘子，每 3 个装一袋。送出 2 袋后，还剩几袋？\n请只填最后所求的数值（单位：袋）。",
+      "answer": "4",
+      "units": [
+        "袋"
+      ],
+      "hint": "先求袋数；送出的是袋，不是个。",
+      "explanation": "18÷3＝6 袋，6－2＝4 袋。",
+      "independent_check": "(18-3-3)/3",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-two-boxes-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "拿出两盒小球",
+      "prompt": "12 个小球平均装进 4 盒。拿出其中 2 盒，这 2 盒一共有多少个小球？\n请只填最后所求的数值（单位：个）。",
+      "answer": "6",
+      "units": [
+        "个"
+      ],
+      "hint": "先求每盒有几个，再求两盒。",
+      "explanation": "每盒 12÷4＝3 个，两盒 3×2＝6 个。",
+      "independent_check": "12/4+12/4",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-recover-total-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "hard",
+      "title": "找回总数",
+      "prompt": "一些小球平均装进 4 个盒子，每盒 3 个。如果改为每盒装 6 个，可以装满几盒？\n请只填最后所求的数值（单位：盒）。",
+      "answer": "2",
+      "units": [
+        "盒"
+      ],
+      "hint": "先找小球总数，再按新装法分。",
+      "explanation": "共有 3×4＝12 个，12÷6＝2 盒。",
+      "independent_check": "(3+3+3+3)/6",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-leftovers-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "hard",
+      "title": "先留再分",
+      "prompt": "24 块饼干先留 4 块给老师，其余平均分给 5 个小朋友。每个小朋友分到几块？\n请只填最后所求的数值（单位：块）。",
+      "answer": "4",
+      "units": [
+        "块"
+      ],
+      "hint": "参加平均分的是留下以后的饼干。",
+      "explanation": "剩下 24－4＝20 块，20÷5＝4 块。",
+      "independent_check": "24/5-4/5",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-equal-teams-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "hard",
+      "title": "两队人数一样吗",
+      "prompt": "一队有 3 组，每组 4 人；另一队把同样多的人分成 6 组。另一队每组几人？\n请只填最后所求的数值（单位：人）。",
+      "answer": "2",
+      "units": [
+        "人"
+      ],
+      "hint": "两队总人数相同，先算第一队有多少人。",
+      "explanation": "第一队共 4×3＝12 人，另一队每组 12÷6＝2 人。",
+      "independent_check": "(4+4+4)/6",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-missing-packet-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "hard",
+      "title": "丢失的一袋",
+      "prompt": "老师原有 5 袋贴纸，每袋 4 张。丢了一整袋后，把剩下的平均分给 4 人，每人几张？\n请只填最后所求的数值（单位：张）。",
+      "answer": "4",
+      "units": [
+        "张"
+      ],
+      "hint": "丢了一整袋，先算剩几袋。",
+      "explanation": "剩 5－1＝4 袋，共 4×4＝16 张；16÷4＝4 张。",
+      "independent_check": "(4+4+4+4)/4",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p042_q1-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "礼堂座位",
+      "prompt": "每行 7 个座位，有 8 行。一共有多少个座位？\n请只填最后所求的数值（单位：个）。",
+      "answer": "56",
+      "units": [
+        "个"
+      ],
+      "hint": "每行相同，用行数乘每行座位数。",
+      "explanation": "8 行各 7 个，共 56 个。",
+      "independent_check": "7+7+7+7+7+7+7+7",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p042_q1",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p042_q3-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "领取练习本",
+      "prompt": "每盒有 8 本本子，一共 6 盒。一共有多少本？\n请只填最后所求的数值（单位：本）。",
+      "answer": "48",
+      "units": [
+        "本"
+      ],
+      "hint": "找出盒数和每盒本数。",
+      "explanation": "6 盒各 8 本，共 48 本。",
+      "independent_check": "8+8+8+8+8+8",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p042_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-eight-tables-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "餐厅摆碗",
+      "prompt": "餐厅摆了 8 张桌子，每张放 4 只碗。一共摆了多少只碗？\n请只填最后所求的数值（单位：只）。",
+      "answer": "32",
+      "units": [
+        "只"
+      ],
+      "hint": "一张桌子放几只，一共有几张桌子？",
+      "explanation": "4×8＝32 只。",
+      "independent_check": "4+4+4+4+4+4+4+4",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-share-63-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "分发卡片",
+      "prompt": "63 张卡片平均分给 9 个小组，每组分到多少张？\n请只填最后所求的数值（单位：张）。",
+      "answer": "7",
+      "units": [
+        "张"
+      ],
+      "hint": "用哪句乘法口诀可以找到每份的数量？",
+      "explanation": "63÷9＝7 张；7×9＝63。",
+      "independent_check": "63/9",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p042_q4-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "花园搬走几棵花",
+      "prompt": "每行 7 棵花，种了 8 行。搬走 6 棵后，还剩多少棵？\n请只填最后所求的数值（单位：棵）。",
+      "answer": "50",
+      "units": [
+        "棵"
+      ],
+      "hint": "先求原来的总数，再减去搬走的。",
+      "explanation": "原有 7×8＝56 棵，搬走 6 棵，还剩 50 棵。",
+      "independent_check": "7+7+7+7+7+7+7+7-6",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p042_q4",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p044_q4-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "退回一本练习本",
+      "prompt": "48 本本子平均分给 8 个同学。小明分到后把自己的退回 1 本，小明还剩几本？\n请只填最后所求的数值（单位：本）。",
+      "answer": "5",
+      "units": [
+        "本"
+      ],
+      "hint": "只算小明分到的，再减去他退回的。",
+      "explanation": "小明分到 48÷8＝6 本，退 1 本后剩 5 本。",
+      "independent_check": "(48-8)/8",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p044_q4",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p268_q2-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "一起包饺子",
+      "prompt": "每盘 8 个饺子，做了 4 盘。吃掉 10 个。还剩多少个？\n请只填最后所求的数值（单位：个）。",
+      "answer": "22",
+      "units": [
+        "个"
+      ],
+      "hint": "先算四盘总数，再减去吃掉的。",
+      "explanation": "原有 8×4＝32 个，吃 10 个，剩 22 个。",
+      "independent_check": "8+8+8+8-10",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p268_q2",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_p268_q3-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "拿走一份气球",
+      "prompt": "54 个气球平均分成 9 份。拿走其中 1 份后，还剩多少个气球？\n请只填最后所求的数值（单位：个）。",
+      "answer": "48",
+      "units": [
+        "个"
+      ],
+      "hint": "求剩下的是多少个气球，而不是几份。",
+      "explanation": "每份 54÷9＝6 个，剩 8 份，共 6×8＝48 个。",
+      "independent_check": "54/9*8",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_p268_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-two-prices-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "买票找零",
+      "prompt": "儿童票每张 7 元，成人票每张 9 元。一家人买 3 张儿童票和 2 张成人票，付出 50 元，应找回多少元？\n请只填最后所求的数值（单位：元）。",
+      "answer": "11",
+      "units": [
+        "元"
+      ],
+      "hint": "先分别算两种票的钱，再算总价和找零。",
+      "explanation": "儿童票 21 元，成人票 18 元，总价 39 元；50－39＝11 元。",
+      "independent_check": "50-(7+7+7+9+9)",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-chairs-gap-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "补齐空位",
+      "prompt": "8 张桌子，每张能坐 6 人，已有 39 人入座。还可以坐多少人？\n请只填最后所求的数值（单位：人）。",
+      "answer": "9",
+      "units": [
+        "人"
+      ],
+      "hint": "先求坐满时的人数。",
+      "explanation": "6×8＝48 人，48－39＝9 人。",
+      "independent_check": "6+6+6+6+6+6+6+6-39",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-same-total-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "换一种分法",
+      "prompt": "老师把卡片平均分给 7 组，每组 8 张。如果改为平均分给 8 组，每组几张？\n请只填最后所求的数值（单位：张）。",
+      "answer": "7",
+      "units": [
+        "张"
+      ],
+      "hint": "总张数没有变，先找总数。",
+      "explanation": "共有 8×7＝56 张，56÷8＝7 张。",
+      "independent_check": "(8+8+8+8+8+8+8)/8",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g2-extra-groups-v1",
+      "grade": 2,
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "找出多分的",
+      "prompt": "把 36 本书平均分给 6 组，与平均分给 9 组相比，前一种分法每组多几本？\n请只填最后所求的数值（单位：本）。",
+      "answer": "2",
+      "units": [
+        "本"
+      ],
+      "hint": "分别求两种分法每组的本数。",
+      "explanation": "每组分别是 36÷6＝6 本、36÷9＝4 本，多 2 本。",
+      "independent_check": "36/6-36/9",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_012_q5-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "记录一天温差",
+      "prompt": "某地某天最高气温是 3 ℃，最低气温是 -9 ℃，这一天的温差是多少 ℃？\n请只填最后所求的数值（单位：℃）。",
+      "answer": "12",
+      "units": [
+        "℃"
+      ],
+      "hint": "温差是最高温减最低温，不是温度的和。",
+      "explanation": "从 −9 ℃ 升至 0 ℃ 要升 9 ℃，再升至 3 ℃ 要升 3 ℃，共 12 ℃。",
+      "independent_check": "9+3",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_012_q5",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-warming-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "清晨到中午",
+      "prompt": "清晨气温为 −4 ℃，中午比清晨上升了 7 ℃。中午气温是多少 ℃？\n请只填最后所求的数值（单位：℃）。",
+      "answer": "3",
+      "units": [
+        "℃"
+      ],
+      "hint": "上升用加法，起点是负温度。",
+      "explanation": "−4＋7＝3 ℃。",
+      "independent_check": "7-4",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-sea-rise-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "潜水员上升",
+      "prompt": "规定海平面为 0 米，向上为正。潜水员原在 −12 米处，上升 5 米后的位置记作多少米？\n请只填最后所求的数值（单位：米）。",
+      "answer": "-7",
+      "units": [
+        "米"
+      ],
+      "hint": "位置的起点与上升的变化量要相加。",
+      "explanation": "−12＋5＝−7 米，仍在海平面下 7 米。",
+      "independent_check": "-(12-5)",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-points-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "知识竞赛积分",
+      "prompt": "答对一道题得 5 分，答错扣 3 分。小安从 0 分开始，答对 2 道、答错 1 道，最后得多少分？\n请只填最后所求的数值（单位：分）。",
+      "answer": "7",
+      "units": [
+        "分"
+      ],
+      "hint": "分别记录得分与扣分，再相加。",
+      "explanation": "得分 10，扣分 3，净得 10－3＝7 分。",
+      "independent_check": "5+5-3",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_002_q4-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "水库三天的变化",
+      "prompt": "规定水位上升记为正。某水库三天的水位变化依次记作 -3 m，+5 m，-4 m，则这三天后水位与最初相比变化了多少 m？（上升为正，下降为负）\n请只填最后所求的数值（单位：米）。",
+      "answer": "-2",
+      "units": [
+        "米"
+      ],
+      "hint": "保留每次变化的正负号，求总变化。",
+      "explanation": "两次下降共 7 米，一次上升 5 米，净变化是 −2 米。",
+      "independent_check": "5-(3+4)",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_002_q4",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-stock-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "仓库出入货",
+      "prompt": "仓库原有 45 箱书。上午运出 18 箱，中午运入 25 箱，下午运出 16 箱。结束时有多少箱？\n请只填最后所求的数值（单位：箱）。",
+      "answer": "36",
+      "units": [
+        "箱"
+      ],
+      "hint": "用正数记运入，负数记运出。",
+      "explanation": "45－18＋25－16＝36 箱。",
+      "independent_check": "45+25-(18+16)",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-two-sites-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "两地温差",
+      "prompt": "山顶气温是 −8 ℃，山脚气温是 6 ℃。山脚比山顶高多少 ℃？\n请只填最后所求的数值（单位：℃）。",
+      "answer": "14",
+      "units": [
+        "℃"
+      ],
+      "hint": "比较高多少，用山脚温度减山顶温度。",
+      "explanation": "6－(−8)＝14 ℃。",
+      "independent_check": "8+6",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-daily-change-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "冷库降温",
+      "prompt": "冷库开始为 5 ℃，随后 4 小时每小时降低 3 ℃。4 小时后是多少 ℃？\n请只填最后所求的数值（单位：℃）。",
+      "answer": "-7",
+      "units": [
+        "℃"
+      ],
+      "hint": "每小时降低对应负变化，先求总变化。",
+      "explanation": "总变化 (−3)×4＝−12 ℃，最终 5－12＝−7 ℃。",
+      "independent_check": "5-3-3-3-3",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-alternating-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "闯关积分规律",
+      "prompt": "一场游戏从 0 分开始。第 1、3、5、7、9 轮各得 3 分；第 2、4、6、8、10 轮各扣 2 分。10 轮后净得多少分？\n请只填最后所求的数值（单位：分）。",
+      "answer": "5",
+      "units": [
+        "分"
+      ],
+      "hint": "把相邻的一得一扣配成一组。",
+      "explanation": "共 5 对，每对净得 3－2＝1 分，总计 5 分。",
+      "independent_check": "3-2+3-2+3-2+3-2+3-2",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-robot-route-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "机器人回到哪里",
+      "prompt": "沿东西方向的直路，向东为正。机器人从 −3 米处出发，先向东走 8 米，再向西走 11 米。终点到原点相距多少米？\n请只填最后所求的数值（单位：米）。",
+      "answer": "6",
+      "units": [
+        "米"
+      ],
+      "hint": "先求终点坐标，再区分位置与距离。",
+      "explanation": "终点 −3＋8－11＝−6 米；到原点的距离是 6 米。",
+      "independent_check": "11-(8-3)",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-storage-compare-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "两天的温度变化",
+      "prompt": "某地周一从 −6 ℃ 升到 4 ℃，周二从 −3 ℃ 升到 9 ℃。周二的升温幅度比周一大多少 ℃？\n请只填最后所求的数值（单位：℃）。",
+      "answer": "2",
+      "units": [
+        "℃"
+      ],
+      "hint": "分别算两天升温幅度，最后再比较。",
+      "explanation": "周一升 10 ℃，周二升 12 ℃，相差 2 ℃。",
+      "independent_check": "(9+3)-(4+6)",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-g7-return-trip-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "往返运输路程",
+      "prompt": "一辆车从仓库出发沿直路行驶，向东为正。三段行程依次是 +5 千米、−8 千米、+2 千米，随后直接返回仓库。全程共走多少千米？\n请只填最后所求的数值（单位：千米）。",
+      "answer": "16",
+      "units": [
+        "千米"
+      ],
+      "hint": "带符号的和是位置，路程要把每段长度相加，还要加回程。",
+      "explanation": "前三段共走 5＋8＋2＝15 千米，停在仓库西侧 1 千米；返回再走 1 千米，共 16 千米。",
+      "independent_check": "5+8+2+(8-5-2)",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_045_q3-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "班级人数",
+      "prompt": "某班有学生 45 人，男生比女生多 5 人，女生有多少人？\n请只填最后所求的数值（单位：人）。",
+      "answer": "20",
+      "units": [
+        "人"
+      ],
+      "hint": "设女生人数为 x，男生就比 x 多 5。",
+      "explanation": "去掉男生多出的 5 人，剩 40 人可分成两份，女生 20 人。验算：20＋25＝45。",
+      "independent_check": "(45-5)/2",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_045_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_048_q2-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "商店打折",
+      "prompt": "一件标价 200 元的商品打八折出售，售价是多少元？\n请只填最后所求的数值（单位：元）。",
+      "answer": "160",
+      "units": [
+        "元"
+      ],
+      "hint": "八折表示原价的十分之八。",
+      "explanation": "200×8÷10＝160 元。",
+      "independent_check": "200/10*8",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_048_q2",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_049_q2-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "通话费用",
+      "prompt": "某通话方案月租 10 元，另外每分钟收费 0.2 元。一个月通话 50 分钟，费用是多少元？\n请只填最后所求的数值（单位：元）。",
+      "answer": "20",
+      "units": [
+        "元"
+      ],
+      "hint": "费用包含固定月租和通话费两部分。",
+      "explanation": "通话费 50×0.2＝10 元，加月租 10 元，共 20 元。",
+      "independent_check": "10+50/5",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_049_q2",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_047_q1-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "两车相遇",
+      "prompt": "两辆车相距 100 千米，同时沿同一条直路相向匀速行驶，速度分别为每小时 30 千米和 20 千米，中途不停。几小时后相遇？\n请只填最后所求的数值（单位：小时）。",
+      "answer": "2",
+      "units": [
+        "小时"
+      ],
+      "hint": "相向行驶时，每小时缩短的距离是速度之和。",
+      "explanation": "每小时缩短 50 千米，100÷50＝2 小时。验算 30×2＋20×2＝100。",
+      "independent_check": "100/(30+20)",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_047_q1",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_047_q3-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "追上先出发的人",
+      "prompt": "甲沿直路以每小时 4 千米的速度匀速前进。2 小时后乙从同一地点同方向以每小时 6 千米的速度匀速追赶，两人中途不停。乙出发后几小时追上甲？\n请只填最后所求的数值（单位：小时）。",
+      "answer": "4",
+      "units": [
+        "小时"
+      ],
+      "hint": "乙要追的是甲提前走出的路程。",
+      "explanation": "甲先走 8 千米，每小时乙多走 2 千米，需要 8÷2＝4 小时。此时乙走 24 千米，甲共走 6 小时也是 24 千米。",
+      "independent_check": "(4+4)/(6-4)",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_047_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_048_q3-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "打折后还盈利",
+      "prompt": "某商品标价 150 元，打九折出售，仍获利 35 元，求这件商品的进价（单位：元）。\n请只填最后所求的数值（单位：元）。",
+      "answer": "100",
+      "units": [
+        "元"
+      ],
+      "hint": "利润等于售价减进价。",
+      "explanation": "九折售价 135 元，进价是 135－35＝100 元。",
+      "independent_check": "150*9/10-35",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_048_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_049_q3-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "两种租车方案",
+      "prompt": "租车方案 A：每天 100 元，另按 2 元/km 计费；方案 B：每天 50 元，另按 3 元/km 计费。一天行驶多少 km 时两种方案费用相同？（单位：km）\n请只填最后所求的数值（单位：千米）。",
+      "answer": "50",
+      "units": [
+        "千米"
+      ],
+      "hint": "设路程为 x，把两种总费用列成等式。",
+      "explanation": "100＋2x＝50＋3x，解得 x＝50。两种费用均为 200 元。",
+      "independent_check": "(100-50)/(3-2)",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_049_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_046_q2-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "合作完成任务",
+      "prompt": "同一项任务，甲单独做需 3 天，乙单独做需 6 天。两人每天工作效率保持不变，合作时互不影响。两人同时开始合作，需要几天完成？\n请只填最后所求的数值（单位：天）。",
+      "answer": "2",
+      "units": [
+        "天"
+      ],
+      "hint": "把总任务看成 1，先求两人的日工作量之和。",
+      "explanation": "两人每天合做 1/3＋1/6＝1/2，完成全部需 2 天。",
+      "independent_check": "1/(1/3+1/6)",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_046_q2",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_046_q3-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "配套生产安排",
+      "prompt": "某车间有 28 名工人生产螺栓和螺母，每人每天可生产螺栓 12 个或螺母 18 个，1 个螺栓配 2 个螺母。为使每天生产的螺栓和螺母刚好配套，应安排多少人生产螺栓？\n请只填最后所求的数值（单位：人）。",
+      "answer": "12",
+      "units": [
+        "人"
+      ],
+      "hint": "螺母总数必须是螺栓总数的两倍。",
+      "explanation": "设 x 人做螺栓：24x＝18(28－x)，42x＝504，x＝12。检查：12 人做 144 个螺栓，16 人做 288 个螺母，恰好 1∶2。",
+      "independent_check": "18*28/(24+18)",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_046_q3",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_046_q4-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "先独做再合作",
+      "prompt": "一项任务，甲单独完成需 10 天，乙单独完成需 15 天。两人效率始终不变且合作时互不影响。甲先单独做 5 天，再与乙合作完成剩余任务。合作还需几天？\n请只填最后所求的数值（单位：天）。",
+      "answer": "3",
+      "units": [
+        "天"
+      ],
+      "hint": "剩余任务除以合作效率，求的是还需时间。",
+      "explanation": "甲先做一半，剩 1/2。合作日效率 1/10＋1/15＝1/6，剩下需 3 天。",
+      "independent_check": "(1-5/10)/(1/10+1/15)",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_046_q4",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_047_q4-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "尚未相遇的距离",
+      "prompt": "两车相距 300 千米，同时沿同一直路相向匀速行驶，速度分别为每小时 60 千米和 40 千米，中途不停。几小时后两车尚未相遇但相距 50 千米？\n请只填最后所求的数值（单位：小时）。",
+      "answer": "2.5",
+      "units": [
+        "小时"
+      ],
+      "hint": "注意还没相遇，只需缩短原距离的一部分。",
+      "explanation": "共需行驶 250 千米，速度和为每小时 100 千米，所以需 2.5 小时。此时行程 150＋100＝250，仍相距 50 千米。",
+      "independent_check": "(300-50)/(60+40)",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_047_q4",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    },
+    {
+      "id": "family-word-cnm_048_q4-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "利润率的基数",
+      "prompt": "商品按标价八折出售，实际售价 240 元。利润是进价的 20%，这件商品的进价是多少元？\n请只填最后所求的数值（单位：元）。",
+      "answer": "200",
+      "units": [
+        "元"
+      ],
+      "hint": "利润率以进价为基数，别再对实际售价打一次折。",
+      "explanation": "设进价 x，售价为进价的 1.2 倍，1.2x＝240，x＝200。利润 40 元，40÷200＝20%。",
+      "independent_check": "240/(1+20/100)",
+      "extension": false,
+      "source": {
+        "kind": "adapted",
+        "id": "cnm_048_q4",
+        "repository": "xiaoyang111222/cn-math-taxonomy",
+        "commit": "cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy/blob/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab/data/questions.json",
+        "license": "CC BY-NC 4.0",
+        "license_url": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "attribution": "cn-math-taxonomy 项目贡献者",
+        "changes": "重核章节和难度；改写提示、解析及答题格式；部分题补充情境和必要条件。",
+        "upstream_teacher_reviewed": false
+      },
+      "review": {
+        "method": "assistant_semantic_review_and_independent_arithmetic",
+        "teacher_reviewed": false,
+        "date": "2026-11-06"
+      }
+    }
+  ]
+}

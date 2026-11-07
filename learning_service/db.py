@@ -4,9 +4,19 @@ import json
 import sqlite3
 import time
 from contextlib import contextmanager
+from contextvars import ContextVar
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterator
+
+
+class WriteContextChanged(Exception):
+    pass
+
+
+# Set only for an authenticated shared-context request. Every write transaction
+# rechecks while holding SQLite's write lock, including uploads and challenges.
+write_context: ContextVar[tuple | None] = ContextVar("learning_write_context", default=None)
 
 
 def utc_now() -> str:
@@ -101,6 +111,13 @@ class Database:
         try:
             if write:
                 conn.execute("BEGIN IMMEDIATE")
+                fence = write_context.get()
+                if fence and self.path.resolve() == fence[0]:
+                    _, account_id, learner_id, version = fence
+                    current = conn.execute("SELECT learner_id,revision FROM account_contexts WHERE account_id=?", (account_id,)).fetchone()
+                    access = conn.execute("SELECT 1 FROM learner_access a JOIN learners l ON l.id=a.learner_id WHERE a.account_id=? AND a.learner_id=? AND a.active=1 AND l.active=1", (account_id, learner_id)).fetchone()
+                    if not current or current["learner_id"] != learner_id or current["revision"] != version or not access:
+                        raise WriteContextChanged()
             yield conn
             if write:
                 conn.commit()

@@ -1,0 +1,147 @@
+# Reviewable sidecar candidate. Do not run against production without the W13 release inputs.
+x-learning-env: &learning-env
+  LEARNING_ATTACHMENT_DIR: "${LEARNING_ATTACHMENT_DIR:-/var/lib/dd-learning/attachments}"
+  LEARNING_BROWSER_AUTH_AUDIENCE: "${LEARNING_BROWSER_AUTH_AUDIENCE:-dd-learning-v1}"
+  LEARNING_BROWSER_AUTH_ENABLED: "${LEARNING_BROWSER_AUTH_ENABLED:-0}"
+  LEARNING_BROWSER_AUTH_ISSUER: "${LEARNING_BROWSER_AUTH_ISSUER:-pending-installation-issuer}"
+  LEARNING_BROWSER_IDENTITY_ISSUER: "${LEARNING_BROWSER_IDENTITY_ISSUER:-pending-webui-issuer}"
+  LEARNING_BROWSER_IDENTITY_PROVIDER: "${LEARNING_BROWSER_IDENTITY_PROVIDER:-open-webui}"
+  LEARNING_BROWSER_ORIGIN: "${LEARNING_BROWSER_ORIGIN:-https://172.19.116.53}"
+  LEARNING_BROWSER_SESSION_TTL_SECONDS: "${LEARNING_BROWSER_SESSION_TTL_SECONDS:-1800}"
+  LEARNING_DATA_DIR: "${LEARNING_DATA_DIR:-/var/lib/dd-learning}"
+  LEARNING_DB_PATH: "${LEARNING_DB_PATH:-/var/lib/dd-learning/learning.db}"
+  LEARNING_DEV_MODE: "${LEARNING_DEV_MODE:-0}"
+  LEARNING_DIAGNOSIS_PROVIDER: "${LEARNING_DIAGNOSIS_PROVIDER:-mock-diagnosis-v1}"
+  LEARNING_DOCUMENT_PROVIDER: "${LEARNING_DOCUMENT_PROVIDER:-mock-document-v1}"
+  LEARNING_EXPORT_DIR: "${LEARNING_EXPORT_DIR:-/var/lib/dd-learning/exports}"
+  LEARNING_HOST: "${LEARNING_HOST:-0.0.0.0}"
+  LEARNING_MAX_UPLOAD_BYTES: "${LEARNING_MAX_UPLOAD_BYTES:-26214400}"
+  LEARNING_MODEL_ALLOWED_ENDPOINTS: "${LEARNING_MODEL_ALLOWED_ENDPOINTS:-}"
+  LEARNING_MODEL_API_KEY: "${LEARNING_MODEL_API_KEY:-}"
+  LEARNING_MODEL_ENDPOINT: "${LEARNING_MODEL_ENDPOINT:-}"
+  LEARNING_MODEL_EXTERNAL_CALLS_ENABLED: "${LEARNING_MODEL_EXTERNAL_CALLS_ENABLED:-0}"
+  LEARNING_MODEL_ID: "${LEARNING_MODEL_ID:-}"
+  LEARNING_MODEL_INPUT_MICROS_PER_MILLION: "${LEARNING_MODEL_INPUT_MICROS_PER_MILLION:-0}"
+  LEARNING_MODEL_MAX_ATTEMPTS: "${LEARNING_MODEL_MAX_ATTEMPTS:-1}"
+  LEARNING_MODEL_MAX_INPUT_TOKENS: "${LEARNING_MODEL_MAX_INPUT_TOKENS:-16000}"
+  LEARNING_MODEL_MAX_OUTPUT_TOKENS: "${LEARNING_MODEL_MAX_OUTPUT_TOKENS:-1000}"
+  LEARNING_MODEL_OUTPUT_MICROS_PER_MILLION: "${LEARNING_MODEL_OUTPUT_MICROS_PER_MILLION:-0}"
+  LEARNING_MODEL_TIMEOUT_SECONDS: "${LEARNING_MODEL_TIMEOUT_SECONDS:-15}"
+  LEARNING_PORT: "${LEARNING_PORT:-31010}"
+  LEARNING_PROVIDER_CURRENCY: "${LEARNING_PROVIDER_CURRENCY:-USD}"
+  LEARNING_PROVIDER_DAILY_BUDGET_MICROS: "${LEARNING_PROVIDER_DAILY_BUDGET_MICROS:-0}"
+  LEARNING_PROVIDER_MAX_CALLS_PER_DAY: "${LEARNING_PROVIDER_MAX_CALLS_PER_DAY:-0}"
+  LEARNING_PROVIDER_MAX_CALLS_PER_MINUTE: "${LEARNING_PROVIDER_MAX_CALLS_PER_MINUTE:-0}"
+  LEARNING_PROVIDER_MAX_COST_MICROS_PER_CALL: "${LEARNING_PROVIDER_MAX_COST_MICROS_PER_CALL:-0}"
+  LEARNING_PROVIDER_MAX_INFLIGHT: "${LEARNING_PROVIDER_MAX_INFLIGHT:-1}"
+  LEARNING_PROVIDER_PRICING_REFERENCE: "${LEARNING_PROVIDER_PRICING_REFERENCE:-}"
+  LEARNING_PROVIDER_TOTAL_BUDGET_MICROS: "${LEARNING_PROVIDER_TOTAL_BUDGET_MICROS:-0}"
+  LEARNING_PUBLIC_BASE_PATH: "${LEARNING_PUBLIC_BASE_PATH:-/learning}"
+  LEARNING_SHARED_LEARNER_CONTEXT_ENABLED: "${LEARNING_SHARED_LEARNER_CONTEXT_ENABLED:-1}"
+  LEARNING_VARIANT_PROVIDER: "${LEARNING_VARIANT_PROVIDER:-mock-variant-v1}"
+  TENCENT_OCR_COST_MICROS_PER_CALL: "${TENCENT_OCR_COST_MICROS_PER_CALL:-0}"
+  TENCENT_OCR_EXTERNAL_CALLS_ENABLED: "${TENCENT_OCR_EXTERNAL_CALLS_ENABLED:-0}"
+  TENCENT_OCR_SECRET_ID: "${TENCENT_OCR_SECRET_ID:-}"
+  TENCENT_OCR_SECRET_KEY: "${TENCENT_OCR_SECRET_KEY:-}"
+  TENCENT_OCR_TIMEOUT_SECONDS: "${TENCENT_OCR_TIMEOUT_SECONDS:-20}"
+  TENCENT_OCR_USE_NEW_MODEL: "${TENCENT_OCR_USE_NEW_MODEL:-1}"
+  LEARNING_ADMIN_SECRET_FILE: /run/secrets/learning_admin_secret
+  LEARNING_ADAPTER_SECRET_FILE: /run/secrets/learning_adapter_secret
+  LEARNING_BROWSER_AUTH_SECRET_FILE: /run/secrets/learning_browser_auth_secret
+
+x-learning-service: &learning-service
+  image: "${DD_LEARNING_IMAGE:?supply the sealed local image ID or registry digest}"
+  pull_policy: never
+  restart: "no"
+  read_only: true
+  cap_drop: [ALL]
+  security_opt: [no-new-privileges:true]
+  tmpfs: [/tmp]
+  networks: [learning-internal]
+  environment: *learning-env
+  volumes: [dd_learning_data:/var/lib/dd-learning]
+  secrets: [learning_admin_secret, learning_adapter_secret, learning_browser_auth_secret]
+
+services:
+  learning-api:
+    <<: *learning-service
+    command: [python, -m, learning_service.app]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:31010/health', timeout=2)"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  learning-worker:
+    <<: *learning-service
+    command: [python, -m, learning_service.worker]
+    depends_on:
+      learning-api: {condition: service_healthy}
+
+  learning-gateway:
+    image: "${DD_LEARNING_IMAGE:?supply the sealed local image ID or registry digest}"
+    pull_policy: never
+    restart: "no"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs: [/tmp]
+    command: [python, -m, learning_service.login_gateway]
+    networks: [learning-internal, webui-upstream]
+    secrets: [learning_browser_auth_secret]
+    environment:
+      DD_GATEWAY_ENABLED: "${DD_GATEWAY_ENABLED:-0}"
+      DD_GATEWAY_PUBLIC_ORIGIN: "${LEARNING_BROWSER_ORIGIN:-https://172.19.116.53}"
+      DD_GATEWAY_OPENWEBUI_URL: http://open-webui:8080
+      DD_GATEWAY_LEARNING_URL: http://learning-api:31010
+      LEARNING_PUBLIC_BASE_PATH: /learning
+      LEARNING_BROWSER_AUTH_SECRET_FILE: /run/secrets/learning_browser_auth_secret
+      LEARNING_BROWSER_AUTH_ISSUER: "${LEARNING_BROWSER_AUTH_ISSUER:-pending-installation-issuer}"
+      LEARNING_BROWSER_AUTH_AUDIENCE: dd-learning-v1
+      LEARNING_BROWSER_IDENTITY_PROVIDER: open-webui
+      LEARNING_BROWSER_IDENTITY_ISSUER: "${LEARNING_BROWSER_IDENTITY_ISSUER:-pending-webui-issuer}"
+    depends_on:
+      learning-api: {condition: service_healthy}
+
+  learning-proxy:
+    image: nginx@sha256:1d13701a5f9f3fb01aaa88cef2344d65b6b5bf6b7d9fa4cf0dca557a8d7702ba
+    pull_policy: never
+    restart: "no"
+    user: "101:101"
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    tmpfs: [/tmp]
+    entrypoint: [nginx, -c, /etc/nginx/dd-learning.conf, -g, "daemon off;"]
+    ports: ["${DD_TLS_BIND_IP:-172.19.116.53}:443:443"]
+    networks: [learning-internal, webui-upstream]
+    configs:
+      - source: learning_proxy
+        target: /etc/nginx/dd-learning.conf
+    secrets: [tls_certificate, tls_private_key]
+
+configs:
+  learning_proxy:
+    file: ./nginx.learning.conf
+
+secrets:
+  learning_admin_secret:
+    file: "${DD_SECRET_DIRECTORY:?supply an explicit secret directory}/learning_admin_secret"
+  learning_adapter_secret:
+    file: "${DD_SECRET_DIRECTORY:?supply an explicit secret directory}/learning_adapter_secret"
+  learning_browser_auth_secret:
+    file: "${DD_SECRET_DIRECTORY:?supply an explicit secret directory}/learning_browser_auth_secret"
+  tls_certificate:
+    file: "${DD_SECRET_DIRECTORY:?supply an explicit secret directory}/tls_certificate.pem"
+  tls_private_key:
+    file: "${DD_SECRET_DIRECTORY:?supply an explicit secret directory}/tls_private_key.pem"
+
+volumes:
+  dd_learning_data: {}
+
+networks:
+  learning-internal:
+    internal: true
+  webui-upstream:
+    external: true
+    name: open-webui_default

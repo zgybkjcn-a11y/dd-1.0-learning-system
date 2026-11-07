@@ -9,7 +9,9 @@ import os
 import subprocess
 import sys
 import time
+import zipfile
 from contextlib import contextmanager
+from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
@@ -23,6 +25,7 @@ from learning_service.app import (
     ChallengeRequest,
     ConfirmationRequest,
     AnswerRequest,
+    ManualMistakeRequest,
     AgentRunRequest,
     AgentStepRequest,
     BatchRequest,
@@ -43,7 +46,7 @@ from learning_service.app import (
 )
 from learning_service.backup import backup_data, restore_data
 from learning_service.db import Database, json_dumps, new_id, utc_now
-from learning_service.providers import ProviderResult, diagnosis_provider, document_provider, variant_provider
+from learning_service.providers import TencentEducationOCRProvider, ProviderResult, diagnosis_provider, document_provider, variant_provider
 
 
 def _request(headers: dict[str, str] | None = None) -> Request:
@@ -85,10 +88,47 @@ class _AsyncUpload:
         return self._payload if size < 0 else self._payload[:size]
 
 
+def _ooxml_file(members: dict[str, str]) -> bytes:
+    stream = io.BytesIO()
+    with zipfile.ZipFile(stream, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for name, value in members.items():
+            archive.writestr(name, value)
+    return stream.getvalue()
+
+
+def _docx_fixture(text: str = "计算题：2+3。\n学生作答：6") -> bytes:
+    paragraphs = "".join(f"<w:p><w:r><w:t>{value}</w:t></w:r></w:p>" for value in text.splitlines())
+    return _ooxml_file({
+        "[Content_Types].xml": "<Types xmlns=\"http://schemas.openxmlformats.org/package/2006/content-types\"/>",
+        "word/document.xml": f"<w:document xmlns:w=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><w:body>{paragraphs}</w:body></w:document>",
+    })
+
+
+def _xlsx_fixture() -> bytes:
+    return _ooxml_file({
+        "[Content_Types].xml": "<Types xmlns=\"http://schemas.openxmlformats.org/package/2006/content-types\"/>",
+        "xl/workbook.xml": "<workbook xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\"><sheets/></workbook>",
+        "xl/worksheets/sheet1.xml": (
+            "<worksheet xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\"><sheetData>"
+            "<row r=\"1\"><c r=\"A1\" t=\"inlineStr\"><is><t>题目</t></is></c><c r=\"B1\" t=\"inlineStr\"><is><t>作答</t></is></c></row>"
+            "<row r=\"2\"><c r=\"A2\" t=\"inlineStr\"><is><t>5×6</t></is></c><c r=\"B2\" t=\"inlineStr\"><is><t>35</t></is></c></row>"
+            "</sheetData></worksheet>"
+        ),
+    })
+
+
+def _pdf_fixture() -> bytes:
+    document = fitz.open()
+    document.new_page(width=120, height=80)
+    payload = document.tobytes()
+    document.close()
+    return payload
+
+
 def test_migration_and_learner_isolation(env, tmp_path: Path):
     _, db, _ = env
     with db.session() as conn:
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 6
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 11
         assert conn.execute("SELECT 1 FROM pragma_table_info('source_pages') WHERE name='asset_id'").fetchone() is not None
         assert conn.execute("SELECT 1 FROM pragma_table_info('import_batches') WHERE name='answer_document_id'").fetchone() is not None
         assert conn.execute("SELECT 1 FROM pragma_table_info('question_versions') WHERE name='variant_kind'").fetchone() is not None
@@ -104,7 +144,7 @@ def test_migration_and_learner_isolation(env, tmp_path: Path):
     legacy_db = Database(tmp_path / "legacy.db", legacy_migrations)
     upgraded_db = Database(legacy_db.path)
     with upgraded_db.session() as conn:
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 6
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 11
         assert conn.execute("SELECT 1 FROM pragma_table_info('source_pages') WHERE name='asset_id'").fetchone() is not None
         assert conn.execute("SELECT 1 FROM pragma_table_info('import_batches') WHERE name='answer_document_id'").fetchone() is not None
         assert conn.execute("SELECT 1 FROM pragma_table_info('question_versions') WHERE name='variant_kind'").fetchone() is not None
@@ -183,7 +223,7 @@ def test_concurrent_fresh_database_migrations_serialize(tmp_path: Path):
     assert all(return_code == 0 for _, stderr, return_code in results), results
     db = Database(db_path)
     with db.session() as conn:
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 6
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 11
 
 
 def test_ui_exposes_workbench_controls(env):
@@ -195,6 +235,10 @@ def test_ui_exposes_workbench_controls(env):
     assert "创建整卷批次" in html
     assert "候选复核与确认" in html
     assert "确认选中项" in html
+    assert "手动加入错题本" in html
+    assert "/api/v1/mistakes/manual" in html
+    assert ".docx,.xlsx" in html
+    assert "document_text" in html
     assert "localStorage" in html
     assert "dd-learning-test" in html
     assert "恢复测验" in html
@@ -283,7 +327,9 @@ def test_admin_metrics_are_aggregated_and_privacy_preserving(env):
     assert metrics["jobs"]["oldest_queued_age_seconds"] is not None
     assert metrics["pages"] == {"total": 1, "failed": 1, "failure_ratio": 1.0}
     assert metrics["review"]["pending_items"] == 1
-    assert metrics["external_calls"]["tracked"] is False
+    assert metrics["external_calls"]["tracked"] is True
+    assert metrics["external_calls"]["by_evidence_mode"] == {}
+    assert metrics["external_calls"]["reconciled_cost_micros"] is None
     assert "learner-a" not in json.dumps(metrics, ensure_ascii=False)
     with pytest.raises(APIError, match="需要管理权限"):
         endpoint(Context(account_id="acct-b", learner_id="learner-b", role="student"), db)
@@ -1328,6 +1374,57 @@ def test_provider_boundaries_are_explicit_and_variant_stays_reviewable(env):
     assert run["result"]["evidence"]["mode"] == "deterministic_mock"
 
 
+def test_tencent_page_questions_become_independent_review_candidates(env, monkeypatch):
+    settings, db, app = env
+    settings = replace(
+        settings,
+        document_provider="tencent-education-ocr-v1",
+        tencent_ocr_secret_id="secret-id",
+        tencent_ocr_secret_key="secret-key",
+        tencent_ocr_external_calls_enabled=True,
+    )
+    monkeypatch.setattr(
+        TencentEducationOCRProvider,
+        "analyze_page",
+        lambda _self, page: ProviderResult(
+            provider_id="tencent-education-ocr-v1",
+            status="needs_review",
+            payload={
+                "page_id": page["id"],
+                "ocr_status": "recognized",
+                "questions": [
+                    {"question_text": "1 + 1 = ?", "student_answer": "2", "ocr_regions": [{"x": 10.0, "y": 20.0, "width": 100.0, "height": 50.0}]},
+                    {"question_text": "2 + 2 = ?", "student_answer": "3", "ocr_regions": [{"x": 10.0, "y": 80.0, "width": 100.0, "height": 50.0}]},
+                ],
+            },
+            evidence={"mode": "synthetic_tencent", "external_call": False, "review_required": True},
+        ),
+    )
+    image = Image.new("RGB", (2, 2), "white")
+    data = io.BytesIO()
+    image.save(data, format="PNG")
+    ctx = Context(account_id="acct-a", learner_id="learner-a", role="admin")
+    document = asyncio.run(_route(app, "/api/v1/documents")(_AsyncUpload(data.getvalue(), "questions.png", "image/png"), "paper", None, ctx, db, settings))
+    batch = _route(app, "/api/v1/import-batches")(BatchRequest(document_ids=[document["document_id"]]), ctx, db)
+    _route(app, "/api/v1/import-batches/{batch_id}/analysis")(
+        batch["batch_id"], _request({"Idempotency-Key": "tencent-synthetic"}), ctx, db
+    )
+
+    assert run_worker_once(db, settings)["status"] == "succeeded"
+    with db.session() as conn:
+        items = conn.execute(
+            "SELECT locator,content_json FROM import_items WHERE batch_id=? ORDER BY locator",
+            (batch["batch_id"],),
+        ).fetchall()
+        regions = conn.execute(
+            "SELECT COUNT(*) FROM source_regions WHERE source_page_id IN (SELECT id FROM source_pages WHERE document_id=?)",
+            (document["document_id"],),
+        ).fetchone()[0]
+    assert [row["locator"] for row in items] == ["page:1:question:1", "page:1:question:2"]
+    assert [json.loads(row["content_json"])["question_text"] for row in items] == ["1 + 1 = ?", "2 + 2 = ?"]
+    assert regions == 2
+
+
 def test_restore_replays_deletion_tombstones(tmp_path: Path, env):
     settings, db, _ = env
     settings.attachment_dir.mkdir(parents=True, exist_ok=True)
@@ -1372,7 +1469,7 @@ def test_restore_migrates_legacy_tombstone_schema_before_replay(tmp_path: Path):
     assert not (restored_dir / "attachments/learner-a/legacy.bin").exists()
     restored = Database(restored_dir / "learning.db")
     with restored.session() as conn:
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 6
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 11
         assert conn.execute("SELECT deleted_at FROM assets WHERE id='legacy-asset'").fetchone()[0] is not None
         assert conn.execute("SELECT cleanup_state FROM deletion_records WHERE id='legacy-deletion'").fetchone()[0] == "completed"
 
@@ -1430,6 +1527,251 @@ def test_direct_full_upload_analysis_review_chain(env):
     assert patch["revision"] == 2
     with pytest.raises(APIError, match="候选题已更新"):
         _route(app, "/api/v1/import-items/{item_id}")(items[0]["id"], __import__("learning_service.app", fromlist=["ItemPatch"]).ItemPatch(expected_revision=1, verdict="incorrect", evidence={"teacher_mark": "cross"}, objective_id="obj-1"), ctx, db)
+
+
+@pytest.mark.parametrize(
+    ("filename", "media_type", "payload", "expected_format", "expected_text"),
+    [
+        ("homework.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", _docx_fixture(), "docx", "学生作答：6"),
+        ("mistakes.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", _xlsx_fixture(), "xlsx", "5×6\t35"),
+    ],
+)
+def test_office_upload_extracts_text_into_reviewable_candidates(env, filename, media_type, payload, expected_format, expected_text):
+    settings, db, app = env
+    ctx = Context(account_id="acct-a", learner_id="learner-a", role="admin")
+    document = asyncio.run(_route(app, "/api/v1/documents")(_AsyncUpload(payload, filename, media_type), "homework", None, ctx, db, settings))
+    assert document["media_type"] == media_type
+    assert document["failure_code"] is None
+    with db.session() as conn:
+        page = conn.execute("SELECT status,extracted_text,extraction_format,asset_id,object_key FROM source_pages WHERE document_id=?", (document["document_id"],)).fetchone()
+        assert page["status"] == "queued"
+        assert page["extraction_format"] == expected_format
+        assert expected_text in page["extracted_text"]
+        assert page["asset_id"] == document["asset_id"]
+        assert page["object_key"]
+
+    batch = _route(app, "/api/v1/import-batches")(BatchRequest(document_ids=[document["document_id"]]), ctx, db)
+    analysis = _route(app, "/api/v1/import-batches/{batch_id}/analysis")(batch["batch_id"], _request({"Idempotency-Key": f"office-{expected_format}"}), ctx, db)
+    assert analysis["status"] == "queued"
+    assert run_worker_once(db, settings)["status"] == "succeeded"
+    items = _route(app, "/api/v1/import-batches/{batch_id}/items")(batch["batch_id"], ctx, db)["items"]
+    assert len(items) == 1
+    candidate = items[0]
+    assert candidate["status"] == "needs_review"
+    assert candidate["verification_status"] == "needs_review"
+    assert candidate["content"]["text_status"] == "extracted"
+    assert candidate["content"]["extraction_format"] == expected_format
+    assert expected_text in candidate["content"]["document_text"]
+    assert candidate["content"]["provider_evidence"]["ocr_performed"] is False
+
+
+@pytest.mark.parametrize(
+    ("filename", "media_type", "payload"),
+    [
+        ("worksheet.png", "image/png", None),
+        ("worksheet.pdf", "application/pdf", _pdf_fixture()),
+        ("worksheet.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", _docx_fixture("题干：5 × 6，求积。\n学生作答：35")),
+        ("worksheet.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", _xlsx_fixture()),
+    ],
+)
+def test_uploaded_mistake_confirmation_persists_content_judgment_source_and_review_card(env, filename, media_type, payload):
+    settings, db, app = env
+    if payload is None:
+        image = Image.new("RGB", (2, 2), "white")
+        output = io.BytesIO()
+        image.save(output, format="PNG")
+        payload = output.getvalue()
+
+    owner = Context(account_id="acct-a", learner_id="learner-a", role="admin")
+    document = asyncio.run(_route(app, "/api/v1/documents")(
+        _AsyncUpload(payload, filename, media_type), "homework", None, owner, db, settings,
+    ))
+    batch = _route(app, "/api/v1/import-batches")(
+        BatchRequest(document_ids=[document["document_id"]]), owner, db,
+    )
+    analysis = _route(app, "/api/v1/import-batches/{batch_id}/analysis")(
+        batch["batch_id"], _request({"Idempotency-Key": f"mistake-e2e-{filename}"}), owner, db,
+    )
+    assert analysis["status"] == "queued"
+    assert run_worker_once(db, settings)["status"] == "succeeded"
+    candidate = _route(app, "/api/v1/import-batches/{batch_id}/items")(
+        batch["batch_id"], owner, db,
+    )["items"][0]
+    assert candidate["status"] == "needs_review"
+
+    # Synthetic, explicit human review. For Office candidates this models the
+    # reviewer organizing extracted source text into one question; it does not
+    # claim OCR quality or an external provider call.
+    reviewed_content = {
+        **candidate["content"],
+        "question_text": "5 × 6，求积。",
+        "student_answer": "35",
+    }
+    patch = _route(app, "/api/v1/import-items/{item_id}")(
+        candidate["id"],
+        ItemPatch(
+            expected_revision=candidate["revision"],
+            raw_answer="35",
+            content=reviewed_content,
+            verdict="incorrect",
+            evidence={"teacher_mark": "cross", "reference_answer": "30"},
+            objective_id="obj-1",
+        ),
+        owner,
+        db,
+    )
+    assert patch["verification_status"] == "manual"
+    selected = [{"item_id": candidate["id"], "expected_revision": patch["revision"]}]
+    challenge = _route(app, "/api/v1/import-batches/{batch_id}/confirmation-challenges")(
+        batch["batch_id"], ChallengeRequest(items=selected), owner, db, settings,
+    )
+    confirmation = _route(app, "/api/v1/import-batches/{batch_id}/confirmations")(
+        batch["batch_id"],
+        ConfirmationRequest(
+            challenge_id=challenge["challenge_id"], nonce=challenge["nonce"], items=selected,
+        ),
+        _request({"Idempotency-Key": f"mistake-confirm-{filename}"}),
+        owner,
+        db,
+    )
+    assert confirmation["confirmed_count"] == 1
+
+    listed = _route(app, "/api/v1/mistakes")(owner, db)["items"]
+    assert len(listed) == 1
+    mistake = listed[0]
+    assert mistake["content"]["question_text"] == "5 × 6，求积。"
+    assert mistake["content"]["student_answer"] == "35"
+    assert mistake["content"]["verdict"] == "incorrect"
+    assert mistake["content"]["teacher_evidence"] == {"teacher_mark": "cross", "reference_answer": "30"}
+
+    detail = _route(app, "/api/v1/mistakes/{mistake_id}")(mistake["id"], owner, db)
+    assert detail["mistake"]["content"] == mistake["content"]
+    assert len(detail["sources"]) == 1
+    source = detail["sources"][0]
+    assert source["source_kind"] == "uploaded_work"
+    assert source["item_id"] == candidate["id"]
+    assert source["verdict"] == "incorrect"
+    assert source["evidence"] == {"teacher_mark": "cross", "reference_answer": "30"}
+    assert detail["review_card"]["objective_id"] == "obj-1"
+    assert detail["review_card"]["active"] == 1
+
+    with db.session() as conn:
+        source_row = conn.execute(
+            "SELECT import_judgment_id FROM mistake_sources WHERE item_id=? AND learner_id=?",
+            (candidate["id"], "learner-a"),
+        ).fetchone()
+        judgment = conn.execute(
+            "SELECT verdict,evidence_json,verification_status FROM import_judgments WHERE id=?",
+            (source_row["import_judgment_id"],),
+        ).fetchone()
+        stored_entry = conn.execute(
+            "SELECT content_json FROM mistake_entries WHERE id=? AND learner_id=?",
+            (mistake["id"], "learner-a"),
+        ).fetchone()
+        assert json.loads(stored_entry["content_json"]) == mistake["content"]
+        assert judgment["verdict"] == "incorrect"
+        assert json.loads(judgment["evidence_json"]) == {"teacher_mark": "cross", "reference_answer": "30"}
+        assert judgment["verification_status"] == "manual"
+        assert conn.execute(
+            "SELECT COUNT(*) FROM review_cards WHERE learner_id='learner-a' AND objective_id='obj-1' AND active=1",
+        ).fetchone()[0] == 1
+
+
+def test_broken_office_upload_is_retained_as_failed_page_and_not_candidate(env):
+    settings, db, app = env
+    payload = _ooxml_file({
+        "[Content_Types].xml": "<Types>",
+        "word/document.xml": "<broken",
+    })
+    ctx = Context(account_id="acct-a", learner_id="learner-a", role="admin")
+    document = asyncio.run(_route(app, "/api/v1/documents")(
+        _AsyncUpload(payload, "broken.docx", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"),
+        "homework", None, ctx, db, settings,
+    ))
+    assert document["failure_code"] == "DOCX_PARSE_FAILED"
+    with db.session() as conn:
+        page = conn.execute("SELECT status,failure_code,asset_id,object_key,extracted_text FROM source_pages WHERE document_id=?", (document["document_id"],)).fetchone()
+        assert tuple(page[:2]) == ("failed", "DOCX_PARSE_FAILED")
+        assert page["asset_id"] == document["asset_id"]
+        assert page["object_key"]
+        assert page["extracted_text"] is None
+
+    batch = _route(app, "/api/v1/import-batches")(BatchRequest(document_ids=[document["document_id"]]), ctx, db)
+    analysis = _route(app, "/api/v1/import-batches/{batch_id}/analysis")(batch["batch_id"], _request(), ctx, db)
+    assert analysis["status"] == "queued"
+    assert run_worker_once(db, settings)["status"] == "succeeded"
+    assert _route(app, "/api/v1/import-batches/{batch_id}/items")(batch["batch_id"], ctx, db)["items"] == []
+    batch_status = _route(app, "/api/v1/import-batches/{batch_id}")(batch["batch_id"], ctx, db)
+    assert batch_status["failed_pages"] == 1
+    assert batch_status["status"] == "partial_failed"
+
+
+@pytest.mark.parametrize(
+    ("filename", "media_type"),
+    [("legacy.doc", "application/msword"), ("legacy.xls", "application/vnd.ms-excel")],
+)
+def test_legacy_office_formats_are_rejected(env, filename, media_type):
+    settings, db, app = env
+    ctx = Context(account_id="acct-a", learner_id="learner-a", role="admin")
+    with pytest.raises(APIError) as error:
+        asyncio.run(_route(app, "/api/v1/documents")(_AsyncUpload(b"legacy office", filename, media_type), "homework", None, ctx, db, settings))
+    assert error.value.status == 415
+
+
+def test_manual_mistake_entry_is_idempotent_scoped_and_returns_parsed_content(env):
+    settings, db, app = env
+    owner = Context(account_id="acct-a", learner_id="learner-a", role="admin")
+    body = ManualMistakeRequest(
+        question_text="  5 × 6  ", student_answer=" 35 ", correct_answer="30", objective_id="obj-1", note="乘法口诀错位",
+    )
+    endpoint = _route(app, "/api/v1/mistakes/manual")
+    request = _request({"Idempotency-Key": "manual-mistake-1"})
+    result = endpoint(body, request, owner, db, settings)
+    assert result["status"] == "active"
+    assert result["source_kind"] == "manual"
+    assert result["objective_id"] == "obj-1"
+    assert result["review_card_id"]
+    assert endpoint(body, request, owner, db, settings) == result
+    with pytest.raises(APIError) as conflict:
+        endpoint(body.model_copy(update={"question_text": "6 × 6"}), request, owner, db, settings)
+    assert conflict.value.code == "IDEMPOTENCY_CONFLICT"
+
+    detail = _route(app, "/api/v1/mistakes/{mistake_id}")(result["mistake_id"], owner, db)
+    assert detail["mistake"]["content"] == {
+        "question_text": "5 × 6", "student_answer": "35", "correct_answer": "30", "note": "乘法口诀错位",
+    }
+    assert detail["sources"][0]["source_kind"] == "manual"
+    listed = _route(app, "/api/v1/mistakes")(owner, db)["items"]
+    assert next(item for item in listed if item["id"] == result["mistake_id"])["content"]["question_text"] == "5 × 6"
+    with db.session() as conn:
+        assert conn.execute("SELECT COUNT(*) FROM review_cards WHERE learner_id='learner-a' AND objective_id='obj-1'").fetchone()[0] == 1
+        assert conn.execute("SELECT COUNT(*) FROM audit_events WHERE operation='create_manual_mistake' AND resource_id=?", (result["mistake_id"],)).fetchone()[0] == 1
+
+    other = Context(account_id="acct-b", learner_id="learner-b", role="student")
+    assert all(item["id"] != result["mistake_id"] for item in _route(app, "/api/v1/mistakes")(other, db)["items"])
+    with pytest.raises(APIError) as hidden:
+        _route(app, "/api/v1/mistakes/{mistake_id}")(result["mistake_id"], other, db)
+    assert hidden.value.code == "MISTAKE_NOT_FOUND"
+
+
+def test_manual_mistake_without_objective_skips_card_and_rejects_foreign_curriculum(env):
+    settings, db, app = env
+    owner = Context(account_id="acct-a", learner_id="learner-a", role="admin")
+    endpoint = _route(app, "/api/v1/mistakes/manual")
+    no_objective = endpoint(
+        ManualMistakeRequest(question_text="无目标错题"),
+        _request({"Idempotency-Key": "manual-no-objective"}), owner, db, settings,
+    )
+    assert no_objective["review_card_id"] is None
+    with db.session(write=True) as conn:
+        conn.execute("INSERT INTO knowledge_points(id,curriculum_id,code,title,created_at) VALUES (?,?,?,?,?)", ("kp-other", "other-curriculum", "other", "其他课程", utc_now()))
+        conn.execute("INSERT INTO review_objectives(id,knowledge_point_id,code,title,created_at) VALUES (?,?,?,?,?)", ("obj-other", "kp-other", "other", "其他目标", utc_now()))
+    with pytest.raises(APIError) as mismatch:
+        endpoint(
+            ManualMistakeRequest(question_text="越课程目标", objective_id="obj-other"),
+            _request({"Idempotency-Key": "manual-foreign-objective"}), owner, db, settings,
+        )
+    assert mismatch.value.code == "OBJECTIVE_SCOPE_MISMATCH"
 
 
 def test_analysis_retry_is_revision_scoped_and_idempotent(env):
@@ -1964,7 +2306,11 @@ def test_page_revision_can_requeue_analysis_with_a_new_revision_item(env):
     assert len(items) == 2
     assert first_item not in {row["id"] for row in items if row["status"] != "stale"}
     assert any(row["status"] == "stale" for row in items)
-    assert any(row["status"] == "needs_review" and row["occurrence_id"].endswith(":2") for row in items)
+    assert any(
+        row["status"] == "needs_review"
+        and row["occurrence_id"].endswith(":2:page:1:item:1")
+        for row in items
+    )
 
 
 def test_upload_rejects_learner_path_traversal_and_deleted_documents_cannot_form_batch(env):

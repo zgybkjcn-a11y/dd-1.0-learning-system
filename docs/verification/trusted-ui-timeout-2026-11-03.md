@@ -16,7 +16,7 @@ pytest -q tests/test_learning_tools.py tests/test_open_webui_compat.py
 14 passed
 
 pytest -q
-78 passed in 15.58s (64 learning service + 11 Tools adapter + 3 Open WebUI compatibility)
+报告生成时：84 passed (64 learning service + 11 Tools adapter + 3 Open WebUI compatibility + 6 isolated Compose preflight)；当前全量结果为 91 passed，见 `document-consistency-2026-11-03.md`
 ```
 
 This is deterministic adapter evidence. It does not replace a real Open WebUI browser WebSocket callback or model-initiated tool call, which remain pending in `docs/goal/BLOCKERS.md`.

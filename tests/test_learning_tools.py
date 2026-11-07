@@ -3,10 +3,19 @@ from __future__ import annotations
 import io
 import json
 import asyncio
+import pytest
 from urllib.error import HTTPError, URLError
 
 from learning_service import tools as tools_module
 from learning_service.tools import Tools
+
+
+@pytest.fixture(autouse=True)
+def legacy_transport_profile(monkeypatch):
+    # Preserve coverage of the existing compatibility transport and callbacks.
+    # The shared formal profile has separate ASGI integration tests.
+    monkeypatch.setenv('DD_SHARED_LEARNER_CONTEXT', 'false')
+    monkeypatch.setenv('DD_WORKBENCH_URL', '')
 
 
 class _Response:
@@ -84,7 +93,7 @@ def test_tools_preserves_structured_service_http_errors(monkeypatch):
 
     monkeypatch.setattr(tools_module, "urlopen", fail)
     result = json.loads(Tools().get_review_tasks())
-    assert result == {"error": {"code": "LEARNER_NOT_FOUND", "message": "no access", "retryable": False}}
+    assert result == {"error": {"code": "LEARNER_NOT_FOUND"}}
 
 
 def test_tools_wraps_unstructured_http_errors_without_returning_unbounded_body(monkeypatch):
@@ -94,8 +103,7 @@ def test_tools_wraps_unstructured_http_errors_without_returning_unbounded_body(m
     monkeypatch.setattr(tools_module, "urlopen", fail)
     result = json.loads(Tools().get_progress())
     assert result["error"]["code"] == "LEARNING_SERVICE_HTTP_ERROR"
-    assert result["error"]["status"] == 502
-    assert len(result["error"]["message"]) == 500
+    assert "status" not in result["error"] and "message" not in result["error"]
 
 
 def test_tools_maps_network_and_timeout_errors_as_unavailable(monkeypatch):
@@ -104,7 +112,7 @@ def test_tools_maps_network_and_timeout_errors_as_unavailable(monkeypatch):
 
     monkeypatch.setattr(tools_module, "urlopen", fail_network)
     network = json.loads(Tools().get_progress())
-    assert network == {"error": {"code": "LEARNING_SERVICE_UNAVAILABLE", "status": "unavailable"}}
+    assert network == {"error": {"code": "LEARNING_SERVICE_UNAVAILABLE"}}
 
     def fail_timeout(request, timeout):
         assert timeout == 15
@@ -112,7 +120,7 @@ def test_tools_maps_network_and_timeout_errors_as_unavailable(monkeypatch):
 
     monkeypatch.setattr(tools_module, "urlopen", fail_timeout)
     timed_out = json.loads(Tools().get_progress())
-    assert timed_out == {"error": {"code": "LEARNING_SERVICE_UNAVAILABLE", "status": "unavailable"}}
+    assert timed_out == {"error": {"code": "LEARNING_SERVICE_UNAVAILABLE"}}
 
 
 def _route_response(request, routes):

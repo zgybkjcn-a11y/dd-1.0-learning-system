@@ -1,0 +1,31 @@
+继续 DD-1.0 V1 家庭数学测试版。工作目录：/home/deniskorfei/projects/open-webui。
+
+2026-11-06 当前最新：自动升档改为四道不同题（先读 docs/verification/practice-four-2026-11-06.md）。用户认为两道不足，采用3～5中的4道：同档连续独立答对4道不同题才尝试下一档，界面显示累计/剩余数；重复题不累加、错误/提示中断累计，主动重练可重新巩固。已上线Compose `compose-practice-four-20261106.json`，镜像 `sha256:d94346e8ec8fada893f288aac5fddd8f26a1b6078d4eb23b1af9bfd2cc64e6cc`，57文件/schema11。5项相关测试与线上核验通过，74题、原绑定/两档案/53次作答保持，WebUI/代理未重启，provider0。题库和原教材/OCR限制不变；保存当前输入后刷新。下文两题规则与旧Compose为历史，勿覆盖。保留所有未提交改动，不写Goal。
+
+2026-11-06 当前最新：已上线三档应用题与连续出题（先读 docs/verification/adaptive-practice-2026-11-06.md）。新增60道生活应用题（二上第二/三/五单元36题，七上第二/五章24题），原14题保留，总74题。可选简单/正常/困难，默认根据独立答对与提示情况自动进阶；“继续出题”不重复本轮已做题，用尽明确提示；每题提示/答后折叠解析。29道来自固定commit开源题库改编、31道助手编写，逐题语义核查与独立复算，并非教师审核；其余章节学科仍未配题。当前Compose `compose-adaptive-practice-20261106.json`、镜像 `sha256:e40cec471ba75bd766d4cb0a9c5f3c9b94587f80238542f4a02c5b5615348e90`，57文件/schema11。40项相关测试及上线核查通过，原题/绑定/53次作答完整保留，13册PDF保持，原WebUI/代理未重启，provider0。家长保存输入后刷新即可，无需重绑。先读验证记录与docs/verification/math-practice-project-research-2026-11-06.md，不要重新导入旧题库或用下文旧Compose覆盖。保留所有未提交改动、教材/OCR约定，不写Goal，不调用外部生成模型。
+
+2026-11-06 当前最新：目录缩窄、教材页加宽；范围/展开/收起合并到翻页跳转工具栏右侧并自适应换行。先读 docs/verification/reader-toolbar-layout-2026-11-06.md。当前Compose learning_data/deployments/family-math-20261105/compose-reader-toolbar-20261106.json，镜像 sha256:82a2388392bc6577a9775d1a6188a21b94924a7c3af87dbfbbf8082d0b3dc9b6；五种视口布局与翻页/放大检查通过，数据和WebUI/代理保持。只改HTML/CSS，原统一范围、章节可选、教材/OCR与执行限制不变。下文旧Compose为历史，勿用旧配置up；保留全部未提交改动，不写Goal。
+
+2026-11-06 当前最新：先读 docs/verification/unified-textbook-reader-2026-11-06.md。已上线统一学科/课本/章节（可选）选择，默认整本书；挑战、下一题、复习、教材阅读均按同一范围，未配题不能开始挑战。左侧目录右侧单页，支持点目录、前后翻页、页码跳转，原图点击/键盘打开放大窗口，可缩放和Esc关闭，保留阅读位置。当前Compose learning_data/deployments/family-math-20261105/compose-unified-reader-20261106.json，镜像 sha256:417274d9a8da2af3d8982728d06488ded79443ad82e9130722b871c343aafb6e，最终候选 dd-v1-family-unified-reader-20261106-final。54项相关测试、真实PDF两种屏幕及上线核验通过。13册1,948片段，原14题保留无新增：二上乘法4题映射第二单元1题/第五单元3题，七上第二章6题；4道旧二年级加减题不混入新版教材范围。真实绑定1、档案2、50次作答和其他数据保持；WebUI/代理未重启。先支持刷新后的实际体验反馈，后续补题需独立审核。下文旧Compose与四页纵向列表属历史；保留所有未提交改动、教材/OCR及其他限制，不写Goal，不重绑。
+
+2026-11-06 当前最新：多学科教材及折叠/顺序浏览已上线。先读 docs/verification/textbook-subjects-folding-2026-11-06.md、docs/goal/HANDOFF-SESSION-2026-11-06-TEXTBOOKS.md 和 docs/goal/TEXTBOOK-POLICY.md。当前Compose为 learning_data/deployments/family-math-20261105/compose-subjects-folding-20261106.json，镜像 sha256:32808e7a852fbf23c0e4ef16893cd9d561083ed82f5465b2c823d4b85b1b9434，最终候选 dd-v1-family-subjects-folding-20261106-final。二年级语文/数学/道法，七年级语数英/道法/历史/地理/生物，共13册1,948片段、98章节区间；学校二年级暂未开英语是用户已确认约定，勿重复询问。无关键词按章节起始页四页一组浏览，有关键词按书内页码排序；每页有标题、整体及单页折叠、页底收起。46项相关测试、真实PDF浏览器验证及上线核验通过，13册只读PDF哈希有效，绑定1、两档案、作答/判分50及其他计数保持，WebUI/代理未重启。用户保存输入后Ctrl+F5刷新即可，实际体验反馈待确认。新增学科当前只供教材阅读，原14道数学练习未扩充；二下数学OCR双重审核、二下道法及七下英/道法/史/地/生仍待补，其他年级尚未接入。下文旧部署、旧册数、待绑定、下载受阻为历史，勿按旧Compose up；保留未提交改动、原权限限制，不写Goal。
+
+2026-11-06 最新原页显示修复已上线：先读 docs/verification/textbook-page-display-fix-2026-11-06.md。当前二上、七上/下的教材检索直接显示原PDF页图，放大链接打开同页，七上115/144页已实物验证。当前Compose learning_data/deployments/family-math-20261105/compose-textbook-pages-20261106.json，镜像 sha256:4c068b2200c36d087dd520682aa2121447b0eedaf40484e9f57c4ed037e2d464。PDF在家庭API只读挂载 /opt/dd-textbooks；62项相关测试通过、真实教材页两种屏幕放大通过，既有登录/50次作答和其他数据保留。用户刷新后重新检索即可，无需重绑。原PDF提取文本/向量未全文纠正，仅用作定位，展示以原页为准；不能据此宣称题目/答案已审核。后文旧Compose和纯文本渲染均为历史，其余限制和数学二下OCR待办不变。
+
+2026-11-06 同日最新：先读 docs/verification/github-textbook-sources-2026-11-06.md。GitHub已补齐两册二下完整来源；语文采用hantang/yuwen docs分支可提取文字新版，新增129片段，当前12册/1,875片段。数学106页图片来自LYUGUISONG/Textbooks，已完整下载，图在 learning_data/textbooks/github-verified-20261106/math-g2-lower-images/，下一步从这里继续已授权离线OCR及逐页双重审核。此前“二册下载受阻”是历史，无需用户验证码/登录；语文不再需要OCR，但拼音字体提取异常需对照原PDF，仍仅阅读参考。部署与其他限制未变，勿重下旧候选或误将旧版/部分文件入库。
+
+最新补充（2026-11-06）：先读 docs/goal/HANDOFF-SESSION-2026-11-06-TEXTBOOKS.md 和 docs/goal/TEXTBOOK-POLICY.md。全部年级固定人教社现行最新版，多源核实。11册新版已新增入WebUI、1,746向量片段，原13文件保留归档。学习工作区数学教材章节检索已上线，当前用 compose-textbooks-20261105.json，镜像 sha256:1ff715a05f242b3b1eb492b36fb8f368906f1ad01702ff0bc034f3c0cd687a00。原14道起步题仍保持，不宣称每章已能出题。两本二年级下册未完整下载/审核、未入当前索引；用户已授权仅这两本公开教材离线OCR，但要求转写和内容正确性两层独立审核，三片段复核不能代替整书审核。81项相关验证通过，真实作答50次，更新前后数据一致。下一步实际点击教材检索、取得完整公开来源后逐页审核；不要重复问出版社或已有OCR授权。不得重绑或用旧Compose up，保留所有未提交改动及其余交接限制，不写Goal。容器临时导入脚本是旧版，续用先复制项目最新脚本。
+
+最新补充（2026-11-05 21:44）：先读 docs/goal/HANDOFF-SESSION-2026-11-05-CHAPTERS.md。按单元/章节选择已上线，当前 Compose 为 learning_data/deployments/family-math-20261105/compose-chapters-20261105.json，镜像 sha256:ab314b41d9b46500d02907649d43ce26f9ac1ccd1f7c155079e52f188d76b3bd。更新前备份已校验；8 项相关验证通过，包含单元出题/下一题/到期复习、刷新、旧界面当前题恢复和档案隔离。真实两档案已有 43 次已判分作答（二年级 6、七年级 37），错题为 0、实际刷新/切换体验待家长确认；不再将真实练习标为未开始。旧记录和绑定待办属历史，勿重绑或用旧 Compose up。所有执行限制及完整 V1 状态继续保留。
+
+最新补充（2026-11-05 20:54）：先读 docs/goal/HANDOFF-SESSION-2026-11-05-GAME-UI.md。家长真实登录与启用码绑定已经完成，错题自动知识目标已上线，用户选择的活泼闯关界面“数学探险队”也已上线（二年级数字森林、七年级星球探索）。当前 Compose 为 learning_data/deployments/family-math-20261105/compose-game-ui-20261105.json，固定镜像 sha256:02f338a3ef0fceeb7846b7692edd48aee3574c6e2774aec99f4f9502dd59d005。更新前已验证导出备份，8 项相关验证通过，家长绑定与数据保留，真实两档案练习/错题试用仍待进行。下面原续跑文本中的首次绑定待办和旧配置以最新交接覆盖，不要重做绑定或用旧 Compose up。所有未提交改动和执行限制继续保留。
+
+先读取 docs/goal/HANDOFF-SESSION-2026-11-05-SESSION-SUMMARY.md，再读取 docs/goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md、docs/goal/STATUS.md、TASKS.json、BLOCKERS.md、DECISIONS.md，并检查 git status --short --branch、家庭版 Compose 状态和只读 Goal API。
+
+当前交付范围是一个现有 Open WebUI 家长账号切换七年级/二年级两个数学档案。家庭版 dd-family-math 已部署在 https://172.19.116.53/learning/auth/login，四个服务保持运行；旧 HTTP 53001、现有 WebUI 容器/数据库/模型/Tools 未改。设备根证书已安装到 Windows 当前用户 Trusted Root，Windows 默认 TLS 校验通过；现在只剩真实家长首次登录、一次启用码绑定和实际使用反馈。不要重复导入证书或重建数据卷。
+
+先帮助完成首次使用：已有 Open WebUI 家长账号登录，从 learning_data/deployments/family-math-20261105/家长首次使用.txt 读取启用码一次完成绑定，然后测试两个档案各一道数学题、判分、刷新恢复、切换和手动错题本。不要在公开输出中打印启用码。
+
+数学版目前有二年级 8 道、七年级 6 道编写起步题；上传/OCR/诊断/变式入口隐藏，mock/外发关闭/学习预算 0。根据真实反馈补少量题目或直接影响使用的修复即可，不要过度工程化。
+
+保留全部未提交改动；不要 reset/checkout/clean/commit/push；不要读取或修改根 docker-compose.yml、batch_ingest.py、既有 WebUI data/环境秘密；不要调用真实模型/OCR、外发学生资料、创建/更新/完成 Goal；不要重跑 P0、四格式或无变化的旧验证。完整 V1 的商业化、复杂监控、完整恢复、其他学科和真实 provider 继续暂缓。

@@ -1,0 +1,379 @@
+{
+  "date": "2026-11-04",
+  "timezone": "Asia/Shanghai",
+  "evidence_kind": "local_synthetic_engineering",
+  "scope": [
+    "diagnosis_adapter",
+    "variant_adapter",
+    "usage_budget",
+    "browser_session_preparation",
+    "source_candidate"
+  ],
+  "verification": {
+    "provider_auth_release_and_tencent_tests": {
+      "passed": 67,
+      "seconds": 12.66
+    },
+    "related_service_tests": {
+      "passed": 21,
+      "deselected": 55,
+      "seconds": 4.68
+    },
+    "tools_compatibility_tests": {
+      "passed": 14,
+      "seconds": 0.31
+    },
+    "focused_passed_total": 102,
+    "prior_full_suite_baseline": 101,
+    "full_suite_rerun": false,
+    "four_format_persistence_rerun": false,
+    "p0_suite_rerun": false,
+    "compileall": "passed",
+    "current_source_schema": 9,
+    "current_source_openapi_paths": 61,
+    "current_source_openapi_schemas": 22,
+    "browser_report": "docs/verification/browser-auth-local-2026-11-04.json"
+  },
+  "source_candidate": {
+    "state": "local_source_candidate_not_built_not_deployed",
+    "git_head": "0fa02712ceda049b14d4b556faef3fdb2fa985ed",
+    "worktree_dirty": true,
+    "schema_revision": 9,
+    "image_digest": null,
+    "source_set_sha256": "974dc7e5dbd3b5fbee77b5559754a8c4b44004f092d36cac96371d6cc36ee335",
+    "archive_sha256": "b01a718aac46eacdebffcdb5729265a516d8e7e1f27aa99ae2cca563a3472230",
+    "authorization": {
+      "continuous_trial": "not_started",
+      "paid_provider_calls": "not_authorized",
+      "production_cutover": "not_authorized",
+      "real_student_data_export": "not_authorized"
+    },
+    "directory": "learning_data/release-preparation/dd-v1-provider-auth-20261104",
+    "files": 29
+  },
+  "p0": {
+    "running_snapshot_schema": 7,
+    "snapshot_revision_not_reprobed": true,
+    "runtime_mutated": false,
+    "metadata_checked": true
+  },
+  "boundaries": {
+    "real_model_calls": false,
+    "real_ocr_calls": false,
+    "real_student_data_sent": false,
+    "production_deployed": false,
+    "real_login_gateway_or_tls_verified": false,
+    "native_final_tool_callback_verified": false,
+    "trial_started": false,
+    "goal_created_or_completed": false,
+    "task_statuses_promoted": false
+  },
+  "goal_api_initial": null,
+  "repository_goal_state": "blocked",
+  "pending": [
+    "real_model_tool_call_and_callback",
+    "real_datasets_and_human_review",
+    "target_protocol_egress_rates_permission_and_invoice",
+    "login_gateway_and_runtime_integration",
+    "fixed_images_and_production_config",
+    "actual_architecture_fault_and_consistent_restore",
+    "real_trial"
+  ],
+  "final_audit": {
+    "checked_at_utc": "2026-11-04 09:51:35 UTC",
+    "scope": "final_document_candidate_and_worktree_audit_only",
+    "document_consistency": {
+      "command": "python3 scripts/verify_goal_consistency.py",
+      "result": "passed",
+      "summary": "tasks=26, evidence paths=194, backlog task rows=26, QA matrix rows=17, manifest path references=24, release authorization boundaries intact"
+    },
+    "diff_check": {
+      "command": "git diff --check -- . ':!docker-compose.yml' ':!batch_ingest.py'",
+      "result": "passed"
+    },
+    "git": {
+      "command": "git status --short --branch",
+      "branch_line": "## main...origin/main",
+      "status_entries": 70,
+      "worktree_dirty": true,
+      "commit_or_push_performed": false
+    },
+    "worktree_preservation": {
+      "baseline_file": "/tmp/dd-v1-local-engineering-20261104-start.json",
+      "baseline_files": 58,
+      "intentional_modified_existing_count": 19,
+      "intentional_modified_existing": [
+        {
+          "path": ".env.example",
+          "initial_sha256": "5ab27eecedc58041656b80114838b60e9e9d5a229674e996793ea8b1038aa267",
+          "current_sha256": "0a97c7ccad9ed32dab0b2f633560b9bdef9e32c29cf9e430b5876d9fcab820fe"
+        },
+        {
+          "path": "docs/IMPLEMENTATION_BACKLOG.md",
+          "initial_sha256": "ff4afa843822f9aa8ffe532eb00a69a2a44d057553f7b5e1169725c6b8f1ab2c",
+          "current_sha256": "c6ea63206cb84447e4a9d6ad12e602390d9293d0a0cacf460c5238f9c49a2abd"
+        },
+        {
+          "path": "docs/contracts/openapi-v1.json",
+          "initial_sha256": "885835e56a2d502bcdff26747c4f7981db5c34b9eca1003fd0915dbe32e9b2c9",
+          "current_sha256": "385a34e07b172a907f89712168068dbc2b60e11330c20b532ee4f51562a1c3d3"
+        },
+        {
+          "path": "docs/goal/BLOCKERS.md",
+          "initial_sha256": "9f7c39dc4c8f83150e4e83c441c324aae782960ad264e92806c044dc77b21599",
+          "current_sha256": "95f1e6b375c854d95df2fda79d755059a6661a5c67a3e77e299591e6100b39cb"
+        },
+        {
+          "path": "docs/goal/DECISIONS.md",
+          "initial_sha256": "572ab3dd4fdca8960dc39588c59dc5fa5c5e226579e25cac0ea678be7fa9633b",
+          "current_sha256": "1f47881bc2471652e3a192f043d21b492ede7800eeff9ea31a28ea6b9ba14e18"
+        },
+        {
+          "path": "docs/goal/HANDOFF-SESSION-2026-11-04-P0.md",
+          "initial_sha256": "f48bbdea6fa8516894ab205590f8e924d16f411e71d1f0e3205b5c0393d6227d",
+          "current_sha256": "e0f7a9c5c4e7863b803c8c151ed35910392a12105c7843c822f7696f287d0cee"
+        },
+        {
+          "path": "docs/goal/HANDOFF.md",
+          "initial_sha256": "995cb1a27af761f5e1e5af61767f7cd5529dfd77667d77117469a297d3f83e77",
+          "current_sha256": "892426d55623b79b51bddfbe46ec69800a9c57841b19745f507c681044f3d59c"
+        },
+        {
+          "path": "docs/goal/NEXT-TASK-PLAN-2026-11-04.md",
+          "initial_sha256": "494b5aa06425d581bfbf374054da1bcbc6fd6d9cead5e79a8817b57a174d76a5",
+          "current_sha256": "3c6a13331c9586306e11a4bbf38f7a020d89d07018c1663e0f5f41078141809a"
+        },
+        {
+          "path": "docs/goal/STATUS.md",
+          "initial_sha256": "51b19f92848e791fd49390bde214ee70581c8bd2ce47a2540ea446898b0ef8e5",
+          "current_sha256": "3d22b4f6aefa9a746f4d8f51db0d983a203eaad2116c65fa62a6c74a3502f93f"
+        },
+        {
+          "path": "docs/goal/TASKS.json",
+          "initial_sha256": "74ea887931412b484d8c50cf3657b3c01f4963fbff27ca03b82322dca0dfd291",
+          "current_sha256": "8297d2d5763b04a7b70dbf5fd01705eebb48cc6409e5c8548530c6e7738c04e7"
+        },
+        {
+          "path": "docs/verification/limitations.md",
+          "initial_sha256": "6997dd3175f7c6edac3521fc72f15935b27232dcb8fafb473c3b42053f19cff9",
+          "current_sha256": "dc90923e77b4b1f4c3d5f0ad664e882249be3b33a894d406587f3e910f01196a"
+        },
+        {
+          "path": "docs/verification/openapi-contract-2026-11-03.md",
+          "initial_sha256": "f69b514f0a20948465d14631b0f649fb350ff19c87d72adb3f89a51f32f7d956",
+          "current_sha256": "29febd90f52991e08d3e06053f8d57e756dc3ebc31fad69e26ab32e93cf12ecb"
+        },
+        {
+          "path": "docs/verification/qa-matrix-2026-11-03.md",
+          "initial_sha256": "fbf73469969be50d63d7485dccd4506b9891c4e23a886afaf978b5aa05e3f965",
+          "current_sha256": "c813601d9beec9be2bd02a1abb685a45f4fc0f4e31551234644d80ff95979073"
+        },
+        {
+          "path": "docs/verification/release-manifest-2026-11-03.json",
+          "initial_sha256": "f4cfbe531ccf542b0e1a7d302a0e3b8aec8d2637671898eb5291a4d182247ce0",
+          "current_sha256": "8d5afd3a2f9c96b978f8d0cbfd2ffe7e15b695a25c302a0f080f22791eb5d644"
+        },
+        {
+          "path": "learning_service/app.py",
+          "initial_sha256": "b307a04d1a9c461483be5415b6b463ac2e0c058fcdc780f7ce869bd2e2bb8ff5",
+          "current_sha256": "fdb37267e4b4eaa31d2891b8557c011263e70df537ccf7744a3285b4846eed6a"
+        },
+        {
+          "path": "learning_service/config.py",
+          "initial_sha256": "306f3e7109d24cb3eafc9bd9860df88809d3f63ad34b96a7b933a90cbf93bceb",
+          "current_sha256": "abd8b72b03fd3a0388d27397a88e70d0d95b7ec4e7835f27ef125bc397579305"
+        },
+        {
+          "path": "learning_service/providers.py",
+          "initial_sha256": "8df80bb90464a4a9f2140052558d87787705e7788bcdc5732469920f6584ba04",
+          "current_sha256": "b0e74a02f5869315f96fe7e55084f001fd261f85c8f4aa288fedbbb65368285e"
+        },
+        {
+          "path": "tests/test_learning_service.py",
+          "initial_sha256": "8e6ea86f6d1de6444de592dce5816ea4217638b023d941c58dbf2aa4c732da11",
+          "current_sha256": "b9b38791e0fd356509146db98d21598aa8f1d68917ccf0b640923110e4eb4794"
+        },
+        {
+          "path": "tests/test_tencent_ocr.py",
+          "initial_sha256": "c23bb67142cd506f44711353d638400815ba16676a73eea932c7f2b8fcb5570f",
+          "current_sha256": "c2a0884f39123b752a7f76eb28e5a7ac99b24c1e5ceb3da1d9c94b36415c1f4d"
+        }
+      ],
+      "unchanged_existing_count": 39,
+      "unchanged_existing": [
+        "docs/PAPER_HOMEWORK_IMPORT_DESIGN.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-03.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-04-CONTINUATION.md",
+        "docs/goal/HANDOFF-SESSION-2026-11-04.md",
+        "docs/quality/README.md",
+        "docs/quality/acceptance-policy.template.json",
+        "docs/quality/documents.template.csv",
+        "docs/quality/pages.template.csv",
+        "docs/quality/questions.template.csv",
+        "docs/quality/reference-dataset.template.json",
+        "docs/quality/regions.template.csv",
+        "docs/quality/reviewers.template.csv",
+        "docs/verification/agent-actions-2026-11-03.md",
+        "docs/verification/compose-isolation-2026-11-03-revision6.md",
+        "docs/verification/compose-preflight-2026-11-03.md",
+        "docs/verification/database-process-recovery-2026-11-03.md",
+        "docs/verification/document-consistency-2026-11-03.md",
+        "docs/verification/external-gates-recheck-2026-11-04.md",
+        "docs/verification/import-confirmation-five-verdicts-2026-11-03.md",
+        "docs/verification/maintenance-gate-2026-11-03.md",
+        "docs/verification/migration-atomicity-2026-11-03.md",
+        "docs/verification/mistake-import-content-persistence-2026-11-04.md",
+        "docs/verification/observability-recovery-2026-11-02.md",
+        "docs/verification/open-webui-tools-compat-2026-11-03.md",
+        "docs/verification/open-webui-tools-registration-2026-11-03.md",
+        "docs/verification/p0-isolated-runtime-2026-11-04.json",
+        "docs/verification/p0-isolated-runtime-2026-11-04.md",
+        "docs/verification/page-revision-review-request-2026-11-03.md",
+        "docs/verification/runtime-boundary-2026-11-03.md",
+        "docs/verification/service-tests-2026-11-02.md",
+        "docs/verification/tools-agent-2026-11-03.md",
+        "docs/verification/trusted-ui-timeout-2026-11-03.md",
+        "learning_service/migrations/007_manual_mistakes_and_office_text.sql",
+        "learning_service/tools.py",
+        "scripts/check_isolated_compose.py",
+        "scripts/isolated_runtime_probe.py",
+        "scripts/isolated_tool_probe.py",
+        "scripts/prepare_isolated_runtime.py",
+        "tests/test_isolated_compose.py"
+      ],
+      "missing_existing": [],
+      "unexpected_modified_existing": [],
+      "forbidden_root_files_excluded": [
+        "batch_ingest.py",
+        "docker-compose.yml"
+      ]
+    },
+    "source_candidate": {
+      "current_source_files_checked": 29,
+      "current_source_mismatches": [],
+      "source_set_sha256": "974dc7e5dbd3b5fbee77b5559754a8c4b44004f092d36cac96371d6cc36ee335",
+      "archive_sha256": "b01a718aac46eacdebffcdb5729265a516d8e7e1f27aa99ae2cca563a3472230",
+      "image_digest": null
+    },
+    "documents": {
+      "markdown_files": 14,
+      "local_links": 34,
+      "broken_links": [],
+      "json_files_parsed": 8,
+      "p0_source_history_clarified": true
+    },
+    "task_statuses": {
+      "verified": [
+        "T01",
+        "T02",
+        "T06",
+        "T07",
+        "T08",
+        "T11",
+        "T15",
+        "T17",
+        "T19"
+      ],
+      "implemented": [
+        "T03",
+        "T09",
+        "T10",
+        "T12",
+        "T13",
+        "T14",
+        "T16",
+        "T18",
+        "T20",
+        "T21",
+        "T22"
+      ],
+      "blocked": [
+        "T04",
+        "T05",
+        "T23"
+      ],
+      "deferred": [
+        "T24",
+        "T25",
+        "T26"
+      ]
+    },
+    "qa_statuses": {
+      "QA01": "verified-local",
+      "QA02": "verified-local",
+      "QA03": "partial",
+      "QA04": "partial",
+      "QA05": "verified-local",
+      "QA06": "partial",
+      "QA07": "partial",
+      "QA08": "verified-local",
+      "QA09": "verified-local",
+      "QA10": "verified-local",
+      "QA11": "verified-local",
+      "QA12": "verified-local",
+      "QA13": "verified-local",
+      "QA14": "partial",
+      "QA15": "partial",
+      "QA16": "deferred",
+      "QA17": "deferred"
+    },
+    "default_guards": {
+      ".env.example": {
+        "LEARNING_DOCUMENT_PROVIDER": "mock-document-v1",
+        "LEARNING_DIAGNOSIS_PROVIDER": "mock-diagnosis-v1",
+        "LEARNING_VARIANT_PROVIDER": "mock-variant-v1",
+        "TENCENT_OCR_EXTERNAL_CALLS_ENABLED": "0",
+        "LEARNING_MODEL_EXTERNAL_CALLS_ENABLED": "0",
+        "LEARNING_PROVIDER_TOTAL_BUDGET_MICROS": "0",
+        "LEARNING_PROVIDER_DAILY_BUDGET_MICROS": "0",
+        "LEARNING_PROVIDER_MAX_COST_MICROS_PER_CALL": "0",
+        "LEARNING_PROVIDER_MAX_CALLS_PER_DAY": "0",
+        "LEARNING_PROVIDER_MAX_CALLS_PER_MINUTE": "0"
+      },
+      "docs/releases/production-config.template.env": {
+        "LEARNING_DOCUMENT_PROVIDER": "mock-document-v1",
+        "LEARNING_DIAGNOSIS_PROVIDER": "mock-diagnosis-v1",
+        "LEARNING_VARIANT_PROVIDER": "mock-variant-v1",
+        "TENCENT_OCR_EXTERNAL_CALLS_ENABLED": "0",
+        "LEARNING_MODEL_EXTERNAL_CALLS_ENABLED": "0",
+        "LEARNING_PROVIDER_TOTAL_BUDGET_MICROS": "0",
+        "LEARNING_PROVIDER_DAILY_BUDGET_MICROS": "0",
+        "LEARNING_PROVIDER_MAX_COST_MICROS_PER_CALL": "0",
+        "LEARNING_PROVIDER_MAX_CALLS_PER_DAY": "0",
+        "LEARNING_PROVIDER_MAX_CALLS_PER_MINUTE": "0"
+      },
+      "Settings_defaults": {
+        "document_provider": "mock-document-v1",
+        "diagnosis_provider": "mock-diagnosis-v1",
+        "variant_provider": "mock-variant-v1",
+        "tencent_ocr_external_calls_enabled": false,
+        "model_external_calls_enabled": false,
+        "provider_total_budget_micros": 0,
+        "provider_daily_budget_micros": 0,
+        "provider_max_cost_micros_per_call": 0,
+        "provider_max_calls_per_day": 0,
+        "provider_max_calls_per_minute": 0
+      }
+    },
+    "release_authorization_boundaries": "intact",
+    "current_source_schema_revision": 9,
+    "current_contract_paths": 61,
+    "current_contract_schemas": 22,
+    "archive_verification": {
+      "command": "python3 scripts/prepare_learning_release.py verify --destination learning_data/release-preparation/dd-v1-provider-auth-20261104",
+      "result": "passed",
+      "source_files": 29,
+      "source_set_sha256": "974dc7e5dbd3b5fbee77b5559754a8c4b44004f092d36cac96371d6cc36ee335",
+      "archive_sha256": "b01a718aac46eacdebffcdb5729265a516d8e7e1f27aa99ae2cca563a3472230"
+    },
+    "goal_api_final": null,
+    "repository_goal_state": "blocked",
+    "goal_created_updated_or_completed": false,
+    "task_statuses_promoted": false,
+    "qa_statuses_promoted": false,
+    "tests_or_browser_repeated_during_finalization": false,
+    "p0_reprobed_or_mutated_during_finalization": false,
+    "source_candidate_overwritten_or_rebuilt": false,
+    "executor": "single"
+  }
+}

@@ -20,7 +20,7 @@ pytest -q tests/test_learning_service.py -k 'agent_ or diagnosis_worker'
 6 passed, 47 deselected
 
 pytest -q
-62 passed（本报告生成时的全量快照；之后全量回归曾为 76/77 passed，最新为 78 passed）
+62 passed（本报告生成时的全量快照；之后全量回归曾为 76/77/78 passed，当前为 91 passed）
 
 python3 -m compileall -q learning_service tests
 passed

@@ -1,0 +1,10 @@
+{
+  "format": "dd-learning-identities-v1",
+  "initialize_math": false,
+  "accounts": [],
+  "learners": [],
+  "bindings": [],
+  "grants": [],
+  "revocations": [],
+  "unbinds": []
+}

@@ -1,0 +1,176 @@
+{
+  "record_version": "dd-p0-runtime-v1",
+  "recorded_date": "2026-11-04",
+  "evidence_kind": "isolated_components_synthetic_identity_mock_providers",
+  "p0_status": "verified_local_preparation",
+  "p2_status": "empty_templates_only",
+  "goal_api": null,
+  "repository_goal_status": "blocked",
+  "project": "dd-learning-p0-20261104",
+  "cached_base_image_id": "sha256:14ea733a5100079b01bfe5be218fb8a55732451858dc656b9d6cb3b3b7b5ef49",
+  "cached_base_dependencies": {
+    "fastapi": "0.136.1",
+    "uvicorn": "0.44.0",
+    "pydantic": "2.12.5",
+    "python-multipart": "0.0.26",
+    "Pillow": "12.1.1",
+    "PyMuPDF": "1.27.2.2"
+  },
+  "open_webui_image_id": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
+  "source_sha256": {
+    "Dockerfile.learning": "358c3f92645ffd0149995293f4aea1a65a4adb1c82e0ce1ea328383729f88a4d",
+    "requirements-learning.txt": "e38831442f900ad1717367560eff1ea1125e056932f1b4a1f5609131f3c0f018",
+    "learning_service/__init__.py": "cdf03cc15364217fec3498098549485e5d5585e5d103fbcc8dda985d03096a3f",
+    "learning_service/app.py": "b307a04d1a9c461483be5415b6b463ac2e0c058fcdc780f7ce869bd2e2bb8ff5",
+    "learning_service/backup.py": "86aaf2052b2d2db23ca7828ffe452064187addaa859eab8ea4db7a18b405b06e",
+    "learning_service/config.py": "306f3e7109d24cb3eafc9bd9860df88809d3f63ad34b96a7b933a90cbf93bceb",
+    "learning_service/db.py": "6191c06a923348895de922c8a188f1f4097c478be43e02d1007990d22520e62b",
+    "learning_service/migrations/001_initial.sql": "570ebb211129a1e93d9d5d88fbb23ee28fdd4d4b5c3be9f2c215a96fcaad531e",
+    "learning_service/migrations/002_source_page_assets.sql": "a3e980239ec3f74be4ea4cb4c9a91feb04554c87ac0cf7019b523a9f33166eb7",
+    "learning_service/migrations/003_export_deletion_lifecycle.sql": "7c052d443df666b82f140ecbd9d228072c8693997f93e27c78a36574dc45a358",
+    "learning_service/migrations/004_maintenance_gate.sql": "4865285c2881b9c4c5ea1bacd0d1361d433c0af68b4f99bcd26f04bd64f0eb73",
+    "learning_service/migrations/005_review_requests.sql": "c958f0f90d4d41530200b2d347e0f5ff04dd1f912fc6db8d1692963c0cfe4b2a",
+    "learning_service/migrations/006_agent_budget_started_at.sql": "be84c1a958c7ab9365b3ed1d7fdb8901e93fa56f98d63464952f3dc1b7b6e429",
+    "learning_service/migrations/007_manual_mistakes_and_office_text.sql": "9087a38435aff7d52cc9253bdeab69d37cf2098d91a6b49b799995fe03fc3f47",
+    "learning_service/providers.py": "8df80bb90464a4a9f2140052558d87787705e7788bcdc5732469920f6584ba04",
+    "learning_service/tools.py": "2fe165d153f675cc9acd7a1f577e6b018b738780ffdc4829d92cdf855e38433b",
+    "learning_service/worker.py": "4812846b6c8ab4751986252092a5b3ad4780344b1efd40f13c33664be60b863f"
+  },
+  "old_instances": {
+    "api": {
+      "container": "dd-learning-isolated-api-20261103d",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "ExitCode": 255,
+        "OOMKilled": false,
+        "FinishedAt": "2026-11-03T05:35:01.381555123Z"
+      },
+      "image_id": "sha256:8dd6bdc3c0ef4a0c1c2be28d2a939560e6e1d12aace214e55d304d2de5d363f7",
+      "log_pattern_counts": {
+        "traceback": 0,
+        "application_shutdown": 0,
+        "uvicorn_started": 1,
+        "sigterm": 0,
+        "sqlite_operational_error": 0
+      },
+      "stop_cause": "unknown; exit code and bounded log patterns are insufficient",
+      "inspection_files": {
+        "learning.db": "43cdbab5caa3664fdf725fba058e14640ae7131895057b39227495e1995b7e17"
+      },
+      "schema_revision": 6
+    },
+    "webui": {
+      "container": "dd-openwebui-isolated-20261103d",
+      "state": {
+        "Status": "exited",
+        "Running": false,
+        "ExitCode": 255,
+        "OOMKilled": false,
+        "FinishedAt": "2026-11-03T05:35:01.39693988Z"
+      },
+      "image_id": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
+      "log_pattern_counts": {
+        "traceback": 0,
+        "application_shutdown": 0,
+        "uvicorn_started": 0,
+        "sigterm": 0,
+        "sqlite_operational_error": 0
+      },
+      "stop_cause": "unknown; exit code and bounded log patterns are insufficient",
+      "inspection_files": {
+        "webui.db": "1e5351c8b2161f94c5b3344236c90535a92d7e9c019ab5582385fe24cb20263b",
+        "webui.db-wal": "a485ebebb4a8ed313865e1ef1d4e4a43394170ea974c9efd8c69268252d411f7",
+        "webui.db-shm": "a78f9f8e02a0f47cb38760b71be289644c699a360aca8915853d13ed260e07f7"
+      },
+      "tool_sha256": "684052e88c40a5b9a524a67e3148f9a2adc39894d3df90fc82f270246ec16d0d"
+    }
+  },
+  "tool_matches_old_registration": false,
+  "runtime": {
+    "project": "dd-learning-p0-20261104",
+    "network_internal": true,
+    "services": {
+      "learning-api": {
+        "container_id": "a898a7f8982e93bcd4f5951dd814fc0d38de2ec22860e85271716193066983f7",
+        "image_id": "sha256:6219f41d12553d39c29df7a1f75bb6b3b83cb223450d77926a4524c6791777c8",
+        "volume": "dd-learning-p0-20261104_dd_learning_data",
+        "published_ports": false
+      },
+      "learning-worker": {
+        "container_id": "b195318e55e2fae1a0298ae2a227f847b85968faa2ef6433b3f4be9121fdb85d",
+        "image_id": "sha256:6219f41d12553d39c29df7a1f75bb6b3b83cb223450d77926a4524c6791777c8",
+        "volume": "dd-learning-p0-20261104_dd_learning_data",
+        "published_ports": false
+      },
+      "open-webui": {
+        "container_id": "5253799426e4cec160f70197259d4b86fe79b9b9af9b8776db635180d05c6e0e",
+        "image_id": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
+        "volume": "dd-learning-p0-20261104_dd_openwebui_data",
+        "published_ports": false
+      }
+    },
+    "learning_health": {
+      "status": "ok",
+      "service": "learning-api",
+      "schema_revision": 7,
+      "version": "0.1.0"
+    },
+    "open_webui_version": "0.12.5",
+    "bootstrap_status": 404,
+    "untrusted_status": 401,
+    "cross_learner_status": 404,
+    "authorized_learner_count": 1,
+    "openapi_paths": 56,
+    "openapi_schemas": 20,
+    "openapi_matches_snapshot": true,
+    "runtime_dependencies": {
+      "fastapi": "0.136.1",
+      "uvicorn": "0.44.0",
+      "pydantic": "2.12.5",
+      "python-multipart": "0.0.26",
+      "Pillow": "12.1.1",
+      "PyMuPDF": "1.27.2.2"
+    },
+    "providers": "deterministic mocks only",
+    "tencent_external_calls": false,
+    "real_model_tool_call": "not_executed",
+    "trusted_browser_callback": "not_executed",
+    "runtime_source_matches_snapshot": true
+  },
+  "tools": {
+    "tool_sha256": "2fe165d153f675cc9acd7a1f577e6b018b738780ffdc4829d92cdf855e38433b",
+    "public_method_count": 11,
+    "native_loader": "passed_current_source",
+    "authorized_learner_count": 1,
+    "host_identity_and_user_valves": "passed_isolated_synthetic_identity",
+    "real_model_tool_call": "not_executed",
+    "trusted_browser_callback": "not_executed",
+    "model_count": 0
+  },
+  "stop_resume": {
+    "executed": true,
+    "post_resume_api_and_contract": "passed",
+    "post_resume_readonly_loader": "passed"
+  },
+  "inspection_copy_is_full_backup": false,
+  "real_model_tool_call": "not_executed",
+  "trusted_browser_callback": "not_executed",
+  "real_provider_calls": "not_executed",
+  "real_student_material": "not_used",
+  "production_deployment": "not_executed",
+  "pytest_baseline": "previous_run_101_passed_not_rerun",
+  "workspace_preservation": {
+    "existing_files_unchanged_outside_progress_docs": 38,
+    "unexpected_changes": []
+  },
+  "document_consistency": {
+    "tasks": 26,
+    "evidence_paths": 149,
+    "backlog_task_rows": 26,
+    "qa_rows": 17,
+    "manifest_path_references": 22,
+    "authorization_boundaries": "intact"
+  },
+  "existing_project_overwrite_guard": "rejected_as_expected"
+}

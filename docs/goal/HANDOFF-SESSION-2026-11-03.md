@@ -1,6 +1,6 @@
 # DD-1.0 V1 会话交接文档
 
-更新时间：2026-11-03（Asia/Shanghai）；仓库分支：`main`；公开远端：`https://github.com/zgybkjcn-a11y/dd-1.0-learning-system`；撰写交接前最新已推送提交：`2c755ff`（隔离预发布验收边界）。
+更新时间：2026-11-04（Asia/Shanghai）；仓库分支：`main`；公开远端：`https://github.com/zgybkjcn-a11y/dd-1.0-learning-system`；撰写交接前最新已推送提交：`2c755ff`（隔离预发布验收边界）。
 
 ## 交接结论
 
@@ -29,8 +29,10 @@
 
 ### 已完成的核心交付
 
-- 独立 FastAPI Learning Service；SQLite/WAL、迁移至 schema revision 6、身份/学习者授权、附件与页级资产、worker/lease、幂等和 revision 约束。
+- 独立 FastAPI Learning Service；SQLite/WAL、迁移至 schema revision 7、身份/学习者授权、附件与页级资产、worker/lease、幂等和 revision 约束。
 - 整卷照片/PDF 导入、原件保留、逐页资产、失败页、候选判定、人工证据/批量确认、错题来源和删除 tombstone 生命周期。
+- 错题本支持手动录入、图片/PDF 待复核候选和 DOCX/XLSX 整份结构化文本候选；文档候选默认先人工整理、确认后入错题本，`.doc`/`.xls`、嵌入扫描图和复杂版面暂不承诺。
+- 当前 OpenAPI 为 56 paths / 20 schemas；真实 OCR/provider、标注样本和质量结论仍未具备，不能把 Office 文本提取写成真实 OCR 验收。
 - 诊断待复核、学习草稿确认、interval-v1 调度、正式题面、原始作答保真、服务端判分、提示后不具备独立资格、stage 5 maintenance gate。
 - 正式数轴模板 `signed_number_subtraction`、程序计算数学参数、静态回退、受控 Agent 动作和薄 `dd_learning_v1` Tools 适配器。
 - Open WebUI 0.12.5 隔离实例已完成 Tool 注册、原生 loader、实例 Valves、per-user UserValves、宿主 `__user__` 身份和合成可信回调探针；这不等于真实模型发起的聊天 tool call。
@@ -38,7 +40,7 @@
 
 ### 已执行且可复核的证据
 
-- `pytest -q`：最近一次 78 passed（服务 64、Tools 11、Open WebUI 兼容 3）；聚焦 Tools/Open WebUI 回归 14 passed。
+- `pytest -q`：最近一次 97 passed（服务 72、Tools 11、Open WebUI 兼容 3、腾讯 OCR 边界 5、隔离 Compose preflight 6）；聚焦 Tools/Open WebUI 回归 14 passed。
 - `python3 -m compileall -q learning_service tests scripts`、`python3 scripts/verify_goal_consistency.py`、`git diff --check` 通过。
 - Chromium 合成整卷链路：上传两份资料 → 分析 → 原页预览 → 人工判定/证据 → 可信确认 → 错题本；另有测验启动、刷新恢复、提示、challenge/作答、服务端判分、复核申请和取消。
 - 独立 Compose revision 7：全新项目启动、生产边界探针、合成账号/附件备份恢复、API 重启持久性对账和临时资源清理。

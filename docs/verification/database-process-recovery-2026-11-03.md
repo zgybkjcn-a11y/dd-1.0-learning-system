@@ -11,7 +11,7 @@ python3 -m compileall -q learning_service tests
 pytest -q
 ```
 
-结果：聚焦集当时为 `3 passed, 50 deselected`，编译检查通过；报告生成时全量快照为 62 passed，之后曾为 76/77 passed，最新全量回归为 `78 passed`。
+结果：聚焦集当时为 `3 passed, 50 deselected`，编译检查通过；报告生成时全量快照为 62 passed，之后曾为 76/77/78 passed，当前全量回归为 `91 passed`。
 
 ## 覆盖内容
 

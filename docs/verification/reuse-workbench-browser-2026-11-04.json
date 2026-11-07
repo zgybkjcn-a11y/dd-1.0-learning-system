@@ -1,0 +1,991 @@
+{
+  "evidence_kind": "synthetic_chromium_w04_w06_asgi",
+  "schema_revision": 11,
+  "viewports": [
+    {
+      "width": 390,
+      "login_form_asgi": true,
+      "representative_png_review": true,
+      "today_test_reload_submit_cancel_review": true,
+      "variant_ui_approve_revoke": true,
+      "raw_fields_and_late_response_cleared": true,
+      "object_urls_revoked": true,
+      "account_change_401_and_cleanup": true,
+      "asgi_redirect_status": 303,
+      "redirect_follow_emulated_by_probe": true,
+      "stale_tab_read_status": 409,
+      "refresh_shared_context": true,
+      "logout": true,
+      "horizontal_overflow": false,
+      "page_errors": [],
+      "unexpected_requests": [],
+      "requests": [
+        {
+          "path": "/learning/auth/login",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/auth/session",
+          "method": "POST",
+          "status": 303
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learner-context",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-sessions",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-sessions/session_d0xmkzMi-IAjo9nFBVP7oQ",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-items/test_item_INV-3d6XKnlCNqKEpyREQw/submission-challenges",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-items/test_item_INV-3d6XKnlCNqKEpyREQw/answers",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/attempts/attempt_1ka4XKHcU-rByMHoEUCijw",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/attempts/attempt_1ka4XKHcU-rByMHoEUCijw/review-requests",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/attempts/attempt_1ka4XKHcU-rByMHoEUCijw",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-sessions",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "/learning/api/v1/test-sessions/session_Bhnpbl4MpB0vCm9d7rsifg/cancel",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-sessions/session_Bhnpbl4MpB0vCm9d7rsifg",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/documents",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "/learning/api/v1/import-batches",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_04aizXiRD3WEAEI2uUtAPQ/analysis",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_04aizXiRD3WEAEI2uUtAPQ/items",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_04aizXiRD3WEAEI2uUtAPQ",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/source-pages/page_xqSClXpRlBktpprU3fHymg/content",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-items/item_z7wi1kQAfmvZ6ktrL2tzLw",
+          "method": "PATCH",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_04aizXiRD3WEAEI2uUtAPQ/items",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_04aizXiRD3WEAEI2uUtAPQ",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/source-pages/page_xqSClXpRlBktpprU3fHymg/content",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_04aizXiRD3WEAEI2uUtAPQ/confirmation-challenges",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_04aizXiRD3WEAEI2uUtAPQ/confirmations",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_04aizXiRD3WEAEI2uUtAPQ/items",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_04aizXiRD3WEAEI2uUtAPQ",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/source-pages/page_xqSClXpRlBktpprU3fHymg/content",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/variant-jobs",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs/job_nNp0lZIWBRgj4rEKkL--Tg",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs/job_nNp0lZIWBRgj4rEKkL--Tg/review",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs/job_nNp0lZIWBRgj4rEKkL--Tg",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-reviews/variant_review_UU_onphcWPZeRrcHLtkEAA/revoke",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs/job_nNp0lZIWBRgj4rEKkL--Tg",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/mistakes",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learner-context",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learner-context",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/mistakes",
+          "method": "GET",
+          "status": 409,
+          "error_code": "LEARNER_CONTEXT_CHANGED"
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/logout",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 401,
+          "error_code": "LEARNING_IDENTITY_MISMATCH"
+        },
+        {
+          "path": "/learning/auth/login",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/auth/session",
+          "method": "POST",
+          "status": 303
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/mistakes",
+          "method": "GET",
+          "status": 401,
+          "error_code": "LEARNING_IDENTITY_MISMATCH"
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "login_form_asgi": true,
+      "representative_png_review": true,
+      "today_test_reload_submit_cancel_review": true,
+      "variant_ui_approve_revoke": true,
+      "raw_fields_and_late_response_cleared": true,
+      "object_urls_revoked": true,
+      "account_change_401_and_cleanup": true,
+      "asgi_redirect_status": 303,
+      "redirect_follow_emulated_by_probe": true,
+      "stale_tab_read_status": 409,
+      "refresh_shared_context": true,
+      "logout": true,
+      "horizontal_overflow": false,
+      "page_errors": [],
+      "unexpected_requests": [],
+      "requests": [
+        {
+          "path": "/learning/auth/login",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/auth/session",
+          "method": "POST",
+          "status": 303
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learner-context",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-sessions",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-sessions/session_deCAuKOjXtFs-PgrxATHiw",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-items/test_item_wnLekblTWJuQHlF1gW8J4A/submission-challenges",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-items/test_item_wnLekblTWJuQHlF1gW8J4A/answers",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/attempts/attempt_OS0-8d3LUvJTGr5fkbJg9g",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/attempts/attempt_OS0-8d3LUvJTGr5fkbJg9g/review-requests",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/attempts/attempt_OS0-8d3LUvJTGr5fkbJg9g",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-sessions",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "/learning/api/v1/test-sessions/session_B1K7SWZJ8eS-CYgneUUuFA/cancel",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/test-sessions/session_B1K7SWZJ8eS-CYgneUUuFA",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/documents",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "/learning/api/v1/import-batches",
+          "method": "POST",
+          "status": 201
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_gpHTc6Y1F0N4xTvOTRB25g/analysis",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_gpHTc6Y1F0N4xTvOTRB25g/items",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_gpHTc6Y1F0N4xTvOTRB25g",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/source-pages/page_kSJV-ot1CwDhIZkh0hpryw/content",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-items/item_k8kWSTsD2onFdJA4kbrhqQ",
+          "method": "PATCH",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_gpHTc6Y1F0N4xTvOTRB25g/items",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_gpHTc6Y1F0N4xTvOTRB25g",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/source-pages/page_kSJV-ot1CwDhIZkh0hpryw/content",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_gpHTc6Y1F0N4xTvOTRB25g/confirmation-challenges",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_gpHTc6Y1F0N4xTvOTRB25g/confirmations",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_gpHTc6Y1F0N4xTvOTRB25g/items",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/import-batches/batch_gpHTc6Y1F0N4xTvOTRB25g",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/source-pages/page_kSJV-ot1CwDhIZkh0hpryw/content",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/variant-jobs",
+          "method": "POST",
+          "status": 202
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs/job_sosXVz3OCFqwONLYQGvDvQ",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs/job_sosXVz3OCFqwONLYQGvDvQ/review",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs/job_sosXVz3OCFqwONLYQGvDvQ",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-reviews/variant_review_bzUHmcuz1Mu8UG4-z4rFGg/revoke",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/admin/variant-jobs/job_sosXVz3OCFqwONLYQGvDvQ",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/mistakes",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learner-context",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learner-context",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/mistakes",
+          "method": "GET",
+          "status": 409,
+          "error_code": "LEARNER_CONTEXT_CHANGED"
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/logout",
+          "method": "POST",
+          "status": 200
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 401,
+          "error_code": "LEARNING_IDENTITY_MISMATCH"
+        },
+        {
+          "path": "/learning/auth/login",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/auth/session",
+          "method": "POST",
+          "status": 303
+        },
+        {
+          "path": "/learning/ui",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/health",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/auth/session",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/learners",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/review-tasks",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/progress",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/question-choices",
+          "method": "GET",
+          "status": 200
+        },
+        {
+          "path": "/learning/api/v1/mistakes",
+          "method": "GET",
+          "status": 401,
+          "error_code": "LEARNING_IDENTITY_MISMATCH"
+        }
+      ]
+    }
+  ],
+  "real_openwebui_authentication": false,
+  "real_tls_or_tool_callback": false,
+  "live_provider_calls": 0,
+  "network_boundary": "all page URLs intercepted; WebUI auth response synthesized; API/gateway in process"
+}

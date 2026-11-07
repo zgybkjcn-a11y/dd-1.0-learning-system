@@ -1,0 +1,61 @@
+{
+  "format": "dd-full-recovery-plan-v1",
+  "state": "design_only_incomplete_not_authorized",
+  "target_origin": "https://172.19.116.53",
+  "existing_origin": "http://172.19.116.53:53001/",
+  "production_execution_authorized": false,
+  "formal_sources_read": false,
+  "operation_owner": null,
+  "backup_owner": null,
+  "recovery_reviewer": null,
+  "maintenance_window": null,
+  "approved_rpo_seconds": null,
+  "approved_rto_seconds": null,
+  "retention_policy": null,
+  "encrypted_destination_reference": null,
+  "encryption_key_custodian_reference": null,
+  "source_inventory_review_reference": null,
+  "components": [
+    {"id": "learning_database_assets_exports", "required": true, "source_reference": null, "capture": "verified_writers_stopped_sqlite_backup_plus_attachments_and_exports", "recovery": "new_empty_target_migrate_revoke_sessions_contexts_challenges_pause_providers_preserve_unknown_holds", "evidence_reference": null},
+    {"id": "webui_database_uploads_vector_data", "required": true, "source_reference": null, "capture": "identify_actual_sqlite_or_external_database_and_every_upload_vector_mount_before_quiesced_backup", "recovery": "new_target_matching_pinned_webui_image_plus_approved_login_and_upload_checks", "evidence_reference": null},
+    {"id": "runtime_configuration_tools_identity_bindings", "required": true, "source_reference": null, "capture": "reviewed_rendered_configuration_networks_ports_images_tool_version_sharing_valves_and_binding_inventory_secrets_separated", "recovery": "review_differences_reconnect_verified_container_ids_then_revalidate_identity_and_tool_access", "evidence_reference": null},
+    {"id": "secrets_and_certificates", "required": true, "source_reference": null, "capture": "encrypted_separate_channel_with_uid_modes_key_custody_and_ip_SAN_trust_expiry_inventory", "recovery": "restore_or_rotate_per_secret_policy_revoke_sessions_no_plaintext_in_reports_or_source_archives", "evidence_reference": null},
+    {"id": "deletions_after_backup", "required": true, "source_reference": null, "capture": "durable_tombstone_watermark_and_post_snapshot_deletion_journal", "recovery": "replay_post_snapshot_deletions_before_any_user_or_tool_access", "evidence_reference": null},
+    {"id": "provider_usage_after_backup", "required": true, "source_reference": null, "capture": "inflight_reservations_and_post_snapshot_billing_references_for_chat_learning_and_OCR_separately", "recovery": "retain_uncertainty_and_hold_amounts_reconcile_external_ledger_before_enabling_calls", "evidence_reference": null},
+    {"id": "fixed_images_source_and_dependencies", "required": true, "source_reference": null, "capture": "verify_image_digests_source_manifest_dependency_lock_and_offline_restore_availability", "recovery": "verify_artifact_hashes_no_implicit_latest_pull", "evidence_reference": null}
+  ],
+  "quiesce_order": [
+    "approved_maintenance_and_snapshot_boundary",
+    "disable_learning_ingress_tools_and_all_three_authorized_dispatch_channels",
+    "drain_or_record_inflight_work_then_stop_learning_worker_and_api",
+    "stop_webui_writers_under_separate_approved_chat_maintenance",
+    "verify_fixed_container_ids_exit_codes_and_no_other_writers",
+    "capture_all_required_components_and_watermarks",
+    "verify_checksums_database_integrity_and_encrypted_backup_recoverability"
+  ],
+  "restore_order": [
+    "new_isolated_empty_targets_with_egress_disabled",
+    "verify_archives_images_and_source_component_set",
+    "restore_secret_references_and_configuration_without_public_ingress",
+    "restore_webui_data_and_learning_data_to_their_own_targets",
+    "migrate_learning_copy_revoke_runtime_sessions_and_pause_providers",
+    "replay_post_snapshot_deletions_and_reconcile_usage_holds",
+    "verify_business_fingerprints_assets_frozen_grades_identity_and_webui_state",
+    "verify_gateway_proxy_networks_tls_and_monitor_heartbeat",
+    "record_actual_data_loss_and_restore_duration_against_approved_RPO_RTO",
+    "review_cutover_diff_and_retain_old_state_before_separate_production_authorization"
+  ],
+  "stop_conditions": [
+    "missing_component_or_backup_checksum_mismatch",
+    "unverified_writer_or_forced_stop_without_consistency_review",
+    "no_post_snapshot_deletion_or_usage_watermark",
+    "nonempty_restore_target_or_new_business_writes",
+    "secret_or_certificate_trust_unavailable",
+    "database_asset_identity_or_frozen_grade_mismatch",
+    "required_owner_maintenance_policy_or_execution_authorization_missing"
+  ],
+  "local_learning_restore_evidence": "docs/verification/reuse-runtime-recovery-2026-11-04.json",
+  "local_fault_evidence": "docs/verification/reuse-fault-isolation-2026-11-04.json",
+  "full_architecture_rehearsal_evidence": null,
+  "formal_rpo_rto_verified": false
+}

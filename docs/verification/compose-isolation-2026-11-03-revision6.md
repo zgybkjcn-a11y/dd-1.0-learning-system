@@ -39,4 +39,4 @@ POST /internal/bootstrap  -> 404 (LEARNING_DEV_MODE=0)
 
 ## 复验与限制
 
-本报告生成时 `pytest -q` 为 76 passed；之后增加测验工作台回归，曾为 77 passed，最新全量结果为 78 passed（服务 64、Tools 11、Open WebUI 兼容 3）。`python3 -m compileall -q learning_service tests scripts` 通过。该报告覆盖 revision 6 migration、Compose 网络/端口边界和生产 bootstrap 关闭；它不替代真实 Open WebUI 浏览器组合、真实 provider、外部数据库/对象存储故障演练、真实资料或正式上线授权。
+本报告生成时 `pytest -q` 为 76 passed；之后增加测验工作台回归，曾为 77/78 passed，当前全量结果为 91 passed（服务 71、Tools 11、Open WebUI 兼容 3、隔离 Compose preflight 6）。`python3 -m compileall -q learning_service tests scripts` 通过。该报告覆盖 revision 6 migration、Compose 网络/端口边界和生产 bootstrap 关闭；它不替代真实 Open WebUI 浏览器组合、真实 provider、外部数据库/对象存储故障演练、真实资料或正式上线授权。

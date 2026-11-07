@@ -1,8 +1,8 @@
 {
   "manifest_version": "dd-release-manifest-v1",
-  "generated_at": "2026-11-03",
+  "generated_at": "2026-11-04",
   "goal_id": "01a19afc-30a8-78f3-aa59-e73e24ea4e84",
-  "release_kind": "isolated-technical-delivery-candidate",
+  "release_kind": "local-source-candidate-with-historical-isolated-evidence",
   "source_publication": {
     "repository": "https://github.com/zgybkjcn-a11y/dd-1.0-learning-system",
     "visibility": "public",
@@ -26,9 +26,10 @@
     },
     "learning_service": {
       "version": "0.1.0",
-      "schema_revision": 6,
+      "schema_revision": 9,
       "scheduler_version": "interval-v1",
-      "source": "learning_service/"
+      "source": "learning_service/",
+      "historical_running_p0_schema_revision": 7
     },
     "tools_adapter": {
       "module": "learning_service.tools.Tools",
@@ -41,7 +42,8 @@
       "image_definition": "Dockerfile.learning",
       "compose_definition": "docker-compose.learning.yml",
       "data_root": "/var/lib/dd-learning",
-      "formal_open_webui_data_mount": false
+      "formal_open_webui_data_mount": false,
+      "new_candidate_built_or_deployed": false
     },
     "dependencies": {
       "lock_file": "requirements-learning.txt",
@@ -50,14 +52,15 @@
   },
   "configuration_sources": {
     "provider_ids": "LEARNING_*_PROVIDER environment variables; defaults are deterministic mock providers",
-    "secrets": "LEARNING_ADMIN_SECRET and LEARNING_ADAPTER_SECRET supplied at runtime; values omitted",
+    "secrets": "admin/adapter, browser gateway, model API and Tencent credentials are runtime-injected; no values in manifest",
     "paths": "LEARNING_DATA_DIR, LEARNING_DB_PATH, LEARNING_ATTACHMENT_DIR and LEARNING_EXPORT_DIR",
-    "external_egress": "no real provider egress exercised"
+    "external_egress": "OCR/model defaults remain mock and external calls disabled; no real call exercised",
+    "browser_auth": "signed login gateway assertion -> opaque server session; actual gateway/TLS integration pending"
   },
   "evidence": {
-    "automated_tests": "pytest -q: 78 passed (64 learning service + 11 Tools adapter + 3 Open WebUI compatibility)",
+    "automated_tests": "pytest -q: 101 passed (earlier full-suite baseline, not rerun); this session focused: 67 + 21 + 14 = 102 passed",
     "agent_actions": "docs/verification/agent-actions-2026-11-03.md",
-    "openapi_contract": "docs/contracts/openapi-v1.json (55 paths, 19 schemas)",
+    "openapi_contract": "docs/contracts/openapi-v1.json (61 paths, 22 schemas; current source only, P0 remains 56/20)",
     "migration_and_concurrency": "docs/verification/migration-atomicity-2026-11-03.md",
     "runtime_boundary": "docs/verification/runtime-boundary-2026-11-03.md",
     "compose_isolation": "docs/verification/compose-isolation-2026-11-03-revision7.md",
@@ -70,13 +73,29 @@
     "open_webui_browser_probe": "docs/verification/open-webui-browser-probe-2026-11-03.md",
     "five_verdict_confirmation": "docs/verification/import-confirmation-five-verdicts-2026-11-03.md",
     "trusted_ui_timeout": "docs/verification/trusted-ui-timeout-2026-11-03.md",
-    "import_browser_recheck": "docs/verification/import-browser-recheck-2026-11-03.md"
+    "import_browser_recheck": "docs/verification/import-browser-recheck-2026-11-03.md",
+    "mistake_import_content_persistence": "docs/verification/mistake-import-content-persistence-2026-11-04.md",
+    "mistake_entry": "docs/PAPER_HOMEWORK_IMPORT_DESIGN.md",
+    "provider_auth_release_local": "docs/verification/provider-auth-release-local-2026-11-04.md",
+    "browser_session_local": "docs/verification/browser-auth-local-2026-11-04.json"
   },
   "known_limitations": [
     "Real Open WebUI browser combination and final trusted UI confirmation/submission callbacks are not verified; isolated Tool registration and native loader are verified",
     "Real OCR/model provider, subject quality labels and human variant review are not verified",
     "External database service, object storage and provider network fault drills remain pending",
-    "T23 requires real learners, manual sampling and 7-14 days of observation"
+    "T23 requires real learners, manual sampling and 7-14 days of observation",
+    "Source schema 9/auth/provider changes have not been built or run in the historical schema 7 P0 environment",
+    "Actual login gateway/binding management/TLS and runtime configuration still require implementation/integration",
+    "Provider ledger is implemented; all test rates/tokens/invoices are synthetic and actual billing/production recovery are not verified"
   ],
-  "status": "goal_blocked_not_complete"
+  "status": "goal_blocked_not_complete",
+  "source_candidate": {
+    "state": "local_source_candidate_not_built_not_deployed",
+    "git_head": "0fa02712ceda049b14d4b556faef3fdb2fa985ed",
+    "worktree_dirty": true,
+    "source_set_sha256": "974dc7e5dbd3b5fbee77b5559754a8c4b44004f092d36cac96371d6cc36ee335",
+    "archive_sha256": "b01a718aac46eacdebffcdb5729265a516d8e7e1f27aa99ae2cca563a3472230",
+    "image_digest": null,
+    "published": false
+  }
 }

@@ -390,6 +390,68 @@
         "title": "ItemPatch",
         "type": "object"
       },
+      "ManualMistakeRequest": {
+        "properties": {
+          "correct_answer": {
+            "anyOf": [
+              {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Correct Answer"
+          },
+          "note": {
+            "anyOf": [
+              {
+                "maxLength": 5000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Note"
+          },
+          "objective_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Objective Id"
+          },
+          "question_text": {
+            "maxLength": 20000,
+            "minLength": 1,
+            "title": "Question Text",
+            "type": "string"
+          },
+          "student_answer": {
+            "anyOf": [
+              {
+                "maxLength": 10000,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Student Answer"
+          }
+        },
+        "required": [
+          "question_text"
+        ],
+        "title": "ManualMistakeRequest",
+        "type": "object"
+      },
       "PagePatch": {
         "description": "Complete replacement for a document's ordered page projection.\n\nThe original uploaded document asset is immutable.  ``asset_id`` may point\nonly at an existing, non-deleted page asset owned by the same learner; a\nreplacement upload remains a separate document upload operation.",
         "properties": {
@@ -414,6 +476,54 @@
           "pages"
         ],
         "title": "PagePatch",
+        "type": "object"
+      },
+      "ProviderControlRequest": {
+        "properties": {
+          "paused": {
+            "title": "Paused",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "paused"
+        ],
+        "title": "ProviderControlRequest",
+        "type": "object"
+      },
+      "ProviderReconciliationRequest": {
+        "properties": {
+          "billing_reference": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Billing Reference",
+            "type": "string"
+          },
+          "cost_micros": {
+            "maximum": 1000000000000000.0,
+            "minimum": 0.0,
+            "title": "Cost Micros",
+            "type": "integer"
+          },
+          "currency": {
+            "pattern": "^[A-Z]{3}$",
+            "title": "Currency",
+            "type": "string"
+          },
+          "request_id": {
+            "maxLength": 128,
+            "minLength": 1,
+            "title": "Request Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "cost_micros",
+          "currency",
+          "billing_reference",
+          "request_id"
+        ],
+        "title": "ProviderReconciliationRequest",
         "type": "object"
       },
       "ReviewDecisionRequest": {
@@ -474,6 +584,7 @@
                 "type": "null"
               }
             ],
+            "default": null,
             "title": "Card Id"
           },
           "mode": {
@@ -484,6 +595,30 @@
           "question_version_id": {
             "title": "Question Version Id",
             "type": "string"
+          },
+          "textbook_book_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Textbook Book Id"
+          },
+          "textbook_chapter_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "default": null,
+            "title": "Textbook Chapter Id"
           }
         },
         "required": [
@@ -530,6 +665,53 @@
           "type"
         ],
         "title": "ValidationError",
+        "type": "object"
+      },
+      "VariantReviewRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "decision": {
+            "enum": [
+              "approve",
+              "reject"
+            ],
+            "title": "Decision",
+            "type": "string"
+          },
+          "note": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Note",
+            "type": "string"
+          },
+          "result_fingerprint": {
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Result Fingerprint",
+            "type": "string"
+          }
+        },
+        "required": [
+          "decision",
+          "result_fingerprint",
+          "note"
+        ],
+        "title": "VariantReviewRequest",
+        "type": "object"
+      },
+      "VariantRevokeRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "note": {
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Note",
+            "type": "string"
+          }
+        },
+        "required": [
+          "note"
+        ],
+        "title": "VariantRevokeRequest",
         "type": "object"
       },
       "VisualJobRequest": {
@@ -709,6 +891,105 @@
         "summary": "Admin Metrics"
       }
     },
+    "/api/v1/admin/provider-calls": {
+      "get": {
+        "operationId": "list_provider_calls_api_v1_admin_provider_calls_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Provider Calls"
+      }
+    },
+    "/api/v1/admin/provider-calls/{call_id}/reconcile": {
+      "post": {
+        "operationId": "reconcile_provider_call_api_v1_admin_provider_calls__call_id__reconcile_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "call_id",
+            "required": true,
+            "schema": {
+              "title": "Call Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProviderReconciliationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Reconcile Provider Call"
+      }
+    },
+    "/api/v1/admin/provider-control": {
+      "post": {
+        "operationId": "provider_control_api_v1_admin_provider_control_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProviderControlRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Provider Control"
+      }
+    },
     "/api/v1/admin/reviews/{review_request_id}/decisions": {
       "post": {
         "description": "Record a scoped review decision; score changes require a separate,\nversioned grade operation and are intentionally not implicit here.",
@@ -755,6 +1036,153 @@
           }
         },
         "summary": "Decide Review Request"
+      }
+    },
+    "/api/v1/admin/variant-jobs": {
+      "get": {
+        "operationId": "list_variant_reviews_api_v1_admin_variant_jobs_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "List Variant Reviews"
+      }
+    },
+    "/api/v1/admin/variant-jobs/{job_id}": {
+      "get": {
+        "operationId": "variant_review_detail_api_v1_admin_variant_jobs__job_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Variant Review Detail"
+      }
+    },
+    "/api/v1/admin/variant-jobs/{job_id}/review": {
+      "post": {
+        "operationId": "review_variant_api_v1_admin_variant_jobs__job_id__review_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "job_id",
+            "required": true,
+            "schema": {
+              "title": "Job Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VariantReviewRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Review Variant"
+      }
+    },
+    "/api/v1/admin/variant-reviews/{review_id}/revoke": {
+      "post": {
+        "operationId": "revoke_variant_api_v1_admin_variant_reviews__review_id__revoke_post",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "review_id",
+            "required": true,
+            "schema": {
+              "title": "Review Id",
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VariantRevokeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Revoke Variant"
       }
     },
     "/api/v1/agent-runs": {
@@ -997,6 +1425,52 @@
           }
         },
         "summary": "Request Attempt Review"
+      }
+    },
+    "/api/v1/auth/logout": {
+      "post": {
+        "operationId": "logout_browser_session_api_v1_auth_logout_post",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Logout Browser Session"
+      }
+    },
+    "/api/v1/auth/session": {
+      "get": {
+        "operationId": "get_browser_session_api_v1_auth_session_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get Browser Session"
+      },
+      "post": {
+        "operationId": "exchange_browser_session_api_v1_auth_session_post",
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Exchange Browser Session"
       }
     },
     "/api/v1/diagnoses/{diagnosis_id}": {
@@ -1587,15 +2061,27 @@
       }
     },
     "/api/v1/learner-context": {
+      "get": {
+        "operationId": "get_learner_context_api_v1_learner_context_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Get Learner Context"
+      },
       "post": {
         "operationId": "learner_context_api_v1_learner_context_post",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "additionalProperties": {
-                  "type": "string"
-                },
+                "additionalProperties": true,
                 "title": "Body",
                 "type": "object"
               }
@@ -1800,6 +2286,75 @@
         "summary": "Confirm Draft"
       }
     },
+    "/api/v1/math-references": {
+      "get": {
+        "description": "Read reviewed metadata for the authenticated, server-selected learner.",
+        "operationId": "math_references_api_v1_math_references_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "book_id",
+            "required": false,
+            "schema": {
+              "default": "",
+              "title": "Book Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "chapter_id",
+            "required": false,
+            "schema": {
+              "default": "",
+              "title": "Chapter Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "question_version_id",
+            "required": false,
+            "schema": {
+              "default": "",
+              "title": "Question Version Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "concept_id",
+            "required": false,
+            "schema": {
+              "default": "",
+              "title": "Concept Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Math References"
+      }
+    },
     "/api/v1/mistakes": {
       "get": {
         "operationId": "list_mistakes_api_v1_mistakes_get",
@@ -1814,6 +2369,42 @@
           }
         },
         "summary": "List Mistakes"
+      }
+    },
+    "/api/v1/mistakes/manual": {
+      "post": {
+        "operationId": "create_manual_mistake_api_v1_mistakes_manual_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManualMistakeRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Create Manual Mistake"
       }
     },
     "/api/v1/mistakes/{mistake_id}": {
@@ -1990,6 +2581,50 @@
         "summary": "Progress"
       }
     },
+    "/api/v1/question-choices": {
+      "get": {
+        "operationId": "question_choices_api_v1_question_choices_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "objective_id",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Objective Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Question Choices"
+      }
+    },
     "/api/v1/review-tasks": {
       "get": {
         "operationId": "review_tasks_api_v1_review_tasks_get",
@@ -2041,6 +2676,65 @@
           }
         },
         "summary": "Download Source Page"
+      }
+    },
+    "/api/v1/study-support": {
+      "get": {
+        "description": "Local reading prompts and Markdown/Mermaid artifacts for current subjects.",
+        "operationId": "study_support_api_v1_study_support_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "subject",
+            "required": false,
+            "schema": {
+              "default": "",
+              "title": "Subject",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "book_id",
+            "required": false,
+            "schema": {
+              "default": "",
+              "title": "Book Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "chapter_id",
+            "required": false,
+            "schema": {
+              "default": "",
+              "title": "Chapter Id",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Study Support"
       }
     },
     "/api/v1/test-items/{item_id}": {
@@ -2310,6 +3004,104 @@
           }
         },
         "summary": "Cancel Session"
+      }
+    },
+    "/api/v1/textbooks": {
+      "get": {
+        "operationId": "textbooks_api_v1_textbooks_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Textbooks"
+      }
+    },
+    "/api/v1/textbooks/search": {
+      "post": {
+        "operationId": "textbook_search_api_v1_textbooks_search_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "additionalProperties": true,
+                "title": "Body",
+                "type": "object"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Textbook Search"
+      }
+    },
+    "/api/v1/textbooks/{book_id}/pages/{printed_page}/image": {
+      "get": {
+        "operationId": "textbook_page_image_api_v1_textbooks__book_id__pages__printed_page__image_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "book_id",
+            "required": true,
+            "schema": {
+              "title": "Book Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "printed_page",
+            "required": true,
+            "schema": {
+              "title": "Printed Page",
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "image/png": {}
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Textbook Page Image"
       }
     },
     "/api/v1/variant-jobs": {

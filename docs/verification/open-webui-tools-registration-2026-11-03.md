@@ -33,6 +33,6 @@ Learning API 当前 `/health` 返回 HTTP 200、`schema_revision=6`；生产模�
 
 ## 自动化与边界
 
-本报告生成时本地确定性回归为 `pytest -q`：76 passed（服务 63、Tools 10、Open WebUI 兼容 3）；之后新增工作台回归，曾为 77 passed，最新全量为 78 passed（服务 64、Tools 11、Open WebUI 兼容 3）。`python3 -m compileall -q learning_service tests scripts` 通过。`tests/test_open_webui_compat.py` 仍保留源码加载和签名过滤回归，作为真实注册之外的快速反馈。
+本报告生成时本地确定性回归为 `pytest -q`：76 passed（服务 63、Tools 10、Open WebUI 兼容 3）；之后新增工作台回归，曾为 77/78 passed，当前全量为 91 passed（服务 71、Tools 11、Open WebUI 兼容 3、隔离 Compose preflight 6）。`python3 -m compileall -q learning_service tests scripts` 通过。`tests/test_open_webui_compat.py` 仍保留源码加载和签名过滤回归，作为真实注册之外的快速反馈。
 
 这份报告证明了隔离实例的真实 Tool 注册、原生 loader、Valves/UserValves 注入、宿主身份传递，以及使用合成服务响应的原生 `input`/`confirmation` 回调顺序和安全返回边界；它不证明真实浏览器点击、真实学生资料、真实 OCR/模型质量、正式环境切换或 T23 持续试用。Goal 继续保持 `active`。

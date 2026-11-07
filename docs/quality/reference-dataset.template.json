@@ -1,0 +1,33 @@
+{
+  "schema_version": "dd-quality-reference-v1",
+  "dataset_id": null,
+  "status": "awaiting_inputs",
+  "data_kind": null,
+  "local_use_authorized": null,
+  "external_export_authorized": false,
+  "curriculum_id": null,
+  "supported_question_types": [],
+  "documents": [],
+  "pages": [],
+  "questions": [],
+  "regions": [],
+  "reviewers": [],
+  "development_document_ids": [],
+  "acceptance_document_ids": [],
+  "acceptance_frozen_at": null,
+  "review_owner_id": null,
+  "unresolved_annotation_issues": [],
+  "coverage": {
+    "status": "pending_manual_review",
+    "required_categories": [
+      "multiple_pages", "subquestions", "cross_page", "blurred_text", "math_symbols",
+      "student_teacher_handwriting", "red_marks", "correct", "incorrect", "partial",
+      "unanswered", "undetermined", "answer_version_conflict", "domain_and_units"
+    ],
+    "confirmed_counts": null,
+    "uncovered_categories": null
+  },
+  "policy_file": "acceptance-policy.template.json",
+  "evaluation_status": "not_started",
+  "results": null
+}

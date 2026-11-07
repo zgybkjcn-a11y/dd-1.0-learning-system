@@ -1,14 +1,22 @@
 # 智能学习系统文档入口
 
-更新日期：2026-11-03。项目：独立智能学习服务。
+2026-11-05 当前优先级：**两人数学测试版已部署**，一个现有家长账号切换七年级/二年级档案，14 道起步题、练习判分/恢复和手动错题本。用户已明确授权本家庭版生产上线；真实模型/OCR、学生资料外发和 Goal 写入仍禁止。设备证书导入和真实家长首次绑定待用户操作。复杂监控/完整恢复/商业化功能暂缓，不作为此次上线前置。下文旧批次的“未部署/禁止生产/下一步监控恢复”保留历史，仅在与本范围不冲突时适用。 入口/首次使用/验证及运维见[家庭测试版交接](goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md)。
+
+最新本地工程：[W07–W10运行/恢复说明](open-webui-reuse/06-RUNTIME-RECOVERY-2026-11-04.md)、[新隔离镜像/HTTP/TLS/恢复报告](verification/reuse-runtime-recovery-2026-11-04.md)、[续跑交接](goal/HANDOFF-SESSION-2026-11-04-W07-W10.md)。正式门槛与任务状态保留。
+
+最新W04/W05/W06本地工程：schema11/66/24、Tools1.1.0；工作台/共享Tools/人工审核冻结与合成验证已补，T/QA/真实门槛保留。见[第二批交接](goal/HANDOFF-SESSION-2026-11-04-W04-W06.md)。
+
+更新日期：2026-11-04。项目：独立智能学习服务，复用本机已部署 Open WebUI。
 
 ## 从这里开始
+
+当前接入方向已确定为复用 `http://172.19.116.53:53001/` 的本机 Docker Compose / 内置账号。先读[复用部署文档入口](open-webui-reuse/README.md)，其中包含规划方案、技术开发文档和14工作包计划；HTTPS/登录桥接/路径/新镜像仍待实施，本次没有生产部署。
 
 1. [设计开发总文档 DD-1.0](DESIGN_DEVELOPMENT_SPEC.md)：目标与范围、需求编号、架构、界面、导入/复习流程、数据字典、API、Agent/媒体规范、部署与验收。
 2. [开发任务与验收清单](IMPLEMENTATION_BACKLOG.md)：26 个工作包、依赖、阶段成果、验收场景、重新估算方法及完成定义。
 3. 按负责模块阅读下面的专题文档；运行事实查看核验快照，不能把设计接口当作已上线能力。
 
-需要自动推进开发时，使用 [Goal 模式开发提示词](GOAL_MODE_DEVELOPMENT_PROMPT.md)。文件包含完整启动提示词、简短启动指令与断点续跑指令；默认目标为 V1 技术交付和隔离验收，正式切换与真实持续试用保留对应授权/验收门槛。当前 Goal 已启动；由于真实 provider/OCR、人工样本及 Open WebUI 最终可信回调等外部验收条件缺失，Goal 暂记为 blocked，尚未完成。实际断点和证据以 `docs/goal/` 为准；提示词本身仍是可复用的启动契约。
+可复用的 [Goal 模式开发提示词](GOAL_MODE_DEVELOPMENT_PROMPT.md) 保留历史启动契约；当前用户要求不创建或 complete Goal，本轮 API 为 `goal: null`，仓库状态仍 blocked。正式切换、真实模型/OCR与资料外发、持续试用保留各自范围/授权门槛。实际断点和证据以 `docs/goal/` 为准，不按历史提示词自动创建目标。
 
 ## 专题与历史依据
 
@@ -48,3 +56,7 @@
 - `SECOND_REVIEW_2026-11-02.md` 与运行快照保留历史语境，不覆盖成新的上线报告。
 - 新代码、迁移、API 与模板固定版本；实现阶段追加真实验收证据，区分模拟/真实调用与待验证项。
 - 不在文档、源码或日志里写真实密钥、学生个人资料、完整私有卷面或管理员令牌。
+
+复用当前IP的第一批工程： [实际实现/CLI](open-webui-reuse/04-LOCAL-IMPLEMENTATION-2026-11-04.md)、[工程证据](verification/open-webui-reuse-engineering-2026-11-04.md)、[最新交接](goal/HANDOFF-SESSION-2026-11-04-REUSE-ENGINEERING.md)。
+
+DD-1.0新会话入口：[会话完整总结](goal/HANDOFF-SESSION-2026-11-04-SESSION-SUMMARY.md)与[可复制续跑指令](goal/RESUME-SESSION-2026-11-04.txt)。
