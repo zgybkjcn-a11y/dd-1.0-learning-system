@@ -102,3 +102,14 @@
 #dd-chat-study :focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
 .dark #dd-chat-study { color: #b7c9df; }
 .dark #dd-chat-study button, .dark #dd-chat-study a { background: #203047; color: #c7dffb; border-color: #40526a; }
+.dd-study-route-graph { margin: 12px 0; padding: 8px; border-radius: 10px; background: #fff; color: #172b45; }
+.dd-study-route-graph:empty { display: none; }
+.dd-study-route-graph svg { display: block; width: 100%; height: auto; margin: auto; }
+.dd-study-route-graph g[role=button] { cursor: pointer; }
+.dd-study-route-graph g[role=button]:focus rect { stroke: #2563eb !important; stroke-width: 4px !important; }
+.dd-study-route-graph p { font-size: 12px; }
+#dd-study-review { box-sizing: border-box; width: min(850px, calc(100vw - 24px)); max-height: calc(100dvh - 24px); overflow: auto; margin: auto; padding: 16px; border: 1px solid #cbdcf4; border-radius: 16px; background: #edf2f7; color: #172b45; font: 15px/1.7 "Noto Sans CJK SC", system-ui, sans-serif; }
+#dd-study-review::backdrop { background: #101c36b3; }
+#dd-study-review > .dd-review-toolbar { display: flex; flex-wrap: wrap; gap: 8px; position: sticky; top: 0; background: #edf2f7; padding: 8px 0; }
+#dd-study-review button { font: inherit; padding: 8px 12px; border: 1px solid #bdcede; border-radius: 8px; color: #17436c; background: white; cursor: pointer; }
+#dd-study-review :focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }

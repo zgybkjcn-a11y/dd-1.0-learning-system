@@ -1,5 +1,13 @@
 # 主站学科伴学来源
 
+2026-11-07 后续小样本为**本地候选，未上线**：七上第五章等式加法性质演示、Mermaid 知识路线图、三页章节复习打印稿/PDF。候选沿用已返回的概念、先修与原页位置，没有新增题库、知识关系或 OCR 内容。当前线上仍为 `chat-20261107`；详见 [候选验证](../../../docs/verification/main-study-samples-2026-11-07.md)。
+
+等式天平为本地 SVG 实现，参考 EduLab 的参数图示和预测后观察设计（`805fdc5dd6bdf942290a7791924bf0ee08f26632`，Apache-2.0），未复制其代码或引入 JSXGraph。只演示从 `6 = 6` 同加一个整数或只改左边，覆盖零与负数；不保存预测，不作正式判分。PDF 通过本机 Chromium/用户浏览器打印生成，没有引入 Marp 引擎；公式和示例为本地编写，并非教材原题。
+
+路线图新增实际渲染依赖 **Mermaid 11.12.1**（MIT，Knut Sveidqvist），官方 npm 包 SHA-512 完整性已核对；原始 bundle SHA-256 为 `198b19442f86f0b46a17e56d3abf744c3a28a3427e66fa8dada3b589a77babcc`。仅加载本机固定资源，启用 SRI 与 strict 安全模式；只用已返回关系构造图，无自由 Mermaid 输入、远程图标或 CDN。实线为基础回顾、虚线为辅助联系，缺边不补造，节点定位原有参考卡和关联练习。
+
+`vendor/manifest.json` 记录来源、完整性和 source map 中识别的 67 个确切依赖版本；`mermaid-11.12.1-LICENSE.txt`、`THIRD-PARTY-LICENSES.txt` 保留真实许可全文，原 bundle 内声明也保持。依赖采用 MIT/ISC/BSD-3-Clause/Apache-2.0，DOMPurify 为 MPL-2.0 OR Apache-2.0；khroma 的 npm license 字段为空，已按包内 MIT 正文核验。可用 `scripts/vendor_study_mermaid.py` 重建，不执行 npm 安装脚本。候选发布时应连同这些声明一起保存。
+
 本目录 JavaScript/CSS 为本项目独立编写。主站复用现有学习服务：题目中有明确署名的开源改编数据；概念和先修参考使用受限的本地映射。各项目的采用范围分别如下，不能把设计借鉴与数据改编混为一谈。
 
 | 参考 | 固定版本 / 许可 | 实际采用 |

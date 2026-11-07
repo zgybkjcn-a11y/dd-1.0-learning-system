@@ -13,6 +13,7 @@ from learning_service.login_gateway import GatewaySettings, create_gateway
 from test_login_gateway import SyntheticBridge, gateway_login
 from test_math_references import reference_family, PUBLIC_BOOKS
 from test_family_math import family
+from main_study_sample_checks import check_chapter_five_samples
 
 ROOT = Path(__file__).parents[1]
 ASSETS = ROOT / 'deploy/open-webui-reuse/main-study'
@@ -58,6 +59,7 @@ def test_family_main_shared_materials_and_identity_races(reference_family, tmp_p
             calls.append((request.method, parsed.path))
             if parsed.path == '/': route.fulfill(status=200, content_type='text/html', body=shell); return
             asset = {'/static/loader.js': 'study.js', '/static/custom.css': 'study.css',
+                     '/static/dd-study-mermaid.min.js': 'vendor/mermaid-11.12.1.min.js',
                      '/static/dd-family-bridge.js': 'family-bridge.js'}.get(parsed.path)
             if asset:
                 route.fulfill(status=200, content_type='text/css' if asset.endswith('.css') else 'text/javascript',
@@ -147,6 +149,7 @@ def test_family_main_shared_materials_and_identity_races(reference_family, tmp_p
         main.locator('#dd-study-chapter').select_option('5')
         expect(main.locator('#dd-study-insert')).to_be_enabled()
         main.locator('#dd-study-route-concept').select_option('g7-solve')
+        check_chapter_five_samples(main, browser, out, width, errors)
         chapter_link = main.locator('#dd-study-route-questions a[href*="studyQuestion=family-word-cnm_045_q3-v1"]')
         expect(chapter_link).to_be_visible()
         practice.evaluate('(url) => {location.hash = new URL(url, location.href).hash}', chapter_link.get_attribute('href'))
@@ -181,6 +184,8 @@ def test_family_main_shared_materials_and_identity_races(reference_family, tmp_p
         practice.close()
         main.locator('#dd-study-chapter').select_option('1')
         expect(main.locator('#dd-study-route-status')).to_contain_text('尚无精确数学映射')
+        expect(main.locator('#dd-study-route-graph svg')).to_have_count(0)
+        expect(main.locator('#dd-study-review-open')).to_be_disabled()
         expect(main.locator('#dd-study-route-questions a')).to_have_count(0)
         main.locator('#dd-study-chapter').select_option('2')
         expect(main.locator('#dd-study-insert')).to_be_enabled()
@@ -288,6 +293,8 @@ def test_family_main_shared_materials_and_identity_races(reference_family, tmp_p
         except playwright.Error: pass
         main.locator('#dd-study-route-concept').select_option('g2-share')
         expect(main.locator('#dd-study-route-cards')).to_contain_text('平均分')
+        expect(main.locator('#dd-study-route-graph svg g.node')).to_have_count(1)
+        expect(main.locator('#dd-study-route-graph')).to_contain_text('没有已记录的关系边')
         expect(main.locator('#dd-study-route-questions a[href*="studyChapter=2"]')).to_have_count(0)
         main.locator('#dd-study-route-concept').select_option('g2-small-table')
         expect(main.locator('#dd-study-route-cards')).to_contain_text('前章基础')
@@ -306,6 +313,8 @@ def test_family_main_shared_materials_and_identity_races(reference_family, tmp_p
         main.locator('#dd-lesson-concept').select_option('g2-groups')
         main.locator('#dd-lesson-next').click()
         expect(main.locator('#dd-lesson-calculation')).to_contain_text('3 × 4 = 12')
+        expect(main.locator('#dd-equality-amount')).to_have_count(0)
+        expect(main.locator('#dd-study-review-open')).to_be_disabled()
         assert '÷' not in main.locator('#dd-lesson-calculation').inner_text()
         main.locator('#dd-lesson-a').evaluate('(e)=>{e.value=2;e.dispatchEvent(new Event("input"))}')
         expect(main.locator('#dd-lesson-calculation')).to_contain_text('2 × 4 = 8')
@@ -345,6 +354,9 @@ def test_family_main_shared_materials_and_identity_races(reference_family, tmp_p
         assert main.locator('#dd-study-family-cards article').count() == 0
         expect(main.locator('#dd-study-insert')).to_be_disabled()
         expect(main.locator('#dd-study-classroom-open')).to_be_disabled()
+        expect(main.locator('#dd-study-review-open')).to_be_disabled()
+        expect(main.locator('#dd-study-route-graph svg')).to_have_count(0)
+        expect(main.locator('#dd-study-review')).not_to_be_visible()
         expect(main.locator('#dd-study-classroom')).not_to_be_visible()
         assert not errors, errors
         with db.session() as conn:

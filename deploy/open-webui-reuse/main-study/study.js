@@ -27,7 +27,8 @@
   const route = {data: null, generation: 0, controller: null};
   const routePreferences = new Map();
   const difficulties = {easy: '简单', normal: '正常', hard: '困难'};
-  let pageDialog, pageUrl, pageNumber, classroomDialog;
+  let pageDialog, pageUrl, pageNumber, classroomDialog, reviewDialog, printFrame;
+  let mermaidLoader;
   const field = key => panel.querySelector('#dd-study-' + key);
   const signature = session => session ? [session.account_id, session.learner_id, session.context_version].join('|') : '';
   const scopeKey = session => scopePrefix + encodeURIComponent(location.origin + '/learning') + ':' +
@@ -171,6 +172,12 @@
     field('read-page').onclick = () => showPage(pageRange().start);
     field('classroom-open').onclick = openClassroom;
     field('classroom-download').onclick = downloadClassroom;
+    const review = document.createElement('button'); review.type = 'button';
+    review.id = 'dd-study-review-open'; review.textContent = '章节复习 / PDF'; review.disabled = true;
+    field('classroom-download').after(review); review.onclick = openReview;
+    const graph = document.createElement('div'); graph.id = 'dd-study-route-graph';
+    graph.className = 'dd-study-route-graph'; graph.setAttribute('aria-label', '知识路线图');
+    field('route-cards').before(graph);
     field('route').addEventListener('toggle', () => { if (field('route').open && !route.data) loadRoute(); });
     field('route-concept').onchange = loadRoute;
     field('route-retry').onclick = loadRoute;
@@ -216,6 +223,8 @@
     field('insert').disabled = family.busy || family.blocked;
     field('download').disabled = family.busy || family.blocked;
     for (const name of ['classroom-open', 'classroom-download']) field(name).disabled = family.busy || family.blocked || !family.data;
+    field('review-open').disabled = family.busy || family.blocked || !hasReviewSample();
+    field('review-open').title = '当前小样本：七上数学第五章，等式性质与解方程；选择该章后可打开。';
     field('classroom-notice').textContent = family.data ? (family.data.concepts.length ? '可选知识点 · 原页核对 · 本地演示 · 四步课堂' : '当前范围提供阅读活动课堂，需结合教材原文；暂无精确知识卡。') : '连接家庭学习后，可按当前课本和章节打开。';
   }
   function openPanel(button) {
@@ -277,12 +286,15 @@
     route.generation++; route.controller?.abort(); route.data = null;
     field('route-controls').hidden = true; field('route-practice').hidden = true;
     field('route-concept').replaceChildren(); field('route-cards').replaceChildren(); field('route-questions').replaceChildren();
+    field('route-graph').replaceChildren();
     field('route-status').textContent = '请同步家庭学习范围后查看。';
     family.data = null;
     field('family-content').hidden = true; field('family-cards').replaceChildren();
     if (pageDialog?.open) pageDialog.close();
     if (pageUrl) { URL.revokeObjectURL(pageUrl); pageUrl = null; }
     if (classroomDialog) { if (classroomDialog.open) classroomDialog.close(); classroomDialog.replaceChildren(); }
+    if (reviewDialog) { if (reviewDialog.open) reviewDialog.close(); reviewDialog.replaceChildren(); }
+    printFrame?.remove(); printFrame = null;
   }
   function clearPersonalInputs() {
     for (const key of ['topic', 'source', 'material']) field(key).value = '';
@@ -372,6 +384,7 @@
     const concept = value('route-concept');
     const current = () => generation === route.generation && familyGeneration === family.generation;
     route.data = null; field('route-cards').replaceChildren(); field('route-questions').replaceChildren();
+    field('route-graph').replaceChildren();
     field('route-practice').hidden = true; field('route-status').textContent = '正在核对知识路线与关联题…';
     try {
       const data = await familyGet('math-references?' + new URLSearchParams({book_id: scope.book_id, chapter_id: scope.chapter_id, concept_id: concept}), session, signal);
@@ -408,6 +421,7 @@
         container.append(article);
       }
       renderRouteQuestions();
+      renderRouteGraph(data, current);
     } catch (error) {
       if (!current() || error.name === 'AbortError') return;
       route.data = null;
@@ -418,6 +432,65 @@
       }
     }
   }
+  async function renderRouteGraph(data, current) {
+    const root = field('route-graph');
+    const note = document.createElement('p'); note.textContent = '正在绘制已有知识关系…'; root.append(note);
+    // Use only returned edges. Synthetic node IDs and restricted labels cannot
+    // introduce Mermaid directives, click URLs or executable HTML.
+    const nodes = [...new Map([...data.prerequisites, ...data.concepts].map(n => [n.id, n])).values()];
+    const index = new Map(nodes.map((n, i) => [n.id, i]));
+    const label = s => String(s).replace(/[^\p{L}\p{N} 、，。（）()·−+-]/gu, ' ').slice(0, 70);
+    const lines = ['flowchart TB', ...nodes.map((n, i) => `N${i}["${label(n.title)}"]`)];
+    const seen = new Set();
+    for (const n of data.prerequisites) {
+      const target = index.get(n.from_concept), source = index.get(n.id), key = source + ':' + target;
+      if (target === undefined || source === target || seen.has(key) || !['hard', 'soft'].includes(n.strength)) continue;
+      seen.add(key);
+      lines.push(`N${source} ${n.strength === 'hard' ? '-->|基础回顾|' : '-.->|辅助联系|'} N${target}`);
+    }
+    try {
+      if (!mermaidLoader) mermaidLoader = new Promise((resolve, reject) => {
+        const script = document.createElement('script'), previous = window.mermaid;
+        script.src = '/static/dd-study-mermaid.min.js'; script.async = true;
+        script.integrity = 'sha384-LlKSgo4Eo5GuF/ZrstLti44dE+GC5XAJ7TSu0Nw9Q3vIZF2QMnkRcK7BUoLabYLF';
+        script.onload = () => {
+          const renderer = window.mermaid; window.mermaid = previous;
+          if (!renderer?.render) { mermaidLoader = null; reject(new Error('Renderer missing')); return; }
+          renderer.initialize({startOnLoad: false, securityLevel: 'strict', theme: 'neutral',
+            flowchart: {htmlLabels: false, useMaxWidth: true}, maxTextSize: 16000, maxEdges: 80, suppressErrorRendering: true});
+          resolve(renderer);
+        };
+        script.onerror = () => { script.remove(); mermaidLoader = null; reject(new Error('Renderer unavailable')); };
+        document.head.append(script);
+      });
+      const renderer = await mermaidLoader;
+      if (!current()) return;
+      const id = 'dd-route-svg-' + data.scope.grade + '-' + route.generation;
+      const result = await renderer.render(id, lines.join('\n'));
+      if (!current()) return;
+      root.replaceChildren();
+      const diagram = document.createElement('div'); diagram.innerHTML = result.svg; root.append(diagram);
+      const legend = document.createElement('p');
+      legend.textContent = (seen.size ? '实线：基础回顾；虚线：辅助联系。' : '当前没有已记录的关系边。') + '点知识点可定位下方参考卡，再核对原页或选择关联练习。'; root.append(legend);
+      const cards = [...field('route-cards').children];
+      for (const element of diagram.querySelectorAll('g.node')) {
+        const match = element.id.match(/^flowchart-N(\d+)-/), n = match && nodes[Number(match[1])];
+        if (!n) continue;
+        const ordered = [...data.prerequisites].sort((a, b) => b.depth - a.depth).concat(data.concepts);
+        const card = cards[ordered.findIndex(c => c.id === n.id)];
+        if (!card) continue;
+        card.tabIndex = -1;
+        element.setAttribute('tabindex', '0'); element.setAttribute('role', 'button');
+        element.setAttribute('aria-label', '查看参考：' + n.title);
+        const activate = () => { if (current()) { card.scrollIntoView({block: 'center'}); card.focus({preventScroll: true}); } };
+        element.addEventListener('click', activate);
+        element.addEventListener('keydown', e => { if (['Enter', ' '].includes(e.key)) { e.preventDefault(); activate(); } });
+      }
+    } catch (_) {
+      if (current()) { root.replaceChildren(note); note.textContent = '图示暂时无法绘制，可继续阅读下方知识关系与原页。'; }
+    }
+  }
+
   function renderRouteQuestions() {
     const container = field('route-questions'); container.replaceChildren();
     if (!route.data || !family.data || family.busy || family.blocked) return;
@@ -481,15 +554,30 @@
     }
     card('阅读参考', family.data.mapping_status === 'mapped' ? '数学知识卡为局部样本；需对照原页，不作为正式判分依据。' : '此范围目前提供阅读步骤，尚无精确知识卡，不代表全章已审核。');
   }
+  function lessonConcepts() {
+    const data = family.data;
+    if (!data) return [];
+    const concepts = [...data.concepts];
+    // Equality is an existing prerequisite of solving, not a direct question
+    // mapping. Make this supplied reference selectable within its own chapter.
+    if (data.scope.book_id === 'math-g7-upper' && data.scope.grade === 7 && ['', '5'].includes(data.scope.chapter_id)) {
+      const equality = data.prerequisites.find(c => c.id === 'g7-equality' && c.pages.some(p => p.book_id === data.scope.book_id && p.chapter_id === '5'));
+      if (equality && !concepts.some(c => c.id === equality.id)) concepts.push(equality);
+    }
+    return concepts;
+  }
   function lessonData() {
     const data = family.data, scope = data.scope;
+    const readerUrl = family.books.find(b => b.id === scope.book_id)?.reader_url || '';
     const cleanText = value => String(value || '').slice(0, 2000);
     // Explicit public projection. Do not export prompt fields, profile or notes.
     return {
       title: gradeLabel() + ' · ' + cleanText(scope.title) + ' · ' + cleanText(scope.chapter_title),
+      bookId: scope.book_id, chapterId: scope.chapter_id, grade: scope.grade,
+      readerUrl: /^https:\/\/book\.pep\.com\.cn\/[A-Za-z0-9-]+\/mobile\/index\.html$/.test(readerUrl) ? readerUrl : '',
       edition: cleanText(scope.edition), template: data.interactive_template,
       steps: data.study_steps.slice(0, 4).map(s => ({title: cleanText(s.title), prompt: cleanText(s.prompt)})),
-      concepts: data.concepts.slice(0, 18).map((c, i) => ({id: c.id, reference: i + 1, title: cleanText(c.title),
+      concepts: lessonConcepts().slice(0, 18).map((c, i) => ({id: c.id, reference: i + 1, title: cleanText(c.title),
         explanation: cleanText(c.explanation), checks: c.checks.slice(0, 5).map(cleanText),
         pages: c.pages.filter(p => p.book_id === scope.book_id && Number.isInteger(p.printed_page)).map(p => p.printed_page)})),
       referenceOnly: true, teacherReviewed: false
@@ -503,6 +591,113 @@
     }
     renderClassroom(classroomDialog, lessonData(), number => showPage(number), () => classroomDialog.close());
     classroomDialog.showModal();
+  }
+  function hasReviewSample() {
+    const d = family.data;
+    return d?.scope.book_id === 'math-g7-upper' && d.scope.grade === 7 && d.scope.chapter_id === '5' &&
+      ['g7-equality', 'g7-solve'].every(id => lessonConcepts().some(c => c.id === id));
+  }
+  function reviewData() {
+    const lesson = lessonData();
+    return {...lesson, concepts: ['g7-equality', 'g7-solve'].map(id => lesson.concepts.find(c => c.id === id)), steps: [], template: null};
+  }
+  const reviewCSS = `body{margin:0;color:#172b45;background:#edf2f7;font:15px/1.7 "Noto Sans CJK SC",system-ui,sans-serif}
+    *{box-sizing:border-box}.dd-review-sheet{background:white;max-width:760px;margin:20px auto;padding:32px;overflow-wrap:anywhere}
+    h1{font-size:25px}h2{font-size:22px}h3{font-size:18px}article{border:1px solid #cbd5e1;border-radius:8px;padding:14px;margin:16px 0}
+    a{color:#17436c}li{margin:9px 0}.dd-review-formula{font:22px/1.8 "Noto Sans CJK SC",sans-serif;white-space:pre-wrap}
+    .dd-review-writing{border-bottom:1px solid #cbd5e1;height:36px}.dd-review-footer{font-size:11px;color:#52667e;margin-top:24px}
+    button{font:inherit;padding:8px 14px;cursor:pointer}.dd-review-toolbar{max-width:760px;margin:15px auto;padding:10px}
+    @media(max-width:600px){.dd-review-sheet{margin:10px 0;padding:20px}}
+    @page{size:A4;margin:16mm}@media print{body{background:white;font-size:12pt}.dd-review-toolbar{display:none}
+    .dd-review-sheet{margin:0;padding:0;max-width:none;break-after:page}.dd-review-sheet:last-child{break-after:auto}
+    article,li{break-inside:avoid}h1{font-size:22pt}h2{font-size:19pt}.dd-review-footer{font-size:9pt}}`;
+  function renderReview(root, lesson) {
+    // Standalone public-only renderer, also used by the isolated print frame.
+    const doc = root.ownerDocument;
+    function node(tag, text, parent) { const e = doc.createElement(tag); if (text !== undefined) e.textContent = text; parent.append(e); return e; }
+    function sheet(title, number) {
+      const s = node('section', undefined, root); s.className = 'dd-review-sheet';
+      node('small', lesson.title + ' · 小样本 ' + number + ' / 3', s); node('h2', title, s); return s;
+    }
+    function footer(parent) { node('p', '本地学习参考 · 尚非教师签署审核 · 不判分、不代表整章覆盖。教材版权归出版社。', parent).className = 'dd-review-footer'; }
+    root.replaceChildren();
+    const first = sheet('等式性质与解方程 · 复习卡', 1);
+    node('p', lesson.edition, first);
+    node('p', '这一份复习卡只围绕第五章的两个已有知识点。先解释依据，再演算，最后代回原条件核对。', first);
+    for (const c of lesson.concepts) {
+      const card = node('article', undefined, first); node('h3', c.title, card); node('p', c.explanation, card);
+      const list = node('ul', undefined, card); for (const check of c.checks) node('li', check, list);
+      node('p', '本地讲解；需核对本册书内第 ' + c.pages.join('、') + ' 页。', card);
+    }
+    footer(first);
+    const second = sheet('看一个例子，再解释每一步', 2);
+    node('p', '以下为本项目编写的简短演示例，不是教材原题或题库测试。', second);
+    node('h3', '1. 两边同时改变', second);
+    node('p', '6 = 6\n6 + 3 = 6 + 3\n9 = 9', second).className = 'dd-review-formula';
+    node('p', '如果只在左边加 3，就得到 9 ≠ 6。只在一边加 0 则没有改变数值，仍然相等。', second);
+    node('h3', '2. 把方程变成更简单的形式', second);
+    node('p', 'x + 3 = 9\nx + 3 − 3 = 9 − 3\nx = 6', second).className = 'dd-review-formula';
+    node('p', '两边同时减去 3。把 x = 6 代回原方程：6 + 3 = 9，成立。', second);
+    node('p', '自问：为什么不能只从一边减去 3？同乘 0 虽会得到相等的两边，为什么可能丢失原方程的约束？', second);
+    footer(second);
+    const third = sheet('合上解释，回顾与核对', 3);
+    for (const question of ['等式两边同加一个数，为什么仍然相等？用一个小例子解释。', '只改一边是否一定不相等？说明加 0 的情况。', '解方程的每一步是否对两边做了相同运算？怎样代回检验？']) {
+      node('p', question, third); node('div', undefined, third).className = 'dd-review-writing';
+    }
+    node('h3', '回到出处', third);
+    for (const c of lesson.concepts) node('p', c.title + '：本册书内第 ' + c.pages.join('、') + ' 页（不是 PDF 文件序号）。', third);
+    if (lesson.readerUrl) { const a = node('a', '人教社本册电子课本（联网打开后按书内页码核对）', third); a.href = lesson.readerUrl; }
+    node('p', '本地讲解和例子均非教材原文；原页位置沿用已有核对记录，未随本样本新增整页审核。', third);
+    node('p', '结构参考 dangjian/faststudy-knowledge；相关图谱元数据 CC BY-NC-SA 4.0。本样本限家庭非商业学习使用。', third);
+    const source = node('a', 'faststudy-knowledge 固定来源版本', third);
+    source.href = 'https://github.com/dangjian/faststudy-knowledge/tree/508748a2c8dddc1253100b2d10d91c9526903f67';
+    node('p', '署名与许可：', third);
+    const license = node('a', 'CC BY-NC-SA 4.0', third); license.href = 'https://creativecommons.org/licenses/by-nc-sa/4.0/';
+    footer(third);
+  }
+  function reviewHTML(lesson) {
+    const data = JSON.stringify(lesson).replace(/</g, '\\u003c');
+    return '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src \'none\'; script-src \'unsafe-inline\'; style-src \'unsafe-inline\'; base-uri \'none\'; form-action \'none\'"><title>七上第五章复习小样本</title><style>' + reviewCSS + '</style><div class="dd-review-toolbar"><button id="print" type="button">打印 / 另存为 PDF</button><p>打印目标选择“另存为 PDF”。本文件不含教材图片或个人信息。</p></div><main id="review"></main><script>(' + renderReview.toString() + ')(document.getElementById("review"),' + data + ');document.getElementById("print").onclick=()=>window.print();</script></html>';
+  }
+  async function openReview() {
+    if (!await verifyFamily() || !hasReviewSample()) return;
+    const generation = family.generation;
+    if (!reviewDialog) {
+      reviewDialog = document.createElement('dialog'); reviewDialog.id = 'dd-study-review'; reviewDialog.setAttribute('aria-label', '章节复习小样本');
+      reviewDialog.addEventListener('close', () => { printFrame?.remove(); printFrame = null; }); document.body.append(reviewDialog);
+    }
+    reviewDialog.replaceChildren();
+    const style = document.createElement('style'); style.textContent = reviewCSS.replace(/\bbody\{/g, ':host{');
+    // Scope the preview styles inside a shadow root; host/chat styles stay intact.
+    const preview = document.createElement('div'), shadow = preview.attachShadow({mode: 'open'}), content = document.createElement('main');
+    shadow.append(style, content); renderReview(content, reviewData());
+    const toolbar = document.createElement('div'); toolbar.className = 'dd-review-toolbar'; reviewDialog.append(toolbar, preview);
+    const close = document.createElement('button'); close.textContent = '关闭复习'; close.type = 'button'; close.onclick = () => reviewDialog.close(); toolbar.append(close);
+    for (const [id, title, action] of [['print', '打印 / 另存为 PDF', printReview], ['download', '下载离线打印稿', downloadReview]]) {
+      const b = document.createElement('button'); b.id = 'dd-review-' + id; b.type = 'button'; b.textContent = title;
+      b.onclick = async () => { if (generation === family.generation && await verifyFamily() && reviewDialog.open && hasReviewSample()) action(); }; toolbar.append(b);
+    }
+    reviewDialog.showModal();
+  }
+  function printReview() {
+    const generation = family.generation;
+    printFrame?.remove(); const frame = document.createElement('iframe'); printFrame = frame;
+    frame.title = '仅公开复习卡的打印页面'; frame.setAttribute('sandbox', 'allow-same-origin allow-modals');
+    frame.style.cssText = 'position:fixed;left:-10000px;width:800px;height:1000px;border:0';
+    frame.srcdoc = '<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>七上第五章复习小样本</title><meta http-equiv="Content-Security-Policy" content="default-src \'none\'; style-src \'unsafe-inline\'; base-uri \'none\'"><style>' + reviewCSS + '</style><main></main></html>';
+    const data = reviewData();
+    frame.onload = async () => {
+      if (printFrame !== frame || generation !== family.generation || !reviewDialog.open) return;
+      renderReview(frame.contentDocument.querySelector('main'), data);
+      await frame.contentDocument.fonts.ready;
+      if (printFrame !== frame || generation !== family.generation || !await verifyFamily() || !reviewDialog.open) return;
+      frame.contentWindow.print();
+    };
+    document.body.append(frame);
+  }
+  function downloadReview() {
+    const url = URL.createObjectURL(new Blob([reviewHTML(reviewData())], {type: 'text/html;charset=utf-8'}));
+    const a = document.createElement('a'); a.href = url; a.download = '七上数学第五章-复习打印稿.html'; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   async function downloadClassroom() {
     if (!await verifyFamily() || !family.data) return;
@@ -563,7 +758,8 @@
         if (concept) node('small', '以上为本地讲解 [参考 ' + concept.reference + ']，请对照下方原页。', body);
         const allowed = concept && (lesson.template === 'signed_number_line_v1' ? ['g7-add', 'g7-subtract'].includes(concept.id)
           : ['multiplication_groups_v1', 'equal_groups_v1'].includes(lesson.template) && ['g2-groups', 'g2-share', 'g2-pack', 'g2-small-table'].includes(concept.id));
-        if (allowed) demonstration(body, lesson.template);
+        if (concept?.id === 'g7-equality' && lesson.bookId === 'math-g7-upper' && lesson.grade === 7 && ['', '5'].includes(lesson.chapterId)) equalityDemo(body);
+        else if (allowed) demonstration(body, lesson.template);
         else node('p', '请对照原文画一个简图或举一个例子，指出它与这里的解释怎样对应。', body);
       } else if (step === 2) {
         node('p', '暂时合上解释，用自己的话说一遍，再指出依据。可以说给家长听，也可以写在纸上。', body);
@@ -588,6 +784,46 @@
           else node('small', '离线课堂未包含教材原图，请对照自己的课本；回到家庭学习可打开原页。', sources);
         } else node('p', '本地综合核对点，无教材原页声明。', sources);
       } else node('p', '当前只有阅读方法，没有精确概念或页码映射；请用手边原文核对，勿将步骤当作学科答案。', sources);
+    }
+    function equalityDemo(parent) {
+      node('h4', '等式两边怎样保持相等', parent);
+      node('p', '从 6 = 6 出发。先预测改变后是否相等，再操作验证。加负数也就是减去它的相反数。', parent);
+      const amountLabel = node('label', '加上的数 ', parent), amount = node('input', undefined, amountLabel), amountText = node('span', ' 3', amountLabel);
+      amount.type = 'range'; amount.min = -6; amount.max = 6; amount.step = 1; amount.value = 3; amount.id = 'dd-equality-amount';
+      const modeLabel = node('label', '改变哪边 ', parent), mode = node('select', undefined, modeLabel);
+      mode.id = 'dd-equality-mode'; mode.add(new Option('两边都加', 'both')); mode.add(new Option('只在左边加', 'left'));
+      const predictionLabel = node('label', '我的预测 ', parent), prediction = node('select', undefined, predictionLabel);
+      prediction.id = 'dd-equality-prediction';
+      for (const [title, value] of [['先选一个预测', ''], ['仍然相等', 'equal'], ['不再相等', 'unequal']]) prediction.add(new Option(title, value));
+      const apply = button('操作并观察', parent, observe); apply.id = 'dd-equality-apply'; apply.disabled = true;
+      const result = node('p', '请先预测，再查看结果。', parent); result.id = 'dd-equality-result'; result.setAttribute('role', 'status');
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); svg.setAttribute('viewBox', '0 0 500 220');
+      svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', '等量天平示意；具体计算见上方文字'); parent.append(svg);
+      function drawBalance(left, right) {
+        svg.replaceChildren();
+        function shape(tag, attrs, text) { const e = document.createElementNS(svg.namespaceURI, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v); if (text !== undefined) e.textContent = text; svg.append(e); }
+        const tilt = Math.sign(left - right) * 23;
+        shape('path', {d: 'M250 90 L210 200 L290 200 Z', fill: '#cbd5e1'});
+        shape('line', {x1: 100, y1: 80 + tilt, x2: 400, y2: 80 - tilt, stroke: '#36526e', 'stroke-width': 7});
+        for (const [x, y, value, text] of [[100, 80 + tilt, left, '左边'], [400, 80 - tilt, right, '右边']]) {
+          shape('line', {x1: x, y1: y, x2: x, y2: y + 40, stroke: '#36526e', 'stroke-width': 3});
+          shape('path', {d: `M${x-60} ${y+40} Q${x} ${y+110} ${x+60} ${y+40} Z`, fill: '#dbeafe', stroke: '#2563eb'});
+          shape('text', {x, y: y + 65, 'text-anchor': 'middle', fill: '#172b45', 'font-size': 24}, value);
+          shape('text', {x, y: 28, 'text-anchor': 'middle', fill: '#334155', 'font-size': 20}, text);
+        }
+      }
+      function reset() { amountText.textContent = ' ' + amount.value; prediction.value = ''; apply.disabled = true; result.textContent = '请先预测，再查看结果。'; drawBalance(6, 6); }
+      function observe() {
+        if (!prediction.value) return;
+        const delta = Number(amount.value), left = 6 + delta, right = mode.value === 'both' ? 6 + delta : 6;
+        const equal = left === right;
+        result.textContent = '左边：6 + (' + delta + ') = ' + left + '；右边：' + (mode.value === 'both' ? '6 + (' + delta + ') = ' : '') + right + '。' +
+          (equal ? '两边仍然相等。' : '两边不再相等。') + (delta === 0 ? '加 0 没有改变数值，即使只改一边也仍相等。' : mode.value === 'both' ? '两边加同一个数，等量关系保持。' : '只改一边且变化不为 0，等量关系被打破。') +
+          (prediction.value === (equal ? 'equal' : 'unequal') ? '与预测一致；说说你的理由。' : '与预测不同；比较两边各改变了多少。');
+        drawBalance(left, right);
+      }
+      amount.oninput = mode.onchange = reset; prediction.onchange = () => { apply.disabled = !prediction.value; }; drawBalance(6, 6);
+      node('small', '天平只作等量示意，倾斜角度不表示数量差。本例只验证加法性质，不涵盖乘除变形；不保存预测或判分。', parent);
     }
     function demonstration(parent, template) {
       const signed = template === 'signed_number_line_v1';

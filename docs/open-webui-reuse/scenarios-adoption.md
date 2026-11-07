@@ -1,5 +1,7 @@
 # SCENARIOS 教育场景在本机家庭版的采用
 
+> 2026-11-07 恢复后续工作：等式性质演示、Mermaid 可视化路线、三页章节复习 PDF 已完成**本地候选与隔离验证，尚未上线**。桌面/手机完整流程 2 项通过；已有线上版本仍为 `chat-20261107`，未重注册 Tool 或修改 Compose。新实物、版本许可与继续入口见 [三个小样本验证](../verification/main-study-samples-2026-11-07.md)。
+
 > 2026-11-07 最新：主站原生聊天已注册私有六方法“课本伴学（只读）”，并新增聊天框旁教材检索、学科助手、分步讲解、检查思路、关联练习快捷提问。点“打开课本聊天”会在新标签页自动选中工具；原页引用可定位家庭阅读器。用户已明确授权此接入，正式 WebUI 仅新增目标 Tool/历史两行，未改其他数据或模型。当前静态快照 `main-study-20261106/assets/chat-20261107/`，Compose 不变，仅 nginx reload；未调用真实模型、未写 Goal。详见 [原生聊天接入验证](../verification/main-chat-study-2026-11-07.md)。
 
 > 2026-11-07 最新：用户明确指定的 **cn-math-taxonomy + faststudy-knowledge** 已接入主站“学科伴学 → 知识路线与关联练习”：选概念、看先修/原页、按难度选已映射题、到家庭页显式开始，保留未完成题确认与档案隔离。仍是原74题（29道上游改编），精确映射20题/18概念，非全学科覆盖。静态快照更新为 `main-study-20261106/assets/knowledge-20261107/`；Compose 仍为 `compose-main-study-20261106.json`，仅 nginx reload，五容器未重启。详见 [两项目主站采用验证](../verification/main-study-knowledge-2026-11-07.md)。
