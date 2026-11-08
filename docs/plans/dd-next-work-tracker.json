@@ -65,7 +65,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B08",
+  "recommended_next_task": "B09",
   "latest_git_delivery": {
     "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
     "branch": "main",
@@ -1176,9 +1176,9 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者、维护执行者",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "pending",
       "completion_state": "open",
       "estimate_hours": {
         "min": 4,
@@ -1193,14 +1193,67 @@
       "required_conditions": [
         "监控启用范围需明确，不默增卷写权限；外部通知不在当前授权范围。"
       ],
-      "next_action": "核查已有监控配置事实，复用聚合采集器与备份回执设计独立失联检测。",
+      "next_action": "继续B09本地窄范围证据模块/类型拆分；正式监控范围、阈值、权限、独立观察端及值守责任单独落实，不发送外部通知。",
       "baseline_evidence": [
         "../open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md"
       ],
-      "artifacts": [],
-      "evidence": [],
-      "blockers": [],
-      "last_updated": "2026-11-07"
+      "artifacts": [
+        "../../scripts/collect_learning_monitor.py",
+        "../../tests/test_minimal_monitor.py",
+        "../open-webui-reuse/minimal-monitor.md",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/maintenance-source-final/manifest.json"
+      ],
+      "evidence": [
+        "../verification/B08-minimal-monitor-2026-11-08.md",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/local-monitor-observation.json",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/plan-before.json",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/unit-baseline.xml",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/unit-final.xml",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/test-result-validation.json",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/drill-final/drill-result.json",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/drill-final/09-collector-stopped.json",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/maintenance-validation-final.json",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/delivery-validation.json",
+        "../../learning_data/verification/b08-minimal-monitor-20261108T053759Z/external-observer-user-answer.json"
+      ],
+      "blockers": [
+        "正式监控/阈值与权限范围、独立观察端和责任人未落实；不阻塞B09本地工程。"
+      ],
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "scope": "synthetic_local_monitor_and_separate_process_observer",
+        "unit_contract_tests": 48,
+        "new_monitor_tests": 25,
+        "cli_scenarios": 10,
+        "supported_schemas": [
+          11,
+          12,
+          13
+        ],
+        "browser_tests_run": 0,
+        "maintenance_source_files": 7,
+        "b07_runtime_source_files_unchanged": 86,
+        "real_stop_test_stale_seconds": 1,
+        "default_stale_180_second_boundary": "synthetic_time_checked",
+        "payload_marker_absent": true,
+        "production_permissions_changed": false,
+        "production_monitoring_enabled": false,
+        "external_notifications": false
+      },
+      "external_observer": {
+        "state": "not_configured",
+        "location": null,
+        "custodian": null,
+        "schedule": null,
+        "user_answer": "没有，后续再安排"
+      },
+      "acceptance_limits": [
+        "本地独立进程失联检查不代表另一故障域已有监控或值守。",
+        "正式阈值、启用范围和SQLite辅助文件权限未验收。",
+        "采集器只读取受控备份观察回执声明，不重新核验归档或恢复/独立副本。",
+        "不覆盖WebUI聊天费用或全栈恢复；其他任务未决项保持独立。"
+      ]
     },
     {
       "id": "B09",
@@ -1710,6 +1763,18 @@
         "../verification/B07-backup-recovery-2026-11-08.md"
       ],
       "next_action": "继续B08本地监控验证；独立副本位置、保管人和访问责任待用户落实，正式数据范围/维护窗口/容量及实际RPO/RTO单独验收。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T13:45:50.671506+08:00",
+      "task_ids": [
+        "B08"
+      ],
+      "summary": "B08本地最小运行观察完成：采集器兼容schema11/12/13，补齐队列/租约及心跳异常检查；48项定向测试、10个CLI演练场景通过，7文件维护包已校验。B07的86文件运行包保持原哈希。工程ready、本地验证passed；正式监控/阈值、独立观察端及责任人未落实，验收pending、B08总状态open。下一项B09窄范围证据模块/响应类型拆分；B07独立副本、B05家庭反馈、B04待解、B02真实观察及A09发布/家庭验收继续单列。用户确认没有外部独立监控，后续再安排。",
+      "evidence": [
+        "../verification/B08-minimal-monitor-2026-11-08.md"
+      ],
+      "next_action": "继续B09本地窄范围证据模块/类型拆分；正式监控范围、阈值、权限、独立观察端及值守责任单独落实，不发送外部通知。"
     }
   ],
   "current_candidate_tool_version": "1.2.0"

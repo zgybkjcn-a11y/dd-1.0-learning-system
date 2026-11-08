@@ -22,6 +22,9 @@ from learning_service.gateway_http import GatewayHTTP
 from learning_service.operations import monitor
 
 FORMAT = 'dd-learning-monitor-v1'
+# These revisions share the fixed aggregate queries below. Future revisions
+# require explicit compatibility verification, not a relaxed >= comparison.
+SUPPORTED_SCHEMAS = frozenset({11, 12, 13})
 ALERTS = frozenset({
     'METRICS_UNAVAILABLE', 'DATABASE_SCHEMA_UNSUPPORTED', 'QUEUE_AGE_EXCEEDED',
     'WORKER_LEASE_EXPIRED', 'IMPORT_PAGE_FAILURE', 'DELETION_PENDING',
@@ -44,6 +47,10 @@ def read_json(path: Path, limit=16384):
     return json.loads(data)
 
 
+def supported_schema(value) -> bool:
+    return type(value) is int and value in SUPPORTED_SCHEMAS
+
+
 def db_alerts(path: Path, now: int, queue_age: int, review_limit: int) -> list[str]:
     conn = None
     try:
@@ -59,8 +66,14 @@ def db_alerts(path: Path, now: int, queue_age: int, review_limit: int) -> list[s
             if row is None:
                 raise ValueError('required aggregate missing')
             return row[0]
-        if one('SELECT MAX(version) FROM schema_migrations') != 11:
+        if not supported_schema(one('SELECT MAX(version) FROM schema_migrations')):
             return ['DATABASE_SCHEMA_UNSUPPORTED', 'METRICS_UNAVAILABLE']
+        # MIN/COUNT comparisons silently ignore invalid/null timestamps. Check
+        # every relevant row first so one valid row cannot hide corrupt work.
+        if one("SELECT COUNT(*) FROM jobs WHERE (status='queued' AND "
+               "(julianday(created_at) IS NULL OR julianday(created_at)>julianday(?,'unixepoch'))) "
+               "OR (status='running' AND julianday(lease_until) IS NULL)", (now + 60,)):
+            raise ValueError('queue or lease timestamp unavailable')
         age = one("SELECT MAX(0,CAST((julianday(?,'unixepoch')-julianday(MIN(created_at)))*86400 AS INTEGER)) FROM jobs WHERE status='queued'", (now,))
         if age is None and one("SELECT COUNT(*) FROM jobs WHERE status='queued'"):
             raise ValueError('queue timestamp unavailable')
@@ -101,7 +114,8 @@ def health_child(upstream: str) -> bool:
     validate_upstream(upstream)
     response = GatewayHTTP().send(upstream, 'GET', '/health', {}, timeout=2, limit=4096)
     data = json.loads(response.body)
-    return response.status == 200 and data.get('status') == 'ok' and data.get('service') == 'learning-api' and data.get('schema_revision') == 11
+    return (response.status == 200 and isinstance(data, dict) and data.get('status') == 'ok'
+            and data.get('service') == 'learning-api' and supported_schema(data.get('schema_revision')))
 
 
 def health_ok(upstream: str) -> bool:
@@ -177,6 +191,7 @@ def previous_state(directory: Path):
         return None
     if (not isinstance(r, dict) or r.get('format') != FORMAT
             or type(r.get('checked_at')) is not int or type(r.get('last_event_at')) is not int
+            or not 0 <= r['last_event_at'] <= r['checked_at']
             or type(r.get('sequence')) is not int or r['sequence'] < 1
             or not isinstance(r.get('alerts'), list) or len(r['alerts']) > len(ALERTS)
             or any(not isinstance(a, str) or a not in ALERTS for a in r['alerts'])):

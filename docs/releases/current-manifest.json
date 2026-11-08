@@ -1501,10 +1501,10 @@
     "A07无实时撤回推送，打开/导航/可见性变化时核验；历史聊天文字不追溯删除。",
     "A09本地独立静态包与回退已验证；尚未发布或取得家长真实设备反馈。"
   ],
-  "next_task": "B08",
+  "next_task": "B09",
   "runtime_observed_at": "2026-11-07T17:00:53+08:00",
-  "update_scope": "B07本地合成备份/校验/恢复候选，51项通过、schema13/86文件源码包；独立副本及正式RPO/RTO待落实，B07总状态open。正式运行观察仍为A01，未部署。",
-  "latest_verification_report": "docs/verification/B07-backup-recovery-2026-11-08.md",
+  "update_scope": "B08本地监控维护候选：48项+10场景通过，7文件维护包；B07运行源码与包不变。正式观察端/阈值/启用未验收、B08总状态open，运行观察仍为A01。",
+  "latest_verification_report": "docs/verification/B08-minimal-monitor-2026-11-08.md",
   "source_delivery": {
     "task": "A02",
     "state": "organized_pending_commit",
@@ -1540,7 +1540,7 @@
     },
     "new_material_backup": false,
     "deployment_performed": false,
-    "next_task": "B08",
+    "next_task": "B09",
     "snapshot_scope": "A02固定审阅包；A04/A06/A05/A07/A08/A09独立增量，不据旧hash提交整树。",
     "increments": [
       {
@@ -1661,26 +1661,42 @@
         "schema_revision": 13,
         "committed": false,
         "deployed": false
+      },
+      {
+        "task": "B08",
+        "state": "local_validation_passed_formal_monitoring_pending",
+        "manifest": "learning_data/verification/b08-minimal-monitor-20261108T053759Z/increment-manifest.json",
+        "patch": "learning_data/verification/b08-minimal-monitor-20261108T053759Z/b08-increment.patch",
+        "report": "docs/verification/B08-minimal-monitor-2026-11-08.md",
+        "source_release": "learning_data/verification/b07-backup-recovery-20261108T051822Z/release-final/manifest.json",
+        "maintenance_source": "learning_data/verification/b08-minimal-monitor-20261108T053759Z/maintenance-source-final/manifest.json",
+        "runtime_source_changed": false,
+        "committed": false,
+        "deployed": false
       }
     ]
   },
   "latest_local_candidate": {
-    "task": "B07",
+    "task": "B08",
     "engineering_state": "ready",
     "delivery_state": "candidate_only",
     "acceptance_state": "pending",
     "completion_state": "open",
     "local_validation": "passed",
-    "unit_contract_tests": 51,
-    "browser_tests_run": 0,
-    "schema_revision": 13,
-    "source_profile": "reuse-runtime-verified-backup-v1",
-    "source_files": 86,
-    "verification_report": "docs/verification/B07-backup-recovery-2026-11-08.md",
-    "release_manifest": "learning_data/verification/b07-backup-recovery-20261108T051822Z/release-final/manifest.json",
-    "synthetic_restore_and_reconciliation_seconds": 0.3746235829894431,
-    "formal_RPO_RTO_verified": false,
-    "independent_copy_state": "pending",
-    "runtime_published": false
+    "unit_contract_tests": 48,
+    "cli_scenarios": 10,
+    "supported_schemas": [
+      11,
+      12,
+      13
+    ],
+    "maintenance_source_files": 7,
+    "maintenance_manifest": "learning_data/verification/b08-minimal-monitor-20261108T053759Z/maintenance-source-final/manifest.json",
+    "verification_report": "docs/verification/B08-minimal-monitor-2026-11-08.md",
+    "runtime_release_manifest": "learning_data/verification/b07-backup-recovery-20261108T051822Z/release-final/manifest.json",
+    "runtime_source_changed": false,
+    "runtime_published": false,
+    "production_monitoring_enabled": false,
+    "external_observer_state": "not_configured"
   }
 }

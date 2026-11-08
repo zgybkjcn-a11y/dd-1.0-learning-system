@@ -63,7 +63,7 @@ def test_missing_and_future_schema_fail_without_creating_or_migrating_database(t
     assert not missing.exists()
     db = database(tmp_path)
     with db.session(write=True) as c:
-        c.execute("INSERT INTO schema_migrations VALUES (12,'2020-01-01')")
+        c.execute("INSERT INTO schema_migrations VALUES (14,'2020-01-01')")
     assert 'DATABASE_SCHEMA_UNSUPPORTED' in m.db_alerts(db.path, 1, 300, 100)
 
 
