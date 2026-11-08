@@ -14,6 +14,8 @@ PDF_SHA256 = {
     'math-g7-lower': 'eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b',
 }
 _RENDER_LOCK = threading.Lock()  # PyMuPDF document operations are not thread-safe.
+EDITION_ID = 'pep-2022-standard-current'
+SEARCH_CANDIDATE_LIMIT = 40
 
 
 SUBJECT_NAMES = {'chinese':'语文','math':'数学','english':'英语','ethics':'道德与法治',
@@ -646,7 +648,34 @@ def render_page(directory: Path | None, book_id: str, pdf_page: int) -> bytes:
             return document[pdf_page - 1].get_pixmap(matrix=fitz.Matrix(2, 2), alpha=False).tobytes('png')
 
 
-def bounded_references(scope, result):
+def page_evidence(book, pdf_page):
+    """Catalogue-bound page identity, never a reviewed passage or answer.
+
+    Ranking, extracted text and the requested chapter do not define identity.
+    This records the expected PDF digest; render_page checks the actual bytes.
+    """
+    chapter = next((c for c in book['chapters'] if type(pdf_page) is int
+                    and c['page_start'] <= pdf_page <= c['page_end']), None)
+    if chapter is None:
+        raise ValueError('page outside textbook')
+    digest = PDF_SHA256[book['id']]
+    source_ref = 'dd-textbook-' + hashlib.sha256(
+        f"{book['id']}\n{EDITION_ID}\n{digest}".encode()).hexdigest()
+    evidence_id = 'dd-page-' + hashlib.sha256(f'{source_ref}\n{pdf_page}'.encode()).hexdigest()
+    return {'schema': 'dd-textbook-page-evidence-v1', 'kind': 'page_location',
+            'evidence_id': evidence_id, 'source_ref': source_ref,
+            'book_id': book['id'], 'book_title': book['title'], 'grade': book['grade'],
+            'subject': book['subject'], 'semester': book['semester'],
+            'edition': book['edition'], 'edition_id': EDITION_ID, 'pdf_sha256': digest,
+            'source_binding': 'catalogue_sha256',
+            'chapter_id': chapter['id'], 'chapter_title': chapter['title'],
+            'printed_page': pdf_page - chapter['page_start'] + chapter['printed_page'],
+            'pdf_page': pdf_page, 'locator_precision': 'page',
+            'review_status': 'location_only', 'quote_status': 'unavailable',
+            'supports_textbook_answer': False, 'eligible_as_grading_basis': False}
+
+
+def bounded_references(scope, result, *, candidate_limit=None):
     """Discard cross-file/edition/chapter chunks, malformed metadata, and excess text."""
     book,chapter=scope['book'],scope['chapter']
     if not isinstance(result,dict):
@@ -658,11 +687,14 @@ def bounded_references(scope, result):
         raise ValueError('malformed retrieval')
     items=[]
     seen_pages=set()
-    for text,meta in zip(documents[0],metadata[0]):
+    for rank,(text,meta) in enumerate(zip(documents[0],metadata[0]), 1):
         if not isinstance(text,str) or not isinstance(meta,dict) or meta.get('file_id')!=book['file_id']:continue
         page=meta.get('page_number')
         if type(page) is not int or not chapter['page_start']<=page<=chapter['page_end']:continue
-        if meta.get('edition')!='pep-2022-standard-current':continue
+        if meta.get('edition')!=EDITION_ID:continue
+        # Older index rows have no digest. An explicit conflicting digest must
+        # not be silently relabelled as the catalogue's current source.
+        if 'pdf_sha256' in meta and meta['pdf_sha256'] != PDF_SHA256[book['id']]:continue
         if page in seen_pages:continue
         seen_pages.add(page)
         printed_page=page-chapter['page_start']+chapter['printed_page']
@@ -670,8 +702,24 @@ def bounded_references(scope, result):
                       'printed_page':printed_page,
                       'content_title':page_title(book,chapter,printed_page,text),
                       'book_title':book['title'],'review_status':'reference_only',
+                      'evidence':page_evidence(book,page),
                       'page_image_path':f"/api/v1/textbooks/{book['id']}/pages/{printed_page}/image"})
+        if candidate_limit is not None:
+            items[-1]['retrieval_rank'] = rank
         if len(items)>=4:break
+    ranking = [item['evidence']['evidence_id'] for item in items]
     items.sort(key=lambda item: item['printed_page'])
-    return {'book_id':book['id'],'chapter_id':chapter['id'],'items':items,
+    response = {'book_id':book['id'],'chapter_id':chapter['id'],'items':items,
             'notice':'相关页已按页码排列，点标题展开原页。仅供阅读，未经题目审核，不作为标准答案。'}
+    if candidate_limit is not None:
+        if type(candidate_limit) is not int or candidate_limit != SEARCH_CANDIDATE_LIMIT or len(documents[0]) > candidate_limit:
+            raise ValueError('invalid retrieval candidate limit')
+        response['retrieval'] = {
+            'schema': 'dd-retrieval-coverage-v1', 'status': 'incomplete',
+            'method': 'collection_top_k_then_scope_filter', 'coverage_complete': False,
+            'reason': 'upstream_has_no_scope_filter', 'candidate_limit': candidate_limit,
+            'candidate_count': len(documents[0]), 'ranking': ranking,
+            'display_order': 'printed_page', 'fallback_action': 'browse',
+        }
+        response['notice'] = '本次检索可能遗漏所选范围的内容；可清空关键词按页阅读。候选页仅供核对，不能据此判断教材没有相关内容或提供标准答案。'
+    return response

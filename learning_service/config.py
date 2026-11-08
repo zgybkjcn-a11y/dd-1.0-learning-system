@@ -59,6 +59,9 @@ class Settings:
     public_base_path: str = ""
     family_setup_code: str = field(default="", repr=False)
     textbook_dir: Path | None = None
+    textbook_passages_enabled: bool = False
+    textbook_passages_dir: Path | None = None
+    textbook_passages_sha256: str = ""
 
     @classmethod
     def from_env(cls) -> "Settings":
@@ -111,6 +114,9 @@ class Settings:
             shared_learner_context_enabled=os.getenv("LEARNING_SHARED_LEARNER_CONTEXT_ENABLED", "0").lower() in {"1", "true", "yes"},
             public_base_path=os.getenv("LEARNING_PUBLIC_BASE_PATH", ""),
             family_setup_code=env_secret("LEARNING_FAMILY_SETUP_CODE"),
+            textbook_passages_enabled=os.getenv("LEARNING_TEXTBOOK_PASSAGES_ENABLED", "0").lower() in {"1", "true", "yes"},
+            textbook_passages_dir=Path(os.environ["LEARNING_TEXTBOOK_PASSAGES_DIR"]) if os.getenv("LEARNING_TEXTBOOK_PASSAGES_DIR") else None,
+            textbook_passages_sha256=os.getenv("LEARNING_TEXTBOOK_PASSAGES_SHA256", ""),
             textbook_dir=Path(os.environ["LEARNING_TEXTBOOK_DIR"]).resolve() if os.getenv("LEARNING_TEXTBOOK_DIR") else None,
         )
 

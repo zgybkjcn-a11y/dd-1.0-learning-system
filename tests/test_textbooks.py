@@ -8,7 +8,7 @@ from fastapi.testclient import TestClient
 
 from learning_service.gateway_http import GatewayResult
 from learning_service.login_gateway import create_gateway
-from learning_service.textbooks import catalogue, search_scope, bounded_references, chapter_references, PDF_SHA256, BOOKS
+from learning_service.textbooks import catalogue, search_scope, bounded_references, chapter_references, page_evidence, PDF_SHA256, BOOKS
 from test_family_math import family
 from test_login_gateway import gateway_env, gateway_login, SyntheticBridge
 from test_browser_auth import auth_env, csrf
@@ -72,6 +72,45 @@ def test_related_pages_follow_book_order_with_readable_content_titles():
     ref=bounded_references(chinese,{'documents':[['raw pinyin']], 'metadatas':[[{
         'file_id':chinese['book']['file_id'],'page_number':26,'edition':'pep-2022-standard-current'}]]})
     assert ref['items'][0]['content_title']=='课文：我不是最弱小的'
+
+
+def test_page_evidence_is_stable_across_ranking_chunks_and_requested_scope(monkeypatch):
+    scope = search_scope('math-g7-v1', {'book_id': 'math-g7-upper', 'chapter_id': '2'})
+    book = scope['book']
+    def retrieve(pages, text):
+        return {'documents': [[text] * len(pages)], 'metadatas': [[{
+            'file_id': book['file_id'], 'page_number': p, 'edition': 'pep-2022-standard-current'} for p in pages]]}
+    first = bounded_references(scope, retrieve([38, 37, 37], 'unreviewed text'))['items']
+    whole = search_scope('math-g7-v1', {'book_id': book['id']})
+    second = bounded_references(whole, retrieve([37, 38], 'different chunk'))['items']
+    assert [p['evidence'] for p in first] == [p['evidence'] for p in second]
+    evidence = first[0]['evidence']
+    assert evidence['chapter_id'] == '2' and evidence['printed_page'] == 30 and evidence['pdf_page'] == 37
+    assert evidence['source_ref'] == first[1]['evidence']['source_ref']
+    assert evidence['evidence_id'] != first[1]['evidence']['evidence_id']
+    monkeypatch.setitem(PDF_SHA256, book['id'], '0' * 64)
+    changed = page_evidence(book, 37)
+    assert changed['source_ref'] != evidence['source_ref'] and changed['evidence_id'] != evidence['evidence_id']
+    with pytest.raises(ValueError): page_evidence(book, True)
+    with pytest.raises(ValueError): page_evidence(book, 999)
+
+
+def test_index_metadata_cannot_grant_evidence_authority_or_relabel_changed_pdf():
+    scope = search_scope('math-g7-v1', {'book_id': 'math-g7-upper', 'chapter_id': '2'})
+    injected = {'file_id': scope['book']['file_id'], 'page_number': 37, 'edition': 'pep-2022-standard-current',
+                'evidence_id': 'forged', 'source_ref': 'private-path', 'review_status': 'approved',
+                'quote_status': 'verified', 'supports_textbook_answer': True, 'eligible_as_grading_basis': True,
+                'quote': 'UNREVIEWED', 'url': 'https://foreign.invalid/quote'}
+    result = {'documents': [['raw']], 'metadatas': [[injected]]}
+    evidence = bounded_references(scope, result)['items'][0]['evidence']
+    assert evidence['source_binding'] == 'catalogue_sha256'
+    assert evidence['review_status'] == 'location_only' and evidence['quote_status'] == 'unavailable'
+    assert evidence['supports_textbook_answer'] is False and evidence['eligible_as_grading_basis'] is False
+    assert all(marker not in json.dumps(evidence) for marker in ('forged', 'private-path', 'UNREVIEWED', 'foreign.invalid'))
+    injected['pdf_sha256'] = '0' * 64
+    assert bounded_references(scope, result)['items'] == []
+    injected['pdf_sha256'] = PDF_SHA256[scope['book']['id']]
+    assert bounded_references(scope, result)['items'][0]['evidence'] == evidence
 
 
 def test_chapter_browsing_is_complete_contiguous_and_bounded():
@@ -148,26 +187,6 @@ def test_gateway_chapter_browse_does_not_depend_on_vector_ranking(retrieval_gate
     assert [i['printed_page'] for i in next_page.json()['items']]==[114,115,116,117]
     assert not any(c[2]=='/api/v1/retrieval/query/doc' for c in bridge.calls)
 
-
-@pytest.fixture
-def textbook_sources(tmp_path, monkeypatch):
-    import fitz
-    directory=tmp_path/'textbooks'; directory.mkdir()
-    for book in BOOKS:
-        book_id=book['id'];offset=book['chapters'][0]['page_start']-book['chapters'][0]['printed_page']
-        total=book['chapters'][-1]['page_end']
-        with fitz.open() as doc:
-            for n in range(1,total+1):
-                page=doc.new_page(width=320,height=440)
-                page.insert_text((30,40), f'{book_id} - printed page {n-offset}')
-                page.insert_text((40,100), 'n * x = l / 2', fontsize=18)
-                page.draw_line((60,200),(240,200))
-                page.draw_rect((100,230,115,250),fill=(0.2,0.5,0.7))
-                page.draw_line((150,200),(150,160))
-                page.insert_text((30,410), str(n-offset))
-            path=directory/(book_id+'.pdf'); doc.save(path)
-        monkeypatch.setitem(PDF_SHA256,book_id,hashlib.sha256(path.read_bytes()).hexdigest())
-    return directory
 
 
 def test_page_renders_exact_source_preserving_diagram_and_pdf_page_offset(family,textbook_sources):
@@ -274,5 +293,5 @@ def test_gateway_authorizes_before_retrieval_and_never_leaks_tokens(retrieval_ga
     elif case in ['csrf','stale','grade','large']:
         assert result.status_code in {403,409,413,422} and not calls
     else:
-        assert result.status_code in {502,503} and len(calls)==1
+        assert result.status_code == {'upstream': 503, 'malformed': 502, 'timeout': 504}[case] and len(calls)==1
     assert 'synthetic-token-a' not in result.text and 'SECRET' not in result.text

@@ -100,6 +100,7 @@ def query_support(conn, learner_id, curriculum_id, textbook_dir, *, subject='', 
     else:
         markdown += ['', '以上问题串由本项目编写；不提供未经核对的学科答案。']
     return {'support_version': VERSION, 'scope': scope, 'study_steps': steps,
+            'reference_sha256': math['reference_sha256'] if math else None,
             'concepts': math['concepts'] if math else [], 'prerequisites': math['prerequisites'] if math else [],
             'interactive_template': template,
             'mapping_status': math['mapping_status'] if math else 'reading_scaffold_only',

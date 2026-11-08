@@ -127,7 +127,7 @@ def test_previous_runtime_candidate_still_verifies_after_textbook_expansion(tmp_
 
 
 @pytest.mark.parametrize('profile,paths', [('textbook','TEXTBOOK_PATHS'),('practice','PRACTICE_PATHS'),
-                                          ('math_reference','MATH_REFERENCE_PATHS')])
+                                          ('math_reference','MATH_REFERENCE_PATHS'), ('study_workbench','STUDY_WORKBENCH_PATHS')])
 def test_prior_content_profiles_verify_after_reference_expansion(tmp_path, profile, paths):
     root = _root(tmp_path); old = root / ('previous-' + profile)
     manifest = release.prepare(old, root)

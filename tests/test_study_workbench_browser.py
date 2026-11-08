@@ -13,26 +13,28 @@ from learning_service.browser_auth import SESSION_COOKIE
 from learning_service.textbooks import chapter_references
 from test_browser_auth import assertion
 from test_family_math import family
-from test_math_references import reference_family, PUBLIC_BOOKS
+from test_math_references import reference_family
+
+
+pytestmark = pytest.mark.browser
 
 
 @pytest.mark.parametrize('width',[390,1280])
-def test_study_support_in_authenticated_family_workbench(reference_family,tmp_path,width):
-    playwright=pytest.importorskip('playwright.sync_api')
+def test_study_support_in_authenticated_family_workbench(reference_family,tmp_path,width, playwright, launch_browser):
     _,db,original,_=reference_family
     origin='https://study-support.example.invalid'
     settings=replace(original.app.state.settings,browser_auth_enabled=True,
                      browser_auth_secret='synthetic-gateway-key-0123456789abcdef',
                      browser_auth_issuer='synthetic-gateway',browser_identity_issuer='family-pilot-webui',
                      browser_origin=origin,public_base_path='/learning',shared_learner_context_enabled=True,
-                     family_setup_code='synthetic-family-code-0123456789abcdef',textbook_dir=PUBLIC_BOOKS)
+                     family_setup_code='synthetic-family-code-0123456789abcdef')
     api=TestClient(create_app(settings,db),base_url=origin)
     assert api.post('/api/v1/auth/session',headers={'Origin':origin,
                     'Authorization':'Bearer '+assertion(settings,changes={'sub':'synthetic-parent'})}).status_code==201
     evidence=Path(os.getenv('DD_STUDY_WORKBENCH_EVIDENCE',str(tmp_path)))
     evidence.mkdir(parents=True,exist_ok=True)
     with playwright.sync_playwright() as runtime:
-        browser=runtime.chromium.launch(executable_path='/usr/bin/google-chrome',headless=True)
+        browser=launch_browser(runtime)
         context=browser.new_context(viewport={'width':width,'height':960},service_workers='block')
         context.add_cookies([{'name':name,'value':value,'url':origin,'secure':True,'httpOnly':name==SESSION_COOKIE,'sameSite':'Strict'}
                             for name,value in api.cookies.items()])

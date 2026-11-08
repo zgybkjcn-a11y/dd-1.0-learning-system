@@ -1,0 +1,133 @@
+{
+  "passed": true,
+  "source_sha256": "23fc5c2558a0141750031acaee434f7b0abd81d884974e8d15ee781c1f2404d7",
+  "metadata": {
+    "title": "课本伴学（只读）",
+    "author": "DD-1.0",
+    "description": "按当前家庭档案查询教材、概念和关联练习，并提供原页核对链接。",
+    "required_open_webui_version": "0.12.5",
+    "version": "1.2.0"
+  },
+  "specs": [
+    {
+      "name": "get_math_concept_reference",
+      "description": "解释已查询到的数学概念，返回先修参考、核对点及原页链接。先引导学生思考，不宣称掌握或确定错因。",
+      "parameters": {
+        "properties": {
+          "concept_id": {
+            "type": "string"
+          },
+          "book_id": {
+            "default": "",
+            "type": "string"
+          },
+          "chapter_id": {
+            "default": "",
+            "type": "string"
+          }
+        },
+        "required": [
+          "concept_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_math_question_reference",
+      "description": "查询已有题的知识点与相关练习；给出工作区链接供学生自己开始，不提交或判分。",
+      "parameters": {
+        "properties": {
+          "question_version_id": {
+            "type": "string"
+          },
+          "book_id": {
+            "default": "",
+            "type": "string"
+          },
+          "chapter_id": {
+            "default": "",
+            "type": "string"
+          }
+        },
+        "required": [
+          "question_version_id"
+        ],
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_math_scope",
+      "description": "查看当前数学课本的概念 ID 和关联题，章节可空；无映射就说明，不自动生成题。",
+      "parameters": {
+        "properties": {
+          "book_id": {
+            "default": "",
+            "type": "string"
+          },
+          "chapter_id": {
+            "default": "",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_study_catalogue",
+      "description": "先查询当前家庭档案可用的学科、课本和章节 ID；不要猜测或跨年级选书。",
+      "parameters": {
+        "properties": {},
+        "type": "object"
+      }
+    },
+    {
+      "name": "get_study_support",
+      "description": "按当前年级获取语数英、道法、历史、地理、生物阅读问题串。结合材料分步引导；非数学不是已审核学科答案。",
+      "parameters": {
+        "properties": {
+          "subject": {
+            "default": "",
+            "type": "string"
+          },
+          "book_id": {
+            "default": "",
+            "type": "string"
+          },
+          "chapter_id": {
+            "default": "",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    },
+    {
+      "name": "search_textbook",
+      "description": "用简短规则或定义问题查当前书章，返回最多四条证据。只有 answer.claims 可完整引用；其余仅为原页位置。按 grounding 说明不足，非教师审核，不生成答案或判分。只传概念关键词，不传学生姓名、作答或整段聊天。",
+      "parameters": {
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "book_id": {
+            "type": "string"
+          },
+          "chapter_id": {
+            "default": "",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query",
+          "book_id"
+        ],
+        "type": "object"
+      }
+    }
+  ],
+  "network": "none",
+  "formal_data_mounted": false,
+  "model_calls": 0,
+  "passage_fixture_checked": true,
+  "citation_events": 4
+}

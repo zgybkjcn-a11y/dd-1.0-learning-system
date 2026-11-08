@@ -13,12 +13,13 @@ from learning_service.browser_auth import SESSION_COOKIE
 from learning_service.textbooks import bounded_references, chapter_references
 from test_browser_auth import assertion
 from test_family_math import family
-from test_textbooks import textbook_sources
+
+
+pytestmark = pytest.mark.browser
 
 
 @pytest.mark.parametrize('width', [390, 1280])
-def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(family, tmp_path, width, textbook_sources):
-    playwright = pytest.importorskip('playwright.sync_api')
+def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(family, tmp_path, width, textbook_sources, playwright, launch_browser):
     _, db, original, _ = family
     origin = 'https://family-adventure.example.invalid'
     settings = replace(original.app.state.settings, browser_auth_enabled=True,
@@ -33,7 +34,7 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
     screenshots = Path(os.getenv('DD_FAMILY_GAME_EVIDENCE_DIR', str(tmp_path)))
     screenshots.mkdir(parents=True, exist_ok=True)
     with playwright.sync_playwright() as runtime:
-        browser = runtime.chromium.launch(executable_path='/usr/bin/google-chrome', headless=True)
+        browser = launch_browser(runtime)
         context = browser.new_context(viewport={'width': width, 'height': 960}, service_workers='block')
         context.add_cookies([{'name': name, 'value': value, 'url': origin, 'secure': True,
                              'httpOnly': name == SESSION_COOKIE, 'sameSite': 'Strict'}
@@ -60,9 +61,11 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
                     route.fulfill(status=200,json=chapter_references(scope))
                     return
                 numbers = [151,122] if scope['book']['id']=='math-g7-upper' and scope['chapter']['id']=='5' else [scope['chapter']['page_start']]
+                if scope['query'].endswith('synthetic-empty'):
+                    numbers = []
                 refs = bounded_references(scope, {'documents':[['合成教材摘录 <script>throw 1</script>']*len(numbers)],
                     'metadatas':[[{'file_id':scope['book']['file_id'], 'page_number':number,
-                                  'edition':'pep-2022-standard-current'} for number in numbers]]})
+                                  'edition':'pep-2022-standard-current'} for number in numbers]]}, candidate_limit=40)
                 route.fulfill(status=200, json=refs)
                 return
             route.fulfill(status=response.status_code, body=response.content,
@@ -284,6 +287,8 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         page.locator('#textbookFind').click()
         expect(page.locator('#textbookResults details')).to_have_count(1)
         expect(page.locator('#textbookPageRange')).to_have_text('第 115 页')
+        expect(page.locator('#textbookStatus')).to_contain_text('检索可能遗漏')
+        expect(page.locator('#textbookResultCount')).to_contain_text('候选原页')
         expect(page.locator('#textbookResults')).to_contain_text('一元一次方程的定义')
         page.locator('#textbookNext').click()
         expect(page.locator('#textbookPageRange')).to_have_text('第 144 页')
@@ -295,6 +300,15 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         page.locator('#textbookZoomClose').click()
         page.locator('#textbookPrev').click()
         expect(page.locator('#textbookPageRange')).to_have_text('第 115 页')
+        page.locator('#textbookQuery').fill('synthetic-empty')
+        page.locator('#textbookFind').click()
+        expect(page.locator('#textbookStatus')).to_contain_text('检索可能遗漏')
+        expect(page.locator('#textbookResultCount')).to_have_text('本次没有可展示的候选页')
+        expect(page.locator('#textbookResults img')).to_have_count(0)
+        page.locator('#textbookQuery').fill('')
+        page.locator('#textbookSearch').click()
+        expect(page.locator('#textbookPageRange')).to_have_text('第 110 页')
+        expect(page.locator('#textbookStatus')).to_contain_text('按页阅读')
         for subject in ['english','ethics','history','geography','biology','chinese']:
             page.locator('#textbookSubject').select_option(subject)
             expect(page.locator('#practiceChoices button')).to_have_count(0)

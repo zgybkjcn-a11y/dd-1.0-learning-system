@@ -1,0 +1,1273 @@
+{
+  "schema": "dd-next-work-tracker-v1",
+  "plan_version": "1.0",
+  "created_at": "2026-11-07",
+  "updated_at": "2026-11-08T06:39:46+08:00",
+  "timezone": "Asia/Shanghai",
+  "purpose": "下一阶段 25 项实施任务台账；不等同于 Goal 或发布证明。",
+  "documents": {
+    "specification": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+    "work_plan": "DD-1.0-WORK-PLAN-2026-11-07.md",
+    "resume": "RESUME-NEXT-WORK.txt",
+    "audit": "../PROJECT-REVIEW-2026-11-07.md",
+    "current_state": "../releases/current-state.md",
+    "current_manifest": "../releases/current-manifest.json",
+    "testing": "../TESTING.md",
+    "candidate_delivery": "../releases/A02-candidate-delivery-2026-11-07.md",
+    "study_error_recovery": "../open-webui-reuse/study-error-recovery.md",
+    "retrieval_evaluation": "../open-webui-reuse/retrieval-evaluation.md",
+    "chapter_retrieval": "../open-webui-reuse/chapter-retrieval.md"
+  },
+  "baseline": {
+    "git_head": "deef3199f558ba72bbe3f2ff0c704586674a2232",
+    "has_preexisting_uncommitted_changes": true,
+    "live_tool_version": "1.0.0",
+    "live_tool_evidence": "historical_registration_record_not_reread",
+    "candidate_tool_version": "1.1.0",
+    "passage_sample_count": 5,
+    "fully_verified_g2_lower_pages": 0,
+    "plan_is_implementation": false
+  },
+  "rules": {
+    "preserve_existing_changes": true,
+    "real_model_calls_allowed": false,
+    "production_vector_writes_allowed": false,
+    "goal_writes_allowed": false,
+    "commit_push_deploy": "Follow current effective user scope; planning, A01, A03, A02, A04, A06 and A05 perform none.",
+    "dependency_satisfaction": "Required local deliverables and checks may satisfy dependencies while submission, deployment or feedback remain pending.",
+    "evidence_paths": "Paths are relative to this tracker. Baseline evidence is historical, not new acceptance.",
+    "completion": "All applicable engineering, delivery and acceptance exits require evidence; planning alone completes no task."
+  },
+  "estimate_basis": {
+    "unit": "focused_hours",
+    "hours_per_effective_day": 6,
+    "excludes": [
+      "external_waiting",
+      "real_provider_acceptance",
+      "large_scale_expansion"
+    ],
+    "by_priority": {
+      "P1": {
+        "min": 58,
+        "max": 101
+      },
+      "P2": {
+        "min": 94,
+        "max": 182
+      }
+    },
+    "total": {
+      "min": 152,
+      "max": 283
+    },
+    "p3": null
+  },
+  "recommended_next_task": "B01",
+  "tasks": [
+    {
+      "id": "A01",
+      "priority": "P1",
+      "milestone": "M1",
+      "title": "统一当前状态与交付清单",
+      "depends_on": [],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者",
+      "assigned_person": null,
+      "engineering_state": "ready",
+      "delivery_state": "not_applicable",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "estimate_hours": {
+        "min": 3,
+        "max": 5
+      },
+      "actual_hours": 0.177,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "A01"
+      },
+      "acceptance_summary": "两个文档入口统一指向带时间/来源的组件清单；运行、候选、离线与历史状态分开，未知项显式标注。仅验收 A01 本地文档交付。",
+      "required_conditions": [],
+      "next_action": "继续 A03：审计 httpx、浏览器固定路径和私有教材依赖，建立原创合成夹具与必需测试分组。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md",
+        "../goal/HANDOFF-SESSION-2026-11-07-SESSION-SUMMARY.md"
+      ],
+      "artifacts": [
+        "../releases/current-state.md",
+        "../releases/current-manifest.json"
+      ],
+      "evidence": [
+        "../verification/A01-current-state-2026-11-07.md",
+        "../releases/current-manifest.json"
+      ],
+      "blockers": [],
+      "last_updated": "2026-11-07",
+      "actual_time_record": {
+        "started_at": "2026-11-07T08:58:39.337618+00:00",
+        "finished_at": "2026-11-07T17:09:17+08:00",
+        "basis": "从保存输入快照至收尾记录的实测会话时长，含本地只读等待；不含快照前初始阅读，不作为其他任务工时外推依据。"
+      }
+    },
+    {
+      "id": "A02",
+      "priority": "P1",
+      "milestone": "M1",
+      "title": "整理已有候选及源码交付",
+      "depends_on": [
+        "A01",
+        "A03"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者",
+      "assigned_person": null,
+      "engineering_state": "ready",
+      "delivery_state": "pending_commit",
+      "acceptance_state": "passed",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 2,
+        "max": 4
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "A02"
+      },
+      "acceptance_summary": "已整理，待提交：U1 24 个代码/测试文件与 U2 22 个文档文件，源码/补丁/材料边界本地验收通过；提交 SHA 为 null，待有效提交指令。",
+      "required_conditions": [
+        "提交/推送阶段依当前会话有效指令；候选整理可先完成。"
+      ],
+      "next_action": "继续 A04 本地错误分类；提交范围生效后重核候选指纹，按 U1/U2 明确文件审阅并提交，登记实际 SHA。",
+      "baseline_evidence": [
+        "../verification/textbook-evidence-2026-11-07.md",
+        "../verification/textbook-passages-2026-11-07.md"
+      ],
+      "artifacts": [
+        "../releases/A02-candidate-delivery-2026-11-07.md",
+        "../releases/A02-candidate-files-2026-11-07.json",
+        "../releases/A02-local-material-backup-2026-11-07.md"
+      ],
+      "evidence": [
+        "../verification/A02-candidate-delivery-2026-11-07.md"
+      ],
+      "blockers": [
+        "提交/推送未纳入本轮有效执行范围；仅阻塞源码提交出口，不阻塞 A04 本地工作。"
+      ],
+      "last_updated": "2026-11-07",
+      "commit_sha": null,
+      "delivery_label": "已整理，待提交"
+    },
+    {
+      "id": "A03",
+      "priority": "P1",
+      "milestone": "M1",
+      "title": "可移植测试依赖、夹具与自动检查",
+      "depends_on": [
+        "A01"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者",
+      "assigned_person": null,
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "estimate_hours": {
+        "min": 8,
+        "max": 14
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "A03"
+      },
+      "acceptance_summary": "干净 Python 3.12 环境与 144 文件源码副本：503 单元/契约 + 12 浏览器通过，零失败/跳过；默认不依赖实物，故障输入明确失败。GitHub 自动检查为未提交候选，远端未执行。",
+      "required_conditions": [],
+      "next_action": "继续 A02：按真实依赖整理页级证据、离线片段、测试基础及计划文档的可审阅交付单元。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [
+        "../../conftest.py",
+        "../../requirements-dev.txt",
+        "../../requirements-dev.lock",
+        "../../pytest.ini",
+        "../../.github/workflows/tests.yml",
+        "../TESTING.md"
+      ],
+      "evidence": [
+        "../verification/A03-portable-tests-2026-11-07.md",
+        "../releases/current-manifest.json"
+      ],
+      "blockers": [],
+      "last_updated": "2026-11-07",
+      "actual_time_record": {
+        "started_at": "2026-11-07T09:13:48.160795+00:00",
+        "finished_at": "2026-11-07T17:47:12+08:00",
+        "elapsed_hours": 0.557,
+        "basis": "墙钟时间含依赖/浏览器下载及自动测试等待；专注工时未逐段记录，actual_hours 保持 null，不据此重估其余任务。"
+      }
+    },
+    {
+      "id": "A04",
+      "priority": "P1",
+      "milestone": "M1",
+      "title": "细分会话、网关与 Tool 失败",
+      "depends_on": [
+        "A02",
+        "A03"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者",
+      "assigned_person": null,
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "estimate_hours": {
+        "min": 6,
+        "max": 10
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "A04"
+      },
+      "acceptance_summary": "552 单元/契约通过（新增 49 个故障用例），零失败/跳过；过期、真实冲突、换档、材料缺失与超时分类及请求 ID/日志脱敏通过，原生 WebUI 六方法/2 引用通过；未部署。",
+      "required_conditions": [],
+      "next_action": "继续 A06：冻结独立检索/引用评测与基线，随后 A05；提交/上线和实际体验另记。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [
+        "../../learning_service/browser_auth.py",
+        "../../learning_service/login_gateway.py",
+        "../../deploy/open-webui-reuse/readonly_study_tools.py",
+        "../../tests/test_study_errors.py",
+        "../open-webui-reuse/study-error-recovery.md"
+      ],
+      "evidence": [
+        "../verification/A04-study-errors-2026-11-07.md"
+      ],
+      "blockers": [],
+      "last_updated": "2026-11-07",
+      "commit_sha": null,
+      "actual_time_record": {
+        "started_at": "2026-11-07T10:16:47.071359+00:00",
+        "finished_at": "2026-11-07T18:42:03+08:00",
+        "elapsed_hours": 0.421,
+        "basis": "墙钟时间包含验证等待；专注工时未逐段记录，actual_hours 保持 null。"
+      }
+    },
+    {
+      "id": "A05",
+      "priority": "P1",
+      "milestone": "M2",
+      "title": "章内召回与证据不足判定",
+      "depends_on": [
+        "A03",
+        "A06"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者",
+      "assigned_person": null,
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "estimate_hours": {
+        "min": 8,
+        "max": 16
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "A05"
+      },
+      "acceptance_summary": "固定镜像无章节前置过滤，top40 反例复现；有界补充集召回20/20、拒绝10/10、泄漏0/10、来源/引文22/22，旧路径明确 incomplete。241 单元/契约、4 浏览器及原生六方法/2 引用通过。",
+      "required_conditions": [],
+      "next_action": "继续 A07：默认关闭片段能力，抽取纯模块、固定材料与当前日期、接服务/Tool，更新白名单及兼容检查。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [
+        "../../scripts/textbook_passage_retrieval.py",
+        "../../tests/test_chapter_retrieval.py",
+        "../../learning_service/login_gateway.py",
+        "../../learning_service/textbooks.py",
+        "../../learning_service/app.py",
+        "../../deploy/open-webui-reuse/readonly_study_tools.py",
+        "../open-webui-reuse/chapter-retrieval.md"
+      ],
+      "evidence": [
+        "../verification/A05-chapter-retrieval-2026-11-07.md"
+      ],
+      "blockers": [],
+      "last_updated": "2026-11-07",
+      "commit_sha": null,
+      "acceptance_limits": [
+        "五片段离线试点，未接服务/Tool，未部署。",
+        "旧整册向量检索仍不完整，未验证真实 embedding。",
+        "同一助手编题/复核/实现，不是教师或外部盲测。"
+      ],
+      "actual_time_record": {
+        "started_at": "2026-11-07T13:11:35.944610+00:00",
+        "finished_at": "2026-11-07T21:39:32+08:00",
+        "basis": "墙钟包含执行等待；专注工时未逐段记录，actual_hours 保持 null。"
+      }
+    },
+    {
+      "id": "A06",
+      "priority": "P1",
+      "milestone": "M2",
+      "title": "冻结独立检索与引用评测",
+      "depends_on": [
+        "A01",
+        "A03"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、内容复核者",
+      "assigned_person": null,
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "estimate_hours": {
+        "min": 8,
+        "max": 14
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "A06"
+      },
+      "acceptance_summary": "三分区/金标准/分母/阈值/哈希冻结；73 项合成测试通过，两次基线一致。新试点召回 2/20、拒绝 2/10，质量未达标由 A05 修正；范围 0/10 泄漏，来源/引文 11/11。",
+      "required_conditions": [],
+      "next_action": "继续 A05：验证合成接口过滤与 top40 后过滤反例；据已暴露题集调参时转回归并补冻结新表达。",
+      "baseline_evidence": [
+        "../verification/textbook-passages-2026-11-07.md",
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [
+        "../../scripts/evaluate_textbook_retrieval.py",
+        "../../tests/test_textbook_retrieval_evaluation.py",
+        "../open-webui-reuse/retrieval-evaluation.md"
+      ],
+      "evidence": [
+        "../verification/A06-retrieval-evaluation-2026-11-07.md"
+      ],
+      "blockers": [],
+      "last_updated": "2026-11-07",
+      "commit_sha": null,
+      "acceptance_limits": [
+        "同一助手复核，非教师、独立人员或外部盲测。",
+        "只完成离线评测交付，检索质量、在线接入、真实模型与体验另验收。"
+      ],
+      "baseline_quality_targets_passed": false,
+      "actual_time_record": {
+        "started_at": "2026-11-07T12:50:08.238746+00:00",
+        "finished_at": "2026-11-07T21:06:50+08:00",
+        "basis": "墙钟时间包含等待；专注工时未逐段记录，actual_hours 保持 null。"
+      }
+    },
+    {
+      "id": "A07",
+      "priority": "P1",
+      "milestone": "M2",
+      "title": "服务与六方法 Tool 接入 5 片段",
+      "depends_on": [
+        "A02",
+        "A04",
+        "A05",
+        "A06"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、内容复核者",
+      "assigned_person": null,
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "estimate_hours": {
+        "min": 12,
+        "max": 20
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "A07"
+      },
+      "acceptance_summary": "默认关闭的五片段服务/网关/六方法Tool1.2.0/回链通过；688单元/契约、6浏览器、原生6方法4引用，实物四组回归40/40、40/40、20/20、4/4。",
+      "required_conditions": [],
+      "next_action": "继续A08，在临时数据中实现既有Tool ID升级、比较旧哈希与回退；不直接操作正式Tool。",
+      "baseline_evidence": [
+        "../open-webui-reuse/textbook-evidence-chain.md",
+        "../verification/textbook-passages-2026-11-07.md"
+      ],
+      "artifacts": [
+        "../../learning_service/passage_evidence.py",
+        "../../learning_service/passage_retrieval.py",
+        "../../learning_service/textbook_passages.py",
+        "../../deploy/open-webui-reuse/readonly_study_tools.py",
+        "../open-webui-reuse/textbook-passages-runtime.md",
+        "../contracts/openapi-v1.json"
+      ],
+      "evidence": [
+        "../verification/A07-runtime-passages-2026-11-07.md"
+      ],
+      "blockers": [],
+      "last_updated": "2026-11-07",
+      "commit_sha": null,
+      "acceptance_limits": [
+        "未提交、部署、实际模型或家长体验验收；能力默认关闭。",
+        "助手核对片段，非教师/整页审核或判分依据。",
+        "无实时撤回推送；历史聊天文字无法追溯删除，打开引用重新核验。",
+        "线上历史服务缺页级字段，新Tool需要配套服务升级。"
+      ],
+      "actual_time_record": {
+        "started_at": "2026-11-07T13:53:07Z",
+        "finished_at": "2026-11-07T22:21:37+08:00",
+        "basis": "墙钟含测试等待；专注工时未逐段记录，actual_hours保持null。"
+      }
+    },
+    {
+      "id": "A08",
+      "priority": "P1",
+      "milestone": "M2",
+      "title": "既有 Tool 升级与回退机制",
+      "depends_on": [
+        "A01",
+        "A07"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、维护执行者",
+      "assigned_person": null,
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "estimate_hours": {
+        "min": 8,
+        "max": 12
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "A08"
+      },
+      "acceptance_summary": "五阶段既有Tool升级/回退机制完成；54项事务/兼容测试通过，固定WebUI0.12.5原生迁移schema/六方法/历史/缓存刷新及其他表保全通过。",
+      "required_conditions": [
+        "正式操作需覆盖既有 ID 升级的有效维护指令；历史一次注册例外不等于升级许可。"
+      ],
+      "next_action": "继续A09，核对已提交静态三样本，准备新独立输出、差异/回退集合，发布与家长验收分别记录。",
+      "baseline_evidence": [
+        "../open-webui-reuse/main-chat-tools.md"
+      ],
+      "artifacts": [
+        "../../scripts/upgrade_readonly_study_tool.py",
+        "../../scripts/probe_tool_upgrade_native.py",
+        "../../tests/test_readonly_tool_upgrade.py",
+        "../open-webui-reuse/tool-upgrade-rollback.md"
+      ],
+      "evidence": [
+        "../verification/A08-tool-lifecycle-2026-11-07.md"
+      ],
+      "blockers": [],
+      "last_updated": "2026-11-07",
+      "commit_sha": null,
+      "acceptance_limits": [
+        "只在临时合成DB执行，未读取或修改正式Tool。",
+        "backend-root字节检查不证明生产进程在运行相应源码；正式操作另需活动部署证据。",
+        "正式维护需覆盖既有ID升级的有效指令，历史注册许可不扩展。"
+      ],
+      "actual_time_record": {
+        "started_at": "2026-11-07T14:40:58Z",
+        "finished_at": "2026-11-07T23:19:36+08:00",
+        "basis": "墙钟含测试等待；专注工时未逐段记录。"
+      }
+    },
+    {
+      "id": "A09",
+      "priority": "P1",
+      "milestone": "MS",
+      "title": "三个静态样本交付与设备体验",
+      "depends_on": [
+        "A01",
+        "A03"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、维护执行者、家长",
+      "assigned_person": null,
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "pending",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 3,
+        "max": 6
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "A09"
+      },
+      "acceptance_summary": "候选、发布与桌面/手机/打印反馈分别可核验，原草稿/练习保留。",
+      "required_conditions": [
+        "具体静态发布按有效维护范围；实际设备反馈待家长提供，不能代签。"
+      ],
+      "next_action": "按有效维护范围再发布并收集实际桌面/手机/打印反馈；等待期间继续 B01 七上第二章覆盖表。",
+      "baseline_evidence": [
+        "../verification/main-study-samples-2026-11-07.md"
+      ],
+      "artifacts": [
+        "../../scripts/prepare_main_study_samples.py",
+        "../../scripts/probe_main_study_samples_nginx.py",
+        "../../tests/test_static_samples_packet.py",
+        "../open-webui-reuse/static-samples-delivery.md",
+        "../../learning_data/verification/a09-static-samples-20261107T223140Z/release-packet/manifest.json"
+      ],
+      "evidence": [
+        "../verification/A09-static-samples-2026-11-08.md",
+        "../../learning_data/verification/a09-static-samples-20261107T223140Z/evidence-reuse.json",
+        "../../learning_data/verification/a09-static-samples-20261107T223140Z/nginx-probe-r3/nginx-isolated.json"
+      ],
+      "blockers": [
+        "实际发布尚未安排，家长真实桌面/手机/打印反馈未取得；不阻塞依赖本地候选的后续任务。"
+      ],
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "targeted_tests": 30,
+        "candidate_routes": 4,
+        "rollback_routes": 3,
+        "identical_static_files": 9,
+        "browser_tests_reused": true,
+        "parent_feedback": "pending",
+        "deployment_performed": false
+      }
+    },
+    {
+      "id": "B01",
+      "priority": "P2",
+      "milestone": "M3",
+      "title": "一章内容覆盖表",
+      "depends_on": [
+        "A01"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、内容复核者",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 4,
+        "max": 8
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B01"
+      },
+      "acceptance_summary": "数量与来源可对账，缺项明确，范围与整册选择保持。",
+      "required_conditions": [],
+      "next_action": "以七上第二章整理知识点、教材、片段、解释、题目和复习覆盖，并优先补已有题映射。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B02",
+      "priority": "P2",
+      "milestone": "M3",
+      "title": "备用练习与延迟验证",
+      "depends_on": [
+        "B01",
+        "A03"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "内容复核者、工程执行者",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 12,
+        "max": 24
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B02"
+      },
+      "acceptance_summary": "首批合格备用题可选择且题版冻结，母题关系明确；延迟检查按真实日期记录。",
+      "required_conditions": [
+        "内容复核与实际 1/3/7 天观察需真实投入和时间，不以生成题量代替通过。"
+      ],
+      "next_action": "按覆盖缺口编制首批每档 4 道备用题目标，分别核对条件、单位、答案与署名。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B03",
+      "priority": "P2",
+      "milestone": "M4",
+      "title": "片段复核工作台",
+      "depends_on": [
+        "A07",
+        "B01"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、内容复核者",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 12,
+        "max": 20
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B03"
+      },
+      "acceptance_summary": "未决项阻止发布，改文改源触发重审，旧证据失效，审核身份如实。",
+      "required_conditions": [],
+      "next_action": "复用现有质量机制制作一个原生 PDF 片段的并排审核与版本/启停流程。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B04",
+      "priority": "P2",
+      "milestone": "M4",
+      "title": "二下数学首批完整页双重审核",
+      "depends_on": [
+        "B03"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "内容复核者",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 10,
+        "max": 24
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B04"
+      },
+      "acceptance_summary": "5 页均有完整处理记录，实际通过/待解分列；题目/答案资格另审。",
+      "required_conditions": [
+        "估算只含首批 5 页；全部处理不等于全部通过，扩到 10 页另排子批次。"
+      ],
+      "next_action": "从既有 OCR 选连续 5 页，固定双页码和源图，逐项核对转写与数学/图形。",
+      "baseline_evidence": [
+        "../verification/math-g2-lower-offline-ocr-2026-11-06.md",
+        "../goal/TEXTBOOK-POLICY.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B05",
+      "priority": "P2",
+      "milestone": "M3",
+      "title": "显式错题收藏与到期复习",
+      "depends_on": [
+        "A04",
+        "B01"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、家长",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 10,
+        "max": 18
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B05"
+      },
+      "acceptance_summary": "取消零写入、确认幂等、档案隔离、题版不漂移、到期可复习，真实体验另记。",
+      "required_conditions": [
+        "家长实际反馈待收集；未反馈不阻止合成浏览器工程验收。"
+      ],
+      "next_action": "把冻结错答转为待确认卡，复用现有收藏/复习路由并加幂等与档案测试。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B06",
+      "priority": "P2",
+      "milestone": "M6",
+      "title": "跨设备轮次进度恢复",
+      "depends_on": [
+        "A03",
+        "B05"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 8,
+        "max": 16
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B06"
+      },
+      "acceptance_summary": "刷新/新标签/换设备/并发不重复计分，不吞作答，旧客户端与迁移兼容。",
+      "required_conditions": [],
+      "next_action": "定义轮次、持久作答与档位的恢复规则，再设计最小服务端轮次状态。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B07",
+      "priority": "P2",
+      "milestone": "M5",
+      "title": "基本备份与隔离恢复",
+      "depends_on": [
+        "A01"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "维护执行者",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 8,
+        "max": 16
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B07"
+      },
+      "acceptance_summary": "备份/归档校验/恢复分别有证据，独立故障域副本可用，实测 RPO/RTO。",
+      "required_conditions": [
+        "实际数据和维护窗口按有效范围；先用合成数据，独立备份位置与保管责任待落实。"
+      ],
+      "next_action": "盘点当前学习数据/附件/教材包与对应版本，设计一致性快照及空目标恢复演练。",
+      "baseline_evidence": [
+        "../open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B08",
+      "priority": "P2",
+      "milestone": "M5",
+      "title": "最小运行观察",
+      "depends_on": [
+        "A04",
+        "B07"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、维护执行者",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 4,
+        "max": 8
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B08"
+      },
+      "acceptance_summary": "失败、过期、存储/队列异常、失联均可发现，输出不含聊天或学生资料。",
+      "required_conditions": [
+        "监控启用范围需明确，不默增卷写权限；外部通知不在当前授权范围。"
+      ],
+      "next_action": "核查已有监控配置事实，复用聚合采集器与备份回执设计独立失联检测。",
+      "baseline_evidence": [
+        "../open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B09",
+      "priority": "P2",
+      "milestone": "M6",
+      "title": "首批模块拆分与类型契约",
+      "depends_on": [
+        "A03",
+        "A07"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 12,
+        "max": 20
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B09"
+      },
+      "acceptance_summary": "本批业务纯导入不建库，响应契约精确，幂等/并发/旧 profile 保持。",
+      "required_conditions": [
+        "仅首批模块，剩余 app.py 重构不得冒称完成。"
+      ],
+      "next_action": "先提取已触及的证据业务/类型与相关路由，建立无副作用导入检查。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B10",
+      "priority": "P2",
+      "milestone": "M6",
+      "title": "检索、原页性能与总截止",
+      "depends_on": [
+        "A04",
+        "A07"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 8,
+        "max": 16
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B10"
+      },
+      "acceptance_summary": "样本数与阈值可复核，超时/取消一致，改源/撤回失效且缓存不绕过授权。",
+      "required_conditions": [],
+      "next_action": "固定设备/材料/并发测冷暖 P50/P95，再设计源哈希缓存与一致总截止。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "B11",
+      "priority": "P2",
+      "milestone": "M6",
+      "title": "上游兼容、无障碍与家庭设备",
+      "depends_on": [
+        "A03",
+        "A09"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、家长",
+      "assigned_person": null,
+      "engineering_state": "planned",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "not_started",
+      "completion_state": "open",
+      "estimate_hours": {
+        "min": 6,
+        "max": 12
+      },
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "B11"
+      },
+      "acceptance_summary": "固定版本工程测试与实际设备反馈各有证据，DOM 不匹配时安全停用受影响入口。",
+      "required_conditions": [
+        "至少一台实际桌面和家庭手机的系统/浏览器/操作反馈待收集。"
+      ],
+      "next_action": "整理 WebUI DOM/Tool 注入契约和桌面/手机矩阵，检查焦点、缩放、换档提示与离线恢复。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "C01",
+      "priority": "P3",
+      "milestone": "MG",
+      "title": "真实模型引用与教学验收",
+      "depends_on": [
+        "A06",
+        "A07",
+        "A08"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、内容复核者、家长",
+      "assigned_person": null,
+      "engineering_state": "deferred",
+      "delivery_state": "not_applicable",
+      "acceptance_state": "gated",
+      "completion_state": "deferred",
+      "estimate_hours": null,
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "C01"
+      },
+      "acceptance_summary": "真实选工具/范围/引用/缺证据/提示注入/引导分别验收，伪引文与范围泄漏零容忍。",
+      "required_conditions": [
+        "当前禁止真实生成/embedding 调用；需明确新指令、提供方/版本、预算与可用相容组合。"
+      ],
+      "next_action": "当前只准备冻结情景；限制明确改变后再固定模型、公开材料和调用预算。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [
+        "当前禁止真实生成/embedding 调用；需明确新指令、提供方/版本、预算与可用相容组合。"
+      ],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "C02",
+      "priority": "P3",
+      "milestone": "MG",
+      "title": "真实卷面 OCR、诊断与变式质量",
+      "depends_on": [
+        "A03",
+        "B03",
+        "C01"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "内容复核者、工程执行者",
+      "assigned_person": null,
+      "engineering_state": "deferred",
+      "delivery_state": "not_applicable",
+      "acceptance_state": "gated",
+      "completion_state": "deferred",
+      "estimate_hours": null,
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "C02"
+      },
+      "acceptance_summary": "漏检/符号/跨页/诊断/弃判全入分母，变式条件和答案另审。",
+      "required_conditions": [
+        "真实材料使用范围、人工参考、provider/OCR 调用限制变更均待满足；学生数据不得擅自外发。"
+      ],
+      "next_action": "先按明确材料范围建立人工参考与冻结分类评测，真实调用条件未满足不执行。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [
+        "真实材料使用范围、人工参考、provider/OCR 调用限制变更均待满足；学生数据不得擅自外发。"
+      ],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "C03",
+      "priority": "P3",
+      "milestone": "MG",
+      "title": "完整恢复、删除增量与费用对账",
+      "depends_on": [
+        "B07",
+        "B08"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "维护执行者",
+      "assigned_person": null,
+      "engineering_state": "deferred",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "gated",
+      "completion_state": "deferred",
+      "estimate_hours": null,
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "C03"
+      },
+      "acceptance_summary": "隔离全系统恢复不复活删除、不抹掉已发生费用，未知费用继续保留，实测完整 RPO/RTO。",
+      "required_conditions": [
+        "数据规模或付费计划触发；相应生产存储与维护范围尚未确定。"
+      ],
+      "next_action": "出现跨系统恢复或付费计划时，先设计七类组件、删除/费用水位和在途调用记录。",
+      "baseline_evidence": [
+        "../open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [
+        "数据规模或付费计划触发；相应生产存储与维护范围尚未确定。"
+      ],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "C04",
+      "priority": "P3",
+      "milestone": "MG",
+      "title": "多学科小单元扩展",
+      "depends_on": [
+        "B01",
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "内容复核者、家长、工程执行者",
+      "assigned_person": null,
+      "engineering_state": "deferred",
+      "delivery_state": "not_scheduled",
+      "acceptance_state": "gated",
+      "completion_state": "deferred",
+      "estimate_hours": null,
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "C04"
+      },
+      "acceptance_summary": "逐批显示真实覆盖/待核范围，非数学用学科专属方法，不套用数学算例结论。",
+      "required_conditions": [
+        "学校实际学习范围、可靠来源和内容复核资源待落实。"
+      ],
+      "next_action": "在样板方法可复用后按学校当前需求选一门一单元，核查新版和学科专属依据。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [
+        "学校实际学习范围、可靠来源和内容复核资源待落实。"
+      ],
+      "last_updated": "2026-11-07"
+    },
+    {
+      "id": "C05",
+      "priority": "P3",
+      "milestone": "MG",
+      "title": "RAGFlow 全栈与媒体组件再评估",
+      "depends_on": [
+        "A05",
+        "A06",
+        "B10"
+      ],
+      "dependency_scope": "required_local_artifacts",
+      "owner_role": "工程执行者、范围决策者",
+      "assigned_person": null,
+      "engineering_state": "deferred",
+      "delivery_state": "not_applicable",
+      "acceptance_state": "gated",
+      "completion_state": "deferred",
+      "estimate_hours": null,
+      "actual_hours": null,
+      "specification": {
+        "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "section": "C05"
+      },
+      "acceptance_summary": "有可追溯采用/暂缓决策；如迁移另具范围、许可、成本与回退，不默认安装。",
+      "required_conditions": [
+        "需要已证实瓶颈或教学需求；当前无整套引入任务。"
+      ],
+      "next_action": "仅在现有检索/性能实测或明确教学需求触发后，用同一样本比较收益和维护成本。",
+      "baseline_evidence": [
+        "../PROJECT-REVIEW-2026-11-07.md"
+      ],
+      "artifacts": [],
+      "evidence": [],
+      "blockers": [
+        "需要已证实瓶颈或教学需求；当前无整套引入任务。"
+      ],
+      "last_updated": "2026-11-07"
+    }
+  ],
+  "change_log": [
+    {
+      "date": "2026-11-07",
+      "task_ids": [],
+      "summary": "建立 25 项计划台账；未开始实施，未将历史候选或计划文档记为任务完成。",
+      "evidence": [],
+      "next_action": "从 A01 只读状态核对与统一交付清单开始。"
+    },
+    {
+      "date": "2026-11-07",
+      "timestamp": "2026-11-07T17:09:17+08:00",
+      "task_ids": [
+        "A01"
+      ],
+      "summary": "完成只读现状核对、10 个组件与 6 个兼容组合清单、两个入口校正及接续更新；正式 Tool 仅历史证据，未提交/发布，不提升其他任务状态。",
+      "evidence": [
+        "../verification/A01-current-state-2026-11-07.md",
+        "../releases/current-manifest.json"
+      ],
+      "next_action": "继续 A03：审计 httpx、浏览器固定路径和私有教材依赖，建立原创合成夹具与必需测试分组。"
+    },
+    {
+      "date": "2026-11-07",
+      "timestamp": "2026-11-07T17:47:12+08:00",
+      "task_ids": [
+        "A03"
+      ],
+      "summary": "完成锁定依赖、原创合成夹具、测试环境/网络隔离、浏览器配置与分组；干净环境 503+12 项通过。补精确旧测试期望，加入 GitHub workflow 候选；实物和远端 CI 未运行。",
+      "evidence": [
+        "../verification/A03-portable-tests-2026-11-07.md",
+        "../TESTING.md"
+      ],
+      "next_action": "继续 A02：按真实依赖整理页级证据、离线片段、测试基础及计划文档的可审阅交付单元。"
+    },
+    {
+      "date": "2026-11-07",
+      "timestamp": "2026-11-07T17:56:57+08:00",
+      "task_ids": [
+        "A02"
+      ],
+      "summary": "完成 46 文件两组候选、补丁回放与材料备份说明；沿用哈希匹配的 503/12 测试证据，代码不变。本地验收通过、待提交，未发布或创建独立材料备份。",
+      "evidence": [
+        "../verification/A02-candidate-delivery-2026-11-07.md",
+        "../releases/A02-candidate-delivery-2026-11-07.md"
+      ],
+      "next_action": "继续 A04：用合成错误区分会话/身份/范围/网络/服务失败，给出可执行恢复文案并验证日志脱敏。"
+    },
+    {
+      "date": "2026-11-07",
+      "timestamp": "2026-11-07T18:42:03+08:00",
+      "task_ids": [
+        "A04"
+      ],
+      "summary": "完成会话/网关/Tool 错误分类、恢复提示、随机请求编号和固定日志；552 项单元/契约与断网原生六方法通过。Tool 候选 1.1.1，A02 包保留，A04 增量独立记录；未提交/发布。",
+      "evidence": [
+        "../verification/A04-study-errors-2026-11-07.md",
+        "../open-webui-reuse/study-error-recovery.md"
+      ],
+      "next_action": "继续 A06 冻结独立检索与引用评测及基线，再继续 A05。"
+    },
+    {
+      "date": "2026-11-07",
+      "timestamp": "2026-11-07T21:06:50+08:00",
+      "task_ids": [
+        "A06"
+      ],
+      "summary": "冻结 20/10/10 试点与独立开发/回归分区，完成评分器、73 项测试及两次一致基线；30 项缺陷/暴露记录保留。新试点召回 2/20、拒绝 2/10，质量未达标；未改检索、未提交/发布。",
+      "evidence": [
+        "../verification/A06-retrieval-evaluation-2026-11-07.md",
+        "../open-webui-reuse/retrieval-evaluation.md"
+      ],
+      "next_action": "继续 A05；看过问题用于调参时记录转回归并冻结新表达。"
+    },
+    {
+      "date": "2026-11-07",
+      "timestamp": "2026-11-07T21:39:32+08:00",
+      "task_ids": [
+        "A05"
+      ],
+      "summary": "完成五片段范围前置、规则/结构匹配与不足分类；补充40问首测达标并复现，原A06转回归。旧top40路径明确 incomplete，网关补查询后档案校验，Tool候选1.1.2；241单元/契约、4浏览器及原生六方法通过，未提交/部署。",
+      "evidence": [
+        "../verification/A05-chapter-retrieval-2026-11-07.md",
+        "../open-webui-reuse/chapter-retrieval.md"
+      ],
+      "next_action": "继续 A07 接入5个有效片段，默认关闭、服务器材料/哈希/当前时间固定并补兼容验收。"
+    },
+    {
+      "date": "2026-11-07",
+      "timestamp": "2026-11-07T22:21:37+08:00",
+      "task_ids": [
+        "A07"
+      ],
+      "summary": "默认关闭的五片段服务/网关/六方法Tool1.2.0/回链通过；688单元/契约、6浏览器、原生6方法4引用，实物四组回归40/40、40/40、20/20、4/4。",
+      "evidence": [
+        "../verification/A07-runtime-passages-2026-11-07.md"
+      ],
+      "next_action": "继续A08，在临时数据中实现既有Tool ID升级、比较旧哈希与回退；不直接操作正式Tool。"
+    },
+    {
+      "date": "2026-11-07",
+      "timestamp": "2026-11-07T23:19:36+08:00",
+      "task_ids": [
+        "A08"
+      ],
+      "summary": "五阶段既有Tool升级/回退机制完成；54项事务/兼容测试通过，固定WebUI0.12.5原生迁移schema/六方法/历史/缓存刷新及其他表保全通过。",
+      "evidence": [
+        "../verification/A08-tool-lifecycle-2026-11-07.md"
+      ],
+      "next_action": "继续A09，核对已提交静态三样本，准备新独立输出、差异/回退集合，发布与家长验收分别记录。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T06:39:46+08:00",
+      "task_ids": [
+        "A09"
+      ],
+      "summary": "独立静态包/原资源回退及清单校验完成；30项通过、断网nginx候选4/回退3路由通过。九文件与历史样本一致、复用浏览器/PDF证据；未部署、家长验收pending。",
+      "evidence": [
+        "../verification/A09-static-samples-2026-11-08.md"
+      ],
+      "next_action": "继续B01七上第二章内容覆盖表；A09发布与设备反馈另记。"
+    }
+  ],
+  "current_candidate_tool_version": "1.2.0"
+}

@@ -40,6 +40,8 @@
     if (!params.has('studyBook')) return;
     const targetBook = params.get('studyBook'), targetChapter = params.get('studyChapter') || '';
     const targetQuestion = params.get('studyQuestion') || '';
+    const targetEvidence = params.get('studyEvidence') || '';
+    if (targetEvidence && (!/^dd-excerpt-[a-f0-9]{64}$/.test(targetEvidence) || targetQuestion)) return;
     const targetPage = params.has('studyPage') ? Number(params.get('studyPage')) : null;
     const revision = params.get('studyRevision');
     const namespace = contextNamespace();
@@ -93,7 +95,10 @@
             if (!valid() || gameBook !== targetBook || gameChapter !== targetChapter) return;
             setGameView('home'); document.getElementById('textbookReader').open = true;
             document.getElementById('textbookQuery').value = '';
-            await loadTextbookResults(targetPage - readerRange().start);
+            if (targetEvidence) {
+              if (typeof openReaderEvidence !== 'function') { text.textContent = '当前工作台不支持核验这条片段，请重新查询。'; return; }
+              await openReaderEvidence(targetBook, targetChapter, targetEvidence, targetPage);
+            } else await loadTextbookResults(targetPage - readerRange().start);
             document.getElementById('textbookReader').scrollIntoView({block: 'start'});
           } finally { button.disabled = !valid(); }
         };

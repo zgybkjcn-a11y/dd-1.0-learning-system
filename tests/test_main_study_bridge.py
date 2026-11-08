@@ -1,4 +1,4 @@
-"""Main study + real family workbench/API, synthetic identities and public PDFs."""
+"""Main study + real family workbench/API, synthetic identities and generated PDFs."""
 from dataclasses import replace
 import json
 import os
@@ -11,7 +11,7 @@ from fastapi.testclient import TestClient
 from learning_service.app import create_app
 from learning_service.login_gateway import GatewaySettings, create_gateway
 from test_login_gateway import SyntheticBridge, gateway_login
-from test_math_references import reference_family, PUBLIC_BOOKS
+from test_math_references import reference_family
 from test_family_math import family
 from main_study_sample_checks import check_chapter_five_samples
 
@@ -19,16 +19,17 @@ ROOT = Path(__file__).parents[1]
 ASSETS = ROOT / 'deploy/open-webui-reuse/main-study'
 
 
+pytestmark = pytest.mark.browser
+
+
 @pytest.mark.parametrize('width', [1280, 390])
-def test_family_main_shared_materials_and_identity_races(reference_family, tmp_path, width):
-    playwright = pytest.importorskip('playwright.sync_api')
+def test_family_main_shared_materials_and_identity_races(reference_family, tmp_path, width, playwright, launch_browser):
     _, db, original, _ = reference_family
     origin = 'https://study-bridge.example.invalid'
     settings = replace(original.app.state.settings, browser_auth_enabled=True,
         browser_auth_secret='synthetic-gateway-key-0123456789abcdef', browser_auth_issuer='synthetic-gateway',
         browser_identity_issuer='family-pilot-webui', browser_origin=origin, public_base_path='/learning',
-        shared_learner_context_enabled=True, family_setup_code='synthetic-family-code-0123456789abcdef',
-        textbook_dir=PUBLIC_BOOKS)
+        shared_learner_context_enabled=True, family_setup_code='synthetic-family-code-0123456789abcdef')
     api = TestClient(create_app(settings, db), base_url=origin)
     transport = SyntheticBridge(api)
     transport.identities['synthetic-token-a'] = 'synthetic-parent'
@@ -44,7 +45,7 @@ def test_family_main_shared_materials_and_identity_races(reference_family, tmp_p
     delay = [False]
     delay_math = [False]
     with playwright.sync_playwright() as runtime:
-        browser = runtime.chromium.launch(executable_path='/usr/bin/google-chrome', headless=True)
+        browser = launch_browser(runtime)
         context = browser.new_context(viewport={'width': width, 'height': 1000}, service_workers='block')
         context.add_cookies([{'name': k, 'value': v, 'url': origin, 'secure': True, 'sameSite': 'Strict'}
                             for k, v in gateway.cookies.items()])

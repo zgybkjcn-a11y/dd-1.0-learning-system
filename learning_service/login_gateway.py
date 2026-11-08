@@ -6,6 +6,7 @@ import hashlib
 import hmac
 import html
 import json
+import logging
 import os
 import re
 import secrets
@@ -24,7 +25,64 @@ from .browser_auth import CSRF_COOKIE, SESSION_COOKIE
 from .gateway_http import GatewayHTTP, GatewayResult, valid_upstream
 from .provider_usage import safe_reference
 from .secret_files import env_secret
-from .textbooks import bounded_references, chapter_references
+from .textbooks import bounded_references, chapter_references, SEARCH_CANDIDATE_LIMIT
+
+
+LOGGER = logging.getLogger('dd.study.gateway')
+# Closed recovery vocabulary; never use an upstream message or exception text.
+RECOVERY = {
+    'login': ('请先登录主站，再从家庭学习入口重新进入。', 'sign_in', False),
+    'session': ('学习会话已失效，请从家庭学习入口重新进入。', 'reenter', False),
+    'expired': ('学习会话已过期，请从家庭学习入口重新进入。', 'reenter', False),
+    'identity': ('当前登录与学习会话不一致，已停止读取。请确认主站账号后重新进入家庭学习。', 'confirm_login', False),
+    'context': ('当前档案已变化，已停止返回旧资料。请刷新家庭学习，重新选择档案和课本范围。', 'reselect_scope', False),
+    'scope': ('请在家庭学习中重新选择当前档案的课本和章节，再重试。', 'reselect_scope', False),
+    'textbook': ('当前教材原件缺失或版本校验未通过，请联系维护者核对材料后重试。', 'contact_maintainer', False),
+    'reference': ('当前范围暂未提供这项资料，请查看已有目录或选择其他已列出的项目。', 'browse_available', False),
+    'timeout': ('请求超时，请稍后重试。', 'retry_later', True),
+    'retrieval_timeout': ('教材检索超时，请稍后重试；本次没有可用证据，不能据此判断教材没有相关内容。', 'retry_later', True),
+    'unavailable': ('服务暂不可用，请稍后重试；若持续失败，请提供本次请求编号给维护者。', 'retry_later', True),
+    'request': ('请求校验未通过，请刷新家庭学习后重新操作。', 'refresh', False),
+}
+ERROR_RECOVERY = {
+    'TEXTBOOK_PASSAGES_DISABLED': 'reference', 'TEXTBOOK_PASSAGE_NOT_FOUND': 'reference',
+    'TEXTBOOK_PASSAGES_UNAVAILABLE': 'textbook', 'TEXTBOOK_PASSAGE_STALE': 'reference',
+    **dict.fromkeys(('WEBUI_LOGIN_REQUIRED', 'WEBUI_LOGIN_REJECTED'), 'login'),
+    **dict.fromkeys(('BROWSER_LOGIN_REQUIRED', 'BROWSER_SESSION_INVALID', 'LEARNING_LOGIN_REJECTED'), 'session'),
+    'BROWSER_SESSION_EXPIRED': 'expired', 'LEARNING_IDENTITY_MISMATCH': 'identity',
+    'LEARNER_CONTEXT_CHANGED': 'context', 'LEARNER_CONTEXT_REQUIRED': 'scope',
+    **dict.fromkeys(('TEXTBOOK_SCOPE_INVALID', 'MATH_REFERENCE_SCOPE_INVALID', 'STUDY_SUPPORT_SCOPE_INVALID', 'TEXTBOOK_PAGE_NOT_FOUND'), 'scope'),
+    **dict.fromkeys(('TEXTBOOK_PAGE_UNAVAILABLE', 'MATH_REFERENCE_TEXTBOOK_UNAVAILABLE'), 'textbook'),
+    **dict.fromkeys(('MATH_REFERENCE_NOT_FOUND', 'STUDY_SUPPORT_NOT_FOUND'), 'reference'),
+    **dict.fromkeys(('AUTH_UPSTREAM_TIMEOUT', 'LEARNING_UPSTREAM_TIMEOUT', 'TEXTBOOK_RETRIEVAL_TIMEOUT'), 'timeout'),
+    'TEXTBOOK_RETRIEVAL_TIMEOUT': 'retrieval_timeout',
+    **dict.fromkeys(('COOKIE_REJECTED', 'LOGIN_CSRF_REJECTED', 'ORIGIN_REJECTED', 'BROWSER_CSRF_REJECTED', 'BROWSER_ORIGIN_REJECTED', 'REQUEST_HEADERS_REJECTED', 'REQUEST_TOO_LARGE', 'ROUTE_REJECTED'), 'request'),
+    **dict.fromkeys(('GATEWAY_DISABLED_OR_UNCONFIGURED', 'LOGIN_CAPACITY_REACHED', 'AUTH_UPSTREAM_UNAVAILABLE', 'AUTH_UPSTREAM_INVALID', 'LEARNING_UPSTREAM_UNAVAILABLE', 'LEARNING_UPSTREAM_INVALID', 'LEARNING_REDIRECT_REJECTED', 'TEXTBOOK_RETRIEVAL_UNAVAILABLE', 'TEXTBOOK_RETRIEVAL_INVALID', 'MATH_REFERENCE_UNAVAILABLE', 'MATH_REFERENCE_VERSION_MISMATCH', 'STUDY_SUPPORT_UNAVAILABLE', 'STUDY_REQUEST_UNAVAILABLE'), 'unavailable'),
+}
+SERVICE_ERRORS = {
+    'BROWSER_LOGIN_REQUIRED': 401, 'BROWSER_SESSION_INVALID': 401, 'BROWSER_SESSION_EXPIRED': 401,
+    'BROWSER_CSRF_REJECTED': 403, 'BROWSER_ORIGIN_REJECTED': 403,
+    'LEARNER_CONTEXT_CHANGED': 409, 'LEARNER_CONTEXT_REQUIRED': 409,
+    'TEXTBOOK_SCOPE_INVALID': 422, 'MATH_REFERENCE_SCOPE_INVALID': 422, 'STUDY_SUPPORT_SCOPE_INVALID': 422,
+    'TEXTBOOK_PASSAGES_DISABLED': 404, 'TEXTBOOK_PASSAGE_NOT_FOUND': 404,
+    'TEXTBOOK_PASSAGES_UNAVAILABLE': 503, 'TEXTBOOK_PASSAGE_STALE': 409,
+    'TEXTBOOK_PAGE_NOT_FOUND': 404, 'TEXTBOOK_PAGE_UNAVAILABLE': 503,
+    'MATH_REFERENCE_NOT_FOUND': 404, 'STUDY_SUPPORT_NOT_FOUND': 404,
+    'MATH_REFERENCE_TEXTBOOK_UNAVAILABLE': 503, 'MATH_REFERENCE_UNAVAILABLE': 503,
+    'MATH_REFERENCE_VERSION_MISMATCH': 503, 'STUDY_SUPPORT_UNAVAILABLE': 503,
+}
+
+
+def service_error(result):
+    """Keep only a known code with its expected status; discard all other data."""
+    try:
+        error = strict_json(result.body).get('error')
+        code = error.get('code') if isinstance(error, dict) else None
+        if isinstance(code, str) and SERVICE_ERRORS.get(code) == result.status:
+            return code
+    except (ValueError, TypeError, RecursionError):
+        pass
+    return None
 
 
 @dataclass(frozen=True)
@@ -138,6 +196,7 @@ ROUTES['GET'].append(r'/api/v1/math-references')
 ROUTES['GET'].append(r'/api/v1/study-support')
 ROUTES['GET'].append(r'/api/v1/textbooks/(?:chinese|math|english|ethics|history|geography|physics|chemistry|biology)-g[27]-(?:upper|lower)/pages/[1-9][0-9]{0,2}/image')
 ROUTES['POST'].append(r'/api/v1/textbooks/search')
+ROUTES['GET'].append(r'/api/v1/textbooks/(?:chinese|math|english|ethics|history|geography|physics|chemistry|biology)-g[27]-(?:upper|lower)/passages/dd-excerpt-[a-f0-9]{64}(?:/image)?')
 
 
 def _cookies(request: Request) -> dict[str, str]:
@@ -185,29 +244,37 @@ def create_gateway(settings: GatewaySettings | None = None, transport=None) -> F
     app.state.settings, app.state.nonces = settings, nonces
 
     async def send(upstream, method, path, headers, body=b"", timeout=3, limit=65536):
+        component = ('TEXTBOOK_RETRIEVAL' if path == '/api/v1/retrieval/query/doc' else
+                     'AUTH_UPSTREAM' if upstream == settings.openwebui_url else 'LEARNING_UPSTREAM')
         try:
             result = await run_in_threadpool(transport.send, upstream, method, path, headers, body, timeout=timeout, limit=limit)
             if len(result.body) > limit or result.status < 100 or result.status >= 600:
                 raise ValueError()
             return result
+        except TimeoutError:
+            raise GatewayError(component + '_TIMEOUT', 504) from None
         except Exception:
             # Never echo exception text containing URLs, cookies or assertions.
-            raise GatewayError("AUTH_UPSTREAM_UNAVAILABLE" if upstream == settings.openwebui_url else "LEARNING_UPSTREAM_UNAVAILABLE", 503)
+            raise GatewayError(component + '_UNAVAILABLE', 503) from None
 
     async def identity(cookies):
         token = cookies.get("token")
         if not token:
             raise GatewayError("WEBUI_LOGIN_REQUIRED")
         result = await send(settings.openwebui_url, "GET", "/api/v1/auths/", {"Cookie": "token=" + token, "Accept": "application/json"})
-        if result.status != 200:
+        if result.status in {401, 403}:
             raise GatewayError("WEBUI_LOGIN_REJECTED")
+        if result.status != 200:
+            raise GatewayError("AUTH_UPSTREAM_UNAVAILABLE", 503)
         try:
             data = strict_json(result.body)
-            if not safe_reference(data.get("id")) or data.get("role") not in {"admin", "user"}:
+            if not safe_reference(data.get("id")) or not isinstance(data.get('role'), str):
                 raise ValueError()
+            if data['role'] not in {'admin', 'user'}:
+                raise GatewayError('WEBUI_LOGIN_REJECTED')
             return data["id"]
         except (ValueError, TypeError, RecursionError):
-            raise GatewayError("WEBUI_LOGIN_REJECTED")
+            raise GatewayError("AUTH_UPSTREAM_INVALID", 502) from None
 
     def origin(request):
         if request.headers.getlist("origin") != [settings.public_origin]:
@@ -223,11 +290,27 @@ def create_gateway(settings: GatewaySettings | None = None, transport=None) -> F
 
     @app.exception_handler(GatewayError)
     async def failure(request, exc):
-        response = JSONResponse({"error": {"code": exc.code, "message": "请重新登录学习工作区；若问题持续，请联系管理员。"}},
+        code = exc.code if exc.code in ERROR_RECOVERY else 'STUDY_REQUEST_UNAVAILABLE'
+        message, action, retryable = RECOVERY[ERROR_RECOVERY[code]]
+        request_id = request.state.study_request_id
+        LOGGER.warning('study_failure request_id=%s code=%s status=%s', request_id, code, exc.status)
+        response = JSONResponse({"error": {"code": code, "message": message,
+                                           "action": action, "retryable": retryable, "request_id": request_id}},
                                 status_code=exc.status, headers={"Cache-Control": "no-store"})
         if exc.status in {401, 403}:
             response.delete_cookie(SESSION_COOKIE, secure=True, httponly=True, samesite="strict", path="/")
             response.delete_cookie(CSRF_COOKIE, secure=True, samesite="strict", path="/")
+        return response
+
+    @app.middleware('http')
+    async def request_correlation(request, call_next):
+        # Ignore caller-supplied IDs; IDs never derive from cookies or identities.
+        request.state.study_request_id = 'ddreq_' + secrets.token_hex(16)
+        try:
+            response = await call_next(request)
+        except Exception:
+            response = await failure(request, GatewayError('STUDY_REQUEST_UNAVAILABLE', 503))
+        response.headers['X-DD-Request-ID'] = request.state.study_request_id
         return response
 
     @app.api_route("/{rest:path}", methods=["GET", "POST", "PATCH", "PUT", "DELETE", "HEAD", "OPTIONS"])
@@ -294,12 +377,23 @@ def create_gateway(settings: GatewaySettings | None = None, transport=None) -> F
                 response.headers.append("set-cookie", value)
             return response
         session_result = await send(settings.learning_url, "GET", "/api/v1/auth/session", {"Cookie": _learning_cookies(cookies)})
+        if session_result.status != 200:
+            code = service_error(session_result)
+            if code in {'BROWSER_LOGIN_REQUIRED', 'BROWSER_SESSION_INVALID', 'BROWSER_SESSION_EXPIRED'}:
+                raise GatewayError(code, 401)
+            if session_result.status in {401, 403}:
+                raise GatewayError('BROWSER_SESSION_INVALID', 401)
+            raise GatewayError('LEARNING_UPSTREAM_UNAVAILABLE', 503)
         try:
             session = strict_json(session_result.body)
-            if (session_result.status != 200 or session.get("server_context_mode") is not True
-                    or session.get("identity") != {"provider": settings.identity_provider, "issuer": settings.identity_issuer, "subject": subject}):
+            identity_data = session.get('identity')
+            if (session.get('server_context_mode') is not True or not isinstance(identity_data, dict)
+                    or set(identity_data) != {'provider', 'issuer', 'subject'}
+                    or not all(safe_reference(v) for v in identity_data.values())):
                 raise ValueError()
         except (ValueError, TypeError, RecursionError):
+            raise GatewayError('LEARNING_UPSTREAM_INVALID', 502) from None
+        if identity_data != {"provider": settings.identity_provider, "issuer": settings.identity_issuer, "subject": subject}:
             raise GatewayError("LEARNING_IDENTITY_MISMATCH")
         if path == "/api/v1/auth/session":
             session.pop("identity", None)
@@ -316,19 +410,49 @@ def create_gateway(settings: GatewaySettings | None = None, transport=None) -> F
         payload = await body_bytes(request, 4096 if path == '/api/v1/textbooks/search' else 25 * 1024 * 1024)
         target = path + ("?" + request.url.query if request.url.query else "")
         result = await send(settings.learning_url, request.method, target, headers, payload, timeout=30, limit=32 * 1024 * 1024)
+        study_route = path in {'/api/v1/textbooks', '/api/v1/textbooks/search', '/api/v1/math-references', '/api/v1/study-support'} or path.startswith('/api/v1/textbooks/')
+        if study_route and result.status >= 400:
+            code = service_error(result)
+            raise GatewayError(code or 'STUDY_REQUEST_UNAVAILABLE', result.status)
+        async def check_study_context():
+            checked = await send(settings.learning_url, 'GET', '/api/v1/auth/session',
+                                 headers, timeout=30, limit=65536)
+            if checked.status != 200:
+                raise GatewayError(service_error(checked) or 'LEARNING_UPSTREAM_UNAVAILABLE',
+                                   checked.status if checked.status >= 400 else 503)
+            current = strict_json(checked.body)
+            if (current.get('server_context_mode') is not True or not isinstance(current.get('identity'), dict)
+                    or any(k not in current for k in ('account_id', 'learner_id', 'context_version'))):
+                raise GatewayError('LEARNING_UPSTREAM_INVALID', 502)
+            if current['identity'] != identity_data or current['account_id'] != session.get('account_id'):
+                raise GatewayError('LEARNING_IDENTITY_MISMATCH')
+            if any(type(current[k]) is not type(session.get(k)) or current[k] != session.get(k)
+                   for k in ('learner_id', 'context_version')):
+                raise GatewayError('LEARNER_CONTEXT_CHANGED', 409)
+
+        if '/passages/' in path and result.status == 200:
+            try:
+                await check_study_context()
+            except (KeyError, ValueError, TypeError, RecursionError):
+                raise GatewayError('LEARNING_UPSTREAM_INVALID', 502)
         if path == '/api/v1/textbooks/search' and result.status == 200:
             try:
                 scope = strict_json(result.body)
                 if scope.get('mode') == 'browse':
                     return JSONResponse(chapter_references(scope), headers={'Cache-Control':'no-store'})
-                query_body = json.dumps({'collection_name':scope['book']['collection'],
-                                         'query':scope['query'],'k':40,'hybrid':False}).encode()
-                retrieved = await send(settings.openwebui_url, 'POST', '/api/v1/retrieval/query/doc',
-                    {'Cookie':'token='+cookies['token'],'Accept':'application/json','Content-Type':'application/json'},
-                    query_body, timeout=30, limit=256*1024)
-                if retrieved.status != 200:
-                    raise GatewayError('TEXTBOOK_RETRIEVAL_UNAVAILABLE', 503)
-                references = bounded_references(scope, strict_json(retrieved.body))
+                if scope.get('mode') == 'passages':
+                    references = scope
+                else:
+                    query_body = json.dumps({'collection_name':scope['book']['collection'],
+                                             'query':scope['query'],'k':SEARCH_CANDIDATE_LIMIT,'hybrid':False}).encode()
+                    retrieved = await send(settings.openwebui_url, 'POST', '/api/v1/retrieval/query/doc',
+                        {'Cookie':'token='+cookies['token'],'Accept':'application/json','Content-Type':'application/json'},
+                        query_body, timeout=30, limit=256*1024)
+                    if retrieved.status != 200:
+                        raise GatewayError('TEXTBOOK_RETRIEVAL_UNAVAILABLE', 503)
+                    references = bounded_references(scope, strict_json(retrieved.body), candidate_limit=SEARCH_CANDIDATE_LIMIT)
+                # A browser may switch profiles while the vector query is in flight.
+                await check_study_context()
             except (KeyError, ValueError, TypeError, RecursionError):
                 raise GatewayError('TEXTBOOK_RETRIEVAL_INVALID', 502)
             return JSONResponse(references, headers={'Cache-Control':'no-store'})

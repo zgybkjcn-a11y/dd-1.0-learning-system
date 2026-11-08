@@ -59,7 +59,9 @@ def decide(e, decision='approve', key='human-review', changes=None):
 
 def test_approve_is_atomic_private_frozen_idempotent_and_deliverable(review_env):
     s, db, c, h, job, detail = review_env
-    assert c.get('/api/v1/question-choices',headers=h).json()['items'] == [{'question_version_id':'source-v1','version':1,'variant_kind':'base','objective_id':'obj-1'}]
+    assert c.get('/api/v1/question-choices',headers=h).json()['items'] == [{
+        'question_version_id':'source-v1','version':1,'variant_kind':'base','objective_id':'obj-1',
+        'textbook_scope':None,'practice':None}]
     generic = c.get('/api/v1/jobs/'+job,headers=h)
     assert 'answer_key' not in generic.text and 'result_json' not in generic.text
     r = decide(review_env); assert r.status_code == 200

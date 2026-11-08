@@ -1,4 +1,4 @@
-"""Version-bound reference reads with synthetic accounts and public local PDFs."""
+"""Version-bound reference reads with synthetic accounts and generated PDFs."""
 from dataclasses import replace
 import hashlib
 import io
@@ -21,14 +21,13 @@ from test_learning_service import env
 from open_webui_harness import call_tool, load_tool_module, visible_parameters
 
 ROOT = Path(__file__).parents[1]
-PUBLIC_BOOKS = ROOT / 'learning_data/textbooks/pep-current-20261105'
 
 
 @pytest.fixture
-def reference_family(family):
+def reference_family(family, reference_textbooks):
     directory, db, client, headers = family
     install(db)
-    client.app.state.settings = replace(client.app.state.settings, textbook_dir=PUBLIC_BOOKS)
+    client.app.state.settings = replace(client.app.state.settings, textbook_dir=reference_textbooks)
     return directory, db, client, headers
 
 
@@ -144,23 +143,24 @@ def test_changed_reference_bank_and_original_pdf_are_rejected(reference_family, 
         response = query(reference_family)
         assert response.status_code == 503 and 'sensitive' not in response.text
     _, _, client, _ = reference_family
+    original_pdfs = client.app.state.settings.textbook_dir
     client.app.state.settings = replace(client.app.state.settings,textbook_dir=tmp_path)
     response = query(reference_family)
     assert response.json()['error']['code'] == 'MATH_REFERENCE_TEXTBOOK_UNAVAILABLE'
     (tmp_path/'math-g2-upper.pdf').write_bytes(b'Wrong original')
     assert query(reference_family).status_code == 503
     (tmp_path/'math-g2-upper.pdf').unlink()
-    (tmp_path/'math-g2-upper.pdf').symlink_to(PUBLIC_BOOKS/'math-g2-upper.pdf')
+    (tmp_path/'math-g2-upper.pdf').symlink_to(original_pdfs/'math-g2-upper.pdf')
     assert query(reference_family).status_code == 503
 
 
 def test_reference_query_is_read_only_and_avoids_student_material(reference_family):
-    _, db, _, _ = reference_family
+    _, db, client, _ = reference_family
     with db.session() as conn:
         conn.execute('PRAGMA query_only=ON')
         statements=[]
         conn.set_trace_callback(statements.append)
-        result=references.query_reference(conn,'family-g2','math-g2-v1',PUBLIC_BOOKS)
+        result=references.query_reference(conn,'family-g2','math-g2-v1',client.app.state.settings.textbook_dir)
         assert result['mapping_status']=='mapped'
         for forbidden in ('attempts','mistake_entries','browser_sessions','accounts','provider_calls'):
             assert not any(forbidden in sql for sql in statements)
@@ -271,12 +271,12 @@ def test_reference_tool_drops_stale_output_and_rejects_argument_injection(monkey
         assert json.loads(call())['error']['code']=='MATH_REFERENCE_SCOPE_INVALID'
 
 
-def test_gateway_forwards_reference_queries_without_retrieval_or_model_call(gateway_env):
+def test_gateway_forwards_reference_queries_without_retrieval_or_model_call(gateway_env, reference_textbooks):
     s,db,settings,bridge,client=gateway_env
     assert gateway_login(s,client)[0].status_code==303
     assert client.post('/learning/api/v1/learner-context',json={'learner_id':'learner-a','expected_revision':0},
                        headers={'Origin':s.browser_origin,'X-CSRF-Token':client.cookies.get('__Host-dd_learning_csrf')}).status_code==200
-    bridge.api.app.state.settings=replace(bridge.api.app.state.settings,textbook_dir=PUBLIC_BOOKS)
+    bridge.api.app.state.settings=replace(bridge.api.app.state.settings,textbook_dir=reference_textbooks)
     # This account has the synthetic g2 curriculum but no practice import.
     response=client.get('/learning/api/v1/math-references?chapter_id=2',headers={'X-Learner-Context-Version':'1'})
     assert response.status_code==200 and response.json()['mapping_status']=='unmapped'

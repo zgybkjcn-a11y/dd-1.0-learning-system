@@ -1,0 +1,676 @@
+{
+  "schema": "dd-a02-candidate-files-v1",
+  "prepared_at": "2026-11-07T17:59:26+08:00",
+  "path_base": "repository_root",
+  "base_commit": "deef3199f558ba72bbe3f2ff0c704586674a2232",
+  "branch": "main",
+  "delivery_state": "pending_commit",
+  "delivery_label": "已整理，待提交",
+  "commit_sha": null,
+  "units": [
+    {
+      "id": "U1",
+      "title": "证据候选与可移植测试",
+      "depends_on": [],
+      "commit_sha": null,
+      "files": [
+        ".github/workflows/tests.yml",
+        "conftest.py",
+        "deploy/open-webui-reuse/readonly_study_tools.py",
+        "learning_service/math_references.py",
+        "learning_service/study_support.py",
+        "learning_service/textbooks.py",
+        "pytest.ini",
+        "requirements-dev.lock",
+        "requirements-dev.txt",
+        "scripts/probe_readonly_study_native.py",
+        "scripts/textbook_passage_sample.py",
+        "tests/test_family_adventure_browser.py",
+        "tests/test_family_practice_browser.py",
+        "tests/test_local_textbook_materials.py",
+        "tests/test_main_study_bridge.py",
+        "tests/test_manual_objective_browser.py",
+        "tests/test_math_references.py",
+        "tests/test_readonly_study_tools.py",
+        "tests/test_study_support.py",
+        "tests/test_study_support_browser.py",
+        "tests/test_study_workbench_browser.py",
+        "tests/test_textbook_passage_sample.py",
+        "tests/test_textbooks.py",
+        "tests/test_variant_review.py"
+      ]
+    },
+    {
+      "id": "U2",
+      "title": "说明、计划与交付记录",
+      "depends_on": [
+        "U1"
+      ],
+      "commit_sha": null,
+      "files": [
+        "README.md",
+        "docs/PROJECT-REVIEW-2026-11-07.md",
+        "docs/README.md",
+        "docs/TESTING.md",
+        "docs/open-webui-reuse/README.md",
+        "docs/open-webui-reuse/main-chat-tools.md",
+        "docs/open-webui-reuse/textbook-evidence-chain.md",
+        "docs/plans/DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "docs/plans/DD-1.0-WORK-PLAN-2026-11-07.md",
+        "docs/plans/RESUME-NEXT-WORK.txt",
+        "docs/plans/dd-next-work-tracker.json",
+        "docs/releases/A02-candidate-delivery-2026-11-07.md",
+        "docs/releases/A02-candidate-files-2026-11-07.json",
+        "docs/releases/A02-local-material-backup-2026-11-07.md",
+        "docs/releases/README.md",
+        "docs/releases/current-manifest.json",
+        "docs/releases/current-state.md",
+        "docs/verification/A01-current-state-2026-11-07.md",
+        "docs/verification/A02-candidate-delivery-2026-11-07.md",
+        "docs/verification/A03-portable-tests-2026-11-07.md",
+        "docs/verification/textbook-evidence-2026-11-07.md",
+        "docs/verification/textbook-passages-2026-11-07.md"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "path": ".github/workflows/tests.yml",
+      "unit": "U1",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "c18a0d00f463c3eca01948c0fb24a9f8f8f7aad83909e9ad438da6d1e3427443",
+      "candidate_sha256": "c18a0d00f463c3eca01948c0fb24a9f8f8f7aad83909e9ad438da6d1e3427443",
+      "prior_observations": {}
+    },
+    {
+      "path": "README.md",
+      "unit": "U2",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "fe6d723bfd88067eab0f211d7cdb599e2fc3d0a2c9520bf3c001243be6c5386f",
+      "before_a02_sha256": "9a8b56176e81cfc7e69f4a3fab519253d2291af86af75f10f63d2ec2770d144b",
+      "candidate_sha256": "9a8b56176e81cfc7e69f4a3fab519253d2291af86af75f10f63d2ec2770d144b",
+      "prior_observations": {}
+    },
+    {
+      "path": "conftest.py",
+      "unit": "U1",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "61a6ac8b570fc012e8a811dab3703203818476989f6439bdfab268228efb44f2",
+      "candidate_sha256": "61a6ac8b570fc012e8a811dab3703203818476989f6439bdfab268228efb44f2",
+      "prior_observations": {}
+    },
+    {
+      "path": "deploy/open-webui-reuse/readonly_study_tools.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "733ad01dc38ed6b09fcae69047ff731e0eb83d59b0a2dd2432595a3508c6a650",
+      "before_a02_sha256": "34442c897e0fd98aebe9264f035704a1bbd3ad90351ea2e2f60ed0575bace778",
+      "candidate_sha256": "34442c897e0fd98aebe9264f035704a1bbd3ad90351ea2e2f60ed0575bace778",
+      "prior_observations": {
+        "before_A01": "34442c897e0fd98aebe9264f035704a1bbd3ad90351ea2e2f60ed0575bace778",
+        "before_A03": "34442c897e0fd98aebe9264f035704a1bbd3ad90351ea2e2f60ed0575bace778"
+      }
+    },
+    {
+      "path": "docs/PROJECT-REVIEW-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "3a1fa085108d50f49b0d6a0d072107bb9f99fccc61015795dd250d562813ea2b",
+      "candidate_sha256": "3a1fa085108d50f49b0d6a0d072107bb9f99fccc61015795dd250d562813ea2b",
+      "prior_observations": {
+        "before_A01": "3a1fa085108d50f49b0d6a0d072107bb9f99fccc61015795dd250d562813ea2b",
+        "before_A03": "3a1fa085108d50f49b0d6a0d072107bb9f99fccc61015795dd250d562813ea2b"
+      }
+    },
+    {
+      "path": "docs/README.md",
+      "unit": "U2",
+      "git_status": " M",
+      "a02_action": "updated_document",
+      "head_sha256": "e3d22915a439abed2af6fa0e576252f997f58717151a6904b9f4b1bf50cba65d",
+      "before_a02_sha256": "d332c5f5f277f47880088e6cedfb168276c3a0e0c69581aa8b22ef7c6f9bef78",
+      "candidate_sha256": "dd0c5eaac0f9a2d9227db567cedc3a65823f124838fbc7d689582d2f2515a742",
+      "prior_observations": {
+        "before_A01": "28fa1ce8a78e804ae21bfff9e67b1718de342d05a3449cceaf97bfffd4b5d899",
+        "before_A03": "5cdd9770b4ca4cffdbb8574c704a70062ddd5fe0a187d98d4d50971e69105028"
+      }
+    },
+    {
+      "path": "docs/TESTING.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "f19d4e10548be003e2644318a2b1e11b7384cf9057eea1af8fa9d94fccce181d",
+      "candidate_sha256": "f19d4e10548be003e2644318a2b1e11b7384cf9057eea1af8fa9d94fccce181d",
+      "prior_observations": {}
+    },
+    {
+      "path": "docs/open-webui-reuse/README.md",
+      "unit": "U2",
+      "git_status": " M",
+      "a02_action": "updated_document",
+      "head_sha256": "08b7354b75832e13168606f5e2e8b3fb917d67dfafead9454ab406cdfa135f66",
+      "before_a02_sha256": "63745f2c2cc30c5b576de498d184c904f93cc9626f1829812c0973a68947d4e8",
+      "candidate_sha256": "e25a0ddbec445f4f3abe8d18dd1dfd5c16096a8bf73cbd548fa333f083e67160",
+      "prior_observations": {
+        "before_A03": "8bb526849852f4ed63df710d4225eb21b6a7c63fc7e2be33c80b3252dcc58f85"
+      }
+    },
+    {
+      "path": "docs/open-webui-reuse/main-chat-tools.md",
+      "unit": "U2",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "c43434dbddac2c0f0b173e783c783175f858c20ae83d8b350011d7e7924654f5",
+      "before_a02_sha256": "d2cdb35f0b3a8932dafb5079ef1a814040ca5d5e9a3e7e1066e298130dd36e4a",
+      "candidate_sha256": "d2cdb35f0b3a8932dafb5079ef1a814040ca5d5e9a3e7e1066e298130dd36e4a",
+      "prior_observations": {
+        "before_A01": "d2cdb35f0b3a8932dafb5079ef1a814040ca5d5e9a3e7e1066e298130dd36e4a",
+        "before_A03": "d2cdb35f0b3a8932dafb5079ef1a814040ca5d5e9a3e7e1066e298130dd36e4a"
+      }
+    },
+    {
+      "path": "docs/open-webui-reuse/textbook-evidence-chain.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "790665afbd74870bfacc251504f9140dcc09027fb013152f7d02dbfc5b2b50df",
+      "candidate_sha256": "790665afbd74870bfacc251504f9140dcc09027fb013152f7d02dbfc5b2b50df",
+      "prior_observations": {
+        "before_A01": "790665afbd74870bfacc251504f9140dcc09027fb013152f7d02dbfc5b2b50df",
+        "before_A03": "790665afbd74870bfacc251504f9140dcc09027fb013152f7d02dbfc5b2b50df"
+      }
+    },
+    {
+      "path": "docs/plans/DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "updated_document",
+      "head_sha256": null,
+      "before_a02_sha256": "1797ea8b5e99f424ae6560be24bc12cde2db09a38809ac816eca82cf702fb5d7",
+      "candidate_sha256": "37b8cb02e7dede469202a507c88d32fc2b1762b56a995de88519cc3431ea5aea",
+      "prior_observations": {
+        "before_A01": "7fa78c47a8ebb17ea441b406af37cc99a8e68817314137214308acf5b8da0603",
+        "before_A03": "15ebeed63a8d88308cf1623db778d19addfee0725501f17687ddc835b675af71"
+      }
+    },
+    {
+      "path": "docs/plans/DD-1.0-WORK-PLAN-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "updated_document",
+      "head_sha256": null,
+      "before_a02_sha256": "9312990d7eade342943b9d521b6f1d6bbb0df0f850d0014e368564e89dff2d63",
+      "candidate_sha256": "461f3912e3a8f9c0bda621bab779d5e3d3879b2829c83cb3dadba6d1e5487714",
+      "prior_observations": {
+        "before_A01": "f03535d210268e7b0bc7b2a3a4bb1e286a59384f0fc8b69e05f94a11d936352b",
+        "before_A03": "5afb57cb9f2f64eb5933954b997679a2b8f9fd38b4ce1938f1936fef95e5062c"
+      }
+    },
+    {
+      "path": "docs/plans/RESUME-NEXT-WORK.txt",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "updated_document",
+      "head_sha256": null,
+      "before_a02_sha256": "72f5dc2f8a7018c188eb8d706314d5ef9b7b6e9495642ac75ac56e33ab34a6f3",
+      "candidate_sha256": "584683a7b860bd533f3b754b77c0d20c44f2b87b344bd5cb41410b4fad0ff780",
+      "prior_observations": {
+        "before_A01": "ce53214009412412f526401f02395820871f5ba0bdec3c86d928a074a13aa6b3",
+        "before_A03": "ce9519e8b1b6034ff6010d158434eda94b41c102f9dbb3afcab55a957bb3080e"
+      }
+    },
+    {
+      "path": "docs/plans/dd-next-work-tracker.json",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "updated_document",
+      "head_sha256": null,
+      "before_a02_sha256": "c9dbd8a04f534ef30e5d7275345e6f5bed1540c0f822494414a32964fcda64d3",
+      "candidate_sha256": "186204b9d38d84c324cf5d55d54c0ba4375ef58ef18347502853759f539d9591",
+      "prior_observations": {
+        "before_A01": "8bdd0e2890a810ef8fb1b13df431d9eda9a0f74c0250bb99ec77794cac81a63b",
+        "before_A03": "a83a76d9d70f4910316f910124ff1a09e47ce338a674a7849e23ec995044297c"
+      }
+    },
+    {
+      "path": "docs/releases/A02-candidate-delivery-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "new_document",
+      "head_sha256": null,
+      "before_a02_sha256": null,
+      "candidate_sha256": "cf985adf5db287d7bde1a371fce2e71fdded6e441f8ebb787288b586f68c707f",
+      "prior_observations": {}
+    },
+    {
+      "path": "docs/releases/A02-candidate-files-2026-11-07.json",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "new_document",
+      "head_sha256": null,
+      "before_a02_sha256": null,
+      "candidate_sha256": null,
+      "prior_observations": {}
+    },
+    {
+      "path": "docs/releases/A02-local-material-backup-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "new_document",
+      "head_sha256": null,
+      "before_a02_sha256": null,
+      "candidate_sha256": "1c769c950887eaee270bb51edbf31a8f5ac7d03a55ff142e8b6320b6768816c8",
+      "prior_observations": {}
+    },
+    {
+      "path": "docs/releases/README.md",
+      "unit": "U2",
+      "git_status": " M",
+      "a02_action": "updated_document",
+      "head_sha256": "bb5389775f6f1fe02ce832962d6405ae58dffdce9538914f74bc76ff0e8c53c0",
+      "before_a02_sha256": "d3dfff7b7c5636b76387a33f9b16fd309bd03a68292f7a1fb76f528cb5cc83fe",
+      "candidate_sha256": "660f2416c527adfa437ceb12f0651a4c092f26a50238410f102995b9f077f3d0",
+      "prior_observations": {
+        "before_A03": "d3dfff7b7c5636b76387a33f9b16fd309bd03a68292f7a1fb76f528cb5cc83fe"
+      }
+    },
+    {
+      "path": "docs/releases/current-manifest.json",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "updated_document",
+      "head_sha256": null,
+      "before_a02_sha256": "7eec74fc95e6b2dc44fbde1f2e9443b6cbd6f0b3c46934cc6122b27d1ec97fe0",
+      "candidate_sha256": "24ab1751a31957205d6990dbb174adbefd11af372672cbea016a104c5f9eef5e",
+      "prior_observations": {
+        "before_A03": "3eac7eb8248bba27ce4e2c07df07a2c4e08e6cff45cb3252974bd086ea7a72c5"
+      }
+    },
+    {
+      "path": "docs/releases/current-state.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "updated_document",
+      "head_sha256": null,
+      "before_a02_sha256": "7bc1025e7372166f2a3b47d4c0669c0844266f42ebc8231b6abfd9827dfe52cf",
+      "candidate_sha256": "df05fd98a581a907a848d4217ec19b22b16573f4ea5cfa8c7624371401afaf98",
+      "prior_observations": {
+        "before_A03": "3e404b469ae88d2c897bb879be5c62a762dbcf6835b53abd34956d520a335b88"
+      }
+    },
+    {
+      "path": "docs/verification/A01-current-state-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "a9243d98cd875c6f91e2c72f986519cea60121006a9d3eccb31fa98d44309946",
+      "candidate_sha256": "a9243d98cd875c6f91e2c72f986519cea60121006a9d3eccb31fa98d44309946",
+      "prior_observations": {
+        "before_A03": "a9243d98cd875c6f91e2c72f986519cea60121006a9d3eccb31fa98d44309946"
+      }
+    },
+    {
+      "path": "docs/verification/A02-candidate-delivery-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "new_document",
+      "head_sha256": null,
+      "before_a02_sha256": null,
+      "candidate_sha256": "a42cc921cfe9a42f5e4db9ac68a061290a3f89d503605c460912831b5f953828",
+      "prior_observations": {}
+    },
+    {
+      "path": "docs/verification/A03-portable-tests-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "7e898b598be47a278a074b96f364363dbd8f56e2d275b9b095f32a6b2157d2c0",
+      "candidate_sha256": "7e898b598be47a278a074b96f364363dbd8f56e2d275b9b095f32a6b2157d2c0",
+      "prior_observations": {}
+    },
+    {
+      "path": "docs/verification/textbook-evidence-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "7968b2395d58e33a3155fdbe83d5627566be7c02e4503c69008f26cb816a67b1",
+      "candidate_sha256": "7968b2395d58e33a3155fdbe83d5627566be7c02e4503c69008f26cb816a67b1",
+      "prior_observations": {
+        "before_A01": "7968b2395d58e33a3155fdbe83d5627566be7c02e4503c69008f26cb816a67b1",
+        "before_A03": "7968b2395d58e33a3155fdbe83d5627566be7c02e4503c69008f26cb816a67b1"
+      }
+    },
+    {
+      "path": "docs/verification/textbook-passages-2026-11-07.md",
+      "unit": "U2",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "81297dc01933df7200af4820922f4cc0a506ef7521c824ed5f8c4d2eeb67f848",
+      "candidate_sha256": "81297dc01933df7200af4820922f4cc0a506ef7521c824ed5f8c4d2eeb67f848",
+      "prior_observations": {
+        "before_A01": "81297dc01933df7200af4820922f4cc0a506ef7521c824ed5f8c4d2eeb67f848",
+        "before_A03": "81297dc01933df7200af4820922f4cc0a506ef7521c824ed5f8c4d2eeb67f848"
+      }
+    },
+    {
+      "path": "learning_service/math_references.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "9f413385bdcedc96993531046b86eebfd0f5eb9d756c9b6ac83454bff7615ec3",
+      "before_a02_sha256": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850",
+      "candidate_sha256": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850",
+      "prior_observations": {
+        "before_A01": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850",
+        "before_A03": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850"
+      }
+    },
+    {
+      "path": "learning_service/study_support.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "6e085279eebdfe2564058382c2dd57f0efa201d4e3f3379ea70ef480f7b81ab1",
+      "before_a02_sha256": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00",
+      "candidate_sha256": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00",
+      "prior_observations": {
+        "before_A01": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00",
+        "before_A03": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00"
+      }
+    },
+    {
+      "path": "learning_service/textbooks.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "12f0fab38b40293c216697f9b0dd977fab47f07f1b8494b7ace37200cc89b5aa",
+      "before_a02_sha256": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194",
+      "candidate_sha256": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194",
+      "prior_observations": {
+        "before_A01": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194",
+        "before_A03": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194"
+      }
+    },
+    {
+      "path": "pytest.ini",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "b160d82f7811555051f8966d8e02750a985227c1d022208c784e606946f2eada",
+      "before_a02_sha256": "5c2b785a961987c6a9615838d3915ecf876575a2946fc1e1d1a24ed70d94fb0e",
+      "candidate_sha256": "5c2b785a961987c6a9615838d3915ecf876575a2946fc1e1d1a24ed70d94fb0e",
+      "prior_observations": {}
+    },
+    {
+      "path": "requirements-dev.lock",
+      "unit": "U1",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "72c9bbe3e5c66b26a9e76a2cce533e3dcad079afddb9cc97f4c294f6cc87b18d",
+      "candidate_sha256": "72c9bbe3e5c66b26a9e76a2cce533e3dcad079afddb9cc97f4c294f6cc87b18d",
+      "prior_observations": {}
+    },
+    {
+      "path": "requirements-dev.txt",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "fe6fa71ce858880c3de1027e0ef8d9f4ff9d8898128853ec0fbac17dc01601bc",
+      "before_a02_sha256": "181daafd8482c19232ebc85e8765d0662876ffc79059819887829b5fab3c5252",
+      "candidate_sha256": "181daafd8482c19232ebc85e8765d0662876ffc79059819887829b5fab3c5252",
+      "prior_observations": {}
+    },
+    {
+      "path": "scripts/probe_readonly_study_native.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "b2b2d08d641d245902d2cf7e19d3a3e63220c5802a9c7ed93d93b56ec619e100",
+      "before_a02_sha256": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9",
+      "candidate_sha256": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9",
+      "prior_observations": {
+        "before_A01": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9",
+        "before_A03": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9"
+      }
+    },
+    {
+      "path": "scripts/textbook_passage_sample.py",
+      "unit": "U1",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "19c755ccf7d2e69897f0b3da1c032c4f89b18ba46bd68a296b0d25b8b9b46245",
+      "candidate_sha256": "19c755ccf7d2e69897f0b3da1c032c4f89b18ba46bd68a296b0d25b8b9b46245",
+      "prior_observations": {
+        "before_A01": "19c755ccf7d2e69897f0b3da1c032c4f89b18ba46bd68a296b0d25b8b9b46245",
+        "before_A03": "19c755ccf7d2e69897f0b3da1c032c4f89b18ba46bd68a296b0d25b8b9b46245"
+      }
+    },
+    {
+      "path": "tests/test_family_adventure_browser.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "f4da360b1f2e8adc5ee01f1d9bf16262ffcab6e34a8bcca80d67c50cab1adab7",
+      "before_a02_sha256": "27b2a43062c256fa72dbee01f9cc0daef232b9193dd061f137ee0f42bcd75b0b",
+      "candidate_sha256": "27b2a43062c256fa72dbee01f9cc0daef232b9193dd061f137ee0f42bcd75b0b",
+      "prior_observations": {}
+    },
+    {
+      "path": "tests/test_family_practice_browser.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "a0cf9cc576b706f49b14dc7ca9d5ad0affd7d32d980398962051ba720a77c777",
+      "before_a02_sha256": "6d73e4c8ee58337b4a10cce9347c726bbf2f4a219e3c5ab59686f27816a32a8f",
+      "candidate_sha256": "6d73e4c8ee58337b4a10cce9347c726bbf2f4a219e3c5ab59686f27816a32a8f",
+      "prior_observations": {}
+    },
+    {
+      "path": "tests/test_local_textbook_materials.py",
+      "unit": "U1",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "9ff682ca2e85ee6213dadc6d45b4e508e050f298c9447eb9633335012ed770b3",
+      "candidate_sha256": "9ff682ca2e85ee6213dadc6d45b4e508e050f298c9447eb9633335012ed770b3",
+      "prior_observations": {}
+    },
+    {
+      "path": "tests/test_main_study_bridge.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "e80047a732a20d729d3f83f3a6d71aba434184d6d5d8d21ba5b74c43c7084695",
+      "before_a02_sha256": "02d739e561b0780fc102492f641296e6f7f091fa0410317d715d0ee3ed26e152",
+      "candidate_sha256": "02d739e561b0780fc102492f641296e6f7f091fa0410317d715d0ee3ed26e152",
+      "prior_observations": {}
+    },
+    {
+      "path": "tests/test_manual_objective_browser.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "77944bbd84c074175997fea06c6df1808997bd117c5f600deba9fe750dde8db7",
+      "before_a02_sha256": "4dde96bfa3748f8b55ba004d393ea7bbc1e6348c5f2e179d18c66e8bd74870fc",
+      "candidate_sha256": "4dde96bfa3748f8b55ba004d393ea7bbc1e6348c5f2e179d18c66e8bd74870fc",
+      "prior_observations": {}
+    },
+    {
+      "path": "tests/test_math_references.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "6f69acca647b0a4c9debcb68e2eabe3133209cb16141aef8cf31eb1f150613d2",
+      "before_a02_sha256": "2d42b59a728c14d51062c19cd6ca98fbaa4519e779b14fb60676e8ced8d430ba",
+      "candidate_sha256": "2d42b59a728c14d51062c19cd6ca98fbaa4519e779b14fb60676e8ced8d430ba",
+      "prior_observations": {}
+    },
+    {
+      "path": "tests/test_readonly_study_tools.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "c310fb5f9fe5ec80d7f296f2b2c580c792b3b93736cb86f7b9a8bba3bd211d1a",
+      "before_a02_sha256": "3f2b10c33a4810ee7393b981e8bf8b81b1fbae98974b623513e5c3e56ffbb8f3",
+      "candidate_sha256": "3f2b10c33a4810ee7393b981e8bf8b81b1fbae98974b623513e5c3e56ffbb8f3",
+      "prior_observations": {
+        "before_A01": "dc181a0d44a57e6fb05a11a0781d8f404eae69af2ff2afad1963305335743784",
+        "before_A03": "dc181a0d44a57e6fb05a11a0781d8f404eae69af2ff2afad1963305335743784"
+      }
+    },
+    {
+      "path": "tests/test_study_support.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "c717f75d8a5015bf60dad5e7b0f6156ce43e6cf317f14b6efbdee643a6ac5e0c",
+      "before_a02_sha256": "73beba24bbd5f1fe71d6b7cee9c5fe04262431b1dbdfae23d5d86c6aafa67e73",
+      "candidate_sha256": "73beba24bbd5f1fe71d6b7cee9c5fe04262431b1dbdfae23d5d86c6aafa67e73",
+      "prior_observations": {}
+    },
+    {
+      "path": "tests/test_study_support_browser.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "9e7944e599e26a24a899251dc4b72594b865c9634e2ce6dc78a30c92fd887e0a",
+      "before_a02_sha256": "58e83296d5a6ef4da2fd95dd3411ecfd193ca6ef8fae4c1219adf50fe8da169e",
+      "candidate_sha256": "58e83296d5a6ef4da2fd95dd3411ecfd193ca6ef8fae4c1219adf50fe8da169e",
+      "prior_observations": {}
+    },
+    {
+      "path": "tests/test_study_workbench_browser.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "6e7ba9c9b48a86c30e06d671e53ba1a8253c0a975d910e91280df9a96df108a3",
+      "before_a02_sha256": "23c49b2b8499b3f40e7917c4a713a8a1c0f80a6aac2b5299b40791dc37076a24",
+      "candidate_sha256": "23c49b2b8499b3f40e7917c4a713a8a1c0f80a6aac2b5299b40791dc37076a24",
+      "prior_observations": {}
+    },
+    {
+      "path": "tests/test_textbook_passage_sample.py",
+      "unit": "U1",
+      "git_status": "??",
+      "a02_action": "preserved",
+      "head_sha256": null,
+      "before_a02_sha256": "57073e63756799f02150612228a0bc28ab4bea2b0addf416e1bf1947269c61bf",
+      "candidate_sha256": "57073e63756799f02150612228a0bc28ab4bea2b0addf416e1bf1947269c61bf",
+      "prior_observations": {
+        "before_A01": "57073e63756799f02150612228a0bc28ab4bea2b0addf416e1bf1947269c61bf",
+        "before_A03": "57073e63756799f02150612228a0bc28ab4bea2b0addf416e1bf1947269c61bf"
+      }
+    },
+    {
+      "path": "tests/test_textbooks.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "6bee688da6265ffb9482884a13cfc1a020f4c7e4e3482a0bcb2480f9be4a7f85",
+      "before_a02_sha256": "59ea4e82d2b2d1e648d3e8f2d4252eae2ecba2183ebe41904ff6c8fd8012c9c1",
+      "candidate_sha256": "59ea4e82d2b2d1e648d3e8f2d4252eae2ecba2183ebe41904ff6c8fd8012c9c1",
+      "prior_observations": {
+        "before_A01": "1b915759b5100ab130c36e657d0f639063da66679d49314a1d9a186b61b80bd1",
+        "before_A03": "1b915759b5100ab130c36e657d0f639063da66679d49314a1d9a186b61b80bd1"
+      }
+    },
+    {
+      "path": "tests/test_variant_review.py",
+      "unit": "U1",
+      "git_status": " M",
+      "a02_action": "preserved",
+      "head_sha256": "83f9617b8066043efdb31e731de418741ea779aa560aaad3decb0eeaac836713",
+      "before_a02_sha256": "d556c2c4f72821684c4fd4d7aeecf19d51bafc6340c5a891610a6ec7176567aa",
+      "candidate_sha256": "d556c2c4f72821684c4fd4d7aeecf19d51bafc6340c5a891610a6ec7176567aa",
+      "prior_observations": {}
+    }
+  ],
+  "hash_scope": "固定本批候选；本清单自身 candidate_sha256=null，真实字节哈希在忽略目录 review-packet/MANIFEST.json。后续变化须另记增量或建立新清单。",
+  "evidence_directory": "learning_data/verification/a02-candidate-delivery-20261107T095108Z",
+  "test_evidence": {
+    "report": "docs/verification/A03-portable-tests-2026-11-07.md",
+    "binding_check": "learning_data/verification/a02-candidate-delivery-20261107T095108Z/source-evidence-verification.json",
+    "unit_passed": 503,
+    "browser_passed": 12,
+    "rerun_in_A02": false,
+    "real_materials": "not_run",
+    "remote_ci": "not_run"
+  },
+  "already_committed": {
+    "commit": "deef3199f558ba72bbe3f2ff0c704586674a2232",
+    "state": "committed_not_deployed",
+    "next_task": "A09",
+    "files": [
+      {
+        "path": "deploy/open-webui-reuse/main-study/study.js",
+        "sha256": "fe26d4d4ae6834944fd093d9954808b118b7706daeb1aa42df459090cf75518d"
+      },
+      {
+        "path": "deploy/open-webui-reuse/main-study/study.css",
+        "sha256": "952fddccb9e5366d350b0bd9bebf88fe76ebeea6861bed9b6d9fa7e697af292a"
+      },
+      {
+        "path": "deploy/open-webui-reuse/main-study/family-bridge.js",
+        "sha256": "8bfe564373befe4d3bb64cfc4d91b67880545217f00d293da415938cce4f0347"
+      },
+      {
+        "path": "deploy/open-webui-reuse/main-study/SOURCES.md",
+        "sha256": "821e16cbb26f44b01675dd6e8211c1f77c0380b43771734df3bc9d1b2cf2ca7f"
+      },
+      {
+        "path": "deploy/open-webui-reuse/main-study/vendor/THIRD-PARTY-LICENSES.txt",
+        "sha256": "6dff51accc52d7ed3798a27626a2b0d7c3a7bca7766bb61240b11eda3894858b"
+      },
+      {
+        "path": "deploy/open-webui-reuse/main-study/vendor/manifest.json",
+        "sha256": "687970b592578c81d984ab0502a1250c6c2f057740d1b347c74244221b2ef20b"
+      },
+      {
+        "path": "deploy/open-webui-reuse/main-study/vendor/mermaid-11.12.1-LICENSE.txt",
+        "sha256": "ec9fb67dcb25eccc416ed56e1aab819222c805a2a4bfe4cb19e7556bf2ffde80"
+      },
+      {
+        "path": "deploy/open-webui-reuse/main-study/vendor/mermaid-11.12.1-NOTICES.txt",
+        "sha256": "5dda3fe2b170fbca6f2514f493daec2d624f7061d1c1276f9c9fbed6503d7828"
+      },
+      {
+        "path": "deploy/open-webui-reuse/main-study/vendor/mermaid-11.12.1.min.js",
+        "sha256": "198b19442f86f0b46a17e56d3abf744c3a28a3427e66fa8dada3b589a77babcc"
+      }
+    ]
+  },
+  "excluded": [
+    "learning_data/**",
+    "data/**",
+    "backups/**",
+    "exports/**",
+    "attachments/**",
+    ".env*",
+    "*.db*",
+    "*.sqlite*",
+    "docker-compose.yml",
+    "batch_ingest.py",
+    "textbook PDFs/page images/quoted passages/preview bundles"
+  ],
+  "local_material_inventory": "learning_data/verification/a02-candidate-delivery-20261107T095108Z/local-material-inventory.json",
+  "new_material_backup": false,
+  "restore_verified": false,
+  "next_task": "A04"
+}

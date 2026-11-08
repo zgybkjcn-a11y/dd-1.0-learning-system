@@ -1,5 +1,17 @@
 # DD-1.0 固定候选与正式认证准备
 
+最新执行（2026-11-08）：A09 本地静态交付准备已完成，工程 ready，发布与家长设备验收 pending，总状态 open；下一项可继续 **B01**。[本地验收](../verification/A09-static-samples-2026-11-08.md)记录 30 项定向检查和隔离 nginx 候选 4 / 回退 3 条路由通过；[交付与设备检查表](../open-webui-reuse/static-samples-delivery.md)已就绪。九文件固定提交与旧样本一致，当前 A07 桥接未混入。以下各批次更新保留历史语境。
+
+A08[维护机制本地验收](../verification/A08-tool-lifecycle-2026-11-07.md)完成，54项与固定WebUI原生schema/历史/六方法缓存通过。维护包独立交付，A07服务release包不改；[操作单](../open-webui-reuse/tool-upgrade-rollback.md)。未正式应用，下一项 **A09**。
+
+A07 当前增量已完成[本地接入验收](../verification/A07-runtime-passages-2026-11-07.md)，Tool候选 **1.2.0**、默认关闭，73 paths / 35 schemas；新增 `reuse-runtime-textbook-passages-v1`，旧profile仍可验证。配置与材料见[运行说明](../open-webui-reuse/textbook-passages-runtime.md)，未提交/部署。下一项 **A08**；下方各批次结果保留历史语境。
+
+当前交付请先看[状态与兼容清单](current-state.md)、[机器清单](current-manifest.json)与[A01 核对记录](../verification/A01-current-state-2026-11-07.md)。下面是 11-03/11-04 各轮封包准备的历史说明；旧 profile、文件数、image_digest=null 和“未部署”只描述当时封包阶段，不替代独立构建、发布和当前运行证据。
+
+A02 已整理[两组源码交付单](A02-candidate-delivery-2026-11-07.md)、[逐文件清单](A02-candidate-files-2026-11-07.json)及[本地材料备份说明](A02-local-material-backup-2026-11-07.md)，[本地整理验收](../verification/A02-candidate-delivery-2026-11-07.md)通过，待提交。A04 后续增量已完成[本地验收](../verification/A04-study-errors-2026-11-07.md)，552 项单元/契约及原生 Tool 六方法通过；Tool 当时候选 1.1.1。A02 清单及审阅包保留当时快照，当前增量见机器清单的 study_errors_candidate/source_delivery。A06 [评测交付](../verification/A06-retrieval-evaluation-2026-11-07.md)已完成，独立增量见机器清单 retrieval_evaluation_candidate/source_delivery；新试点质量未达标。A05 [本地验收](../verification/A05-chapter-retrieval-2026-11-07.md)已通过，Tool 当前候选 1.1.2；补充集召回 20/20、拒绝 10/10、泄漏 0/10，旧整册检索仍 incomplete。A05 增量单独保存。A05 当时下一项 A07；已有三个静态样本继续按 A09 独立处理。
+
+## 历史候选封包说明
+
 源码候选manifest与独立构建证据分开保存；W07已有固定基础OCI与16个hash锁定依赖的本地无缓存构建，尚未发布镜像或部署生产。P0 仍运行此前 schema 7 快照；当前工作树新增migration011后为schema11，不能沿用 P0 的源码/契约一致结论。候选包含既有未提交改动，Git HEAD 单独不能代表它。
 
 运行 `python3 scripts/prepare_learning_release.py prepare --destination learning_data/release-preparation/<新目录>` 会只读取 38个白名单源码/契约/模板/说明文件，生成确定性 `source.tar.gz`、逐文件 SHA-256、源码集合与归档校验和。目录必须全新，不覆盖已有文件。`verify --destination ...` 只在归档内核对固定文件集合与校验和，不解压、不构建、不启动服务。校验和提供一致性证据；此包尚未签名。

@@ -1,0 +1,1578 @@
+{
+  "schema": "dd-current-delivery-manifest-v1",
+  "task_id": "A08",
+  "observed_at": "2026-11-07T23:19:36+08:00",
+  "timezone": "Asia/Shanghai",
+  "path_base": "repository_root",
+  "unknown_policy": "null 表示未核对或未知，具体原因见相邻说明；历史事实不冒充本次运行验收。",
+  "state_document": "docs/releases/current-state.md",
+  "verification_report": "docs/verification/A01-current-state-2026-11-07.md",
+  "observation_record": {
+    "path": "learning_data/verification/a01-current-state-20261107T0858Z/observations.json",
+    "sha256": "7a1e1ccfcc08afd750baa05c50879feedbc2f4276192d46f02eccfa073e2841e"
+  },
+  "workspace": {
+    "branch": "main",
+    "git_head": "deef3199f558ba72bbe3f2ff0c704586674a2232",
+    "local_origin_main": "deef3199f558ba72bbe3f2ff0c704586674a2232",
+    "remote_queried": false,
+    "has_uncommitted_changes": true,
+    "input_observed_at": "2026-11-07T08:58:39.337618+00:00",
+    "input_dirty_files": [
+      {
+        "path": "deploy/open-webui-reuse/readonly_study_tools.py",
+        "git_status": " M",
+        "sha256": "34442c897e0fd98aebe9264f035704a1bbd3ad90351ea2e2f60ed0575bace778"
+      },
+      {
+        "path": "docs/README.md",
+        "git_status": " M",
+        "sha256": "28fa1ce8a78e804ae21bfff9e67b1718de342d05a3449cceaf97bfffd4b5d899"
+      },
+      {
+        "path": "docs/open-webui-reuse/main-chat-tools.md",
+        "git_status": " M",
+        "sha256": "d2cdb35f0b3a8932dafb5079ef1a814040ca5d5e9a3e7e1066e298130dd36e4a"
+      },
+      {
+        "path": "learning_service/math_references.py",
+        "git_status": " M",
+        "sha256": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850"
+      },
+      {
+        "path": "learning_service/study_support.py",
+        "git_status": " M",
+        "sha256": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00"
+      },
+      {
+        "path": "learning_service/textbooks.py",
+        "git_status": " M",
+        "sha256": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194"
+      },
+      {
+        "path": "scripts/probe_readonly_study_native.py",
+        "git_status": " M",
+        "sha256": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9"
+      },
+      {
+        "path": "tests/test_readonly_study_tools.py",
+        "git_status": " M",
+        "sha256": "dc181a0d44a57e6fb05a11a0781d8f404eae69af2ff2afad1963305335743784"
+      },
+      {
+        "path": "tests/test_textbooks.py",
+        "git_status": " M",
+        "sha256": "1b915759b5100ab130c36e657d0f639063da66679d49314a1d9a186b61b80bd1"
+      },
+      {
+        "path": "docs/PROJECT-REVIEW-2026-11-07.md",
+        "git_status": "??",
+        "sha256": "3a1fa085108d50f49b0d6a0d072107bb9f99fccc61015795dd250d562813ea2b"
+      },
+      {
+        "path": "docs/open-webui-reuse/textbook-evidence-chain.md",
+        "git_status": "??",
+        "sha256": "790665afbd74870bfacc251504f9140dcc09027fb013152f7d02dbfc5b2b50df"
+      },
+      {
+        "path": "docs/plans/DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
+        "git_status": "??",
+        "sha256": "7fa78c47a8ebb17ea441b406af37cc99a8e68817314137214308acf5b8da0603"
+      },
+      {
+        "path": "docs/plans/DD-1.0-WORK-PLAN-2026-11-07.md",
+        "git_status": "??",
+        "sha256": "f03535d210268e7b0bc7b2a3a4bb1e286a59384f0fc8b69e05f94a11d936352b"
+      },
+      {
+        "path": "docs/plans/RESUME-NEXT-WORK.txt",
+        "git_status": "??",
+        "sha256": "ce53214009412412f526401f02395820871f5ba0bdec3c86d928a074a13aa6b3"
+      },
+      {
+        "path": "docs/plans/dd-next-work-tracker.json",
+        "git_status": "??",
+        "sha256": "8bdd0e2890a810ef8fb1b13df431d9eda9a0f74c0250bb99ec77794cac81a63b"
+      },
+      {
+        "path": "docs/verification/textbook-evidence-2026-11-07.md",
+        "git_status": "??",
+        "sha256": "7968b2395d58e33a3155fdbe83d5627566be7c02e4503c69008f26cb816a67b1"
+      },
+      {
+        "path": "docs/verification/textbook-passages-2026-11-07.md",
+        "git_status": "??",
+        "sha256": "81297dc01933df7200af4820922f4cc0a506ef7521c824ed5f8c4d2eeb67f848"
+      },
+      {
+        "path": "scripts/textbook_passage_sample.py",
+        "git_status": "??",
+        "sha256": "19c755ccf7d2e69897f0b3da1c032c4f89b18ba46bd68a296b0d25b8b9b46245"
+      },
+      {
+        "path": "tests/test_textbook_passage_sample.py",
+        "git_status": "??",
+        "sha256": "57073e63756799f02150612228a0bc28ab4bea2b0addf416e1bf1947269c61bf"
+      }
+    ],
+    "hash_scope": "A01 开始前 19 个未提交/未跟踪文件；本批文档会变化，非结束时全工作树哈希，也不代表线上源码。",
+    "baseline_record": {
+      "path": "learning_data/verification/a01-current-state-20261107T0858Z/workspace-before.json",
+      "sha256": "0e8778f5a6d2d04e9e2cf3778442f4bde286228103dee6a8d94477825822c22b"
+    },
+    "a03_input_record": {
+      "path": "learning_data/verification/a03-portable-tests-20261107T091348Z/workspace-before.json",
+      "sha256": "e03c8c6e9b6ba5efe5f92c5990700c03d43e9c2065e226a09f1ec9e28f656a03"
+    },
+    "a02_input_record": {
+      "path": "learning_data/verification/a02-candidate-delivery-20261107T095108Z/workspace-before.json",
+      "sha256": "8c451b86dedda8d5b3af39dfbbddda540549535600b7a8c8da5b04e05b85ec99"
+    },
+    "a04_input_record": {
+      "path": "learning_data/verification/a04-study-errors-20261107T101647Z/workspace-before.json",
+      "sha256": "f0f855a0f5dd7ec737fcaaf4a7e658d243c69af38910bece442b4408ea4c0219"
+    },
+    "a06_input_record": {
+      "path": "learning_data/verification/a06-retrieval-evaluation-20261107T125008Z/workspace-before.json",
+      "sha256": "9552bb9bb5e35c93b05ee8985bee038801232da80f9e23c02522d8e450f069fc"
+    },
+    "a05_input_record": {
+      "path": "/home/deniskorfei/projects/open-webui/learning_data/verification/a05-chapter-retrieval-20261107T131135Z/workspace-before.json",
+      "sha256": "fb6caf16b007f8559462a0c46f9e80f59beee909c6f7092890cf54aa0ac171a3"
+    }
+  },
+  "components": {
+    "family_service": {
+      "state": "deployed",
+      "checked_at": "2026-11-07T17:00:53+08:00",
+      "evidence_basis": "targeted_container_observation_and_historical_build_record",
+      "image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+      "compose": {
+        "path": "learning_data/deployments/family-math-20261105/compose-main-study-20261106.json",
+        "sha256": "14aea4914267865bc7e43c5530b31477138bf582c8990895a340cd1b5b21600d"
+      },
+      "containers": [
+        {
+          "name": "/dd-family-math-learning-api-1",
+          "id": "c5c33e53f1d8c4ef591714cf1b9f39db92728bb66b5a5fb778ef5a9c2daf3bf6",
+          "image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+          "configured_image": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+          "status": "running",
+          "started_at": "2026-11-06T15:27:02.332499123Z",
+          "health": "healthy"
+        },
+        {
+          "name": "/dd-family-math-learning-gateway-1",
+          "id": "adbd59e120daf45063d55ea2941a2ac2f3e2c6368ca187d6d27a757ac235218a",
+          "image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+          "configured_image": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+          "status": "running",
+          "started_at": "2026-11-06T15:27:08.88539056Z",
+          "health": null
+        },
+        {
+          "name": "/dd-family-math-learning-worker-1",
+          "id": "7cd1abfce2d8a36601b21f50034c62081569aab69aee0d729304b1d726f00f60",
+          "image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+          "configured_image": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+          "status": "running",
+          "started_at": "2026-11-06T15:27:09.321933966Z",
+          "health": null
+        }
+      ],
+      "source": {
+        "manifest_path": "learning_data/releases/dd-study-workbench-20261106-source-v2/manifest.json",
+        "manifest_sha256": "f63c213ebfc70d729dd34611b573f8180a4bae2a18cf30d91047f4830f3b371a",
+        "archive_path": "learning_data/releases/dd-study-workbench-20261106-source-v2/source.tar.gz",
+        "actual_archive_sha256": "baf54a0124c02bfe61047346cd9e4dc524a868cfa673c8d41270110276907b8e",
+        "build_record_path": "learning_data/verification/study-workbench-20261106/build/build.json",
+        "build_record_sha256": "9eace405f1ddecd88cdfd6fe715a820608fe4c7057151d9c830a2f36cfbaf3b6",
+        "git_head": "0fa02712ceda049b14d4b556faef3fdb2fa985ed",
+        "worktree_dirty": true,
+        "source_profile": "reuse-runtime-study-workbench-v1",
+        "source_set_sha256": "ad18b0aa5e0670e694939facb018ab5ca8380fa04849e1f71347f03e8bd9b727",
+        "archive_sha256": "baf54a0124c02bfe61047346cd9e4dc524a868cfa673c8d41270110276907b8e",
+        "schema_revision": 11,
+        "image_digest": null,
+        "source_file_count": 70,
+        "build_image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+        "registry_image_digest": null,
+        "source_matches_build": true,
+        "image_matches_running": true
+      },
+      "runtime_schema_revision": null,
+      "runtime_schema_note": "封包声明 schema11，本次未读运行数据库；未重新构建或逐文件读取运行容器。",
+      "evidence": [
+        "docs/verification/study-workbench-2026-11-06.md",
+        "docs/verification/A01-current-state-2026-11-07.md"
+      ],
+      "rollback": {
+        "target_image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+        "status": "retain_current_version_for_future_upgrade",
+        "recovery_acceptance": "pending_B07",
+        "instructions": "保留当前 Compose 与镜像。未来升级按对应候选和数据版本回退，不用历史 Compose 整栈覆盖。"
+      }
+    },
+    "open_webui": {
+      "state": "deployed",
+      "checked_at": "2026-11-07T17:00:53+08:00",
+      "evidence_basis": "targeted_container_observation_version_from_historical_evidence",
+      "container": {
+        "name": "/open-webui",
+        "id": "85f4f281f82f9e0629959d4f5ca8237e9ab71776c9ae60a410582f3ef7b9c16f",
+        "image_id": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
+        "configured_image": "ghcr.io/open-webui/open-webui:main",
+        "status": "running",
+        "started_at": "2026-11-03T05:36:24.203201071Z",
+        "health": "healthy"
+      },
+      "version": "0.12.5",
+      "version_evidence": "docs/verification/main-chat-study-2026-11-07.md",
+      "current_source_git_sha": null,
+      "unknown_reason": "本次仅定向检查容器镜像/运行状态，未读取应用或正式 data。",
+      "evidence": [
+        "docs/verification/A01-current-state-2026-11-07.md",
+        "docs/verification/main-chat-study-2026-11-07.md"
+      ],
+      "rollback": {
+        "status": "not_changed",
+        "instructions": "保留现有主站；不以旧 P0 容器替换。"
+      }
+    },
+    "proxy": {
+      "state": "deployed",
+      "checked_at": "2026-11-07T17:00:53+08:00",
+      "evidence_basis": "targeted_container_and_configuration_observation",
+      "container": {
+        "name": "/dd-family-math-learning-proxy-1",
+        "id": "e241a79ffa3b6325b8bec45023a13bc0e7ddcf8d2308bd6ab3d3967c8ddba356",
+        "image_id": "sha256:1d13701a5f9f3fb01aaa88cef2344d65b6b5bf6b7d9fa4cf0dca557a8d7702ba",
+        "configured_image": "nginx@sha256:1d13701a5f9f3fb01aaa88cef2344d65b6b5bf6b7d9fa4cf0dca557a8d7702ba",
+        "status": "running",
+        "started_at": "2026-11-06T15:47:21.812625111Z",
+        "health": null
+      },
+      "config": {
+        "path": "learning_data/deployments/family-math-20261105/main-study-20261106/nginx.conf",
+        "sha256": "fcb3e8131090dbc5f89ad2b07186b0d17b897658a1c8cf9e18562bd3b7d0676a",
+        "static_aliases": [
+          "/opt/dd-main-study/chat-20261107/family-bridge.js",
+          "/opt/dd-main-study/chat-20261107/study.js",
+          "/opt/dd-main-study/chat-20261107/study.css"
+        ],
+        "main_upstream": "http://open-webui:8080",
+        "proxy_pass": "variable $webui"
+      },
+      "evidence": [
+        "docs/verification/A01-current-state-2026-11-07.md"
+      ],
+      "rollback": {
+        "path": "learning_data/verification/main-study-samples-20261107/candidate/nginx.before.conf",
+        "sha256": "fcb3e8131090dbc5f89ad2b07186b0d17b897658a1c8cf9e18562bd3b7d0676a",
+        "matches_current_config": true,
+        "instructions": "仅适用于未来这组静态候选；先校验当前与候选哈希，再按候选操作单校验/reload；本批未执行。"
+      }
+    },
+    "static_live": {
+      "state": "deployed",
+      "checked_at": "2026-11-07T17:00:53+08:00",
+      "evidence_basis": "three_anonymous_https_gets_and_local_hashes",
+      "snapshot": "chat-20261107",
+      "files": [
+        {
+          "url": "https://172.19.116.53/static/loader.js",
+          "path": "learning_data/deployments/family-math-20261105/main-study-20261106/assets/chat-20261107/study.js",
+          "file": "study.js",
+          "local_sha256": "6e2325ad44c246351e00f4f8bc480dbcdcef4912f90085696793b208524db7e4",
+          "observed_at": "2026-11-07T17:00:51+08:00",
+          "status": 200,
+          "sha256": "6e2325ad44c246351e00f4f8bc480dbcdcef4912f90085696793b208524db7e4",
+          "cache_control": "no-store",
+          "content_type": "application/javascript",
+          "matches_snapshot": true
+        },
+        {
+          "url": "https://172.19.116.53/static/custom.css",
+          "path": "learning_data/deployments/family-math-20261105/main-study-20261106/assets/chat-20261107/study.css",
+          "file": "study.css",
+          "local_sha256": "b7ea956e897b0bf12a26f55e0213b794a924ff8c10e02647e83de8027514627a",
+          "observed_at": "2026-11-07T17:00:51+08:00",
+          "status": 200,
+          "sha256": "b7ea956e897b0bf12a26f55e0213b794a924ff8c10e02647e83de8027514627a",
+          "cache_control": "no-store",
+          "content_type": "text/css",
+          "matches_snapshot": true
+        },
+        {
+          "url": "https://172.19.116.53/static/dd-family-bridge.js",
+          "path": "learning_data/deployments/family-math-20261105/main-study-20261106/assets/chat-20261107/family-bridge.js",
+          "file": "family-bridge.js",
+          "local_sha256": "8bfe564373befe4d3bb64cfc4d91b67880545217f00d293da415938cce4f0347",
+          "observed_at": "2026-11-07T17:00:51+08:00",
+          "status": 200,
+          "sha256": "8bfe564373befe4d3bb64cfc4d91b67880545217f00d293da415938cce4f0347",
+          "cache_control": "no-store",
+          "content_type": "application/javascript",
+          "matches_snapshot": true
+        }
+      ],
+      "http_boundary": "Three anonymous static GETs only; local public CA verified; no cookies, redirects or environment proxy.",
+      "evidence": [
+        "docs/verification/A01-current-state-2026-11-07.md",
+        "docs/verification/main-chat-study-2026-11-07.md"
+      ],
+      "actual_parent_acceptance": "pending",
+      "rollback": {
+        "status": "retained_as_static_candidate_rollback_target",
+        "snapshot": "chat-20261107"
+      }
+    },
+    "static_samples": {
+      "state": "committed_not_deployed",
+      "checked_at": "2026-11-08T06:39:46+08:00",
+      "evidence_basis": "pinned_commit_historical_snapshot_and_A09_packet_hashes",
+      "manifest_path": "learning_data/verification/main-study-samples-20261107/candidate/manifest.json",
+      "manifest_sha256": "f1a67b18bc43846cd2b5060763feb8263c96a19db8150004a575f15e7c6c4f4b",
+      "snapshot": "learning_data/verification/main-study-samples-20261107/candidate/samples-20261107",
+      "files": [
+        {
+          "path": "deploy/open-webui-reuse/main-study/study.js",
+          "sha256": "fe26d4d4ae6834944fd093d9954808b118b7706daeb1aa42df459090cf75518d",
+          "expected_sha256": "fe26d4d4ae6834944fd093d9954808b118b7706daeb1aa42df459090cf75518d",
+          "snapshot_sha256": "fe26d4d4ae6834944fd093d9954808b118b7706daeb1aa42df459090cf75518d",
+          "head_sha256": "fe26d4d4ae6834944fd093d9954808b118b7706daeb1aa42df459090cf75518d",
+          "sha256_scope": "pinned_committed_static_source_not_current_worktree"
+        },
+        {
+          "path": "deploy/open-webui-reuse/main-study/study.css",
+          "sha256": "952fddccb9e5366d350b0bd9bebf88fe76ebeea6861bed9b6d9fa7e697af292a",
+          "expected_sha256": "952fddccb9e5366d350b0bd9bebf88fe76ebeea6861bed9b6d9fa7e697af292a",
+          "snapshot_sha256": "952fddccb9e5366d350b0bd9bebf88fe76ebeea6861bed9b6d9fa7e697af292a",
+          "head_sha256": "952fddccb9e5366d350b0bd9bebf88fe76ebeea6861bed9b6d9fa7e697af292a",
+          "sha256_scope": "pinned_committed_static_source_not_current_worktree"
+        },
+        {
+          "path": "deploy/open-webui-reuse/main-study/family-bridge.js",
+          "sha256": "8bfe564373befe4d3bb64cfc4d91b67880545217f00d293da415938cce4f0347",
+          "expected_sha256": "8bfe564373befe4d3bb64cfc4d91b67880545217f00d293da415938cce4f0347",
+          "snapshot_sha256": "8bfe564373befe4d3bb64cfc4d91b67880545217f00d293da415938cce4f0347",
+          "head_sha256": "8bfe564373befe4d3bb64cfc4d91b67880545217f00d293da415938cce4f0347",
+          "sha256_scope": "pinned_committed_static_source_not_current_worktree",
+          "current_worktree_sha256": "876cb599ea7c1729bde5964138b4f22d5fdcd8ea6a580004c6b4807b4f3c7ab7"
+        },
+        {
+          "path": "deploy/open-webui-reuse/main-study/SOURCES.md",
+          "sha256": "821e16cbb26f44b01675dd6e8211c1f77c0380b43771734df3bc9d1b2cf2ca7f",
+          "expected_sha256": "821e16cbb26f44b01675dd6e8211c1f77c0380b43771734df3bc9d1b2cf2ca7f",
+          "snapshot_sha256": "821e16cbb26f44b01675dd6e8211c1f77c0380b43771734df3bc9d1b2cf2ca7f",
+          "head_sha256": "821e16cbb26f44b01675dd6e8211c1f77c0380b43771734df3bc9d1b2cf2ca7f",
+          "sha256_scope": "pinned_committed_static_source_not_current_worktree"
+        },
+        {
+          "path": "deploy/open-webui-reuse/main-study/vendor/THIRD-PARTY-LICENSES.txt",
+          "sha256": "6dff51accc52d7ed3798a27626a2b0d7c3a7bca7766bb61240b11eda3894858b",
+          "expected_sha256": "6dff51accc52d7ed3798a27626a2b0d7c3a7bca7766bb61240b11eda3894858b",
+          "snapshot_sha256": "6dff51accc52d7ed3798a27626a2b0d7c3a7bca7766bb61240b11eda3894858b",
+          "head_sha256": "6dff51accc52d7ed3798a27626a2b0d7c3a7bca7766bb61240b11eda3894858b",
+          "sha256_scope": "pinned_committed_static_source_not_current_worktree"
+        },
+        {
+          "path": "deploy/open-webui-reuse/main-study/vendor/manifest.json",
+          "sha256": "687970b592578c81d984ab0502a1250c6c2f057740d1b347c74244221b2ef20b",
+          "expected_sha256": "687970b592578c81d984ab0502a1250c6c2f057740d1b347c74244221b2ef20b",
+          "snapshot_sha256": "687970b592578c81d984ab0502a1250c6c2f057740d1b347c74244221b2ef20b",
+          "head_sha256": "687970b592578c81d984ab0502a1250c6c2f057740d1b347c74244221b2ef20b",
+          "sha256_scope": "pinned_committed_static_source_not_current_worktree"
+        },
+        {
+          "path": "deploy/open-webui-reuse/main-study/vendor/mermaid-11.12.1-LICENSE.txt",
+          "sha256": "ec9fb67dcb25eccc416ed56e1aab819222c805a2a4bfe4cb19e7556bf2ffde80",
+          "expected_sha256": "ec9fb67dcb25eccc416ed56e1aab819222c805a2a4bfe4cb19e7556bf2ffde80",
+          "snapshot_sha256": "ec9fb67dcb25eccc416ed56e1aab819222c805a2a4bfe4cb19e7556bf2ffde80",
+          "head_sha256": "ec9fb67dcb25eccc416ed56e1aab819222c805a2a4bfe4cb19e7556bf2ffde80",
+          "sha256_scope": "pinned_committed_static_source_not_current_worktree"
+        },
+        {
+          "path": "deploy/open-webui-reuse/main-study/vendor/mermaid-11.12.1-NOTICES.txt",
+          "sha256": "5dda3fe2b170fbca6f2514f493daec2d624f7061d1c1276f9c9fbed6503d7828",
+          "expected_sha256": "5dda3fe2b170fbca6f2514f493daec2d624f7061d1c1276f9c9fbed6503d7828",
+          "snapshot_sha256": "5dda3fe2b170fbca6f2514f493daec2d624f7061d1c1276f9c9fbed6503d7828",
+          "head_sha256": "5dda3fe2b170fbca6f2514f493daec2d624f7061d1c1276f9c9fbed6503d7828",
+          "sha256_scope": "pinned_committed_static_source_not_current_worktree"
+        },
+        {
+          "path": "deploy/open-webui-reuse/main-study/vendor/mermaid-11.12.1.min.js",
+          "sha256": "198b19442f86f0b46a17e56d3abf744c3a28a3427e66fa8dada3b589a77babcc",
+          "expected_sha256": "198b19442f86f0b46a17e56d3abf744c3a28a3427e66fa8dada3b589a77babcc",
+          "snapshot_sha256": "198b19442f86f0b46a17e56d3abf744c3a28a3427e66fa8dada3b589a77babcc",
+          "head_sha256": "198b19442f86f0b46a17e56d3abf744c3a28a3427e66fa8dada3b589a77babcc",
+          "sha256_scope": "pinned_committed_static_source_not_current_worktree"
+        }
+      ],
+      "active_config_matches_candidate_base": true,
+      "rollback_path": "learning_data/verification/main-study-samples-20261107/candidate/nginx.before.conf",
+      "rollback_sha256": "fcb3e8131090dbc5f89ad2b07186b0d17b897658a1c8cf9e18562bd3b7d0676a",
+      "candidate_config_path": "learning_data/verification/main-study-samples-20261107/candidate/nginx.candidate.conf",
+      "candidate_config_sha256": "e6c6b11d1696b79a766249c57baa6de237b4296f2dd0bec58c31d95678b19756",
+      "introduced_by_commit": "deef3199f558ba72bbe3f2ff0c704586674a2232",
+      "validation": {
+        "historical_date": "2026-11-07",
+        "browser_cases_passed": 2,
+        "viewports": [
+          1280,
+          390
+        ],
+        "rerun_in_A01": false,
+        "actual_parent_acceptance": "pending"
+      },
+      "evidence": [
+        "docs/verification/A01-current-state-2026-11-07.md",
+        "docs/verification/main-study-samples-2026-11-07.md",
+        "docs/verification/A09-static-samples-2026-11-08.md"
+      ],
+      "next_task": "B01",
+      "portable_validation": {
+        "task": "A03",
+        "report": "docs/verification/A03-portable-tests-2026-11-07.md",
+        "scope": "12 项浏览器组包括主站桥接 2 个视口及三个静态样本的完整检查；未部署或取得家长反馈。"
+      },
+      "A07_bridge_note": "静态样本快照保留历史9文件；当前工作树family-bridge新增片段回链，不等于旧样本包改变，部署新桥接需配套A07。",
+      "local_delivery": {
+        "task": "A09",
+        "engineering_state": "ready",
+        "delivery_state": "candidate_only",
+        "acceptance_state": "pending",
+        "completion_state": "open",
+        "packet": "learning_data/verification/a09-static-samples-20261107T223140Z/release-packet",
+        "manifest_sha256": "c149f286216d72cf28da7901f6d528627b45d5d9d285d5495478ba32b397043e",
+        "snapshot": "samples-20261108-a09",
+        "config_sha256": "f9111d525cf22bfb9d34c4b86461ef7b9bd112cf7b31917948a484feb5a3247b",
+        "rollback": "learning_data/verification/a09-static-samples-20261107T223140Z/release-packet/rollback",
+        "operations": "docs/open-webui-reuse/static-samples-delivery.md",
+        "report": "docs/verification/A09-static-samples-2026-11-08.md",
+        "deployed": false,
+        "parent_feedback": "pending",
+        "validation": {
+          "state": "passed",
+          "targeted_tests": 30,
+          "candidate_routes": 4,
+          "rollback_routes": 3,
+          "identical_static_files": 9,
+          "browser_tests_reused": true,
+          "parent_feedback": "pending",
+          "deployment_performed": false
+        }
+      }
+    },
+    "tool_live": {
+      "state": "historically_deployed_not_reread",
+      "checked_at": "2026-11-07T17:00:53+08:00",
+      "evidence_basis": "historical_registration_record_only",
+      "tool_id": "dd_family_study_readonly_v1",
+      "version": "1.0.0",
+      "historical_source_sha256": "733ad01dc38ed6b09fcae69047ff731e0eb83d59b0a2dd2432595a3508c6a650",
+      "current_source_sha256": null,
+      "unknown_reason": "未读取正式 Tool 数据库；本次不能保证注册记录后未被修改。",
+      "historical_visibility": "private_no_shares",
+      "current_visibility": null,
+      "evidence": [
+        "docs/verification/main-chat-study-2026-11-07.md",
+        "docs/verification/textbook-evidence-2026-11-07.md"
+      ],
+      "rollback": {
+        "status": "upgrade_rollback_not_implemented",
+        "task": "A08",
+        "instructions": "不得重跑注册脚本覆盖不同源码；保留当前注册记录。"
+      }
+    },
+    "page_evidence_candidate": {
+      "state": "uncommitted_not_deployed",
+      "checked_at": "2026-11-07T22:22:51+08:00",
+      "evidence_basis": "A07_synthetic_browser_native_and_local_material_regression",
+      "tool_id": "dd_family_study_readonly_v1",
+      "tool_version": "1.2.0",
+      "tool_source_sha256": "23fc5c2558a0141750031acaee434f7b0abd81d884974e8d15ee781c1f2404d7",
+      "built_image_id": null,
+      "unknown_reason": "未构建/部署镜像；新Tool的片段能力需配套服务和网关，当前默认关闭。",
+      "validation": {
+        "historical_date": "2026-11-07",
+        "unit_tests_passed": 117,
+        "native_loader_methods": 6,
+        "native_citations": 2,
+        "rerun_in_A01": false,
+        "real_model_acceptance": "not_run"
+      },
+      "evidence": [
+        "docs/verification/textbook-evidence-2026-11-07.md",
+        "docs/verification/A01-current-state-2026-11-07.md",
+        "docs/verification/A03-portable-tests-2026-11-07.md",
+        "docs/verification/A04-study-errors-2026-11-07.md",
+        "docs/verification/A05-chapter-retrieval-2026-11-07.md",
+        "docs/verification/A07-runtime-passages-2026-11-07.md"
+      ],
+      "rollback": {
+        "status": "local_candidate_only",
+        "online_target": "tool_live + family_service",
+        "instructions": "本批没有线上替换；将来升级/回退先完成 A08。"
+      },
+      "historical_source_manifest_A01": {
+        "manifest_path": "learning_data/verification/textbook-evidence-20261107/source-manifest.json",
+        "manifest_sha256": "ed1d93205f9cd4067291444d5d6ba7b2a3cc5f548beed2b8754863dce87cb7cc",
+        "files": [
+          {
+            "path": "learning_service/textbooks.py",
+            "sha256": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194",
+            "expected_sha256": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194"
+          },
+          {
+            "path": "learning_service/math_references.py",
+            "sha256": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850",
+            "expected_sha256": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850"
+          },
+          {
+            "path": "learning_service/study_support.py",
+            "sha256": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00",
+            "expected_sha256": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00"
+          },
+          {
+            "path": "deploy/open-webui-reuse/readonly_study_tools.py",
+            "sha256": "34442c897e0fd98aebe9264f035704a1bbd3ad90351ea2e2f60ed0575bace778",
+            "expected_sha256": "34442c897e0fd98aebe9264f035704a1bbd3ad90351ea2e2f60ed0575bace778"
+          },
+          {
+            "path": "tests/test_textbooks.py",
+            "sha256": "1b915759b5100ab130c36e657d0f639063da66679d49314a1d9a186b61b80bd1",
+            "expected_sha256": "1b915759b5100ab130c36e657d0f639063da66679d49314a1d9a186b61b80bd1"
+          },
+          {
+            "path": "tests/test_readonly_study_tools.py",
+            "sha256": "dc181a0d44a57e6fb05a11a0781d8f404eae69af2ff2afad1963305335743784",
+            "expected_sha256": "dc181a0d44a57e6fb05a11a0781d8f404eae69af2ff2afad1963305335743784"
+          },
+          {
+            "path": "scripts/probe_readonly_study_native.py",
+            "sha256": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9",
+            "expected_sha256": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9"
+          }
+        ]
+      },
+      "source_manifest": {
+        "manifest_path": "learning_data/verification/a07-runtime-passages-20261107T135307Z/passage-source-manifest.json",
+        "manifest_sha256": "62434e0280d3b0e5a3f2adafd57857730c44a9befec2f832ccdbf67a577f76e8",
+        "files": [
+          {
+            "path": "learning_service/app.py",
+            "sha256": "4252f9ee3f1fe9925196337c109bad3cb5bc37a005cfa6caa50750106fb72ffb"
+          },
+          {
+            "path": "learning_service/config.py",
+            "sha256": "54bfdc6afd44048da3f3fe0f9dfc305de3810bf46ce6c2169cf5f924c9c686eb"
+          },
+          {
+            "path": "learning_service/login_gateway.py",
+            "sha256": "e12c4e0f6131a6424aa136f913160facdb37df0f61be3122b66b0f24cfee10ff"
+          },
+          {
+            "path": "learning_service/textbooks.py",
+            "sha256": "457c627e6d21943fd07caa414c36b34f23008f1056cde2d87680df745b38225a"
+          },
+          {
+            "path": "learning_service/passage_evidence.py",
+            "sha256": "c29ab513580a162800158664b27eddfb340033e2ebfc303efb5a829ff9e24738"
+          },
+          {
+            "path": "learning_service/passage_retrieval.py",
+            "sha256": "a10e1b4b995720c273db0ce8b09ed7edbd0fdc380a5a186650db30e631fdca96"
+          },
+          {
+            "path": "learning_service/textbook_passages.py",
+            "sha256": "08293a7a11c393af1564d2e347a7bfb5e1a7eaff9e2d51cd1e4957e659c2649e"
+          },
+          {
+            "path": "deploy/open-webui-reuse/readonly_study_tools.py",
+            "sha256": "23fc5c2558a0141750031acaee434f7b0abd81d884974e8d15ee781c1f2404d7"
+          },
+          {
+            "path": "deploy/open-webui-reuse/main-study/family-bridge.js",
+            "sha256": "876cb599ea7c1729bde5964138b4f22d5fdcd8ea6a580004c6b4807b4f3c7ab7"
+          },
+          {
+            "path": "scripts/probe_readonly_study_native.py",
+            "sha256": "a1eb1deede5b2e574417efd6ae93761369a204522b7951e0c52f050d7602ce59"
+          }
+        ]
+      },
+      "portable_validation": {
+        "task": "A03",
+        "report": "docs/verification/A03-portable-tests-2026-11-07.md",
+        "scope": "包含页级证据契约的完整 503 项单元组通过；原生容器加载不重复运行。"
+      },
+      "historical_source_manifest_A03": {
+        "manifest_path": "learning_data/verification/a03-portable-tests-20261107T091348Z/page-evidence-source-manifest.json",
+        "manifest_sha256": "b2824d74fbb2f8761ce6790e3423401a9a9db31bd097a1dd7d51271388b51edb",
+        "files": [
+          {
+            "path": "learning_service/textbooks.py",
+            "sha256": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194",
+            "expected_sha256": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194"
+          },
+          {
+            "path": "learning_service/math_references.py",
+            "sha256": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850",
+            "expected_sha256": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850"
+          },
+          {
+            "path": "learning_service/study_support.py",
+            "sha256": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00",
+            "expected_sha256": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00"
+          },
+          {
+            "path": "deploy/open-webui-reuse/readonly_study_tools.py",
+            "sha256": "34442c897e0fd98aebe9264f035704a1bbd3ad90351ea2e2f60ed0575bace778",
+            "expected_sha256": "34442c897e0fd98aebe9264f035704a1bbd3ad90351ea2e2f60ed0575bace778"
+          },
+          {
+            "path": "tests/test_textbooks.py",
+            "sha256": "59ea4e82d2b2d1e648d3e8f2d4252eae2ecba2183ebe41904ff6c8fd8012c9c1",
+            "expected_sha256": "59ea4e82d2b2d1e648d3e8f2d4252eae2ecba2183ebe41904ff6c8fd8012c9c1"
+          },
+          {
+            "path": "tests/test_readonly_study_tools.py",
+            "sha256": "3f2b10c33a4810ee7393b981e8bf8b81b1fbae98974b623513e5c3e56ffbb8f3",
+            "expected_sha256": "3f2b10c33a4810ee7393b981e8bf8b81b1fbae98974b623513e5c3e56ffbb8f3"
+          },
+          {
+            "path": "scripts/probe_readonly_study_native.py",
+            "sha256": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9",
+            "expected_sha256": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9"
+          }
+        ]
+      },
+      "latest_validation": {
+        "task": "A07",
+        "report": "docs/verification/A07-runtime-passages-2026-11-07.md",
+        "unit_contract_passed": 688,
+        "browser_passed": 6,
+        "native_methods": 6,
+        "native_citations": 4,
+        "real_model_acceptance": "not_run",
+        "evidence_root": "learning_data/verification/a07-runtime-passages-20261107T135307Z",
+        "compat_old_service_tests": 30,
+        "source_manifest": "learning_data/verification/a07-runtime-passages-20261107T135307Z/source-manifest.json",
+        "source_manifest_sha256": "34b0fcdc65052b1baa62375b7c4c31ca41dfc785649c7a0b42406a11c7a18dca"
+      },
+      "historical_changes_A03_since_A01": [
+        {
+          "path": "tests/test_textbooks.py",
+          "previous_sha256": "1b915759b5100ab130c36e657d0f639063da66679d49314a1d9a186b61b80bd1",
+          "current_sha256": "59ea4e82d2b2d1e648d3e8f2d4252eae2ecba2183ebe41904ff6c8fd8012c9c1",
+          "scope": "test fixtures/imports only; existing test function ASTs preserved"
+        },
+        {
+          "path": "tests/test_readonly_study_tools.py",
+          "previous_sha256": "dc181a0d44a57e6fb05a11a0781d8f404eae69af2ff2afad1963305335743784",
+          "current_sha256": "3f2b10c33a4810ee7393b981e8bf8b81b1fbae98974b623513e5c3e56ffbb8f3",
+          "scope": "test fixtures/imports only; existing test function ASTs preserved"
+        }
+      ],
+      "historical_source_manifest_A04": {
+        "manifest_path": "learning_data/verification/a04-study-errors-20261107T101647Z/page-evidence-source-manifest.json",
+        "manifest_sha256": "350beece435e54ded10273703b2f5b9c98e592ff1c5ef3c6b9d783b4a16387c1",
+        "files": [
+          {
+            "path": "learning_service/textbooks.py",
+            "sha256": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194"
+          },
+          {
+            "path": "learning_service/math_references.py",
+            "sha256": "ab22691365d4fe8d68c6011393ff8da078bc56347a050273c1a6e18dfd757850"
+          },
+          {
+            "path": "learning_service/study_support.py",
+            "sha256": "bc3a8501bf302a074bf62c18597153c3c0abb4ac6541de259fc81d660ba3af00"
+          },
+          {
+            "path": "deploy/open-webui-reuse/readonly_study_tools.py",
+            "sha256": "8cf5a018f2011872baf4bc3c3b05981631725456ee893c6489cf502f9669b7a9"
+          },
+          {
+            "path": "tests/test_textbooks.py",
+            "sha256": "4f668aad9f7b4bf75d12654b8d1b5414fda77fcc64e032e4e288f634b2fbf3c8"
+          },
+          {
+            "path": "tests/test_readonly_study_tools.py",
+            "sha256": "871051b44fc0a1d60938818d41534ec9126cf4a10687a2b727939505bee57e3e"
+          },
+          {
+            "path": "scripts/probe_readonly_study_native.py",
+            "sha256": "189ac32787ace51d048e840fcba6687d13499a21feeeb361828a738e25cb77e9"
+          }
+        ]
+      },
+      "historical_validation_A04": {
+        "task": "A04",
+        "unit_tests_passed": 552,
+        "native_methods": 6,
+        "native_citations": 2,
+        "report": "docs/verification/A04-study-errors-2026-11-07.md",
+        "browser_rerun": false
+      },
+      "historical_source_manifest_A05": {
+        "manifest_path": "/home/deniskorfei/projects/open-webui/learning_data/verification/a05-chapter-retrieval-20261107T131135Z/page-evidence-source-manifest.json",
+        "manifest_sha256": "8a1ac50fd3848268a01188681e5bab0eafe35cdcc7399a1d137d36c44445507e",
+        "files": [
+          {
+            "path": "learning_service/textbooks.py",
+            "sha256": "457c627e6d21943fd07caa414c36b34f23008f1056cde2d87680df745b38225a"
+          },
+          {
+            "path": "learning_service/login_gateway.py",
+            "sha256": "20fcd78f8e02f7886aff58ee81ad06db3b44f25601802299c738886c922f865b"
+          },
+          {
+            "path": "learning_service/app.py",
+            "sha256": "81c5f65e1b8aeadf2baa8c316be2d3c74f82f5813427b8c87618f88f6b4b4a11"
+          },
+          {
+            "path": "deploy/open-webui-reuse/readonly_study_tools.py",
+            "sha256": "a158f47774062a454d6c12bb9944d1b480542ddafba384b71fd0103987afedd1"
+          },
+          {
+            "path": "scripts/textbook_passage_retrieval.py",
+            "sha256": "f0efc897e6dc8c4a2f293f0f3074c4556ad92b0bf7192a6ffeda08568b0f8cb2"
+          },
+          {
+            "path": "tests/test_chapter_retrieval.py",
+            "sha256": "1234bb4eeab8e24ef3a7a9bd000275256f24cd5d81a65a2566bfae82e6898f6a"
+          },
+          {
+            "path": "tests/test_textbooks.py",
+            "sha256": "4f668aad9f7b4bf75d12654b8d1b5414fda77fcc64e032e4e288f634b2fbf3c8"
+          },
+          {
+            "path": "tests/test_readonly_study_tools.py",
+            "sha256": "c369f91c51fa131537505c70555ba669a529586fa43486eb578d6c3d149a20df"
+          },
+          {
+            "path": "scripts/probe_readonly_study_native.py",
+            "sha256": "1b8dc10db07591bdc281f3adb3bf794a7811b9ef1af1d88901de0db510f0905a"
+          },
+          {
+            "path": "tests/test_family_adventure_browser.py",
+            "sha256": "bc31283810c42617d98afa8609622dbc27f1eb61af10eb1a194cad8808e5e609"
+          }
+        ]
+      },
+      "historical_validation_A05": {
+        "task": "A05",
+        "report": "docs/verification/A05-chapter-retrieval-2026-11-07.md",
+        "unit_contract_passed": 241,
+        "browser_passed": 4,
+        "native_methods": 6,
+        "native_citations": 2,
+        "source_manifest": "learning_data/verification/a05-chapter-retrieval-20261107T131135Z/source-manifest.json",
+        "source_manifest_sha256": "2d5d228834888970f85734399eac15cefd25c0360bbc778af55ae8a0886d19f0",
+        "real_model_acceptance": "not_run"
+      }
+    },
+    "passage_sample": {
+      "state": "integrated_local_candidate_disabled_by_default",
+      "checked_at": "2026-11-07T22:22:51+08:00",
+      "evidence_basis": "local_manifest_metadata_and_source_pdf_hashes",
+      "path": "learning_data/verification/textbook-passages-20261107/passages.json",
+      "sha256": "d1bf256db814afcf35ff22f28ad32fd4577b4608e12f9d069b7f72cfc8cacd63",
+      "teacher_reviewed": false,
+      "eligible_as_grading_basis": false,
+      "fully_reviewed_pages": 0,
+      "items": [
+        {
+          "id": "g7-ch2-addition-rule",
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "printed_page": 27,
+          "pdf_page": 34,
+          "enabled": true,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "review": {
+            "revision": 1,
+            "reviewed_on": "2026-11-07",
+            "valid_until": "2026-12-07",
+            "teacher_reviewed": false
+          },
+          "unresolved_issue_count": 0
+        },
+        {
+          "id": "g7-ch2-subtraction-rule",
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "printed_page": 31,
+          "pdf_page": 38,
+          "enabled": true,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "review": {
+            "revision": 1,
+            "reviewed_on": "2026-11-07",
+            "valid_until": "2026-12-07",
+            "teacher_reviewed": false
+          },
+          "unresolved_issue_count": 0
+        },
+        {
+          "id": "g7-ch2-reciprocal-definition",
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "printed_page": 40,
+          "pdf_page": 47,
+          "enabled": true,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "review": {
+            "revision": 1,
+            "reviewed_on": "2026-11-07",
+            "valid_until": "2026-12-07",
+            "teacher_reviewed": false
+          },
+          "unresolved_issue_count": 0
+        },
+        {
+          "id": "g7-ch2-distributive-law",
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "printed_page": 41,
+          "pdf_page": 48,
+          "enabled": true,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "review": {
+            "revision": 1,
+            "reviewed_on": "2026-11-07",
+            "valid_until": "2026-12-07",
+            "teacher_reviewed": false
+          },
+          "unresolved_issue_count": 0
+        },
+        {
+          "id": "g7-ch2-product-sign",
+          "book_id": "math-g7-upper",
+          "chapter_id": "2",
+          "printed_page": 42,
+          "pdf_page": 49,
+          "enabled": true,
+          "pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+          "review": {
+            "revision": 1,
+            "reviewed_on": "2026-11-07",
+            "valid_until": "2026-12-07",
+            "teacher_reviewed": false
+          },
+          "unresolved_issue_count": 0
+        }
+      ],
+      "source_pdf_path": "learning_data/textbooks/pep-current-20261105/math-g7-upper.pdf",
+      "actual_source_pdf_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+      "source_manifest": {
+        "manifest_path": "learning_data/verification/textbook-passages-20261107/source-manifest.json",
+        "manifest_sha256": "f25bdf6e4dc217f90a8f707e39b5fc744b8505d34e06fd31ee6a46f0fc6f6d45",
+        "files": [
+          {
+            "path": "scripts/textbook_passage_sample.py",
+            "sha256": "19c755ccf7d2e69897f0b3da1c032c4f89b18ba46bd68a296b0d25b8b9b46245",
+            "expected_sha256": "19c755ccf7d2e69897f0b3da1c032c4f89b18ba46bd68a296b0d25b8b9b46245"
+          },
+          {
+            "path": "tests/test_textbook_passage_sample.py",
+            "sha256": "57073e63756799f02150612228a0bc28ab4bea2b0addf416e1bf1947269c61bf",
+            "expected_sha256": "57073e63756799f02150612228a0bc28ab4bea2b0addf416e1bf1947269c61bf"
+          }
+        ]
+      },
+      "can_answer_from_textbook": false,
+      "reviewer_type": "assistant",
+      "date_observation": "A07按2026-11-07服务器当前日期执行完整材料校验，5片段有效；不是重新内容审核或教师签署。",
+      "expiry_policy": "Asia/Shanghai：reviewed_on及valid_until含当天，次日零点失效；无API历史日期参数。",
+      "validation": {
+        "historical_date": "2026-11-07",
+        "unit_tests_passed": 29,
+        "development_cases_passed": 20,
+        "independent_evaluation": "pending_A06",
+        "rerun_in_A01": false
+      },
+      "evidence": [
+        "docs/verification/textbook-passages-2026-11-07.md",
+        "docs/verification/A01-current-state-2026-11-07.md",
+        "docs/verification/A07-runtime-passages-2026-11-07.md"
+      ],
+      "rollback": {
+        "status": "offline_only",
+        "instructions": "保留离线材料与历史证据；尚无可回退的片段服务部署。"
+      },
+      "portable_validation": {
+        "task": "A03",
+        "report": "docs/verification/A03-portable-tests-2026-11-07.md",
+        "synthetic_unit_tests_passed": 29,
+        "actual_bundle_revalidated": false
+      },
+      "runtime_candidate": "passage_runtime_candidate"
+    },
+    "content_baseline": {
+      "state": "historical_inventory_not_runtime_recounted",
+      "checked_at": "2026-11-07T17:00:53+08:00",
+      "evidence_basis": "project_review_2026_11_07",
+      "book_count": 13,
+      "chapter_ranges": 98,
+      "question_count": 74,
+      "starter_question_count": 14,
+      "application_question_count": 60,
+      "mapped_question_count": 20,
+      "concept_count": 18,
+      "attributed_adapted_question_count": 29,
+      "g2_lower_ocr_pages": 106,
+      "g2_lower_fully_reviewed_pages": 0,
+      "source_files": [
+        {
+          "path": "learning_service/textbooks.py",
+          "sha256": "53db5fc05a4aee87b11c566afd9d5040da7e3edbc9fd4f302a7654353f42c194"
+        },
+        {
+          "path": "learning_service/data/family_concepts_v1.json",
+          "sha256": "b9f483f264d9be9124e1f682a9736e37010a5d78919510eaf47de604c916c9ba"
+        },
+        {
+          "path": "learning_service/data/family_word_problems_v1.json",
+          "sha256": "38e0903024ed9c402a8c66e8b02a3afd3e304ad55913fbdb0572a16589d211ef"
+        }
+      ],
+      "current_database_counts": null,
+      "unknown_reason": "目录/题量/整页复核计数沿用评审与 OCR 报告，本次不读取正式学习或 WebUI 数据库重计。",
+      "evidence": [
+        "docs/PROJECT-REVIEW-2026-11-07.md",
+        "docs/verification/math-g2-lower-offline-ocr-2026-11-06.md"
+      ],
+      "rollback": {
+        "status": "no_content_write",
+        "instructions": "本批未导入或更新内容；不得用片段试点替代整页审核。"
+      }
+    },
+    "api_contract": {
+      "state": "local_snapshot_only",
+      "checked_at": "2026-11-07T22:22:51+08:00",
+      "evidence_basis": "local_isolated_service_openapi_equals_snapshot",
+      "path": "docs/contracts/openapi-v1.json",
+      "sha256": "57708794dc2b18bb5b762cffe45a6976cef714bd0ba55c1c757cb7aa95eb98aa",
+      "paths": 73,
+      "schemas": 35,
+      "runtime_checked": false,
+      "evidence": [
+        "docs/verification/A01-current-state-2026-11-07.md",
+        "docs/PROJECT-REVIEW-2026-11-07.md",
+        "docs/verification/A07-runtime-passages-2026-11-07.md"
+      ],
+      "rollback": {
+        "status": "not_changed"
+      },
+      "historical_A01": {
+        "checked_at": "2026-11-07T17:00:53+08:00",
+        "sha256": "8057249045e7c447c3f748b1b43057fb3caade39fb5b84a2f79b666556572ce4",
+        "paths": 71,
+        "schemas": 24,
+        "evidence_basis": "local_json_count"
+      }
+    },
+    "portable_tests_candidate": {
+      "state": "uncommitted_local_acceptance_passed",
+      "checked_at": "2026-11-07T17:43:37+08:00",
+      "evidence_basis": "clean_venv_source_snapshot_and_required_browser_suite",
+      "summary": {
+        "completed_at": "2026-11-07T17:43:37+08:00",
+        "python": "3.12.12",
+        "playwright": "1.58.0",
+        "chromium": "145.0.7632.6",
+        "chromium_revision": 1208,
+        "browser_channel": "chromium",
+        "system_site_packages": false,
+        "local_materials_in_source_snapshot": false,
+        "locked_packages": 27,
+        "lock": {
+          "path": "requirements-dev.lock",
+          "sha256": "72c9bbe3e5c66b26a9e76a2cce533e3dcad079afddb9cc97f4c294f6cc87b18d"
+        },
+        "source_snapshot": {
+          "path": "learning_data/verification/a03-portable-tests-20261107T091348Z/clean-source-manifest.json",
+          "sha256": "e91f91464385094acc6d9c223f95b7512b0d5c99235eb76adc7f599590c879d9"
+        },
+        "unit": {
+          "selected": 503,
+          "passed": 503,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 147.816,
+          "collected": 517,
+          "deselected": 14
+        },
+        "browser": {
+          "selected": 12,
+          "passed": 12,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "seconds": 413.091,
+          "collected": 517,
+          "deselected": 505
+        },
+        "real_materials": "not_run",
+        "ci": "configured_not_run_on_github",
+        "real_provider_calls": 0,
+        "source_files": [
+          {
+            "path": "conftest.py",
+            "sha256": "61a6ac8b570fc012e8a811dab3703203818476989f6439bdfab268228efb44f2"
+          },
+          {
+            "path": "pytest.ini",
+            "sha256": "5c2b785a961987c6a9615838d3915ecf876575a2946fc1e1d1a24ed70d94fb0e"
+          },
+          {
+            "path": "requirements-dev.txt",
+            "sha256": "181daafd8482c19232ebc85e8765d0662876ffc79059819887829b5fab3c5252"
+          },
+          {
+            "path": "requirements-dev.lock",
+            "sha256": "72c9bbe3e5c66b26a9e76a2cce533e3dcad079afddb9cc97f4c294f6cc87b18d"
+          },
+          {
+            "path": ".github/workflows/tests.yml",
+            "sha256": "c18a0d00f463c3eca01948c0fb24a9f8f8f7aad83909e9ad438da6d1e3427443"
+          },
+          {
+            "path": "tests/test_math_references.py",
+            "sha256": "2d42b59a728c14d51062c19cd6ca98fbaa4519e779b14fb60676e8ced8d430ba"
+          },
+          {
+            "path": "tests/test_study_support.py",
+            "sha256": "73beba24bbd5f1fe71d6b7cee9c5fe04262431b1dbdfae23d5d86c6aafa67e73"
+          },
+          {
+            "path": "tests/test_readonly_study_tools.py",
+            "sha256": "3f2b10c33a4810ee7393b981e8bf8b81b1fbae98974b623513e5c3e56ffbb8f3"
+          },
+          {
+            "path": "tests/test_textbooks.py",
+            "sha256": "59ea4e82d2b2d1e648d3e8f2d4252eae2ecba2183ebe41904ff6c8fd8012c9c1"
+          },
+          {
+            "path": "tests/test_variant_review.py",
+            "sha256": "d556c2c4f72821684c4fd4d7aeecf19d51bafc6340c5a891610a6ec7176567aa"
+          },
+          {
+            "path": "tests/test_main_study_bridge.py",
+            "sha256": "02d739e561b0780fc102492f641296e6f7f091fa0410317d715d0ee3ed26e152"
+          },
+          {
+            "path": "tests/test_study_workbench_browser.py",
+            "sha256": "23c49b2b8499b3f40e7917c4a713a8a1c0f80a6aac2b5299b40791dc37076a24"
+          },
+          {
+            "path": "tests/test_study_support_browser.py",
+            "sha256": "58e83296d5a6ef4da2fd95dd3411ecfd193ca6ef8fae4c1219adf50fe8da169e"
+          },
+          {
+            "path": "tests/test_family_adventure_browser.py",
+            "sha256": "27b2a43062c256fa72dbee01f9cc0daef232b9193dd061f137ee0f42bcd75b0b"
+          },
+          {
+            "path": "tests/test_family_practice_browser.py",
+            "sha256": "6d73e4c8ee58337b4a10cce9347c726bbf2f4a219e3c5ab59686f27816a32a8f"
+          },
+          {
+            "path": "tests/test_manual_objective_browser.py",
+            "sha256": "4dde96bfa3748f8b55ba004d393ea7bbc1e6348c5f2e179d18c66e8bd74870fc"
+          },
+          {
+            "path": "tests/test_local_textbook_materials.py",
+            "sha256": "9ff682ca2e85ee6213dadc6d45b4e508e050f298c9447eb9633335012ed770b3"
+          }
+        ]
+      },
+      "evidence": [
+        "docs/verification/A03-portable-tests-2026-11-07.md",
+        "docs/TESTING.md"
+      ],
+      "rollback": {
+        "status": "local_only",
+        "instructions": "仅撤销 A03 测试/文档编辑；两份原有测试依 files-before 对照保留原改动，不 reset/clean。",
+        "preserved_input_directory": "learning_data/verification/a03-portable-tests-20261107T091348Z/files-before"
+      }
+    },
+    "study_errors_candidate": {
+      "state": "uncommitted_not_deployed",
+      "checked_at": "2026-11-07T18:42:03+08:00",
+      "tool_version": "1.1.1",
+      "summary": {
+        "completed_at": "2026-11-07T18:39:46+08:00",
+        "python": "3.12.12",
+        "environment": "A03 hash-locked venv reused; new A04 allowlisted source copy, no real data",
+        "unit": {
+          "tests": 552,
+          "errors": 0,
+          "failures": 0,
+          "skipped": 0,
+          "collected": 566,
+          "deselected": 14,
+          "seconds": 143.016
+        },
+        "new_failure_cases": 49,
+        "source_manifest": "learning_data/verification/a04-study-errors-20261107T101647Z/source-manifest-r2.json",
+        "source_manifest_sha256": "5d249624076a35bfc2f2fd9bc9a95b61cec9686b1141b7cc9e41d7e21d6d5b03",
+        "snapshot_files": 145,
+        "native": {
+          "passed": true,
+          "version": "1.1.1",
+          "methods": 6,
+          "citations": 2,
+          "source_sha256": "8cf5a018f2011872baf4bc3c3b05981631725456ee893c6489cf502f9669b7a9",
+          "seconds": 152.769,
+          "network": "none",
+          "formal_data_mounted": false
+        },
+        "browser": "not_rerun; A03 historical 12 passes",
+        "real_materials": "not_run",
+        "remote_ci": "not_run",
+        "real_model_calls": 0,
+        "files": {
+          "learning_service/browser_auth.py": "6a81248f501ce8599681de0628025368d399563c76b4577ed030fb93ffb470bb",
+          "learning_service/login_gateway.py": "938faa99cb7a8f8f6d1613f6007f2dfa9abd5ea4b74223b0f76129dbae4af87d",
+          "deploy/open-webui-reuse/readonly_study_tools.py": "8cf5a018f2011872baf4bc3c3b05981631725456ee893c6489cf502f9669b7a9",
+          "tests/test_login_gateway.py": "62a24b90d53991a3a0346d773a516f2a9971a5641f4022bd70230422ddc6542b",
+          "tests/test_readonly_study_tools.py": "871051b44fc0a1d60938818d41534ec9126cf4a10687a2b727939505bee57e3e",
+          "tests/test_textbooks.py": "4f668aad9f7b4bf75d12654b8d1b5414fda77fcc64e032e4e288f634b2fbf3c8",
+          "tests/test_study_errors.py": "547e411ef4c3926112d4363681749a00482da4577f6bd09c6a801ccf4224b5bc"
+        }
+      },
+      "evidence": [
+        "docs/verification/A04-study-errors-2026-11-07.md"
+      ],
+      "recovery_document": "docs/open-webui-reuse/study-error-recovery.md",
+      "rollback": {
+        "status": "local_only",
+        "input_directory": "learning_data/verification/a04-study-errors-20261107T101647Z/files-before",
+        "instructions": "只撤销 A04 增量，保留 A02 及此前候选；不整体回退工作树。"
+      }
+    },
+    "retrieval_evaluation_candidate": {
+      "state": "local_candidate_not_committed",
+      "engineering_state": "ready",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "version": "a06-pilot-v1",
+      "suite_sha256": "0edf52ac150868b67fb10c772d304cb7b0eb5ecb16d9912fa412ac800b4354ff",
+      "freeze_sha256": "dec6d811720149f2344d52ac438f9ad711158ceddddd5f4d8bd672d63573f9df",
+      "runner_sha256": "1b09444bb6ff85723328ff4210309bdb2cc5f4d4086a02dc07623eec393dd4ba",
+      "test_source_manifest": "learning_data/verification/a06-retrieval-evaluation-20261107T125008Z/source-manifest.json",
+      "test_source_manifest_sha256": "539db0aec2dbd927ba181a8d913e2e832eb7ac019da737dcc71ebc90bf184f5c",
+      "synthetic_tests_passed": 73,
+      "quality_targets_passed": false,
+      "metrics": {
+        "recall_at_4": [
+          2,
+          20
+        ],
+        "unsupported_rejection": [
+          2,
+          10
+        ],
+        "scope_leaks": [
+          0,
+          10
+        ],
+        "scope_handled": [
+          10,
+          10
+        ],
+        "source_accuracy": [
+          11,
+          11
+        ],
+        "exact_quotes": [
+          11,
+          11
+        ],
+        "multi_required_cases": [
+          0,
+          2
+        ]
+      },
+      "reviewer_type": "assistant",
+      "blind_or_external_holdout": false,
+      "tuning_performed": false,
+      "report": "docs/verification/A06-retrieval-evaluation-2026-11-07.md",
+      "methodology": "docs/open-webui-reuse/retrieval-evaluation.md",
+      "evidence_root": "learning_data/verification/a06-retrieval-evaluation-20261107T125008Z",
+      "commit_sha": null,
+      "deployed": false,
+      "subsequent_A05_use": {
+        "role": "improvement_regression",
+        "used_for_tuning": true,
+        "original_baseline_preserved": true,
+        "exposure_log": "learning_data/verification/a05-chapter-retrieval-20261107T131135Z/exposure-log.json"
+      }
+    },
+    "chapter_retrieval_candidate": {
+      "state": "uncommitted_not_deployed",
+      "checked_at": "2026-11-07T21:39:32+08:00",
+      "engineering_state": "ready",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "report": "docs/verification/A05-chapter-retrieval-2026-11-07.md",
+      "design": "docs/open-webui-reuse/chapter-retrieval.md",
+      "tool_version": "1.1.2",
+      "tool_source_sha256": "a158f47774062a454d6c12bb9944d1b480542ddafba384b71fd0103987afedd1",
+      "algorithm_version": "bounded-rules-v1",
+      "algorithm_sha256": "f0efc897e6dc8c4a2f293f0f3074c4556ad92b0bf7192a6ffeda08568b0f8cb2",
+      "supplement_version": "a05-supplement-v1",
+      "supplement_sha256": "ceddad4c8af01d6959923030acbc9b8b03aa9daa5ac88f6200723ee75539a368",
+      "quality_targets_passed": true,
+      "scope": "five_reviewed_excerpts_offline_only",
+      "whole_book_retrieval": "incomplete",
+      "real_model_calls": 0,
+      "validation": {
+        "unit_contract_passed": 241,
+        "browser_passed": 4,
+        "native_methods": 6,
+        "native_citations": 2,
+        "source_manifest": "/home/deniskorfei/projects/open-webui/learning_data/verification/a05-chapter-retrieval-20261107T131135Z/source-manifest.json",
+        "source_manifest_sha256": "2d5d228834888970f85734399eac15cefd25c0360bbc778af55ae8a0886d19f0",
+        "metrics": {
+          "recall_at_4": [
+            20,
+            20
+          ],
+          "unsupported_rejection": [
+            10,
+            10
+          ],
+          "scope_leaks": [
+            0,
+            10
+          ],
+          "source_accuracy": [
+            22,
+            22
+          ],
+          "exact_quotes": [
+            22,
+            22
+          ],
+          "multi_required_cases": [
+            2,
+            2
+          ]
+        }
+      },
+      "blind_or_external_holdout": false,
+      "service_tool_excerpt_integration": false,
+      "commit_sha": null,
+      "deployed": false,
+      "subsequent_A07_use": {
+        "algorithm_ast_unchanged": true,
+        "runtime_module": "learning_service/passage_retrieval.py",
+        "report": "docs/verification/A07-runtime-passages-2026-11-07.md",
+        "status": "integrated_local_candidate_default_off"
+      }
+    },
+    "passage_runtime_candidate": {
+      "state": "uncommitted_not_deployed",
+      "engineering_state": "ready",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "checked_at": "2026-11-07T22:22:51+08:00",
+      "default_enabled": false,
+      "tool_version": "1.2.0",
+      "tool_source_sha256": "23fc5c2558a0141750031acaee434f7b0abd81d884974e8d15ee781c1f2404d7",
+      "report": "docs/verification/A07-runtime-passages-2026-11-07.md",
+      "contract": "docs/open-webui-reuse/textbook-passages-runtime.md",
+      "release_profile": "reuse-runtime-textbook-passages-v1",
+      "validation": {
+        "task": "A07",
+        "report": "docs/verification/A07-runtime-passages-2026-11-07.md",
+        "unit_contract_passed": 688,
+        "browser_passed": 6,
+        "native_methods": 6,
+        "native_citations": 4,
+        "real_model_acceptance": "not_run",
+        "evidence_root": "learning_data/verification/a07-runtime-passages-20261107T135307Z",
+        "compat_old_service_tests": 30,
+        "source_manifest": "learning_data/verification/a07-runtime-passages-20261107T135307Z/source-manifest.json",
+        "source_manifest_sha256": "34b0fcdc65052b1baa62375b7c4c31ca41dfc785649c7a0b42406a11c7a18dca"
+      },
+      "material_regression": {
+        "a06": 40,
+        "a05_supplement": 40,
+        "development": 20,
+        "audit": 4,
+        "all_exact_passed": true,
+        "algorithm_unchanged": true,
+        "new_blind_evaluation": false
+      },
+      "teacher_reviewed": false,
+      "fully_reviewed_page": false,
+      "can_answer_from_textbook": false,
+      "eligible_as_grading_basis": false,
+      "commit_sha": null,
+      "deployed": false,
+      "release_candidate": {
+        "path": "learning_data/verification/a07-runtime-passages-20261107T135307Z/release-candidate",
+        "source_files": 76,
+        "source_set_sha256": "51d567440c966fae7f6c772bc921f71f1a591cca6c8e0f466bab0cf74712c285",
+        "archive_sha256": "068bd2eb8eb8414df453f0797d8dd58650958a3d1d1ae2e78e1d03bdca6f9d97",
+        "image_digest": null
+      }
+    },
+    "tool_lifecycle_candidate": {
+      "state": "uncommitted_not_deployed",
+      "engineering_state": "ready",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "checked_at": "2026-11-07T23:19:36+08:00",
+      "report": "docs/verification/A08-tool-lifecycle-2026-11-07.md",
+      "operations": "docs/open-webui-reuse/tool-upgrade-rollback.md",
+      "script": "scripts/upgrade_readonly_study_tool.py",
+      "script_sha256": "24417a15d583b0f9bce2e3bfb71ed821b94f7436f861ddf9b7f6b15cd05d3bf5",
+      "target_tool_id": "dd_family_study_readonly_v1",
+      "candidate_tool_version": "1.2.0",
+      "candidate_source_sha256": "23fc5c2558a0141750031acaee434f7b0abd81d884974e8d15ee781c1f2404d7",
+      "validation": {
+        "unit_tests_passed": 54,
+        "native_migrated_schema": true,
+        "native_methods": 6,
+        "native_history_snapshot": true,
+        "native_cache_reloaded_after_upgrade_and_rollback": true,
+        "unrelated_tables_unchanged": true,
+        "evidence_root": "learning_data/verification/a08-tool-lifecycle-20261107T144058Z",
+        "real_model_calls": 0
+      },
+      "formal_tool_read": false,
+      "formal_tool_upgraded": false,
+      "commit_sha": null,
+      "backend_scope_limit": "给定A07源目录hash检查，不代替活动部署对应证据。"
+    }
+  },
+  "compatibility": [
+    {
+      "id": "current_live",
+      "components": [
+        "family_service",
+        "open_webui",
+        "proxy",
+        "static_live",
+        "tool_live"
+      ],
+      "status": "runtime_observed_tool_historical",
+      "evidence": [
+        "docs/verification/main-chat-study-2026-11-07.md",
+        "docs/verification/A01-current-state-2026-11-07.md"
+      ],
+      "limit": "容器和静态资源可核对；Tool 仅历史证据，真实聊天与家长验收待反馈。"
+    },
+    {
+      "id": "static_samples_on_current_service",
+      "components": [
+        "family_service",
+        "open_webui",
+        "static_samples",
+        "tool_live"
+      ],
+      "status": "historical_UI_evidence_reused_A09_packaging_and_rollback_verified_not_deployed",
+      "evidence": [
+        "docs/verification/main-study-samples-2026-11-07.md",
+        "docs/verification/A09-static-samples-2026-11-08.md"
+      ],
+      "limit": "固定旧桥接九文件；A09本地封包与回退验证，不含A07桥接，实际发布/设备反馈pending。"
+    },
+    {
+      "id": "page_evidence_paired_candidate",
+      "components": [
+        "page_evidence_candidate",
+        "open_webui",
+        "study_errors_candidate",
+        "chapter_retrieval_candidate"
+      ],
+      "status": "local_synthetic_browser_native_verified_not_deployed",
+      "evidence": [
+        "docs/verification/textbook-evidence-2026-11-07.md",
+        "docs/verification/A04-study-errors-2026-11-07.md",
+        "docs/verification/A05-chapter-retrieval-2026-11-07.md"
+      ],
+      "limit": "当前页级与片段服务/网关、Tool1.2.0与引用桥接组成候选，默认关闭片段；未构建部署。",
+      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
+      "tool_candidate_version": "1.2.0"
+    },
+    {
+      "id": "new_tool_on_old_service",
+      "components": [
+        "family_service",
+        "page_evidence_candidate"
+      ],
+      "status": "unsupported",
+      "evidence": [
+        "docs/verification/textbook-evidence-2026-11-07.md"
+      ],
+      "limit": "历史正式服务缺页级evidence字段，不支持只换新Tool。A05页级服务的兼容另列。",
+      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
+      "tool_candidate_version": "1.2.0"
+    },
+    {
+      "id": "old_tool_on_new_service",
+      "components": [
+        "tool_live",
+        "page_evidence_candidate"
+      ],
+      "status": "historical_100_and_112_sources_synthetically_verified",
+      "evidence": [
+        "docs/verification/textbook-evidence-2026-11-07.md"
+      ],
+      "limit": "使用历史hash一致的1.0.0和1.1.2源码对A07服务验证，仅页定位、不获得片段正文权限；未回读正式Tool。",
+      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
+      "tool_candidate_version": "1.2.0"
+    },
+    {
+      "id": "passage_service_tool",
+      "components": [
+        "passage_sample",
+        "page_evidence_candidate"
+      ],
+      "status": "local_verified_disabled_by_default",
+      "evidence": [
+        "docs/plans/DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md"
+      ],
+      "limit": "完整引文/JSON/citation/原页及失效保护通过；未部署/真实模型/家长验收。",
+      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
+      "tool_candidate_version": "1.2.0"
+    },
+    {
+      "id": "tool_120_on_a05_service",
+      "components": [
+        "page_evidence_candidate",
+        "chapter_retrieval_candidate"
+      ],
+      "status": "isolated_a05_service_source_compatibility",
+      "evidence": [
+        "docs/verification/A07-runtime-passages-2026-11-07.md"
+      ],
+      "limit": "A05的149文件源码副本仅替换Tool为1.2.0，独立跑原30项Tool集成检查；不等于历史线上服务兼容。"
+    },
+    {
+      "id": "tool_upgrade_rollback_120",
+      "components": [
+        "tool_lifecycle_candidate",
+        "passage_runtime_candidate"
+      ],
+      "status": "synthetic_and_native_verified_not_formally_applied",
+      "evidence": [
+        "docs/verification/A08-tool-lifecycle-2026-11-07.md"
+      ],
+      "limit": "固定0.12.5 SQLite/A07后端/1.2.0候选；准备包绑定原数据库和完整目标状态，正式部署映射另核。"
+    }
+  ],
+  "differences_from_plan_baseline": [],
+  "known_gaps": [
+    "正式 Tool 源码/可见性本次未复核。",
+    "运行数据库 schema 和内容数量未重计；设备/真实模型验收无新证据。",
+    "source manifest 的未部署状态描述封包当时阶段；运行状态依据独立构建/发布记录与本次容器观察。",
+    "A03 本地 515 项必要测试通过；GitHub workflow 尚未提交执行，实物材料组未运行。",
+    "A06 历史基线召回2/20、拒绝2/10；A05已在有界离线候选解决原30项回归缺陷，已暴露题集不能冒称外部盲测。",
+    "A07本地集成已通过，默认关闭；未构建/部署候选镜像，A08本地升级/回退机制已通过，正式应用、实际模型与家长体验待验收。",
+    "A07无实时撤回推送，打开/导航/可见性变化时核验；历史聊天文字不追溯删除。",
+    "A09本地独立静态包与回退已验证；尚未发布或取得家长真实设备反馈。"
+  ],
+  "next_task": "B01",
+  "runtime_observed_at": "2026-11-07T17:00:53+08:00",
+  "update_scope": "A09本地静态候选、恢复及封包验证；线上运行观察仍为A01。",
+  "latest_verification_report": "docs/verification/A09-static-samples-2026-11-08.md",
+  "source_delivery": {
+    "task": "A02",
+    "state": "organized_pending_commit",
+    "commit_sha": null,
+    "engineering_state": "ready",
+    "acceptance_state": "passed",
+    "completion_state": "open",
+    "manifest": "docs/releases/A02-candidate-files-2026-11-07.json",
+    "delivery_document": "docs/releases/A02-candidate-delivery-2026-11-07.md",
+    "material_backup_document": "docs/releases/A02-local-material-backup-2026-11-07.md",
+    "review_packet": "learning_data/verification/a02-candidate-delivery-20261107T095108Z/review-packet",
+    "groups": [
+      {
+        "id": "U1",
+        "files": 24,
+        "depends_on": [],
+        "commit_sha": null
+      },
+      {
+        "id": "U2",
+        "files": 22,
+        "depends_on": [
+          "U1"
+        ],
+        "commit_sha": null
+      }
+    ],
+    "tests_reused": {
+      "unit": 503,
+      "browser": 12,
+      "report": "docs/verification/A03-portable-tests-2026-11-07.md",
+      "binding_check": "learning_data/verification/a02-candidate-delivery-20261107T095108Z/source-evidence-verification.json"
+    },
+    "new_material_backup": false,
+    "deployment_performed": false,
+    "next_task": "B01",
+    "snapshot_scope": "A02固定审阅包；A04/A06/A05/A07/A08/A09独立增量，不据旧hash提交整树。",
+    "increments": [
+      {
+        "task": "A04",
+        "state": "candidate_only",
+        "commit_sha": null,
+        "manifest": "learning_data/verification/a04-study-errors-20261107T101647Z/increment-manifest.json",
+        "patch": "learning_data/verification/a04-study-errors-20261107T101647Z/a04-increment.patch",
+        "report": "docs/verification/A04-study-errors-2026-11-07.md"
+      },
+      {
+        "task": "A06",
+        "state": "candidate_only",
+        "commit_sha": null,
+        "manifest": "learning_data/verification/a06-retrieval-evaluation-20261107T125008Z/increment-manifest.json",
+        "patch": "learning_data/verification/a06-retrieval-evaluation-20261107T125008Z/a06-increment.patch",
+        "report": "docs/verification/A06-retrieval-evaluation-2026-11-07.md"
+      },
+      {
+        "task": "A05",
+        "state": "candidate_only",
+        "commit_sha": null,
+        "manifest": "/home/deniskorfei/projects/open-webui/learning_data/verification/a05-chapter-retrieval-20261107T131135Z/increment-manifest.json",
+        "patch": "/home/deniskorfei/projects/open-webui/learning_data/verification/a05-chapter-retrieval-20261107T131135Z/a05-increment.patch",
+        "report": "docs/verification/A05-chapter-retrieval-2026-11-07.md"
+      },
+      {
+        "task": "A07",
+        "state": "candidate_only",
+        "commit_sha": null,
+        "manifest": "learning_data/verification/a07-runtime-passages-20261107T135307Z/increment-manifest.json",
+        "patch": "learning_data/verification/a07-runtime-passages-20261107T135307Z/a07-increment.patch",
+        "report": "docs/verification/A07-runtime-passages-2026-11-07.md"
+      },
+      {
+        "task": "A08",
+        "state": "candidate_only",
+        "commit_sha": null,
+        "manifest": "learning_data/verification/a08-tool-lifecycle-20261107T144058Z/increment-manifest.json",
+        "patch": "learning_data/verification/a08-tool-lifecycle-20261107T144058Z/a08-increment.patch",
+        "report": "docs/verification/A08-tool-lifecycle-2026-11-07.md"
+      },
+      {
+        "task": "A09",
+        "state": "candidate_only",
+        "commit_sha": null,
+        "manifest": "learning_data/verification/a09-static-samples-20261107T223140Z/increment-manifest.json",
+        "patch": "learning_data/verification/a09-static-samples-20261107T223140Z/a09-increment.patch",
+        "report": "docs/verification/A09-static-samples-2026-11-08.md"
+      }
+    ]
+  }
+}

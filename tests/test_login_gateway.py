@@ -105,16 +105,16 @@ def test_old_learning_cookie_cannot_survive_webui_change(gateway_env, change):
         assert response.status_code == 303
         assert response.headers['location'] == '/auth?redirect=/learning/auth/login'
     else:
-        assert response.status_code in {401, 503}
+        assert response.status_code == (504 if change == 'fault' else 401)
     assert "secret-in-exception" not in response.text
     assert not any(c[2] == "/ui" for c in bridge.calls)
 
 
-@pytest.mark.parametrize("body", [b'{"id":"subject-a","id":"subject-b","role":"user"}', b'{"id":42,"role":"admin"}', b'[]', b'{bad', b'{"id":"subject-a","role":"service"}'])
-def test_invalid_upstream_identity_never_mints_session(gateway_env, body):
+@pytest.mark.parametrize("body,status", [(b'{"id":"subject-a","id":"subject-b","role":"user"}', 502), (b'{"id":42,"role":"admin"}', 502), (b'[]', 502), (b'{bad', 502), (b'{"id":"subject-a","role":"service"}', 401)])
+def test_invalid_upstream_identity_never_mints_session(gateway_env, body, status):
     s, db, settings, bridge, client = gateway_env
     bridge.webui_body = body
-    assert client.get("/learning/auth/login").status_code == 401
+    assert client.get("/learning/auth/login").status_code == status
     with db.session() as conn:
         assert conn.execute("SELECT COUNT(*) FROM browser_sessions").fetchone()[0] == 0
 

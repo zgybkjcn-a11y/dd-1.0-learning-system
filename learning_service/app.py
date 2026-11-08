@@ -38,6 +38,10 @@ from .textbooks import (catalogue as textbook_catalogue, subject_catalogue as te
                         practice_scope as textbook_practice_scope, learning_scope as textbook_learning_scope)
 
 
+from . import textbook_passages
+from .textbook_passages import PassageError, PassageDetail, PassageSearchResponse
+
+
 INTERVALS = [1, 2, 4, 7, 15, 30]
 DEFAULT_TIMEZONE = "Asia/Shanghai"
 ALLOWED_AGENT_ACTIONS = {
@@ -1057,6 +1061,7 @@ _UI_HTML = """<!doctype html>
     let gameCompletedChoices = new Set();
     let gameDifficulty = 'auto', gameGuidance = {}, gameLoadingChoices = false;
     const difficultyNames = {easy:'简单',normal:'正常',hard:'困难'};
+    let passageExpiryTimer = null, activePassage = false;
     const pendingRequests = new Set();
     class StaleContextError extends Error {}
     const workspaceStorage = browserSessionMode ? sessionStorage : localStorage;
@@ -1799,6 +1804,7 @@ _UI_HTML = """<!doctype html>
     }
     function releaseTextbookPages() {
       textbookGeneration += 1;
+      clearTimeout(passageExpiryTimer); activePassage = false;
       textbookObjectUrls.forEach((url) => URL.revokeObjectURL(url)); textbookObjectUrls = [];
       if ($('textbookZoom').open) $('textbookZoom').close();
       $('textbookResults').replaceChildren();
@@ -1812,7 +1818,7 @@ _UI_HTML = """<!doctype html>
       if (!current()) return;
       target.textContent = '正在加载教材原页…';
       try {
-        if (!new RegExp('^/api/v1/textbooks/(chinese|math|english|ethics|history|geography|physics|chemistry|biology)-g[27]-(upper|lower)/pages/[1-9][0-9]{0,2}/image$').test(item.page_image_path)) throw new Error('invalid page');
+        if (!new RegExp('^/api/v1/textbooks/(chinese|math|english|ethics|history|geography|physics|chemistry|biology)-g[27]-(upper|lower)/(pages/[1-9][0-9]{0,2}|passages/dd-excerpt-[a-f0-9]{64})/image$').test(item.page_image_path)) throw new Error('invalid page');
         const blob = await fetchScoped(item.page_image_path, {}, true);
         if (!current()) return;
         if (blob.type !== 'image/png') throw new Error('invalid image');
@@ -1831,6 +1837,7 @@ _UI_HTML = """<!doctype html>
         close.onclick = () => { const card = target.closest('details'); card.open = false; card.querySelector('summary').focus({preventScroll:true}); card.querySelector('summary').scrollIntoView({block:'nearest'}); };
         const actions = document.createElement('div'); actions.className = 'textbook-page-actions'; actions.append(link, close);
         target.replaceChildren(image, actions);
+        return true;
       } catch (error) {
         if (error instanceof StaleContextError || !current()) return;
         const message = document.createElement('p'); message.textContent = '教材原页暂未加载成功，请重试。';
@@ -1840,6 +1847,9 @@ _UI_HTML = """<!doctype html>
       }
     }
     let readerOffset = 0, readerHits = null, readerHitIndex = 0, zoomScale = 100;
+    document.addEventListener('visibilitychange', () => {
+      if (activePassage) { releaseTextbookPages(); readerHits = null; $('textbookStatus').textContent = '请重新查询片段，以核对当前有效状态；也可清空关键词阅读原页。'; }
+    });
     function openTextbookZoom(url, item) {
       $('textbookZoomImage').src = url; $('textbookZoomImage').alt = item.content_title;
       $('textbookZoomTitle').textContent = '第 ' + item.printed_page + ' 页 · ' + item.content_title;
@@ -1922,7 +1932,7 @@ _UI_HTML = """<!doctype html>
       $('textbookQuery').value = ''; loadTextbookResults(value - range.start);
     };
     $('textbookPageInput').onkeydown = (event) => { if (event.key === 'Enter') $('textbookJump').onclick(); };
-    function showReaderPage(item, epoch, generation) {
+    async function showReaderPage(item, epoch, generation) {
       const card = document.createElement('details'); card.className = 'review-card textbook-page'; card.dataset.page = item.printed_page; card.open = true;
       const summary = document.createElement('summary'); summary.className = 'textbook-page-summary';
       const title = document.createElement('strong'); title.className = 'textbook-page-title'; title.textContent = '第 ' + item.printed_page + ' 页 · ' + (item.content_title || '本页教材内容');
@@ -1931,7 +1941,44 @@ _UI_HTML = """<!doctype html>
       $('textbookResultTools').hidden = false;
       $('textbookPageInput').value = item.printed_page;
       $('textbookPageRange').textContent = '第 ' + item.printed_page + ' 页';
-      renderTextbookPage(item, preview, epoch, generation);
+      return await renderTextbookPage(item, preview, epoch, generation);
+    }
+    async function showReaderPassage(passage, stamp, page, epoch, generation) {
+      const e = passage.evidence;
+      if (!/^dd-excerpt-[a-f0-9]{64}$/.test(e.evidence_id) || e.book_id !== gameBook || (gameChapter && e.chapter_id !== gameChapter)) throw new Error('invalid excerpt');
+      const path = '/api/v1/textbooks/' + gameBook + '/passages/' + e.evidence_id;
+      const fresh = await call(path + '?chapter_id=' + encodeURIComponent(gameChapter));
+      if (epoch !== contextEpoch || generation !== textbookGeneration) return;
+      if (fresh.manifest_sha256 !== stamp.manifest_sha256 || fresh.checked_on !== stamp.checked_on || JSON.stringify(fresh.item) !== JSON.stringify(passage)) throw new Error('stale excerpt');
+      const expiry = Date.parse(e.valid_until + 'T00:00:00+08:00') + 86400000;
+      if (!Number.isFinite(expiry) || Date.now() >= expiry || e.teacher_reviewed !== false || e.fully_reviewed_page !== false || e.eligible_as_grading_basis !== false) throw new Error('expired excerpt');
+      const shown = await showReaderPage({...page, page_image_path: path + '/image'}, epoch, generation);
+      if (!shown || epoch !== contextEpoch || generation !== textbookGeneration || Date.now() >= expiry) return;
+      const final = await call(path + '?chapter_id=' + encodeURIComponent(gameChapter));
+      if (epoch !== contextEpoch || generation !== textbookGeneration) return;
+      if (final.manifest_sha256 !== stamp.manifest_sha256 || final.checked_on !== stamp.checked_on || JSON.stringify(final.item) !== JSON.stringify(passage)) throw new Error('stale excerpt');
+      const quote = document.createElement('blockquote'); quote.className = 'textbook-excerpt'; quote.style.whiteSpace = 'pre-wrap'; quote.textContent = passage.text;
+      const note = document.createElement('p'); note.className = 'textbook-excerpt-context';
+      note.textContent = passage.context + ' · 助手核对片段，非教师审核、非整页通过，不作为答案或判分依据。有效至 ' + e.valid_until + '（北京时间）。教材 p.' + e.printed_page + ' / PDF 第 ' + e.pdf_page + ' 页。';
+      const card = $('textbookResults').querySelector('.textbook-page'); card.insertBefore(quote, card.lastChild); card.insertBefore(note, card.lastChild);
+      activePassage = true;
+      passageExpiryTimer = setTimeout(() => { releaseTextbookPages(); readerHits = null; $('textbookStatus').textContent = '片段已到期，请重新查询或清空关键词阅读原页。'; }, Math.min(expiry - Date.now(), 2147483647));
+    }
+    async function openReaderEvidence(book, chapter, evidenceId, printedPage) {
+      releaseTextbookPages(); readerHits = null;
+      const epoch = contextEpoch, generation = textbookGeneration;
+      $('textbookReader').open = true;
+      try {
+        if (book !== gameBook || chapter !== gameChapter || !/^dd-excerpt-[a-f0-9]{64}$/.test(evidenceId)) throw new Error('scope');
+        const fresh = await call('/api/v1/textbooks/' + book + '/passages/' + evidenceId + '?chapter_id=' + encodeURIComponent(chapter));
+        if (epoch !== contextEpoch || generation !== textbookGeneration) return;
+        const e = fresh.item.evidence;
+        if (e.evidence_id !== evidenceId || e.printed_page !== printedPage) throw new Error('stale evidence');
+        await showReaderPassage(fresh.item, fresh, {book_title:e.book_title, printed_page:e.printed_page, content_title:e.chapter_title}, epoch, generation);
+        if (epoch === contextEpoch && generation === textbookGeneration) $('textbookStatus').textContent = '当前有效片段 · 请结合原页核对。';
+      } catch (error) {
+        if (epoch === contextEpoch && generation === textbookGeneration) { releaseTextbookPages(); $('textbookStatus').textContent = '这条片段已失效、材料不可用或档案已变化，请重新查询；可清空关键词阅读原页。'; }
+      }
     }
     async function loadTextbookResults(pageOffset = 0, hitIndex = null) {
       if (!selectedBook()) return;
@@ -1950,16 +1997,23 @@ _UI_HTML = """<!doctype html>
         if (epoch !== contextEpoch || generation !== textbookGeneration) return;
         const items = (result.items || []).slice().sort((a,b) => a.printed_page - b.printed_page);
         const browse = result.mode === 'browse'; readerOffset = pageOffset; readerHitIndex = hitIndex ?? 0; readerHits = browse ? null : result;
-        $('textbookStatus').textContent = items.length ? (browse ? '按页阅读 · 点击原图可放大。' : '匹配页 · 点击原图可放大。') + '仅供阅读，不作为标准答案。' : '所选范围暂未找到相关内容，可以换个关键词。';
-        $('textbookResultCount').textContent = browse ? '当前范围共 ' + result.total_pages + ' 页' : `找到 ${items.length} 个相关页 · ${readerHitIndex + 1} / ${items.length}`;
+        const incomplete = result.retrieval?.status === 'incomplete';
+        $('textbookStatus').textContent = result.passage_result ? result.passage_result.grounding.message : incomplete ? '本次检索可能遗漏所选范围的内容；可清空关键词按页阅读。候选页仅供核对，不作为标准答案。' : items.length ? (browse ? '按页阅读 · 点击原图可放大。' : '匹配页 · 点击原图可放大。') + '仅供阅读，不作为标准答案。' : '所选范围暂未找到相关内容，可以换个关键词。';
+        $('textbookResultCount').textContent = browse ? '当前范围共 ' + result.total_pages + ' 页' : items.length ? `${items.length} 个候选原页 · ${readerHitIndex + 1} / ${items.length}` : '本次没有可展示的候选页';
         if (!items.length) return;
-        showReaderPage(items[browse ? 0 : readerHitIndex], epoch, generation);
+        const selected = items[browse ? 0 : readerHitIndex];
+        if (result.passage_result) {
+          const passage = result.passage_result.items.find(p => p.evidence.page_evidence_id === selected.evidence.evidence_id);
+          if (!passage) throw new Error('missing excerpt');
+          await showReaderPassage(passage, result.passage_result, selected, epoch, generation);
+        } else await showReaderPage(selected, epoch, generation);
+        if (epoch !== contextEpoch || generation !== textbookGeneration) return;
         $('textbookPrev').textContent = browse ? '上一页' : '上个匹配'; $('textbookNext').textContent = browse ? '下一页' : '下个匹配';
         $('textbookPrev').disabled = browse ? pageOffset <= 0 : readerHitIndex <= 0;
         $('textbookNext').disabled = browse ? pageOffset + 1 >= result.total_pages : readerHitIndex + 1 >= items.length;
         $('textbookPrev').onclick = () => loadTextbookResults(browse ? pageOffset - 1 : 0, browse ? null : readerHitIndex - 1);
         $('textbookNext').onclick = () => loadTextbookResults(browse ? pageOffset + 1 : 0, browse ? null : readerHitIndex + 1);
-      } catch (error) { if (!(error instanceof StaleContextError) && epoch === contextEpoch && generation === textbookGeneration) $('textbookStatus').textContent = '课本暂时没有连接上，请稍后再试。'; }
+      } catch (error) { if (!(error instanceof StaleContextError) && epoch === contextEpoch && generation === textbookGeneration) { releaseTextbookPages(); readerHits = null; $('textbookStatus').textContent = '资料已失效或暂时不可用，请重新查询；可清空关键词阅读原页。'; } }
       finally { if (epoch === contextEpoch && generation === textbookGeneration) { $('textbookPageInput').disabled = false; $('textbookJump').disabled = false; } }
     }
     $('loadToday').onclick = async () => {
@@ -2200,6 +2254,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
     app = FastAPI(title="DD-1.0 Learning Service", version="0.1.0", docs_url="/docs")
     app.state.settings = settings
     app.state.db = db
+    app.state.passage_status = textbook_passages.startup_status(settings)
     browser_sessions = BrowserSessions(settings, db)
 
     @app.exception_handler(AuthError)
@@ -3743,7 +3798,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             with db.session() as conn:
                 curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
                 result = reader(conn, learner_id, curriculum, settings.textbook_dir)
-        except ReferenceError as exc:
+        except (ReferenceError, PassageError) as exc:
             raise APIError(exc.status, exc.code, exc.message) from None
         if pinned and selection() != pinned:
             raise APIError(409, "LEARNER_CONTEXT_CHANGED", "学习者已变化，请刷新工作台后重试")
@@ -3782,15 +3837,36 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                 'grade_notice': '二年级英语按学校安排暂未开设。' if curriculum=='math-g2-v1' else
                                 '七年级开设以上七门学科；物理从八年级、化学从九年级开始。' if curriculum=='math-g7-v1' else ''}
 
-    @app.post("/api/v1/textbooks/search")
-    def textbook_search(body: dict[str, Any], ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
-        learner_id = learner_for(ctx, db=db)
-        with db.session() as conn:
-            curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
-        try:
-            return textbook_search_scope(curriculum, body)
-        except ValueError:
-            raise APIError(422, 'TEXTBOOK_SCOPE_INVALID', '请选择当前年级的课本，章节可不选，检索词最多160字')
+    @app.post("/api/v1/textbooks/search", response_model=PassageSearchResponse | dict[str, Any])
+    def textbook_search(body: dict[str, Any], request: Request, ctx: Context = Depends(get_context),
+                        db: Database = Depends(get_db), settings: Settings = Depends(get_settings)):
+        def reader(conn, learner, curriculum, directory):
+            try:
+                scope = textbook_search_scope(curriculum, body)
+            except ValueError:
+                raise APIError(422, 'TEXTBOOK_SCOPE_INVALID', '请选择当前年级的课本，章节可不选，检索词最多160字')
+            if settings.textbook_passages_enabled and scope['mode'] == 'search':
+                return textbook_passages.search(settings, curriculum, scope, body['query'])
+            return scope
+        return read_study_reference(request, ctx, db, settings, set(), reader)
+
+    @app.get("/api/v1/textbooks/{book_id}/passages/{evidence_id}", response_model=PassageDetail)
+    def textbook_passage(book_id: str, evidence_id: str, request: Request, chapter_id: str = '',
+                         ctx: Context = Depends(get_context), db: Database = Depends(get_db),
+                         settings: Settings = Depends(get_settings)):
+        return read_study_reference(request, ctx, db, settings, {'chapter_id'},
+            lambda conn, learner, curriculum, directory:
+                textbook_passages.detail(settings, curriculum, book_id, evidence_id, chapter_id))
+
+    @app.get("/api/v1/textbooks/{book_id}/passages/{evidence_id}/image", response_class=Response,
+             responses={200: {"content": {"image/png": {}}}})
+    def textbook_passage_image(book_id: str, evidence_id: str, request: Request, chapter_id: str = '',
+                               ctx: Context = Depends(get_context), db: Database = Depends(get_db),
+                               settings: Settings = Depends(get_settings)):
+        content = read_study_reference(request, ctx, db, settings, {'chapter_id'},
+            lambda conn, learner, curriculum, directory:
+                textbook_passages.detail(settings, curriculum, book_id, evidence_id, chapter_id, image=True))
+        return Response(content, media_type='image/png', headers={'X-Content-Type-Options': 'nosniff'})
 
     @app.get("/api/v1/textbooks/{book_id}/pages/{printed_page}/image", response_class=Response,
              responses={200: {"content": {"image/png": {}}}})

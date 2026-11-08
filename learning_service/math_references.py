@@ -10,7 +10,7 @@ from pathlib import Path
 import re
 
 from .practice import bank, BANK_PATH, BANK_SHA256
-from .textbooks import catalogue, PDF_SHA256, practice_scope
+from .textbooks import catalogue, PDF_SHA256, practice_scope, page_evidence
 
 REFERENCE_PATH = Path(__file__).parent/'data/family_concepts_v1.json'
 REFERENCE_SHA256 = 'b9f483f264d9be9124e1f682a9736e37010a5d78919510eaf47de604c916c9ba'
@@ -168,6 +168,7 @@ def query_reference(conn, learner_id, curriculum_id, textbook_dir, *, book_id=''
             'location_status':n['location_status'],'reference_only':True,'eligible_as_grading_basis':False,
             'pages':[{'book_id':book_id,'chapter_id':p['chapter_id'],'chapter_title':p['chapter_title'],
                       'printed_page':p['printed_page'],'pdf_page':p['pdf_page'],'pdf_sha256':p['pdf_sha256'],
+                      'evidence':page_evidence(book,p['pdf_page']),
                       'label':p['label'],'scope_relation':'current_chapter' if p['chapter_id']==result['scope']['chapter_id'] else
                          'within_book' if not result['scope']['chapter_id'] else 'prior_foundation',
                       'page_image_path':f"/api/v1/textbooks/{book_id}/pages/{p['printed_page']}/image"}

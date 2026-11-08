@@ -14,12 +14,13 @@ from learning_service.textbooks import bounded_references, chapter_references
 from test_browser_auth import assertion
 from test_family_math import family
 from learning_service.practice import install, bank
-from test_textbooks import textbook_sources
+
+
+pytestmark = pytest.mark.browser
 
 
 @pytest.mark.parametrize('width', [390, 1280])
-def test_word_problems_difficulty_next_question_and_restore(family, tmp_path, width, textbook_sources):
-    playwright = pytest.importorskip('playwright.sync_api')
+def test_word_problems_difficulty_next_question_and_restore(family, tmp_path, width, textbook_sources, playwright, launch_browser):
     _, db, original, _ = family
     install(db)
     origin = 'https://family-adventure.example.invalid'
@@ -35,7 +36,7 @@ def test_word_problems_difficulty_next_question_and_restore(family, tmp_path, wi
     screenshots = Path(os.getenv('DD_FAMILY_GAME_EVIDENCE_DIR', str(tmp_path)))
     screenshots.mkdir(parents=True, exist_ok=True)
     with playwright.sync_playwright() as runtime:
-        browser = runtime.chromium.launch(executable_path='/usr/bin/google-chrome', headless=True)
+        browser = launch_browser(runtime)
         context = browser.new_context(viewport={'width': width, 'height': 960}, service_workers='block')
         context.add_cookies([{'name': name, 'value': value, 'url': origin, 'secure': True,
                              'httpOnly': name == SESSION_COOKIE, 'sameSite': 'Strict'}

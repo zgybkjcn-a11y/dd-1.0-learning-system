@@ -1,24 +1,52 @@
-"""Offline public example: parameter arithmetic, subject selection and export."""
+"""Offline template with synthetic references: parameter arithmetic, subject selection and export."""
 import json
-import os
 from pathlib import Path
 
 import pytest
 
+from test_math_references import reference_family
+from test_family_math import family
+
+
+@pytest.fixture
+def offline_example(reference_family, tmp_path):
+    from scripts.prepare_study_support_examples import HTML
+    from learning_service.math_references import query_reference
+    from learning_service.study_support import query_support
+    from learning_service.textbooks import catalogue
+
+    _, db, client, _ = reference_family
+    directory = client.app.state.settings.textbook_dir
+    payload = {'books': [], 'scopes': {}}
+    for grade in (2, 7):
+        curriculum = f'math-g{grade}-v1'
+        for book in catalogue(curriculum):
+            payload['books'].append({k: book[k] for k in ('id', 'grade', 'subject', 'subject_title', 'semester', 'chapters')})
+            for chapter in ['', *[c['id'] for c in book['chapters']]]:
+                with db.session() as conn:
+                    args = dict(book_id=book['id'], chapter_id=chapter)
+                    support = query_support(conn, f'family-g{grade}', curriculum, directory, **args)
+                    math = query_reference(conn, f'family-g{grade}', curriculum, directory, **args) if book['subject'] == 'math' else None
+                payload['scopes'][book['id'] + '|' + chapter] = {'support': support, 'math': math}
+    encoded = json.dumps(payload, ensure_ascii=False, separators=(',', ':')).replace('<', '\\u003c')
+    path = tmp_path / 'offline-study.html'
+    path.write_text(HTML.replace('__DATA__', encoded))
+    return path
+
+
+pytestmark = pytest.mark.browser
+
 
 @pytest.mark.parametrize('width',[390,1280])
-def test_offline_understanding_workshop(width,tmp_path):
-    playwright=pytest.importorskip('playwright.sync_api')
-    directory=Path(os.getenv('DD_STUDY_EXAMPLES_DIR', str(Path(__file__).parents[1]/'learning_data/verification/scenarios-integration-20261106/examples-v3')))
-    if not (directory/'offline-study.html').is_file():
-        pytest.skip('generate the public offline examples before browser verification')
+def test_offline_understanding_workshop(width,tmp_path, playwright, launch_browser, offline_example):
+    directory = tmp_path
     with playwright.sync_playwright() as runtime:
-        browser=runtime.chromium.launch(executable_path='/usr/bin/google-chrome',headless=True)
-        context=browser.new_context(viewport={'width':width,'height':950},service_workers='block')
+        browser=launch_browser(runtime)
+        context=browser.new_context(viewport={'width':width,'height':950},service_workers='block',offline=True)
         page=context.new_page();page.set_default_timeout(5000);errors=[];requests=[]
         page.on('pageerror',lambda err:errors.append(str(err)))
         page.on('request',lambda req:requests.append(req.url))
-        page.set_content((directory/'offline-study.html').read_text(),wait_until='load')
+        page.set_content(offline_example.read_text(),wait_until='load')
         assert page.locator('#grade').input_value()=='2'
         assert page.locator('#lineControls').is_hidden()
         page.locator('#each').evaluate('(e)=>{e.value=2;e.dispatchEvent(new Event("input"))}')

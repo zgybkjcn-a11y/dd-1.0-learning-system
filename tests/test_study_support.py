@@ -8,7 +8,7 @@ from learning_service import app as app_module, tools as tool_module
 from learning_service.learner_context import select_context
 from learning_service.study_support import query_support
 from learning_service.tools import Tools
-from test_math_references import reference_family, shared_reference_family, ToolResponse, PUBLIC_BOOKS
+from test_math_references import reference_family, shared_reference_family, ToolResponse
 from test_family_math import family
 from test_login_gateway import gateway_env, gateway_login
 from test_browser_auth import auth_env

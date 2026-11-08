@@ -1,5 +1,19 @@
 # DD-1.0：复用已部署 Open WebUI 的实施文档
 
+最新执行（2026-11-08）：A09 本地静态交付准备已完成，工程 ready，发布与家长设备验收 pending，总状态 open；下一项可继续 **B01**。[本地验收](../verification/A09-static-samples-2026-11-08.md)记录 30 项定向检查和隔离 nginx 候选 4 / 回退 3 条路由通过；[交付与设备检查表](static-samples-delivery.md)已就绪。九文件固定提交与旧样本一致，当前 A07 桥接未混入。以下各批次更新保留历史语境。
+
+A08已完成[既有Tool升级/回退本地验收](../verification/A08-tool-lifecycle-2026-11-07.md)，[操作单](tool-upgrade-rollback.md)提供五阶段流程。54项与固定WebUI原生schema/历史/缓存通过；未正式应用。下一项 **A09**；下文A07及此前为历史更新。
+
+A07 已完成[五片段服务与六方法 Tool 本地接入](../verification/A07-runtime-passages-2026-11-07.md)，当前候选 **1.2.0**、默认关闭、未部署；[运行说明](textbook-passages-runtime.md)。下一项 **A08**，在临时数据中实现现有 Tool ID 升级/回退。下文A05及更早结果为历史记录。
+
+2026-11-07 当前交付事实统一见[当前状态与兼容清单](../releases/current-state.md)及[机器清单](../releases/current-manifest.json)。A01 已核对五容器、在线静态快照、源码封包与候选身份；A03 已完成[可移植测试基础](../TESTING.md)，[干净环境 503 + 12 项通过](../verification/A03-portable-tests-2026-11-07.md)。正式 Tool 仍仅历史证据，远端 CI 尚未执行。A02 [两组交付单](../releases/A02-candidate-delivery-2026-11-07.md)已通过[本地验收](../verification/A02-candidate-delivery-2026-11-07.md)，待提交；A04 [故障分类与恢复](study-error-recovery.md)已完成，[552 项单元/契约、原生六方法通过](../verification/A04-study-errors-2026-11-07.md)，Tool 候选 1.1.1，未提交/部署。A06 [评测规程](retrieval-evaluation.md)与[基线验收](../verification/A06-retrieval-evaluation-2026-11-07.md)已完成，73 项合成测试通过；新试点召回 2/20、无依据拒绝 2/10，质量未达标。A05 [有界检索与不足判定](../verification/A05-chapter-retrieval-2026-11-07.md)现已完成，补充集召回 20/20、拒绝 10/10、泄漏 0/10；241 项单元/契约、4 项浏览器及原生六方法通过。Tool 本地候选 1.1.2，未提交/部署。A05 当时下一项 **A07：接入 5 个有效片段**。
+
+继续执行使用[下一阶段工作计划](../plans/DD-1.0-WORK-PLAN-2026-11-07.md)、[25 项台账](../plans/dd-next-work-tracker.json)和[续接指令](../plans/RESUME-NEXT-WORK.txt)，核对范围见[A01 验证记录](../verification/A01-current-state-2026-11-07.md)。已提交的三个静态样本、未提交的页级候选和独立离线片段分别记账，不据旧记录重新开发或安装。
+
+## 11-04 / 11-05 历史交付记录
+
+下文保留各批次当时的版本、限制及下一步，不替代上方当前清单。旧“未部署”“Tool 未注册”“14 题”不是当前运行状态；当前授权以有效会话指令为准。
+
 2026-11-05 当前优先级：**两人数学测试版已部署**，一个现有家长账号切换七年级/二年级档案，14 道起步题、练习判分/恢复和手动错题本。用户已明确授权本家庭版生产上线；真实模型/OCR、学生资料外发和 Goal 写入仍禁止。设备证书导入和真实家长首次绑定待用户操作。复杂监控/完整恢复/商业化功能暂缓，不作为此次上线前置。下文旧批次的“未部署/禁止生产/下一步监控恢复”保留历史，仅在与本范围不冲突时适用。 入口/首次使用/验证及运维见[家庭测试版交接](../goal/HANDOFF-SESSION-2026-11-05-FAMILY-MATH.md)。
 
 最新进度（2026-11-05）：W07–W10已有固定镜像/内部TLS/故障恢复证据，本地周期监控与完整恢复设计已补充。参见[新操作说明](07-MONITORING-RECOVERY-PLAN-2026-11-05.md)、[报告](../verification/reuse-monitoring-recovery-plan-2026-11-05.md)与[当前交接](../goal/HANDOFF-SESSION-2026-11-04-W07-W10.md)。正式条件和T/QA/Goal保持；下文各批描述保留历史。
@@ -18,14 +32,14 @@
 
 辅助文件：[部署输入与只读事实](deployment-inputs-2026-11-04.json)、[机器可读工作计划](work-plan-2026-11-04.json)。未确认参数为 `null`，这些文件不是可直接启动的生产配置。
 
-## 最先解决的事项
+## 11-04 最先解决的事项（历史）
 
 1. 为现有容器确定受信 HTTPS 入口。当前学习浏览器会话要求 HTTPS，且只接受默认 443 或显式 443 的 origin；现有 HTTP 地址不能直接承载该会话。
 2. 落实正式身份清单与目标登录组合；网关/绑定CLI/上下文有本地实现，Tools两端适配继续。
 3. 完善已添加的 `/learning/` 路径、上下文版本与产品入口/恢复，避免请求进入WebUI根API。
 4. 固定新学习服务镜像、独立部署配置，在新隔离组合中验证，再按工作计划进入真实链路、质量、生产切换和试用。
 
-## 当前证据与范围
+## 11-04 证据与范围（历史）
 
 规划起点schema9、102项此前聚焦；当前源码schema10 / OpenAPI61 paths、22schemas，第一批74项聚焦通过，101为此前全量基线。P0 保持 schema 7 历史快照。现有 Open WebUI 的版本和 Docker 元数据已只读核对；内置登录验证协议只审阅了源码，没有登录正式账号、读取凭据、发起模型调用或完成实际认证桥接。
 

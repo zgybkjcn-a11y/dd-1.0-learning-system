@@ -11,9 +11,11 @@ from test_browser_auth import assertion
 from test_family_math import family
 
 
+pytestmark = pytest.mark.browser
+
+
 @pytest.mark.parametrize('width', [390, 1280])
-def test_auto_objective_matches_scope_preserves_manual_choice_and_saves_card(family, width):
-    playwright = pytest.importorskip('playwright.sync_api')
+def test_auto_objective_matches_scope_preserves_manual_choice_and_saves_card(family, width, playwright, launch_browser):
     _, db, original, _ = family
     origin = 'https://family-objective.example.invalid'
     settings = replace(original.app.state.settings,
@@ -31,7 +33,7 @@ def test_auto_objective_matches_scope_preserves_manual_choice_and_saves_card(fam
     })
     assert response.status_code == 201
     with playwright.sync_playwright() as runtime:
-        browser = runtime.chromium.launch(executable_path='/usr/bin/google-chrome', headless=True)
+        browser = launch_browser(runtime)
         context = browser.new_context(viewport={'width': width, 'height': 900}, service_workers='block')
         context.add_cookies([{'name': name, 'value': value, 'url': origin, 'secure': True,
                              'httpOnly': name == SESSION_COOKIE, 'sameSite': 'Strict'}

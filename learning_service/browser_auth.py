@@ -155,10 +155,13 @@ class BrowserSessions:
         if not token or len(token) > 256:
             raise AuthError("BROWSER_LOGIN_REQUIRED")
         with self.db.session() as conn:
-            row = conn.execute("SELECT s.* FROM browser_sessions s JOIN identity_bindings b ON b.account_id=s.account_id AND b.provider=s.provider AND b.issuer=s.issuer AND b.subject=s.subject WHERE s.token_hash=? AND s.revoked_at IS NULL AND s.expires_at>?",
-                               (_hash(token), utc_now())).fetchone()
+            row = conn.execute("SELECT s.* FROM browser_sessions s JOIN identity_bindings b ON b.account_id=s.account_id AND b.provider=s.provider AND b.issuer=s.issuer AND b.subject=s.subject WHERE s.token_hash=? AND s.revoked_at IS NULL",
+                               (_hash(token),)).fetchone()
         if not row:
             raise AuthError("BROWSER_SESSION_INVALID")
+        # Only a still-bound, non-revoked session can be identified as expired.
+        if row['expires_at'] <= utc_now():
+            raise AuthError('BROWSER_SESSION_EXPIRED')
         if request.method not in {"GET", "HEAD", "OPTIONS"}:
             self.require_origin(request)
             header = request.headers.get("X-CSRF-Token", "")
