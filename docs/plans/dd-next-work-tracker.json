@@ -2,7 +2,7 @@
   "schema": "dd-next-work-tracker-v1",
   "plan_version": "1.0",
   "created_at": "2026-11-07",
-  "updated_at": "2026-11-08T11:25:58.292260+08:00",
+  "updated_at": "2026-11-08T11:46:16.303769+08:00",
   "timezone": "Asia/Shanghai",
   "purpose": "下一阶段 25 项实施任务台账；不等同于 Goal 或发布证明。",
   "documents": {
@@ -65,7 +65,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B04",
+  "recommended_next_task": "B05",
   "latest_git_delivery": {
     "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
     "branch": "main",
@@ -814,10 +814,10 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "内容复核者",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
-      "completion_state": "open",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
       "estimate_hours": {
         "min": 10,
         "max": 24
@@ -827,19 +827,78 @@
         "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
         "section": "B04"
       },
-      "acceptance_summary": "5 页均有完整处理记录，实际通过/待解分列；题目/答案资格另审。",
+      "acceptance_summary": "首批连续5页均完成逐项处理与明确结论：4页助手完整双步骤通过、1页图形待解；出口是全部处理，不要求5页全通过。题目/答案与判分资格0。",
       "required_conditions": [
         "估算只含首批 5 页；全部处理不等于全部通过，扩到 10 页另排子批次。"
       ],
-      "next_action": "从既有 OCR 选连续 5 页，固定双页码和源图，逐项核对转写与数学/图形。",
+      "next_action": "继续B05显式错题收藏与到期复习；B04-P013-D01待更清晰同版原图或实际复核依据后新修订重审，不扩大通过范围。",
       "baseline_evidence": [
         "../verification/math-g2-lower-offline-ocr-2026-11-06.md",
         "../goal/TEXTBOOK-POLICY.md"
       ],
-      "artifacts": [],
-      "evidence": [],
+      "artifacts": [
+        "../open-webui-reuse/full-page-review.md",
+        "../../learning_data/verification/b04-full-page-review-20261108T033243Z/batch.json",
+        "../../learning_data/verification/b04-full-page-review-20261108T033243Z/source-materials.json",
+        "../../learning_data/verification/b04-full-page-review-20261108T033243Z/evidence-manifest.json",
+        "../../learning_data/verification/b04-full-page-review-20261108T033243Z/verify-evidence.py"
+      ],
+      "evidence": [
+        "../verification/B04-full-page-review-2026-11-08.md",
+        "../../learning_data/verification/b04-full-page-review-20261108T033243Z/evidence-validation.json",
+        "../../learning_data/verification/b04-full-page-review-20261108T033243Z/delivery-validation.json"
+      ],
       "blockers": [],
-      "last_updated": "2026-11-07"
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "scope": "first_five_complete_pages_processing_and_attributed_review",
+        "processed_pages": 5,
+        "fully_verified_pages": 4,
+        "pending_pages": 1,
+        "pdf_pages": [
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "printed_pages": [
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "ocr_lines_accounted": 132,
+        "page_blocks": 27,
+        "exact_math_checks": 38,
+        "negative_record_probes": 17,
+        "pytest_or_browser_tests_rerun": false,
+        "teacher_reviewed_pages": 0,
+        "question_or_answer_eligible_pages": 0,
+        "runtime_published": false,
+        "deployment_performed": false,
+        "new_ocr_calls": 0,
+        "real_model_calls": 0
+      },
+      "content_open_issues": [
+        {
+          "id": "B04-P013-D01",
+          "printed_page": 13,
+          "pdf_page": 19,
+          "state": "needs_review",
+          "summary": "捆棒端点重叠，放大后仍无法可靠独立数清捆内根数，数值留null；不反推补齐或判定教材错误。",
+          "evidence": "../../learning_data/verification/b04-full-page-review-20261108T033243Z/pages/019/review.json",
+          "next_action": "更清晰同版原图或实际内容复核者具体依据；新修订重新执行两项核验。"
+        }
+      ],
+      "acceptance_limits": [
+        "同一助手两种核验方法，不是两名独立复核者或教师签署。",
+        "4页通过仅针对绑定原图和本批纠正文的快照，原OCR仍隔离，历史报告不改写。",
+        "本批之外101页未处理，书内13页待解；不得称整册通过。",
+        "页级通过不授予题干/答案或判分资格，未导入索引/向量或发布。"
+      ]
     },
     {
       "id": "B05",
@@ -1450,6 +1509,18 @@
         "../verification/B03-passage-review-2026-11-08.md"
       ],
       "next_action": "继续B04已有二下OCR连续5完整教学页的转写与独立数学/图形复核；B02真实观察和A09家庭验收另记。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T11:46:16.303769+08:00",
+      "task_ids": [
+        "B04"
+      ],
+      "summary": "完成二下连续5页逐项处理，4页助手完整双步骤通过、1页图形待解；132条OCR/27区块、38项数学检查及17反例通过。题目/答案资格0，原OCR和B01–B03历史保留，未提交/入库/部署。",
+      "evidence": [
+        "../verification/B04-full-page-review-2026-11-08.md"
+      ],
+      "next_action": "继续B05显式错题收藏与到期复习；B04图形待解、B02真实观察与A09家庭验收另记。"
     }
   ],
   "current_candidate_tool_version": "1.2.0"

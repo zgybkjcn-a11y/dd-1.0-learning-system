@@ -1,5 +1,7 @@
 # 可移植测试与本地材料验证
 
+B04定向证据校验：`learning_data/verification/a03-portable-tests-20261107T091348Z/venv/bin/python learning_data/verification/b04-full-page-review-20261108T033243Z/verify-evidence.py`。5页PDF/原图绑定、132条OCR/27区块、38项数学检查与17个内存反例通过；实际助手整页审核4通过/1待解，非新增pytest或浏览器用例。仅离线证据和文档变化，未重跑历史服务测试。见[B04独立记录](verification/B04-full-page-review-2026-11-08.md)。
+
 B03定向验证：`python -m pytest -q tests/test_passage_review.py tests/test_textbook_quality.py --fail-on-skip`（50项），`python -m pytest -q -m browser tests/test_passage_review_browser.py --fail-on-skip`（2宽度）。合成PDF/独立审核库、全请求拦截；实际单片段只读显示另列，非默认实物测试。见[B03验证](verification/B03-passage-review-2026-11-08.md)与[本地工作台](open-webui-reuse/passage-review-workbench.md)。
 
 B02定向验证：`python -m pytest -q tests/test_reserve_practice.py tests/test_learning_release.py`（34项）、OpenAPI快照单项与相关题库/范围/参考回归（68项），共103个不同用例；`python -m pytest -q -m browser tests/test_reserve_practice_browser.py tests/test_family_practice_browser.py`（4项）。仅合成数据，全请求拦截；失败/重跑不累加。详见[B02独立验证](verification/B02-reserve-practice-2026-11-08.md)。
