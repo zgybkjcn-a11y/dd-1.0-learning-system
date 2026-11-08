@@ -1501,10 +1501,10 @@
     "A07无实时撤回推送，打开/导航/可见性变化时核验；历史聊天文字不追溯删除。",
     "A09本地独立静态包与回退已验证；尚未发布或取得家长真实设备反馈。"
   ],
-  "next_task": "B03",
+  "next_task": "B04",
   "runtime_observed_at": "2026-11-07T17:00:53+08:00",
-  "update_scope": "B02备用题冻结与本地合成流程验证；真实延迟观察pending，运行观察仍为A01，A09发布/家庭验收不变。",
-  "latest_verification_report": "docs/verification/B02-reserve-practice-2026-11-08.md",
+  "update_scope": "B03独立本地片段复核工作台及一个助手复核样本验收；原运行包保持，线上观察仍为A01，B02真实观察与A09家庭验收独立待办。",
+  "latest_verification_report": "docs/verification/B03-passage-review-2026-11-08.md",
   "source_delivery": {
     "task": "A02",
     "state": "organized_pending_commit",
@@ -1540,7 +1540,7 @@
     },
     "new_material_backup": false,
     "deployment_performed": false,
-    "next_task": "B03",
+    "next_task": "B04",
     "snapshot_scope": "A02固定审阅包；A04/A06/A05/A07/A08/A09独立增量，不据旧hash提交整树。",
     "increments": [
       {
@@ -1607,21 +1607,34 @@
         "source_release": "learning_data/verification/b02-reserve-practice-20261108T022042Z/release-final-r2/manifest.json",
         "committed": false,
         "deployed": false
+      },
+      {
+        "task": "B03",
+        "state": "standalone_local_maintenance_candidate",
+        "manifest": "learning_data/verification/b03-passage-review-20261108T030856Z/increment-manifest.json",
+        "patch": "learning_data/verification/b03-passage-review-20261108T030856Z/b03-increment.patch",
+        "report": "docs/verification/B03-passage-review-2026-11-08.md",
+        "source_release": "learning_data/verification/b03-passage-review-20261108T030856Z/maintenance-source/manifest.json",
+        "committed": false,
+        "deployed": false
       }
     ]
   },
   "latest_local_candidate": {
-    "task": "B02",
+    "task": "B03",
     "engineering_state": "ready",
     "delivery_state": "candidate_only",
-    "acceptance_state": "pending",
-    "completion_state": "open",
-    "reserve_questions": 12,
+    "acceptance_state": "passed",
+    "completion_state": "complete",
+    "reviewed_excerpts": 1,
     "teacher_reviewed": false,
-    "actual_observations": 0,
-    "verification_report": "docs/verification/B02-reserve-practice-2026-11-08.md",
-    "source_profile": "reuse-runtime-practice-reserve-v1",
-    "source_files": 81,
-    "release_manifest": "learning_data/verification/b02-reserve-practice-20261108T022042Z/release-final-r2/manifest.json"
+    "fully_reviewed_pages": 0,
+    "runtime_published": false,
+    "unit_contract_tests": 50,
+    "browser_tests": 2,
+    "verification_report": "docs/verification/B03-passage-review-2026-11-08.md",
+    "source_profile": "standalone_local_review_workbench",
+    "source_files": 16,
+    "release_manifest": "learning_data/verification/b03-passage-review-20261108T030856Z/maintenance-source/manifest.json"
   }
 }

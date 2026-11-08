@@ -1,5 +1,7 @@
 # 智能学习系统文档入口
 
+2026-11-08 B03：[片段复核工作台](open-webui-reuse/passage-review-workbench.md)与[独立验证](verification/B03-passage-review-2026-11-08.md)完成一个原生PDF片段的原图/转写/上下文/推导并排、版本/问题/启停和并发保护；50单元/契约+2浏览器通过。实际倒数定义仅为助手复核片段，完整页审核仍0，未提交/部署。下一项 **B04**；B02真实观察与A09家庭验收单列。
+
 2026-11-08 B02：[备用练习候选](open-webui-reuse/practice-reserve.md)与[独立验证](verification/B02-reserve-practice-2026-11-08.md)完成12题、每档4题，103个不同单元/契约用例与4浏览器通过；题版冻结、已见不重算。真实1/3/7天观察pending，B02总状态open。下一项 **B03**；B01证据保留，A09发布/家庭验收另列。
 
 2026-11-08：B01 [七上第二章覆盖表验收](verification/B01-chapter-coverage-2026-11-08.md)完成；19行/12题/5有效片段，22单元与2浏览器通过。[独立离线覆盖表说明](open-webui-reuse/chapter-content-coverage.md)记录缺项与来源；新8条映射仅为候选，旧知识参考接口不变。下一项 **B02**；A09发布/家庭验收仍pending。

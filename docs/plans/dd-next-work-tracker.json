@@ -2,7 +2,7 @@
   "schema": "dd-next-work-tracker-v1",
   "plan_version": "1.0",
   "created_at": "2026-11-07",
-  "updated_at": "2026-11-08T10:38:24.332672+08:00",
+  "updated_at": "2026-11-08T11:25:58.292260+08:00",
   "timezone": "Asia/Shanghai",
   "purpose": "下一阶段 25 项实施任务台账；不等同于 Goal 或发布证明。",
   "documents": {
@@ -18,7 +18,8 @@
     "retrieval_evaluation": "../open-webui-reuse/retrieval-evaluation.md",
     "chapter_retrieval": "../open-webui-reuse/chapter-retrieval.md",
     "chapter_content_coverage": "../open-webui-reuse/chapter-content-coverage.md",
-    "practice_reserve": "../open-webui-reuse/practice-reserve.md"
+    "practice_reserve": "../open-webui-reuse/practice-reserve.md",
+    "passage_review_workbench": "../open-webui-reuse/passage-review-workbench.md"
   },
   "baseline": {
     "git_head": "deef3199f558ba72bbe3f2ff0c704586674a2232",
@@ -64,7 +65,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B03",
+  "recommended_next_task": "B04",
   "latest_git_delivery": {
     "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
     "branch": "main",
@@ -733,10 +734,10 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者、内容复核者",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
-      "completion_state": "open",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
       "estimate_hours": {
         "min": 12,
         "max": 20
@@ -748,14 +749,59 @@
       },
       "acceptance_summary": "未决项阻止发布，改文改源触发重审，旧证据失效，审核身份如实。",
       "required_conditions": [],
-      "next_action": "复用现有质量机制制作一个原生 PDF 片段的并排审核与版本/启停流程。",
+      "next_action": "继续B04：复用本批双步骤/版本/问题规则，对已有二下OCR连续5个完整教学页分别转写和独立数学/图形复核；未解保持待核，运行发布另行验收。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
-      "artifacts": [],
-      "evidence": [],
+      "artifacts": [
+        "../../learning_service/passage_review.py",
+        "../../learning_service/passage_review_web.py",
+        "../../learning_service/passage_review_ui.py",
+        "../../scripts/passage_review_workbench.py",
+        "../../tests/test_passage_review.py",
+        "../../tests/test_passage_review_browser.py",
+        "../open-webui-reuse/passage-review-workbench.md",
+        "../../learning_data/verification/b03-passage-review-20261108T030856Z/maintenance-source/manifest.json",
+        "../../learning_data/verification/b03-passage-review-20261108T030856Z/reciprocal-snapshot-final/manifest.json"
+      ],
+      "evidence": [
+        "../verification/B03-passage-review-2026-11-08.md",
+        "../../learning_data/verification/b03-passage-review-20261108T030856Z/unit-final.xml",
+        "../../learning_data/verification/b03-passage-review-20261108T030856Z/browser-final.xml",
+        "../../learning_data/verification/b03-passage-review-20261108T030856Z/selected-excerpt-validation.json",
+        "../../learning_data/verification/b03-passage-review-20261108T030856Z/selected-excerpt-browser/report.json",
+        "../../learning_data/verification/b03-passage-review-20261108T030856Z/maintenance-package-validation.json",
+        "../../learning_data/verification/b03-passage-review-20261108T030856Z/delivery-validation.json"
+      ],
       "blockers": [],
-      "last_updated": "2026-11-07"
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "scope": "standalone_local_native_pdf_excerpt_review",
+        "reviewed_excerpts": 1,
+        "content_revision": 2,
+        "journal_seq": 7,
+        "unit_contract_tests": 50,
+        "browser_tests": 2,
+        "actual_excerpt_read_only_viewports": [
+          390,
+          1280
+        ],
+        "browser_version": "145.0.7632.6",
+        "maintenance_source_files": 16,
+        "teacher_reviewed": false,
+        "fully_reviewed_pages": 0,
+        "eligible_as_grading_basis": false,
+        "runtime_published": false,
+        "deployment_performed": false,
+        "source_valid_until": "2026-12-07"
+      },
+      "acceptance_limits": [
+        "仅七上第二章原生PDF无图形依赖片段，不授予二下OCR完整页或题目判分资格。",
+        "一般论断仍依赖所记录的助手推导，精确样例不构成通用自动证明。",
+        "导出为历史审核快照，不是A07运行清单；未来运行接入另行版本适配与发布验收。",
+        "人工操作者类型为自述，非教师签署；实际家庭设备未验收。"
+      ]
     },
     {
       "id": "B04",
@@ -1392,6 +1438,18 @@
         "../verification/B02-reserve-practice-2026-11-08.md"
       ],
       "next_action": "继续B03一个原生PDF片段的并排复核；B02真实日期观察与A09家庭验收另记。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T11:25:58.292260+08:00",
+      "task_ids": [
+        "B03"
+      ],
+      "summary": "完成独立本地片段复核工作台：双步骤依据、修订/问题/启停/撤回与并发保护，50单元/契约+2浏览器通过；实际倒数定义助手复核1片段，整页0。16文件维护包校验，本地出口complete，未提交/部署，既有运行包和历史证据保留。",
+      "evidence": [
+        "../verification/B03-passage-review-2026-11-08.md"
+      ],
+      "next_action": "继续B04已有二下OCR连续5完整教学页的转写与独立数学/图形复核；B02真实观察和A09家庭验收另记。"
     }
   ],
   "current_candidate_tool_version": "1.2.0"
