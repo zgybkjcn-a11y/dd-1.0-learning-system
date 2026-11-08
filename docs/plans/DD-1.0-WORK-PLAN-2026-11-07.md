@@ -2,9 +2,9 @@
 
 最新执行（2026-11-08）：A09 本地静态交付准备已完成，工程 ready，发布与家长设备验收 pending，总状态 open；下一项可继续 **B01**。[本地验收](../verification/A09-static-samples-2026-11-08.md)记录 30 项定向检查和隔离 nginx 候选 4 / 回退 3 条路由通过；[交付与设备检查表](../open-webui-reuse/static-samples-delivery.md)已就绪。九文件固定提交与旧样本一致，当前 A07 桥接未混入。以下各批次更新保留历史语境。
 
-最新执行：**A08本地维护机制已完成，下一项A09**。[验收](../verification/A08-tool-lifecycle-2026-11-07.md)记录54项与固定WebUI原生迁移schema、历史及缓存检查；[操作单](../open-webui-reuse/tool-upgrade-rollback.md)就绪，尚未正式应用。下方A07及更早为历史记录。
+历史记录（2026-11-08 更新前）：**A08 本地维护机制完成，下一项当时为 A09**。[验收](../verification/A08-tool-lifecycle-2026-11-07.md)记录54项与固定WebUI原生迁移schema、历史及缓存检查；[操作单](../open-webui-reuse/tool-upgrade-rollback.md)就绪，尚未正式应用。当前下一项见本文最新执行状态与交接文档。
 
-最新执行：**A07 本地接入已完成，下一项 A08**。[验收](../verification/A07-runtime-passages-2026-11-07.md)与[运行说明](../open-webui-reuse/textbook-passages-runtime.md)记录当前Tool 1.2.0及默认关闭策略；尚未提交、部署或实际体验验收。下方A05及之前的执行说明为历史记录。
+历史记录（2026-11-08 更新前）：**A07 本地接入完成，下一项当时为 A08**。[验收](../verification/A07-runtime-passages-2026-11-07.md)与[运行说明](../open-webui-reuse/textbook-passages-runtime.md)记录Tool 1.2.0及默认关闭策略；当前候选已随累计提交推送，尚未部署或实际体验验收。下方 A05 及更早的执行说明为历史记录。
 
 版本：1.0。日期：2026-11-07。配套[实施方案](DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md)、[25 项台账](dd-next-work-tracker.json)与[续接指令](RESUME-NEXT-WORK.txt)。编制计划时未执行代码修改、发布、模型调用或 Goal 写入。执行进度见台账与下方更新。
 
@@ -14,7 +14,7 @@
 
 开始一批时：读取台账与对应实施工作包 → 只读核对输入版本和未提交文件 → 选一个主任务及必要依赖 → 完成候选、定向验证、记录结果 → 更新台账与当前交付清单。某项等待家长反馈、人工资料或新的受限范围时，完成它能够独立完成的本地部分，再选择其他就绪任务。
 
-**最新执行：A01、A03、A04、A06、A05 本地出口已完成；A02 已整理，待提交；A05 当时下一项 A07。** A05 [验证报告](../verification/A05-chapter-retrieval-2026-11-07.md)记录补充集召回 20/20、拒绝 10/10、泄漏 0/10，241 项单元/契约、4 项浏览器及原生六方法通过；Tool 候选 1.1.2，未提交/部署，五片段尚未接服务。 A06 [冻结评测与基线](../verification/A06-retrieval-evaluation-2026-11-07.md)保留 20 问开发、4 问回归，新增 40 问试点；73 项合成测试通过，基线召回 2/20、拒绝 2/10，检索质量未达标。 A04 [故障分类/恢复](../open-webui-reuse/study-error-recovery.md)与[验证报告](../verification/A04-study-errors-2026-11-07.md)记录 552 项单元/契约和原生六方法通过，未提交/部署。 A02 [交付单](../releases/A02-candidate-delivery-2026-11-07.md)覆盖 46 个文件，[本地验收](../verification/A02-candidate-delivery-2026-11-07.md)通过、总状态仍 open，提交等待不阻塞 A04。 A01 建立[当前状态](../releases/current-state.md)与[机器清单](../releases/current-manifest.json)，[验收记录](../verification/A01-current-state-2026-11-07.md)保留运行快照。A03 完成[可移植测试入口](../TESTING.md)，[干净环境验证](../verification/A03-portable-tests-2026-11-07.md)为 503 单元/契约 + 12 浏览器通过、零跳过；自动检查候选未提交，远端 CI 未运行。下面“首个批次”保留操作方法，不要求以后重复已通过且未改变的检查。
+**最新执行（2026-11-08）：A01–A09 的累计公开候选已提交并推送，SHA 为 `1057d643bac2427c3113ed1cecdacd9b855029bd`；仍未部署，A09 真实设备/家长验收仍待完成，下一项为 B01。** 下方 A01–A08 说明保留各项历史执行语境，不再表示待提交。A05 [验证报告](../verification/A05-chapter-retrieval-2026-11-07.md)记录补充集召回 20/20、拒绝 10/10、泄漏 0/10，241 项单元/契约、4 项浏览器及原生六方法通过；Tool 候选 1.1.2。A06 [冻结评测与基线](../verification/A06-retrieval-evaluation-2026-11-07.md)保留 20 问开发、4 问回归，新增 40 问试点；73 项合成测试通过，基线召回 2/20、拒绝 2/10，检索质量未达标。A04 [故障分类/恢复](../open-webui-reuse/study-error-recovery.md)与[验证报告](../verification/A04-study-errors-2026-11-07.md)记录 552 项单元/契约和原生六方法通过。A02 [交付单](../releases/A02-candidate-delivery-2026-11-07.md)覆盖 46 个文件；该清单是历史快照，累计提交清单以本次 SHA 为准。A01 建立[当前状态](../releases/current-state.md)与[机器清单](../releases/current-manifest.json)，[验收记录](../verification/A01-current-state-2026-11-07.md)保留运行快照。A03 完成[可移植测试入口](../TESTING.md)，[干净环境验证](../verification/A03-portable-tests-2026-11-07.md)为 503 单元/契约 + 12 浏览器通过、零跳过；远端 CI 尚无运行结果。下面“首个批次”保留操作方法，不要求以后重复已通过且未改变的检查。
 
 ## 2. 优先级、依赖与投入
 

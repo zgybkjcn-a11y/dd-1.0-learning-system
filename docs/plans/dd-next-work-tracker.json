@@ -2,7 +2,7 @@
   "schema": "dd-next-work-tracker-v1",
   "plan_version": "1.0",
   "created_at": "2026-11-07",
-  "updated_at": "2026-11-08T06:39:46+08:00",
+  "updated_at": "2026-11-08T09:48:00+08:00",
   "timezone": "Asia/Shanghai",
   "purpose": "下一阶段 25 项实施任务台账；不等同于 Goal 或发布证明。",
   "documents": {
@@ -33,7 +33,7 @@
     "real_model_calls_allowed": false,
     "production_vector_writes_allowed": false,
     "goal_writes_allowed": false,
-    "commit_push_deploy": "Follow current effective user scope; planning, A01, A03, A02, A04, A06 and A05 perform none.",
+    "commit_push_deploy": "A01-A09 cumulative candidate committed and pushed per user instruction; deployment, formal Tool changes and family acceptance remain separate.",
     "dependency_satisfaction": "Required local deliverables and checks may satisfy dependencies while submission, deployment or feedback remain pending.",
     "evidence_paths": "Paths are relative to this tracker. Baseline evidence is historical, not new acceptance.",
     "completion": "All applicable engineering, delivery and acceptance exits require evidence; planning alone completes no task."
@@ -63,6 +63,16 @@
     "p3": null
   },
   "recommended_next_task": "B01",
+  "latest_git_delivery": {
+    "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
+    "branch": "main",
+    "remote": "origin/main",
+    "files_changed": 89,
+    "pushed": true,
+    "deployed": false,
+    "remote_ci": "not_run",
+    "family_acceptance": "pending"
+  },
   "tasks": [
     {
       "id": "A01",
@@ -88,7 +98,7 @@
       },
       "acceptance_summary": "两个文档入口统一指向带时间/来源的组件清单；运行、候选、离线与历史状态分开，未知项显式标注。仅验收 A01 本地文档交付。",
       "required_conditions": [],
-      "next_action": "继续 A03：审计 httpx、浏览器固定路径和私有教材依赖，建立原创合成夹具与必需测试分组。",
+      "next_action": "A01 已完成并纳入累计提交；不重做。当前主线从 B01 继续，A09 发布/体验另记。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md",
         "../goal/HANDOFF-SESSION-2026-11-07-SESSION-SUMMARY.md"
@@ -122,9 +132,9 @@
       "owner_role": "工程执行者",
       "assigned_person": null,
       "engineering_state": "ready",
-      "delivery_state": "pending_commit",
+      "delivery_state": "candidate_only",
       "acceptance_state": "passed",
-      "completion_state": "open",
+      "completion_state": "complete",
       "estimate_hours": {
         "min": 2,
         "max": 4
@@ -134,11 +144,11 @@
         "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
         "section": "A02"
       },
-      "acceptance_summary": "已整理，待提交：U1 24 个代码/测试文件与 U2 22 个文档文件，源码/补丁/材料边界本地验收通过；提交 SHA 为 null，待有效提交指令。",
+      "acceptance_summary": "U1 24 个代码/测试文件与 U2 22 个文档文件的本地整理/验收通过；A01-A09 累计候选已随提交 1057d643bac2427c3113ed1cecdacd9b855029bd 推送，仍未部署。",
       "required_conditions": [
         "提交/推送阶段依当前会话有效指令；候选整理可先完成。"
       ],
-      "next_action": "继续 A04 本地错误分类；提交范围生效后重核候选指纹，按 U1/U2 明确文件审阅并提交，登记实际 SHA。",
+      "next_action": "继续 B01 七上第二章内容覆盖表；A09 发布与设备反馈另记。",
       "baseline_evidence": [
         "../verification/textbook-evidence-2026-11-07.md",
         "../verification/textbook-passages-2026-11-07.md"
@@ -151,12 +161,10 @@
       "evidence": [
         "../verification/A02-candidate-delivery-2026-11-07.md"
       ],
-      "blockers": [
-        "提交/推送未纳入本轮有效执行范围；仅阻塞源码提交出口，不阻塞 A04 本地工作。"
-      ],
-      "last_updated": "2026-11-07",
-      "commit_sha": null,
-      "delivery_label": "已整理，待提交"
+      "blockers": [],
+      "last_updated": "2026-11-08",
+      "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
+      "delivery_label": "已提交并推送，未发布"
     },
     {
       "id": "A03",
@@ -182,9 +190,9 @@
         "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
         "section": "A03"
       },
-      "acceptance_summary": "干净 Python 3.12 环境与 144 文件源码副本：503 单元/契约 + 12 浏览器通过，零失败/跳过；默认不依赖实物，故障输入明确失败。GitHub 自动检查为未提交候选，远端未执行。",
+      "acceptance_summary": "干净 Python 3.12 环境与 144 文件源码副本：503 单元/契约 + 12 浏览器通过，零失败/跳过；默认不依赖实物，故障输入明确失败。GitHub workflow 已随累计候选提交推送，远端 CI 尚无运行结果。",
       "required_conditions": [],
-      "next_action": "继续 A02：按真实依赖整理页级证据、离线片段、测试基础及计划文档的可审阅交付单元。",
+      "next_action": "A03 已完成并纳入累计提交；不重做。当前主线从 B01 继续，远端 CI 结果另行记录。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
@@ -236,7 +244,7 @@
       },
       "acceptance_summary": "552 单元/契约通过（新增 49 个故障用例），零失败/跳过；过期、真实冲突、换档、材料缺失与超时分类及请求 ID/日志脱敏通过，原生 WebUI 六方法/2 引用通过；未部署。",
       "required_conditions": [],
-      "next_action": "继续 A06：冻结独立检索/引用评测与基线，随后 A05；提交/上线和实际体验另记。",
+      "next_action": "A04 已完成并纳入累计提交；不重做。当前主线从 B01 继续，部署与真实体验另记。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
@@ -287,7 +295,7 @@
       },
       "acceptance_summary": "固定镜像无章节前置过滤，top40 反例复现；有界补充集召回20/20、拒绝10/10、泄漏0/10、来源/引文22/22，旧路径明确 incomplete。241 单元/契约、4 浏览器及原生六方法/2 引用通过。",
       "required_conditions": [],
-      "next_action": "继续 A07：默认关闭片段能力，抽取纯模块、固定材料与当前日期、接服务/Tool，更新白名单及兼容检查。",
+      "next_action": "A05 已完成并纳入累计提交；有界检索结果作为 B01/B02 输入，不扩成整册召回。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
@@ -344,7 +352,7 @@
       },
       "acceptance_summary": "三分区/金标准/分母/阈值/哈希冻结；73 项合成测试通过，两次基线一致。新试点召回 2/20、拒绝 2/10，质量未达标由 A05 修正；范围 0/10 泄漏，来源/引文 11/11。",
       "required_conditions": [],
-      "next_action": "继续 A05：验证合成接口过滤与 top40 后过滤反例；据已暴露题集调参时转回归并补冻结新表达。",
+      "next_action": "A06 已完成并纳入累计提交；未达标的冻结基线继续保留，不以补充集替代新验收。",
       "baseline_evidence": [
         "../verification/textbook-passages-2026-11-07.md",
         "../PROJECT-REVIEW-2026-11-07.md"
@@ -400,7 +408,7 @@
       },
       "acceptance_summary": "默认关闭的五片段服务/网关/六方法Tool1.2.0/回链通过；688单元/契约、6浏览器、原生6方法4引用，实物四组回归40/40、40/40、20/20、4/4。",
       "required_conditions": [],
-      "next_action": "继续A08，在临时数据中实现既有Tool ID升级、比较旧哈希与回退；不直接操作正式Tool。",
+      "next_action": "A07 已完成并纳入累计提交；正式 Tool、部署和家庭体验未验收，不重做本地接入。",
       "baseline_evidence": [
         "../open-webui-reuse/textbook-evidence-chain.md",
         "../verification/textbook-passages-2026-11-07.md"
@@ -460,7 +468,7 @@
       "required_conditions": [
         "正式操作需覆盖既有 ID 升级的有效维护指令；历史一次注册例外不等于升级许可。"
       ],
-      "next_action": "继续A09，核对已提交静态三样本，准备新独立输出、差异/回退集合，发布与家长验收分别记录。",
+      "next_action": "A08 已完成并纳入累计提交；正式 Tool 未升级，后续需有明确授权与新证据。当前主线从 B01 继续。",
       "baseline_evidence": [
         "../open-webui-reuse/main-chat-tools.md"
       ],
