@@ -28,7 +28,9 @@ FROZEN_TABLES = ("variant_reviews", "variant_revocations", "attempts", "grade_ve
                  "review_events", "test_sessions", "test_items", "learning_events",
                  "identity_bindings", "learner_access", "accounts", "learners",
                  "source_documents", "source_pages", "import_items", "import_judgments",
-                 "mistake_entries", "mistake_sources", "review_requests", "idempotency_records")
+                 "mistake_entries", "mistake_sources", "review_requests", "idempotency_records",
+                 "questions", "question_versions", "review_cards", "practice_workspaces", "practice_rounds",
+                 "assets", "export_jobs")
 
 
 def recovery_inventory(data_dir: Path) -> dict:
@@ -52,9 +54,16 @@ def recovery_inventory(data_dir: Path) -> dict:
             target = (data_dir / "attachments" / row[0]).resolve()
             if not target.is_relative_to(data_dir / "attachments") or not target.is_file(): missing_assets += 1
         calls = conn.execute("SELECT COUNT(*),COALESCE(SUM(reserved_cost_micros),0),COALESCE(SUM(reconciled_cost_micros),0) FROM provider_calls").fetchone()
+        file_fingerprints = {}
+        for directory in ('attachments', 'exports'):
+            for path in sorted((data_dir / directory).rglob('*')):
+                if path.is_symlink(): raise ValueError('recovery inventory refuses symlinks')
+                if path.is_file():
+                    file_fingerprints[path.relative_to(data_dir).as_posix()] = hashlib.sha256(path.read_bytes()).hexdigest()
         return {"integrity":integrity, "foreign_key_errors":foreign_keys, "missing_assets":missing_assets,
                 "schema_revision":conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0],
                 "business_fingerprints":fingerprints,
+                "file_fingerprints":file_fingerprints,
                 "provider_call_count":calls[0], "provider_reserved_cost_micros":calls[1], "provider_reconciled_cost_micros":calls[2],
                 "active_browser_sessions":conn.execute("SELECT COUNT(*) FROM browser_sessions WHERE revoked_at IS NULL").fetchone()[0],
                 "selected_contexts":conn.execute("SELECT COUNT(*) FROM account_contexts WHERE learner_id IS NOT NULL").fetchone()[0],
@@ -66,7 +75,7 @@ def recovery_inventory(data_dir: Path) -> dict:
 
 def verify_recovery(before: dict, after: dict) -> dict:
     errors = []
-    for k in ("business_fingerprints", "provider_call_count", "provider_reserved_cost_micros", "provider_reconciled_cost_micros"):
+    for k in ("business_fingerprints", "file_fingerprints", "provider_call_count", "provider_reserved_cost_micros", "provider_reconciled_cost_micros"):
         if before[k] != after[k]: errors.append(k + "_changed")
     if after["integrity"] != "ok" or after["foreign_key_errors"] or after["missing_assets"]:
         errors.append("database_or_asset_integrity")

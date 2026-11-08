@@ -98,6 +98,11 @@ REUSE_PROFILE = "reuse-runtime-practice-recovery-v1"
 PATHS = (*COLLECTION_RUNTIME_PATHS, "learning_service/migrations/013_practice_recovery.sql",
          "docs/open-webui-reuse/practice-recovery.md")
 
+RECOVERY_RUNTIME_PATHS = PATHS
+RECOVERY_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-verified-backup-v1"
+PATHS = (*RECOVERY_RUNTIME_PATHS, "docs/open-webui-reuse/backup-recovery.md")
+
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -158,6 +163,8 @@ def verify(destination: Path) -> dict:
     paths = {9: LEGACY_PATHS, 10: SCHEMA10_PATHS, 11: SCHEMA11_PATHS}.get(manifest.get("schema_revision"))
     if manifest.get("source_profile") == REUSE_PROFILE and manifest.get("schema_revision") == 13:
         paths = PATHS
+    elif manifest.get("source_profile") == RECOVERY_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = RECOVERY_RUNTIME_PATHS
     elif manifest.get("source_profile") == COLLECTION_RUNTIME_PROFILE and manifest.get("schema_revision") == 12:
         paths = COLLECTION_RUNTIME_PATHS
     elif manifest.get("source_profile") == RESERVE_RUNTIME_PROFILE and manifest.get("schema_revision") == 11:

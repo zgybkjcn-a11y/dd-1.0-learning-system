@@ -65,7 +65,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B07",
+  "recommended_next_task": "B08",
   "latest_git_delivery": {
     "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
     "branch": "main",
@@ -1086,9 +1086,9 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "维护执行者",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "pending",
       "completion_state": "open",
       "estimate_hours": {
         "min": 8,
@@ -1103,14 +1103,66 @@
       "required_conditions": [
         "实际数据和维护窗口按有效范围；先用合成数据，独立备份位置与保管责任待落实。"
       ],
-      "next_action": "盘点当前学习数据/附件/教材包与对应版本，设计一致性快照及空目标恢复演练。",
+      "next_action": "继续B08本地监控验证；独立副本位置、保管人和访问责任待用户落实，正式数据范围/维护窗口/容量及实际RPO/RTO单独验收。",
       "baseline_evidence": [
         "../open-webui-reuse/07-MONITORING-RECOVERY-PLAN-2026-11-05.md"
       ],
-      "artifacts": [],
-      "evidence": [],
-      "blockers": [],
-      "last_updated": "2026-11-07"
+      "artifacts": [
+        "../../learning_service/backup.py",
+        "../../learning_service/operations.py",
+        "../../tests/test_backup_recovery.py",
+        "../open-webui-reuse/backup-recovery.md",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/release-final/manifest.json"
+      ],
+      "evidence": [
+        "../verification/B07-backup-recovery-2026-11-08.md",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/drill-plan-before.json",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/unit-final.xml",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/test-result-validation.json",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/drill-final/drill-result.json",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/drill-final/backup-receipt.json",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/drill-final/verification-receipt.json",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/drill-final/restore-receipt.json",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/drill-final/business-comparison.json",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/source-package-validation.json",
+        "../../learning_data/verification/b07-backup-recovery-20261108T051822Z/delivery-validation.json"
+      ],
+      "blockers": [
+        "独立故障域可读副本、位置和保管/访问责任未落实；不阻塞B08合成本地工程。"
+      ],
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "scope": "synthetic_joint_backup_and_isolated_restore",
+        "unit_contract_tests": 51,
+        "new_backup_recovery_tests": 24,
+        "browser_tests_run": 0,
+        "schema_revision": 13,
+        "source_files": 86,
+        "frozen_business_groups": 28,
+        "synthetic_business_rows_lost": 0,
+        "synthetic_restore_and_reconciliation_seconds": 0.3746235829894431,
+        "synthetic_rpo_target_seconds": 86400,
+        "synthetic_rto_target_seconds": 7200,
+        "formal_RPO_RTO_verified": false,
+        "actual_formal_rpo_seconds": null,
+        "actual_formal_rto_seconds": null,
+        "deployment_performed": false,
+        "real_model_or_ocr_calls": 0
+      },
+      "independent_copy": {
+        "state": "pending",
+        "location": null,
+        "custodian": null,
+        "user_answer": "尚未确定，先完成本地演练"
+      },
+      "acceptance_limits": [
+        "小型本地合成数据演练，不能外推实际家庭数据或独立故障域恢复。",
+        "停写依赖操作者声明，工具不停止进程、不独立核验所有写入方。",
+        "正式数据盘点、维护窗口及实际RPO/RTO未验收。",
+        "快照后删除/费用增量和完整WebUI/秘密/网络恢复未覆盖。",
+        "B05家庭反馈、B04待解、B02真实跨日观察、A09发布/家庭验收继续独立保留。"
+      ]
     },
     {
       "id": "B08",
@@ -1646,6 +1698,18 @@
         "../verification/B06-practice-recovery-2026-11-08.md"
       ],
       "next_action": "继续B07：先用合成库与附件演练一致性快照、归档校验和空目标隔离恢复；独立故障域位置及保管责任单独落实，正式数据范围不扩大。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T13:33:46.289848+08:00",
+      "task_ids": [
+        "B07"
+      ],
+      "summary": "B07本地合成备份/校验/隔离恢复完成：51项定向测试通过，28组业务指纹一致、丢失0，恢复及对账0.374624秒；86文件schema13源码候选已校验。工程ready、本地验证passed；独立副本位置及保管人按用户答复仍为null，正式RPO/RTO未验收，验收pending、B07总状态open。下一项B08本地最小运行观察，先核对采集器schema11与当前schema13兼容；不启用生产监控或外部通知。B05家庭反馈、B04图形待解、B02真实观察及A09发布/家庭验收继续单列。",
+      "evidence": [
+        "../verification/B07-backup-recovery-2026-11-08.md"
+      ],
+      "next_action": "继续B08本地监控验证；独立副本位置、保管人和访问责任待用户落实，正式数据范围/维护窗口/容量及实际RPO/RTO单独验收。"
     }
   ],
   "current_candidate_tool_version": "1.2.0"
