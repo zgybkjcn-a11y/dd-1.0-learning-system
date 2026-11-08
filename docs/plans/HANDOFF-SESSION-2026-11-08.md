@@ -90,4 +90,4 @@ cat docs/plans/RESUME-NEXT-WORK.txt
 
 ## 本次 Git 交付记录
 
-提交：`1057d643bac2427c3113ed1cecdacd9b855029bd`，消息 `Complete DD-1.0 learning delivery candidates`。已推送至 `origin/main`，GitHub 返回 `deef319..1057d64 main -> main`。提交差异为 89 files changed；`git diff --cached --check` 通过常规检查，仅 A07 固定哈希文件存在已留存的 EOF 空行提示。该提交完成后工作区曾干净；下方交接文档修订是后续变更，待本次提交。提交不代表部署、远端 CI 已运行或家长实际验收。
+候选提交：`1057d643bac2427c3113ed1cecdacd9b855029bd`，消息 `Complete DD-1.0 learning delivery candidates`，已推送至 `origin/main`，GitHub 返回 `deef319..1057d64 main -> main`。差异为 89 files changed；提交前 `git diff --cached --check` 通过常规检查，仅 A07 固定哈希文件存在已留存的 EOF 空行提示。交接修订随后作为提交 `9f60ab1` 推送。候选提交不代表部署、远端 CI 已运行或家长实际验收。
