@@ -1,5 +1,7 @@
 # DD-1.0 下一阶段工作实施方案
 
+最新执行（B02，2026-11-08）：[备用练习候选](../open-webui-reuse/practice-reserve.md)和[独立验证](../verification/B02-reserve-practice-2026-11-08.md)完成12题/每档4题、同母题标识、题版冻结、服务端未见筛选；103单元/契约+4浏览器通过。工程ready、候选未提交/部署；真实1/3/7天观察全部null，B02验收pending、总状态open。下一项 **B03**；A09另列，以下旧记录保持历史语境。
+
 最新执行（B01，2026-11-08）：[独立离线覆盖表](../open-webui-reuse/chapter-content-coverage.md)与[验收](../verification/B01-chapter-coverage-2026-11-08.md)完成，19行、12题（旧4+新助手候选8）、5有效片段，22单元/契约+2浏览器通过。缺来源留空，实际复习/延迟观察null；旧知识库与服务不变，未提交/部署。下一项 **B02**；A09发布/家庭验收单列，以下保留历史语境。
 
 最新执行（2026-11-08）：A09 本地静态交付准备已完成，工程 ready，发布与家长设备验收 pending，总状态 open；下一项可继续 **B01**。[本地验收](../verification/A09-static-samples-2026-11-08.md)记录 30 项定向检查和隔离 nginx 候选 4 / 回退 3 条路由通过；[交付与设备检查表](../open-webui-reuse/static-samples-delivery.md)已就绪。九文件固定提交与旧样本一致，当前 A07 桥接未混入。以下各批次更新保留历史语境。

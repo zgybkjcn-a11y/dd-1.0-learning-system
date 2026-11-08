@@ -1,5 +1,7 @@
 # 可移植测试与本地材料验证
 
+B02定向验证：`python -m pytest -q tests/test_reserve_practice.py tests/test_learning_release.py`（34项）、OpenAPI快照单项与相关题库/范围/参考回归（68项），共103个不同用例；`python -m pytest -q -m browser tests/test_reserve_practice_browser.py tests/test_family_practice_browser.py`（4项）。仅合成数据，全请求拦截；失败/重跑不累加。详见[B02独立验证](verification/B02-reserve-practice-2026-11-08.md)。
+
 B01离线覆盖表：`python -m pytest -q tests/test_chapter_coverage.py`（22项）与 `python -m pytest -q -m browser tests/test_chapter_coverage_browser.py`（2宽度）；仅公开元数据/合成片段，不需要本机教材或数据库。实物定向出表与独立输出规则见[覆盖表说明](open-webui-reuse/chapter-content-coverage.md)及[B01验收](verification/B01-chapter-coverage-2026-11-08.md)。
 
 A08维护逻辑测试：`python -m pytest tests/test_readonly_tool_upgrade.py tests/test_main_study_tool_registration.py -q`，54项、纯临时SQLite，夹具仅合成身份/配置。`scripts/probe_tool_upgrade_native.py`需专用固定镜像断网挂载，不能在正式data中运行；命令与结果见[A08验收](verification/A08-tool-lifecycle-2026-11-07.md)。

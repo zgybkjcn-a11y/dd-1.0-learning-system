@@ -58,14 +58,25 @@ def bank() -> dict:
 
 
 def placement(version_id: str):
-    question = bank().get(version_id)
-    return {k: question[k] for k in ('book_id', 'chapter_id')} if question else None
+    item = question(version_id)
+    return {k: item[k] for k in ('book_id', 'chapter_id')} if item else None
+
+
+def question(version_id: str):
+    item = bank().get(version_id)
+    if item is None and version_id.startswith('family-reserve-'):
+        from .reserve_practice import bank as reserve_bank
+        item = reserve_bank().get(version_id)
+    return item
 
 
 def metadata(version_id: str):
-    question = bank().get(version_id)
-    if not question: return None
-    return {k: question[k] for k in ('title', 'difficulty', 'extension', 'source')}
+    item = question(version_id)
+    if not item: return None
+    if version_id.startswith('family-reserve-'):
+        from .reserve_practice import metadata as reserve_metadata
+        return reserve_metadata(item)
+    return {k: item[k] for k in ('title', 'difficulty', 'extension', 'source')}
 
 
 def numeric_answer(raw: str, units: list[str]) -> Fraction | None:
@@ -144,7 +155,7 @@ def learner_guidance(conn, learner_id: str) -> dict:
         "WHERE a.learner_id=? AND a.status='graded' ORDER BY a.submitted_at,a.rowid", (learner_id,)).fetchall()
     scoped = {}
     for row in records:
-        q = bank().get(row['question_version_id'])
+        q = question(row['question_version_id'])
         if not q: continue
         for key in (q['book_id'] + '|', q['book_id'] + '|' + q['chapter_id']):
             scoped.setdefault(key, []).append({**dict(row), 'difficulty': q['difficulty']})

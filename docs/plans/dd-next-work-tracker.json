@@ -2,7 +2,7 @@
   "schema": "dd-next-work-tracker-v1",
   "plan_version": "1.0",
   "created_at": "2026-11-07",
-  "updated_at": "2026-11-08T10:10:50.136476+08:00",
+  "updated_at": "2026-11-08T10:38:24.332672+08:00",
   "timezone": "Asia/Shanghai",
   "purpose": "下一阶段 25 项实施任务台账；不等同于 Goal 或发布证明。",
   "documents": {
@@ -17,7 +17,8 @@
     "study_error_recovery": "../open-webui-reuse/study-error-recovery.md",
     "retrieval_evaluation": "../open-webui-reuse/retrieval-evaluation.md",
     "chapter_retrieval": "../open-webui-reuse/chapter-retrieval.md",
-    "chapter_content_coverage": "../open-webui-reuse/chapter-content-coverage.md"
+    "chapter_content_coverage": "../open-webui-reuse/chapter-content-coverage.md",
+    "practice_reserve": "../open-webui-reuse/practice-reserve.md"
   },
   "baseline": {
     "git_head": "deef3199f558ba72bbe3f2ff0c704586674a2232",
@@ -63,7 +64,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B02",
+  "recommended_next_task": "B03",
   "latest_git_delivery": {
     "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
     "branch": "main",
@@ -582,7 +583,7 @@
       },
       "acceptance_summary": "数量与来源可对账，缺项明确，范围与整册选择保持。",
       "required_conditions": [],
-      "next_action": "继续 B02：按已核对缺口准备每档目标4道合格备用题，冻结题版并分别记录真实日期延迟观察；A09发布与家庭验收另记。",
+      "next_action": "B02备用题本地工程已就绪，真实延迟观察另记；继续B03一个原生PDF片段的并排复核。B01历史快照保留。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
@@ -634,9 +635,9 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "内容复核者、工程执行者",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "pending",
       "completion_state": "open",
       "estimate_hours": {
         "min": 12,
@@ -651,14 +652,74 @@
       "required_conditions": [
         "内容复核与实际 1/3/7 天观察需真实投入和时间，不以生成题量代替通过。"
       ],
-      "next_action": "按覆盖缺口编制首批每档 4 道备用题目标，分别核对条件、单位、答案与署名。",
+      "next_action": "记录真实首轮同一题版作答及日期后，分别进行1/3/7天无提示观察；未发生的结果保持null。等待期间继续B03，A09另列。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
-      "artifacts": [],
-      "evidence": [],
+      "artifacts": [
+        "../../learning_service/data/family_reserve_practice_v1.json",
+        "../../learning_service/reserve_practice.py",
+        "../../scripts/prepare_reserve_practice.py",
+        "../open-webui-reuse/practice-reserve.md",
+        "../../learning_data/verification/b02-reserve-practice-20261108T022042Z/packet-final/manifest.json",
+        "../../learning_data/verification/b02-reserve-practice-20261108T022042Z/release-final-r2/manifest.json"
+      ],
+      "evidence": [
+        "../verification/B02-reserve-practice-2026-11-08.md",
+        "../../learning_data/verification/b02-reserve-practice-20261108T022042Z/verification-selection.json",
+        "../../learning_data/verification/b02-reserve-practice-20261108T022042Z/unit-final.xml",
+        "../../learning_data/verification/b02-reserve-practice-20261108T022042Z/contract-final.xml",
+        "../../learning_data/verification/b02-reserve-practice-20261108T022042Z/browser-final.xml",
+        "../../learning_data/verification/b02-reserve-practice-20261108T022042Z/semantic-mathematics-review.json",
+        "../../learning_data/verification/b02-reserve-practice-20261108T022042Z/release-validation-r2.json",
+        "../../learning_data/verification/b02-reserve-practice-20261108T022042Z/delivery-validation.json"
+      ],
       "blockers": [],
-      "last_updated": "2026-11-07"
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "scope": "synthetic_local_candidate_only",
+        "reserve_questions": 12,
+        "per_difficulty": 4,
+        "new_authored_calculations": 9,
+        "new_authored_situations": 2,
+        "numeric_variants": 1,
+        "unit_contract_tests": 103,
+        "browser_tests": 4,
+        "browser_version": "145.0.7632.6",
+        "teacher_reviewed": false,
+        "difficulty_student_calibrated": false,
+        "deployment_performed": false,
+        "runtime_student_data_read": false,
+        "source_profile": "reuse-runtime-practice-reserve-v1",
+        "source_files": 81
+      },
+      "delayed_observation": {
+        "state": "pending_actual_use",
+        "baseline_started_at": null,
+        "baseline_attempt_id": null,
+        "actual_observations": 0,
+        "windows": [
+          {
+            "offset_days": 1,
+            "due_at": null,
+            "observed_at": null,
+            "outcome": null
+          },
+          {
+            "offset_days": 3,
+            "due_at": null,
+            "observed_at": null,
+            "outcome": null
+          },
+          {
+            "offset_days": 7,
+            "due_at": null,
+            "observed_at": null,
+            "outcome": null
+          }
+        ]
+      }
     },
     {
       "id": "B03",
@@ -1319,6 +1380,18 @@
         "../verification/B01-chapter-coverage-2026-11-08.md"
       ],
       "next_action": "继续 B02：按已核对缺口准备每档目标4道合格备用题，冻结题版并分别记录真实日期延迟观察；A09发布与家庭验收另记。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T10:38:24.332672+08:00",
+      "task_ids": [
+        "B02"
+      ],
+      "summary": "完成12道备用题（每档4题）、逐题助手核对/题版冻结与未见筛选；103个不同单元/契约+4浏览器通过，81文件源码封包。真实延迟观察未开始，验收pending、总状态open；旧题/概念库与B01历史证据保留，未提交/部署。",
+      "evidence": [
+        "../verification/B02-reserve-practice-2026-11-08.md"
+      ],
+      "next_action": "继续B03一个原生PDF片段的并排复核；B02真实日期观察与A09家庭验收另记。"
     }
   ],
   "current_candidate_tool_version": "1.2.0"

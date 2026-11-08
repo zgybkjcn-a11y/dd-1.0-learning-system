@@ -1,5 +1,7 @@
 # DD-1.0：复用已部署 Open WebUI 的实施文档
 
+2026-11-08 B02：[备用练习](practice-reserve.md)和[验证记录](../verification/B02-reserve-practice-2026-11-08.md)完成12题/每档4题、未见选择与冻结，103单元/契约+4浏览器通过。工程ready、候选未提交/部署，真实延迟观察pending，B02仍open；下一项B03，A09另列。
+
 2026-11-08：B01 [独立离线覆盖表](chapter-content-coverage.md)与[验收](../verification/B01-chapter-coverage-2026-11-08.md)完成，19行/12题/5片段，22+2定向检查通过。下一项B02；A09发布与家庭反馈仍待验收。
 
 最新执行（2026-11-08）：A09 本地静态交付准备已完成，工程 ready，发布与家长设备验收 pending，总状态 open；下一项可继续 **B01**。[本地验收](../verification/A09-static-samples-2026-11-08.md)记录 30 项定向检查和隔离 nginx 候选 4 / 回退 3 条路由通过；[交付与设备检查表](static-samples-delivery.md)已就绪。九文件固定提交与旧样本一致，当前 A07 桥接未混入。以下各批次更新保留历史语境。

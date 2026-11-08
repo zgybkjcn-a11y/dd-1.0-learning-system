@@ -64,6 +64,15 @@ class APIError(Exception):
         self.details = details
 
 
+def _validate_reserve_version(conn, question_version_id):
+    if question_version_id.startswith('family-reserve-'):
+        from .reserve_practice import validate_installed
+        try:
+            validate_installed(conn, question_version_id)
+        except (OSError, ValueError, KeyError, TypeError):
+            raise APIError(503, 'PRACTICE_RESERVE_UNAVAILABLE', '备用题版本校验未通过，请稍后重试')
+
+
 class Context(BaseModel):
     account_id: str
     learner_id: str | None = None
@@ -955,6 +964,7 @@ _UI_HTML = """<!doctype html>
         <h3 id="selectedChapterTitle" class="chapter-heading" aria-live="polite">先选择你的档案</h3>
         <p id="scopeAvailability" class="chapter-note" role="status"></p>
         <div class="row game-only"><label>挑战难度 <select id="homeDifficulty"><option value="auto">自动进阶（推荐）</option><option value="easy">简单</option><option value="normal">正常</option><option value="hard">困难</option></select></label><span id="homeDifficultyNote" class="chapter-note"></span></div>
+        <div id="reservePicker" class="row game-only" hidden><label>练习题组 <select id="practicePool"><option value="initial">普通练习</option><option value="reserve">未见过的备用题</option></select></label><span id="reserveAvailability" class="chapter-note" role="status"></span></div>
         <div class="row"><button id="scopeChallenge" class="game-primary" disabled>开始挑战 ↗</button><button id="textbookSearch" class="secondary" disabled>阅读整本书</button><button id="studySupportOpen" class="secondary" type="button" disabled>打开理解工坊</button></div>
         <!-- STUDY_SUPPORT_PANEL -->
         <div id="familyReview" class="family-review game-only" hidden><h3>到期复习</h3></div>
@@ -1058,7 +1068,7 @@ _UI_HTML = """<!doctype html>
     let gameCatalog = [], gameObjectives = [], gameTasks = [], gameBook = '', gameChapter = '', gameChangingChapter = false;
     let gameGraded = 0, gameMistakes = 0, gameItemStatus = '', gameRefreshGeneration = 0;
     const gameUpdatedAttempts = new Set();
-    let gameCompletedChoices = new Set();
+    let gameCompletedChoices = new Set(), gamePool = 'initial';
     let gameDifficulty = 'auto', gameGuidance = {}, gameLoadingChoices = false;
     const difficultyNames = {easy:'简单',normal:'正常',hard:'困难'};
     let passageExpiryTimer = null, activePassage = false;
@@ -1208,7 +1218,7 @@ _UI_HTML = """<!doctype html>
       gameCatalog = []; gameObjectives = []; gameTasks = []; gameBook = ''; gameChapter = ''; gameChangingChapter = false;
       $('chapterChoices').replaceChildren(); $('selectedChapterTitle').textContent = '先选择你的档案'; $('practiceChapter').textContent = '';
       gameStarting = false; gameSubmitting = false; gameUpdatedAttempts.clear();
-      gameCompletedChoices.clear(); gameDifficulty = 'auto'; gameGuidance = {}; gameLoadingChoices = false; $('questionBadge').textContent = ''; $('questionCredit').replaceChildren(); $('solutionDetails').hidden = true; $('roundProgress').textContent = ''; $('restartRound').hidden = true;
+      gameCompletedChoices.clear(); gamePool = 'initial'; gameDifficulty = 'auto'; gameGuidance = {}; gameLoadingChoices = false; $('questionBadge').textContent = ''; $('questionCredit').replaceChildren(); $('solutionDetails').hidden = true; $('roundProgress').textContent = ''; $('restartRound').hidden = true;
       ['heroGraded','heroIndependent','heroMistakes'].forEach((id) => { $(id).textContent = '—'; });
       $('challengeCount').textContent = '选择档案后，冒险地图就会出现';
       $('startAdventure').disabled = true; $('practiceStart').disabled = true;
@@ -1273,10 +1283,10 @@ _UI_HTML = """<!doctype html>
       return roundChoices().find((choice) => !gameCompletedChoices.has(choice.question_version_id)) || null;
     }
     function saveGameRound() {
-      workspaceStorage.setItem(chapterStateKey(), JSON.stringify({bookId:gameBook, chapterId:gameChapter, difficulty:gameDifficulty, completedIds:[...gameCompletedChoices]}));
+      workspaceStorage.setItem(chapterStateKey(), JSON.stringify({bookId:gameBook, chapterId:gameChapter, difficulty:gameDifficulty, pool:gamePool, completedIds:[...gameCompletedChoices]}));
     }
     function restartGameRound() {
-      if (gameStarting || gameSubmitting || gameChangingChapter || gameLoadingChoices || ['reserved','presented','grading_pending'].includes(gameItemStatus)) return;
+      if (gamePool === 'reserve' || gameStarting || gameSubmitting || gameChangingChapter || gameLoadingChoices || ['reserved','presented','grading_pending'].includes(gameItemStatus)) return;
       roundChoices().forEach((choice) => gameCompletedChoices.delete(choice.question_version_id));
       saveGameRound();
       launchGameChoice(gameNextChoice());
@@ -1290,15 +1300,19 @@ _UI_HTML = """<!doctype html>
     function syncDifficulty() {
       $('homeDifficulty').value = gameDifficulty; $('practiceDifficulty').value = gameDifficulty;
       const label = difficultyNames[selectedDifficulty()];
-      const message = gameChoices.some((c) => c.practice) ? (gameDifficulty === 'auto' ? '下一题：' + label + '。' + difficultyGuidance().reason : '下一题使用' + label + '难度。') : '此范围暂时只有起步题，尚未配置三档题。';
+      const message = gamePool === 'reserve' && !gameChoices.length ? '本范围已没有未见备用题，可切换普通练习或阅读教材。' : gameChoices.some((c) => c.practice) ? (gameDifficulty === 'auto' ? '下一题：' + label + '。' + difficultyGuidance().reason : '下一题使用' + label + '难度。') : '此范围暂时只有起步题，尚未配置三档题。';
       $('homeDifficultyNote').textContent = message; $('practiceDifficultyNote').textContent = message;
     }
     function renderQuestionMeta() {
       if (!familyGameMode) return;
       const info = gameCatalog.find((c) => c.question_version_id === $('questionVersion').value)?.practice;
       $('testPrompt').classList.toggle('word-problem', Boolean(info));
-      $('questionBadge').textContent = info ? difficultyNames[info.difficulty] + ' · ' + info.title + (info.extension ? ' · 思维拓展' : '') : '';
+      $('questionBadge').textContent = info ? difficultyNames[info.difficulty] + ' · ' + info.title + (info.reserve ? ' · 备用题' : '') + (info.extension ? ' · 思维拓展' : '') : '';
       const credit = $('questionCredit'); credit.replaceChildren();
+      if (info?.reserve) {
+        credit.append(document.createTextNode('助手编写与核对 · 非教师审核。'));
+        if (info.template_relation?.kind === 'numeric_variant') credit.append(document.createTextNode(' 同母题改数：' + info.template_relation.parent_title + '；不算新情境。'));
+      }
       if (info?.source.kind === 'adapted') {
         credit.append(document.createTextNode('题目改编自 '));
         const link = document.createElement('a'); link.href = info.source.url; link.textContent = 'cn-math-taxonomy'; link.target = '_blank'; link.rel = 'noopener noreferrer'; credit.append(link);
@@ -1312,7 +1326,8 @@ _UI_HTML = """<!doctype html>
     function selectedBook() { return textbookBooks.find((book) => book.id === gameBook); }
     function scopeTitle() { const book = selectedBook(); return book ? book.title + ' · ' + (book.chapters.find((c) => c.id === gameChapter)?.title || '整本书') : '先选择课本'; }
     function choicesInScope(bookId, chapterId = '') {
-      return gameCatalog.filter((choice) => choice.textbook_scope?.book_id === bookId && (!chapterId || choice.textbook_scope.chapter_id === chapterId));
+      return gameCatalog.filter((choice) => choice.textbook_scope?.book_id === bookId && (!chapterId || choice.textbook_scope.chapter_id === chapterId)
+        && (gamePool === 'reserve' ? choice.practice?.reserve && choice.practice.reserve_unseen : !choice.practice?.reserve));
     }
     function updateChapterControls() {
       const busy = gameLoadingChoices || gameStarting || gameSubmitting || gameChangingChapter || gameItemStatus === 'grading_pending' || (Boolean($('testItem').value) && !gameItemStatus);
@@ -1325,23 +1340,31 @@ _UI_HTML = """<!doctype html>
       const completed = eligible.length - remaining, exhausted = eligible.length > 0 && !remaining;
       syncDifficulty();
       for (const id of ['homeDifficulty','practiceDifficulty']) $(id).disabled = Boolean(busy);
+      $('practicePool').disabled = Boolean(busy) || Boolean(active);
+      $('practicePool').value = gamePool;
+      const reserves = gameCatalog.filter((choice) => choice.textbook_scope?.book_id === gameBook && (!gameChapter || choice.textbook_scope.chapter_id === gameChapter) && choice.practice?.reserve);
+      $('reserveAvailability').textContent = ['easy','normal','hard'].map((level) => difficultyNames[level] + ' ' + reserves.filter((choice) => choice.practice.difficulty === level && choice.practice.reserve_unseen).length + ' 道未见题').join(' · ');
       $('startAdventure').disabled = (!roundChoices().length && !active) || Boolean(busy);
       $('scopeChallenge').disabled = !roundChoices().length || Boolean(busy);
       $('practiceStart').disabled = !roundChoices().length || Boolean(busy);
       const current = gameCatalog.find((choice) => choice.question_version_id === $('questionVersion').value);
       $('practiceChapter').textContent = current && !current.textbook_scope ? '此前的数学起步练习 · ' + gameChapterTitle(current.objective_id) : scopeTitle();
-      $('startAdventure').textContent = active ? '继续当前挑战 ↗' : exhausted ? '本轮已完成 · 再练一轮' : gameChoices.length ? '开始所选范围挑战 ↗' : '所选范围暂未配题';
-      $('scopeChallenge').textContent = active ? '继续当前挑战 ↗' : exhausted ? '本轮已完成 · 再练一轮' : gameChoices.length ? '开始挑战 · 剩余 ' + remaining + ' 题 ↗' : '暂未配题';
-      $('practiceStart').textContent = exhausted ? '再练一轮' : '来一题 ↗';
+      const reserveEmpty = gamePool === 'reserve' && !eligible.length;
+      $('startAdventure').textContent = active ? '继续当前挑战 ↗' : reserveEmpty ? '本档未见备用题已用完' : exhausted ? '本轮已完成 · 再练一轮' : gameChoices.length ? '开始所选范围挑战 ↗' : '所选范围暂未配题';
+      $('scopeChallenge').textContent = active ? '继续当前挑战 ↗' : reserveEmpty ? '本档未见备用题已用完' : exhausted ? '本轮已完成 · 再练一轮' : gameChoices.length ? '开始挑战 · 剩余 ' + remaining + ' 题 ↗' : '暂未配题';
+      $('practiceStart').textContent = reserveEmpty ? '本档未见备用题已用完' : exhausted ? '再练一轮' : '来一题 ↗';
       if (gameItemStatus === 'graded') {
         $('nextChallenge').textContent = remaining ? '继续出题 · ' + (gameChoices.some((c) => c.practice) ? difficultyNames[selectedDifficulty()] + ' · ' : '') + '剩余 ' + remaining + ' 题 →' : '选择其他章节 →';
         $('nextChallenge').onclick = continueGameRound;
         $('nextChallenge').disabled = Boolean(busy) || !textbookBooks.length;
-        $('restartRound').hidden = !exhausted; $('restartRound').disabled = Boolean(busy);
-        $('roundProgress').textContent = exhausted ? `本轮已完成 ${completed} / ${eligible.length} 道。本档已练完，可以换个难度、选择其他章节，或主动再练一轮。` : eligible.length ? `本轮已完成 ${completed} / ${eligible.length} 道（当前难度）。` : '当前难度暂未配题，请选择其他难度。';
+        $('restartRound').hidden = gamePool === 'reserve' || !exhausted; $('restartRound').disabled = Boolean(busy);
+        $('roundProgress').textContent = gamePool === 'reserve' ? `本档还有 ${remaining} 道未见备用题；已看过的题不会重新算作新题。` : exhausted ? `本轮已完成 ${completed} / ${eligible.length} 道。本档已练完，可以换个难度、选择其他章节，或主动再练一轮。` : eligible.length ? `本轮已完成 ${completed} / ${eligible.length} 道（当前难度）。` : '当前难度暂未配题，请选择其他难度。';
       } else { $('restartRound').hidden = true; $('roundProgress').textContent = ''; }
     }
     function renderGameChapters() {
+      const hasReserve = gameCatalog.some((choice) => choice.textbook_scope?.book_id === gameBook && (!gameChapter || choice.textbook_scope.chapter_id === gameChapter) && choice.practice?.reserve);
+      $('reservePicker').hidden = !hasReserve;
+      if (!hasReserve) gamePool = 'initial';
       gameChoices = choicesInScope(gameBook, gameChapter);
       const book = selectedBook(), target = $('chapterChoices'); target.replaceChildren();
       const chapters = book ? [{id:'', title:'整本书 · 不限章节'}, ...book.chapters] : [];
@@ -1355,8 +1378,8 @@ _UI_HTML = """<!doctype html>
       });
       $('selectedChapterTitle').textContent = scopeTitle();
       $('challengeCount').textContent = `${book?.chapters.length || 0} 个章节 · 当前 ${gameChoices.length} 道题`;
-      $('scopeAvailability').textContent = gameChoices.length ? `当前范围有 ${gameChoices.length} 道题，按所选难度出题，尚未覆盖全部知识点。` : '所选范围暂未配题，可以先阅读教材。';
-      $('gamePracticeEmpty').querySelector('p').textContent = gameChoices.length ? '准备好了？从所选范围的一道题开始。' : '所选范围暂未配题，请返回首页阅读教材或选择其他范围。';
+      $('scopeAvailability').textContent = gamePool === 'reserve' ? `当前范围有 ${gameChoices.length} 道未见备用题；仅核对作答，不代表已掌握。` : gameChoices.length ? `当前范围有 ${gameChoices.length} 道题，按所选难度出题，尚未覆盖全部知识点。` : '所选范围暂未配题，可以先阅读教材。';
+      $('gamePracticeEmpty').querySelector('p').textContent = gamePool === 'reserve' && !gameChoices.length ? '本范围已没有未见备用题，可切换普通练习或阅读教材。' : gameChoices.length ? '准备好了？从所选范围的一道题开始。' : '所选范围暂未配题，请返回首页阅读教材或选择其他范围。';
       renderPracticeChoices(gameChoices, gameObjectives);
       renderReviewTasks(gameTasks.filter((task) => gameChoices.some((choice) => choice.objective_id === task.objective_id)), gameChoices);
       renderReaderToc(); updateChapterControls();
@@ -1414,6 +1437,7 @@ _UI_HTML = """<!doctype html>
       $('nextChallenge').onclick = continueGameRound;
       $('restartRound').onclick = restartGameRound;
       for (const id of ['homeDifficulty','practiceDifficulty']) $(id).onchange = () => { gameDifficulty = $(id).value; saveGameRound(); updateChapterControls(); };
+      $('practicePool').onchange = () => { gamePool = $('practicePool').value; saveGameRound(); renderGameChapters(); };
       $('answer').placeholder = '在这里写下你的答案';
       $('answer').addEventListener('keydown', (event) => { if (event.key === 'Enter' && !event.isComposing && !$('submitAnswer').disabled) { event.preventDefault(); $('submitAnswer').onclick(); } });
       $('saveManualMistake').textContent = '加入我的错题收藏 ＋';
@@ -1489,6 +1513,10 @@ _UI_HTML = """<!doctype html>
       if (item.test_item_id) $('testItem').value = item.test_item_id;
       if (data.session_id) $('session').value = data.session_id;
       if (familyGameMode) { gameItemStatus = item.status || 'presented'; $('gameFeedback').hidden = true; $('gameHint').hidden = true; $('answer').value = ''; updateGameAnswerControls(); }
+      if (familyGameMode) {
+        const info = gameCatalog.find((c) => c.question_version_id === item.question_version_id)?.practice;
+        if (info?.reserve) { info.reserve_unseen = false; renderGameChapters(); }
+      }
       saveTestState({account: $('account').value.trim(), learner: $('learner').value.trim()});
       show(data);
     }
@@ -2180,7 +2208,7 @@ _UI_HTML = """<!doctype html>
     }
     function restoreCurrentTest() {
       if (browserSessionMode) savedTest = parseSaved(testStateKey());
-      if (familyGameMode) { const scope = parseSaved(chapterStateKey()); gameBook = scope.bookId || ''; gameChapter = scope.chapterId || ''; gameDifficulty = ['auto','easy','normal','hard'].includes(scope.difficulty) ? scope.difficulty : 'auto'; gameCompletedChoices = new Set(Array.isArray(scope.completedIds) ? scope.completedIds.filter((id) => typeof id === 'string') : []); }
+      if (familyGameMode) { const scope = parseSaved(chapterStateKey()); gameBook = scope.bookId || ''; gameChapter = scope.chapterId || ''; gamePool = scope.pool === 'reserve' ? 'reserve' : 'initial'; gameDifficulty = ['auto','easy','normal','hard'].includes(scope.difficulty) ? scope.difficulty : 'auto'; gameCompletedChoices = new Set(Array.isArray(scope.completedIds) ? scope.completedIds.filter((id) => typeof id === 'string') : []); }
       [['questionVersion','questionVersionId'],['card','cardId'],['session','sessionId'],['testItem','testItemId'],['attempt','attemptId']].forEach(([field,key]) => { $(field).value = savedTest[key] || ''; });
       $('testPrompt').textContent = ''; $('mistakes').textContent = ''; show('');
       if (savedTest.sessionId && savedTest.account === $('account').value.trim() && savedTest.learner === $('learner').value.trim()) $('restoreTest').onclick();
@@ -3498,6 +3526,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             if not question or (question["visibility"] == "private" and question["owner_id"] != learner_id):
                 raise APIError(404, "QUESTION_NOT_FOUND", "题目不存在")
             objective_for_learner(conn, learner_id, question["objective_id"])
+            _validate_reserve_version(conn, body.question_version_id)
             if body.textbook_book_id is not None or body.textbook_chapter_id is not None:
                 curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
                 try:
@@ -3516,6 +3545,12 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                     raise APIError(409, "CARD_NOT_DUE", "该复习卡尚未到期")
                 if conn.execute("SELECT 1 FROM test_items WHERE card_id=? AND status IN ('reserved','presented','grading_pending')", (body.card_id,)).fetchone():
                     raise APIError(409, "CARD_ALREADY_RESERVED", "该复习卡已有进行中的测验")
+            if body.question_version_id.startswith('family-reserve-'):
+                from .reserve_practice import unseen
+                if card and card['objective_id'] != question['objective_id']:
+                    raise APIError(422, 'PRACTICE_RESERVE_CARD_MISMATCH', '请选择与本题知识目标一致的复习卡')
+                if not card and not unseen(conn, learner_id, body.question_version_id):
+                    raise APIError(409, 'PRACTICE_RESERVE_ALREADY_SEEN', '这道备用题已看过，请选择其他未见题；已有复习卡可按计划复习')
             session_id, item_id, cycle_id = new_id("session"), new_id("test_item"), new_id("cycle") if card else None
             conn.execute("INSERT INTO test_sessions(id,learner_id,mode,status,created_at) VALUES (?,?,?,?,?)", (session_id, learner_id, body.mode, "active", utc_now()))
             conn.execute("INSERT INTO test_items(id,session_id,learner_id,question_version_id,card_id,cycle_id,reserved_revision,status,presented_at) VALUES (?,?,?,?,?,?,?,?,?)", (item_id, session_id, learner_id, body.question_version_id, card["id"] if card else None, cycle_id, card["revision"] if card else None, "presented", utc_now()))
@@ -3536,6 +3571,8 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                 "WHERE ti.session_id=?",
                 (session_id,),
             ).fetchall()
+            for row in rows:
+                _validate_reserve_version(conn, row['question_version_id'])
         return {"session": dict(session), "items": [{"test_item_id": row["id"], "question_version_id": row["question_version_id"], "prompt": json_loads(row["content_json"], {}).get("prompt", ""), "status": row["status"], "assistance": row["assistance"], "attempt_id": row["attempt_id"], "attempt_status": row["attempt_status"]} for row in rows], "answer_key": None}
 
     @app.post("/api/v1/test-sessions/{session_id}/cancel")
@@ -3556,6 +3593,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             row = conn.execute("SELECT ti.*,qv.content_json,q.objective_id FROM test_items ti JOIN question_versions qv ON qv.id=ti.question_version_id JOIN questions q ON q.id=qv.question_id WHERE ti.id=? AND ti.learner_id=?", (item_id, learner_id)).fetchone()
             if not row or row["status"] not in {"reserved", "presented"}:
                 raise APIError(404, "TEST_ITEM_NOT_FOUND", "测验题项不存在")
+            _validate_reserve_version(conn, row['question_version_id'])
             conn.execute("UPDATE test_items SET assistance='hint',status='presented' WHERE id=?", (item_id,))
             conn.execute("INSERT INTO learning_events(id,learner_id,objective_id,event_type,source,assistance,accepted_at,metadata_json) VALUES (?,?,?,?,?,?,?,?)", (new_id("event"), learner_id, row["objective_id"], "hint_exposed", "test", "hint", utc_now(), json_dumps({"test_item_id": item_id})))
             hint = json_loads(row["content_json"], {}).get("hint", "请先说明每一步代表什么，再计算终点。")
@@ -3568,6 +3606,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             item = conn.execute("SELECT ti.*,ts.mode AS session_mode FROM test_items ti JOIN test_sessions ts ON ts.id=ti.session_id WHERE ti.id=? AND ti.learner_id=? AND ti.status IN ('reserved','presented')", (item_id, learner_id)).fetchone()
             if not item:
                 raise APIError(404, "TEST_ITEM_NOT_FOUND", "测验题项不存在")
+            _validate_reserve_version(conn, item['question_version_id'])
             versions = {"question_version_id": item["question_version_id"], "card_id": item["card_id"], "reserved_revision": item["reserved_revision"]}
             return challenge_response(conn, ctx, learner_id, "submit_answer", item_id, versions, settings)
 
@@ -3586,6 +3625,8 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                 "WHERE ti.id=? AND ti.learner_id=?",
                 (item_id, learner_id),
             ).fetchone()
+            if row:
+                _validate_reserve_version(conn, row['question_version_id'])
         if not row or row["status"] not in {"reserved", "presented"}:
             raise APIError(404, "TEST_ITEM_NOT_FOUND", "测验题项不存在")
         content = json_loads(row["content_json"], {})
@@ -3616,6 +3657,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                 if existing:
                     return {"attempt_id": existing["id"], "status": existing["status"], "idempotent": True}
                 raise APIError(404, "TEST_ITEM_NOT_FOUND", "测验题项不存在")
+            _validate_reserve_version(conn, item['question_version_id'])
             versions = {"question_version_id": item["question_version_id"], "card_id": item["card_id"], "reserved_revision": item["reserved_revision"]}
             consume_challenge(conn, ctx, learner_id, "submit_answer", item_id, body.challenge_id, body.nonce, versions)
             attempt_id = new_id("attempt")
@@ -3902,8 +3944,23 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             objectives = conn.execute(
                 "SELECT o.id,o.title FROM review_objectives o JOIN knowledge_points k ON k.id=o.knowledge_point_id "
                 "JOIN learners l ON l.curriculum_id=k.curriculum_id WHERE l.id=? ORDER BY o.id", (learner_id,)).fetchall()
-            practice_guidance = learner_guidance(conn, learner_id)
-        return {"items": [{**dict(row), 'textbook_scope': textbook_practice_scope(row['question_version_id']), 'practice': practice_metadata(row['question_version_id'])} for row in rows],
+            try:
+                practice_guidance = learner_guidance(conn, learner_id)
+            except (OSError, ValueError, KeyError, TypeError):
+                raise APIError(503, 'PRACTICE_UNAVAILABLE', '练习题版本校验未通过，请稍后重试')
+            items = []
+            for row in rows:
+                try:
+                    info = practice_metadata(row['question_version_id'])
+                except (OSError, ValueError, KeyError, TypeError):
+                    raise APIError(503, 'PRACTICE_UNAVAILABLE', '练习题版本校验未通过，请稍后重试')
+                if row['question_version_id'].startswith('family-reserve-'):
+                    from .reserve_practice import unseen
+                    _validate_reserve_version(conn, row['question_version_id'])
+                    info['reserve_unseen'] = unseen(conn, learner_id, row['question_version_id'])
+                items.append({**dict(row),
+                              'textbook_scope': textbook_practice_scope(row['question_version_id']), 'practice': info})
+        return {"items": items,
                 "objectives": [dict(row) for row in objectives], "practice_guidance": practice_guidance}
 
     def reviewer_context(request: Request, ctx: Context, db: Database) -> str:
@@ -4787,6 +4844,7 @@ def _process_grade(db: Database, job: sqlite3.Row, token: str, settings: Setting
         existing = conn.execute("SELECT * FROM grade_versions WHERE attempt_id=? ORDER BY created_at DESC LIMIT 1", (attempt_id,)).fetchone()
         if existing:
             return {"attempt_id": attempt_id, "status": "already_graded", "outcome": existing["outcome"]}
+        _validate_reserve_version(conn, row['question_version_id'])
         answer_key = json_loads(row["answer_key_json"], {})
         accepted = {_normalize_answer(str(value)) for value in answer_key.get("accepted", [])}
         normalized = _normalize_answer(row["raw_answer"])

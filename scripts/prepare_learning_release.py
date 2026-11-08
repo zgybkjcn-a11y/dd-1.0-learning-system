@@ -78,6 +78,14 @@ PATHS = (*STUDY_WORKBENCH_PATHS, "learning_service/passage_evidence.py",
          "deploy/open-webui-reuse/readonly_study_tools.py", "deploy/open-webui-reuse/main-study/family-bridge.js",
          "docs/open-webui-reuse/textbook-passages-runtime.md")
 
+PASSAGE_RUNTIME_PATHS = PATHS
+PASSAGE_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-practice-reserve-v1"
+PATHS = (*PASSAGE_RUNTIME_PATHS, "learning_service/reserve_practice.py",
+         "learning_service/data/family_reserve_practice_v1.json",
+         "learning_service/data/family_chapter_coverage_v1.json",
+         "scripts/prepare_reserve_practice.py", "docs/open-webui-reuse/practice-reserve.md")
+
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -138,6 +146,8 @@ def verify(destination: Path) -> dict:
     paths = {9: LEGACY_PATHS, 10: SCHEMA10_PATHS, 11: SCHEMA11_PATHS}.get(manifest.get("schema_revision"))
     if manifest.get("source_profile") == REUSE_PROFILE and manifest.get("schema_revision") == 11:
         paths = PATHS
+    elif manifest.get("source_profile") == PASSAGE_RUNTIME_PROFILE and manifest.get("schema_revision") == 11:
+        paths = PASSAGE_RUNTIME_PATHS
     elif manifest.get("source_profile") == STUDY_WORKBENCH_PROFILE and manifest.get("schema_revision") == 11:
         paths = STUDY_WORKBENCH_PATHS
     elif manifest.get("source_profile") == MATH_REFERENCE_PROFILE and manifest.get("schema_revision") == 11:

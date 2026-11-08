@@ -1,0 +1,589 @@
+{
+  "format": "dd-family-reserve-practice-v1",
+  "version": "2026-11-08-b02-v1",
+  "scope": {
+    "curriculum_id": "math-g7-v1",
+    "book_id": "math-g7-upper",
+    "chapter_id": "2"
+  },
+  "coverage_sha256": "cac82c1ab36ee043467b04d1c2628a23856a8eafdaf169f6fb832e85ac547e4d",
+  "base_bank_sha256": "38e0903024ed9c402a8c66e8b02a3afd3e304ad55913fbdb0572a16589d211ef",
+  "teacher_reviewed": false,
+  "difficulty_calibration": "assistant_trial_tiers_not_student_calibrated",
+  "questions": [
+    {
+      "id": "family-reserve-g7-reciprocal-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "负数的倒数",
+      "prompt": "求 −4 的倒数。\n请只填最后所求的数值。",
+      "answer": "-1/4",
+      "units": [],
+      "hint": "倒数与原数的乘积应为1；先确定符号。",
+      "explanation": "(−4)×(−1/4)=1，所以倒数是−1/4。",
+      "independent_check": "-1/4",
+      "mathematical_check": {
+        "kind": "reciprocal",
+        "value": "-4"
+      },
+      "extension": false,
+      "coverage_row_ids": [
+        "g7-ch2-reciprocal"
+      ],
+      "template_relation": {
+        "kind": "new_authored_calculation",
+        "family_id": "b02-reciprocal",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-signed-product-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "确定两数乘积",
+      "prompt": "计算 (−3)×5。\n请只填最后所求的数值。",
+      "answer": "-15",
+      "units": [],
+      "hint": "先判断两数同号还是异号，再求绝对值的积。",
+      "explanation": "两数异号，积为负；3×5=15，结果−15。",
+      "independent_check": "-(5+5+5)",
+      "mathematical_check": {
+        "kind": "rational",
+        "expression": "(-3)*5"
+      },
+      "extension": false,
+      "coverage_row_ids": [
+        "g7-ch2-multiply",
+        "g7-sign"
+      ],
+      "template_relation": {
+        "kind": "new_authored_calculation",
+        "family_id": "b02-signed-product",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-signed-division-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "除法的符号",
+      "prompt": "计算 (−28)÷7。\n请只填最后所求的数值。",
+      "answer": "-4",
+      "units": [],
+      "hint": "商的符号和绝对值分开确定。",
+      "explanation": "异号相除得负；28÷7=4，所以结果−4。",
+      "independent_check": "-(14/7+14/7)",
+      "mathematical_check": {
+        "kind": "rational",
+        "expression": "(-28)/7"
+      },
+      "extension": false,
+      "coverage_row_ids": [
+        "g7-ch2-divide",
+        "g7-sign"
+      ],
+      "template_relation": {
+        "kind": "new_authored_calculation",
+        "family_id": "b02-signed-division",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-cube-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "负数的三次方",
+      "prompt": "计算 (−2)³。\n请只填最后所求的数值。",
+      "answer": "-8",
+      "units": [],
+      "hint": "把三次方写成三个相同乘数，再判断符号。",
+      "explanation": "(−2)³=(−2)×(−2)×(−2)=−8。",
+      "independent_check": "-(2*2*2)",
+      "mathematical_check": {
+        "kind": "rational",
+        "expression": "(-2)*(-2)*(-2)"
+      },
+      "extension": false,
+      "coverage_row_ids": [
+        "g7-ch2-power",
+        "g7-ch2-product-sign"
+      ],
+      "template_relation": {
+        "kind": "new_authored_calculation",
+        "family_id": "b02-cube",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-distribute-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "用分配律计算",
+      "prompt": "利用分配律计算 (−6)×(7−2)，填写最终结果。\n请只填最后所求的数值。",
+      "answer": "-30",
+      "units": [],
+      "hint": "将括号中的两个部分分别与−6相乘。",
+      "explanation": "(−6)×7−(−6)×2=−42+12=−30。只核对最终数值，不据此判断所用方法。",
+      "independent_check": "-42+12",
+      "mathematical_check": {
+        "kind": "rational",
+        "expression": "(-6)*(7-2)"
+      },
+      "extension": false,
+      "coverage_row_ids": [
+        "g7-ch2-distributive",
+        "g7-ch2-multiply"
+      ],
+      "template_relation": {
+        "kind": "new_authored_calculation",
+        "family_id": "b02-distribute",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-scientific-exponent-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "科学记数法的指数",
+      "prompt": "将 6 400 000 写成 6.4×10ⁿ，求正整数 n。\n请只填最后所求的数值。",
+      "answer": "6",
+      "units": [],
+      "hint": "将小数点移到首个非零数字后，数清移动的位数。",
+      "explanation": "6 400 000=6.4×1 000 000=6.4×10⁶，所以n=6。",
+      "independent_check": "6",
+      "mathematical_check": {
+        "kind": "scientific_exponent",
+        "value": "6400000",
+        "mantissa": "6.4"
+      },
+      "extension": false,
+      "coverage_row_ids": [
+        "g7-ch2-scientific",
+        "g7-ch2-power"
+      ],
+      "template_relation": {
+        "kind": "new_authored_calculation",
+        "family_id": "b02-scientific-exponent",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-rounding-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "按精确度取近似值",
+      "prompt": "一段绳长为 2.746 米，用四舍五入法将长度精确到 0.01 米。\n请只填最后所求的数值（单位：米）。",
+      "answer": "2.75",
+      "units": [
+        "米"
+      ],
+      "hint": "保留到百分位，看千分位决定是否进位。",
+      "explanation": "千分位为6，百分位进1，近似值为2.75米。",
+      "independent_check": "2+75/100",
+      "mathematical_check": {
+        "kind": "round_half_up",
+        "value": "2.746",
+        "precision": "0.01"
+      },
+      "extension": false,
+      "coverage_row_ids": [
+        "g7-ch2-approximate"
+      ],
+      "template_relation": {
+        "kind": "new_authored_situation",
+        "family_id": "b02-rounding",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-mixed-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "先乘方再乘除",
+      "prompt": "计算 (−2)³+18÷(−3)。\n请只填最后所求的数值。",
+      "answer": "-14",
+      "units": [],
+      "hint": "先算乘方与除法，再相加。",
+      "explanation": "(−2)³=−8，18÷(−3)=−6，结果−8−6=−14。",
+      "independent_check": "-(8+6)",
+      "mathematical_check": {
+        "kind": "rational",
+        "expression": "(-2)*(-2)*(-2)+18/(-3)"
+      },
+      "extension": false,
+      "coverage_row_ids": [
+        "g7-ch2-mixed",
+        "g7-ch2-power",
+        "g7-ch2-divide",
+        "g7-add"
+      ],
+      "template_relation": {
+        "kind": "new_authored_calculation",
+        "family_id": "b02-mixed",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-factor-sign-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "多个因子与小数",
+      "prompt": "计算 (−3)×(−2)×(−5)×0.4。\n请只填最后所求的数值。",
+      "answer": "-12",
+      "units": [],
+      "hint": "先数负因子个数；把0.4写成2/5可约去因子5。",
+      "explanation": "三个负因子，积为负；绝对值为3×2×5×(2/5)=12，结果−12。",
+      "independent_check": "-(3*2*2)",
+      "mathematical_check": {
+        "kind": "rational",
+        "expression": "(-3)*(-2)*(-5)*0.4"
+      },
+      "extension": true,
+      "coverage_row_ids": [
+        "g7-ch2-product-sign",
+        "g7-ch2-multiply-laws",
+        "g7-ch2-multiply"
+      ],
+      "template_relation": {
+        "kind": "new_authored_calculation",
+        "family_id": "b02-factor-sign",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-fraction-distribute-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "分数与分配律",
+      "prompt": "利用分配律计算 (−3/4)×(8−4/3)，填写最终结果。\n请只填最后所求的数值。",
+      "answer": "-5",
+      "units": [],
+      "hint": "分别乘到两个部分，注意第二部分的符号。",
+      "explanation": "(−3/4)×8−(−3/4)×(4/3)=−6+1=−5。只核对最终数值，不证明实际使用了分配律。",
+      "independent_check": "-6+1",
+      "mathematical_check": {
+        "kind": "rational",
+        "expression": "(-3/4)*(8-4/3)"
+      },
+      "extension": true,
+      "coverage_row_ids": [
+        "g7-ch2-distributive",
+        "g7-ch2-mixed"
+      ],
+      "template_relation": {
+        "kind": "new_authored_calculation",
+        "family_id": "b02-fraction-distribute",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-volume-conversion-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "科学记数法与换算",
+      "prompt": "一个水箱装有 4.8×10⁵ 毫升水。已知1升=1000毫升，水箱有多少升水？\n请只填最后所求的数值（单位：升）。",
+      "answer": "480",
+      "units": [
+        "升"
+      ],
+      "hint": "先将科学记数法还原，再按每升1000毫升换算。",
+      "explanation": "4.8×10⁵=480000毫升；480000÷1000=480升。",
+      "independent_check": "480000*0.001",
+      "mathematical_check": {
+        "kind": "rational",
+        "expression": "4.8*100000/1000"
+      },
+      "extension": true,
+      "coverage_row_ids": [
+        "g7-ch2-scientific",
+        "g7-ch2-divide",
+        "g7-target"
+      ],
+      "template_relation": {
+        "kind": "new_authored_situation",
+        "family_id": "b02-volume-conversion",
+        "parent_question_version_id": null,
+        "parent_question_sha256": null,
+        "parent_title": null,
+        "changes": "独立编写题干与必要条件；不声明来自教材例题或真实学生材料。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    },
+    {
+      "id": "family-reserve-g7-two-rises-v1",
+      "grade": 7,
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "比较两天升温",
+      "prompt": "某地周一从 −7 ℃ 升到 3 ℃，周二从 −5 ℃ 升到 8 ℃。周二的升温幅度比周一大多少 ℃？\n请只填最后所求的数值（单位：℃）。",
+      "answer": "3",
+      "units": [
+        "℃"
+      ],
+      "hint": "分别计算两天升温幅度，再比较两个幅度。",
+      "explanation": "周一升10℃，周二升13℃，周二升幅比周一大3℃。本题与旧题同母题，仅改数。",
+      "independent_check": "(8+5)-(3+7)",
+      "mathematical_check": {
+        "kind": "rational",
+        "expression": "(8-(-5))-(3-(-7))"
+      },
+      "extension": true,
+      "coverage_row_ids": [
+        "g7-subtract",
+        "g7-target"
+      ],
+      "template_relation": {
+        "kind": "numeric_variant",
+        "family_id": "temperature-rise-comparison",
+        "parent_question_version_id": "family-word-g7-storage-compare-v1",
+        "parent_question_sha256": "81dc429418b727fa6a2a85323d567531bff42687633e108b15b3f8af268f4e62",
+        "parent_title": "两天的温度变化",
+        "changes": "保持两天升温幅度再比较的结构，仅替换温度数值；不计为新情境。"
+      },
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核算",
+        "license": "project-authored"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "method": "assistant_semantic_review_and_independent_exact_mathematics",
+        "teacher_reviewed": false,
+        "reviewer_type": "assistant",
+        "date": "2026-11-08",
+        "revision": 1,
+        "conditions_complete": true,
+        "units_checked": true,
+        "unresolved_issues": []
+      }
+    }
+  ]
+}

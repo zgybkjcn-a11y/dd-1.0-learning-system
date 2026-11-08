@@ -1,5 +1,7 @@
 # 智能学习系统文档入口
 
+2026-11-08 B02：[备用练习候选](open-webui-reuse/practice-reserve.md)与[独立验证](verification/B02-reserve-practice-2026-11-08.md)完成12题、每档4题，103个不同单元/契约用例与4浏览器通过；题版冻结、已见不重算。真实1/3/7天观察pending，B02总状态open。下一项 **B03**；B01证据保留，A09发布/家庭验收另列。
+
 2026-11-08：B01 [七上第二章覆盖表验收](verification/B01-chapter-coverage-2026-11-08.md)完成；19行/12题/5有效片段，22单元与2浏览器通过。[独立离线覆盖表说明](open-webui-reuse/chapter-content-coverage.md)记录缺项与来源；新8条映射仅为候选，旧知识参考接口不变。下一项 **B02**；A09发布/家庭验收仍pending。
 
 2026-11-08：A09 [静态交付准备验收](verification/A09-static-samples-2026-11-08.md)通过30项定向检查及隔离nginx候选4/回退3路由；[交付与设备检查表](open-webui-reuse/static-samples-delivery.md)已就绪。工程ready，发布与真实设备/家长验收pending，总状态open。下一项 **B01：七上第二章覆盖表**；下方为历史记录。
