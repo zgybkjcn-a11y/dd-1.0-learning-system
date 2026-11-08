@@ -2,7 +2,7 @@
   "schema": "dd-next-work-tracker-v1",
   "plan_version": "1.0",
   "created_at": "2026-11-07",
-  "updated_at": "2026-11-08T09:48:00+08:00",
+  "updated_at": "2026-11-08T10:10:50.136476+08:00",
   "timezone": "Asia/Shanghai",
   "purpose": "下一阶段 25 项实施任务台账；不等同于 Goal 或发布证明。",
   "documents": {
@@ -16,7 +16,8 @@
     "candidate_delivery": "../releases/A02-candidate-delivery-2026-11-07.md",
     "study_error_recovery": "../open-webui-reuse/study-error-recovery.md",
     "retrieval_evaluation": "../open-webui-reuse/retrieval-evaluation.md",
-    "chapter_retrieval": "../open-webui-reuse/chapter-retrieval.md"
+    "chapter_retrieval": "../open-webui-reuse/chapter-retrieval.md",
+    "chapter_content_coverage": "../open-webui-reuse/chapter-content-coverage.md"
   },
   "baseline": {
     "git_head": "deef3199f558ba72bbe3f2ff0c704586674a2232",
@@ -62,7 +63,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B01",
+  "recommended_next_task": "B02",
   "latest_git_delivery": {
     "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
     "branch": "main",
@@ -566,10 +567,10 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者、内容复核者",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
-      "completion_state": "open",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
       "estimate_hours": {
         "min": 4,
         "max": 8
@@ -581,14 +582,45 @@
       },
       "acceptance_summary": "数量与来源可对账，缺项明确，范围与整册选择保持。",
       "required_conditions": [],
-      "next_action": "以七上第二章整理知识点、教材、片段、解释、题目和复习覆盖，并优先补已有题映射。",
+      "next_action": "继续 B02：按已核对缺口准备每档目标4道合格备用题，冻结题版并分别记录真实日期延迟观察；A09发布与家庭验收另记。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
-      "artifacts": [],
-      "evidence": [],
+      "artifacts": [
+        "../../learning_service/data/family_chapter_coverage_v1.json",
+        "../../scripts/prepare_chapter_coverage.py",
+        "../../tests/test_chapter_coverage.py",
+        "../../tests/test_chapter_coverage_browser.py",
+        "../open-webui-reuse/chapter-content-coverage.md",
+        "../../learning_data/verification/b01-chapter-coverage-20261108T020031Z/packet-final-r2/coverage.json",
+        "../../learning_data/verification/b01-chapter-coverage-20261108T020031Z/packet-final-r2/coverage.html"
+      ],
+      "evidence": [
+        "../verification/B01-chapter-coverage-2026-11-08.md",
+        "../../learning_data/verification/b01-chapter-coverage-20261108T020031Z/unit-final-r2.xml",
+        "../../learning_data/verification/b01-chapter-coverage-20261108T020031Z/browser-final-r2.xml",
+        "../../learning_data/verification/b01-chapter-coverage-20261108T020031Z/mapping-review.json",
+        "../../learning_data/verification/b01-chapter-coverage-20261108T020031Z/delivery-validation.json"
+      ],
       "blockers": [],
-      "last_updated": "2026-11-07"
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "engineering_scope": "independent_offline_coverage_candidate",
+        "rows": 19,
+        "chapter_questions": 12,
+        "existing_mapped_questions": 4,
+        "new_candidate_mapped_questions": 8,
+        "effective_passages": 5,
+        "unit_contract_tests": 22,
+        "browser_tests": 2,
+        "browser_version": "145.0.7632.6",
+        "runtime_reference_updated": false,
+        "student_review_records_read": false,
+        "deployment_performed": false,
+        "teacher_reviewed": false,
+        "family_acceptance": "not_claimed"
+      }
     },
     {
       "id": "B02",
@@ -1275,6 +1307,18 @@
         "../verification/A09-static-samples-2026-11-08.md"
       ],
       "next_action": "继续B01七上第二章内容覆盖表；A09发布与设备反馈另记。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T10:10:50.136476+08:00",
+      "task_ids": [
+        "B01"
+      ],
+      "summary": "完成独立离线19行覆盖表与HTML：12道应用题每档4题，4旧映射+8助手新候选，5有效片段；缺来源留空，复习卡/延迟观察null。22单元/契约+2浏览器通过；旧固定概念库与运行服务不变，未提交/部署。",
+      "evidence": [
+        "../verification/B01-chapter-coverage-2026-11-08.md"
+      ],
+      "next_action": "继续 B02：按已核对缺口准备每档目标4道合格备用题，冻结题版并分别记录真实日期延迟观察；A09发布与家庭验收另记。"
     }
   ],
   "current_candidate_tool_version": "1.2.0"

@@ -1,5 +1,7 @@
 # DD-1.0 下一阶段工作计划与执行规程
 
+最新执行（B01，2026-11-08）：[19行独立离线覆盖表](../open-webui-reuse/chapter-content-coverage.md)和[验收](../verification/B01-chapter-coverage-2026-11-08.md)完成，12题/5片段，22+2定向检查通过；工程ready、候选交付、本地验收passed，B01本地出口complete。旧接口不变、实际复习未知，未提交/部署。下一项 **B02**，A09发布/家庭验收继续单列。
+
 最新执行（2026-11-08）：A09 本地静态交付准备已完成，工程 ready，发布与家长设备验收 pending，总状态 open；下一项可继续 **B01**。[本地验收](../verification/A09-static-samples-2026-11-08.md)记录 30 项定向检查和隔离 nginx 候选 4 / 回退 3 条路由通过；[交付与设备检查表](../open-webui-reuse/static-samples-delivery.md)已就绪。九文件固定提交与旧样本一致，当前 A07 桥接未混入。以下各批次更新保留历史语境。
 
 历史记录（2026-11-08 更新前）：**A08 本地维护机制完成，下一项当时为 A09**。[验收](../verification/A08-tool-lifecycle-2026-11-07.md)记录54项与固定WebUI原生迁移schema、历史及缓存检查；[操作单](../open-webui-reuse/tool-upgrade-rollback.md)就绪，尚未正式应用。当前下一项见本文最新执行状态与交接文档。

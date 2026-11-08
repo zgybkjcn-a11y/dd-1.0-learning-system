@@ -1,3 +1,5 @@
+最新接续（B01完成，2026-11-08）：先读 docs/verification/B01-chapter-coverage-2026-11-08.md 与 docs/open-webui-reuse/chapter-content-coverage.md。19行独立离线覆盖表、12题（旧4+新助手候选8）和5有效片段已对账，22单元/契约+2浏览器通过；新候选未提交/部署，旧固定概念库和运行接口不变。下一项B02，按缺口准备每档目标4道合格备用题并冻结题版，真实1/3/7天观察另记；A09发布/家庭验收单列。原交接与下文A01–A09历史基线保留，不据其“下一项B01”重复已验收工作。
+
 继续 DD-1.0 家庭学习与 Open WebUI 主站伴学下一阶段计划。最近会话的完整进度、25 项状态、B01 操作步骤和新会话命令见 `docs/plans/HANDOFF-SESSION-2026-11-08.md`；新会话先读该交接文档，再从 B01 开始。
 工作目录：/home/deniskorfei/projects/open-webui。
 

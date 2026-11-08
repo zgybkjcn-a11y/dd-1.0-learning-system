@@ -1,5 +1,7 @@
 # 可移植测试与本地材料验证
 
+B01离线覆盖表：`python -m pytest -q tests/test_chapter_coverage.py`（22项）与 `python -m pytest -q -m browser tests/test_chapter_coverage_browser.py`（2宽度）；仅公开元数据/合成片段，不需要本机教材或数据库。实物定向出表与独立输出规则见[覆盖表说明](open-webui-reuse/chapter-content-coverage.md)及[B01验收](verification/B01-chapter-coverage-2026-11-08.md)。
+
 A08维护逻辑测试：`python -m pytest tests/test_readonly_tool_upgrade.py tests/test_main_study_tool_registration.py -q`，54项、纯临时SQLite，夹具仅合成身份/配置。`scripts/probe_tool_upgrade_native.py`需专用固定镜像断网挂载，不能在正式data中运行；命令与结果见[A08验收](verification/A08-tool-lifecycle-2026-11-07.md)。
 
 A07新增 `tests/test_runtime_passages.py`、`test_runtime_passages_legacy.py` 与 `test_runtime_passages_browser.py`，全部使用合成正文/PDF；历史Tool 1.0.0/1.1.2源码仅作兼容夹具。实物回归输出留忽略目录，操作/结果见[A07验收](verification/A07-runtime-passages-2026-11-07.md)。运行模块不依赖scripts，契约快照纳入检查。

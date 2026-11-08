@@ -1,5 +1,7 @@
 # 智能学习系统文档入口
 
+2026-11-08：B01 [七上第二章覆盖表验收](verification/B01-chapter-coverage-2026-11-08.md)完成；19行/12题/5有效片段，22单元与2浏览器通过。[独立离线覆盖表说明](open-webui-reuse/chapter-content-coverage.md)记录缺项与来源；新8条映射仅为候选，旧知识参考接口不变。下一项 **B02**；A09发布/家庭验收仍pending。
+
 2026-11-08：A09 [静态交付准备验收](verification/A09-static-samples-2026-11-08.md)通过30项定向检查及隔离nginx候选4/回退3路由；[交付与设备检查表](open-webui-reuse/static-samples-delivery.md)已就绪。工程ready，发布与真实设备/家长验收pending，总状态open。下一项 **B01：七上第二章覆盖表**；下方为历史记录。
 
 A08已完成[既有Tool升级与回退本地验收](verification/A08-tool-lifecycle-2026-11-07.md)，54项及固定WebUI原生验证通过；[维护操作单](open-webui-reuse/tool-upgrade-rollback.md)。正式Tool未升级，下一项 **A09：三个静态样本交付与设备体验**。下方A07及此前记录保留历史。

@@ -1,5 +1,7 @@
 # DD-1.0 当前状态与交付清单
 
+最新本地进度（2026-11-08）：**B01独立离线覆盖表完成，下一项B02**。[验收](../verification/B01-chapter-coverage-2026-11-08.md)记录19行、12道应用题（旧4+新助手候选8）、5有效片段及22+2定向检查；[使用说明](../open-webui-reuse/chapter-content-coverage.md)。本批未提交/部署，旧概念库、题库、服务与范围规则不变。A09发布/家庭设备及家长验收仍pending；线上观察时间仍为A01。
+
 最新执行（2026-11-08）：A09 本地静态交付准备已完成，工程 ready，发布与家长设备验收 pending，总状态 open；下一项可继续 **B01**。[本地验收](../verification/A09-static-samples-2026-11-08.md)记录 30 项定向检查和隔离 nginx 候选 4 / 回退 3 条路由通过；[交付与设备检查表](../open-webui-reuse/static-samples-delivery.md)已就绪。九文件固定提交与旧样本一致，当前 A07 桥接未混入。以下各批次更新保留历史语境。
 
 最新本地进度：**A08已完成，下一项A09**。[54项与原生迁移/六方法/历史/缓存验证](../verification/A08-tool-lifecycle-2026-11-07.md)通过，[升级回退操作单](../open-webui-reuse/tool-upgrade-rollback.md)与独立维护包就绪。正式Tool未读取或升级，A07服务/Tool1.2.0候选保持原样；下方各批次结果保留历史语境。
