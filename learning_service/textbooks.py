@@ -5,6 +5,8 @@ import re
 import unicodedata
 import threading
 from pathlib import Path
+from . import textbook_cache
+from .study_deadline import check_deadline
 
 
 # Match the exact PDFs used for the vector index; offsets apply only to these files.
@@ -632,16 +634,34 @@ def page_scope(curriculum_id, book_id, printed_page):
 
 def render_page(directory: Path | None, book_id: str, pdf_page: int) -> bytes:
     """Render the original layout locally, without OCR or extracted-font substitutions."""
-    import fitz
     if directory is None or book_id not in PDF_SHA256:
         raise ValueError('textbook source unavailable')
+    if type(pdf_page) is not int or pdf_page < 1:
+        raise ValueError('textbook page unavailable')
     path = directory / (book_id + '.pdf')
-    if path.is_symlink() or not path.resolve().is_relative_to(directory.resolve()):
-        raise ValueError('invalid textbook source')
-    data = path.read_bytes()
-    if hashlib.sha256(data).hexdigest() != PDF_SHA256[book_id]:
-        raise ValueError('textbook source changed')
+    expected = PDF_SHA256[book_id]
+    data, identity = textbook_cache.verified_pdf(path, expected)
+    key = (identity, expected, pdf_page, 2)
+    with textbook_cache.PAGE_LOCKS[hash(key) % len(textbook_cache.PAGE_LOCKS)]:
+        check_deadline()
+        image = textbook_cache.PAGE_BYTES.get(key)
+        if image is None:
+            image = _render_pdf(data, pdf_page)
+        if (textbook_cache.fingerprint(path) != identity
+                or PDF_SHA256.get(book_id) != expected):
+            raise ValueError('textbook source changed during rendering')
+        textbook_cache.PAGE_BYTES.put(key, image, len(image))
+        return image
+
+
+def clear_page_cache():
+    textbook_cache.clear()
+
+
+def _render_pdf(data, pdf_page):
+    import fitz
     with _RENDER_LOCK:
+        check_deadline()
         with fitz.open(stream=data, filetype='pdf') as document:
             if not 1 <= pdf_page <= len(document):
                 raise ValueError('textbook page unavailable')

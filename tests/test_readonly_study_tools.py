@@ -218,6 +218,9 @@ def test_real_transport_is_fixed_and_search_forwards_csrf(monkeypatch):
         status=200
         def read(self,limit):return b'{"items":[]}'
     class Connection:
+        def connect(self): self.sock = self
+        def settimeout(self, value): pass
+        def shutdown(self, how): pass
         def __init__(self,host,port,timeout):self.host,self.port=host,port
         def request(self,method,path,body,headers):requests.append((self.host,self.port,method,path,body,headers))
         def getresponse(self):return Response()

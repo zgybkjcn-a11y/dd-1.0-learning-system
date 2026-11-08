@@ -19,7 +19,8 @@
     "chapter_retrieval": "../open-webui-reuse/chapter-retrieval.md",
     "chapter_content_coverage": "../open-webui-reuse/chapter-content-coverage.md",
     "practice_reserve": "../open-webui-reuse/practice-reserve.md",
-    "passage_review_workbench": "../open-webui-reuse/passage-review-workbench.md"
+    "passage_review_workbench": "../open-webui-reuse/passage-review-workbench.md",
+    "study_performance": "../open-webui-reuse/study-performance.md"
   },
   "baseline": {
     "git_head": "deef3199f558ba72bbe3f2ff0c704586674a2232",
@@ -1358,9 +1359,9 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
+      "engineering_state": "in_progress",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "pending",
       "completion_state": "open",
       "estimate_hours": {
         "min": 8,
@@ -1373,14 +1374,79 @@
       },
       "acceptance_summary": "样本数与阈值可复核，超时/取消一致，改源/撤回失效且缓存不绕过授权。",
       "required_conditions": [],
-      "next_action": "固定设备/材料/并发测冷暖 P50/P95，再设计源哈希缓存与一致总截止。",
+      "next_action": "继续B10尾延迟：保留现有12配置/1800样本及4项未达结果，细分会话复核、SQLite和ASGI/线程排队；增加loopback对照时先独立冻结旧/新候选与至少30样本配置，不删除身份检查或放宽预算/门槛。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
-      "artifacts": [],
-      "evidence": [],
-      "blockers": [],
-      "last_updated": "2026-11-07"
+      "artifacts": [
+        "../../learning_service/textbook_cache.py",
+        "../../learning_service/study_deadline.py",
+        "../../learning_service/study_cancellation.py",
+        "../../deploy/open-webui-reuse/readonly_study_tools.py",
+        "../../tests/test_study_cache.py",
+        "../../tests/test_study_deadlines.py",
+        "../../tests/benchmark_study_performance.py",
+        "../../tests/benchmark_study_breakdown.py",
+        "../open-webui-reuse/study-performance.md",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/release-final/manifest.json"
+      ],
+      "evidence": [
+        "../verification/B10-study-performance-2026-11-08.md",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/inputs-before.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/plan-before.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/optimization-plan-before.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/baseline/plan-before.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/optimized/plan-before.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/baseline/samples.jsonl",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/optimized/samples.jsonl",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/performance-comparison.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/diagnostic-plan-before.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/diagnostic-summary.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/unit-final.xml",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/unit-contract-release.xml",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/browser-r2.xml",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/source-package-validation-final.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/delivery-validation.json",
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/native-result.json"
+      ],
+      "blockers": [
+        "冻结性能门槛4/12配置未达：单请求原页冷/暖、四并发原页暖、单请求片段检索暖；保留失败，不放宽检查/门槛。"
+      ],
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "correctness_passed_performance_not_met",
+        "unit_contract_tests": 248,
+        "browser_tests": 2,
+        "browser_version": "145.0.7632.6",
+        "browser_widths": [
+          390,
+          1280
+        ],
+        "source_files": 95,
+        "schema_revision": 13,
+        "openapi_paths": 76,
+        "openapi_schemas": 44,
+        "tool_candidate_version": "1.2.1",
+        "performance_samples_before": 900,
+        "performance_samples_after": 900,
+        "performance_configurations": 12,
+        "performance_configurations_passed": 8,
+        "diagnostic_samples": 300,
+        "payload_hashes_unchanged": true,
+        "total_budget_seconds": 12,
+        "thresholds_changed": false,
+        "deployment_performed": false,
+        "real_model_or_ocr_calls": 0,
+        "native_open_webui_version": "0.12.5",
+        "native_methods": 6,
+        "native_citation_events": 4,
+        "native_exit_code": 0
+      },
+      "acceptance_limits": [
+        "仅合成ASGI/loopback与模拟浏览器，不能外推线上延迟或家庭设备体验。",
+        "缓存依赖本地可信元数据，底层同步IO/原生渲染是协作取消，不声称强制即时终止。",
+        "冻结P95门槛未全通过，B10不complete，B11未启动。"
+      ]
     },
     {
       "id": "B11",
@@ -1840,7 +1906,19 @@
         "../verification/B09-evidence-modules-2026-11-08.md"
       ],
       "next_action": "继续B10：先冻结合成设备/材料/并发、冷暖定义、每配置至少30样本和总截止口径；测量后再决定缓存与超时优化，不扩大至正式数据或真实提供商。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T14:50:55.772978+08:00",
+      "task_ids": [
+        "B10"
+      ],
+      "summary": "B10首批缓存与12秒总截止候选完成，248项不同单元/契约和2项浏览器通过；前后各900性能样本全部成功且输出一致，但冻结P95门槛仅8/12配置通过，4项未达。追加300样本诊断已定位到需继续细分的会话复核/服务调度链路；不降低身份/证据检查。95文件schema13源码候选及B09回退兼容已校验，Tool候选1.2.1；未提交/部署。B10工程in_progress、验收pending、总状态open，下一项继续B10尾延迟，不先记为完成。",
+      "evidence": [
+        "../verification/B10-study-performance-2026-11-08.md"
+      ],
+      "next_action": "继续B10尾延迟：保留现有12配置/1800样本及4项未达结果，细分会话复核、SQLite和ASGI/线程排队；增加loopback对照时先独立冻结旧/新候选与至少30样本配置，不删除身份检查或放宽预算/门槛。"
     }
   ],
-  "current_candidate_tool_version": "1.2.0"
+  "current_candidate_tool_version": "1.2.1"
 }

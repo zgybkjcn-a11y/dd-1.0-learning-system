@@ -213,6 +213,9 @@ def test_tool_transport_uses_closed_error_codes_and_validated_ids(monkeypatch, h
     Response.status = status
     closed = []
     class Connection:
+        def connect(self): self.sock = self
+        def settimeout(self, value): pass
+        def shutdown(self, how): pass
         def __init__(self, *args, **kwargs): pass
         def request(self, *args, **kwargs): pass
         def getresponse(self): return Response()
@@ -235,6 +238,9 @@ def test_tool_transport_uses_closed_error_codes_and_validated_ids(monkeypatch, h
 ])
 def test_tool_transport_timeout_and_connection_loss_are_distinct(monkeypatch, host, search, exception, expected):
     class Connection:
+        def connect(self): self.sock = self
+        def settimeout(self, value): pass
+        def shutdown(self, how): pass
         def __init__(self, *args, **kwargs): pass
         def request(self, *args, **kwargs): raise exception('SECRET')
         def close(self): pass

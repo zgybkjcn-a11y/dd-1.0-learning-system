@@ -8,6 +8,7 @@ from pathlib import Path
 import re
 
 from .textbooks import learning_scope, page_evidence, PDF_SHA256
+from .textbook_cache import verified_pdf
 
 FORMAT = 'dd-textbook-excerpt-pilot-v1'
 SHA = re.compile(r'[a-f0-9]{64}')
@@ -69,8 +70,7 @@ def load_bundle(directory: Path, expected_sha256: str, textbook_dir: Path, *, as
                 raise ValueError('source location mismatch')
         if book['id'] not in checked_books:
             pdf = textbook_dir / (book['id'] + '.pdf')
-            if textbook_dir.is_symlink() or pdf.is_symlink() or digest(pdf.read_bytes()) != PDF_SHA256[book['id']]:
-                raise ValueError('source PDF changed')
+            verified_pdf(pdf, PDF_SHA256[book['id']])
             checked_books.add(book['id'])
         if (not isinstance(entry['text'], str) or not 1 <= len(entry['text']) <= 1400
                 or not isinstance(entry['context'], str) or not 1 <= len(entry['context']) <= 4000

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import asyncio
 import html
 import inspect
 import json
@@ -29,6 +30,9 @@ from .practice import (metadata as practice_metadata, learner_guidance, grade_nu
                        prepare_workspace_session, attach_workspace_session)
 from .api_types import APIError, Context
 from .study_routes import create_study_router
+from .study_cancellation import StudyDisconnectMiddleware
+from .study_deadline import (CURRENT_DEADLINE, STUDY_BUDGET_HEADER, StudyDeadline,
+                             budget_seconds, is_study_path)
 from .study_ui import STYLE as STUDY_STYLE, PANEL as STUDY_PANEL, SCRIPT as STUDY_SCRIPT, COLLECTION_PANEL
 from .db import Database, WriteContextChanged, write_context, json_dumps, json_loads, new_id, utc_now
 from .providers import TencentEducationOCRProvider, diagnosis_provider, document_provider, variant_provider
@@ -2413,7 +2417,30 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
 
     @app.middleware("http")
     async def private_no_store(request: Request, call_next):
-        response = await call_next(request)
+        deadline = None
+        token = None
+        try:
+            if is_study_path(request.url.path):
+                values = request.headers.getlist(STUDY_BUDGET_HEADER)
+                if len(values) > 1:
+                    raise ValueError('duplicate study budget')
+                deadline = StudyDeadline(budget_seconds(values[0] if values else None))
+                token = CURRENT_DEADLINE.set(deadline)
+                remaining = deadline.remaining()
+                response = await asyncio.wait_for(call_next(request), remaining)
+                deadline.remaining()
+            else:
+                response = await call_next(request)
+        except TimeoutError:
+            response = JSONResponse({'error': {'code': 'LEARNING_UPSTREAM_TIMEOUT',
+                'message': '学习资料请求超时，请稍后重试。', 'retryable': True}}, status_code=504)
+        except ValueError:
+            if not is_study_path(request.url.path): raise
+            response = JSONResponse({'error': {'code': 'REQUEST_HEADERS_REJECTED',
+                'message': '请求时限参数无效。', 'retryable': False}}, status_code=400)
+        finally:
+            if deadline is not None: deadline.cancel()
+            if token is not None: CURRENT_DEADLINE.reset(token)
         if request.url.path.startswith('/api/v1/') or request.url.path == '/ui':
             response.headers['Cache-Control'] = 'no-store'
         return response
@@ -4573,6 +4600,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
         audit(db, ctx, "delete_data", "learner", learner_id, "accepted" if not failed else "partial", {"assets_marked": len(live), "assets_deleted": deleted, "assets_failed": failed, "resources_marked": len(cleanup_records)})
         return {"status": "completed" if not failed else "partial", "learner_id": learner_id, "assets_marked": len(live), "assets_deleted": deleted, "assets_failed": failed, "resources_marked": len(cleanup_records), "backup_replay_required": True}
 
+    app.add_middleware(StudyDisconnectMiddleware)
     return app
 
 

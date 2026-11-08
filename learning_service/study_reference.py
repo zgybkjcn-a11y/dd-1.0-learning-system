@@ -5,9 +5,11 @@ from .api_types import APIError
 from .learner_context import read_context
 from .math_references import ReferenceError
 from .textbook_passages import PassageError
+from .study_deadline import check_deadline
 
 
 def read_study_reference(request, ctx, db, settings, allowed, reader, *, learner_for):
+    check_deadline()
     pairs = request.query_params.multi_items()
     if any(key not in allowed for key, _ in pairs) or len({key for key, _ in pairs}) != len(pairs):
         raise APIError(422, "MATH_REFERENCE_SCOPE_INVALID", "知识参考查询参数无效")
@@ -28,5 +30,6 @@ def read_study_reference(request, ctx, db, settings, allowed, reader, *, learner
     if pinned and selection() != pinned:
         raise APIError(409, "LEARNER_CONTEXT_CHANGED", "学习者已变化，请刷新工作台后重试")
     learner_for(ctx, db=db)  # Recheck access after filesystem/metadata reads.
+    check_deadline()
     return result
 

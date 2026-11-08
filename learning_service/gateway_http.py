@@ -9,6 +9,7 @@ from dataclasses import dataclass
 from urllib.parse import urlsplit
 
 from .provider_http import ResponseTooLarge
+from .study_deadline import CURRENT_DEADLINE
 
 
 @dataclass(frozen=True)
@@ -38,10 +39,13 @@ class GatewayHTTP:
                 or any(ord(c) < 32 or ord(c) == 127 for c in path)):
             raise ValueError("invalid gateway upstream request")
         p = urlsplit(upstream)
+        operation = CURRENT_DEADLINE.get()
+        if operation is not None: timeout = min(timeout, operation.remaining())
         connection_type = http.client.HTTPSConnection if p.scheme == "https" else http.client.HTTPConnection
         connection = connection_type(p.hostname, p.port, timeout=timeout)
         deadline = time.monotonic() + timeout
         timer = None
+        connected_socket = None
         try:
             connection.connect()
             remaining = deadline - time.monotonic()
@@ -49,6 +53,7 @@ class GatewayHTTP:
                 raise TimeoutError()
             connection.sock.settimeout(remaining)
             connected_socket = connection.sock
+            if operation is not None: operation.attach(connected_socket)
             def expire():
                 try:
                     connected_socket.shutdown(socket.SHUT_RDWR)
@@ -85,8 +90,14 @@ class GatewayHTTP:
                 raise TimeoutError()
             if response.length not in (None, 0):
                 raise http.client.IncompleteRead(b"".join(chunks), response.length)
+            if operation is not None: operation.remaining()
             return GatewayResult(response.status, b"".join(chunks), tuple(response.getheaders()))
+        except (OSError, http.client.HTTPException):
+            if operation is not None: operation.remaining()
+            if time.monotonic() >= deadline: raise TimeoutError() from None
+            raise
         finally:
             if timer is not None:
                 timer.cancel()
+            if operation is not None and connected_socket is not None: operation.detach(connected_socket)
             connection.close()

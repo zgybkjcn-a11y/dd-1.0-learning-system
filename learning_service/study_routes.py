@@ -88,19 +88,18 @@ def create_study_router(*, get_context, get_db, get_settings, learner_for) -> AP
 
     @router.get("/api/v1/textbooks/{book_id}/pages/{printed_page}/image", response_class=Response,
              responses={200: {"content": {"image/png": {}}}})
-    def textbook_page_image(book_id: str, printed_page: int, ctx: Context = Depends(get_context),
+    def textbook_page_image(book_id: str, printed_page: int, request: Request, ctx: Context = Depends(get_context),
                             db: Database = Depends(get_db), settings: Settings = Depends(get_settings)):
-        learner_id = learner_for(ctx, db=db)
-        with db.session() as conn:
-            curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
-        try:
-            book, pdf_page = textbook_page_scope(curriculum, book_id, printed_page)
-        except ValueError:
-            raise APIError(404, 'TEXTBOOK_PAGE_NOT_FOUND', '当前年级没有这一教材页')
-        try:
-            content = render_textbook_page(settings.textbook_dir, book['id'], pdf_page)
-        except (OSError, ValueError, RuntimeError):
-            raise APIError(503, 'TEXTBOOK_PAGE_UNAVAILABLE', '教材原页暂时不可用，请稍后重试', True)
+        def reader(conn, learner, curriculum, directory):
+            try:
+                book, pdf_page = textbook_page_scope(curriculum, book_id, printed_page)
+            except ValueError:
+                raise APIError(404, 'TEXTBOOK_PAGE_NOT_FOUND', '当前年级没有这一教材页')
+            try:
+                return render_textbook_page(directory, book['id'], pdf_page)
+            except (OSError, ValueError, RuntimeError):
+                raise APIError(503, 'TEXTBOOK_PAGE_UNAVAILABLE', '教材原页暂时不可用，请稍后重试', True)
+        content = read_reference(request, ctx, db, settings, set(), reader)
         return Response(content, media_type='image/png', headers={'X-Content-Type-Options': 'nosniff'})
 
     return router

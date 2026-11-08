@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import base64
+import asyncio
 import hashlib
 import hmac
 import html
@@ -26,6 +27,9 @@ from .gateway_http import GatewayHTTP, GatewayResult, valid_upstream
 from .provider_usage import safe_reference
 from .secret_files import env_secret
 from .textbooks import bounded_references, chapter_references, SEARCH_CANDIDATE_LIMIT
+from .study_deadline import (CURRENT_DEADLINE, STUDY_BUDGET_HEADER, StudyDeadline,
+                             budget_seconds, is_study_path)
+from .study_cancellation import StudyDisconnectMiddleware
 
 
 LOGGER = logging.getLogger('dd.study.gateway')
@@ -60,6 +64,7 @@ ERROR_RECOVERY = {
     **dict.fromkeys(('GATEWAY_DISABLED_OR_UNCONFIGURED', 'LOGIN_CAPACITY_REACHED', 'AUTH_UPSTREAM_UNAVAILABLE', 'AUTH_UPSTREAM_INVALID', 'LEARNING_UPSTREAM_UNAVAILABLE', 'LEARNING_UPSTREAM_INVALID', 'LEARNING_REDIRECT_REJECTED', 'TEXTBOOK_RETRIEVAL_UNAVAILABLE', 'TEXTBOOK_RETRIEVAL_INVALID', 'MATH_REFERENCE_UNAVAILABLE', 'MATH_REFERENCE_VERSION_MISMATCH', 'STUDY_SUPPORT_UNAVAILABLE', 'STUDY_REQUEST_UNAVAILABLE'), 'unavailable'),
 }
 SERVICE_ERRORS = {
+    'LEARNING_UPSTREAM_TIMEOUT': 504, 'REQUEST_HEADERS_REJECTED': 400,
     'BROWSER_LOGIN_REQUIRED': 401, 'BROWSER_SESSION_INVALID': 401, 'BROWSER_SESSION_EXPIRED': 401,
     'BROWSER_CSRF_REJECTED': 403, 'BROWSER_ORIGIN_REJECTED': 403,
     'LEARNER_CONTEXT_CHANGED': 409, 'LEARNER_CONTEXT_REQUIRED': 409,
@@ -251,7 +256,14 @@ def create_gateway(settings: GatewaySettings | None = None, transport=None) -> F
         component = ('TEXTBOOK_RETRIEVAL' if path == '/api/v1/retrieval/query/doc' else
                      'AUTH_UPSTREAM' if upstream == settings.openwebui_url else 'LEARNING_UPSTREAM')
         try:
-            result = await run_in_threadpool(transport.send, upstream, method, path, headers, body, timeout=timeout, limit=limit)
+            deadline = CURRENT_DEADLINE.get()
+            if deadline is not None:
+                timeout = min(timeout, deadline.remaining())
+                if upstream == settings.learning_url:
+                    headers = {**headers, STUDY_BUDGET_HEADER: deadline.header()}
+            pending = run_in_threadpool(transport.send, upstream, method, path, headers, body, timeout=timeout, limit=limit)
+            result = await asyncio.wait_for(pending, timeout) if deadline is not None else await pending
+            if deadline is not None: deadline.remaining()
             if len(result.body) > limit or result.status < 100 or result.status >= 600:
                 raise ValueError()
             return result
@@ -310,10 +322,34 @@ def create_gateway(settings: GatewaySettings | None = None, transport=None) -> F
     async def request_correlation(request, call_next):
         # Ignore caller-supplied IDs; IDs never derive from cookies or identities.
         request.state.study_request_id = 'ddreq_' + secrets.token_hex(16)
+        deadline = None
+        token = CURRENT_DEADLINE.set(None)
         try:
-            response = await call_next(request)
+            local_path = request.url.path.removeprefix(settings.public_base_path)
+            if is_study_path(local_path) or (request.method == 'GET' and local_path == '/api/v1/auth/session'):
+                values = request.headers.getlist(STUDY_BUDGET_HEADER)
+                if len(values) > 1:
+                    raise GatewayError('REQUEST_HEADERS_REJECTED', 400)
+                try:
+                    seconds = budget_seconds(values[0] if values else None)
+                except ValueError:
+                    raise GatewayError('REQUEST_HEADERS_REJECTED', 400) from None
+                deadline = StudyDeadline(seconds)
+                CURRENT_DEADLINE.set(deadline)
+                remaining = deadline.remaining()
+                response = await asyncio.wait_for(call_next(request), remaining)
+                deadline.remaining()
+            else:
+                response = await call_next(request)
+        except TimeoutError:
+            response = await failure(request, GatewayError('TEXTBOOK_RETRIEVAL_TIMEOUT' if request.url.path.endswith('/textbooks/search') else 'LEARNING_UPSTREAM_TIMEOUT', 504))
+        except GatewayError as exc:
+            response = await failure(request, exc)
         except Exception:
             response = await failure(request, GatewayError('STUDY_REQUEST_UNAVAILABLE', 503))
+        finally:
+            if deadline is not None: deadline.cancel()
+            CURRENT_DEADLINE.reset(token)
         response.headers['X-DD-Request-ID'] = request.state.study_request_id
         return response
 
@@ -434,7 +470,7 @@ def create_gateway(settings: GatewaySettings | None = None, transport=None) -> F
                    for k in ('learner_id', 'context_version')):
                 raise GatewayError('LEARNER_CONTEXT_CHANGED', 409)
 
-        if '/passages/' in path and result.status == 200:
+        if ('/passages/' in path or '/pages/' in path) and result.status == 200:
             try:
                 await check_study_context()
             except (KeyError, ValueError, TypeError, RecursionError):
@@ -470,6 +506,7 @@ def create_gateway(settings: GatewaySettings | None = None, transport=None) -> F
             response.headers.append("set-cookie", value)
         return response
 
+    app.add_middleware(StudyDisconnectMiddleware, prefix=settings.public_base_path)
     return app
 
 

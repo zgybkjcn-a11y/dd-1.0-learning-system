@@ -3,7 +3,7 @@ title: 课本伴学（只读）
 author: DD-1.0
 description: 按当前家庭档案查询教材、概念和关联练习，并提供原页核对链接。
 required_open_webui_version: 0.12.5
-version: 1.2.0
+version: 1.2.1
 """
 from __future__ import annotations
 
@@ -17,6 +17,76 @@ import re
 import secrets
 from urllib.parse import urlencode
 from fastapi import Request
+
+# BEGIN embedded study_deadline.py
+"""One monotonic budget for a read operation; no automatic retries.
+
+The standalone WebUI Tool embeds this small helper verbatim (checked in tests).
+"""
+from contextvars import ContextVar
+import math
+import re
+import socket
+import threading
+import time
+
+STUDY_TOTAL_SECONDS = 12.0
+STUDY_BUDGET_HEADER = 'X-DD-Study-Budget-Ms'
+CURRENT_DEADLINE = ContextVar('dd_study_deadline', default=None)
+
+
+class StudyDeadline:
+    def __init__(self, seconds=STUDY_TOTAL_SECONDS):
+        self.ends = time.monotonic() + max(0, min(STUDY_TOTAL_SECONDS, seconds))
+        self.stopped = threading.Event()
+        self.lock = threading.Lock()
+        self.sockets = set()
+
+    def remaining(self):
+        value = self.ends - time.monotonic()
+        if self.stopped.is_set() or value <= 0:
+            raise TimeoutError('study deadline')
+        return value
+
+    def header(self):
+        return str(max(0, math.floor(self.remaining() * 1000)))
+
+    def attach(self, sock):
+        with self.lock:
+            self.remaining()
+            self.sockets.add(sock)
+
+    def detach(self, sock):
+        with self.lock:
+            self.sockets.discard(sock)
+
+    def cancel(self):
+        with self.lock:
+            self.stopped.set()
+            for sock in self.sockets:
+                try: sock.shutdown(socket.SHUT_RDWR)
+                except OSError: pass
+
+
+def budget_seconds(value):
+    if value is None:
+        return STUDY_TOTAL_SECONDS
+    if not re.fullmatch(r'[0-9]{1,6}', value):
+        raise ValueError('invalid study budget')
+    return min(STUDY_TOTAL_SECONDS, int(value) / 1000)
+
+
+def check_deadline():
+    current = CURRENT_DEADLINE.get()
+    if current is not None:
+        current.remaining()
+
+
+def is_study_path(path):
+    return (path in {'/api/v1/textbooks', '/api/v1/textbooks/search',
+                     '/api/v1/math-references', '/api/v1/study-support'}
+            or path.startswith('/api/v1/textbooks/'))
+# END embedded study_deadline.py
 
 ORIGIN = 'https://172.19.116.53'
 WORKSPACE = ORIGIN + '/learning/ui'
@@ -150,18 +220,37 @@ class Tools:
             headers.update({'Content-Type': 'application/json', 'Origin': ORIGIN,
                             'X-CSRF-Token': dict(part.split('=', 1) for part in cookies.split('; ')).get(CSRF, '')})
             body = json.dumps(payload).encode()
-        connection = http.client.HTTPConnection(host, port, timeout=12)
+        operation = CURRENT_DEADLINE.get() or StudyDeadline()
+        connection = http.client.HTTPConnection(host, port, timeout=operation.remaining())
+        timer = None
+        connected_socket = None
         try:
+            connection.connect()
+            connected_socket = connection.sock
+            operation.attach(connected_socket)
+            remaining = operation.remaining()
+            connected_socket.settimeout(remaining)
+            timer = threading.Timer(remaining, operation.cancel)
+            timer.daemon = True
+            timer.start()
+            if host == 'learning-gateway':
+                headers[STUDY_BUDGET_HEADER] = operation.header()
             connection.request('POST' if payload is not None else 'GET', path, body=body, headers=headers)
             response = connection.getresponse()
             raw = response.read(262145)
+            operation.remaining()
             request_id = response.getheader('X-DD-Request-ID') if host == 'learning-gateway' and hasattr(response, 'getheader') else None
             return Tools._response(host, response.status, raw, request_id)
         except TimeoutError:
             raise StudyError('AUTH_TIMEOUT' if host == 'open-webui' else 'RETRIEVAL_TIMEOUT' if payload is not None else 'SERVICE_TIMEOUT') from None
         except (OSError, http.client.HTTPException):
+            try: operation.remaining()
+            except TimeoutError:
+                raise StudyError('AUTH_TIMEOUT' if host == 'open-webui' else 'RETRIEVAL_TIMEOUT' if payload is not None else 'SERVICE_TIMEOUT') from None
             raise StudyError('AUTH_UNAVAILABLE' if host == 'open-webui' else 'SERVICE_UNAVAILABLE') from None
         finally:
+            if timer is not None: timer.cancel()
+            if connected_socket is not None: operation.detach(connected_socket)
             connection.close()
 
     @staticmethod
@@ -196,8 +285,13 @@ class Tools:
         return tuple(session.get(k) for k in ('account_id', 'learner_id', 'context_version'))
 
     def _read(self, kind, params, user, request):
+        def fetch(*args, **kwargs):
+            check_deadline()
+            result = self._fetch(*args, **kwargs)
+            check_deadline()
+            return result
         cookies = self._host(user, request)
-        identity = self._fetch('open-webui', 8080, '/api/v1/auths/', 'token=' + cookies['token'])
+        identity = fetch('open-webui', 8080, '/api/v1/auths/', 'token=' + cookies['token'])
         if not isinstance(identity.get('id'), str) or not ID.fullmatch(identity['id']) or not isinstance(identity.get('role'), str):
             raise StudyError('AUTH_UNAVAILABLE')
         if identity.get('role') not in {'user', 'admin'}:
@@ -205,7 +299,7 @@ class Tools:
         if identity['id'] != user['id']:
             raise StudyError('IDENTITY_CHANGED')
         header = '; '.join(k + '=' + v for k, v in cookies.items())
-        session = self._fetch('learning-gateway', 8000, '/learning/api/v1/auth/session', header)
+        session = fetch('learning-gateway', 8000, '/learning/api/v1/auth/session', header)
         pinned = self._signature(session)
         for key, value in params.items():
             if key == 'query':
@@ -217,7 +311,7 @@ class Tools:
         payload = params if kind == 'textbooks/search' else None
         if payload is None and params:
             path += '?' + urlencode(params)
-        response = self._fetch('learning-gateway', 8000, path, header, pinned[2], payload)
+        response = fetch('learning-gateway', 8000, path, header, pinned[2], payload)
         projected = self._project(kind, response, pinned[2])
         if kind == 'textbooks/search' and 'passage_result' in response:
             if response.get('book_id') != params['book_id'] or response.get('chapter_id') != params.get('chapter_id', ''):
@@ -225,17 +319,17 @@ class Tools:
             for passage in projected['passages']:
                 e = passage['evidence']
                 path = '/learning/api/v1/textbooks/' + e['book_id'] + '/passages/' + e['evidence_id']
-                fresh = self._fetch('learning-gateway', 8000, path + '?' + urlencode({'chapter_id': params.get('chapter_id', '')}), header, pinned[2])
+                fresh = fetch('learning-gateway', 8000, path + '?' + urlencode({'chapter_id': params.get('chapter_id', '')}), header, pinned[2])
                 if (fresh.get('schema') != 'dd-textbook-passage-detail-v1'
                         or any(fresh.get(k) != response['passage_result'].get(k) for k in ('manifest_sha256', 'checked_on', 'timezone'))
                         or self._excerpt(fresh.get('item'), response['book_id'], response['chapter_id'], pinned[2], fresh['checked_on']) != passage):
                     raise StudyError('INVALID_EVIDENCE')
             # Revalidate the complete set after all detail reads, including empty
             # results; expiry/withdrawal cannot keep an earlier answer eligible.
-            final = self._fetch('learning-gateway', 8000, '/learning/api/v1/textbooks/search', header, pinned[2], params)
+            final = fetch('learning-gateway', 8000, '/learning/api/v1/textbooks/search', header, pinned[2], params)
             if self._project(kind, final, pinned[2]) != projected:
                 raise StudyError('INVALID_EVIDENCE')
-        checked = self._fetch('learning-gateway', 8000, '/learning/api/v1/auth/session', header)
+        checked = fetch('learning-gateway', 8000, '/learning/api/v1/auth/session', header)
         current = self._signature(checked)
         if current[0] != pinned[0]:
             raise StudyError('IDENTITY_CHANGED')
@@ -467,8 +561,23 @@ class Tools:
         return output
 
     async def _run(self, kind, params, user, request, emitter):
+        operation = StudyDeadline()
+        token = CURRENT_DEADLINE.set(operation)
+        try:
+            result = await asyncio.wait_for(self._run_with_deadline(kind, params, user, request, emitter), operation.remaining())
+            operation.remaining()
+            return result
+        except TimeoutError:
+            return self._failure(StudyError('RETRIEVAL_TIMEOUT' if kind == 'textbooks/search' else 'SERVICE_TIMEOUT'))
+        finally:
+            operation.cancel()
+            CURRENT_DEADLINE.reset(token)
+
+    async def _run_with_deadline(self, kind, params, user, request, emitter):
         try:
             output = await asyncio.to_thread(self._read, kind, params, user, request)
+        except TimeoutError:
+            raise
         except Exception as error:
             return self._failure(error)
         if emitter:

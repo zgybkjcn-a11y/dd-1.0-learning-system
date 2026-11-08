@@ -1504,7 +1504,7 @@
   "next_task": "B10",
   "runtime_observed_at": "2026-11-07T17:00:53+08:00",
   "update_scope": "B09首批证据路由/类型与家庭API网关接入候选：286单元/契约+2浏览器，schema13/91文件，OpenAPI76路径44模型。首批本地出口完成、全应用拆分未完成；正式运行观察仍为A01，未部署。",
-  "latest_verification_report": "docs/verification/B09-evidence-modules-2026-11-08.md",
+  "latest_verification_report": "docs/verification/B10-study-performance-2026-11-08.md",
   "source_delivery": {
     "task": "A02",
     "state": "organized_pending_commit",
@@ -1684,27 +1684,78 @@
         "schema_revision": 13,
         "committed": false,
         "deployed": false
+      },
+      {
+        "task": "B10",
+        "state": "correctness_passed_performance_pending_candidate_only",
+        "manifest": "learning_data/verification/b10-study-performance-20261108T061922Z/increment-manifest.json",
+        "patch": "learning_data/verification/b10-study-performance-20261108T061922Z/b10-increment.patch",
+        "report": "docs/verification/B10-study-performance-2026-11-08.md",
+        "source_release": "learning_data/verification/b10-study-performance-20261108T061922Z/release-final/manifest.json",
+        "schema_revision": 13,
+        "committed": false,
+        "deployed": false
       }
     ]
   },
   "latest_local_candidate": {
-    "task": "B09",
-    "engineering_state": "ready",
+    "task": "B10",
+    "engineering_state": "in_progress",
     "delivery_state": "candidate_only",
-    "acceptance_state": "passed",
-    "completion_state": "complete",
-    "local_validation": "passed",
-    "unit_contract_tests": 286,
+    "acceptance_state": "pending",
+    "completion_state": "open",
+    "state": "correctness_passed_performance_not_met",
+    "unit_contract_tests": 248,
     "browser_tests": 2,
+    "browser_version": "145.0.7632.6",
+    "browser_widths": [
+      390,
+      1280
+    ],
+    "source_files": 95,
     "schema_revision": 13,
     "openapi_paths": 76,
     "openapi_schemas": 44,
-    "source_profile": "reuse-runtime-evidence-modules-v1",
-    "source_files": 91,
-    "verification_report": "docs/verification/B09-evidence-modules-2026-11-08.md",
-    "release_manifest": "learning_data/verification/b09-evidence-modules-20261108T055803Z/release-final-r2/manifest.json",
-    "whole_app_refactor_complete": false,
+    "tool_candidate_version": "1.2.1",
+    "performance_samples_before": 900,
+    "performance_samples_after": 900,
+    "performance_configurations": 12,
+    "performance_configurations_passed": 8,
+    "diagnostic_samples": 300,
+    "payload_hashes_unchanged": true,
+    "total_budget_seconds": 12,
+    "thresholds_changed": false,
+    "deployment_performed": false,
+    "real_model_or_ocr_calls": 0,
+    "source_profile": "reuse-runtime-study-performance-v1",
+    "verification_report": "docs/verification/B10-study-performance-2026-11-08.md",
+    "release_manifest": "learning_data/verification/b10-study-performance-20261108T061922Z/release-final/manifest.json",
+    "runtime_published": false,
     "actual_family_devices": "not_verified",
-    "runtime_published": false
-  }
+    "native_open_webui_version": "0.12.5",
+    "native_methods": 6,
+    "native_citation_events": 4
+  },
+  "local_candidate_history": [
+    {
+      "task": "B09",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "local_validation": "passed",
+      "unit_contract_tests": 286,
+      "browser_tests": 2,
+      "schema_revision": 13,
+      "openapi_paths": 76,
+      "openapi_schemas": 44,
+      "source_profile": "reuse-runtime-evidence-modules-v1",
+      "source_files": 91,
+      "verification_report": "docs/verification/B09-evidence-modules-2026-11-08.md",
+      "release_manifest": "learning_data/verification/b09-evidence-modules-20261108T055803Z/release-final-r2/manifest.json",
+      "whole_app_refactor_complete": false,
+      "actual_family_devices": "not_verified",
+      "runtime_published": false
+    }
+  ]
 }
