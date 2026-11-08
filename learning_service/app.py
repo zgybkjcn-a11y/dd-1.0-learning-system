@@ -25,7 +25,8 @@ from pydantic import BaseModel, Field
 from .config import Settings
 from .practice import (metadata as practice_metadata, learner_guidance, grade_numeric,
                        CollectionError, collection_preview, saved_review_choices,
-                       question_snapshot, frozen_question)
+                       question_snapshot, frozen_question, workspace_state, update_workspace,
+                       prepare_workspace_session, attach_workspace_session)
 from .math_references import query_reference as query_math_reference, ReferenceError
 from .study_support import query_support as query_study_support
 from .study_ui import STYLE as STUDY_STYLE, PANEL as STUDY_PANEL, SCRIPT as STUDY_SCRIPT, COLLECTION_PANEL
@@ -173,6 +174,19 @@ class TestSessionRequest(BaseModel):
     textbook_book_id: str | None = None
     textbook_chapter_id: str | None = None
     mistake_id: str | None = None
+    workspace_revision: int | None = Field(default=None, ge=0, strict=True)
+    replace_current: bool = Field(default=False, strict=True)
+
+
+class PracticeWorkspaceRequest(BaseModel):
+    model_config = {'extra': 'forbid'}
+    expected_revision: int = Field(ge=0, strict=True)
+    book_id: str = Field(min_length=1, max_length=100)
+    chapter_id: str = Field(default='', max_length=100)
+    difficulty: str = Field(default='auto', pattern='^(auto|easy|normal|hard)$')
+    pool: str = Field(default='initial', pattern='^(initial|reserve)$')
+    restart_round: bool = Field(default=False, strict=True)
+    discard_current: bool = Field(default=False, strict=True)
 
 
 class AnswerRequest(BaseModel):
@@ -669,6 +683,8 @@ def _learner_export(conn: sqlite3.Connection, learner_id: str, account_id: str, 
         "review_cards": _export_rows(conn, "review_cards", learner_id),
         "test_sessions": _export_rows(conn, "test_sessions", learner_id),
         "test_items": _export_rows(conn, "test_items", learner_id),
+        "practice_workspaces": _export_rows(conn, "practice_workspaces", learner_id),
+        "practice_rounds": _export_rows(conn, "practice_rounds", learner_id),
         "attempts": _export_rows(conn, "attempts", learner_id),
         "review_requests": _export_rows(conn, "review_requests", learner_id),
         "variant_reviews": _export_rows(conn, "variant_reviews", learner_id),
@@ -1048,6 +1064,7 @@ _UI_HTML = """<!doctype html>
       <div class="row"><label>原始作答 <input id="answer" autocomplete="off"></label><button id="submitAnswer" class="secondary">提交并等待判分</button><button id="refreshAttempt" class="secondary">读取判分</button><button id="requestReview" class="secondary">申请复核</button></div>
       <div id="testStatus" class="status muted">尚未开始测验。</div>
       <div id="gameHint" class="game-only" hidden></div>
+      <div class="game-only"><p id="practiceRecoveryStatus" role="status">提交后的作答可跨设备恢复；未提交草稿仅保留在本标签页。</p><button id="reloadPracticeProgress" class="secondary">读取最新进度</button><p id="savedPracticeAnswer" class="status"></p><details id="practiceAnswerConflict" hidden><summary>本标签页尚未提交的内容</summary><pre id="practiceConflictAnswer" class="status"></pre></details></div>
       <div id="gameFeedback" class="game-feedback game-only" hidden><h3 id="feedbackTitle"></h3><p id="feedbackText"></p><details id="solutionDetails" hidden><summary>看看解题过程</summary><p id="solutionText"></p></details><p id="roundProgress" role="status"></p><div class="row"><button id="nextChallenge" class="game-primary">继续挑战 →</button><button id="restartRound" class="secondary" hidden>再练一轮</button></div></div>
       <!-- PRACTICE_COLLECTION_PANEL -->
     </section>
@@ -1180,7 +1197,8 @@ _UI_HTML = """<!doctype html>
             clearWorkspace(response.status === 401 ? '登录状态已失效，请重新登录。' : '学习者已变化，请刷新工作台后重试。');
             throw new StaleContextError();
           }
-          throw new Error(typeof data === 'string' ? data : (data.error?.message || '操作未成功'));
+          const error = new Error(typeof data === 'string' ? data : (data.error?.message || '操作未成功'));
+          error.code = data.error?.code; error.status = response.status; throw error;
         }
         return data;
       } catch (error) {
@@ -1229,6 +1247,8 @@ _UI_HTML = """<!doctype html>
       gameCatalog = []; gameObjectives = []; gameTasks = []; gameBook = ''; gameChapter = ''; gameChangingChapter = false;
       $('chapterChoices').replaceChildren(); $('selectedChapterTitle').textContent = '先选择你的档案'; $('practiceChapter').textContent = '';
       gameStarting = false; gameSubmitting = false; gameUpdatedAttempts.clear();
+      practiceWorkspace = null; recoveryBusy = false;
+      $('savedPracticeAnswer').textContent = ''; $('practiceConflictAnswer').textContent = ''; $('practiceAnswerConflict').hidden = true;
       gameCompletedChoices.clear(); gamePool = 'initial'; gameDifficulty = 'auto'; gameGuidance = {}; gameLoadingChoices = false; $('questionBadge').textContent = ''; $('questionCredit').replaceChildren(); $('solutionDetails').hidden = true; $('roundProgress').textContent = ''; $('restartRound').hidden = true;
       ['heroGraded','heroIndependent','heroMistakes'].forEach((id) => { $(id).textContent = '—'; });
       $('challengeCount').textContent = '选择档案后，冒险地图就会出现';
@@ -1257,6 +1277,7 @@ _UI_HTML = """<!doctype html>
         button.append(avatar, label, check);
         button.onclick = async () => {
           if ($('learner').value === item.id) return;
+          if ($('answer').value && !window.confirm('当前有未提交内容，切换档案会清除本标签页草稿。确认切换吗？')) return;
           target.querySelectorAll('button').forEach((other) => { other.disabled = true; });
           $('learner').value = item.id;
           try { await $('learner').onchange(); } finally { target.querySelectorAll('button').forEach((other) => { other.disabled = false; }); }
@@ -1278,13 +1299,14 @@ _UI_HTML = """<!doctype html>
       updateChapterControls();
     }
     async function launchGameChoice(choice, cardId = '') {
-      if (!choice || gameStarting || gameChangingChapter || gameSubmitting || gameItemStatus === 'grading_pending') return;
+      if (!choice || gameStarting || gameChangingChapter || recoveryBusy || gameSubmitting || gameItemStatus === 'grading_pending') return;
       if (!choice.mistake_id && !gameChoices.some((item) => item.question_version_id === choice.question_version_id)) return;
       if (choice.mistake_id && (!choice.available || !savedChoiceInScope(choice))) return;
       if (['reserved','presented'].includes(gameItemStatus) && !window.confirm('当前题还没有作答，要换一道挑战吗？')) return;
+      if (!['reserved','presented'].includes(gameItemStatus) && $('answer').value && !window.confirm('本标签页还有未提交的不同答案，确认保留原记录并进入下一题吗？')) return;
       $('questionVersion').value = choice.question_version_id; $('card').value = cardId;
       setGameView('practice');
-      await $('startTest').onclick(choice.mistake_id ? choice : null);
+      await $('startTest').onclick({...choice, replace_current: ['reserved','presented'].includes(gameItemStatus)});
     }
     function difficultyGuidance() { return gameGuidance[gameBook + '|' + gameChapter] || {difficulty:'easy', reason:'先从简单题开始；同一难度连续独立答对 4 道不同题后，尝试下一档。'}; }
     function selectedDifficulty() { return gameDifficulty === 'auto' ? difficultyGuidance().difficulty : gameDifficulty; }
@@ -1294,14 +1316,17 @@ _UI_HTML = """<!doctype html>
     function gameNextChoice() {
       return roundChoices().find((choice) => !gameCompletedChoices.has(choice.question_version_id)) || null;
     }
-    function saveGameRound() {
-      workspaceStorage.setItem(chapterStateKey(), JSON.stringify({bookId:gameBook, chapterId:gameChapter, difficulty:gameDifficulty, pool:gamePool, completedIds:[...gameCompletedChoices]}));
+    async function saveGameRound(options = {}) {
+      return persistPracticeWorkspace(options);
     }
-    function restartGameRound() {
+    async function restartGameRound() {
       if (gamePool === 'reserve' || gameStarting || gameSubmitting || gameChangingChapter || gameLoadingChoices || ['reserved','presented','grading_pending'].includes(gameItemStatus)) return;
-      roundChoices().forEach((choice) => gameCompletedChoices.delete(choice.question_version_id));
-      saveGameRound();
-      launchGameChoice(gameNextChoice());
+      const epoch = contextEpoch;
+      recoveryBusy = true; updateChapterControls();
+      try { await saveGameRound({restart_round:true}); }
+      catch (error) { if (!(error instanceof StaleContextError)) testStatus(error.message); return; }
+      finally { if (epoch === contextEpoch) { recoveryBusy = false; updateChapterControls(); } }
+      if (epoch === contextEpoch) await launchGameChoice(gameNextChoice());
     }
     function continueGameRound() {
       if (gameLoadingChoices) return;
@@ -1342,11 +1367,15 @@ _UI_HTML = """<!doctype html>
         && (gamePool === 'reserve' ? choice.practice?.reserve && choice.practice.reserve_unseen : !choice.practice?.reserve));
     }
     function updateChapterControls() {
-      const busy = gameLoadingChoices || gameStarting || gameSubmitting || gameChangingChapter || gameItemStatus === 'grading_pending' || (Boolean($('testItem').value) && !gameItemStatus);
+      const busy = recoveryBusy || gameLoadingChoices || gameStarting || gameSubmitting || gameChangingChapter || gameItemStatus === 'grading_pending' || (Boolean($('testItem').value) && !gameItemStatus);
       $('chapterChoices').querySelectorAll('button').forEach((button) => { button.disabled = Boolean(busy); });
       $('textbookToc').querySelectorAll('button').forEach((button) => { button.disabled = Boolean(busy); });
       for (const id of ['textbookSubject','textbookBook','textbookChapter']) $(id).disabled = !textbookBooks.length || Boolean(busy);
       const active = $('testItem').value && ['reserved','presented','grading_pending'].includes(gameItemStatus);
+      const canAnswer = Boolean($('testItem').value) && ['reserved','presented'].includes(gameItemStatus) && !busy;
+      $('answer').disabled = !canAnswer; $('submitAnswer').disabled = !canAnswer;
+      $('requestHint').disabled = Boolean(busy); $('cancelTest').disabled = Boolean(busy);
+      $('reloadPracticeProgress').disabled = Boolean(busy);
       const eligible = roundChoices();
       const remaining = eligible.filter((choice) => !gameCompletedChoices.has(choice.question_version_id)).length;
       const completed = eligible.length - remaining, exhausted = eligible.length > 0 && !remaining;
@@ -1406,14 +1435,14 @@ _UI_HTML = """<!doctype html>
       const epoch = contextEpoch;
       gameChangingChapter = true; updateChapterControls();
       try {
-        if (unfinished) await call('/api/v1/test-sessions/' + encodeURIComponent($('session').value) + '/cancel', {method:'POST'});
+        gameBook = bookId; gameChapter = chapterId;
+        await saveGameRound({discard_current: unfinished});
         if (epoch !== contextEpoch) return;
         workspaceStorage.removeItem(testStateKey()); savedTest = {};
         resetPracticeCollection();
         ['questionVersion','card','session','testItem','attempt','answer'].forEach((id) => { $(id).value = ''; });
         $('testPrompt').textContent = ''; testStatus(''); $('gameFeedback').hidden = true; $('gameHint').hidden = true;
         gameItemStatus = ''; gameBook = bookId; gameChapter = chapterId;
-        saveGameRound();
         $('practicePicker').open = false;
         $('textbookQuery').value = ''; releaseTextbookPages(); syncScopeSelectors(); renderGameChapters(); updateGameAnswerControls(); show('');
         if (openReader || $('textbookReader').open) loadTextbookResults();
@@ -1423,7 +1452,6 @@ _UI_HTML = """<!doctype html>
     function renderGameFeedback(data) {
       if (!familyGameMode) return;
       const finished = data.status === 'graded';
-      if (finished && $('questionVersion').value) { gameCompletedChoices.add($('questionVersion').value); saveGameRound(); }
       gameItemStatus = finished ? 'graded' : 'grading_pending'; updateGameAnswerControls();
       $('gameFeedback').hidden = !finished;
       if (!finished) return;
@@ -1449,8 +1477,14 @@ _UI_HTML = """<!doctype html>
       $('scopeChallenge').onclick = $('startAdventure').onclick;
       $('nextChallenge').onclick = continueGameRound;
       $('restartRound').onclick = restartGameRound;
-      for (const id of ['homeDifficulty','practiceDifficulty']) $(id).onchange = () => { gameDifficulty = $(id).value; saveGameRound(); updateChapterControls(); };
-      $('practicePool').onchange = () => { gamePool = $('practicePool').value; saveGameRound(); renderGameChapters(); };
+      for (const id of ['homeDifficulty','practiceDifficulty','practicePool']) $(id).onchange = async () => {
+        const epoch = contextEpoch; recoveryBusy = true;
+        if (id === 'practicePool') gamePool = $(id).value; else gameDifficulty = $(id).value;
+        updateChapterControls();
+        try { await saveGameRound(); renderGameChapters(); }
+        catch (error) { if (!(error instanceof StaleContextError)) show(error.message); }
+        finally { if (epoch === contextEpoch) { recoveryBusy = false; updateChapterControls(); } }
+      };
       $('answer').placeholder = '在这里写下你的答案';
       $('answer').addEventListener('keydown', (event) => { if (event.key === 'Enter' && !event.isComposing && !$('submitAnswer').disabled) { event.preventDefault(); $('submitAnswer').onclick(); } });
       $('saveManualMistake').textContent = '加入我的错题收藏 ＋';
@@ -1511,7 +1545,7 @@ _UI_HTML = """<!doctype html>
       } catch (error) { if (error instanceof StaleContextError) return; target.textContent = error.message; }
     }
     function saveTestState(extra = {}) {
-      const state = Object.assign({
+      const state = Object.assign({}, savedTest, {
         account: savedTest.account || $('account').value.trim(), learner: savedTest.learner || $('learner').value.trim(),
         questionVersionId: $('questionVersion').value.trim(), cardId: $('card').value.trim(),
         sessionId: $('session').value.trim(), testItemId: $('testItem').value.trim(), attemptId: $('attempt').value.trim()
@@ -1526,7 +1560,10 @@ _UI_HTML = """<!doctype html>
       if (familyGameMode) { $('solutionDetails').open = false; $('solutionDetails').hidden = true; renderQuestionMeta(); }
       if (item.test_item_id) $('testItem').value = item.test_item_id;
       if (data.session_id) $('session').value = data.session_id;
+      if (item.question_version_id) $('questionVersion').value = item.question_version_id;
+      if (data.practice_workspace) acceptPracticeWorkspace(data.practice_workspace);
       if (familyGameMode) { gameItemStatus = item.status || 'presented'; $('gameFeedback').hidden = true; $('gameHint').hidden = true; $('answer').value = ''; updateGameAnswerControls(); }
+      if (familyGameMode) { $('savedPracticeAnswer').textContent = ''; $('practiceAnswerConflict').hidden = true; }
       if (familyGameMode) {
         const info = gameCatalog.find((c) => c.question_version_id === item.question_version_id)?.practice;
         if (info?.reserve) { info.reserve_unseen = false; renderGameChapters(); }
@@ -1551,9 +1588,11 @@ _UI_HTML = """<!doctype html>
         $('testItem').value = item.test_item_id;
         $('questionVersion').value = item.question_version_id || $('questionVersion').value;
         if (item.attempt_id) $('attempt').value = item.attempt_id;
+        $('card').value = item.card_id || '';
         $('testPrompt').textContent = item.prompt || '题面不可用。';
         if (familyGameMode) {
           gameItemStatus = item.status; renderQuestionMeta(); updateGameAnswerControls();
+          showSubmittedAnswer({...item, session_mode: data.session.mode});
           testStatus(item.status === 'cancelled' ? '这道挑战已跳过，可以再选一题。' : item.attempt_id ? '正在找回你的判分结果…' : '题目已准备好，按自己的节奏来。');
         } else testStatus(`会话 ${data.session.status} · 题项 ${item.status} · 辅助 ${item.assistance || 'none'}${item.attempt_status ? ` · 判分 ${item.attempt_status}` : ''}`);
       }
@@ -1969,7 +2008,7 @@ _UI_HTML = """<!doctype html>
         $('textbookSubject').replaceChildren();
         textbookSubjects.forEach((subject) => $('textbookSubject').add(new Option(subject.title, subject.id)));
         $('textbookSubjectNote').textContent = data.grade_notice || '';
-        const savedScope = parseSaved(chapterStateKey());
+        const savedScope = familyGameMode ? {bookId:practiceWorkspace?.book_id, chapterId:practiceWorkspace?.chapter_id} : parseSaved(chapterStateKey());
         const current = gameCatalog.find((choice) => choice.question_version_id === $('questionVersion').value);
         gameBook = savedScope.bookId || current?.textbook_scope?.book_id || textbookBooks.find((b) => b.subject === 'math')?.id || textbookBooks[0]?.id || '';
         if (!selectedBook()) gameBook = textbookBooks[0]?.id || '';
@@ -2089,7 +2128,7 @@ _UI_HTML = """<!doctype html>
       const generation = ++gameRefreshGeneration, epoch = contextEpoch;
       if (familyGameMode) { gameLoadingChoices = true; updateChapterControls(); }
       try {
-        const [tasks, progress, choices] = await Promise.all([call('/api/v1/review-tasks'), call('/api/v1/progress'), call('/api/v1/question-choices')]);
+        const [tasks, progress, choices, recovery] = await Promise.all([call('/api/v1/review-tasks'), call('/api/v1/progress'), call('/api/v1/question-choices'), familyGameMode ? call('/api/v1/practice-workspace') : null]);
         if (epoch !== contextEpoch || generation !== gameRefreshGeneration) return;
         const objectives = choices.objectives || [];
         manualObjectives = objectives;
@@ -2103,10 +2142,12 @@ _UI_HTML = """<!doctype html>
         if (!familyGameMode) { renderPracticeChoices(choices.items, objectives); renderReviewTasks(tasks.items, choices.items); }
         if (familyGameMode) {
           gameCatalog = choices.items; gameObjectives = objectives; gameTasks = tasks.items; gameGuidance = choices.practice_guidance || {}; renderQuestionMeta();
+          acceptPracticeWorkspace(recovery);
 
           gameGraded = progress.attempts.graded || 0;
           $('heroGraded').textContent = String(gameGraded); $('heroIndependent').textContent = String(progress.attempts.independent || 0);
           if (textbookBooks.length) renderGameChapters(); else await loadTextbooks();
+          await restorePracticeWorkspace(recovery);
         }
       } catch (e) { if (!(e instanceof StaleContextError)) { $('today').textContent = '暂未加载学习进度，请稍后返回首页重试。'; if (familyGameMode) $('familyReview').hidden = false; } }
       finally { if (familyGameMode && epoch === contextEpoch && generation === gameRefreshGeneration) { gameLoadingChoices = false; updateChapterControls(); } }
@@ -2127,11 +2168,15 @@ _UI_HTML = """<!doctype html>
         const card = $('card').value.trim(); const body = {question_version_id: $('questionVersion').value, mode: 'independent'};
         if (card) body.card_id = card;
         if (savedChoice?.mistake_id) body.mistake_id = savedChoice.mistake_id;
-        if (familyGameMode) { body.textbook_book_id = gameBook; body.textbook_chapter_id = gameChapter || null; }
+        if (familyGameMode) {
+          if (!practiceWorkspace?.revision) await saveGameRound();
+          body.textbook_book_id = gameBook; body.textbook_chapter_id = gameChapter || null;
+          body.workspace_revision = practiceWorkspace.revision; body.replace_current = savedChoice?.replace_current === true;
+        }
         const data = await call('/api/v1/test-sessions', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
         $('attempt').value = ''; renderTest(data); testStatus(familyGameMode ? '慢慢想，准备好就写下答案。' : '题面已发放，答案未发送到客户端。');
         if (familyGameMode) { setGameView('practice'); $('answer').focus({preventScroll:true}); }
-      } catch (e) { if (e instanceof StaleContextError) return; testStatus(e.message); }
+      } catch (e) { if (e instanceof StaleContextError) return; if (familyGameMode) await reloadPracticeWorkspace(); testStatus(e.message); }
       finally {
         if (familyGameMode && epoch === contextEpoch) { gameStarting = false; updateChapterControls(); }
       }
@@ -2170,12 +2215,29 @@ _UI_HTML = """<!doctype html>
         const rawAnswer = $('answer').value;
         const item = $('testItem').value.trim(); if (!item || !rawAnswer) throw new Error('请填写作答项和原始作答');
         if (familyGameMode) { gameSubmitting = true; updateGameAnswerControls(); }
-        const challenge = await call('/api/v1/test-items/' + encodeURIComponent(item) + '/submission-challenges', {method: 'POST'});
-        const data = await call('/api/v1/test-items/' + encodeURIComponent(item) + '/answers', {method: 'POST', headers: {'Content-Type': 'application/json', 'Idempotency-Key': 'ui-answer-' + crypto.randomUUID()}, body: JSON.stringify({challenge_id: challenge.challenge_id, nonce: challenge.nonce, raw_answer: rawAnswer})});
+        let pending = familyGameMode ? answerDraft().pending : null;
+        if (!pending || pending.raw_answer !== rawAnswer) {
+          const challenge = await call('/api/v1/test-items/' + encodeURIComponent(item) + '/submission-challenges', {method: 'POST'});
+          pending = {challenge_id:challenge.challenge_id, nonce:challenge.nonce, raw_answer:rawAnswer, key:'ui-answer-' + crypto.randomUUID()};
+          if (familyGameMode) keepAnswerDraft(pending);
+        }
+        const {key, ...answerBody} = pending;
+        const data = await call('/api/v1/test-items/' + encodeURIComponent(item) + '/answers', {method: 'POST', headers: {'Content-Type': 'application/json', 'Idempotency-Key': key}, body: JSON.stringify(answerBody)});
+        if (familyGameMode) { workspaceStorage.removeItem(answerDraftKey()); $('savedPracticeAnswer').textContent = '已保存的答案：' + rawAnswer; }
         $('answer').value = ''; $('attempt').value = data.attempt_id || ''; saveTestState(); testStatus(familyGameMode ? '收到你的答案啦，正在核对…' : '已提交，等待服务端判分；202 不是最终成绩。'); show(data);
         if (familyGameMode) { gameItemStatus = 'grading_pending'; updateGameAnswerControls(); }
         if ($('attempt').value) await refreshAttempt();
-      } catch (e) { if (e instanceof StaleContextError) return; testStatus(e.message); }
+      } catch (e) {
+        if (e instanceof StaleContextError) return;
+        let message = e.message;
+        if (familyGameMode && [404,409].includes(e.status)) {
+          try {
+            await refreshTestState();
+            if ($('attempt').value) message = $('answer').value ? '这道题已保存另一份答案；本标签页的内容尚未提交，请核对下方两份内容。' : '已恢复这道题的保存结果。';
+          } catch (_) {}
+        }
+        testStatus(message);
+      }
       finally { if (familyGameMode && epoch === contextEpoch) { gameSubmitting = false; updateGameAnswerControls(); } }
     };
     $('refreshAttempt').onclick = async () => { try { await refreshAttempt(); } catch (e) { if (e instanceof StaleContextError) return; testStatus(e.message); } };
@@ -2249,6 +2311,7 @@ _UI_HTML = """<!doctype html>
       } catch (e) { if (!(e instanceof StaleContextError)) show(e.message); }
     }
     function restoreCurrentTest() {
+      if (familyGameMode) { savedTest = {}; return; }
       if (browserSessionMode) savedTest = parseSaved(testStateKey());
       if (familyGameMode) { const scope = parseSaved(chapterStateKey()); gameBook = scope.bookId || ''; gameChapter = scope.chapterId || ''; gamePool = scope.pool === 'reserve' ? 'reserve' : 'initial'; gameDifficulty = ['auto','easy','normal','hard'].includes(scope.difficulty) ? scope.difficulty : 'auto'; gameCompletedChoices = new Set(Array.isArray(scope.completedIds) ? scope.completedIds.filter((id) => typeof id === 'string') : []); }
       [['questionVersion','questionVersionId'],['card','cardId'],['session','sessionId'],['testItem','testItemId'],['attempt','attemptId']].forEach(([field,key]) => { $(field).value = savedTest[key] || ''; });
@@ -2295,7 +2358,7 @@ _UI_HTML = """<!doctype html>
           if ($('learner').value) $('loadMistakes').onclick();
         }
         $('loadLearners').textContent = '退出登录';
-        $('loadLearners').onclick = async () => { try { clearWorkspace(); await call('/api/v1/auth/logout', {method:'POST'}); if (familyGameMode) window.location.assign(serviceUrl('/auth/login')); else window.location.reload(); } catch (e) { if (e instanceof StaleContextError) return; show(e.message); } };
+        $('loadLearners').onclick = async () => { try { if (familyGameMode && $('answer').value && !window.confirm('当前有未提交内容，退出会清除本标签页草稿。确认退出吗？')) return; clearWorkspace(); await call('/api/v1/auth/logout', {method:'POST'}); if (familyGameMode) window.location.assign(serviceUrl('/auth/login')); else window.location.reload(); } catch (e) { if (e instanceof StaleContextError) return; show(e.message); } };
       } catch (e) { if (e instanceof StaleContextError) return; show(e.message); $('loadLearners').disabled = true; }
     }
     window.addEventListener('pageshow', (event) => { if (event.persisted) window.location.reload(); });
@@ -3626,12 +3689,26 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             attempts = conn.execute("SELECT COUNT(*) AS total,SUM(CASE WHEN assessment_eligibility=1 THEN 1 ELSE 0 END) AS independent,SUM(CASE WHEN status='graded' THEN 1 ELSE 0 END) AS graded FROM attempts WHERE learner_id=?", (learner_id,)).fetchone()
         return {"learner_id": learner_id, "cards": [dict(row) for row in cards], "attempts": dict(attempts), "evidence_note": "仅可信服务端判分且无辅助的结果计入独立证据。"}
 
+    @app.get('/api/v1/practice-workspace')
+    def get_practice_workspace(ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
+        learner_id = learner_for(ctx, db=db)
+        with db.session() as conn:
+            return workspace_state(conn, learner_id)
+
+    @app.put('/api/v1/practice-workspace')
+    def put_practice_workspace(body: PracticeWorkspaceRequest, ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
+        learner_id = learner_for(ctx, db=db)
+        with db.session(write=True) as conn:
+            return update_workspace(conn, learner_id, body)
+
     @app.post("/api/v1/test-sessions", status_code=201)
     def create_test_session(body: TestSessionRequest, ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
         learner_id = learner_for(ctx, db=db)
         if body.mode not in {"independent", "practice"}:
             raise APIError(422, "INVALID_TEST_MODE", "测验模式不支持")
         with db.session(write=True) as conn:
+            workspace, round_row = (prepare_workspace_session(conn, learner_id, body)
+                                    if body.workspace_revision is not None else (None, None))
             question = conn.execute("SELECT qv.*,q.objective_id,q.approval AS question_approval,q.visibility,q.learner_id AS owner_id FROM question_versions qv JOIN questions q ON q.id=qv.question_id WHERE qv.id=? AND qv.approval='approved' AND q.approval='approved'", (body.question_version_id,)).fetchone()
             if not question or (question["visibility"] == "private" and question["owner_id"] != learner_id):
                 raise APIError(404, "QUESTION_NOT_FOUND", "题目不存在")
@@ -3676,7 +3753,11 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             conn.execute("INSERT INTO test_sessions(id,learner_id,mode,status,created_at) VALUES (?,?,?,?,?)", (session_id, learner_id, body.mode, "active", utc_now()))
             conn.execute("INSERT INTO test_items(id,session_id,learner_id,question_version_id,card_id,cycle_id,reserved_revision,status,presented_at,question_snapshot_json) VALUES (?,?,?,?,?,?,?,?,?,?)", (item_id, session_id, learner_id, body.question_version_id, card["id"] if card else None, cycle_id, card["revision"] if card else None, "presented", utc_now(), json_dumps(question_snapshot(conn, body.question_version_id))))
             content = json_loads(question["content_json"], {})
-        return {"session_id": session_id, "items": [{"test_item_id": item_id, "question_version_id": body.question_version_id, "prompt": content.get("prompt", ""), "input_type": content.get("input_type", "text"), "status": "presented"}], "answer_key": None}
+            recovery = attach_workspace_session(conn, learner_id, workspace, round_row, session_id, item_id) if workspace else None
+        result = {"session_id": session_id, "items": [{"test_item_id": item_id, "question_version_id": body.question_version_id, "prompt": content.get("prompt", ""), "input_type": content.get("input_type", "text"), "status": "presented"}], "answer_key": None}
+        if recovery is not None:
+            result['practice_workspace'] = recovery
+        return result
 
     @app.get("/api/v1/test-sessions/{session_id}")
     def get_test_session(session_id: str, ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
@@ -3686,7 +3767,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             if not session:
                 raise APIError(404, "SESSION_NOT_FOUND", "测验不存在")
             rows = conn.execute(
-                "SELECT ti.*,qv.content_json,a.id AS attempt_id,a.status AS attempt_status "
+                "SELECT ti.*,qv.content_json,a.id AS attempt_id,a.status AS attempt_status,a.raw_answer AS submitted_answer "
                 "FROM test_items ti JOIN question_versions qv ON qv.id=ti.question_version_id "
                 "LEFT JOIN attempts a ON a.test_item_id=ti.id AND a.learner_id=ti.learner_id "
                 "WHERE ti.session_id=?",
@@ -3695,7 +3776,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             for row in rows:
                 _validate_reserve_version(conn, row['question_version_id'])
                 frozen_question(conn, row['id'])
-        return {"session": dict(session), "items": [{"test_item_id": row["id"], "question_version_id": row["question_version_id"], "prompt": json_loads(row["content_json"], {}).get("prompt", ""), "status": row["status"], "assistance": row["assistance"], "attempt_id": row["attempt_id"], "attempt_status": row["attempt_status"]} for row in rows], "answer_key": None}
+        return {"session": dict(session), "items": [{"test_item_id": row["id"], "question_version_id": row["question_version_id"], "prompt": json_loads(row["content_json"], {}).get("prompt", ""), "status": row["status"], "assistance": row["assistance"], "attempt_id": row["attempt_id"], "attempt_status": row["attempt_status"], "submitted_answer": row['submitted_answer'], 'card_id': row['card_id']} for row in rows], "answer_key": None}
 
     @app.post("/api/v1/test-sessions/{session_id}/cancel")
     def cancel_session(session_id: str, ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
@@ -3706,6 +3787,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                 raise APIError(404, "SESSION_NOT_FOUND", "测验不存在")
             conn.execute("UPDATE test_items SET status='cancelled' WHERE session_id=? AND status IN ('reserved','presented')", (session_id,))
             conn.execute("UPDATE test_sessions SET status='cancelled' WHERE id=?", (session_id,))
+            conn.execute('UPDATE practice_workspaces SET revision=revision+1,updated_at=? WHERE learner_id=? AND current_session_id=?', (utc_now(), learner_id, session_id))
         return {"session_id": session_id, "status": "cancelled"}
 
     @app.post("/api/v1/test-items/{item_id}/hints")
@@ -3778,8 +3860,10 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                 return prior
             item = conn.execute("SELECT ti.*,ts.mode AS session_mode FROM test_items ti JOIN test_sessions ts ON ts.id=ti.session_id WHERE ti.id=? AND ti.learner_id=? AND ti.status IN ('reserved','presented')", (item_id, learner_id)).fetchone()
             if not item:
-                existing = conn.execute("SELECT id,status FROM attempts WHERE test_item_id=?", (item_id,)).fetchone()
+                existing = conn.execute("SELECT id,status,raw_answer FROM attempts WHERE test_item_id=? AND learner_id=?", (item_id, learner_id)).fetchone()
                 if existing:
+                    if existing['raw_answer'] != body.raw_answer:
+                        raise APIError(409, 'PRACTICE_ANSWER_CONFLICT', '这道题已保存另一份答案；本次内容未提交，请保留并核对已保存作答。')
                     return {"attempt_id": existing["id"], "status": existing["status"], "idempotent": True}
                 raise APIError(404, "TEST_ITEM_NOT_FOUND", "测验题项不存在")
             _validate_reserve_version(conn, item['question_version_id'])
@@ -4550,6 +4634,8 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                 "mistake": "SELECT id FROM mistake_entries WHERE learner_id=?",
                 "review_card": "SELECT id FROM review_cards WHERE learner_id=?",
                 "test_session": "SELECT id FROM test_sessions WHERE learner_id=?",
+                "practice_workspace": "SELECT learner_id AS id FROM practice_workspaces WHERE learner_id=?",
+                "practice_round": "SELECT id FROM practice_rounds WHERE learner_id=?",
                 "attempt": "SELECT id FROM attempts WHERE learner_id=?",
             }
             for resource_type, query in resource_queries.items():
@@ -4577,6 +4663,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             conn.execute("UPDATE review_cards SET active=0,updated_at=? WHERE learner_id=?", (now, learner_id))
             conn.execute("UPDATE test_items SET status='cancelled' WHERE learner_id=? AND status IN ('reserved','presented','grading_pending')", (learner_id,))
             conn.execute("UPDATE test_sessions SET status='deleted',completed_at=COALESCE(completed_at,?) WHERE learner_id=?", (now, learner_id))
+            conn.execute('DELETE FROM practice_workspaces WHERE learner_id=?', (learner_id,))
             conn.execute("UPDATE attempts SET status='deleted' WHERE learner_id=?", (learner_id,))
             conn.execute("UPDATE review_requests SET status='cancelled',updated_at=? WHERE learner_id=? AND status NOT IN ('resolved','dismissed','cancelled')", (now, learner_id))
             conn.execute("UPDATE export_jobs SET status='cancelled',error_code='DATA_DELETED',completed_at=COALESCE(completed_at,?) WHERE learner_id=? AND status <> 'cancelled'", (now, learner_id))

@@ -128,7 +128,7 @@ def _pdf_fixture() -> bytes:
 def test_migration_and_learner_isolation(env, tmp_path: Path):
     _, db, _ = env
     with db.session() as conn:
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 12
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 13
         assert conn.execute("SELECT 1 FROM pragma_table_info('source_pages') WHERE name='asset_id'").fetchone() is not None
         assert conn.execute("SELECT 1 FROM pragma_table_info('import_batches') WHERE name='answer_document_id'").fetchone() is not None
         assert conn.execute("SELECT 1 FROM pragma_table_info('question_versions') WHERE name='variant_kind'").fetchone() is not None
@@ -144,7 +144,7 @@ def test_migration_and_learner_isolation(env, tmp_path: Path):
     legacy_db = Database(tmp_path / "legacy.db", legacy_migrations)
     upgraded_db = Database(legacy_db.path)
     with upgraded_db.session() as conn:
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 12
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 13
         assert conn.execute("SELECT 1 FROM pragma_table_info('source_pages') WHERE name='asset_id'").fetchone() is not None
         assert conn.execute("SELECT 1 FROM pragma_table_info('import_batches') WHERE name='answer_document_id'").fetchone() is not None
         assert conn.execute("SELECT 1 FROM pragma_table_info('question_versions') WHERE name='variant_kind'").fetchone() is not None
@@ -223,7 +223,7 @@ def test_concurrent_fresh_database_migrations_serialize(tmp_path: Path):
     assert all(return_code == 0 for _, stderr, return_code in results), results
     db = Database(db_path)
     with db.session() as conn:
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 12
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 13
 
 
 def test_ui_exposes_workbench_controls(env):
@@ -1469,7 +1469,7 @@ def test_restore_migrates_legacy_tombstone_schema_before_replay(tmp_path: Path):
     assert not (restored_dir / "attachments/learner-a/legacy.bin").exists()
     restored = Database(restored_dir / "learning.db")
     with restored.session() as conn:
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 12
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 13
         assert conn.execute("SELECT deleted_at FROM assets WHERE id='legacy-asset'").fetchone()[0] is not None
         assert conn.execute("SELECT cleanup_state FROM deletion_records WHERE id='legacy-deletion'").fetchone()[0] == "completed"
 

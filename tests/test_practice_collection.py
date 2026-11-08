@@ -217,13 +217,18 @@ def test_legacy_schema_migration_preserves_rows_and_legacy_attempt_not_guessed(f
     clone=tmp_path/'legacy.sqlite'
     with db.session() as c,sqlite3.connect(clone) as target:c.backup(target)
     with sqlite3.connect(clone) as c:
+        c.execute('DROP INDEX practice_round_items')
+        c.execute('ALTER TABLE test_items DROP COLUMN practice_round_id')
+        c.execute('ALTER TABLE test_items DROP COLUMN practice_round_generation')
+        c.execute('DROP TABLE practice_workspaces')
+        c.execute('DROP TABLE practice_rounds')
         c.execute('DROP TRIGGER test_item_question_snapshot_immutable')
         c.execute('ALTER TABLE test_items DROP COLUMN question_snapshot_json')
-        c.execute('DELETE FROM schema_migrations WHERE version=12')
+        c.execute('DELETE FROM schema_migrations WHERE version>=12')
         baseline={t:c.execute('SELECT * FROM '+t).fetchall() for t in ('accounts','learners','questions','question_versions')}
     upgraded=Database(clone)
     with upgraded.session() as c:
-        assert c.execute('SELECT max(version) FROM schema_migrations').fetchone()[0]==12
+        assert c.execute('SELECT max(version) FROM schema_migrations').fetchone()[0]==13
         for t,expected in baseline.items():assert [tuple(r) for r in c.execute('SELECT * FROM '+t)]==expected
     # A real legacy row remains readable as a test but is not retrospectively
     # certified from the current question bank for collection.

@@ -1376,6 +1376,56 @@
         }
       }
     },
+    "/api/v1/practice-workspace": {
+      "get": {
+        "summary": "Get Practice Workspace",
+        "operationId": "get_practice_workspace_api_v1_practice_workspace_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Put Practice Workspace",
+        "operationId": "put_practice_workspace_api_v1_practice_workspace_put",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PracticeWorkspaceRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/test-sessions": {
       "post": {
         "summary": "Create Test Session",
@@ -3862,6 +3912,56 @@
         ],
         "title": "PracticeCollectionRequest"
       },
+      "PracticeWorkspaceRequest": {
+        "properties": {
+          "expected_revision": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Expected Revision"
+          },
+          "book_id": {
+            "type": "string",
+            "maxLength": 100,
+            "minLength": 1,
+            "title": "Book Id"
+          },
+          "chapter_id": {
+            "type": "string",
+            "maxLength": 100,
+            "title": "Chapter Id",
+            "default": ""
+          },
+          "difficulty": {
+            "type": "string",
+            "pattern": "^(auto|easy|normal|hard)$",
+            "title": "Difficulty",
+            "default": "auto"
+          },
+          "pool": {
+            "type": "string",
+            "pattern": "^(initial|reserve)$",
+            "title": "Pool",
+            "default": "initial"
+          },
+          "restart_round": {
+            "type": "boolean",
+            "title": "Restart Round",
+            "default": false
+          },
+          "discard_current": {
+            "type": "boolean",
+            "title": "Discard Current",
+            "default": false
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "expected_revision",
+          "book_id"
+        ],
+        "title": "PracticeWorkspaceRequest"
+      },
       "ProviderControlRequest": {
         "properties": {
           "paused": {
@@ -4083,6 +4183,23 @@
               }
             ],
             "title": "Mistake Id"
+          },
+          "workspace_revision": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 0.0
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Workspace Revision"
+          },
+          "replace_current": {
+            "type": "boolean",
+            "title": "Replace Current",
+            "default": false
           }
         },
         "type": "object",

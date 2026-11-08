@@ -65,6 +65,89 @@ PANEL = r'''
 '''
 
 SCRIPT = r'''
+    let practiceWorkspace = null, recoveryBusy = false;
+    function acceptPracticeWorkspace(state) {
+      if (practiceWorkspace && state.revision < practiceWorkspace.revision) return;
+      practiceWorkspace = state;
+      if (state.book_id) { gameBook = state.book_id; gameChapter = state.chapter_id; }
+      gameDifficulty = state.difficulty; gamePool = state.pool;
+      gameCompletedChoices = new Set(state.completed_ids || []);
+    }
+    const answerDraftKey = () => 'dd-learning-test-draft:' + contextNamespace() + ':' + $('testItem').value;
+    function answerDraft() { return parseSaved(answerDraftKey()); }
+    function keepAnswerDraft(pending = undefined) {
+      if (!familyGameMode || !$('testItem').value) return;
+      const before = answerDraft();
+      workspaceStorage.setItem(answerDraftKey(), JSON.stringify({raw: $('answer').value,
+        pending: pending === undefined ? before.pending : pending}));
+    }
+    function showSubmittedAnswer(item) {
+      $('savedPracticeAnswer').textContent = item.submitted_answer == null ? '' :
+        '已保存的答案：' + item.submitted_answer + (item.assistance !== 'none' ? '（提示后练习）' : item.session_mode === 'independent' ? '（独立作答）' : '（练习作答）');
+      const draft = answerDraft();
+      if (!$('answer').value && draft.raw) $('answer').value = draft.raw;
+      if (item.submitted_answer != null && $('answer').value === item.submitted_answer) {
+        $('answer').value = ''; workspaceStorage.removeItem(answerDraftKey());
+      }
+      if (item.submitted_answer != null && $('answer').value) {
+        $('practiceConflictAnswer').textContent = $('answer').value;
+        $('practiceAnswerConflict').hidden = false;
+      }
+      if (item.assistance !== 'none') {
+        $('gameHint').textContent = '这道题已使用提示；恢复后仍记为辅助作答。'; $('gameHint').hidden = false;
+      }
+    }
+    async function restorePracticeWorkspace(state, force = false) {
+      acceptPracticeWorkspace(state);
+      state = practiceWorkspace;
+      const session = state.current_session_id || '';
+      if (!force && session === $('session').value) return;
+      if ($('answer').value) {
+        keepAnswerDraft(); $('practiceConflictAnswer').textContent = $('answer').value;
+        $('practiceAnswerConflict').hidden = false;
+      }
+      resetPracticeCollection();
+      ['questionVersion','card','session','testItem','attempt','answer'].forEach((id) => { $(id).value = ''; });
+      $('testPrompt').textContent = ''; $('savedPracticeAnswer').textContent = '';
+      $('gameFeedback').hidden = true; $('gameHint').hidden = true; gameItemStatus = ''; savedTest = {};
+      if (session) {
+        $('session').value = session;
+        const data = await call('/api/v1/test-sessions/' + encodeURIComponent(session));
+        const item = data.items[0];
+        if (item) { $('testItem').value = item.test_item_id; await refreshTestState(); }
+      }
+      if (textbookBooks.length) { syncScopeSelectors(); renderGameChapters(); }
+      updateGameAnswerControls();
+    }
+    async function reloadPracticeWorkspace() {
+      if (!familyGameMode || !$('learner').value) return;
+      const epoch = contextEpoch;
+      recoveryBusy = true; updateChapterControls();
+      try {
+        await restorePracticeWorkspace(await call('/api/v1/practice-workspace'), true);
+        $('practiceRecoveryStatus').textContent = '已读取该档案的最新练习进度。';
+        await $('loadToday').onclick();
+      } catch (error) { if (!(error instanceof StaleContextError)) testStatus(error.message); }
+      finally { if (epoch === contextEpoch) { recoveryBusy = false; updateChapterControls(); } }
+    }
+    async function persistPracticeWorkspace(options = {}) {
+      try {
+        const state = await call('/api/v1/practice-workspace', {method: 'PUT', headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({expected_revision: practiceWorkspace?.revision || 0, book_id:gameBook,
+            chapter_id:gameChapter, difficulty:gameDifficulty, pool:gamePool, ...options})});
+        acceptPracticeWorkspace(state); return state;
+      } catch (error) {
+        if (!(error instanceof StaleContextError)) {
+          await reloadPracticeWorkspace();
+          $('practiceRecoveryStatus').textContent = error.message;
+        }
+        throw error;
+      }
+    }
+    if (familyGameMode) {
+      $('answer').addEventListener('input', () => keepAnswerDraft());
+      $('reloadPracticeProgress').onclick = reloadPracticeWorkspace;
+    }
     let studyGeneration = 0, studyScopeKey = '', studyData = null, studyBusy = false, studyPageUrls = [];
     const currentStudyKey = () => contextNamespace() + ':' + gameBook + ':' + gameChapter;
     function resetStudySupport(close = true) {

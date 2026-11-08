@@ -2,7 +2,7 @@
   "schema": "dd-next-work-tracker-v1",
   "plan_version": "1.0",
   "created_at": "2026-11-07",
-  "updated_at": "2026-11-08T12:25:50.900822+08:00",
+  "updated_at": "2026-11-08",
   "timezone": "Asia/Shanghai",
   "purpose": "下一阶段 25 项实施任务台账；不等同于 Goal 或发布证明。",
   "documents": {
@@ -65,7 +65,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B06",
+  "recommended_next_task": "B07",
   "latest_git_delivery": {
     "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
     "branch": "main",
@@ -1004,10 +1004,10 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
-      "completion_state": "open",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
       "estimate_hours": {
         "min": 8,
         "max": 16
@@ -1019,14 +1019,61 @@
       },
       "acceptance_summary": "刷新/新标签/换设备/并发不重复计分，不吞作答，旧客户端与迁移兼容。",
       "required_conditions": [],
-      "next_action": "定义轮次、持久作答与档位的恢复规则，再设计最小服务端轮次状态。",
+      "next_action": "继续B07：先用合成库与附件演练一致性快照、归档校验和空目标隔离恢复；独立故障域位置及保管责任单独落实，正式数据范围不扩大。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
-      "artifacts": [],
-      "evidence": [],
+      "artifacts": [
+        "../../learning_service/practice.py",
+        "../../learning_service/study_ui.py",
+        "../../learning_service/app.py",
+        "../../learning_service/migrations/013_practice_recovery.sql",
+        "../../tests/test_practice_recovery.py",
+        "../../tests/test_practice_recovery_browser.py",
+        "../open-webui-reuse/practice-recovery.md",
+        "../../learning_data/verification/b06-practice-recovery-20261108T044551Z/release-final/manifest.json"
+      ],
+      "evidence": [
+        "../verification/B06-practice-recovery-2026-11-08.md",
+        "../../learning_data/verification/b06-practice-recovery-20261108T044551Z/test-result-validation.json",
+        "../../learning_data/verification/b06-practice-recovery-20261108T044551Z/unit-related-second.xml",
+        "../../learning_data/verification/b06-practice-recovery-20261108T044551Z/unit-migration-fix.xml",
+        "../../learning_data/verification/b06-practice-recovery-20261108T044551Z/browser-final-r2.xml",
+        "../../learning_data/verification/b06-practice-recovery-20261108T044551Z/source-package-validation.json",
+        "../../learning_data/verification/b06-practice-recovery-20261108T044551Z/delivery-validation.json"
+      ],
       "blockers": [],
-      "last_updated": "2026-11-07"
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "scope": "synthetic_persistent_practice_rounds_and_cross_device_recovery",
+        "unit_contract_tests": 92,
+        "new_recovery_tests": 12,
+        "browser_tests": 8,
+        "browser_version": "145.0.7632.6",
+        "browser_widths": [
+          390,
+          1280
+        ],
+        "schema_revision": 13,
+        "source_files": 85,
+        "openapi_paths": 76,
+        "openapi_schemas": 37,
+        "fresh_browser_storage_recovery": true,
+        "stale_workspace_cas_rejected": true,
+        "different_answer_conflict_preserved": true,
+        "same_answer_no_duplicate_grade": true,
+        "legacy_schema12_data_preserved": true,
+        "previous_b05_app_schema13_startup_checked": true,
+        "deployment_performed": false,
+        "real_model_or_ocr_calls": 0
+      },
+      "acceptance_limits": [
+        "仅合成身份、临时库和模拟视口，不代表家庭实机验收。",
+        "未提交草稿仅当前标签页保存；提交后才可跨设备恢复。",
+        "旧客户端不带工作区版本仍可作答，旧会话/浏览器完成列表不追认为新轮次。",
+        "B05家长反馈、B04待解、B02跨日观察和A09发布/家庭验收均独立保留。"
+      ]
     },
     {
       "id": "B07",
@@ -1587,6 +1634,18 @@
         "../verification/B05-practice-collection-2026-11-08.md"
       ],
       "next_action": "继续B06跨设备与轮次恢复；B05家庭反馈、B04图形待解、B02真实观察和A09发布/家庭验收另记。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T13:10:46.525160+08:00",
+      "task_ids": [
+        "B06"
+      ],
+      "summary": "B06本地工程完成：服务端轮次/范围/档位及当前会话恢复、同答幂等与异答冲突保留；92项不同单元/契约用例、8项浏览器通过，85文件schema13源码候选已校验。工程ready、本地验收passed、任务出口complete，未提交/部署；模拟设备不代替家庭验收。下一项B07先用合成数据演练一致性备份和隔离恢复，独立副本位置与保管责任待落实。B05家庭反馈、B04图形待解、B02真实观察及A09发布/家庭验收继续单列。",
+      "evidence": [
+        "../verification/B06-practice-recovery-2026-11-08.md"
+      ],
+      "next_action": "继续B07：先用合成库与附件演练一致性快照、归档校验和空目标隔离恢复；独立故障域位置及保管责任单独落实，正式数据范围不扩大。"
     }
   ],
   "current_candidate_tool_version": "1.2.0"

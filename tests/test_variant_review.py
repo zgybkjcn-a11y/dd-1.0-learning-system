@@ -260,7 +260,7 @@ def test_schema10_upgrade_preserves_sources_and_context_then_adds_review_tables(
     seed_source(old)
     upgraded=Database(old.path)
     with upgraded.session() as conn:
-        assert conn.execute('SELECT MAX(version) FROM schema_migrations').fetchone()[0]==12
+        assert conn.execute('SELECT MAX(version) FROM schema_migrations').fetchone()[0]==13
         assert tuple(conn.execute('SELECT learner_id,revision FROM account_contexts').fetchone())==('l',4)
         assert json.loads(conn.execute("SELECT answer_key_json FROM question_versions WHERE id='source-v1'").fetchone()[0])=={'accepted':['2']}
         assert conn.execute('SELECT COUNT(*) FROM variant_reviews').fetchone()[0]==0

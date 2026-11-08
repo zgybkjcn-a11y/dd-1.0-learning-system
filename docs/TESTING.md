@@ -1,5 +1,7 @@
 # 可移植测试与本地材料验证
 
+最新执行（2026-11-08）：B06本地工程完成：服务端轮次/范围/档位及当前会话恢复、同答幂等与异答冲突保留；92项不同单元/契约用例、8项浏览器通过，85文件schema13源码候选已校验。工程ready、本地验收passed、任务出口complete，未提交/部署；模拟设备不代替家庭验收。下一项B07先用合成数据演练一致性备份和隔离恢复，独立副本位置与保管责任待落实。B05家庭反馈、B04图形待解、B02真实观察及A09发布/家庭验收继续单列。[独立验收](verification/B06-practice-recovery-2026-11-08.md)。
+
 B05定向验证见[独立记录](verification/B05-practice-collection-2026-11-08.md)：`tests/test_practice_collection.py`新增20项，连同相关迁移/调度/档案/练习/发布与OpenAPI共82项通过；新增收藏两宽度及原普通/备用练习共6浏览器通过。schema12快照仅用于合成临时库，所有请求拦截，无真实模型/OCR/正式数据访问。首次浏览器夹具和封包探针错误分别保留，不累加重跑分母。
 
 B04定向证据校验：`learning_data/verification/a03-portable-tests-20261107T091348Z/venv/bin/python learning_data/verification/b04-full-page-review-20261108T033243Z/verify-evidence.py`。5页PDF/原图绑定、132条OCR/27区块、38项数学检查与17个内存反例通过；实际助手整页审核4通过/1待解，非新增pytest或浏览器用例。仅离线证据和文档变化，未重跑历史服务测试。见[B04独立记录](verification/B04-full-page-review-2026-11-08.md)。

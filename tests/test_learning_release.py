@@ -130,7 +130,8 @@ def test_previous_runtime_candidate_still_verifies_after_textbook_expansion(tmp_
 
 @pytest.mark.parametrize('profile,paths', [('textbook','TEXTBOOK_PATHS'),('practice','PRACTICE_PATHS'),
                                           ('math_reference','MATH_REFERENCE_PATHS'), ('study_workbench','STUDY_WORKBENCH_PATHS'),
-                                          ('passage_runtime','PASSAGE_RUNTIME_PATHS'), ('reserve_runtime','RESERVE_RUNTIME_PATHS')])
+                                          ('passage_runtime','PASSAGE_RUNTIME_PATHS'), ('reserve_runtime','RESERVE_RUNTIME_PATHS'),
+                                          ('collection_runtime','COLLECTION_RUNTIME_PATHS')])
 def test_prior_content_profiles_verify_after_reference_expansion(tmp_path, profile, paths):
     root = _root(tmp_path); old = root / ('previous-' + profile)
     manifest = release.prepare(old, root)
@@ -140,7 +141,7 @@ def test_prior_content_profiles_verify_after_reference_expansion(tmp_path, profi
         for member in source:
             if member.name in names:
                 target.addfile(member, source.extractfile(member))
-    manifest['schema_revision'] = 11
+    manifest['schema_revision'] = 12 if profile == 'collection_runtime' else 11
     manifest['source_profile'] = getattr(release, profile.upper() + '_PROFILE')
     manifest['source_sha256'] = {k:v for k,v in manifest['source_sha256'].items() if k in names}
     manifest['source_set_sha256'] = release.sha256(release._json(manifest['source_sha256']))

@@ -14,7 +14,7 @@ from pathlib import Path
 import re
 import unicodedata
 
-from .db import json_dumps, json_loads, utc_now
+from .db import json_dumps, json_loads, new_id, utc_now
 
 BANK_PATH = Path(__file__).parent / 'data/family_word_problems_v1.json'
 BANK_SHA256 = '38e0903024ed9c402a8c66e8b02a3afd3e304ad55913fbdb0572a16589d211ef'
@@ -121,6 +121,105 @@ def saved_review_choices(conn, learner_id, objective_id):
                         'assistance': content.get('assistance'), 'textbook_scope': content.get('textbook_scope'),
                         'available': available})
     return choices
+
+
+def workspace_state(conn, learner_id):
+    row = conn.execute('SELECT * FROM practice_workspaces WHERE learner_id=?', (learner_id,)).fetchone()
+    if not row:
+        return {'learner_id': learner_id, 'revision': 0, 'book_id': None, 'chapter_id': '',
+                'difficulty': 'auto', 'pool': 'initial', 'current_session_id': None, 'completed_ids': []}
+    completed = conn.execute(
+        "SELECT DISTINCT ti.question_version_id FROM practice_rounds r JOIN test_items ti "
+        "ON ti.practice_round_id=r.id AND ti.practice_round_generation=r.generation "
+        "WHERE r.learner_id=? AND r.book_id=? AND r.chapter_id=? AND r.pool=? "
+        "AND ti.learner_id=? AND ti.status='graded' ORDER BY ti.question_version_id",
+        (learner_id, row['book_id'], row['chapter_id'], row['pool'], learner_id)).fetchall()
+    return {**dict(row), 'completed_ids': [r[0] for r in completed]}
+
+
+def check_workspace_revision(conn, learner_id, revision):
+    state = workspace_state(conn, learner_id)
+    if state['revision'] != revision:
+        raise CollectionError(409, 'PRACTICE_WORKSPACE_CHANGED', '另一页面已更新练习进度，请读取最新进度后再操作。')
+    return state
+
+
+def workspace_current_item(conn, learner_id, state):
+    return conn.execute('SELECT * FROM test_items WHERE session_id=? AND learner_id=? ORDER BY rowid LIMIT 1',
+                        (state['current_session_id'], learner_id)).fetchone()
+
+
+def release_workspace_item(conn, learner_id, state, discard):
+    item = workspace_current_item(conn, learner_id, state)
+    if item and item['status'] == 'grading_pending':
+        raise CollectionError(409, 'PRACTICE_GRADING_PENDING', '作答已保存，正在判分；请先查看结果。')
+    if item and item['status'] in ('reserved', 'presented'):
+        if not discard:
+            raise CollectionError(409, 'PRACTICE_ACTIVE_ITEM', '还有未完成的题目，请继续作答或明确跳过。')
+        conn.execute("UPDATE test_items SET status='cancelled' WHERE id=?", (item['id'],))
+        conn.execute("UPDATE test_sessions SET status='cancelled',completed_at=? WHERE id=?", (utc_now(), item['session_id']))
+
+
+def update_workspace(conn, learner_id, body):
+    from .textbooks import learning_scope
+    state = check_workspace_revision(conn, learner_id, body.expected_revision)
+    curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
+    try:
+        book, chapter = learning_scope(curriculum, body.book_id, body.chapter_id or None)
+    except ValueError:
+        raise CollectionError(422, 'TEXTBOOK_SCOPE_INVALID', '请选择当前年级的课本和章节。')
+    changed_scope = (state['book_id'], state['chapter_id'], state['pool']) != (book['id'], chapter['id'], body.pool)
+    if changed_scope or body.restart_round:
+        release_workspace_item(conn, learner_id, state, body.discard_current)
+    elif body.discard_current:
+        raise CollectionError(422, 'PRACTICE_DISCARD_SCOPE_REQUIRED', '跳过当前题请使用取消测验入口。')
+    if body.restart_round:
+        if body.pool == 'reserve':
+            raise CollectionError(409, 'PRACTICE_RESERVE_NO_RESTART', '已见备用题不能重置为未见题。')
+        level = body.difficulty
+        if level == 'auto':
+            level = learner_guidance(conn, learner_id).get(book['id'] + '|' + chapter['id'], {}).get('difficulty', 'easy')
+        conn.execute("UPDATE practice_rounds SET generation=generation+1 WHERE learner_id=? AND book_id=? "
+                     "AND chapter_id=? AND pool=? AND difficulty IN (?, 'starter')",
+                     (learner_id, book['id'], chapter['id'], body.pool, level))
+    session = None if changed_scope or body.restart_round else state['current_session_id']
+    conn.execute('INSERT INTO practice_workspaces(learner_id,book_id,chapter_id,difficulty,pool,current_session_id,revision,updated_at) '
+                 'VALUES (?,?,?,?,?,?,?,?) ON CONFLICT(learner_id) DO UPDATE SET book_id=excluded.book_id,chapter_id=excluded.chapter_id,'
+                 'difficulty=excluded.difficulty,pool=excluded.pool,current_session_id=excluded.current_session_id,'
+                 'revision=excluded.revision,updated_at=excluded.updated_at',
+                 (learner_id, book['id'], chapter['id'], body.difficulty, body.pool, session, state['revision'] + 1, utc_now()))
+    return workspace_state(conn, learner_id)
+
+
+def prepare_workspace_session(conn, learner_id, body):
+    state = check_workspace_revision(conn, learner_id, body.workspace_revision)
+    if not state['revision'] or (body.textbook_book_id, body.textbook_chapter_id or '') != (state['book_id'], state['chapter_id']):
+        raise CollectionError(409, 'PRACTICE_WORKSPACE_SCOPE_CHANGED', '请先读取并确认当前练习范围。')
+    release_workspace_item(conn, learner_id, state, body.replace_current)
+    if body.card_id:
+        return state, None
+    info = metadata(body.question_version_id)
+    pool = 'reserve' if info and info.get('reserve') else 'initial'
+    if pool != state['pool']:
+        raise CollectionError(409, 'PRACTICE_POOL_CHANGED', '题目与当前题池不一致，请刷新进度。')
+    level = info['difficulty'] if info else 'starter'
+    conn.execute('INSERT OR IGNORE INTO practice_rounds(id,learner_id,book_id,chapter_id,pool,difficulty) VALUES (?,?,?,?,?,?)',
+                 (new_id('round'), learner_id, state['book_id'], state['chapter_id'], pool, level))
+    round_row = conn.execute('SELECT * FROM practice_rounds WHERE learner_id=? AND book_id=? AND chapter_id=? AND pool=? AND difficulty=?',
+                             (learner_id, state['book_id'], state['chapter_id'], pool, level)).fetchone()
+    if conn.execute("SELECT 1 FROM test_items WHERE practice_round_id=? AND practice_round_generation=? "
+                    "AND question_version_id=? AND status='graded'", (round_row['id'], round_row['generation'], body.question_version_id)).fetchone():
+        raise CollectionError(409, 'PRACTICE_ROUND_ITEM_COMPLETED', '本轮已练过这道题，请选择下一题或明确再练一轮。')
+    return state, round_row
+
+
+def attach_workspace_session(conn, learner_id, state, round_row, session_id, item_id):
+    if round_row:
+        conn.execute('UPDATE test_items SET practice_round_id=?,practice_round_generation=? WHERE id=?',
+                     (round_row['id'], round_row['generation'], item_id))
+    conn.execute('UPDATE practice_workspaces SET current_session_id=?,revision=revision+1,updated_at=? WHERE learner_id=?',
+                 (session_id, utc_now(), learner_id))
+    return workspace_state(conn, learner_id)
 
 
 def arithmetic(expression: str) -> Fraction:

@@ -79,6 +79,7 @@ def test_word_problems_difficulty_next_question_and_restore(family, tmp_path, wi
         expect = playwright.expect
         questions = bank()
         def solve(hint=False, wrong=False):
+            expect(page.locator('#answer')).to_be_enabled()
             qid = page.locator('#questionVersion').input_value()
             question = questions[qid]
             expect(page.locator('#testPrompt')).to_have_text(question['prompt'])
