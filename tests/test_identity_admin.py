@@ -40,7 +40,7 @@ def test_new_database_plan_has_no_files_and_apply_requires_review(tmp_path):
     assert apply_identity(manifest(), path, "synthetic-operator", plan["plan_sha256"])["status"] == "applied"
     db = Database(path)
     with db.session() as conn:
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 11
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 12
         assert conn.execute("SELECT role FROM learner_access").fetchone()[0] == "guardian"
         assert conn.execute("SELECT COUNT(*) FROM review_objectives").fetchone()[0] == 1
         assert conn.execute("SELECT COUNT(*) FROM questions").fetchone()[0] == 0

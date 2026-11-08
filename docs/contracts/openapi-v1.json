@@ -892,6 +892,90 @@
         }
       }
     },
+    "/api/v1/attempts/{attempt_id}/collection-preview": {
+      "get": {
+        "summary": "Preview Practice Collection",
+        "operationId": "preview_practice_collection_api_v1_attempts__attempt_id__collection_preview_get",
+        "parameters": [
+          {
+            "name": "attempt_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Attempt Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/attempts/{attempt_id}/collection": {
+      "post": {
+        "summary": "Confirm Practice Collection",
+        "operationId": "confirm_practice_collection_api_v1_attempts__attempt_id__collection_post",
+        "parameters": [
+          {
+            "name": "attempt_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Attempt Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PracticeCollectionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/mistakes/manual": {
       "post": {
         "summary": "Create Manual Mistake",
@@ -3758,6 +3842,26 @@
         ],
         "title": "PassageSearchResponse"
       },
+      "PracticeCollectionRequest": {
+        "properties": {
+          "confirmed": {
+            "type": "boolean",
+            "title": "Confirmed"
+          },
+          "preview_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$",
+            "title": "Preview Sha256"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "confirmed",
+          "preview_sha256"
+        ],
+        "title": "PracticeCollectionRequest"
+      },
       "ProviderControlRequest": {
         "properties": {
           "paused": {
@@ -3968,6 +4072,17 @@
               }
             ],
             "title": "Textbook Chapter Id"
+          },
+          "mistake_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mistake Id"
           }
         },
         "type": "object",

@@ -1,4 +1,4 @@
-"""Trusted workbench fragments for read-only, scope-bound study support."""
+"""Trusted workbench fragments for scoped study support and explicit collection."""
 
 STYLE = r'''
     .study-support { margin-top: 16px; padding: 14px; border: 1px solid #dce4d6; border-radius: 14px; background: #f8faf5; }
@@ -16,6 +16,31 @@ STYLE = r'''
     #studyVisual[hidden] { display: none; }
     .study-support [hidden] { display: none !important; }
     #studyExports { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+'''
+
+COLLECTION_PANEL = r'''
+      <div id="practiceCollection" hidden>
+        <button id="previewCollection" type="button" class="secondary">收藏这次错答</button>
+        <p id="collectionStatus" role="status"></p>
+      </div>
+      <dialog id="collectionDialog" aria-labelledby="collectionTitle">
+        <h3 id="collectionTitle">核对后加入错题收藏</h3>
+        <p id="collectionPrompt"></p><p id="collectionAnswer"></p>
+        <p id="collectionAssistance"></p><p id="collectionVersion"></p>
+        <p>确认后保存这次题目和作答，并加入对应目标的复习。已有复习计划会继续沿用；尚未判断错因。</p>
+        <p id="collectionError" role="alert"></p>
+        <div class="row"><button id="confirmCollection" type="button">确认收藏并加入复习</button>
+          <button id="cancelCollection" type="button" class="secondary">取消</button></div>
+      </dialog>
+'''
+
+STYLE += r'''
+    #practiceCollection [hidden] { display: none !important; }
+    #collectionDialog { box-sizing: border-box; width: min(560px, calc(100% - 24px)); max-height: 90vh;
+      overflow: auto; border: 1px solid #b6c9b2; border-radius: 16px; padding: 22px; }
+    #collectionDialog p { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.6; }
+    #collectionDialog::backdrop { background: #172f2877; }
+    #practiceCollection { margin-top: 16px; }
 '''
 
 PANEL = r'''
@@ -164,4 +189,61 @@ SCRIPT = r'''
     $('studySupportRetry').onclick = () => { resetStudySupport(false); studyScopeKey = currentStudyKey(); loadStudySupport(); };
     $('studyDownload').onclick = () => downloadStudyArtifact('lesson_markdown','.md');
     $('studyDiagram').onclick = () => downloadStudyArtifact('diagram_mermaid','.mmd');
+
+    let collectionAttempt = '', collectionDraft = null, collectionBusy = false, collectionGeneration = 0;
+    function resetPracticeCollection() {
+      collectionGeneration += 1; collectionAttempt = ''; collectionDraft = null; collectionBusy = false;
+      if ($('collectionDialog').open) $('collectionDialog').close();
+      $('practiceCollection').hidden = true; $('previewCollection').disabled = false;
+      $('confirmCollection').disabled = false; $('cancelCollection').disabled = false;
+      for (const id of ['collectionPrompt','collectionAnswer','collectionAssistance','collectionVersion','collectionError','collectionStatus']) $(id).textContent = '';
+    }
+    function updatePracticeCollection(data) {
+      if (collectionAttempt !== data.id) resetPracticeCollection();
+      if (data.status !== 'graded' || !['incorrect','partial'].includes(data.outcome)) return;
+      collectionAttempt = data.id; $('practiceCollection').hidden = false;
+    }
+    function cancelPracticeCollection() {
+      if (collectionBusy) return;
+      collectionGeneration += 1; collectionDraft = null; $('collectionDialog').close();
+      $('collectionStatus').textContent = '已取消，未新增收藏或复习卡。';
+    }
+    $('collectionDialog').addEventListener('cancel', (event) => { event.preventDefault(); cancelPracticeCollection(); });
+    $('cancelCollection').onclick = cancelPracticeCollection;
+    $('previewCollection').onclick = async () => {
+      if (!collectionAttempt || collectionBusy) return;
+      const epoch = contextEpoch, generation = ++collectionGeneration, attempt = collectionAttempt;
+      const current = () => epoch === contextEpoch && generation === collectionGeneration && attempt === collectionAttempt;
+      $('previewCollection').disabled = true; $('collectionStatus').textContent = '';
+      try {
+        const data = await call('/api/v1/attempts/' + encodeURIComponent(attempt) + '/collection-preview');
+        if (!current()) return;
+        collectionDraft = {data, key:'ui-collect-' + crypto.randomUUID(), epoch, generation};
+        $('collectionPrompt').textContent = data.question_text;
+        $('collectionAnswer').textContent = '当时的答案：' + data.student_answer;
+        $('collectionAssistance').textContent = data.assistance === 'none' && data.assessment_eligibility ? '独立作答记录' : '辅助练习记录（已使用提示或练习模式，不计入独立证据）';
+        $('collectionVersion').textContent = '原题版本：' + data.question_version_id + '\n作答记录：' + data.attempt_id;
+        $('collectionError').textContent = ''; $('confirmCollection').disabled = false;
+        $('collectionDialog').showModal(); $('cancelCollection').focus();
+      } catch (error) { if (current() && !(error instanceof StaleContextError)) $('collectionStatus').textContent = error.message; }
+      finally { if (current()) $('previewCollection').disabled = false; }
+    };
+    $('confirmCollection').onclick = async () => {
+      const draft = collectionDraft;
+      if (!draft || collectionBusy || draft.epoch !== contextEpoch || draft.generation !== collectionGeneration) return;
+      const current = () => draft === collectionDraft && draft.epoch === contextEpoch && draft.generation === collectionGeneration;
+      collectionBusy = true; $('confirmCollection').disabled = true; $('cancelCollection').disabled = true;
+      $('collectionError').textContent = '';
+      try {
+        const result = await call('/api/v1/attempts/' + encodeURIComponent(draft.data.attempt_id) + '/collection', {
+          method:'POST', headers:{'Content-Type':'application/json','Idempotency-Key':draft.key},
+          body:JSON.stringify({confirmed:true,preview_sha256:draft.data.preview_sha256})});
+        if (!current()) return;
+        $('collectionDialog').close(); $('previewCollection').disabled = true;
+        $('collectionStatus').textContent = '已保存这次错答。' + (result.due_at ? '复习时间：' + new Date(result.due_at).toLocaleString('zh-CN') : '请在错题收藏中核对复习计划。');
+        $('loadToday').onclick();
+      } catch (error) {
+        if (current() && !(error instanceof StaleContextError)) $('collectionError').textContent = error.message + ' 可重试；如记录变化，请取消后重新核对。';
+      } finally { if (current()) { collectionBusy = false; $('confirmCollection').disabled = false; $('cancelCollection').disabled = false; } }
+    };
 '''

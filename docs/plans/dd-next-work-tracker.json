@@ -2,7 +2,7 @@
   "schema": "dd-next-work-tracker-v1",
   "plan_version": "1.0",
   "created_at": "2026-11-07",
-  "updated_at": "2026-11-08T11:46:16.303769+08:00",
+  "updated_at": "2026-11-08T12:25:50.900822+08:00",
   "timezone": "Asia/Shanghai",
   "purpose": "下一阶段 25 项实施任务台账；不等同于 Goal 或发布证明。",
   "documents": {
@@ -65,7 +65,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B05",
+  "recommended_next_task": "B06",
   "latest_git_delivery": {
     "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
     "branch": "main",
@@ -912,9 +912,9 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者、家长",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "pending",
       "completion_state": "open",
       "estimate_hours": {
         "min": 10,
@@ -929,14 +929,68 @@
       "required_conditions": [
         "家长实际反馈待收集；未反馈不阻止合成浏览器工程验收。"
       ],
-      "next_action": "把冻结错答转为待确认卡，复用现有收藏/复习路由并加幂等与档案测试。",
+      "next_action": "继续B06跨设备与轮次恢复的本地实现；B05家长实际反馈另行收集，不据合成测试代填体验结论。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
-      "artifacts": [],
-      "evidence": [],
-      "blockers": [],
-      "last_updated": "2026-11-07"
+      "artifacts": [
+        "../../learning_service/practice.py",
+        "../../learning_service/study_ui.py",
+        "../../learning_service/app.py",
+        "../../learning_service/migrations/012_practice_collection.sql",
+        "../../tests/test_practice_collection.py",
+        "../../tests/test_practice_collection_browser.py",
+        "../open-webui-reuse/practice-collection.md",
+        "../../learning_data/verification/b05-explicit-review-20261108T040455Z/release-final-r2/manifest.json"
+      ],
+      "evidence": [
+        "../verification/B05-practice-collection-2026-11-08.md",
+        "../../learning_data/verification/b05-explicit-review-20261108T040455Z/unit-final-r2.xml",
+        "../../learning_data/verification/b05-explicit-review-20261108T040455Z/browser-second.xml",
+        "../../learning_data/verification/b05-explicit-review-20261108T040455Z/browser-regression.xml",
+        "../../learning_data/verification/b05-explicit-review-20261108T040455Z/source-package-validation.json",
+        "../../learning_data/verification/b05-explicit-review-20261108T040455Z/delivery-validation.json"
+      ],
+      "blockers": [
+        "家庭实际设备与家长反馈尚未收集；不阻塞本地工程验收或B06。"
+      ],
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "scope": "synthetic_explicit_collection_and_due_review",
+        "unit_contract_tests": 82,
+        "new_collection_tests": 20,
+        "browser_tests": 6,
+        "browser_version": "145.0.7632.6",
+        "browser_widths": [
+          390,
+          1280
+        ],
+        "schema_revision": 12,
+        "source_files": 83,
+        "openapi_paths": 75,
+        "openapi_schemas": 36,
+        "preview_cancel_no_collection_writes": true,
+        "concurrent_confirmation_idempotent": true,
+        "stale_context_write_fenced": true,
+        "frozen_question_drift_rejected": true,
+        "existing_scheduler_reused": true,
+        "teacher_reviewed": false,
+        "deployment_performed": false,
+        "real_model_or_ocr_calls": 0
+      },
+      "family_acceptance": {
+        "state": "pending",
+        "devices": null,
+        "parent_feedback": null,
+        "observed_at": null
+      },
+      "acceptance_limits": [
+        "浏览器均为合成身份与临时库，不代表家庭实际设备验收。",
+        "按知识目标共用复习卡，一次调度不等于同目标每条收藏均完成或掌握。",
+        "旧会话空快照不追认原题内容，原手动收藏另行核对。",
+        "schema12只在临时合成库验证，未迁移正式数据库或部署。"
+      ]
     },
     {
       "id": "B06",
@@ -1521,6 +1575,18 @@
         "../verification/B04-full-page-review-2026-11-08.md"
       ],
       "next_action": "继续B05显式错题收藏与到期复习；B04图形待解、B02真实观察与A09家庭验收另记。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T12:25:50.900822+08:00",
+      "task_ids": [
+        "B05"
+      ],
+      "summary": "完成显式错答预览/确认收藏、幂等/档案写屏障、冻结题版与到期原题复习；82单元/契约+6浏览器通过，83文件schema12候选校验。家庭反馈pending、总状态open，未提交/部署，B01–B04历史保全。",
+      "evidence": [
+        "../verification/B05-practice-collection-2026-11-08.md"
+      ],
+      "next_action": "继续B06跨设备与轮次恢复；B05家庭反馈、B04图形待解、B02真实观察和A09发布/家庭验收另记。"
     }
   ],
   "current_candidate_tool_version": "1.2.0"

@@ -23,10 +23,12 @@ from starlette.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
 
 from .config import Settings
-from .practice import metadata as practice_metadata, learner_guidance, grade_numeric
+from .practice import (metadata as practice_metadata, learner_guidance, grade_numeric,
+                       CollectionError, collection_preview, saved_review_choices,
+                       question_snapshot, frozen_question)
 from .math_references import query_reference as query_math_reference, ReferenceError
 from .study_support import query_support as query_study_support
-from .study_ui import STYLE as STUDY_STYLE, PANEL as STUDY_PANEL, SCRIPT as STUDY_SCRIPT
+from .study_ui import STYLE as STUDY_STYLE, PANEL as STUDY_PANEL, SCRIPT as STUDY_SCRIPT, COLLECTION_PANEL
 from .db import Database, WriteContextChanged, write_context, json_dumps, json_loads, new_id, utc_now
 from .providers import TencentEducationOCRProvider, diagnosis_provider, document_provider, variant_provider
 from .provider_usage import ProviderLimit, UsageLedger
@@ -113,6 +115,12 @@ class ManualMistakeRequest(BaseModel):
     note: str | None = Field(default=None, max_length=5000)
 
 
+class PracticeCollectionRequest(BaseModel):
+    model_config = {"extra": "forbid"}
+    confirmed: bool = Field(strict=True)
+    preview_sha256: str = Field(pattern=r'^[0-9a-f]{64}$')
+
+
 class PagePatch(BaseModel):
     """Complete replacement for a document's ordered page projection.
 
@@ -164,6 +172,7 @@ class TestSessionRequest(BaseModel):
     card_id: str | None = None
     textbook_book_id: str | None = None
     textbook_chapter_id: str | None = None
+    mistake_id: str | None = None
 
 
 class AnswerRequest(BaseModel):
@@ -1040,6 +1049,7 @@ _UI_HTML = """<!doctype html>
       <div id="testStatus" class="status muted">尚未开始测验。</div>
       <div id="gameHint" class="game-only" hidden></div>
       <div id="gameFeedback" class="game-feedback game-only" hidden><h3 id="feedbackTitle"></h3><p id="feedbackText"></p><details id="solutionDetails" hidden><summary>看看解题过程</summary><p id="solutionText"></p></details><p id="roundProgress" role="status"></p><div class="row"><button id="nextChallenge" class="game-primary">继续挑战 →</button><button id="restartRound" class="secondary" hidden>再练一轮</button></div></div>
+      <!-- PRACTICE_COLLECTION_PANEL -->
     </section>
     <section id="variantSection">
       <h2>人工变式审核</h2>
@@ -1078,6 +1088,7 @@ _UI_HTML = """<!doctype html>
     const parseSaved = (key) => { try { return JSON.parse(workspaceStorage.getItem(key) || '{}'); } catch (_) { return {}; } };
     function clearWorkspace(message = '', purge = true) {
       contextEpoch += 1;
+      resetPracticeCollection();
       pendingRequests.forEach((controller) => controller.abort()); pendingRequests.clear();
       importRefreshGeneration += 1; releaseSourceObjectUrls();
       if (purge) {
@@ -1268,11 +1279,12 @@ _UI_HTML = """<!doctype html>
     }
     async function launchGameChoice(choice, cardId = '') {
       if (!choice || gameStarting || gameChangingChapter || gameSubmitting || gameItemStatus === 'grading_pending') return;
-      if (!gameChoices.some((item) => item.question_version_id === choice.question_version_id)) return;
+      if (!choice.mistake_id && !gameChoices.some((item) => item.question_version_id === choice.question_version_id)) return;
+      if (choice.mistake_id && (!choice.available || !savedChoiceInScope(choice))) return;
       if (['reserved','presented'].includes(gameItemStatus) && !window.confirm('当前题还没有作答，要换一道挑战吗？')) return;
       $('questionVersion').value = choice.question_version_id; $('card').value = cardId;
       setGameView('practice');
-      await $('startTest').onclick();
+      await $('startTest').onclick(choice.mistake_id ? choice : null);
     }
     function difficultyGuidance() { return gameGuidance[gameBook + '|' + gameChapter] || {difficulty:'easy', reason:'先从简单题开始；同一难度连续独立答对 4 道不同题后，尝试下一档。'}; }
     function selectedDifficulty() { return gameDifficulty === 'auto' ? difficultyGuidance().difficulty : gameDifficulty; }
@@ -1381,7 +1393,7 @@ _UI_HTML = """<!doctype html>
       $('scopeAvailability').textContent = gamePool === 'reserve' ? `当前范围有 ${gameChoices.length} 道未见备用题；仅核对作答，不代表已掌握。` : gameChoices.length ? `当前范围有 ${gameChoices.length} 道题，按所选难度出题，尚未覆盖全部知识点。` : '所选范围暂未配题，可以先阅读教材。';
       $('gamePracticeEmpty').querySelector('p').textContent = gamePool === 'reserve' && !gameChoices.length ? '本范围已没有未见备用题，可切换普通练习或阅读教材。' : gameChoices.length ? '准备好了？从所选范围的一道题开始。' : '所选范围暂未配题，请返回首页阅读教材或选择其他范围。';
       renderPracticeChoices(gameChoices, gameObjectives);
-      renderReviewTasks(gameTasks.filter((task) => gameChoices.some((choice) => choice.objective_id === task.objective_id)), gameChoices);
+      renderReviewTasks(gameTasks.filter((task) => (task.saved_practice || []).some(savedChoiceInScope) || gameChoices.some((choice) => choice.objective_id === task.objective_id)), gameChoices);
       renderReaderToc(); updateChapterControls();
     }
     async function selectLearningScope(bookId, chapterId = '', openReader = false) {
@@ -1397,6 +1409,7 @@ _UI_HTML = """<!doctype html>
         if (unfinished) await call('/api/v1/test-sessions/' + encodeURIComponent($('session').value) + '/cancel', {method:'POST'});
         if (epoch !== contextEpoch) return;
         workspaceStorage.removeItem(testStateKey()); savedTest = {};
+        resetPracticeCollection();
         ['questionVersion','card','session','testItem','attempt','answer'].forEach((id) => { $(id).value = ''; });
         $('testPrompt').textContent = ''; testStatus(''); $('gameFeedback').hidden = true; $('gameHint').hidden = true;
         gameItemStatus = ''; gameBook = bookId; gameChapter = chapterId;
@@ -1507,6 +1520,7 @@ _UI_HTML = """<!doctype html>
       savedTest = state;
     }
     function renderTest(data) {
+      resetPracticeCollection();
       const item = (data.items || [])[0] || data;
       if (item.prompt !== undefined) $('testPrompt').textContent = item.prompt || '题面为空。';
       if (familyGameMode) { $('solutionDetails').open = false; $('solutionDetails').hidden = true; renderQuestionMeta(); }
@@ -1552,9 +1566,11 @@ _UI_HTML = """<!doctype html>
       const attemptId = $('attempt').value.trim();
       if (!attemptId) throw new Error('提交后才有 Attempt ID');
       const data = await call('/api/v1/attempts/' + encodeURIComponent(attemptId));
+      if (epoch !== contextEpoch || attemptId !== $('attempt').value.trim()) throw new StaleContextError();
       const outcome = data.outcome ? ` · ${{correct:'答对了',incorrect:'再想一想',needs_review:'请家长复核'}[data.outcome] || data.outcome}` : '';
       testStatus(`${data.status === 'graded' ? '已完成' : '正在判分'}${outcome}`);
       saveTestState(); show(data);
+      updatePracticeCollection(data);
       if (familyGameMode) renderGameFeedback(data);
       if (data.status === 'grading_pending' && retry < 4) {
         await new Promise((resolve) => setTimeout(resolve, 700));
@@ -1781,6 +1797,12 @@ _UI_HTML = """<!doctype html>
         for (const [key, label] of [['student_answer','当时的答案'],['correct_answer','参考答案'],['note','备注']]) {
           if (content[key]) { const line = document.createElement('p'); line.textContent = label + '：' + content[key]; details.append(line); }
         }
+        if (content.source_kind === 'frozen_practice_attempt') {
+          for (const text of ['原题版本：' + content.question_version_id, '作答记录：' + content.attempt_id,
+              content.assistance === 'none' && content.assessment_eligibility ? '独立作答' : '辅助练习（不计入独立证据）', '错因尚未判断']) {
+            const line = document.createElement('p'); line.textContent = text; details.append(line);
+          }
+        }
         button.onclick = () => { $('mistake').value = item.id; details.hidden = !details.hidden; button.textContent = details.hidden ? '查看错题详情' : '收起详情'; };
         row.append(title, button, details); container.append(row);
       });
@@ -1811,6 +1833,9 @@ _UI_HTML = """<!doctype html>
         practice.append(button);
       });
     }
+    function savedChoiceInScope(choice) {
+      return !familyGameMode || (choice.textbook_scope?.book_id === gameBook && (!gameChapter || choice.textbook_scope?.chapter_id === gameChapter));
+    }
     function renderReviewTasks(items, choices) {
       const container = $('today'); container.replaceChildren();
       if (familyGameMode) $('familyReview').hidden = !items.length;
@@ -1818,6 +1843,22 @@ _UI_HTML = """<!doctype html>
       items.forEach((task) => {
         const row = document.createElement('article'); row.className = 'review-card';
         const title = document.createElement('h3'); title.textContent = task.title || '到期复习'; row.append(title);
+        const due = document.createElement('p'); due.textContent = '到期时间：' + new Date(task.due_at).toLocaleString('zh-CN'); row.append(due);
+        const saved = task.saved_practice || [];
+        if (saved.length) {
+          saved.filter(savedChoiceInScope).forEach((choice) => {
+            const prompt = document.createElement('p'); prompt.textContent = choice.prompt; row.append(prompt);
+            const button = document.createElement('button'); button.className = 'secondary';
+            button.textContent = choice.available ? '复习收藏原题' : '原题已变化，请先核对'; button.disabled = !choice.available;
+            button.onclick = () => {
+              if (familyGameMode) { launchGameChoice(choice, task.id); return; }
+              $('questionVersion').value = choice.question_version_id; $('card').value = task.id;
+              $('startTest').onclick(choice); $('testSection').scrollIntoView();
+            };
+            row.append(button);
+          });
+          container.append(row); return;
+        }
         const available = choices.filter((choice) => !task.objective_id || choice.objective_id === task.objective_id);
         if (!available.length) row.append(document.createTextNode('此目标尚无可投放的审核题目。'));
         available.forEach((choice, index) => {
@@ -2078,13 +2119,14 @@ _UI_HTML = """<!doctype html>
       try { const data = await call('/api/v1/mistakes/' + encodeURIComponent($('mistake').value) + '/diagnoses', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({})}); show(data); }
       catch (e) { if (e instanceof StaleContextError) return; show(e.message); }
     };
-    $('startTest').onclick = async () => {
+    $('startTest').onclick = async (savedChoice = null) => {
       if (familyGameMode && gameStarting) return;
       const epoch = contextEpoch;
       if (familyGameMode) { gameStarting = true; updateChapterControls(); $('nextChallenge').disabled = true; }
       try {
         const card = $('card').value.trim(); const body = {question_version_id: $('questionVersion').value, mode: 'independent'};
         if (card) body.card_id = card;
+        if (savedChoice?.mistake_id) body.mistake_id = savedChoice.mistake_id;
         if (familyGameMode) { body.textbook_book_id = gameBook; body.textbook_chapter_id = gameChapter || null; }
         const data = await call('/api/v1/test-sessions', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body)});
         $('attempt').value = ''; renderTest(data); testStatus(familyGameMode ? '慢慢想，准备好就写下答案。' : '题面已发放，答案未发送到客户端。');
@@ -2330,6 +2372,10 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
         if request.url.path.startswith('/api/v1/') or request.url.path == '/ui':
             response.headers['Cache-Control'] = 'no-store'
         return response
+
+    @app.exception_handler(CollectionError)
+    async def collection_error_handler(request: Request, exc: CollectionError):
+        return JSONResponse(status_code=exc.status, content={"error": {"code": exc.code, "message": str(exc), "retryable": False}})
 
     @app.exception_handler(APIError)
     async def api_error_handler(_: Request, exc: APIError):
@@ -2714,6 +2760,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
         content = _UI_HTML
         content = content.replace('/* STUDY_SUPPORT_STYLE */', STUDY_STYLE)
         content = content.replace('<!-- STUDY_SUPPORT_PANEL -->', STUDY_PANEL)
+        content = content.replace('<!-- PRACTICE_COLLECTION_PANEL -->', COLLECTION_PANEL)
         content = content.replace('// STUDY_SUPPORT_SCRIPT', STUDY_SCRIPT)
         content = content.replace('const publicBasePath = "";', 'const publicBasePath = ' + json.dumps(settings.public_base_path) + ';')
         if app.state.settings.browser_auth_enabled:
@@ -3302,6 +3349,68 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             raise APIError(404, "OPERATION_NOT_FOUND", "操作不存在")
         return {**dict(row), "selected": json_loads(row["selected_json"], {}), "result": json_loads(row["result_json"], {})}
 
+    @app.get("/api/v1/attempts/{attempt_id}/collection-preview")
+    def preview_practice_collection(attempt_id: str, ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
+        learner_id = learner_for(ctx, db=db)
+        with db.session() as conn:
+            return collection_preview(conn, learner_id, attempt_id)
+
+    @app.post("/api/v1/attempts/{attempt_id}/collection", status_code=201)
+    def confirm_practice_collection(attempt_id: str, body: PracticeCollectionRequest, request: Request,
+                                    ctx: Context = Depends(get_context), db: Database = Depends(get_db),
+                                    settings: Settings = Depends(get_settings)):
+        learner_id = learner_for(ctx, db=db)
+        key = request.headers.get('Idempotency-Key')
+        if not key:
+            raise APIError(422, 'IDEMPOTENCY_REQUIRED', '确认收藏需要重试标识')
+        if not body.confirmed:
+            raise APIError(422, 'CONFIRMATION_REQUIRED', '请先核对原题与作答，再明确确认收藏')
+        payload = body.model_dump()
+        with db.session(write=True) as conn:
+            # Preview is recomputed under the same write lock as confirmation;
+            # an identity change is fenced by Database.session before any write.
+            preview = collection_preview(conn, learner_id, attempt_id)
+            if preview['preview_sha256'] != body.preview_sha256:
+                raise APIError(409, 'PRACTICE_PREVIEW_CHANGED', '作答或判分已变化，请重新核对后确认')
+            prior = idempotent_result(conn, ctx, learner_id, 'collect_practice', attempt_id, key, payload)
+            source = conn.execute(
+                "SELECT m.id,m.status,m.content_json,s.active FROM mistake_sources s JOIN mistake_entries m ON m.id=s.entry_id "
+                "WHERE s.learner_id=? AND s.source_kind='test_attempt' AND s.occurrence_id=? AND s.item_locator=?",
+                (learner_id, attempt_id, preview['test_item_id'])).fetchone()
+            if source:
+                if source['status'] != 'active' or not source['active']:
+                    raise APIError(409, 'COLLECTION_RETRACTED', '此收藏已撤回，不会由重试自动恢复')
+                content = json_loads(source['content_json'], {})
+                if content.get('preview_sha256') != body.preview_sha256:
+                    raise APIError(409, 'COLLECTION_CHANGED', '已有收藏绑定了此前判分，请先核对原记录')
+                if prior:
+                    return prior
+                card = conn.execute('SELECT id,due_at FROM review_cards WHERE learner_id=? AND objective_id=? AND active=1',
+                                    (learner_id, preview['objective_id'])).fetchone()
+                return {'mistake_id': source['id'], 'status': 'active', 'source_kind': 'test_attempt',
+                        'review_card_id': card['id'] if card else None, 'due_at': card['due_at'] if card else None,
+                        'attempt_id': attempt_id}
+            objective_for_learner(conn, learner_id, preview['objective_id'])
+            existing_card = conn.execute('SELECT active FROM review_cards WHERE learner_id=? AND objective_id=?',
+                                         (learner_id, preview['objective_id'])).fetchone()
+            if existing_card and not existing_card['active']:
+                raise APIError(409, 'CARD_INACTIVE', '该目标的复习卡已停用，请先核对后恢复')
+            now, mistake_id = utc_now(), new_id('mistake')
+            content = {**preview, 'source_kind': 'frozen_practice_attempt', 'note': None}
+            conn.execute('INSERT INTO mistake_entries(id,learner_id,objective_id,status,diagnosis_status,created_at,content_json) VALUES (?,?,?,?,?,?,?)',
+                         (mistake_id, learner_id, preview['objective_id'], 'active', 'draft', now, json_dumps(content)))
+            conn.execute('INSERT INTO mistake_sources(id,entry_id,learner_id,source_kind,occurrence_id,item_locator,attempt_id,active,created_at) VALUES (?,?,?,?,?,?,?,?,?)',
+                         (new_id('source'), mistake_id, learner_id, 'test_attempt', attempt_id, preview['test_item_id'], attempt_id, 1, now))
+            card_id = _ensure_review_card(conn, learner_id, preview['objective_id'], settings, now)
+            due_at = conn.execute('SELECT due_at FROM review_cards WHERE id=?', (card_id,)).fetchone()[0]
+            result = {'mistake_id': mistake_id, 'status': 'active', 'source_kind': 'test_attempt',
+                      'review_card_id': card_id, 'due_at': due_at, 'attempt_id': attempt_id}
+            save_idempotent(conn, ctx, learner_id, 'collect_practice', attempt_id, key, payload, result)
+            conn.execute('INSERT INTO audit_events(id,account_id,operation,resource_type,resource_id,result,metadata_json,created_at) VALUES (?,?,?,?,?,?,?,?)',
+                         (new_id('audit'), ctx.account_id, 'collect_practice', 'mistake', mistake_id, 'accepted',
+                          json_dumps({'explicit_confirmation': True, 'diagnosis_created': False}), now))
+        return result
+
     @app.post("/api/v1/mistakes/manual", status_code=201)
     def create_manual_mistake(body: ManualMistakeRequest, request: Request, ctx: Context = Depends(get_context), db: Database = Depends(get_db), settings: Settings = Depends(get_settings)):
         learner_id = learner_for(ctx, db=db)
@@ -3506,7 +3615,8 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
         now = utc_now()
         with db.session() as conn:
             rows = conn.execute("SELECT c.*,o.code,o.title FROM review_cards c JOIN review_objectives o ON o.id=c.objective_id WHERE c.learner_id=? AND c.active=1 AND c.due_at<=? ORDER BY CASE c.state WHEN 'relearning' THEN 0 WHEN 'review' THEN 1 ELSE 2 END,c.due_at", (learner_id, now)).fetchall()
-        return {"items": [dict(row) for row in rows], "as_of": now, "budget": {"max_items": 8, "suggested_minutes": 20}, "next_cursor": None}
+            items = [{**dict(row), 'saved_practice': saved_review_choices(conn, learner_id, row['objective_id'])} for row in rows]
+        return {"items": items, "as_of": now, "budget": {"max_items": 8, "suggested_minutes": 20}, "next_cursor": None}
 
     @app.get("/api/v1/progress")
     def progress(ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
@@ -3541,10 +3651,21 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                 card = conn.execute("SELECT * FROM review_cards WHERE id=? AND learner_id=? AND active=1", (body.card_id, learner_id)).fetchone()
                 if not card:
                     raise APIError(404, "CARD_NOT_FOUND", "复习卡不存在")
+                if card['objective_id'] != question['objective_id']:
+                    raise APIError(422, 'CARD_OBJECTIVE_MISMATCH', '请选择与复习目标一致的题目')
                 if body.mode == "independent" and _parse_iso(card["due_at"]) > datetime.now(timezone.utc):
                     raise APIError(409, "CARD_NOT_DUE", "该复习卡尚未到期")
                 if conn.execute("SELECT 1 FROM test_items WHERE card_id=? AND status IN ('reserved','presented','grading_pending')", (body.card_id,)).fetchone():
                     raise APIError(409, "CARD_ALREADY_RESERVED", "该复习卡已有进行中的测验")
+            if body.mistake_id:
+                if not card:
+                    raise APIError(422, 'CARD_REQUIRED', '收藏复习需要对应的复习卡')
+                saved = next((choice for choice in saved_review_choices(conn, learner_id, card['objective_id'])
+                              if choice['mistake_id'] == body.mistake_id), None)
+                if not saved:
+                    raise APIError(404, 'MISTAKE_NOT_FOUND', '收藏不存在或已撤回')
+                if not saved['available'] or saved['question_version_id'] != body.question_version_id:
+                    raise APIError(409, 'PRACTICE_VERSION_CHANGED', '收藏题版已变化，请保留原记录并核对')
             if body.question_version_id.startswith('family-reserve-'):
                 from .reserve_practice import unseen
                 if card and card['objective_id'] != question['objective_id']:
@@ -3553,7 +3674,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                     raise APIError(409, 'PRACTICE_RESERVE_ALREADY_SEEN', '这道备用题已看过，请选择其他未见题；已有复习卡可按计划复习')
             session_id, item_id, cycle_id = new_id("session"), new_id("test_item"), new_id("cycle") if card else None
             conn.execute("INSERT INTO test_sessions(id,learner_id,mode,status,created_at) VALUES (?,?,?,?,?)", (session_id, learner_id, body.mode, "active", utc_now()))
-            conn.execute("INSERT INTO test_items(id,session_id,learner_id,question_version_id,card_id,cycle_id,reserved_revision,status,presented_at) VALUES (?,?,?,?,?,?,?,?,?)", (item_id, session_id, learner_id, body.question_version_id, card["id"] if card else None, cycle_id, card["revision"] if card else None, "presented", utc_now()))
+            conn.execute("INSERT INTO test_items(id,session_id,learner_id,question_version_id,card_id,cycle_id,reserved_revision,status,presented_at,question_snapshot_json) VALUES (?,?,?,?,?,?,?,?,?,?)", (item_id, session_id, learner_id, body.question_version_id, card["id"] if card else None, cycle_id, card["revision"] if card else None, "presented", utc_now(), json_dumps(question_snapshot(conn, body.question_version_id))))
             content = json_loads(question["content_json"], {})
         return {"session_id": session_id, "items": [{"test_item_id": item_id, "question_version_id": body.question_version_id, "prompt": content.get("prompt", ""), "input_type": content.get("input_type", "text"), "status": "presented"}], "answer_key": None}
 
@@ -3573,6 +3694,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             ).fetchall()
             for row in rows:
                 _validate_reserve_version(conn, row['question_version_id'])
+                frozen_question(conn, row['id'])
         return {"session": dict(session), "items": [{"test_item_id": row["id"], "question_version_id": row["question_version_id"], "prompt": json_loads(row["content_json"], {}).get("prompt", ""), "status": row["status"], "assistance": row["assistance"], "attempt_id": row["attempt_id"], "attempt_status": row["attempt_status"]} for row in rows], "answer_key": None}
 
     @app.post("/api/v1/test-sessions/{session_id}/cancel")
@@ -3594,6 +3716,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             if not row or row["status"] not in {"reserved", "presented"}:
                 raise APIError(404, "TEST_ITEM_NOT_FOUND", "测验题项不存在")
             _validate_reserve_version(conn, row['question_version_id'])
+            frozen_question(conn, item_id)
             conn.execute("UPDATE test_items SET assistance='hint',status='presented' WHERE id=?", (item_id,))
             conn.execute("INSERT INTO learning_events(id,learner_id,objective_id,event_type,source,assistance,accepted_at,metadata_json) VALUES (?,?,?,?,?,?,?,?)", (new_id("event"), learner_id, row["objective_id"], "hint_exposed", "test", "hint", utc_now(), json_dumps({"test_item_id": item_id})))
             hint = json_loads(row["content_json"], {}).get("hint", "请先说明每一步代表什么，再计算终点。")
@@ -3607,6 +3730,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             if not item:
                 raise APIError(404, "TEST_ITEM_NOT_FOUND", "测验题项不存在")
             _validate_reserve_version(conn, item['question_version_id'])
+            frozen_question(conn, item_id)
             versions = {"question_version_id": item["question_version_id"], "card_id": item["card_id"], "reserved_revision": item["reserved_revision"]}
             return challenge_response(conn, ctx, learner_id, "submit_answer", item_id, versions, settings)
 
@@ -3627,6 +3751,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             ).fetchone()
             if row:
                 _validate_reserve_version(conn, row['question_version_id'])
+                frozen_question(conn, item_id)
         if not row or row["status"] not in {"reserved", "presented"}:
             raise APIError(404, "TEST_ITEM_NOT_FOUND", "测验题项不存在")
         content = json_loads(row["content_json"], {})
@@ -3658,6 +3783,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                     return {"attempt_id": existing["id"], "status": existing["status"], "idempotent": True}
                 raise APIError(404, "TEST_ITEM_NOT_FOUND", "测验题项不存在")
             _validate_reserve_version(conn, item['question_version_id'])
+            frozen_question(conn, item_id)
             versions = {"question_version_id": item["question_version_id"], "card_id": item["card_id"], "reserved_revision": item["reserved_revision"]}
             consume_challenge(conn, ctx, learner_id, "submit_answer", item_id, body.challenge_id, body.nonce, versions)
             attempt_id = new_id("attempt")
@@ -4845,6 +4971,7 @@ def _process_grade(db: Database, job: sqlite3.Row, token: str, settings: Setting
         if existing:
             return {"attempt_id": attempt_id, "status": "already_graded", "outcome": existing["outcome"]}
         _validate_reserve_version(conn, row['question_version_id'])
+        frozen_question(conn, row['item_id'], allow_retired=True)
         answer_key = json_loads(row["answer_key_json"], {})
         accepted = {_normalize_answer(str(value)) for value in answer_key.get("accepted", [])}
         normalized = _normalize_answer(row["raw_answer"])

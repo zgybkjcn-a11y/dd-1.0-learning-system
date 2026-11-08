@@ -86,6 +86,12 @@ PATHS = (*PASSAGE_RUNTIME_PATHS, "learning_service/reserve_practice.py",
          "learning_service/data/family_chapter_coverage_v1.json",
          "scripts/prepare_reserve_practice.py", "docs/open-webui-reuse/practice-reserve.md")
 
+RESERVE_RUNTIME_PATHS = PATHS
+RESERVE_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-practice-collection-v1"
+PATHS = (*RESERVE_RUNTIME_PATHS, "learning_service/migrations/012_practice_collection.sql",
+         "docs/open-webui-reuse/practice-collection.md")
+
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -126,7 +132,7 @@ def prepare(destination: Path, root: Path = ROOT) -> dict:
         "state": "local_source_candidate_not_built_not_deployed",
         "git_head": head.stdout.strip() if head.returncode == 0 else None,
         "worktree_dirty": bool(status.stdout.strip()) if status.returncode == 0 else None,
-        "schema_revision": 11, "open_webui_target_version": "0.12.5",
+        "schema_revision": 12, "open_webui_target_version": "0.12.5",
         "source_profile": REUSE_PROFILE,
         "image_digest": None, "source_sha256": fingerprints,
         "source_set_sha256": sha256(_json(fingerprints)), "archive_sha256": sha256(archive_bytes),
@@ -144,8 +150,10 @@ def prepare(destination: Path, root: Path = ROOT) -> dict:
 def verify(destination: Path) -> dict:
     manifest = json.loads((destination / "manifest.json").read_text())
     paths = {9: LEGACY_PATHS, 10: SCHEMA10_PATHS, 11: SCHEMA11_PATHS}.get(manifest.get("schema_revision"))
-    if manifest.get("source_profile") == REUSE_PROFILE and manifest.get("schema_revision") == 11:
+    if manifest.get("source_profile") == REUSE_PROFILE and manifest.get("schema_revision") == 12:
         paths = PATHS
+    elif manifest.get("source_profile") == RESERVE_RUNTIME_PROFILE and manifest.get("schema_revision") == 11:
+        paths = RESERVE_RUNTIME_PATHS
     elif manifest.get("source_profile") == PASSAGE_RUNTIME_PROFILE and manifest.get("schema_revision") == 11:
         paths = PASSAGE_RUNTIME_PATHS
     elif manifest.get("source_profile") == STUDY_WORKBENCH_PROFILE and manifest.get("schema_revision") == 11:

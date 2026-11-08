@@ -1,5 +1,7 @@
 # DD-1.0 下一阶段工作计划与执行规程
 
+最新执行（B05，2026-11-08）：[本地工程验收](../verification/B05-practice-collection-2026-11-08.md)完成82单元/契约+6浏览器，83文件schema12源码候选已校验；工程ready、候选交付、本地验证passed。家庭实际反馈pending、B05总状态open、实际工时null；下一项 **B06**，其依赖的B05本地工程已具备。B04图形待解、B02真实观察及A09家庭验收另记。
+
 最新执行（B04，2026-11-08）：[首批5页独立复核](../verification/B04-full-page-review-2026-11-08.md)完成处理，4通过/1待解；工程ready、候选交付、本批处理验收passed、首批出口complete，实际工时null。内容未决项B04-P013-D01独立保留，题目/判分资格0。下一项 **B05**，不扩大至10页；B02真实观察、A09家庭验收继续单列。
 
 最新执行（B03，2026-11-08）：[片段复核工作台](../open-webui-reuse/passage-review-workbench.md)、[独立验证](../verification/B03-passage-review-2026-11-08.md)完成50+2定向检查，16文件维护源码包已校验；工程ready、候选交付、本地验收passed、B03本地出口complete。实际复核1个定义片段，整页0；下一项B04五页逐项复核，未提交/部署。B02延迟观察与A09家庭验收保持待办。

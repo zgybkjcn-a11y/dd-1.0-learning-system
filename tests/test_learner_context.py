@@ -103,7 +103,7 @@ def test_migration10_revokes_old_unattributed_sessions(tmp_path):
     with upgraded.session() as conn:
         row = conn.execute("SELECT issuer,subject,revoked_at FROM browser_sessions").fetchone()
         assert row[0] is None and row[1] is None and row[2]
-        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 11
+        assert conn.execute("SELECT MAX(version) FROM schema_migrations").fetchone()[0] == 12
 
 
 def test_restore_clears_selected_context_and_old_challenges(shared_env, tmp_path):

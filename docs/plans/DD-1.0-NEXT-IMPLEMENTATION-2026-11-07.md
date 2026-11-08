@@ -1,5 +1,7 @@
 # DD-1.0 下一阶段工作实施方案
 
+最新执行（B05，2026-11-08）：[显式收藏说明](../open-webui-reuse/practice-collection.md)和[独立验收](../verification/B05-practice-collection-2026-11-08.md)完成只读预览/取消、确认幂等、档案写屏障、题版冻结及到期原题复习；82单元/契约+6浏览器通过。schema12、83文件候选未提交/部署。工程ready、本地验证passed，家庭反馈pending、总状态open；下一项 **B06**，不据工程验证代填家庭体验。
+
 最新执行（B04，2026-11-08）：[独立验收](../verification/B04-full-page-review-2026-11-08.md)与[处理约定](../open-webui-reuse/full-page-review.md)完成二下书内10–14/PDF16–20连续5页处理；4页助手双步骤通过、13页图形歧义待解，题目/答案资格0。38项数学检查与17个反例通过；首批处理出口complete，不代表5页全通过或整册审核。下一项 **B05**；旧OCR/运行包及历史证据保留，未提交/部署。
 
 最新执行（B03，2026-11-08）：[独立本地复核工作台](../open-webui-reuse/passage-review-workbench.md)与[验证](../verification/B03-passage-review-2026-11-08.md)完成一个原生PDF片段的并排核验、版本/问题/启停/重审和并发保护；50单元/契约+2浏览器通过，实际倒数定义助手复核1片段、完整页0。B03本地出口complete，未提交/部署；下一项 **B04**。B02真实观察和A09家庭验收另列，以下保留历史语境。

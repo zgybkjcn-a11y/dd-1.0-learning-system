@@ -101,6 +101,7 @@ def test_old_schema11_candidate_verifies_after_runtime_profile_expansion(tmp_pat
     with tarfile.open(old/'source.tar.gz') as source, tarfile.open(fileobj=payload, mode='w:gz') as target:
         for member in source:
             if member.name in release.SCHEMA11_PATHS: target.addfile(member,source.extractfile(member))
+    manifest['schema_revision'] = 11
     manifest.pop('source_profile')
     manifest['source_sha256']={k:v for k,v in manifest['source_sha256'].items() if k in release.SCHEMA11_PATHS}
     manifest['source_set_sha256']=release.sha256(release._json(manifest['source_sha256']))
@@ -117,6 +118,7 @@ def test_previous_runtime_candidate_still_verifies_after_textbook_expansion(tmp_
         for member in source:
             if member.name in release.PRE_TEXTBOOK_PATHS:
                 target.addfile(member, source.extractfile(member))
+    manifest['schema_revision'] = 11
     manifest['source_profile'] = release.PRE_TEXTBOOK_PROFILE
     manifest['source_sha256'] = {k:v for k,v in manifest['source_sha256'].items() if k in release.PRE_TEXTBOOK_PATHS}
     manifest['source_set_sha256'] = release.sha256(release._json(manifest['source_sha256']))
@@ -128,7 +130,7 @@ def test_previous_runtime_candidate_still_verifies_after_textbook_expansion(tmp_
 
 @pytest.mark.parametrize('profile,paths', [('textbook','TEXTBOOK_PATHS'),('practice','PRACTICE_PATHS'),
                                           ('math_reference','MATH_REFERENCE_PATHS'), ('study_workbench','STUDY_WORKBENCH_PATHS'),
-                                          ('passage_runtime','PASSAGE_RUNTIME_PATHS')])
+                                          ('passage_runtime','PASSAGE_RUNTIME_PATHS'), ('reserve_runtime','RESERVE_RUNTIME_PATHS')])
 def test_prior_content_profiles_verify_after_reference_expansion(tmp_path, profile, paths):
     root = _root(tmp_path); old = root / ('previous-' + profile)
     manifest = release.prepare(old, root)
@@ -138,6 +140,7 @@ def test_prior_content_profiles_verify_after_reference_expansion(tmp_path, profi
         for member in source:
             if member.name in names:
                 target.addfile(member, source.extractfile(member))
+    manifest['schema_revision'] = 11
     manifest['source_profile'] = getattr(release, profile.upper() + '_PROFILE')
     manifest['source_sha256'] = {k:v for k,v in manifest['source_sha256'].items() if k in names}
     manifest['source_set_sha256'] = release.sha256(release._json(manifest['source_sha256']))

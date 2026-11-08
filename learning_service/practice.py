@@ -14,7 +14,7 @@ from pathlib import Path
 import re
 import unicodedata
 
-from .db import json_dumps, utc_now
+from .db import json_dumps, json_loads, utc_now
 
 BANK_PATH = Path(__file__).parent / 'data/family_word_problems_v1.json'
 BANK_SHA256 = '38e0903024ed9c402a8c66e8b02a3afd3e304ad55913fbdb0572a16589d211ef'
@@ -28,6 +28,99 @@ OBJECTIVES = {
     (7, '2'): '用有理数运算解决生活问题',
     (7, '5'): '用一元一次方程解决生活问题',
 }
+
+
+class CollectionError(ValueError):
+    def __init__(self, status, code, message):
+        self.status, self.code = status, code
+        super().__init__(message)
+
+
+def fingerprint(value):
+    return hashlib.sha256(json_dumps(value).encode()).hexdigest()
+
+
+def question_snapshot(conn, version_id):
+    row = conn.execute(
+        'SELECT qv.id,qv.question_id,qv.version,qv.content_json,qv.answer_key_json,'
+        'qv.validator_version,qv.variant_kind,qv.variant_group,qv.approval,q.objective_id,q.visibility,q.learner_id,'
+        'q.approval AS question_approval FROM question_versions qv '
+        'JOIN questions q ON q.id=qv.question_id WHERE qv.id=?', (version_id,)).fetchone()
+    if not row:
+        raise CollectionError(409, 'PRACTICE_VERSION_CHANGED', '题版已不可用，请保留原记录并联系家长核对。')
+    return dict(row)
+
+
+def frozen_question(conn, item_id, *, required=False, allow_retired=False):
+    row = conn.execute('SELECT question_version_id,question_snapshot_json FROM test_items WHERE id=?', (item_id,)).fetchone()
+    snapshot = json_loads(row['question_snapshot_json'], None) if row else None
+    if row and row['question_snapshot_json'] is None and not required:
+        return None
+    if not isinstance(snapshot, dict):
+        raise CollectionError(409, 'PRACTICE_SNAPSHOT_MISSING', '这次旧作答缺少出题时的题版快照，请使用手动收藏核对原题。')
+    current = question_snapshot(conn, row['question_version_id'])
+    # Existing variant revocation promises to finish already submitted work.
+    # Only that worker path may ignore approval flags; content, key, ownership
+    # and objective must still match the original presentation exactly.
+    ignored = {'approval', 'question_approval'} if allow_retired else set()
+    if {k:v for k,v in snapshot.items() if k not in ignored} != {k:v for k,v in current.items() if k not in ignored}:
+        raise CollectionError(409, 'PRACTICE_VERSION_CHANGED', '出题时的题版已变化，请保留原记录并联系家长核对。')
+    return snapshot
+
+
+def collection_preview(conn, learner_id, attempt_id):
+    from .textbooks import practice_scope
+    row = conn.execute(
+        'SELECT a.*,ti.question_version_id,ts.mode AS session_mode,g.id AS grade_id,g.outcome,g.feedback '
+        'FROM attempts a JOIN test_items ti ON ti.id=a.test_item_id '
+        'JOIN test_sessions ts ON ts.id=ti.session_id '
+        'LEFT JOIN grade_versions g ON g.id=(SELECT gg.id FROM grade_versions gg '
+        'WHERE gg.attempt_id=a.id ORDER BY gg.created_at DESC,gg.rowid DESC LIMIT 1) '
+        'WHERE a.id=? AND a.learner_id=? AND ti.learner_id=?', (attempt_id, learner_id, learner_id)).fetchone()
+    if not row:
+        raise CollectionError(404, 'ATTEMPT_NOT_FOUND', '作答不存在')
+    if row['status'] != 'graded' or row['outcome'] not in ('incorrect', 'partial'):
+        raise CollectionError(409, 'PRACTICE_NOT_COLLECTIBLE', '仅已判分的错答或部分正确作答可以在此确认收藏。')
+    snapshot = frozen_question(conn, row['test_item_id'], required=True)
+    if snapshot['approval'] != 'approved' or snapshot['question_approval'] != 'approved':
+        raise CollectionError(409, 'PRACTICE_VERSION_CHANGED', '题版已停用，请先核对。')
+    content = json_loads(snapshot['content_json'], {})
+    preview = {'attempt_id': attempt_id, 'test_item_id': row['test_item_id'], 'learner_id': learner_id,
+               'question_version_id': row['question_version_id'], 'question_sha256': fingerprint(snapshot),
+               'question_text': content.get('prompt', ''), 'student_answer': row['raw_answer'],
+               'submitted_at': row['submitted_at'], 'grade_id': row['grade_id'], 'outcome': row['outcome'],
+               'feedback': row['feedback'], 'assistance': row['assistance'],
+               'assessment_eligibility': bool(row['assessment_eligibility']), 'session_mode': row['session_mode'],
+               'objective_id': snapshot['objective_id'], 'diagnosis': None,
+               'textbook_scope': practice_scope(row['question_version_id'])}
+    return {**preview, 'preview_sha256': fingerprint(preview)}
+
+
+def saved_review_choices(conn, learner_id, objective_id):
+    rows = conn.execute(
+        "SELECT m.id,m.content_json FROM mistake_entries m JOIN mistake_sources s ON s.entry_id=m.id "
+        "AND s.learner_id=m.learner_id WHERE m.learner_id=? AND m.objective_id=? AND m.status='active' "
+        "AND s.active=1 AND s.source_kind='test_attempt' ORDER BY m.created_at,m.id",
+        (learner_id, objective_id)).fetchall()
+    choices = []
+    for row in rows:
+        content = json_loads(row['content_json'], {})
+        if content.get('source_kind') != 'frozen_practice_attempt':
+            continue
+        available = False
+        try:
+            snapshot = question_snapshot(conn, content['question_version_id'])
+            available = (fingerprint(snapshot) == content['question_sha256']
+                         and snapshot['approval'] == snapshot['question_approval'] == 'approved'
+                         and snapshot['objective_id'] == objective_id
+                         and (snapshot['visibility'] != 'private' or snapshot['learner_id'] == learner_id))
+        except (CollectionError, KeyError):
+            pass
+        choices.append({'mistake_id': row['id'], 'question_version_id': content.get('question_version_id'),
+                        'prompt': content.get('question_text', ''), 'attempt_id': content.get('attempt_id'),
+                        'assistance': content.get('assistance'), 'textbook_scope': content.get('textbook_scope'),
+                        'available': available})
+    return choices
 
 
 def arithmetic(expression: str) -> Fraction:

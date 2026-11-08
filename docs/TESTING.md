@@ -1,5 +1,7 @@
 # 可移植测试与本地材料验证
 
+B05定向验证见[独立记录](verification/B05-practice-collection-2026-11-08.md)：`tests/test_practice_collection.py`新增20项，连同相关迁移/调度/档案/练习/发布与OpenAPI共82项通过；新增收藏两宽度及原普通/备用练习共6浏览器通过。schema12快照仅用于合成临时库，所有请求拦截，无真实模型/OCR/正式数据访问。首次浏览器夹具和封包探针错误分别保留，不累加重跑分母。
+
 B04定向证据校验：`learning_data/verification/a03-portable-tests-20261107T091348Z/venv/bin/python learning_data/verification/b04-full-page-review-20261108T033243Z/verify-evidence.py`。5页PDF/原图绑定、132条OCR/27区块、38项数学检查与17个内存反例通过；实际助手整页审核4通过/1待解，非新增pytest或浏览器用例。仅离线证据和文档变化，未重跑历史服务测试。见[B04独立记录](verification/B04-full-page-review-2026-11-08.md)。
 
 B03定向验证：`python -m pytest -q tests/test_passage_review.py tests/test_textbook_quality.py --fail-on-skip`（50项），`python -m pytest -q -m browser tests/test_passage_review_browser.py --fail-on-skip`（2宽度）。合成PDF/独立审核库、全请求拦截；实际单片段只读显示另列，非默认实物测试。见[B03验证](verification/B03-passage-review-2026-11-08.md)与[本地工作台](open-webui-reuse/passage-review-workbench.md)。
