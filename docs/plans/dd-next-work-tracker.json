@@ -68,14 +68,72 @@
   },
   "recommended_next_task": "B10",
   "latest_git_delivery": {
-    "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
+    "scope": "B01-B10",
+    "recorded_at": "2026-11-08T15:53:05.782206+08:00",
+    "base_commit": "cd4ad61b44597696d6c59495b489595e68123706",
+    "commit_sha": "1021ff80268dd330c19f4767da1a16720e15d793",
     "branch": "main",
-    "remote": "origin/main",
-    "files_changed": 89,
-    "pushed": true,
+    "commits": [
+      {
+        "task": "B01",
+        "commit_sha": "abe42f130e2bd69a97911121fdd945366943a40d",
+        "files_changed": 16
+      },
+      {
+        "task": "B02",
+        "commit_sha": "4885f60f7172d5dbfbad3b9b00417c52efc18989",
+        "files_changed": 24
+      },
+      {
+        "task": "B03",
+        "commit_sha": "e40314b9a0cb0ac79046ec32117785c8daf85c92",
+        "files_changed": 18
+      },
+      {
+        "task": "B04",
+        "commit_sha": "9bbdfa071cb4ac154b8ad9bd7b7a2f69b1049f73",
+        "files_changed": 12
+      },
+      {
+        "task": "B05",
+        "commit_sha": "77051a063cdf4299ad3d2167b3a878767b771935",
+        "files_changed": 25
+      },
+      {
+        "task": "B06",
+        "commit_sha": "81bfc4207c50206d139032685674700d7c52c14c",
+        "files_changed": 27
+      },
+      {
+        "task": "B07",
+        "commit_sha": "8d7b8fe1a04aff250242d8029c8e972793e24301",
+        "files_changed": 17
+      },
+      {
+        "task": "B08",
+        "commit_sha": "652a5bdde4c16eda6deb83bd2142c8e5cbffb3fc",
+        "files_changed": 15
+      },
+      {
+        "task": "B09",
+        "commit_sha": "d35bd87d2c73e3888a7f213e89a7fca813761275",
+        "files_changed": 26
+      },
+      {
+        "task": "B10",
+        "commit_sha": "1021ff80268dd330c19f4767da1a16720e15d793",
+        "files_changed": 32
+      }
+    ],
+    "candidate_commit_count": 10,
+    "unique_candidate_files": 93,
+    "report": "docs/releases/B01-B10-git-delivery-2026-11-08.md",
+    "evidence_directory": "learning_data/verification/git-b01-b10-delivery-20261108T074746Z",
+    "pushed": false,
     "deployed": false,
     "remote_ci": "not_run",
-    "family_acceptance": "pending"
+    "family_acceptance": "pending",
+    "status_scope": "Git delivery only; engineering and acceptance statuses unchanged"
   },
   "tasks": [
     {
@@ -623,6 +681,14 @@
         "deployment_performed": false,
         "teacher_reviewed": false,
         "family_acceptance": "not_claimed"
+      },
+      "git_delivery": {
+        "commit_sha": "abe42f130e2bd69a97911121fdd945366943a40d",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
       }
     },
     {
@@ -721,6 +787,14 @@
             "outcome": null
           }
         ]
+      },
+      "git_delivery": {
+        "commit_sha": "4885f60f7172d5dbfbad3b9b00417c52efc18989",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
       }
     },
     {
@@ -802,7 +876,15 @@
         "一般论断仍依赖所记录的助手推导，精确样例不构成通用自动证明。",
         "导出为历史审核快照，不是A07运行清单；未来运行接入另行版本适配与发布验收。",
         "人工操作者类型为自述，非教师签署；实际家庭设备未验收。"
-      ]
+      ],
+      "git_delivery": {
+        "commit_sha": "e40314b9a0cb0ac79046ec32117785c8daf85c92",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
+      }
     },
     {
       "id": "B04",
@@ -899,7 +981,15 @@
         "4页通过仅针对绑定原图和本批纠正文的快照，原OCR仍隔离，历史报告不改写。",
         "本批之外101页未处理，书内13页待解；不得称整册通过。",
         "页级通过不授予题干/答案或判分资格，未导入索引/向量或发布。"
-      ]
+      ],
+      "git_delivery": {
+        "commit_sha": "9bbdfa071cb4ac154b8ad9bd7b7a2f69b1049f73",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
+      }
     },
     {
       "id": "B05",
@@ -991,7 +1081,15 @@
         "按知识目标共用复习卡，一次调度不等于同目标每条收藏均完成或掌握。",
         "旧会话空快照不追认原题内容，原手动收藏另行核对。",
         "schema12只在临时合成库验证，未迁移正式数据库或部署。"
-      ]
+      ],
+      "git_delivery": {
+        "commit_sha": "77051a063cdf4299ad3d2167b3a878767b771935",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
+      }
     },
     {
       "id": "B06",
@@ -1074,7 +1172,15 @@
         "未提交草稿仅当前标签页保存；提交后才可跨设备恢复。",
         "旧客户端不带工作区版本仍可作答，旧会话/浏览器完成列表不追认为新轮次。",
         "B05家长反馈、B04待解、B02跨日观察和A09发布/家庭验收均独立保留。"
-      ]
+      ],
+      "git_delivery": {
+        "commit_sha": "81bfc4207c50206d139032685674700d7c52c14c",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
+      }
     },
     {
       "id": "B07",
@@ -1163,7 +1269,15 @@
         "正式数据盘点、维护窗口及实际RPO/RTO未验收。",
         "快照后删除/费用增量和完整WebUI/秘密/网络恢复未覆盖。",
         "B05家庭反馈、B04待解、B02真实跨日观察、A09发布/家庭验收继续独立保留。"
-      ]
+      ],
+      "git_delivery": {
+        "commit_sha": "8d7b8fe1a04aff250242d8029c8e972793e24301",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
+      }
     },
     {
       "id": "B08",
@@ -1254,7 +1368,15 @@
         "正式阈值、启用范围和SQLite辅助文件权限未验收。",
         "采集器只读取受控备份观察回执声明，不重新核验归档或恢复/独立副本。",
         "不覆盖WebUI聊天费用或全栈恢复；其他任务未决项保持独立。"
-      ]
+      ],
+      "git_delivery": {
+        "commit_sha": "652a5bdde4c16eda6deb83bd2142c8e5cbffb3fc",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
+      }
     },
     {
       "id": "B09",
@@ -1345,7 +1467,15 @@
         "仅合成身份/材料及模拟浏览器，不代表家庭设备或正式运行验收。",
         "网关四个既有方法/路径的缺口在本批发现并修复，原B05/B06历史证据不改写。",
         "B07/B08外部条件、B05反馈、B04待解、B02真实观察及A09发布/家庭验收继续独立。"
-      ]
+      ],
+      "git_delivery": {
+        "commit_sha": "d35bd87d2c73e3888a7f213e89a7fca813761275",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
+      }
     },
     {
       "id": "B10",
@@ -1446,7 +1576,15 @@
         "仅合成ASGI/loopback与模拟浏览器，不能外推线上延迟或家庭设备体验。",
         "缓存依赖本地可信元数据，底层同步IO/原生渲染是协作取消，不声称强制即时终止。",
         "冻结P95门槛未全通过，B10不complete，B11未启动。"
-      ]
+      ],
+      "git_delivery": {
+        "commit_sha": "1021ff80268dd330c19f4767da1a16720e15d793",
+        "branch": "main",
+        "committed": true,
+        "pushed": false,
+        "deployed": false,
+        "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
+      }
     },
     {
       "id": "B11",
@@ -1918,7 +2056,40 @@
         "../verification/B10-study-performance-2026-11-08.md"
       ],
       "next_action": "继续B10尾延迟：保留现有12配置/1800样本及4项未达结果，细分会话复核、SQLite和ASGI/线程排队；增加loopback对照时先独立冻结旧/新候选与至少30样本配置，不删除身份检查或放宽预算/门槛。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T15:53:05.782206+08:00",
+      "task_ids": [
+        "B01",
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B09",
+        "B10"
+      ],
+      "summary": "按用户指令将B01–B10分成10个本地候选提交，93个不同公开文件；各批内容与封存结果相同。B02补丁的既有测试文件操作类型在交付副本修正，原证据保留；未推送/部署，工程与验收状态不变。",
+      "evidence": [
+        "../releases/B01-B10-git-delivery-2026-11-08.md"
+      ],
+      "next_action": "继续B10尾延迟：保留现有12配置/1800样本及4项未达结果，细分会话复核、SQLite和ASGI/线程排队；增加loopback对照时先独立冻结旧/新候选与至少30样本配置，不删除身份检查或放宽预算/门槛。"
     }
   ],
-  "current_candidate_tool_version": "1.2.1"
+  "current_candidate_tool_version": "1.2.1",
+  "git_delivery_history": [
+    {
+      "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
+      "branch": "main",
+      "remote": "origin/main",
+      "files_changed": 89,
+      "pushed": true,
+      "deployed": false,
+      "remote_ci": "not_run",
+      "family_acceptance": "pending"
+    }
+  ]
 }

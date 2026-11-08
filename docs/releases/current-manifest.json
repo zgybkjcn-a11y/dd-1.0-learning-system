@@ -1757,5 +1757,73 @@
       "actual_family_devices": "not_verified",
       "runtime_published": false
     }
-  ]
+  ],
+  "latest_git_delivery": {
+    "scope": "B01-B10",
+    "recorded_at": "2026-11-08T15:53:05.782206+08:00",
+    "base_commit": "cd4ad61b44597696d6c59495b489595e68123706",
+    "commit_sha": "1021ff80268dd330c19f4767da1a16720e15d793",
+    "branch": "main",
+    "commits": [
+      {
+        "task": "B01",
+        "commit_sha": "abe42f130e2bd69a97911121fdd945366943a40d",
+        "files_changed": 16
+      },
+      {
+        "task": "B02",
+        "commit_sha": "4885f60f7172d5dbfbad3b9b00417c52efc18989",
+        "files_changed": 24
+      },
+      {
+        "task": "B03",
+        "commit_sha": "e40314b9a0cb0ac79046ec32117785c8daf85c92",
+        "files_changed": 18
+      },
+      {
+        "task": "B04",
+        "commit_sha": "9bbdfa071cb4ac154b8ad9bd7b7a2f69b1049f73",
+        "files_changed": 12
+      },
+      {
+        "task": "B05",
+        "commit_sha": "77051a063cdf4299ad3d2167b3a878767b771935",
+        "files_changed": 25
+      },
+      {
+        "task": "B06",
+        "commit_sha": "81bfc4207c50206d139032685674700d7c52c14c",
+        "files_changed": 27
+      },
+      {
+        "task": "B07",
+        "commit_sha": "8d7b8fe1a04aff250242d8029c8e972793e24301",
+        "files_changed": 17
+      },
+      {
+        "task": "B08",
+        "commit_sha": "652a5bdde4c16eda6deb83bd2142c8e5cbffb3fc",
+        "files_changed": 15
+      },
+      {
+        "task": "B09",
+        "commit_sha": "d35bd87d2c73e3888a7f213e89a7fca813761275",
+        "files_changed": 26
+      },
+      {
+        "task": "B10",
+        "commit_sha": "1021ff80268dd330c19f4767da1a16720e15d793",
+        "files_changed": 32
+      }
+    ],
+    "candidate_commit_count": 10,
+    "unique_candidate_files": 93,
+    "report": "docs/releases/B01-B10-git-delivery-2026-11-08.md",
+    "evidence_directory": "learning_data/verification/git-b01-b10-delivery-20261108T074746Z",
+    "pushed": false,
+    "deployed": false,
+    "remote_ci": "not_run",
+    "family_acceptance": "pending",
+    "status_scope": "Git delivery only; engineering and acceptance statuses unchanged"
+  }
 }
