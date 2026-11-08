@@ -9,7 +9,7 @@ from urllib.error import HTTPError
 import pytest
 from fastapi.testclient import TestClient
 
-from learning_service import app as app_module, math_references as references, tools as tool_module
+from learning_service import study_routes as app_module, math_references as references, tools as tool_module
 from learning_service.app import create_app
 from learning_service.learner_context import select_context
 from learning_service.practice import bank, install

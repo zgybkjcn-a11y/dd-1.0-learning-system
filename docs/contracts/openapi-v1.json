@@ -2113,7 +2113,9 @@
             "description": "Successful Response",
             "content": {
               "application/json": {
-                "schema": {}
+                "schema": {
+                  "$ref": "#/components/schemas/TextbookCatalogue"
+                }
               }
             }
           }
@@ -2142,16 +2144,23 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "anyOf": [
+                  "oneOf": [
                     {
                       "$ref": "#/components/schemas/PassageSearchResponse"
                     },
                     {
-                      "additionalProperties": true,
-                      "type": "object"
+                      "$ref": "#/components/schemas/TextbookScopeResponse"
                     }
                   ],
-                  "title": "Response Textbook Search Api V1 Textbooks Search Post"
+                  "title": "Response Textbook Search Api V1 Textbooks Search Post",
+                  "discriminator": {
+                    "propertyName": "mode",
+                    "mapping": {
+                      "passages": "#/components/schemas/PassageSearchResponse",
+                      "browse": "#/components/schemas/TextbookScopeResponse",
+                      "search": "#/components/schemas/TextbookScopeResponse"
+                    }
+                  }
                 }
               }
             }
@@ -3572,6 +3581,145 @@
         ],
         "title": "ManualMistakeRequest"
       },
+      "PageEvidence": {
+        "properties": {
+          "schema": {
+            "type": "string",
+            "const": "dd-textbook-page-evidence-v1",
+            "title": "Schema"
+          },
+          "kind": {
+            "type": "string",
+            "const": "page_location",
+            "title": "Kind"
+          },
+          "evidence_id": {
+            "type": "string",
+            "pattern": "^dd-page-[a-f0-9]{64}$",
+            "title": "Evidence Id"
+          },
+          "source_ref": {
+            "type": "string",
+            "pattern": "^dd-textbook-[a-f0-9]{64}$",
+            "title": "Source Ref"
+          },
+          "book_id": {
+            "type": "string",
+            "title": "Book Id"
+          },
+          "book_title": {
+            "type": "string",
+            "title": "Book Title"
+          },
+          "grade": {
+            "type": "integer",
+            "enum": [
+              2,
+              7
+            ],
+            "title": "Grade"
+          },
+          "subject": {
+            "type": "string",
+            "title": "Subject"
+          },
+          "semester": {
+            "type": "string",
+            "title": "Semester"
+          },
+          "edition": {
+            "type": "string",
+            "title": "Edition"
+          },
+          "edition_id": {
+            "type": "string",
+            "const": "pep-2022-standard-current",
+            "title": "Edition Id"
+          },
+          "pdf_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$",
+            "title": "Pdf Sha256"
+          },
+          "source_binding": {
+            "type": "string",
+            "const": "catalogue_sha256",
+            "title": "Source Binding"
+          },
+          "chapter_id": {
+            "type": "string",
+            "title": "Chapter Id"
+          },
+          "chapter_title": {
+            "type": "string",
+            "title": "Chapter Title"
+          },
+          "printed_page": {
+            "type": "integer",
+            "maximum": 999.0,
+            "minimum": 1.0,
+            "title": "Printed Page"
+          },
+          "pdf_page": {
+            "type": "integer",
+            "maximum": 999.0,
+            "minimum": 1.0,
+            "title": "Pdf Page"
+          },
+          "locator_precision": {
+            "type": "string",
+            "const": "page",
+            "title": "Locator Precision"
+          },
+          "review_status": {
+            "type": "string",
+            "const": "location_only",
+            "title": "Review Status"
+          },
+          "quote_status": {
+            "type": "string",
+            "const": "unavailable",
+            "title": "Quote Status"
+          },
+          "supports_textbook_answer": {
+            "type": "boolean",
+            "const": false,
+            "title": "Supports Textbook Answer"
+          },
+          "eligible_as_grading_basis": {
+            "type": "boolean",
+            "const": false,
+            "title": "Eligible As Grading Basis"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "schema",
+          "kind",
+          "evidence_id",
+          "source_ref",
+          "book_id",
+          "book_title",
+          "grade",
+          "subject",
+          "semester",
+          "edition",
+          "edition_id",
+          "pdf_sha256",
+          "source_binding",
+          "chapter_id",
+          "chapter_title",
+          "printed_page",
+          "pdf_page",
+          "locator_precision",
+          "review_status",
+          "quote_status",
+          "supports_textbook_answer",
+          "eligible_as_grading_basis"
+        ],
+        "title": "PageEvidence"
+      },
       "PagePatch": {
         "properties": {
           "expected_revision": {
@@ -3597,6 +3745,60 @@
         ],
         "title": "PagePatch",
         "description": "Complete replacement for a document's ordered page projection.\n\nThe original uploaded document asset is immutable.  ``asset_id`` may point\nonly at an existing, non-deleted page asset owned by the same learner; a\nreplacement upload remains a separate document upload operation."
+      },
+      "PageReference": {
+        "properties": {
+          "text": {
+            "type": "string",
+            "maxLength": 1400,
+            "title": "Text"
+          },
+          "pdf_page": {
+            "type": "integer",
+            "maximum": 999.0,
+            "minimum": 1.0,
+            "title": "Pdf Page"
+          },
+          "printed_page": {
+            "type": "integer",
+            "maximum": 999.0,
+            "minimum": 1.0,
+            "title": "Printed Page"
+          },
+          "content_title": {
+            "type": "string",
+            "title": "Content Title"
+          },
+          "book_title": {
+            "type": "string",
+            "title": "Book Title"
+          },
+          "review_status": {
+            "type": "string",
+            "const": "reference_only",
+            "title": "Review Status"
+          },
+          "evidence": {
+            "$ref": "#/components/schemas/PageEvidence"
+          },
+          "page_image_path": {
+            "type": "string",
+            "title": "Page Image Path"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "text",
+          "pdf_page",
+          "printed_page",
+          "content_title",
+          "book_title",
+          "review_status",
+          "evidence",
+          "page_image_path"
+        ],
+        "title": "PageReference"
       },
       "PassageCoverage": {
         "properties": {
@@ -3865,8 +4067,7 @@
           },
           "items": {
             "items": {
-              "additionalProperties": true,
-              "type": "object"
+              "$ref": "#/components/schemas/PageReference"
             },
             "type": "array",
             "maxItems": 4,
@@ -4207,6 +4408,224 @@
           "question_version_id"
         ],
         "title": "TestSessionRequest"
+      },
+      "TextbookBook": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "grade": {
+            "type": "integer",
+            "enum": [
+              2,
+              7
+            ],
+            "title": "Grade"
+          },
+          "semester": {
+            "type": "string",
+            "title": "Semester"
+          },
+          "subject": {
+            "type": "string",
+            "title": "Subject"
+          },
+          "subject_title": {
+            "type": "string",
+            "title": "Subject Title"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "edition": {
+            "type": "string",
+            "title": "Edition"
+          },
+          "verified_on": {
+            "type": "string",
+            "title": "Verified On"
+          },
+          "file_id": {
+            "type": "string",
+            "title": "File Id"
+          },
+          "collection": {
+            "type": "string",
+            "title": "Collection"
+          },
+          "reader_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Reader Url"
+          },
+          "chapters": {
+            "items": {
+              "$ref": "#/components/schemas/TextbookChapter"
+            },
+            "type": "array",
+            "title": "Chapters"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "grade",
+          "semester",
+          "subject",
+          "subject_title",
+          "title",
+          "edition",
+          "verified_on",
+          "file_id",
+          "collection",
+          "chapters"
+        ],
+        "title": "TextbookBook"
+      },
+      "TextbookCatalogue": {
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/TextbookBook"
+            },
+            "type": "array",
+            "title": "Items"
+          },
+          "subjects": {
+            "items": {
+              "$ref": "#/components/schemas/TextbookSubject"
+            },
+            "type": "array",
+            "title": "Subjects"
+          },
+          "grade_notice": {
+            "type": "string",
+            "title": "Grade Notice"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "items",
+          "subjects",
+          "grade_notice"
+        ],
+        "title": "TextbookCatalogue"
+      },
+      "TextbookChapter": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "printed_page": {
+            "type": "integer",
+            "maximum": 999.0,
+            "minimum": 1.0,
+            "title": "Printed Page"
+          },
+          "page_start": {
+            "type": "integer",
+            "maximum": 999.0,
+            "minimum": 1.0,
+            "title": "Page Start"
+          },
+          "page_end": {
+            "type": "integer",
+            "maximum": 999.0,
+            "minimum": 1.0,
+            "title": "Page End"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "printed_page",
+          "page_start",
+          "page_end"
+        ],
+        "title": "TextbookChapter"
+      },
+      "TextbookScopeResponse": {
+        "properties": {
+          "book": {
+            "$ref": "#/components/schemas/TextbookBook"
+          },
+          "chapter": {
+            "$ref": "#/components/schemas/TextbookChapter"
+          },
+          "query": {
+            "type": "string",
+            "title": "Query"
+          },
+          "mode": {
+            "type": "string",
+            "enum": [
+              "browse",
+              "search"
+            ],
+            "title": "Mode"
+          },
+          "page_offset": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Page Offset"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "book",
+          "chapter",
+          "query",
+          "mode",
+          "page_offset"
+        ],
+        "title": "TextbookScopeResponse"
+      },
+      "TextbookSubject": {
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Id"
+          },
+          "title": {
+            "type": "string",
+            "title": "Title"
+          },
+          "available": {
+            "type": "boolean",
+            "title": "Available"
+          },
+          "notice": {
+            "type": "string",
+            "title": "Notice"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "available",
+          "notice"
+        ],
+        "title": "TextbookSubject"
       },
       "ValidationError": {
         "properties": {

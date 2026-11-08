@@ -65,7 +65,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B09",
+  "recommended_next_task": "B10",
   "latest_git_delivery": {
     "commit_sha": "1057d643bac2427c3113ed1cecdacd9b855029bd",
     "branch": "main",
@@ -1267,10 +1267,10 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
-      "completion_state": "open",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
       "estimate_hours": {
         "min": 12,
         "max": 20
@@ -1284,14 +1284,67 @@
       "required_conditions": [
         "仅首批模块，剩余 app.py 重构不得冒称完成。"
       ],
-      "next_action": "先提取已触及的证据业务/类型与相关路由，建立无副作用导入检查。",
+      "next_action": "继续B10：先冻结合成设备/材料/并发、冷暖定义、每配置至少30样本和总截止口径；测量后再决定缓存与超时优化，不扩大至正式数据或真实提供商。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
-      "artifacts": [],
-      "evidence": [],
+      "artifacts": [
+        "../../learning_service/api_types.py",
+        "../../learning_service/evidence_contracts.py",
+        "../../learning_service/study_reference.py",
+        "../../learning_service/study_routes.py",
+        "../../learning_service/login_gateway.py",
+        "../../tests/test_evidence_modules.py",
+        "../../tests/test_gateway_family_routes.py",
+        "../open-webui-reuse/evidence-modules.md",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/release-final-r2/manifest.json"
+      ],
+      "evidence": [
+        "../verification/B09-evidence-modules-2026-11-08.md",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/plan-before.json",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/supplemental-input-before.json",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/openapi-diff.json",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/extraction-validation.json",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/test-result-validation.json",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/unit-first.xml",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/unit-boundary-final.xml",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/unit-gateway-first.xml",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/browser-final-r2.xml",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/source-package-validation-final.json",
+        "../../learning_data/verification/b09-evidence-modules-20261108T055803Z/delivery-validation.json"
+      ],
       "blockers": [],
-      "last_updated": "2026-11-07"
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "scope": "first_seven_evidence_routes_typed_responses_and_four_existing_family_gateway_methods",
+        "unit_contract_tests": 286,
+        "new_evidence_module_tests": 16,
+        "new_family_gateway_tests": 8,
+        "browser_tests": 2,
+        "browser_version": "145.0.7632.6",
+        "browser_widths": [
+          390,
+          1280
+        ],
+        "schema_revision": 13,
+        "source_files": 91,
+        "openapi_paths": 76,
+        "openapi_schemas": 44,
+        "scope_payload_roundtrip_cases": 222,
+        "pure_import_no_database_or_directory": true,
+        "moved_route_and_read_guard_bodies_preserved": true,
+        "remaining_app_and_ui_preserved": true,
+        "legacy_tools_and_release_profiles_checked": true,
+        "deployment_performed": false,
+        "real_model_or_ocr_calls": 0
+      },
+      "acceptance_limits": [
+        "只完成所列首批模块，app默认应用导入行为、其余写路由/worker/UI与其他响应类型仍待后续拆分。",
+        "仅合成身份/材料及模拟浏览器，不代表家庭设备或正式运行验收。",
+        "网关四个既有方法/路径的缺口在本批发现并修复，原B05/B06历史证据不改写。",
+        "B07/B08外部条件、B05反馈、B04待解、B02真实观察及A09发布/家庭验收继续独立。"
+      ]
     },
     {
       "id": "B10",
@@ -1775,6 +1828,18 @@
         "../verification/B08-minimal-monitor-2026-11-08.md"
       ],
       "next_action": "继续B09本地窄范围证据模块/类型拆分；正式监控范围、阈值、权限、独立观察端及值守责任单独落实，不发送外部通知。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T14:13:23.053580+08:00",
+      "task_ids": [
+        "B09"
+      ],
+      "summary": "B09首批本地工程完成：拆出7个教材/伴学只读路由、读取校验与证据类型，收紧检索响应；补齐验证发现的B05/B06四个既有API网关转发方法/路径。286项不同单元/契约、2项浏览器通过，91文件schema13源码候选已校验，OpenAPI76路径/44模型。工程ready、本地验收passed、首批出口complete；未提交/部署，不代表全应用重构。下一项B10先冻结合成性能基准再测量。B07独立副本、B08外部监控未配置、B05家庭反馈、B04待解、B02真实观察与A09发布/家庭验收继续单列。",
+      "evidence": [
+        "../verification/B09-evidence-modules-2026-11-08.md"
+      ],
+      "next_action": "继续B10：先冻结合成设备/材料/并发、冷暖定义、每配置至少30样本和总截止口径；测量后再决定缓存与超时优化，不扩大至正式数据或真实提供商。"
     }
   ],
   "current_candidate_tool_version": "1.2.0"

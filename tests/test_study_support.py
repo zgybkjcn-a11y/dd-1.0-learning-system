@@ -4,7 +4,7 @@ import json
 
 import pytest
 
-from learning_service import app as app_module, tools as tool_module
+from learning_service import study_routes as app_module, tools as tool_module
 from learning_service.learner_context import select_context
 from learning_service.study_support import query_support
 from learning_service.tools import Tools

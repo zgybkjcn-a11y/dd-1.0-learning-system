@@ -27,8 +27,8 @@ from .practice import (metadata as practice_metadata, learner_guidance, grade_nu
                        CollectionError, collection_preview, saved_review_choices,
                        question_snapshot, frozen_question, workspace_state, update_workspace,
                        prepare_workspace_session, attach_workspace_session)
-from .math_references import query_reference as query_math_reference, ReferenceError
-from .study_support import query_support as query_study_support
+from .api_types import APIError, Context
+from .study_routes import create_study_router
 from .study_ui import STYLE as STUDY_STYLE, PANEL as STUDY_PANEL, SCRIPT as STUDY_SCRIPT, COLLECTION_PANEL
 from .db import Database, WriteContextChanged, write_context, json_dumps, json_loads, new_id, utc_now
 from .providers import TencentEducationOCRProvider, diagnosis_provider, document_provider, variant_provider
@@ -36,13 +36,11 @@ from .provider_usage import ProviderLimit, UsageLedger
 from .browser_auth import AuthError, BrowserSessions, CSRF_COOKIE, SESSION_COOKIE
 from .learner_context import ContextConflict, read_context, select_context
 from .variant_review import VariantReviewRequest, VariantRevokeRequest, fingerprint as variant_fingerprint, checked_draft, publish as publish_variant, review_audit
-from .textbooks import (catalogue as textbook_catalogue, subject_catalogue as textbook_subjects, search_scope as textbook_search_scope,
-                        page_scope as textbook_page_scope, render_page as render_textbook_page,
-                        practice_scope as textbook_practice_scope, learning_scope as textbook_learning_scope)
+from .textbooks import (practice_scope as textbook_practice_scope,
+                        learning_scope as textbook_learning_scope)
 
 
 from . import textbook_passages
-from .textbook_passages import PassageError, PassageDetail, PassageSearchResponse
 
 
 INTERVALS = [1, 2, 4, 7, 15, 30]
@@ -58,15 +56,6 @@ FORBIDDEN_AGENT_ACTIONS = {
 }
 
 
-class APIError(Exception):
-    def __init__(self, status: int, code: str, message: str, retryable: bool = False, details: Any = None):
-        self.status = status
-        self.code = code
-        self.message = message
-        self.retryable = retryable
-        self.details = details
-
-
 def _validate_reserve_version(conn, question_version_id):
     if question_version_id.startswith('family-reserve-'):
         from .reserve_practice import validate_installed
@@ -74,13 +63,6 @@ def _validate_reserve_version(conn, question_version_id):
             validate_installed(conn, question_version_id)
         except (OSError, ValueError, KeyError, TypeError):
             raise APIError(503, 'PRACTICE_RESERVE_UNAVAILABLE', '备用题版本校验未通过，请稍后重试')
-
-
-class Context(BaseModel):
-    account_id: str
-    learner_id: str | None = None
-    role: str = "student"
-    provider: str = "local"
 
 
 class BootstrapRequest(BaseModel):
@@ -4034,108 +4016,8 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                 save_idempotent(conn, ctx, learner_id, 'request_variant', objective_id, key, payload, result)
         return result
 
-    def read_study_reference(request, ctx, db, settings, allowed, reader):
-        pairs = request.query_params.multi_items()
-        if any(key not in allowed for key, _ in pairs) or len({key for key, _ in pairs}) != len(pairs):
-            raise APIError(422, "MATH_REFERENCE_SCOPE_INVALID", "知识参考查询参数无效")
-        learner_id = learner_for(ctx, db=db)
-        def selection():
-            with db.session() as conn:
-                return read_context(conn, ctx.account_id)
-        pinned = selection() if settings.shared_learner_context_enabled else None
-        if pinned and (pinned["learner_id"] != learner_id
-                       or request.headers.get("X-Learner-Context-Version") != str(pinned["context_version"])):
-            raise APIError(409, "LEARNER_CONTEXT_CHANGED", "学习者已变化，请刷新工作台后重试")
-        try:
-            with db.session() as conn:
-                curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
-                result = reader(conn, learner_id, curriculum, settings.textbook_dir)
-        except (ReferenceError, PassageError) as exc:
-            raise APIError(exc.status, exc.code, exc.message) from None
-        if pinned and selection() != pinned:
-            raise APIError(409, "LEARNER_CONTEXT_CHANGED", "学习者已变化，请刷新工作台后重试")
-        learner_for(ctx, db=db)  # Recheck access after filesystem/metadata reads.
-        return result
-
-    @app.get("/api/v1/math-references")
-    def math_references(request: Request, book_id: str = "", chapter_id: str = "",
-                        question_version_id: str = "", concept_id: str = "",
-                        ctx: Context = Depends(get_context), db: Database = Depends(get_db),
-                        settings: Settings = Depends(get_settings)):
-        """Read reviewed metadata for the authenticated, server-selected learner."""
-        return read_study_reference(request, ctx, db, settings,
-                                    {"book_id", "chapter_id", "question_version_id", "concept_id"},
-                                    lambda conn, learner, curriculum, directory:
-                                        query_math_reference(conn, learner, curriculum, directory, book_id=book_id,
-                                                             chapter_id=chapter_id, question_version_id=question_version_id,
-                                                             concept_id=concept_id))
-
-    @app.get("/api/v1/study-support")
-    def study_support(request: Request, subject: str = "", book_id: str = "", chapter_id: str = "",
-                      ctx: Context = Depends(get_context), db: Database = Depends(get_db),
-                      settings: Settings = Depends(get_settings)):
-        """Local reading prompts and Markdown/Mermaid artifacts for current subjects."""
-        return read_study_reference(request, ctx, db, settings, {"subject", "book_id", "chapter_id"},
-                                    lambda conn, learner, curriculum, directory:
-                                        query_study_support(conn, learner, curriculum, directory,
-                                                            subject=subject, book_id=book_id, chapter_id=chapter_id))
-
-    @app.get("/api/v1/textbooks")
-    def textbooks(ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
-        learner_id = learner_for(ctx, db=db)
-        with db.session() as conn:
-            curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
-        return {'items': textbook_catalogue(curriculum), 'subjects': textbook_subjects(curriculum),
-                'grade_notice': '二年级英语按学校安排暂未开设。' if curriculum=='math-g2-v1' else
-                                '七年级开设以上七门学科；物理从八年级、化学从九年级开始。' if curriculum=='math-g7-v1' else ''}
-
-    @app.post("/api/v1/textbooks/search", response_model=PassageSearchResponse | dict[str, Any])
-    def textbook_search(body: dict[str, Any], request: Request, ctx: Context = Depends(get_context),
-                        db: Database = Depends(get_db), settings: Settings = Depends(get_settings)):
-        def reader(conn, learner, curriculum, directory):
-            try:
-                scope = textbook_search_scope(curriculum, body)
-            except ValueError:
-                raise APIError(422, 'TEXTBOOK_SCOPE_INVALID', '请选择当前年级的课本，章节可不选，检索词最多160字')
-            if settings.textbook_passages_enabled and scope['mode'] == 'search':
-                return textbook_passages.search(settings, curriculum, scope, body['query'])
-            return scope
-        return read_study_reference(request, ctx, db, settings, set(), reader)
-
-    @app.get("/api/v1/textbooks/{book_id}/passages/{evidence_id}", response_model=PassageDetail)
-    def textbook_passage(book_id: str, evidence_id: str, request: Request, chapter_id: str = '',
-                         ctx: Context = Depends(get_context), db: Database = Depends(get_db),
-                         settings: Settings = Depends(get_settings)):
-        return read_study_reference(request, ctx, db, settings, {'chapter_id'},
-            lambda conn, learner, curriculum, directory:
-                textbook_passages.detail(settings, curriculum, book_id, evidence_id, chapter_id))
-
-    @app.get("/api/v1/textbooks/{book_id}/passages/{evidence_id}/image", response_class=Response,
-             responses={200: {"content": {"image/png": {}}}})
-    def textbook_passage_image(book_id: str, evidence_id: str, request: Request, chapter_id: str = '',
-                               ctx: Context = Depends(get_context), db: Database = Depends(get_db),
-                               settings: Settings = Depends(get_settings)):
-        content = read_study_reference(request, ctx, db, settings, {'chapter_id'},
-            lambda conn, learner, curriculum, directory:
-                textbook_passages.detail(settings, curriculum, book_id, evidence_id, chapter_id, image=True))
-        return Response(content, media_type='image/png', headers={'X-Content-Type-Options': 'nosniff'})
-
-    @app.get("/api/v1/textbooks/{book_id}/pages/{printed_page}/image", response_class=Response,
-             responses={200: {"content": {"image/png": {}}}})
-    def textbook_page_image(book_id: str, printed_page: int, ctx: Context = Depends(get_context),
-                            db: Database = Depends(get_db), settings: Settings = Depends(get_settings)):
-        learner_id = learner_for(ctx, db=db)
-        with db.session() as conn:
-            curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
-        try:
-            book, pdf_page = textbook_page_scope(curriculum, book_id, printed_page)
-        except ValueError:
-            raise APIError(404, 'TEXTBOOK_PAGE_NOT_FOUND', '当前年级没有这一教材页')
-        try:
-            content = render_textbook_page(settings.textbook_dir, book['id'], pdf_page)
-        except (OSError, ValueError, RuntimeError):
-            raise APIError(503, 'TEXTBOOK_PAGE_UNAVAILABLE', '教材原页暂时不可用，请稍后重试', True)
-        return Response(content, media_type='image/png', headers={'X-Content-Type-Options': 'nosniff'})
+    app.include_router(create_study_router(get_context=get_context, get_db=get_db,
+                                          get_settings=get_settings, learner_for=learner_for))
 
     @app.get("/api/v1/question-choices")
     def question_choices(objective_id: str | None = None, ctx: Context = Depends(get_context), db: Database = Depends(get_db)):

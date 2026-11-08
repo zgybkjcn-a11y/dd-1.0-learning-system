@@ -103,6 +103,13 @@ RECOVERY_RUNTIME_PROFILE = REUSE_PROFILE
 REUSE_PROFILE = "reuse-runtime-verified-backup-v1"
 PATHS = (*RECOVERY_RUNTIME_PATHS, "docs/open-webui-reuse/backup-recovery.md")
 
+BACKUP_RUNTIME_PATHS = PATHS
+BACKUP_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-evidence-modules-v1"
+PATHS = (*BACKUP_RUNTIME_PATHS, "learning_service/api_types.py", "learning_service/evidence_contracts.py",
+         "learning_service/study_reference.py", "learning_service/study_routes.py",
+         "docs/open-webui-reuse/evidence-modules.md")
+
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -163,6 +170,8 @@ def verify(destination: Path) -> dict:
     paths = {9: LEGACY_PATHS, 10: SCHEMA10_PATHS, 11: SCHEMA11_PATHS}.get(manifest.get("schema_revision"))
     if manifest.get("source_profile") == REUSE_PROFILE and manifest.get("schema_revision") == 13:
         paths = PATHS
+    elif manifest.get("source_profile") == BACKUP_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = BACKUP_RUNTIME_PATHS
     elif manifest.get("source_profile") == RECOVERY_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
         paths = RECOVERY_RUNTIME_PATHS
     elif manifest.get("source_profile") == COLLECTION_RUNTIME_PROFILE and manifest.get("schema_revision") == 12:

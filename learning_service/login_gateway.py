@@ -197,6 +197,10 @@ ROUTES['GET'].append(r'/api/v1/study-support')
 ROUTES['GET'].append(r'/api/v1/textbooks/(?:chinese|math|english|ethics|history|geography|physics|chemistry|biology)-g[27]-(?:upper|lower)/pages/[1-9][0-9]{0,2}/image')
 ROUTES['POST'].append(r'/api/v1/textbooks/search')
 ROUTES['GET'].append(r'/api/v1/textbooks/(?:chinese|math|english|ethics|history|geography|physics|chemistry|biology)-g[27]-(?:upper|lower)/passages/dd-excerpt-[a-f0-9]{64}(?:/image)?')
+# Existing family practice APIs use the same identity, CSRF and context guards.
+ROUTES['GET'].extend([r'/api/v1/practice-workspace', rf'/api/v1/attempts/{ID}/collection-preview'])
+ROUTES['PUT'] = [r'/api/v1/practice-workspace']
+ROUTES['POST'].append(rf'/api/v1/attempts/{ID}/collection')
 
 
 def _cookies(request: Request) -> dict[str, str]:
