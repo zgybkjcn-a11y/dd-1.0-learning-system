@@ -234,7 +234,7 @@ def test_schema12_upgrade_preserves_old_frozen_item_and_answer(tmp_path):
         assert row['practice_round_id'] is None and row['practice_round_generation'] is None
         assert conn.execute('SELECT count(*) FROM practice_workspaces').fetchone()[0] == 0
         assert conn.execute('SELECT raw_answer,idempotency_key FROM attempts').fetchone()[:] == ('original answer', 'original-key')
-        assert conn.execute('SELECT MAX(version) FROM schema_migrations').fetchone()[0] == 13
+        assert conn.execute('SELECT MAX(version) FROM schema_migrations').fetchone()[0] == 14
     Database(old.path)  # Repeated migration is safe.
 
 

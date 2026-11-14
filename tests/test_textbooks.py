@@ -17,7 +17,7 @@ from test_learning_service import env
 
 def test_family_catalogue_and_search_cannot_cross_grades_or_accept_collections(family):
     _,_,client,headers=family
-    for grade,books in [(2,4),(7,9)]:
+    for grade,books in [(2,6),(7,14)]:
         h={**headers,'X-Learner-Id':f'family-g{grade}'}
         response=client.get('/api/v1/textbooks',headers=h)
         assert response.status_code==200
@@ -186,6 +186,46 @@ def test_gateway_chapter_browse_does_not_depend_on_vector_ranking(retrieval_gate
     next_page=client.post('/learning/api/v1/textbooks/search',headers=h,json=dict(body,page_offset=4))
     assert [i['printed_page'] for i in next_page.json()['items']]==[114,115,116,117]
     assert not any(c[2]=='/api/v1/retrieval/query/doc' for c in bridge.calls)
+
+
+def test_new_lower_books_browse_without_unreviewed_text_or_vector_calls(retrieval_gateway):
+    s, _, bridge, client = retrieval_gateway
+    bridge.retrieval_error = True
+    headers = {**csrf(s, client), 'X-Learner-Context-Version': '1'}
+    added = [book for book in catalogue('math-g7-v1') if book.get('search_available') is False]
+    assert len(added) == 5
+    for book in added:
+        response = client.post('/learning/api/v1/textbooks/search', headers=headers,
+                               json={'book_id': book['id'], 'query': '任意关键词'})
+        assert response.status_code == 200
+        data = response.json()
+        assert data['mode'] == 'browse' and data['items']
+        assert '暂不支持关键词检索' in data['notice']
+        assert all(item['text'] == '' and not item['evidence']['eligible_as_grading_basis']
+                   for item in data['items'])
+    assert not any(call[2] == '/api/v1/retrieval/query/doc' for call in bridge.calls)
+
+
+def test_added_lower_book_page_boundaries_and_no_question_placements():
+    from learning_service.chapter_practice import bank
+    from learning_service.textbooks import page_scope, subject_catalogue
+    expected = {'math-g2-lower': (1, 97, 6), 'ethics-g2-lower': (1, 61, 5),
+                'english-g7-lower': (1, 119, 9), 'ethics-g7-lower': (1, 104, 7),
+                'history-g7-lower': (2, 133, 5), 'geography-g7-lower': (1, 118, 5),
+                'biology-g7-lower': (1, 136, 5)}
+    for book in BOOKS:
+        if book['id'] not in expected:
+            continue
+        start, end, offset = expected[book['id']]
+        curriculum = f"math-g{book['grade']}-v1"
+        assert book['search_available'] is False and book['collection'] == ''
+        assert page_scope(curriculum, book['id'], start)[1] == start + offset
+        assert page_scope(curriculum, book['id'], end)[1] == end + offset
+        assert not any(q['book_id'] == book['id'] for q in bank().values())
+        with pytest.raises(ValueError): page_scope(curriculum, book['id'], end + 1)
+        with pytest.raises(ValueError): page_scope(f"math-g{9-book['grade']}-v1", book['id'], start)
+    for grade in (2, 7):
+        assert all(not item['notice'] for item in subject_catalogue(f'math-g{grade}-v1'))
 
 
 

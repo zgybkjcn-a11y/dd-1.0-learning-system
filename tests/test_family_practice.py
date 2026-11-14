@@ -89,4 +89,4 @@ def test_progression_uses_different_independent_questions_and_consolidates():
     assert guidance([record(10+i,'normal') for i in range(4)])['difficulty']=='hard'
     # Successes at different tiers are not combined into a four-answer streak.
     assert guidance(easy[:3]+[record(10,'normal')]+easy[:1])['streak']==1
-    assert guidance(hard+[record(10+i,'hard') for i in range(8)])['difficulty']=='hard'
+    assert guidance(hard+[record(10+i,'hard') for i in range(8)])['difficulty']=='challenge'

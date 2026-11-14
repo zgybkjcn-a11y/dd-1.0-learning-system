@@ -228,7 +228,7 @@ def test_legacy_schema_migration_preserves_rows_and_legacy_attempt_not_guessed(f
         baseline={t:c.execute('SELECT * FROM '+t).fetchall() for t in ('accounts','learners','questions','question_versions')}
     upgraded=Database(clone)
     with upgraded.session() as c:
-        assert c.execute('SELECT max(version) FROM schema_migrations').fetchone()[0]==13
+        assert c.execute('SELECT max(version) FROM schema_migrations').fetchone()[0]==14
         for t,expected in baseline.items():assert [tuple(r) for r in c.execute('SELECT * FROM '+t)]==expected
     # A real legacy row remains readable as a test but is not retrospectively
     # certified from the current question bank for collection.

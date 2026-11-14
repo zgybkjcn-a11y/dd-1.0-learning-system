@@ -18,7 +18,7 @@ from scripts.register_main_study_tools import PROGRAM as REGISTER
 ROOT = Path(__file__).parents[1]
 OLD_SOURCE = ROOT / 'tests/fixtures/readonly_study_tools_v1_0_0.py'
 SOURCE = ROOT / 'deploy/open-webui-reuse/readonly_study_tools.py'
-NATIVE = ROOT / 'tests/fixtures/readonly_study_tool_120_native.json'
+NATIVE = ROOT / 'tests/fixtures/readonly_study_tool_121_native.json'
 OWNER = 'synthetic-owner'
 OLD_PIN = '733ad01dc38ed6b09fcae69047ff731e0eb83d59b0a2dd2432595a3508c6a650'
 
@@ -92,7 +92,7 @@ def test_full_lifecycle_preserves_permissions_config_and_legal_history(store, pa
     assert state['tool']['name']==plan['before']['tool']['name']
     assert state['tool']['created_at']==1 and state['tool']['user_id']==OWNER
     meta=json.loads(state['tool']['meta']); assert meta['description']=='保留描述' and meta['custom']=={'unchanged':True}
-    assert meta['manifest']['version']=='1.2.0'
+    assert meta['manifest']['version']=='1.2.1'
     assert untouched(store)==others
     after=dump(store)
     assert run('apply',store,package)['row_changes']==0 and dump(store)==after

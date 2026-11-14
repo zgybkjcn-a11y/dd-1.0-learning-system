@@ -1,0 +1,243 @@
+"""Offline checks for the fifth lower batch: nine remaining scopes, nine items."""
+from collections import Counter
+from fractions import Fraction
+import hashlib
+import json
+
+import pytest
+
+from learning_service import chapter_practice as chapter, practice
+from learning_service.app import run_worker_once
+from learning_service.practice_response import grade_short_fields
+from scripts import review_lower_gap_candidates_batch5 as review
+from scripts.build_lower_gap_candidates_batch5 import BATCH, DESTINATION, build
+from scripts.build_lower_gap_candidates import DESTINATION as BATCH1_DESTINATION
+from scripts.build_lower_gap_candidates_batch2 import DESTINATION as BATCH2_DESTINATION
+from scripts.build_lower_gap_candidates_batch3 import DESTINATION as BATCH3_DESTINATION
+from scripts.build_lower_gap_candidates_batch4 import DESTINATION as BATCH4_DESTINATION
+from test_family_math import family
+
+
+@pytest.fixture
+def candidates():
+    return chapter._parse(DESTINATION.read_bytes())[2]
+
+
+def by_point(qs, point):
+    return next(q for q in qs.values() if q['knowledge']['point_id'] == point)
+
+
+def values(q):
+    return [f['options'][int(f['answer']) - 1] if f['kind'] == 'choice'
+            else Fraction(f['answer']) for f in q['responses']]
+
+
+def test_nine_scopes_are_unregistered_and_reproducible(candidates):
+    qs, points, before, after = review.proposal()
+    assert json.loads(DESTINATION.read_bytes()) == build()
+    assert len(qs) == len(points) == 9
+    assert set(points) == {q['knowledge']['point_id'] for q in qs.values()}
+    assert Counter(q['knowledge']['role'] for q in qs.values()) == {'direct': 9}
+    assert Counter(q['book_id'] for q in qs.values()) == {
+        'biology-g7-lower': 3, 'geography-g7-lower': 4, 'english-g7-lower': 2}
+    assert not (set(candidates) & set(chapter.bank())) and BATCH not in chapter.BATCHES
+    # Earlier lower batches stay separate, unregistered candidate sets.
+    earlier = [chapter._parse(p.read_bytes())[2]
+               for p in (BATCH1_DESTINATION, BATCH2_DESTINATION,
+                         BATCH3_DESTINATION, BATCH4_DESTINATION)]
+    assert [len(qs) for qs in earlier] == [7, 9, 9, 9]
+    assert not (set().union(*earlier) & set(candidates))
+    assert len(chapter.bank()) == 1074
+    old = {r['id']: r for r in json.loads(review.SUBJECT.read_bytes())['rows']}
+    new = {r['id']: r for r in before['rows']}
+    assert set(new) - set(old) == set(points)
+    for row_id, row in old.items():
+        assert {k: v for k, v in row.items() if k != 'mappings'} == \
+               {k: v for k, v in new[row_id].items() if k != 'mappings'}
+    for point_id in points:
+        assert new[point_id]['candidate_only'] is True and new[point_id]['mappings'] == []
+        assert new[point_id]['manual_task']['automatically_graded'] is False
+
+
+def test_every_item_carries_an_unobserved_manual_task(candidates):
+    for q in candidates.values():
+        m = q['manual_followup']
+        assert m['automatically_graded'] is False
+        assert m['completion'] == 'not_observed'
+        assert m['learner_record_created'] is False
+        assert m['reviewer'] is None
+        assert len(m['criteria']) >= 3
+        assert q['review']['teacher_reviewed'] is False
+        assert q['review']['deployment_status'] == 'local_candidate_not_registered'
+
+
+def test_biology_answers_match_the_chapter_conclusions(candidates):
+    blood = values(by_point(candidates, 'biology-g7-lower:6:inventory-1'))
+    assert blood[0] == 55
+    assert '血浆和血细胞' in blood[1]
+    assert '血红蛋白' in blood[2] and '氧含量低' in blood[2]
+    assert blood[3] == '贫血'
+    assert '不要求重做实验' in by_point(
+        candidates, 'biology-g7-lower:6:inventory-1')['prompt']
+
+    urine = values(by_point(candidates, 'biology-g7-lower:7:inventory-1'))
+    assert urine[0] == '肾、输尿管、膀胱和尿道'
+    assert urine[1] == '肾小球、肾小囊和肾小管'
+    assert urine[2] == 180
+    assert '滤过' in urine[3] and '重吸收' in urine[3]
+
+    model = values(by_point(candidates, 'biology-g7-lower:activity2:inventory-1'))
+    assert '功能' in model[0] and '对应' in model[0]
+    assert '检验' in model[1] and '优化' in model[1]
+    assert model[2] == '模型所展示的结构和对应的功能'
+    assert model[3] == '方案设计'
+
+
+def test_geography_answers_match_the_pages(candidates):
+    heritage = by_point(candidates, 'geography-g7-lower:activity1:inventory-1')
+    assert values(heritage)[0] == 42
+    assert values(heritage)[1] == '自然遗产'
+    assert values(heritage)[2] == '自然和文化双遗产'
+    assert '符号与类别一一对应' in values(heritage)[3]
+    assert '2021' in heritage['prompt'] and '第 44 届' in heritage['prompt']
+
+    west_asia = values(by_point(candidates, 'geography-g7-lower:9:inventory-1'))
+    assert west_asia[0] == '亚洲、欧洲和非洲'
+    assert west_asia[1] == '里海'
+    assert west_asia[2] == '地中海和红海'
+    assert '黑海' in west_asia[3] and '地中海' in west_asia[3]
+
+    usa = values(by_point(candidates, 'geography-g7-lower:10:inventory-1'))
+    assert usa[0] == '西部为高原山地，中部为平原，东部为低缓山地'
+    assert '一两种' in usa[1]
+    assert '共同' in usa[2] and '市场' in usa[2]
+    assert usa[3] == 2
+
+    polar = by_point(candidates, 'geography-g7-lower:11:inventory-1')
+    assert values(polar)[0] == '南极地区以大陆为主体，北极地区以海洋为主体'
+    assert '海拔' in values(polar)[1] and '海水' in values(polar)[1]
+    assert values(polar)[2] == 50
+    assert '企鹅生活在南极地区' in values(polar)[3]
+    assert '年平均气温' in polar['prompt'] and '年降水量' in polar['prompt']
+
+
+def test_english_answers_match_the_unit_grammar(candidates):
+    unit3 = values(by_point(candidates, 'english-g7-lower:3:inventory-1'))
+    assert unit3 == ['twice', 'yours', 'His', 'never, sometimes, always']
+    labels = [f['label'] for f in by_point(
+        candidates, 'english-g7-lower:3:inventory-1')['responses']]
+    assert 'How often' in labels[0] and 'bike' in labels[1]
+    assert 'Whose volleyball' in labels[2] and 'least often' in labels[3]
+
+    unit4 = values(by_point(candidates, 'english-g7-lower:4:inventory-1'))
+    assert unit4 == ['bread', 'vegetables', 'As an uncountable noun for food',
+                     'I’d like tea, please.']
+    q4 = by_point(candidates, 'english-g7-lower:4:inventory-1')
+    assert 'We had fish for dinner.' in q4['responses'][2]['label']
+    assert 'Would you like tea or milk?' in q4['responses'][3]['label']
+
+
+def test_answers_are_not_leaked_into_prompts_or_other_fields(candidates):
+    for q in candidates.values():
+        labels = [f['label'] for f in q['responses']]
+        assert len(labels) == len(set(labels)), q['id']
+        texts = [q['prompt'], *labels]
+        for field in q['responses']:
+            if field['kind'] != 'choice':
+                continue
+            correct = field['options'][int(field['answer']) - 1]
+            for text in texts:
+                if text != field['label']:
+                    assert correct not in text, (q['id'], field['id'], correct)
+
+
+def test_each_field_wrong_missing_extra_and_feedback_boundaries(candidates):
+    for q in candidates.values():
+        key = json.loads(chapter.stored(q)['answer_key_json'])
+        right = json.loads(q['answer'])
+        assert grade_short_fields(q['answer'], key)[0] == 'correct'
+        for field in q['responses']:
+            wrongs = ([str(i + 1) for i in range(len(field['options'])) if str(i + 1) != field['answer']]
+                      if field['kind'] == 'choice' else [str(Fraction(field['answer']) + 1)])
+            for wrong in wrongs:
+                assert grade_short_fields(json.dumps({**right, field['id']: wrong}), key)[0] == 'incorrect'
+            missing = {k: v for k, v in right.items() if k != field['id']}
+            assert grade_short_fields(json.dumps(missing), key)[0] == 'incorrect'
+            for invalid in (True, '', '1 or 2'):
+                assert grade_short_fields(json.dumps({**right, field['id']: invalid}), key)[0] == 'incorrect'
+            for e in field['errors']:
+                outcome, feedback = grade_short_fields(json.dumps({**right, field['id']: e['answer']}), key)
+                assert outcome == 'incorrect' and e['message'] in feedback and e['action'] in feedback
+        assert grade_short_fields(json.dumps({**right, 'extra': '1'}), key)[0] == 'incorrect'
+        assert grade_short_fields('{"a":"1",' + q['answer'][1:], key)[0] == 'incorrect'
+
+
+def test_installed_and_candidate_evidence_remain_separate(candidates, tmp_path):
+    summary = review.export(tmp_path / 'review')
+    assert summary['installed_evidence'] == {'configured': 112, 'partial': 288, 'gap': 267}
+    assert summary['candidate_inclusive'] == {'configured': 112, 'partial': 297, 'gap': 258}
+    assert summary['new_configured_requirements'] == 0
+    assert not summary['local_bank_registered'] and BATCH not in chapter.BATCHES
+    diffs = json.loads((tmp_path / 'review/coverage-diff.json').read_bytes())
+    assert len(diffs) == 9
+    assert sum(d['candidate_inclusive_after']['family_count'] for d in diffs) == 9
+    assert all(d['installed_before']['status'] == 'gap' for d in diffs)
+    evidence = json.loads((tmp_path / 'review/source-evidence.json').read_bytes())
+    assert {e['book_id'] for e in evidence} == {
+        'biology-g7-lower', 'geography-g7-lower', 'english-g7-lower'}
+    assert all(e['text_layer'] is True for e in evidence)
+    assert all(e['source_review_method'] == 'local_original_PDF_native_text_no_OCR'
+               for e in evidence)
+    figures = {e['question_version_id']: e['figure_review'] for e in evidence}
+    for point in review.FIGURE_VERIFIED:
+        assert figures[by_point(candidates, point)['id']] == 'local_page_image_view_no_OCR'
+    assert sum(v == 'local_page_image_view_no_OCR' for v in figures.values()) == 4
+    assert summary['figure_verified_items'].keys() == review.FIGURE_VERIFIED.keys()
+
+
+def test_synthetic_install_preserves_all_existing_rows_and_is_idempotent(family, candidates, monkeypatch):
+    _, db, api, headers = family
+    practice.install(db)
+    for batch in chapter.BATCHES:
+        if batch not in ('math_g7_action_candidates', 'math_g7_chapter4_action_candidates'):
+            chapter.install(db, batch)
+    with db.session() as c:
+        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1145
+        before = {r[0]: set(map(tuple, c.execute('SELECT * FROM "' + r[0] + '"')))
+                  for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' "
+                                     "AND name NOT LIKE 'sqlite_%'")}
+    monkeypatch.setitem(chapter.BATCHES, BATCH, hashlib.sha256(DESTINATION.read_bytes()).hexdigest())
+    assert chapter.install(db, BATCH)['added'] == 9
+    assert chapter.install(db, BATCH)['added'] == 0
+    with db.session() as c:
+        for table, old in before.items():
+            assert old <= set(map(tuple, c.execute('SELECT * FROM "' + table + '"')))
+        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1154
+    for q in candidates.values():
+        h = {**headers, 'X-Learner-Id': f"family-g{q['grade']}"}
+        response = api.post('/api/v1/test-sessions', headers=h,
+                            json={'question_version_id': q['id'], 'textbook_book_id': q['book_id'],
+                                  'textbook_chapter_id': q['chapter_id']})
+        assert response.status_code == 201, response.text
+        data = response.json()
+        assert data['answer_key'] is None and 'field_answers' not in response.text
+        item = data['items'][0]
+        foreign = {**headers, 'X-Learner-Id': 'family-g7' if q['grade'] == 2 else 'family-g2'}
+        assert api.get('/api/v1/test-sessions/' + data['session_id'],
+                       headers=foreign).status_code in (403, 404)
+        token = api.post(f"/api/v1/test-items/{item['test_item_id']}/submission-challenges",
+                         headers=h).json()
+        body = {'challenge_id': token['challenge_id'], 'nonce': token['nonce'], 'raw_answer': q['answer']}
+        url = f"/api/v1/test-items/{item['test_item_id']}/answers"
+        hh = {**h, 'Idempotency-Key': q['id']}
+        response = api.post(url, headers=hh, json=body)
+        assert response.status_code == 202, response.text
+        aid = response.json()['attempt_id']
+        assert api.post(url, headers=hh, json=body).json()['attempt_id'] == aid
+        run_worker_once(db, api.app.state.settings)
+        assert api.get('/api/v1/attempts/' + aid, headers=h).json()['outcome'] == 'correct'
+    with db.session() as c:
+        assert c.execute('SELECT COUNT(*) FROM provider_calls').fetchone()[0] == 0
+        for table, old in before.items():
+            if table in ('questions', 'question_versions'):
+                assert old <= set(map(tuple, c.execute('SELECT * FROM "' + table + '"')))

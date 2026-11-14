@@ -41,11 +41,24 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
                             for name, value in api.cookies.items()])
         page_errors = []
         fail_preview_once = [True]
+        fail_zoom_image_once, fail_zoom_search_once = [True], [True]
+        hold_search, held_routes = [False], []
 
         def handle(route):
             url = urlsplit(route.request.url)
             assert url.scheme + '://' + url.netloc == origin
             assert url.path.startswith('/learning/')
+            if url.path.endswith('/textbooks/search') and hold_search[0]:
+                held_routes.append(route)
+                return
+            if url.path.endswith('/textbooks/search') and route.request.post_data_json.get('page_offset') == 12 and fail_zoom_search_once[0]:
+                fail_zoom_search_once[0] = False
+                route.fulfill(status=503, json={'error': {'message': 'synthetic search unavailable'}})
+                return
+            if url.path.endswith('/pages/12/image') and fail_zoom_image_once[0]:
+                fail_zoom_image_once[0] = False
+                route.fulfill(status=503, json={'error': {'message': 'synthetic image unavailable'}})
+                return
             if url.path.endswith('/pages/144/image') and fail_preview_once[0]:
                 fail_preview_once[0] = False
                 route.fulfill(status=503, json={'error':{'message':'synthetic unavailable'}})
@@ -76,6 +89,7 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         page = context.new_page()
         page.on('pageerror', lambda error: page_errors.append(str(error)))
         page.goto(origin + '/learning/ui')
+        assert page_errors == []
         expect = playwright.expect
         expect(page.locator('.profile-card')).to_have_count(2)
         expect(page.locator('#startAdventure')).to_be_disabled()
@@ -95,19 +109,104 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         expect(page.locator('#textbookPageRange')).to_have_text('第 1 页')
         expect(page.locator('#textbookResults img')).to_have_count(1)
         expect(page.locator('#textbookPrev')).to_be_disabled()
-        page.locator('#textbookNext').click()
+        expect(page.locator('#textbookPagePrev')).to_be_visible()
+        expect(page.locator('#textbookPagePrev')).to_be_disabled()
+        expect(page.locator('#textbookPageNext')).to_be_enabled()
+        expect(page.locator('#textbookToc button[aria-current="true"]')).to_have_attribute('data-chapter', '1')
+        page.locator('#textbookResults img').click()
+        expect(page.locator('#textbookZoomPrev')).to_be_disabled()
+        expect(page.locator('#textbookZoomNext')).to_be_enabled()
+        page.locator('#textbookZoomClose').click()
+        expect(page.locator('#textbookPrev')).to_be_hidden()
+        expect(page.locator('#textbookNext')).to_be_hidden()
+        page.locator('#textbookPageNext').click()
+        expect(page.locator('#textbookPageRange')).to_have_text('第 2 页')
+        page.locator('#textbookPagePrev').click()
+        expect(page.locator('#textbookPageRange')).to_have_text('第 1 页')
+        page.locator('#textbookPageNext').click()
         expect(page.locator('#textbookPageRange')).to_have_text('第 2 页')
         page.locator('#textbookPageInput').fill('10')
         page.locator('#textbookJump').click()
         expect(page.locator('#textbookPageRange')).to_have_text('第 10 页')
         expect(page.locator('#textbookResults details')).to_have_count(1)
+        # Controls float over the image without taking up page width.
+        page.locator('.textbook-page-frame').scroll_into_view_if_needed()
+        left = page.locator('#textbookPagePrev').bounding_box()
+        right = page.locator('#textbookPageNext').bounding_box()
+        viewport = page.locator('#textbookResults').bounding_box()
+        assert left['x'] > viewport['x']
+        assert right['x'] + right['width'] < viewport['x'] + viewport['width']
+        def assert_image_overlay(button_id, image_id):
+            assert page.evaluate('''([buttonId, imageId]) => {
+                const button = document.querySelector(buttonId), image = document.querySelector(imageId);
+                const b = button.getBoundingClientRect(), i = image.getBoundingClientRect();
+                const x = b.x + b.width / 2, y = b.y + b.height / 2;
+                return x > i.left && x < i.right && y > i.top && y < i.bottom &&
+                    button.contains(document.elementFromPoint(x, y));
+            }''', [button_id, image_id])
+        assert_image_overlay('#textbookPageNext', '#textbookResults img')
+        page.locator('#textbookResults').evaluate('(el) => el.scrollTop = el.scrollHeight')
+        assert page.locator('#textbookPageNext').bounding_box() == right
+        page.locator('#textbookResults').evaluate('(el) => el.scrollTop = 0')
+        page.locator('.textbook-reader-layout').screenshot(path=str(screenshots / f'reader-navigation-{width}.png'))
         page.locator('#textbookResults img').click()
         expect(page.locator('#textbookZoom')).to_be_visible()
         assert page.locator('#textbookZoomImage').evaluate('(img) => img.complete && img.naturalWidth > 0')
         page.locator('#textbookZoomIn').click()
         expect(page.locator('#textbookZoomLevel')).to_have_text('125%')
+        assert_image_overlay('#textbookZoomPrev', '#textbookZoomImage')
+        assert_image_overlay('#textbookZoomNext', '#textbookZoomImage')
+        page.locator('#textbookZoomNext').click()
+        expect(page.locator('#textbookZoomTitle')).to_contain_text('第 11 页')
+        expect(page.locator('#textbookZoomNext')).to_be_enabled()
+        expect(page.locator('#textbookZoomLevel')).to_have_text('125%')
+        expect(page.locator('#textbookPageRange')).to_have_text('第 11 页')
+        zoom_button = page.locator('#textbookZoomNext').bounding_box()
+        page.locator('#textbookZoomViewport').evaluate('(el) => el.scrollTo(60, el.scrollHeight)')
+        assert page.locator('#textbookZoomNext').bounding_box() == zoom_button
+        page.locator('#textbookZoomViewport').evaluate('(el) => el.scrollTo(0, 0)')
+        # A failed page image and a failed page request both retry in the modal.
+        page.locator('#textbookZoomNext').click()
+        expect(page.locator('#textbookZoomStatus')).to_contain_text('暂未加载成功')
+        expect(page.locator('#textbookZoom')).to_be_visible()
+        page.locator('#textbookZoomRetry').click()
+        expect(page.locator('#textbookZoomTitle')).to_contain_text('第 12 页')
+        expect(page.locator('#textbookZoomRetry')).to_be_hidden()
+        page.locator('#textbookZoomNext').click()
+        expect(page.locator('#textbookZoomStatus')).to_contain_text('暂未加载成功')
+        expect(page.locator('#textbookZoom')).to_be_visible()
+        page.locator('#textbookZoomRetry').click()
+        expect(page.locator('#textbookZoomTitle')).to_contain_text('第 13 页')
+        expect(page.locator('#textbookZoomNext')).to_be_enabled()
+        expect(page.locator('#textbookZoomLevel')).to_have_text('125%')
+        page.locator('#textbookZoom').screenshot(path=str(screenshots / f'zoom-overlay-{width}.png'))
+        for number in (12, 11, 10):
+            page.locator('#textbookZoomPrev').click()
+            expect(page.locator('#textbookZoomTitle')).to_contain_text(f'第 {number} 页')
+            expect(page.locator('#textbookZoomPrev')).to_be_enabled()
         page.locator('#textbookZoomOut').click()
         expect(page.locator('#textbookZoomLevel')).to_have_text('100%')
+        page.locator('#textbookZoomOut').click()
+        page.locator('#textbookZoomOut').click()
+        expect(page.locator('#textbookZoomLevel')).to_have_text('50%')
+        assert_image_overlay('#textbookZoomPrev', '#textbookZoomImage')
+        assert_image_overlay('#textbookZoomNext', '#textbookZoomImage')
+        page.locator('#textbookZoomReset').click()
+        # Closing while a turn is loading must not reopen the dialog later.
+        hold_search[0] = True
+        page.locator('#textbookZoomNext').click()
+        expect(page.locator('#textbookZoomStatus')).to_contain_text('正在加载')
+        expect(page.locator('#textbookZoomNext')).to_be_disabled()
+        page.locator('#textbookZoomClose').click()
+        hold_search[0] = False
+        assert len(held_routes) == 1
+        handle(held_routes.pop())
+        expect(page.locator('#textbookPageRange')).to_have_text('第 11 页')
+        expect(page.locator('#textbookPagePrev')).to_be_enabled()
+        expect(page.locator('#textbookZoom')).not_to_be_visible()
+        page.locator('#textbookPagePrev').click()
+        expect(page.locator('#textbookPageRange')).to_have_text('第 10 页')
+        page.locator('#textbookResults img').click()
         page.keyboard.press('Escape')
         expect(page.locator('#textbookZoom')).not_to_be_visible()
         expect(page.locator('#textbookPageRange')).to_have_text('第 10 页')
@@ -120,10 +219,55 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         expect(page.locator('#textbookChapter')).to_have_value('2')
         expect(page.locator('#textbookPageRange')).to_have_text('第 10 页')
         expect(page.locator('#practiceChoices button')).to_have_count(1)
-        page.locator('#textbookPageInput').fill('30')
+        # Reading can cross the practice chapter without changing its scope.
+        page.locator('#textbookPageInput').fill('29')
         page.locator('#textbookJump').click()
-        expect(page.locator('#textbookStatus')).to_contain_text('10～29')
-        expect(page.locator('#textbookPageRange')).to_have_text('第 10 页')
+        expect(page.locator('#textbookPageRange')).to_have_text('第 29 页')
+        page.locator('.textbook-page-frame').scroll_into_view_if_needed()
+        window_scroll = page.evaluate('scrollY')
+        page.locator('#textbookPageNext').click()
+        expect(page.locator('#textbookPageRange')).to_have_text('第 30 页')
+        expect(page.locator('#textbookPageNext')).to_be_enabled()
+        assert abs(page.evaluate('scrollY') - window_scroll) <= 2
+        expect(page.locator('#textbookToc button[aria-current="true"]')).to_have_attribute('data-chapter', '3')
+        expect(page.locator('#textbookChapter')).to_have_value('2')
+        expect(page.locator('#practiceChoices button')).to_have_count(1)
+        page.locator('#textbookPagePrev').click()
+        expect(page.locator('#textbookPageRange')).to_have_text('第 29 页')
+        expect(page.locator('#textbookToc button[aria-current="true"]')).to_have_attribute('data-chapter', '2')
+        page.locator('#textbookResults img').click()
+        page.locator('#textbookZoomNext').click()
+        expect(page.locator('#textbookZoomTitle')).to_contain_text('第 30 页')
+        expect(page.locator('#textbookZoomNext')).to_be_enabled()
+        expect(page.locator('#textbookToc button[aria-current="true"]')).to_have_attribute('data-chapter', '3')
+        expect(page.locator('#textbookChapter')).to_have_value('2')
+        page.locator('#textbookZoomClose').click()
+        last_page = int(page.locator('#textbookPageInput').get_attribute('max'))
+        page.locator('#textbookPageInput').fill(str(last_page))
+        page.locator('#textbookJump').click()
+        expect(page.locator('#textbookPageRange')).to_have_text(f'第 {last_page} 页')
+        expect(page.locator('#textbookPageNext')).to_be_disabled()
+        expect(page.locator('#textbookNext')).to_be_disabled()
+        page.locator('#textbookResults img').click()
+        expect(page.locator('#textbookZoomNext')).to_be_disabled()
+        expect(page.locator('#textbookZoomPrev')).to_be_enabled()
+        page.locator('#textbookZoomClose').click()
+        page.locator('#textbookContents').evaluate('(el) => el.open = true')
+        active = page.locator('#textbookToc button[aria-current="true"]')
+        expect(active).to_have_attribute('data-chapter', '6')
+        page.wait_for_function('''() => {
+            const toc = document.querySelector('#textbookContents').getBoundingClientRect();
+            const active = document.querySelector('#textbookToc button[aria-current="true"]').getBoundingClientRect();
+            return active.top >= toc.top && active.bottom <= toc.bottom;
+        }''')
+        # Following the current chapter only scrolls the sidebar itself.
+        window_scroll = page.evaluate('scrollY')
+        page.evaluate("document.querySelector('#textbookContents').scrollTop = 0; syncReaderToc()")
+        assert page.evaluate('scrollY') == window_scroll
+        page.locator('#textbookPageInput').fill(str(last_page + 1))
+        page.locator('#textbookJump').click()
+        expect(page.locator('#textbookStatus')).to_contain_text(f'1～{last_page}')
+        expect(page.locator('#textbookPageRange')).to_have_text(f'第 {last_page} 页')
         page.locator('#textbookCollapseAll').click()
         expect(page.locator('#textbookResults img')).not_to_be_visible()
         page.locator('#textbookExpandAll').click()
@@ -158,6 +302,17 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         page.locator('#scopeChallenge').click()
         expect(page.locator('#testPrompt')).to_have_text('3 × 4 = ?')
         session = page.locator('#session').input_value()
+        page.locator('[data-game-view="home"]').click()
+        page.locator('#textbookSearch').click()
+        page.locator('#textbookPageInput').fill('29')
+        page.locator('#textbookJump').click()
+        expect(page.locator('#textbookPageRange')).to_have_text('第 29 页')
+        page.locator('#textbookPageNext').click()
+        expect(page.locator('#textbookPageRange')).to_have_text('第 30 页')
+        expect(page.locator('#session')).to_have_value(session)
+        expect(page.locator('#textbookChapter')).to_have_value('2')
+        expect(page.locator('#testPrompt')).to_have_text('3 × 4 = ?')
+        page.locator('[data-game-view="practice"]').click()
         page.reload()
         expect(page.locator('#testPrompt')).to_have_text('3 × 4 = ?')
         expect(page.locator('#textbookChapter')).to_have_value('2')
@@ -265,7 +420,9 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         expect(page.locator('#today button')).to_have_count(1)
         page.locator('#today button').click()
         expect(page.locator('#testPrompt')).to_have_text('3 × 4 = ?')
+        cancelled_review = page.locator('#session').input_value()
         page.locator('#cancelTest').click()
+        expect(page.locator('body')).to_have_attribute('data-view', 'home')
 
         page.locator('.profile-card[data-grade="7"]').click()
         expect(page.locator('#textbookSubject option')).to_have_count(7)
@@ -300,11 +457,19 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         page.locator('#textbookZoomClose').click()
         page.locator('#textbookPrev').click()
         expect(page.locator('#textbookPageRange')).to_have_text('第 115 页')
+        # Side controls turn a physical page; toolbar controls cycle matches.
+        page.locator('#textbookPageNext').click()
+        expect(page.locator('#textbookPageRange')).to_have_text('第 116 页')
+        expect(page.locator('#textbookQuery')).to_have_value('')
+        expect(page.locator('#textbookNext')).to_have_text('下一页')
+        expect(page.locator('#textbookToc button[aria-current="true"]')).to_have_attribute('data-chapter', '5')
         page.locator('#textbookQuery').fill('synthetic-empty')
         page.locator('#textbookFind').click()
         expect(page.locator('#textbookStatus')).to_contain_text('检索可能遗漏')
         expect(page.locator('#textbookResultCount')).to_have_text('本次没有可展示的候选页')
         expect(page.locator('#textbookResults img')).to_have_count(0)
+        expect(page.locator('#textbookPagePrev')).to_be_hidden()
+        expect(page.locator('#textbookPageNext')).to_be_hidden()
         page.locator('#textbookQuery').fill('')
         page.locator('#textbookSearch').click()
         expect(page.locator('#textbookPageRange')).to_have_text('第 110 页')
@@ -347,8 +512,9 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         expect(page.locator('#mistakes')).not_to_contain_text('6 × 7')
         page.locator('.profile-card[data-grade="2"]').click()
         expect(page.locator('#heroGraded')).to_have_text('5')
-        expect(page.locator('#textbookChapter')).to_have_value('')
-        expect(page.locator('#session')).to_have_value('')
+        # The server restores this learner's chapter and cancelled review.
+        expect(page.locator('#textbookChapter')).to_have_value('2')
+        expect(page.locator('#session')).to_have_value(cancelled_review)
         page.locator('[data-game-view="notebook"]').click()
         expect(page.locator('#mistakes')).to_contain_text('6 × 7')
         assert page_errors == []

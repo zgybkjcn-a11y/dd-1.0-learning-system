@@ -132,7 +132,20 @@ def test_previous_runtime_candidate_still_verifies_after_textbook_expansion(tmp_
                                           ('math_reference','MATH_REFERENCE_PATHS'), ('study_workbench','STUDY_WORKBENCH_PATHS'),
                                           ('passage_runtime','PASSAGE_RUNTIME_PATHS'), ('reserve_runtime','RESERVE_RUNTIME_PATHS'),
                                           ('collection_runtime','COLLECTION_RUNTIME_PATHS'), ('recovery_runtime','RECOVERY_RUNTIME_PATHS'),
-                                          ('backup_runtime','BACKUP_RUNTIME_PATHS'), ('evidence_runtime','EVIDENCE_RUNTIME_PATHS')])
+                                          ('backup_runtime','BACKUP_RUNTIME_PATHS'), ('evidence_runtime','EVIDENCE_RUNTIME_PATHS'),
+                                          ('performance_runtime','PERFORMANCE_RUNTIME_PATHS'),
+                                          ('read_connection_runtime','READ_CONNECTION_RUNTIME_PATHS'),
+                                          ('read_scheduling_runtime','READ_SCHEDULING_RUNTIME_PATHS'),
+                                          ('math_v2_runtime','MATH_V2_RUNTIME_PATHS'),
+                                          ('variety_v5_runtime','VARIETY_V5_RUNTIME_PATHS'),
+                                          ('variety_v6_runtime','VARIETY_V6_RUNTIME_PATHS'),
+                                          ('subject_v7_runtime','SUBJECT_V7_RUNTIME_PATHS'),
+                                          ('challenge_v8_runtime','CHALLENGE_V8_RUNTIME_PATHS'),
+                                          ('quality_v9_runtime','QUALITY_V9_RUNTIME_PATHS'),
+                                          ('math_gaps_v10_runtime','MATH_GAPS_V10_RUNTIME_PATHS'),
+                                          ('subject_gaps_v11_runtime','SUBJECT_GAPS_V11_RUNTIME_PATHS'),
+                                          ('math_v4_runtime','MATH_V4_RUNTIME_PATHS'),
+                                          ('math_v3_runtime','MATH_V3_RUNTIME_PATHS')])
 def test_prior_content_profiles_verify_after_reference_expansion(tmp_path, profile, paths):
     root = _root(tmp_path); old = root / ('previous-' + profile)
     manifest = release.prepare(old, root)
@@ -142,7 +155,7 @@ def test_prior_content_profiles_verify_after_reference_expansion(tmp_path, profi
         for member in source:
             if member.name in names:
                 target.addfile(member, source.extractfile(member))
-    manifest['schema_revision'] = {'collection_runtime':12, 'recovery_runtime':13, 'backup_runtime':13, 'evidence_runtime':13}.get(profile, 11)
+    manifest['schema_revision'] = {'collection_runtime':12, 'recovery_runtime':13, 'backup_runtime':13, 'evidence_runtime':13, 'performance_runtime':13, 'read_connection_runtime':13, 'read_scheduling_runtime':13, 'math_v2_runtime':13, 'math_v3_runtime':13, 'math_v4_runtime':13, 'variety_v5_runtime':13, 'variety_v6_runtime':13, 'subject_v7_runtime':13, 'challenge_v8_runtime':14, 'quality_v9_runtime':14, 'math_gaps_v10_runtime':14, 'subject_gaps_v11_runtime':14}.get(profile, 11)
     manifest['source_profile'] = getattr(release, profile.upper() + '_PROFILE')
     manifest['source_sha256'] = {k:v for k,v in manifest['source_sha256'].items() if k in names}
     manifest['source_set_sha256'] = release.sha256(release._json(manifest['source_sha256']))
