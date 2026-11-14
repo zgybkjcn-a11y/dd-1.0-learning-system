@@ -1,0 +1,4451 @@
+{
+  "format": "dd-math-coverage-plan-v1",
+  "version": "2026-11-10-v5-g2-multistep",
+  "status": "assistant_draft_not_exhaustive",
+  "teacher_reviewed": false,
+  "curriculum_standard_crosscheck": "pending",
+  "inventory_complete": false,
+  "pdf_sha256": {
+    "math-g2-upper": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+    "math-g7-upper": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8"
+  },
+  "task_labels": {
+    "understand": "概念理解",
+    "apply": "直接应用",
+    "distinguish": "易错辨析",
+    "transfer": "综合迁移"
+  },
+  "rows": [
+    {
+      "id": "math-g2-upper:1:classify",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "title": "分类标准与整理",
+      "printed_page": 1,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说清分类标准",
+        "apply": "按一种标准分类计数",
+        "distinguish": "检查分类标准是否混用及有无遗漏",
+        "transfer": "换标准核对总数不变"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-01-v1",
+          "question_sha256": "85b82bfdc6e42a572a9cbe689ed23d3c32eb11c0e5d9a65bc6264631a16d3643",
+          "task": "apply",
+          "family": "math-g2-upper:1:按颜色整理",
+          "rationale": "核对题干与解析：按颜色整理，对应要求：按一种标准分类计数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-04-v1",
+          "question_sha256": "71c3d77730b3bbc861931652e2c10812f055c9bb37592036f7a85a7a47d1156c",
+          "task": "apply",
+          "family": "math-g2-upper:1:按颜色整理",
+          "rationale": "核对题干与解析：按颜色整理，对应要求：按一种标准分类计数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-07-v1",
+          "question_sha256": "47855b0316660230be0ac70e48bb2582ad98a81f290cf92f6510f1a248e9fc34",
+          "task": "apply",
+          "family": "math-g2-upper:1:按颜色整理",
+          "rationale": "核对题干与解析：按颜色整理，对应要求：按一种标准分类计数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-10-v1",
+          "question_sha256": "63baa7017f2fd011ff2aa1ab98295ffc5b87ee09c1ebc5fd7c798f33c298525d",
+          "task": "apply",
+          "family": "math-g2-upper:1:按颜色整理",
+          "rationale": "核对题干与解析：按颜色整理，对应要求：按一种标准分类计数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-03-v1",
+          "question_sha256": "3270ff72fa03f2cb3f3d675a5906ea887fecea0bbbf7cb370406dff7d1bfe800",
+          "task": "transfer",
+          "family": "math-g2-upper:1:同一物品两种分法",
+          "rationale": "核对题干与解析：同一物品两种分法，对应要求：换标准核对总数不变"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-06-v1",
+          "question_sha256": "c957ef43b8de76a214c71e14622ed7f5e6bd334a99169bf7b99d932503cb3c62",
+          "task": "transfer",
+          "family": "math-g2-upper:1:同一物品两种分法",
+          "rationale": "核对题干与解析：同一物品两种分法，对应要求：换标准核对总数不变"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-09-v1",
+          "question_sha256": "0b19643ea523ff67324164af42af2b7092b6e8db1af2abd25297fc8aa81538b3",
+          "task": "transfer",
+          "family": "math-g2-upper:1:同一物品两种分法",
+          "rationale": "核对题干与解析：同一物品两种分法，对应要求：换标准核对总数不变"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-12-v1",
+          "question_sha256": "39a548940f7f48bcac2cd1f714da7466c467ca6a1497e7231f50ccb3ab55dfdc",
+          "task": "transfer",
+          "family": "math-g2-upper:1:同一物品两种分法",
+          "rationale": "核对题干与解析：同一物品两种分法，对应要求：换标准核对总数不变"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-classify-understand-1-v1",
+          "question_sha256": "224fe3732041de977483f2e5cec120357b8e8b485842d585de66a8d4a4c4b509",
+          "task": "understand",
+          "family": "g2-depth:1:classify:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-classify-understand-2-v1",
+          "question_sha256": "5c69cce489ee58de5a128845bef57f32a158bcd19a9d5bec4a762d633dbb7b33",
+          "task": "understand",
+          "family": "g2-depth:1:classify:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-classify-distinguish-1-v1",
+          "question_sha256": "dd8acfc8c1330c4750c03710e4ef6241bdc960fa1392757a12490642d7d3bb82",
+          "task": "distinguish",
+          "family": "g2-depth:1:classify:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-classify-distinguish-2-v1",
+          "question_sha256": "560f8b5525ec011381f8310c398ab25916f1292d0d4e1d07cd45baa8a2e9787f",
+          "task": "distinguish",
+          "family": "g2-depth:1:classify:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-multistep-two-standards-v1",
+          "question_sha256": "e04751a9b5f4cd182c4145049ab7587537e5da4a7e17926d59ad31d254bb6aee",
+          "task": "apply",
+          "family": "g2:classification:cross-table-count",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-multistep-changed-cards-v1",
+          "question_sha256": "36783f4761cee3d13778fa82b7d4a8fff7075f302e6593774b3b85f33ecd2429",
+          "task": "transfer",
+          "family": "g2:classification:cross-table-conservation",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:1:compare",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "title": "分类结果的比较",
+      "printed_page": 2,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "读懂分类记录",
+        "apply": "从分类记录求总数或比较数量",
+        "distinguish": "区分多几与共几",
+        "transfer": "从记录提出并解决问题"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-02-v1",
+          "question_sha256": "ea9bc781c4b0d743b8145ee9fc98b4c203ef9d495b87be94df65e88014be7ccb",
+          "task": "apply",
+          "family": "math-g2-upper:1:分类后比较",
+          "rationale": "核对题干与解析：分类后比较，对应要求：比较各类多少"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-05-v1",
+          "question_sha256": "7d9b5a472c62b7fa2d57a13fc00957d746a14dac7f1d898ef30fa48a98a69c84",
+          "task": "apply",
+          "family": "math-g2-upper:1:分类后比较",
+          "rationale": "核对题干与解析：分类后比较，对应要求：比较各类多少"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-08-v1",
+          "question_sha256": "059c849f51f3d8f9ded92136cb21d70ee4ba473fc598e4c996426a861b8e0c11",
+          "task": "apply",
+          "family": "math-g2-upper:1:分类后比较",
+          "rationale": "核对题干与解析：分类后比较，对应要求：比较各类多少"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-11-v1",
+          "question_sha256": "5c93ac3eec5e44189cbb2bf4ca91989afc40b84159b5341f0de1b1b6f2753cd5",
+          "task": "apply",
+          "family": "math-g2-upper:1:分类后比较",
+          "rationale": "核对题干与解析：分类后比较，对应要求：比较各类多少"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-compare-understand-1-v1",
+          "question_sha256": "ae515af0f7342bd5e380304fe9be22c586f9069bc452b8531e407b6d329afe61",
+          "task": "understand",
+          "family": "g2-depth:1:compare:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-compare-understand-2-v1",
+          "question_sha256": "06daea5260ad2ccbb42a7deedfa973554af80dbf330528ea357a4144e37c7f46",
+          "task": "understand",
+          "family": "g2-depth:1:compare:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-compare-distinguish-1-v1",
+          "question_sha256": "0fa52b70ff4f321a8dbc10ea30a186875b1631add82fd823cc473b792e45d187",
+          "task": "distinguish",
+          "family": "g2-depth:1:compare:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-compare-distinguish-2-v1",
+          "question_sha256": "b95512263d37b36c6a6d2466683d99782270f193c97dbc19744118ad177b8d5c",
+          "task": "distinguish",
+          "family": "g2-depth:1:compare:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-compare-apply-70248ab95cfc-v1",
+          "question_sha256": "2ec56baeb7eccb895d7231b1f904872b2fe6107ae6116ce6f70199102f4169b8",
+          "task": "apply",
+          "family": "g2-depth:1:compare:apply:70248ab95cfc",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-depth-compare-apply-ed39a1648a93-v1",
+          "question_sha256": "6337555204ce4d187212161b4294970be7e4d3ecb7a6828cf835fc5ac9fcc360",
+          "task": "apply",
+          "family": "math-g2-upper:1:分类后比较",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-challenge-table-gap-v1",
+          "question_sha256": "4ce0a8f01136c7dd2061490750dc93e9e2246c5cf1a6d62896c93306f12cc3a4",
+          "task": "apply",
+          "family": "g2:classification:row-complement",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-challenge-two-totals-v1",
+          "question_sha256": "5c9796f69d86403b4068819439952085775b2d31ac8015be85b0fa8abf5e56d2",
+          "task": "apply",
+          "family": "g2:classification:column-comparison",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-challenge-misclassified-v1",
+          "question_sha256": "84729b2a51d1e77e64489b781f930dca09a5e274e4d482a4a0d7d64d817d42e8",
+          "task": "apply",
+          "family": "g2:classification:correct-two-groups",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-challenge-cross-conditions-v1",
+          "question_sha256": "765280a32817cbeaec944ec19e011a2697f13af7d48b72181e7ec7df0c39a7cd",
+          "task": "apply",
+          "family": "g2:classification:cross-constraints",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-challenge-target-balance-v1",
+          "question_sha256": "b5badec850042415244aaa2988e60b38e43b741e0047bd7b63dde7047c3a1cc9",
+          "task": "apply",
+          "family": "g2:classification:target-complements",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-1-challenge-survey-change-v1",
+          "question_sha256": "d616a3e28a3696b549ded3640f7a6c144545147308fb5f714e9d79884fc3646c",
+          "task": "apply",
+          "family": "g2:classification:linked-counts",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:2:meaning",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "title": "乘法的意义",
+      "printed_page": 11,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明几个相同加数",
+        "apply": "加法与乘法互写",
+        "distinguish": "辨认能否直接用乘法",
+        "transfer": "从情境说明每份量与份数"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-meaning-understand-1-v1",
+          "question_sha256": "c4906aaf6b5cac89088e690fc320a12b969595c9dc005f53d4240432ddd7f813",
+          "task": "understand",
+          "family": "g2-depth:2:meaning:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-meaning-understand-2-v1",
+          "question_sha256": "d6295f5364976a109a33573b33751858d47b5d48b3a3cb6a016fc9d9caefa6bc",
+          "task": "understand",
+          "family": "g2-depth:2:meaning:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-meaning-distinguish-1-v1",
+          "question_sha256": "5d0d26cee7b086329829d99ab2a1f95be3751afafc2e4c63b8a320697d698f04",
+          "task": "distinguish",
+          "family": "g2-depth:2:meaning:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-meaning-distinguish-2-v1",
+          "question_sha256": "8083d6bec6936d136f746d7524a291397bee99dca1aaff127737da888f3e340e",
+          "task": "distinguish",
+          "family": "g2-depth:2:meaning:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-meaning-apply-3a57f27065c7-v1",
+          "question_sha256": "bfb24ff17a298e796ff2d9221f009ee8ea530875e4eaf1e410de753b507a2e1f",
+          "task": "apply",
+          "family": "g2-depth:2:meaning:apply:3a57f27065c7",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-meaning-apply-d339fd816263-v1",
+          "question_sha256": "3e55c55e250aeb04270de8bb15729729f5abe16848fed9573c9723013f477009",
+          "task": "apply",
+          "family": "g2-depth:2:meaning:apply:d339fd816263",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-multistep-array-count-v1",
+          "question_sha256": "a624585a24fa755f40a48033aea38cd8b491466ec160f7182e9077926e3f4537",
+          "task": "understand",
+          "family": "g2:multiply:incomplete-array",
+          "role": "supporting",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:2:tables",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "title": "1～6乘法口诀",
+      "printed_page": 16,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明口诀与算式联系",
+        "apply": "用口诀求积",
+        "distinguish": "辨析口诀和乘积错误",
+        "transfer": "利用已知积求相邻积"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-tables-understand-1-v1",
+          "question_sha256": "4a1a4adca1cb6e42f9fc7829a9a6a7c618515eb8f6e7e7e23f4f01c8cb557175",
+          "task": "understand",
+          "family": "g2-depth:2:tables:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-tables-understand-2-v1",
+          "question_sha256": "6326870ac265a898b36f147c19e5ab185a77538ad02a15196f9e4b36054ebc60",
+          "task": "understand",
+          "family": "g2-depth:2:tables:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-tables-distinguish-1-v1",
+          "question_sha256": "6567c3606fc9a9bed713675aa6e3c07b4a91c29f078d0ea93b297f165ad917a8",
+          "task": "distinguish",
+          "family": "g2-depth:2:tables:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-tables-distinguish-2-v1",
+          "question_sha256": "245d6db3d444f6fbb9d834244127c7513815bb4cff935066a42865e815726af1",
+          "task": "distinguish",
+          "family": "g2-depth:2:tables:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-tables-apply-c9f7a6857432-v1",
+          "question_sha256": "0480b81cda0d42d07a1f11af60b0fff9101a162169358f543035d34db9c9d236",
+          "task": "apply",
+          "family": "math-g2-upper:2:tables:table-calculation",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-tables-apply-060fb1e6ef8a-v1",
+          "question_sha256": "1285647ebece85988c46f4ec54395aff9e09b78b2f88845d013732af1e86ecf4",
+          "task": "apply",
+          "family": "math-g2-upper:2:tables:table-calculation",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-challenge-unknown-factor-v1",
+          "question_sha256": "7f74ccb8e9faaf90ac7d7e860e947edfe1ac7f06490f0fac4eefc4cd31c7a43c",
+          "task": "transfer",
+          "family": "g2:multiply:factor-from-relation",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-challenge-recover-single-v1",
+          "question_sha256": "7c41650880c9a48fae9238c436fe4e74786f50435f4f195a1c576b0d35723092",
+          "task": "apply",
+          "family": "g2:multiply:recover-before-change",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-challenge-rectangle-options-v1",
+          "question_sha256": "75cafad49ac137d8b95094ab40142b8c6432a0d0e5c8339227c17f047273bb03",
+          "task": "apply",
+          "family": "g2:multiply:enumerate-factor-pairs",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-multistep-neighbor-products-v1",
+          "question_sha256": "64fa111fe20170c30c2bc9c59bd7120cdd1b91389b04f3984c6598eb2dbe204c",
+          "task": "transfer",
+          "family": "g2:multiply:adjacent-groups",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:2:word",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "title": "乘法解决问题",
+      "printed_page": 24,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "辨认每份量和份数",
+        "apply": "求相同几份总量",
+        "distinguish": "辨析多余条件和所求量",
+        "transfer": "乘法与加减法组合解决问题"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-word-cnm_p039_q1-v1",
+          "question_sha256": "1d8d8948ada5b6098f71fc07deeb2b60720f25b4e48d0e885b6cdf4f2eef5825",
+          "task": "apply",
+          "family": "math-g2-upper:2:小剧场排座位",
+          "rationale": "核对题干与解析：小剧场排座位，对应要求：求相同几份总量"
+        },
+        {
+          "question_version_id": "family-word-cnm_p262_q1-v1",
+          "question_sha256": "cf0aaa02027e28856bdbf5099468ce4871735df97760cc842f71bac2c2db21e0",
+          "task": "apply",
+          "family": "math-g2-upper:2:文具店买铅笔",
+          "rationale": "核对题干与解析：文具店买铅笔，对应要求：求相同几份总量"
+        },
+        {
+          "question_version_id": "family-word-cnm_p038_q3-v1",
+          "question_sha256": "6064da2480944cb2d91268dae95a57221d26f7562c198f1f9bc64cc118912a84",
+          "task": "apply",
+          "family": "math-g2-upper:2:小组去春游",
+          "rationale": "核对题干与解析：小组去春游，对应要求：求相同几份总量"
+        },
+        {
+          "question_version_id": "family-word-cnm_p039_q3-v1",
+          "question_sha256": "2bfe83e686cd99559af459401476f8a28185a9cf1a96449cac22361ab8e0c832",
+          "task": "apply",
+          "family": "math-g2-upper:2:体育室数皮球",
+          "rationale": "核对题干与解析：体育室数皮球，对应要求：求相同几份总量"
+        },
+        {
+          "question_version_id": "family-word-cnm_p039_q4-v1",
+          "question_sha256": "fa0e85cc54babdc21196261621e8673fb6a148ad11042feec419f8fc1e65c01a",
+          "task": "transfer",
+          "family": "math-g2-upper:2:植树后再添两棵",
+          "rationale": "核对题干与解析：植树后再添两棵，对应要求：乘法与加减法组合解决问题"
+        },
+        {
+          "question_version_id": "family-word-cnm_p048_q4-v1",
+          "question_sha256": "28b04382616b8000244172c126a114b5edff1cd3b947a987f1408762cb6709d8",
+          "task": "transfer",
+          "family": "math-g2-upper:2:整理小书架",
+          "rationale": "核对题干与解析：整理小书架，对应要求：乘法与加减法组合解决问题"
+        },
+        {
+          "question_version_id": "family-word-cnm_p057_q3-v1",
+          "question_sha256": "1968b07007075807415f53357290f9e00b060d417e39d5214205ba886c3a2e53",
+          "task": "transfer",
+          "family": "math-g2-upper:2:整盒和零散的笔",
+          "rationale": "核对题干与解析：整盒和零散的笔，对应要求：乘法与加减法组合解决问题"
+        },
+        {
+          "question_version_id": "family-word-cnm_p262_q3-v1",
+          "question_sha256": "0f413779832af02f867ef93cac163138a63c9fe0acbfe8b08cc470a4c1ace990",
+          "task": "transfer",
+          "family": "math-g2-upper:2:彩笔和橡皮",
+          "rationale": "核对题干与解析：彩笔和橡皮，对应要求：乘法与加减法组合解决问题"
+        },
+        {
+          "question_version_id": "family-word-g2-missing-seats-v1",
+          "question_sha256": "6b560a6dca62203ed7353c37e50e192652b045a664438d0c77cb642137687084",
+          "task": "transfer",
+          "family": "math-g2-upper:2:找出空座位",
+          "rationale": "核对题干与解析：找出空座位，对应要求：乘法与加减法组合解决问题"
+        },
+        {
+          "question_version_id": "family-word-g2-same-pencils-v1",
+          "question_sha256": "e077751e3d9e1f60fcbdb6b894abc9103a3099fb535e42bfd0ade17d81965cd1",
+          "task": "transfer",
+          "family": "math-g2-upper:2:两种买法谁多",
+          "rationale": "核对题干与解析：两种买法谁多，对应要求：乘法与加减法组合解决问题"
+        },
+        {
+          "question_version_id": "family-word-g2-incomplete-row-v1",
+          "question_sha256": "b7afe5dbb011d587fbc7ccc835bc457bac15dd234f0d2c102e00887acedb6e33",
+          "task": "transfer",
+          "family": "math-g2-upper:2:少了两块的方阵",
+          "rationale": "核对题干与解析：少了两块的方阵，对应要求：乘法与加减法组合解决问题"
+        },
+        {
+          "question_version_id": "family-word-g2-ribbon-saving-v1",
+          "question_sha256": "04fecfe65dbaf737d7544a270e61d641bd2c03acfd476096b6cbcde9337202a4",
+          "task": "transfer",
+          "family": "math-g2-upper:2:买练习本找零",
+          "rationale": "核对题干与解析：买练习本找零，对应要求：乘法与加减法组合解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-word-understand-1-v1",
+          "question_sha256": "c3718420e990aef6dc1968c2b52183ff11c8d110b69035838cb9e61541d5bae7",
+          "task": "understand",
+          "family": "g2-depth:2:word:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-word-understand-2-v1",
+          "question_sha256": "ab55a223b9a0aef72fef56b75b84c37f381bc36499083303bca7398df7256dfe",
+          "task": "understand",
+          "family": "g2-depth:2:word:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-word-distinguish-1-v1",
+          "question_sha256": "c0a2ae0ea8f8daa9ee26fae2fec924bf1c326874aceab0d8002c28c37b23dec3",
+          "task": "distinguish",
+          "family": "g2-depth:2:word:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-depth-word-distinguish-2-v1",
+          "question_sha256": "67f1a8220ef20c84911f62ed300922dab72df1dfe0b52f4a76a53db69a0e02a7",
+          "task": "distinguish",
+          "family": "g2-depth:2:word:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-challenge-array-holes-v1",
+          "question_sha256": "911d5e4404c9a9dd49fb3c1308c08f4afee37c83f178d1132682900f172b4a85",
+          "task": "transfer",
+          "family": "g2:multiply:incomplete-array",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-challenge-compare-offers-v1",
+          "question_sha256": "f05ea461c11c311d801806e61fba6717ae9f0ed53d389ac2c26b6d4f8db2a08a",
+          "task": "transfer",
+          "family": "g2:multiply:compare-pack-prices",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-2-challenge-hidden-row-v1",
+          "question_sha256": "baf73632c54a120d815772a3ed1062b7f93da672d8f8aea1478faf6c10bfba7d",
+          "task": "transfer",
+          "family": "g2:multiply:linked-array-rows",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:3:equal",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "title": "平均分与除法意义",
+      "printed_page": 31,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "辨认平均分及两种分法",
+        "apply": "求每份量或份数",
+        "distinguish": "区别平均分和任意分",
+        "transfer": "比较两种分法表达同一总量"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-word-g2-share-1-v1",
+          "question_sha256": "d25679a2b850d5ca8774a3e40d49583e56d619dac878f2b928ccce1b48ae1424",
+          "task": "apply",
+          "family": "math-g2-upper:3:把苹果平均分",
+          "rationale": "核对题干与解析：把苹果平均分，对应要求：求每份量或份数"
+        },
+        {
+          "question_version_id": "family-word-g2-share-2-v1",
+          "question_sha256": "6643a263b2ba39e4c39dce96e08219e3377628530a992b37db4a7288b9c68f90",
+          "task": "apply",
+          "family": "math-g2-upper:3:把铅笔平均分",
+          "rationale": "核对题干与解析：把铅笔平均分，对应要求：求每份量或份数"
+        },
+        {
+          "question_version_id": "family-word-g2-share-3-v1",
+          "question_sha256": "e6238acda81c8d49293fd1d3c8ab8914189af53d7bfea0c13e92d2c04273a695",
+          "task": "apply",
+          "family": "math-g2-upper:3:把积木平均分",
+          "rationale": "核对题干与解析：把积木平均分，对应要求：求每份量或份数"
+        },
+        {
+          "question_version_id": "family-word-g2-share-4-v1",
+          "question_sha256": "002ed0f1d786b07e727d228854b07637008501a29ab8dfbb30a5c91b968c2261",
+          "task": "apply",
+          "family": "math-g2-upper:3:把书平均分",
+          "rationale": "核对题干与解析：把书平均分，对应要求：求每份量或份数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-equal-understand-1-v1",
+          "question_sha256": "1197a557c95d80b6361c0dfbfbf36d9779f7529c1808abe91023747ec9c78a7b",
+          "task": "understand",
+          "family": "g2-depth:3:equal:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-equal-understand-2-v1",
+          "question_sha256": "441cf9cf646033771762a0b87fc1e38e1e745c6fef328eab25d1a63c5d44c74c",
+          "task": "understand",
+          "family": "g2-depth:3:equal:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-equal-distinguish-1-v1",
+          "question_sha256": "e33d0cf55cce3bb64f144f24fb1c5b050b6ee7b2ff597d7907d90d4f6080413a",
+          "task": "distinguish",
+          "family": "g2-depth:3:equal:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-equal-distinguish-2-v1",
+          "question_sha256": "1a87d1528faaaab4c6c7cbd3170beb17898b9cf28d461f51e44b22dabae49124",
+          "task": "distinguish",
+          "family": "g2-depth:3:equal:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-challenge-equalize-v1",
+          "question_sha256": "fbe700cd95e696ab9acef618fc4c94d81acda1b1a528a38659fce8b4d5ce6895",
+          "task": "apply",
+          "family": "g2:divide:balance-transfer",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-multistep-two-divisions-v1",
+          "question_sha256": "73c993b469a53800dca15c7ec9d120f45cb862915dd54c071056db3210d648c4",
+          "task": "transfer",
+          "family": "g2:divide:compare-group-sizes",
+          "role": "supporting",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:3:quotient",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "title": "用口诀求商",
+      "printed_page": 41,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释乘除联系",
+        "apply": "用2～6口诀求商",
+        "distinguish": "核对除数和商的含义",
+        "transfer": "用乘法检验除法结果"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-quotient-understand-1-v1",
+          "question_sha256": "10e3d77c243255a6d3d40db252976f4bf61cfae27e27e820660cf3098588da2f",
+          "task": "understand",
+          "family": "g2-depth:3:quotient:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-quotient-understand-2-v1",
+          "question_sha256": "99bb1285b802b3c14f7f7b17a22492ef8794179db36c2f3cbe07c26fd8aa21df",
+          "task": "understand",
+          "family": "g2-depth:3:quotient:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-quotient-distinguish-1-v1",
+          "question_sha256": "9edca97dbdcb348226826ee0beec55729c1814c906120e27459f6dab06acd30e",
+          "task": "distinguish",
+          "family": "g2-depth:3:quotient:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-quotient-distinguish-2-v1",
+          "question_sha256": "fe734acc8ae58f2d1d2301b6f771114fc7f48b0afd3a6664fada83fe755a01da",
+          "task": "transfer",
+          "family": "g2-depth:3:quotient:transfer:inverse-check",
+          "role": "direct",
+          "rationale": "用商与除数的乘积检验被除数，定位并纠正错误的商。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-quotient-apply-a53de519c5f3-v1",
+          "question_sha256": "1d3e3a0a2d733f4a6a811b98b3bb0ea86f5f367a93527bcbddb4e7ae817b48d6",
+          "task": "apply",
+          "family": "math-g2-upper:3:quotient:table-calculation",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-quotient-apply-a01955df4637-v1",
+          "question_sha256": "ce718efbc5826f6b794c9c77ed34def87085714925ac59de29afa3f917fb2570",
+          "task": "apply",
+          "family": "math-g2-upper:3:quotient:table-calculation",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-challenge-division-gap-v1",
+          "question_sha256": "ce97289e697d987ec65970e27ee46adb4bbe7a2b4263e7a822957089f2e2b5cb",
+          "task": "apply",
+          "family": "g2:divide:inverse-equal-expressions",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:3:word",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "title": "除法解决问题",
+      "printed_page": 46,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "识别总量与分组条件",
+        "apply": "解决单步平均分问题",
+        "distinguish": "辨析先后顺序及给一人与给每人的区别",
+        "transfer": "分组与增减组合问题"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-word-cnm_p046_q4-v1",
+          "question_sha256": "43cc5bb8d198959179f62429b1a6b5f61a562eea5ea397b3056434e7d29ff06b",
+          "task": "transfer",
+          "family": "math-g2-upper:3:还要装几袋球",
+          "rationale": "核对题干与解析：还要装几袋球，对应要求：分组与增减组合问题"
+        },
+        {
+          "question_version_id": "family-word-g2-share-then-give-v1",
+          "question_sha256": "f82eff3b476e02cadaaf0d907a98fe4d83c97bd77d967c937e21d9027d901872",
+          "task": "transfer",
+          "family": "math-g2-upper:3:分贴纸再分享",
+          "rationale": "核对题干与解析：分贴纸再分享，对应要求：分组与增减组合问题"
+        },
+        {
+          "question_version_id": "family-word-g2-bags-then-give-v1",
+          "question_sha256": "8bc9333fe520d1227a95c5acd52afbc341a309b0b8635e44afea8f17630b33ee",
+          "task": "transfer",
+          "family": "math-g2-upper:3:送出整袋橘子",
+          "rationale": "核对题干与解析：送出整袋橘子，对应要求：分组与增减组合问题"
+        },
+        {
+          "question_version_id": "family-word-g2-two-boxes-v1",
+          "question_sha256": "ecc1f9b1bcb2db9356853812bf68d7892e261b2822130f854a1d3d1610874cf9",
+          "task": "transfer",
+          "family": "math-g2-upper:3:拿出两盒小球",
+          "rationale": "核对题干与解析：拿出两盒小球，对应要求：分组与增减组合问题"
+        },
+        {
+          "question_version_id": "family-word-g2-recover-total-v1",
+          "question_sha256": "4f6a973cd5d4369f284424b452c75e9f6f4bc30c747b5e24c38850a9115d8576",
+          "task": "transfer",
+          "family": "math-g2-upper:3:找回总数",
+          "rationale": "核对题干与解析：找回总数，对应要求：分组与增减组合问题"
+        },
+        {
+          "question_version_id": "family-word-g2-leftovers-v1",
+          "question_sha256": "52cd354dd73aed4b8a7e90c706465ca3ce80cbe366df4f3e28284329ed107d17",
+          "task": "transfer",
+          "family": "math-g2-upper:3:先留再分",
+          "rationale": "核对题干与解析：先留再分，对应要求：分组与增减组合问题"
+        },
+        {
+          "question_version_id": "family-word-g2-equal-teams-v1",
+          "question_sha256": "ef2242ec2820f8884d71a7ce1c7c1a4746feb43e2cfbc06a7bda33698f8fa65a",
+          "task": "transfer",
+          "family": "math-g2-upper:3:两队人数一样吗",
+          "rationale": "核对题干与解析：两队人数一样吗，对应要求：分组与增减组合问题"
+        },
+        {
+          "question_version_id": "family-word-g2-missing-packet-v1",
+          "question_sha256": "5291c1671a8da7243af3361e9719f943dc3a5b2217cb99a227fa241ff4fa1078",
+          "task": "transfer",
+          "family": "math-g2-upper:3:丢失的一袋",
+          "rationale": "核对题干与解析：丢失的一袋，对应要求：分组与增减组合问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-word-understand-1-v1",
+          "question_sha256": "eb5eb6b417523fedef729ba80ce3f13ce0fb92c8dd7d93df7981526c827e4e39",
+          "task": "understand",
+          "family": "g2-depth:3:word:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-word-understand-2-v1",
+          "question_sha256": "11d8556618be7abeaef04b62279dc16557396a130acf17d760c87b89bab236b6",
+          "task": "understand",
+          "family": "g2-depth:3:word:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-word-distinguish-1-v1",
+          "question_sha256": "eb4d14e368b02e8334a245d3df34b562a094a238fd3dfacd33523912bb035f35",
+          "task": "distinguish",
+          "family": "g2-depth:3:word:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-depth-word-distinguish-2-v1",
+          "question_sha256": "07e0a73ee320d289ebcad6427e92d113c48c3d16d8b958a70ddb4ab85f8a909b",
+          "task": "distinguish",
+          "family": "g2-depth:3:word:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-challenge-two-stage-v1",
+          "question_sha256": "098ed1d97dda22be3bd14fad9b8e64184b6c5069db689b3d1a523f5f916ee3c1",
+          "task": "transfer",
+          "family": "g2:divide:subtract-then-share",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-challenge-recover-shares-v1",
+          "question_sha256": "43f38bf88ab9938b918c87a7485ff396f8a011e6f7d856fa17ca882c79d174e9",
+          "task": "transfer",
+          "family": "g2:divide:reverse-per-person-change",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-challenge-repack-v1",
+          "question_sha256": "8d6b9b67e8b9424fc31545f23e5fdf00f64155a247082dab7f04bda987aa847c",
+          "task": "transfer",
+          "family": "g2:divide:compare-group-sizes",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-challenge-extra-condition-v1",
+          "question_sha256": "04f5aec41b6a66e6d5028f19cbf44268d3f19f9a13778191b94a829fd5c402e2",
+          "task": "transfer",
+          "family": "g2:divide:total-capacity-minus-existing",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-3-multistep-extra-round-v1",
+          "question_sha256": "e27fb50820c3f1984184e6e1c7c8db56ec4c9182c8efa3110549ffc2311b7284",
+          "task": "transfer",
+          "family": "g2:divide:subtract-then-share",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:activity1:direction",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "title": "东南西北",
+      "printed_page": 50,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "辨认相对方向",
+        "apply": "根据朝向判断左右",
+        "distinguish": "区别自身左右与固定方向",
+        "transfer": "转身后判断方向"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-01-v1",
+          "question_sha256": "4532601b62c15df33cbe9a0715f811daf62ceeba519e7d99f5f35d9c49590ca7",
+          "task": "apply",
+          "family": "math-g2-upper:activity1:认方向",
+          "rationale": "核对题干与解析：认方向，对应要求：根据朝向判断左右"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-04-v1",
+          "question_sha256": "8a87f664da82bb6583c37c6b61716c19c7a4df97ef49c31db28fa58d5fbc8097",
+          "task": "apply",
+          "family": "math-g2-upper:activity1:认方向",
+          "rationale": "核对题干与解析：认方向，对应要求：根据朝向判断左右"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-07-v1",
+          "question_sha256": "c9469a6aa6d71c156e6434b3720e6226adbb5b32f5530d6e93540587b00e35c6",
+          "task": "apply",
+          "family": "math-g2-upper:activity1:认方向",
+          "rationale": "核对题干与解析：认方向，对应要求：根据朝向判断左右"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-10-v1",
+          "question_sha256": "b9656fef2359b1f42917e44b3ae2d201e05cd8b27e34406bb5b6ee6394cdad51",
+          "task": "apply",
+          "family": "math-g2-upper:activity1:认方向",
+          "rationale": "核对题干与解析：认方向，对应要求：根据朝向判断左右"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-02-v1",
+          "question_sha256": "21cb326aaa303572556ba510a2682f794dbe6ed2d6b7ee4eccb3f866fb24e1c1",
+          "task": "apply",
+          "family": "math-g2-upper:activity1:面对方向找右边",
+          "rationale": "核对题干与解析：面对方向找右边，对应要求：根据朝向判断左右"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-05-v1",
+          "question_sha256": "d54f5bc27894625be73651efa1dd08b13a5ddac12c6197b6cea2d9f46d9388ce",
+          "task": "apply",
+          "family": "math-g2-upper:activity1:面对方向找右边",
+          "rationale": "核对题干与解析：面对方向找右边，对应要求：根据朝向判断左右"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-08-v1",
+          "question_sha256": "cc8b3ed66d7af4b9d2863992025c94cdc743238f3e955e6d331d6b39ee1e82f2",
+          "task": "apply",
+          "family": "math-g2-upper:activity1:面对方向找右边",
+          "rationale": "核对题干与解析：面对方向找右边，对应要求：根据朝向判断左右"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-11-v1",
+          "question_sha256": "ccc07d945f2d34ae243334fa0809a99a9175e5fe3c7cf6f03fe0bc3610dd034e",
+          "task": "apply",
+          "family": "math-g2-upper:activity1:面对方向找右边",
+          "rationale": "核对题干与解析：面对方向找右边，对应要求：根据朝向判断左右"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-03-v1",
+          "question_sha256": "54098c002fc73244bebb79aab7d2da26cdcf0e92762d3b4c73e5cc84f60d3090",
+          "task": "transfer",
+          "family": "math-g2-upper:activity1:转身后辨方向",
+          "rationale": "核对题干与解析：转身后辨方向，对应要求：转身后判断方向"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-06-v1",
+          "question_sha256": "c6534f5124b2b04c0a3d9d28056b6b9d733e0cfe526fdff47bd83a4bad2a54a6",
+          "task": "transfer",
+          "family": "math-g2-upper:activity1:转身后辨方向",
+          "rationale": "核对题干与解析：转身后辨方向，对应要求：转身后判断方向"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-09-v1",
+          "question_sha256": "09f2d48a5553728a050304b23db1b52c9d11ea54e14c266e3dbd35e2293516b6",
+          "task": "transfer",
+          "family": "math-g2-upper:activity1:转身后辨方向",
+          "rationale": "核对题干与解析：转身后辨方向，对应要求：转身后判断方向"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-12-v1",
+          "question_sha256": "2628ce85ca4adcdb763e93581fb0260ace824b76ccb7e69ef1881f3aa982109c",
+          "task": "transfer",
+          "family": "math-g2-upper:activity1:转身后辨方向",
+          "rationale": "核对题干与解析：转身后辨方向，对应要求：转身后判断方向"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-depth-direction-understand-1-v1",
+          "question_sha256": "c0a508db58359ccadb4eeee66f5bd1632ceba61b57f6c1fd03e4dc7ab6649ba7",
+          "task": "understand",
+          "family": "g2-depth:activity1:direction:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-depth-direction-understand-2-v1",
+          "question_sha256": "4111c063fe62ea80a2f7994fa8dd8cc3dc198f9230b7031f32b080effde2828e",
+          "task": "understand",
+          "family": "g2-depth:activity1:direction:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-depth-direction-distinguish-1-v1",
+          "question_sha256": "750ed700e263e0173ab6df47a883108f4fb0bb11d209bab2f7be3999675e14d8",
+          "task": "distinguish",
+          "family": "g2-depth:activity1:direction:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-depth-direction-distinguish-2-v1",
+          "question_sha256": "9e5e1ab15fd8a4213a41bbebe5cb95c6540a5b01f332b1ea026f9c43ecb65414",
+          "task": "distinguish",
+          "family": "g2-depth:activity1:direction:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-challenge-relative-sites-v1",
+          "question_sha256": "7f0451083fcb04321699a5cb516f25743f0d7e719eb127552b443cf26320cf42",
+          "task": "transfer",
+          "family": "g2:direction:three-place-inference",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-challenge-turn-sequence-v1",
+          "question_sha256": "1c797a4f11cbc6f423f32424671d636e7c0ab6417eabeff57f926026bce5cc04",
+          "task": "transfer",
+          "family": "g2:direction:inverse-turn-sequence",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:activity1:route",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "title": "校园路线",
+      "printed_page": 52,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明路线参照位置",
+        "apply": "描述沿途方向",
+        "distinguish": "检查路线起点和分段参照位置",
+        "transfer": "设计并解释一条校园路线"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-depth-route-understand-1-v1",
+          "question_sha256": "387a95e0a232bda0c90341b93fc53f965b9696c37a14a803cdfb5a00f3b8770f",
+          "task": "understand",
+          "family": "g2-depth:activity1:route:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-depth-route-understand-2-v1",
+          "question_sha256": "41dc6d8831dbfa8c4233b87dd6449514eea10de4e5935e75126bb81c5dfa0e7e",
+          "task": "understand",
+          "family": "g2-depth:activity1:route:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-depth-route-distinguish-1-v1",
+          "question_sha256": "d61da37312038439b96d857925f8b53579668f917c12865cc103f5537ba7bf86",
+          "task": "distinguish",
+          "family": "g2-depth:activity1:route:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-depth-route-distinguish-2-v1",
+          "question_sha256": "d6672b132dd9251487f845e1492a4c395649976e4ed64308b6634d6f8bc3b834",
+          "task": "distinguish",
+          "family": "g2-depth:activity1:route:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-challenge-route-turns-v1",
+          "question_sha256": "68c8fc86df1b0bc82b8b2dcd108429ad9fc404d44b6d7ad940eb4c9491baad88",
+          "task": "transfer",
+          "family": "g2:route:position-and-facing",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-challenge-reverse-route-v1",
+          "question_sha256": "f063915ec039653d63010fb9e0fce598a572d791be2fc7ae0bf0e9a20ecece46",
+          "task": "transfer",
+          "family": "g2:route:reverse-path",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-challenge-detour-v1",
+          "question_sha256": "3a8c92caff8291bdb5d21b3170d7c2702e6200bc05a1f0ab0cf30bcc69cdc742",
+          "task": "transfer",
+          "family": "g2:route:enumerate-with-block",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-challenge-return-steps-v1",
+          "question_sha256": "74753b5e2365a2eeaf153a4f008f0765585b265c93e06f3e1a1bc98de66de197",
+          "task": "transfer",
+          "family": "g2:route:cancel-displacement",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-multistep-route-directions-v1",
+          "question_sha256": "21d55e6ccf96bf3ed11d301fa0a66c5d43ef89eceda43e43a93f2eee22b89db2",
+          "task": "apply",
+          "family": "g2:direction:segmented-route",
+          "role": "supporting",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity1-multistep-check-routes-v1",
+          "question_sha256": "86dc4c9a79426e80b6197c1717f0a114479a0a3db9cd8d7731211b182d49b6cc",
+          "task": "distinguish",
+          "family": "g2:direction:trace-obstructed-routes",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:4:units",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "title": "厘米和米",
+      "printed_page": 58,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "选择合适长度单位",
+        "apply": "换算米和厘米",
+        "distinguish": "辨析单位不一致",
+        "transfer": "结合情境选择单位和计算"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-02-v1",
+          "question_sha256": "293b51b468c05fb7c497d60974d094fbe791acd5d26b4c1d4288410837b9dace",
+          "task": "apply",
+          "family": "math-g2-upper:4:米和厘米",
+          "rationale": "核对题干与解析：米和厘米，对应要求：换算米和厘米"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-05-v1",
+          "question_sha256": "030d4c6367175bc6f5f1c14b3e83ba13aa28f3a7bcc556708362507a5a1be142",
+          "task": "apply",
+          "family": "math-g2-upper:4:米和厘米",
+          "rationale": "核对题干与解析：米和厘米，对应要求：换算米和厘米"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-08-v1",
+          "question_sha256": "4691f989acb4300fa01548168f2f66fcdb46601be0cf88648cdb3447c766eb1c",
+          "task": "apply",
+          "family": "math-g2-upper:4:米和厘米",
+          "rationale": "核对题干与解析：米和厘米，对应要求：换算米和厘米"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-11-v1",
+          "question_sha256": "b906ad366533dde61a86baa37a3f46a4a482c39e7a7bf3f263a50afd32b3c769",
+          "task": "apply",
+          "family": "math-g2-upper:4:米和厘米",
+          "rationale": "核对题干与解析：米和厘米，对应要求：换算米和厘米"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-03-v1",
+          "question_sha256": "6baa049a746aa0e3413c054b689a9c5ab8a8fde137f03349c01114c51bfbbece",
+          "task": "transfer",
+          "family": "math-g2-upper:4:两次截取",
+          "rationale": "核对题干与解析：两次截取，对应要求：结合情境选择单位和计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-06-v1",
+          "question_sha256": "d36e450ed84158c826f8165ec2a3431d8db7aa3810da9a7fa933a36c57140dd3",
+          "task": "transfer",
+          "family": "math-g2-upper:4:两次截取",
+          "rationale": "核对题干与解析：两次截取，对应要求：结合情境选择单位和计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-09-v1",
+          "question_sha256": "ee4bbc887a1103d77fa748e04781621543549a831c884c2b58c92a984174c03d",
+          "task": "transfer",
+          "family": "math-g2-upper:4:两次截取",
+          "rationale": "核对题干与解析：两次截取，对应要求：结合情境选择单位和计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-12-v1",
+          "question_sha256": "1cc9f19f277cb7af07eed001d28ddd2d7476aec67cbdcbbfe670f31e7d126376",
+          "task": "transfer",
+          "family": "math-g2-upper:4:两次截取",
+          "rationale": "核对题干与解析：两次截取，对应要求：结合情境选择单位和计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-units-understand-1-v1",
+          "question_sha256": "0dea6478c55afe4938a619e2be77c55a7b22a36c119ea3d1b8415b8a5ddc4ba3",
+          "task": "understand",
+          "family": "g2-depth:4:units:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-units-understand-2-v1",
+          "question_sha256": "a7e012ab63506ca73e079f39f27da0ae728abeb109e8215b21feaa8547dcc488",
+          "task": "understand",
+          "family": "g2-depth:4:units:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-units-distinguish-1-v1",
+          "question_sha256": "b1958986e97428a48ba2bd8a91e398f5fc83b863f29877cff8c55186a4bea1b0",
+          "task": "distinguish",
+          "family": "g2-depth:4:units:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-units-distinguish-2-v1",
+          "question_sha256": "658b95eb38a93f5a1546d9abcbc03ba46951f6b0d7d245632934b2f3269d27f6",
+          "task": "distinguish",
+          "family": "g2-depth:4:units:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-challenge-overlap-v1",
+          "question_sha256": "0619008d2bce80362114cc9f19bf1ed34dafc116b9541477f57c38031436c9cc",
+          "task": "transfer",
+          "family": "g2:length:overlap-once",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-challenge-cut-count-v1",
+          "question_sha256": "60e565a62e7b6cb743a73c943884fe9a9ff8634c1dcbb735e7d4533a2601effc",
+          "task": "transfer",
+          "family": "g2:length:reserve-then-partition",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-multistep-ribbon-plan-v1",
+          "question_sha256": "327702dd2aaff7a3299de460821c2517727e783c9e47aa27f2d5edef2ad5c0cd",
+          "task": "transfer",
+          "family": "g2:measurement:unit-cutting",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:4:ruler",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "title": "直尺测量与线段",
+      "printed_page": 56,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明尺子起点和刻度",
+        "apply": "读出两端刻度差",
+        "distinguish": "辨析起点刻度和尺子摆放错误",
+        "transfer": "画指定长度线段并测量验证"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-01-v1",
+          "question_sha256": "d772d69536fc1ed2d48b1b7d0fc79880f7707191d89b3cff417e0f63b1d17cb0",
+          "task": "apply",
+          "family": "math-g2-upper:4:尺子不从零开始",
+          "rationale": "核对题干与解析：尺子不从零开始，对应要求：读出两端刻度差"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-04-v1",
+          "question_sha256": "7af8d6e68c2de70e241ebbeb7bbd7436d3b69b1689d5ce251cae4b340b4a3b5d",
+          "task": "apply",
+          "family": "math-g2-upper:4:尺子不从零开始",
+          "rationale": "核对题干与解析：尺子不从零开始，对应要求：读出两端刻度差"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-07-v1",
+          "question_sha256": "4b364a9a07c99be138089684f53d0dce56312de269dfea4a3a924edcf21a8fe0",
+          "task": "apply",
+          "family": "math-g2-upper:4:尺子不从零开始",
+          "rationale": "核对题干与解析：尺子不从零开始，对应要求：读出两端刻度差"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-10-v1",
+          "question_sha256": "4bc1e92ffec7672155e7f466e4da25742e9e3e8bffdb35ce7021c6ed4a7c4b25",
+          "task": "apply",
+          "family": "math-g2-upper:4:尺子不从零开始",
+          "rationale": "核对题干与解析：尺子不从零开始，对应要求：读出两端刻度差"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-ruler-understand-1-v1",
+          "question_sha256": "86ee8543bb1fc7718e54be0e3545ffdb7067c43ff190c69ba16b06b22e5cbfa7",
+          "task": "understand",
+          "family": "g2-depth:4:ruler:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-ruler-understand-2-v1",
+          "question_sha256": "7792a99fe25f9326482b495c9c633b6ddeea7c9c392e95e5dae3ccb566211331",
+          "task": "understand",
+          "family": "g2-depth:4:ruler:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-ruler-distinguish-1-v1",
+          "question_sha256": "521673acb1638d999db89e93a44b71fe1f183ea36a7783891ea6e586c811b951",
+          "task": "distinguish",
+          "family": "g2-depth:4:ruler:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-ruler-distinguish-2-v1",
+          "question_sha256": "4eb264b268402b5622d165b5d457f14adc44e3984947e05e5f4076c17e18f93a",
+          "task": "distinguish",
+          "family": "g2-depth:4:ruler:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-challenge-ruler-compare-v1",
+          "question_sha256": "21ebd3a51060edbeb9d8c687253b14477625b3783c6afbf0c13a402308407ded",
+          "task": "apply",
+          "family": "g2:ruler:compare-offset-segments",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-challenge-missing-end-v1",
+          "question_sha256": "6aeb02b3a4cbe7ed1a7c68b63c14ca11afb7006cb2c08ef50a0d2d37a0d7f953",
+          "task": "apply",
+          "family": "g2:ruler:recover-endpoint",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-challenge-measurement-error-v1",
+          "question_sha256": "691b91f3625eac80639702b03004a1a41738e42cb131e11343f5173120909514",
+          "task": "distinguish",
+          "family": "g2:ruler:propagated-offset-error",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-multistep-two-lengths-v1",
+          "question_sha256": "702ae072e13c696aa0211d64d66a3aaf0960f8b19df7a06c718a5d5223081769",
+          "task": "apply",
+          "family": "g2:ruler:compare-offset-segments",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:4:estimate",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "title": "长度估测",
+      "printed_page": 60,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "建立厘米和米的表象",
+        "apply": "估测并记录长度",
+        "distinguish": "比较估测与实测",
+        "transfer": "解释估测方法并改进"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-estimate-understand-1-v1",
+          "question_sha256": "ff3fdef63665a65caa59ce9127ea24ace619d7075bb8c37e5bcaa1d21668002e",
+          "task": "understand",
+          "family": "g2-depth:4:estimate:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-estimate-understand-2-v1",
+          "question_sha256": "861eb1f774ad8a4d42af7db53760fe40b355dba0b44455df4bb030ada46c7a67",
+          "task": "understand",
+          "family": "g2-depth:4:estimate:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-estimate-distinguish-1-v1",
+          "question_sha256": "f101f1b6116bf32eb186f03ba5b9fa9ca131d5f4f78004ecb45436e8ddb38f79",
+          "task": "distinguish",
+          "family": "g2-depth:4:estimate:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-depth-estimate-distinguish-2-v1",
+          "question_sha256": "6ec6408e2f1a67ff55b78a062d0217f0674dc71f1895d683bc0dd1c754b52d0a",
+          "task": "distinguish",
+          "family": "g2-depth:4:estimate:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-4-challenge-range-estimate-v1",
+          "question_sha256": "3f151cc6acc7c26c9400dd2b12e347a13c8f03b6ad8468b17a1b38191e0155ba",
+          "task": "apply",
+          "family": "g2:length:integer-range-filter",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:activity2:body",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity2",
+      "title": "身体尺的使用",
+      "printed_page": 69,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明拃步等身体尺",
+        "apply": "用校准后的身体尺测量",
+        "distinguish": "辨析不同人的身体尺差异",
+        "transfer": "比较身体尺与标准尺测量"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-01-v1",
+          "question_sha256": "0717c5b7e60c75b621432bcc018b7c8b473bcf645326c4c515f19d1e60523410",
+          "task": "apply",
+          "family": "math-g2-upper:activity2:用自己的拃测量",
+          "rationale": "核对题干与解析：用自己的拃测量，对应要求：用校准后的身体尺测量"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-04-v1",
+          "question_sha256": "8a2dac15cf9bc9b2c18d31acb44e7fafb396659fdb7c80fb9e054953a362f19c",
+          "task": "apply",
+          "family": "math-g2-upper:activity2:用自己的拃测量",
+          "rationale": "核对题干与解析：用自己的拃测量，对应要求：用校准后的身体尺测量"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-07-v1",
+          "question_sha256": "3b1a32ff2a775e4c0fd75f1d0cb97decb925d723018983623fc2305b8f9dcb09",
+          "task": "apply",
+          "family": "math-g2-upper:activity2:用自己的拃测量",
+          "rationale": "核对题干与解析：用自己的拃测量，对应要求：用校准后的身体尺测量"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-10-v1",
+          "question_sha256": "5203e87fc46b18ee58d12b82796ab0b3427a6d106b57516ea616b22a2ff55ac3",
+          "task": "apply",
+          "family": "math-g2-upper:activity2:用自己的拃测量",
+          "rationale": "核对题干与解析：用自己的拃测量，对应要求：用校准后的身体尺测量"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-02-v1",
+          "question_sha256": "eb2b6fba0fea3ebc5a92efbc314aadf9a977c68f451062e1c54bcb044c3e381c",
+          "task": "apply",
+          "family": "math-g2-upper:activity2:整拃和剩余长度",
+          "rationale": "核对题干与解析：整拃和剩余长度，对应要求：用校准后的身体尺测量"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-05-v1",
+          "question_sha256": "f93197abd3c66d85c4c63fa930af5efc0fbc6291ba62b79f28d18acc213f789c",
+          "task": "apply",
+          "family": "math-g2-upper:activity2:整拃和剩余长度",
+          "rationale": "核对题干与解析：整拃和剩余长度，对应要求：用校准后的身体尺测量"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-08-v1",
+          "question_sha256": "5feb00dffb656bd9383f501ab27bb771ddf9b152918af3fadf0af94e2a3bebf7",
+          "task": "apply",
+          "family": "math-g2-upper:activity2:整拃和剩余长度",
+          "rationale": "核对题干与解析：整拃和剩余长度，对应要求：用校准后的身体尺测量"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-11-v1",
+          "question_sha256": "9f383daffc6709b66321bbffe343a4f8b90620b818715fe4ea769408138167b5",
+          "task": "apply",
+          "family": "math-g2-upper:activity2:整拃和剩余长度",
+          "rationale": "核对题干与解析：整拃和剩余长度，对应要求：用校准后的身体尺测量"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-03-v1",
+          "question_sha256": "9c89f97c82eb3149e810059fe288e37e6a126d8e7bac6f27cac9e0ca265c75d7",
+          "task": "distinguish",
+          "family": "math-g2-upper:activity2:身体尺要先校准",
+          "rationale": "核对题干与解析：身体尺要先校准，对应要求：辨析不同人的身体尺差异"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-06-v1",
+          "question_sha256": "6562ece0f24739ebab4a76c9f714e618c7ecc643f8b3a5a3bae1fda57e96d1e7",
+          "task": "distinguish",
+          "family": "math-g2-upper:activity2:身体尺要先校准",
+          "rationale": "核对题干与解析：身体尺要先校准，对应要求：辨析不同人的身体尺差异"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-09-v1",
+          "question_sha256": "65172125cf2348204b700852630fd155814216212f2218564fa024826e91094b",
+          "task": "distinguish",
+          "family": "math-g2-upper:activity2:身体尺要先校准",
+          "rationale": "核对题干与解析：身体尺要先校准，对应要求：辨析不同人的身体尺差异"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-12-v1",
+          "question_sha256": "2281b36b6c495687d79c1089eea7cd4f89ccbc37aceacb846903bdbe19172615",
+          "task": "distinguish",
+          "family": "math-g2-upper:activity2:身体尺要先校准",
+          "rationale": "核对题干与解析：身体尺要先校准，对应要求：辨析不同人的身体尺差异"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-depth-body-understand-1-v1",
+          "question_sha256": "b35ed57d4a97d6f1b2e3fd45e81f173ffdcab504fced357d0c47644a40c65691",
+          "task": "understand",
+          "family": "g2-depth:activity2:body:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-depth-body-understand-2-v1",
+          "question_sha256": "8f84a490c96e9f7cc57af0051be1871a6f784ff9beb2c4560aec3c2f9ee8ee58",
+          "task": "understand",
+          "family": "g2-depth:activity2:body:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-depth-body-distinguish-1-v1",
+          "question_sha256": "e9f882025c48e296b2492fc772d2fa7f307913c14e27b00adb9da8ad45263e44",
+          "task": "distinguish",
+          "family": "g2-depth:activity2:body:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-depth-body-distinguish-2-v1",
+          "question_sha256": "2a8d6bfad9ca4fbcfa6b4af32ed149d97f58fc332e823b425c26857510e790bd",
+          "task": "distinguish",
+          "family": "g2-depth:activity2:body:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-challenge-calibration-v1",
+          "question_sha256": "cb8d3979aae9aa97e4d9459f4855f8a134a3e30f7b322ec3acce7c87cf778494",
+          "task": "apply",
+          "family": "g2:body:calibrated-with-tail",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-challenge-infer-span-v1",
+          "question_sha256": "07214004545d128e7e07025bce4ee17221efe9d6674627f1de88da9cbacb55e2",
+          "task": "apply",
+          "family": "g2:body:infer-unit",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-challenge-two-people-v1",
+          "question_sha256": "ccb0ba1190016edf2189fdba5527e7d1ed6da8e9f06bb40d8c0d053f29ccad61",
+          "task": "distinguish",
+          "family": "g2:body:convert-between-units",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-challenge-gap-error-v1",
+          "question_sha256": "a8dcb3e2b6c40809912e5203b0e8207f95881cf86f8be010ac01db48eb14d661",
+          "task": "apply",
+          "family": "g2:body:gaps-between-units",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-challenge-repeat-overlap-v1",
+          "question_sha256": "d4cab2bdeb8442a28f1414b8759541c3004903acabcf2d99ef2acaa9187250ab",
+          "task": "apply",
+          "family": "g2:body:repeated-overlaps",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-challenge-target-check-v1",
+          "question_sha256": "2e0fb70a598f91495a4c2c3eca3219f38eb9a488aff795fd314e9ed3fd6ec27e",
+          "task": "transfer",
+          "family": "g2:body:compare-estimation-errors",
+          "role": "supporting",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-multistep-calibrate-span-v1",
+          "question_sha256": "ffc63326a6bc94a2d7c194d512082f065c359d1d292b92e7622922a6a234b529",
+          "task": "apply",
+          "family": "g2:body:calibrate-then-estimate",
+          "role": "supporting",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-activity2-multistep-compare-measures-v1",
+          "question_sha256": "c54a6cfffe29da0f2fe49f2b8c9befb4fb7f91f4b6aed0da847f47460a64f434",
+          "task": "transfer",
+          "family": "g2:body:compare-estimation-errors",
+          "role": "supporting",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:6:relations",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "title": "运算的复习与关联",
+      "printed_page": 91,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释加减乘除联系",
+        "apply": "选择合适运算求值",
+        "distinguish": "辨析所求量和相同份数是否与算式匹配",
+        "transfer": "综合使用运算解决问题"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-01-v1",
+          "question_sha256": "c98e7361f01f343544b727f179420735960240d828b6dcad51a627cba061b93c",
+          "task": "apply",
+          "family": "math-g2-upper:6:复习乘除关系",
+          "rationale": "核对题干与解析：复习乘除关系，对应要求：选择合适运算求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-04-v1",
+          "question_sha256": "b53290800aedf77238d7526668f9065a1d0dbfc103e8a879df2c23ad4f73f907",
+          "task": "apply",
+          "family": "math-g2-upper:6:复习乘除关系",
+          "rationale": "核对题干与解析：复习乘除关系，对应要求：选择合适运算求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-07-v1",
+          "question_sha256": "9e3920c1e6fc2c413f75aa8f816dedc17e9d3b39a19d0fc1f469c6ece3c9a606",
+          "task": "apply",
+          "family": "math-g2-upper:6:复习乘除关系",
+          "rationale": "核对题干与解析：复习乘除关系，对应要求：选择合适运算求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-10-v1",
+          "question_sha256": "1322d38891f49ae313418a12e898e44024eb03f2e4ee2a067d73211dd210595d",
+          "task": "apply",
+          "family": "math-g2-upper:6:复习乘除关系",
+          "rationale": "核对题干与解析：复习乘除关系，对应要求：选择合适运算求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-02-v1",
+          "question_sha256": "097f23f6fe84c667794aaa1db413673aaf31bab3276a96cfbd3e8715303b0a51",
+          "task": "transfer",
+          "family": "math-g2-upper:6:先分再合",
+          "rationale": "核对题干与解析：先分再合，对应要求：综合使用运算解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-05-v1",
+          "question_sha256": "43f1ba8cab6cec210bf2f74e3877ad7d0ab553c5772990595af816413421b7e6",
+          "task": "transfer",
+          "family": "math-g2-upper:6:先分再合",
+          "rationale": "核对题干与解析：先分再合，对应要求：综合使用运算解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-08-v1",
+          "question_sha256": "3a8dae950ab0ff84a5b628fc9d74f0e021a90a7658f33b91cf39bec9efad0b9b",
+          "task": "transfer",
+          "family": "math-g2-upper:6:先分再合",
+          "rationale": "核对题干与解析：先分再合，对应要求：综合使用运算解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-11-v1",
+          "question_sha256": "f6bb7828dc889e2e50f143dfa75c18849b98bfb33b5ad2d4ea4128b4e8d0f6b4",
+          "task": "transfer",
+          "family": "math-g2-upper:6:先分再合",
+          "rationale": "核对题干与解析：先分再合，对应要求：综合使用运算解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-03-v1",
+          "question_sha256": "f0fcdc61a3deb7f59251d085e83cc89523bb57befa8903535f6033c3b4e51c26",
+          "task": "transfer",
+          "family": "math-g2-upper:6:不同包装凑总数",
+          "rationale": "核对题干与解析：不同包装凑总数，对应要求：综合使用运算解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-06-v1",
+          "question_sha256": "cae59e52f5868378eb903e5a31b2ca102765abb345940f40837eb80ab6886771",
+          "task": "transfer",
+          "family": "math-g2-upper:6:不同包装凑总数",
+          "rationale": "核对题干与解析：不同包装凑总数，对应要求：综合使用运算解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-09-v1",
+          "question_sha256": "bec483829fa349f0fba81e448fbaf91309954e8c81115c9d7e9d8002afdeff68",
+          "task": "transfer",
+          "family": "math-g2-upper:6:不同包装凑总数",
+          "rationale": "核对题干与解析：不同包装凑总数，对应要求：综合使用运算解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-12-v1",
+          "question_sha256": "1ab24f5c03e8723297281e4281b9871cb636d9a84e00e744c1c0f90e1f617989",
+          "task": "transfer",
+          "family": "math-g2-upper:6:不同包装凑总数",
+          "rationale": "核对题干与解析：不同包装凑总数，对应要求：综合使用运算解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-depth-relations-understand-1-v1",
+          "question_sha256": "7d98580277db03858e8489ec66cd8dc8e0c30651b62f99a85fa487572dfd9a19",
+          "task": "understand",
+          "family": "g2-depth:6:relations:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-depth-relations-understand-2-v1",
+          "question_sha256": "6b9a4daa641d3c6869a2689301ccdcad27b76a94d0a8bd91b1921f8850e40bfd",
+          "task": "understand",
+          "family": "g2-depth:6:relations:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-depth-relations-distinguish-1-v1",
+          "question_sha256": "a8ecc36326352c2e515333d9655ac7bc4cc2d5aff28376a1854913dc905397ef",
+          "task": "distinguish",
+          "family": "g2-depth:6:relations:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-depth-relations-distinguish-2-v1",
+          "question_sha256": "7778444dff0539e37653f4031c74268ffd96f1593e50abffa3d32e7fc9775d63",
+          "task": "distinguish",
+          "family": "g2-depth:6:relations:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-challenge-linked-record-v1",
+          "question_sha256": "844456759e202ffb436c29edd034847465f903decb7120f30452ba82bd572790",
+          "task": "transfer",
+          "family": "g2:review:multiply-subtract-divide",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-challenge-mixed-units-v1",
+          "question_sha256": "647fa0a6c102f0efac327e2fde8c82d56619b9d2487cae64db37c276468ab1ce",
+          "task": "transfer",
+          "family": "g2:review:unit-and-repeated-addition",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-challenge-two-purchases-v1",
+          "question_sha256": "1a69ac291bda66babe8a90d12401e2c84460d9cc00b74cc9cc2b74fd2ff87732",
+          "task": "transfer",
+          "family": "g2:review:compare-equal-parts",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-challenge-chairs-around-v1",
+          "question_sha256": "89f2f6a28a96dfa967bc7db4f882a2f2d69373cd63335dee76ea4a712f6cf9a6",
+          "task": "transfer",
+          "family": "g2:review:shared-edges-two-sides",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-challenge-minimum-packages-v1",
+          "question_sha256": "0806614f1e4d35cc9c4daf65005a3f60f5a693267a4c7c00e656baa8e2ece643",
+          "task": "transfer",
+          "family": "g2:review:enumerate-minimum-cost",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-challenge-number-cards-v1",
+          "question_sha256": "b224a9f1e2535a6be6e1c4b7c0ce67bad0c4706b9727150da650e8986ee5ef1f",
+          "task": "transfer",
+          "family": "g2:review:pair-products-enumeration",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-multistep-budget-steps-v1",
+          "question_sha256": "145e7c0d63916e2142097fc5899387d762003d19b7d760bf7d0caa42e95ee540",
+          "task": "apply",
+          "family": "g2:review:multiply-subtract-divide",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-multistep-compare-packages-v1",
+          "question_sha256": "592ac6679835a31b93d43025e3b9ad31f172f7ac57649c394804d5c8f51202c2",
+          "task": "transfer",
+          "family": "g2:review:enumerate-minimum-cost",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:6:organize",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "title": "整理与表达",
+      "printed_page": 93,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明知识图中的联系",
+        "apply": "整理本册方法",
+        "distinguish": "检查分类与单位错误",
+        "transfer": "提出问题并解释方法"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-depth-organize-understand-1-v1",
+          "question_sha256": "650c74a55eaafada8a1df8c70fe3afb36d397ba94c748a680a94e766d4b03bd8",
+          "task": "understand",
+          "family": "g2-depth:6:organize:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-depth-organize-understand-2-v1",
+          "question_sha256": "e62c09a7170f09b6dc0740654cec63d9a21a5b7913faeadcfc44529020844b3d",
+          "task": "understand",
+          "family": "g2-depth:6:organize:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-depth-organize-distinguish-1-v1",
+          "question_sha256": "420fa4094bbabc9c6a8a62b07e8863f72a9c388413a197a038436a05bfbb92c8",
+          "task": "distinguish",
+          "family": "g2-depth:6:organize:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-6-depth-organize-distinguish-2-v1",
+          "question_sha256": "4e6009ad9be8c9d545c2f6075a516a327508f5b101c09d93bf9dcfab9af86eeb",
+          "task": "distinguish",
+          "family": "g2-depth:6:organize:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:5:tables",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "title": "7～9乘法口诀",
+      "printed_page": 73,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明口诀对应关系",
+        "apply": "用7～9口诀求积",
+        "distinguish": "辨析积与因数关系",
+        "transfer": "根据已知积推导另一积"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-tables-understand-1-v1",
+          "question_sha256": "d6156bedf7a50f61fcf79d6e9f5a9a5a08ade74d64028520c0d8f22e62f8e227",
+          "task": "understand",
+          "family": "g2-depth:5:tables:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-tables-understand-2-v1",
+          "question_sha256": "635853eaeca1fe0a51bc5458819ca932b4ebbf318088ab38bf293378db69a34b",
+          "task": "understand",
+          "family": "g2-depth:5:tables:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-tables-distinguish-1-v1",
+          "question_sha256": "71b941aa5056a11969d4ffda0c7dbba51c9033d650b7c2aeee663d125f4ee3a5",
+          "task": "distinguish",
+          "family": "g2-depth:5:tables:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-tables-distinguish-2-v1",
+          "question_sha256": "a0de5ecde940d87b53e2e3cefb91b5845c59bb0ca922301f9776a47b42c02fc4",
+          "task": "distinguish",
+          "family": "g2-depth:5:tables:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-tables-apply-96a6328ff0f8-v1",
+          "question_sha256": "a482e948afaf622557a5d6e7aa40d8d2a82ba18f78611ec4653e77bb955b81b3",
+          "task": "apply",
+          "family": "math-g2-upper:5:tables:table-calculation",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-tables-apply-5437ba6d1266-v1",
+          "question_sha256": "a021f7fb02266e18061013467f28301bccb074481ae0b3093277ce1aca7e6590",
+          "task": "apply",
+          "family": "math-g2-upper:5:tables:table-calculation",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-challenge-multiplication-gap-v1",
+          "question_sha256": "7ca3c26912fe19a2205f8d04298e2b4e9fafd1073f2f62787587cedcf9f9a785",
+          "task": "transfer",
+          "family": "g2:tables:missing-factor-from-change",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-multistep-array-removal-v1",
+          "question_sha256": "3d62f9266cf4246ad0735b906d0677bb791142e18674de0268bf048a19e1ee09",
+          "task": "transfer",
+          "family": "g2:tables:array-partition",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:5:quotient",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "title": "7～9表内除法",
+      "printed_page": 81,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明乘除互逆",
+        "apply": "用口诀求商",
+        "distinguish": "辨析求份数与每份量",
+        "transfer": "同一总量换分法"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-quotient-understand-1-v1",
+          "question_sha256": "1e1b2a1273aeb6c391b7953bb5b2cb37c64cb6010c56ed9dac92905b9f7f774a",
+          "task": "understand",
+          "family": "g2-depth:5:quotient:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-quotient-understand-2-v1",
+          "question_sha256": "a8fb936d5ccab4e237f767cf5f1725b1e07b84af9a83f3918ff25a97176e7f35",
+          "task": "understand",
+          "family": "g2-depth:5:quotient:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-quotient-distinguish-1-v1",
+          "question_sha256": "618aa03020be0bb480e6c17b4a4991a4d8643057209ab4e9ed1cdd3b5cfcb285",
+          "task": "distinguish",
+          "family": "g2-depth:5:quotient:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-quotient-distinguish-2-v1",
+          "question_sha256": "2bb0ad885c7f4a16e66f772d30d0e0d4b524fc30f05f7153e2f12357bb706fb7",
+          "task": "understand",
+          "family": "g2-depth:5:quotient:distinguish:2",
+          "role": "supporting",
+          "rationale": "辨认乘除互逆的检查方法，仍需独立说明。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-quotient-apply-4b3d383c7441-v1",
+          "question_sha256": "68b7dccfaa3393e652d1ef69f78b830c35c692ecf035607db206b7ed0835336f",
+          "task": "apply",
+          "family": "math-g2-upper:5:quotient:table-calculation",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-quotient-apply-167c2428004a-v1",
+          "question_sha256": "7401ddf33b30dd35982f0a4c656decd2228e6afb8ae09ab848f816d8f5eb2846",
+          "task": "apply",
+          "family": "math-g2-upper:5:quotient:table-calculation",
+          "role": "direct",
+          "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+        }
+      ]
+    },
+    {
+      "id": "math-g2-upper:5:word",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "title": "乘除综合问题",
+      "printed_page": 83,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "辨认情境数量关系",
+        "apply": "解决单步应用问题",
+        "distinguish": "检查单位与所求量",
+        "transfer": "组合乘除加减解决问题"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-word-cnm_p042_q1-v1",
+          "question_sha256": "14fd63869d196b26911935d8aeeb39d4b8dead7786ed09984bbc31197926e4e6",
+          "task": "apply",
+          "family": "math-g2-upper:5:礼堂座位",
+          "rationale": "核对题干与解析：礼堂座位，对应要求：解决单步应用问题"
+        },
+        {
+          "question_version_id": "family-word-cnm_p042_q3-v1",
+          "question_sha256": "94342ce84b3f445da335b120b9d591162d3bb382c8cba22ab147d1ce0f838115",
+          "task": "apply",
+          "family": "math-g2-upper:5:领取练习本",
+          "rationale": "核对题干与解析：领取练习本，对应要求：解决单步应用问题"
+        },
+        {
+          "question_version_id": "family-word-g2-eight-tables-v1",
+          "question_sha256": "69ae46175d94f704892548e96d4fb266ca948d190c591ec0529ca04aac719fab",
+          "task": "apply",
+          "family": "math-g2-upper:5:餐厅摆碗",
+          "rationale": "核对题干与解析：餐厅摆碗，对应要求：解决单步应用问题"
+        },
+        {
+          "question_version_id": "family-word-g2-share-63-v1",
+          "question_sha256": "fcff3907c9818dbbd6ac51e9af2d1859a14826e54e298fbb8e2c977c538ad0ec",
+          "task": "apply",
+          "family": "math-g2-upper:5:分发卡片",
+          "rationale": "核对题干与解析：分发卡片，对应要求：解决单步应用问题"
+        },
+        {
+          "question_version_id": "family-word-cnm_p042_q4-v1",
+          "question_sha256": "196b49ffabbce1edbbb44eb8f9efe859fac8e74355bb46fa2e6c59b0b34edb30",
+          "task": "transfer",
+          "family": "math-g2-upper:5:花园搬走几棵花",
+          "rationale": "核对题干与解析：花园搬走几棵花，对应要求：组合乘除加减解决问题"
+        },
+        {
+          "question_version_id": "family-word-cnm_p044_q4-v1",
+          "question_sha256": "9ad51e4a40ae8014ff0344b8e335482c5321892b1ec96fbfd6102fc38041e437",
+          "task": "transfer",
+          "family": "math-g2-upper:5:退回一本练习本",
+          "rationale": "核对题干与解析：退回一本练习本，对应要求：组合乘除加减解决问题"
+        },
+        {
+          "question_version_id": "family-word-cnm_p268_q2-v1",
+          "question_sha256": "863574a74f778087d4b446dd9351ee104c55048fe3df2a420f935173f10ff6f0",
+          "task": "transfer",
+          "family": "math-g2-upper:5:一起包饺子",
+          "rationale": "核对题干与解析：一起包饺子，对应要求：组合乘除加减解决问题"
+        },
+        {
+          "question_version_id": "family-word-cnm_p268_q3-v1",
+          "question_sha256": "7974cf45946b407dfa307bbbd51b467fd53f84f4b64e2d16f402b5bcc0780f21",
+          "task": "transfer",
+          "family": "math-g2-upper:5:拿走一份气球",
+          "rationale": "核对题干与解析：拿走一份气球，对应要求：组合乘除加减解决问题"
+        },
+        {
+          "question_version_id": "family-word-g2-two-prices-v1",
+          "question_sha256": "c30c176e9a35ec782074159e189bade2a8ec3daa9b442b94b67fee65dbc29fc6",
+          "task": "transfer",
+          "family": "math-g2-upper:5:买票找零",
+          "rationale": "核对题干与解析：买票找零，对应要求：组合乘除加减解决问题"
+        },
+        {
+          "question_version_id": "family-word-g2-chairs-gap-v1",
+          "question_sha256": "5741039233677dfe8443a6bea9fe791ff5b89de8dd3e5ac4384b78fb57d773cd",
+          "task": "transfer",
+          "family": "math-g2-upper:5:补齐空位",
+          "rationale": "核对题干与解析：补齐空位，对应要求：组合乘除加减解决问题"
+        },
+        {
+          "question_version_id": "family-word-g2-same-total-v1",
+          "question_sha256": "ebdbd6c9f1a59ec07ab65ad739e9e9488a0a44ab601d294c9f417561600e16a2",
+          "task": "transfer",
+          "family": "math-g2-upper:5:换一种分法",
+          "rationale": "核对题干与解析：换一种分法，对应要求：组合乘除加减解决问题"
+        },
+        {
+          "question_version_id": "family-word-g2-extra-groups-v1",
+          "question_sha256": "2c66252953018b414ec2a0a864625865bd8b541201ece607a9d1f93bfd4b1561",
+          "task": "transfer",
+          "family": "math-g2-upper:5:找出多分的",
+          "rationale": "核对题干与解析：找出多分的，对应要求：组合乘除加减解决问题"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-word-understand-1-v1",
+          "question_sha256": "f6680c241af77dfb3974172ae7a13089dc9b47fa99cf4a1844ac27fb433aa3a7",
+          "task": "understand",
+          "family": "g2-depth:5:word:understand:1",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-word-understand-2-v1",
+          "question_sha256": "27e1c29b2ddafc9bfdbfc2ac286da9be6d1d040245fd2471c7e544f0baf97935",
+          "task": "understand",
+          "family": "g2-depth:5:word:understand:2",
+          "role": "supporting",
+          "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-word-distinguish-1-v1",
+          "question_sha256": "f27d732b921d6127cca3b79642c335c399c0a1d8518b298af8df1bea8338011f",
+          "task": "distinguish",
+          "family": "g2-depth:5:word:distinguish:1",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-depth-word-distinguish-2-v1",
+          "question_sha256": "b87dbd16c101557a010984e32d941db442666bfff550280748d631bbfba39e61",
+          "task": "distinguish",
+          "family": "g2-depth:5:word:distinguish:2",
+          "role": "direct",
+          "rationale": "根据题中完整条件识别错误及修正方法。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-challenge-two-vehicles-v1",
+          "question_sha256": "555acd2c341b6a21ddd78d06d6632f494782a3b68c6b1064079bcb8a7155f640",
+          "task": "transfer",
+          "family": "g2:tables:capacity-minus-people",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-challenge-boxes-constraint-v1",
+          "question_sha256": "0da8fa6dbf67182dcb444a9ef2445f55abaf8379832e631b0d5e5205e004e379",
+          "task": "transfer",
+          "family": "g2:tables:two-capacities-fixed-boxes",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-challenge-price-reverse-v1",
+          "question_sha256": "7defd3286a05f1abb4d4a843a9483fcb25e812a2f993a90c42267391346ae850",
+          "task": "transfer",
+          "family": "g2:tables:infer-price-then-new-count",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-challenge-choose-budget-v1",
+          "question_sha256": "28830483977fd6f29ba8f5838ab1d0ec370aa960ecdc26f3032f1833f1e8072a",
+          "task": "transfer",
+          "family": "g2:multiply:compare-pack-prices",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-challenge-shared-objects-v1",
+          "question_sha256": "03fbda411985aaf974e380ba1892472ceaff124d538b05b711a3b4a4fbac566b",
+          "task": "transfer",
+          "family": "g2:tables:shared-boundaries",
+          "role": "direct",
+          "rationale": "按条件独立计算；需要表达、实测或只完成部分要求的题计辅助，不替代完整任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g2-upper-5-multistep-bead-plan-v1",
+          "question_sha256": "c9ebd3df7037601812b5a57092ee6e7d98269ec92d77dde1c542d72a88402a88",
+          "task": "transfer",
+          "family": "g2:tables:multiply-subtract-divide",
+          "role": "direct",
+          "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:1:signed",
+      "book_id": "math-g7-upper",
+      "chapter_id": "1",
+      "title": "正负数与基准",
+      "printed_page": 2,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释零和基准",
+        "apply": "用正负数表达相反意义",
+        "distinguish": "区别绝对量与变化量",
+        "transfer": "解释允许偏差等情境"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-signed-01-v1",
+          "question_sha256": "e9ed5706c4f7aed77b57319cf59c0bfc30cb0d0b2da2d32f8a4005976a56b5ef",
+          "task": "understand",
+          "family": "g7-depth:1:signed:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-signed-02-v1",
+          "question_sha256": "ea8a5ac4907fa27111f554be2652002d6450c9e89fd7d8b43c8eba5dc8741f00",
+          "task": "apply",
+          "family": "g7-depth:1:signed:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-signed-03-v1",
+          "question_sha256": "cbf20f2bb55563dde44ca39a3793967055abfac02853267a48b2698e02a4d3b6",
+          "task": "distinguish",
+          "family": "g7-depth:1:signed:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-signed-04-v1",
+          "question_sha256": "3ffa8d7b2054a8ce1838c61b8bc13373a6ac4214431f8cf72787b2e3304d7e31",
+          "task": "transfer",
+          "family": "g7-depth:1:signed:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:1:rational",
+      "book_id": "math-g7-upper",
+      "chapter_id": "1",
+      "title": "有理数分类",
+      "printed_page": 7,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明整数分数与有理数",
+        "apply": "按类别分类数",
+        "distinguish": "辨析零和负分数归类",
+        "transfer": "用多种标准分类并说明"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-rational-01-v1",
+          "question_sha256": "2c8eff9a25d35a2a9d87dcf31da006ce6a48abfd8b6ac47db379339bb58a8935",
+          "task": "understand",
+          "family": "g7-depth:1:rational:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-rational-02-v1",
+          "question_sha256": "370dbda45829795d7f1cc84ba004b1419d52813cc15284f3561f5172dcce2ba4",
+          "task": "apply",
+          "family": "g7-depth:1:rational:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-rational-03-v1",
+          "question_sha256": "f031d08869163d517b8e8c2ac01d347bcf7312a53a9681655cd4e5164d8c2a29",
+          "task": "distinguish",
+          "family": "g7-depth:1:rational:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-rational-04-v1",
+          "question_sha256": "5c7d758792813feff24fdb23d1167cfc0ced9e010410411a2232fcf76f63a737",
+          "task": "transfer",
+          "family": "g7-depth:1:rational:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:1:line",
+      "book_id": "math-g7-upper",
+      "chapter_id": "1",
+      "title": "数轴",
+      "printed_page": 8,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明数轴三要素",
+        "apply": "由点读数或按数描点",
+        "distinguish": "检查不合规范数轴",
+        "transfer": "用位置关系求距离"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-02-v1",
+          "question_sha256": "22a1b2081d7e67ad7e0382725cba584b7353751ffea5b6d75a389b05226c94b9",
+          "task": "transfer",
+          "family": "math-g7-upper:1:数轴的距离",
+          "rationale": "核对题干与解析：数轴的距离，对应要求：用位置关系求距离"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-05-v1",
+          "question_sha256": "b7381b5c2cf536f58a9e7affa2921c5b6745963b8499f20c35398fbb31b9493a",
+          "task": "transfer",
+          "family": "math-g7-upper:1:数轴的距离",
+          "rationale": "核对题干与解析：数轴的距离，对应要求：用位置关系求距离"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-08-v1",
+          "question_sha256": "644a51c985f680c1b2feed6d84207be8c606fbd6c3cc2e380f49bc68a4b6a2f3",
+          "task": "transfer",
+          "family": "math-g7-upper:1:数轴的距离",
+          "rationale": "核对题干与解析：数轴的距离，对应要求：用位置关系求距离"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-11-v1",
+          "question_sha256": "d7255138eab209016657c2f8777f1a045365add1a8c616ff7432698b85248aa7",
+          "task": "transfer",
+          "family": "math-g7-upper:1:数轴的距离",
+          "rationale": "核对题干与解析：数轴的距离，对应要求：用位置关系求距离"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-line-01-v1",
+          "question_sha256": "936ca9eec31fc65d0642e3cb23e667d77499b4109473def9313f3b35b8147d6d",
+          "task": "understand",
+          "family": "g7-depth:1:line:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-line-02-v1",
+          "question_sha256": "59bcc580ff1b84d3a7bfd78e8ca318b0707429b0692cf85c42a7b8d9d8952723",
+          "task": "apply",
+          "family": "g7-depth:1:line:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-line-03-v1",
+          "question_sha256": "6607dada31805e1ee7b911ee0327faebc9ca96791bec0c51f3bc8295367bdfe3",
+          "task": "distinguish",
+          "family": "g7-depth:1:line:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-line-04-v1",
+          "question_sha256": "b553bec930562355d2e882875740f20d7da574a38d8ac884722bcf4d348f0799",
+          "task": "transfer",
+          "family": "math-g7-upper:1:数轴的距离",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:1:opposite",
+      "book_id": "math-g7-upper",
+      "chapter_id": "1",
+      "title": "相反数",
+      "printed_page": 11,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释数轴对称",
+        "apply": "求一个数的相反数",
+        "distinguish": "辨析零和负号的意义",
+        "transfer": "用相反数关系求未知数"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-01-v1",
+          "question_sha256": "e3ea8413e18eb81eedc6d5c607c3cb32377ea37af7f02b38515453c4d2f3f8af",
+          "task": "apply",
+          "family": "math-g7-upper:1:相反数",
+          "rationale": "核对题干与解析：相反数，对应要求：求一个数的相反数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-04-v1",
+          "question_sha256": "e73ebe586a299dd22a655b51087e2fa521d9e9f16423d678cd61033e3bc3f520",
+          "task": "apply",
+          "family": "math-g7-upper:1:相反数",
+          "rationale": "核对题干与解析：相反数，对应要求：求一个数的相反数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-07-v1",
+          "question_sha256": "bb0340e0589eb98b23d64a11dab8cad374885d217e05ef3b10d924a914fbd8aa",
+          "task": "apply",
+          "family": "math-g7-upper:1:相反数",
+          "rationale": "核对题干与解析：相反数，对应要求：求一个数的相反数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-10-v1",
+          "question_sha256": "52f3ba8553300a51e118cd061056eb1e06216c48c534585fdff4e789ca6d6a90",
+          "task": "apply",
+          "family": "math-g7-upper:1:相反数",
+          "rationale": "核对题干与解析：相反数，对应要求：求一个数的相反数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-opposite-01-v1",
+          "question_sha256": "3af268bccc35534ff62c28b38dbcec892089417382414e65494b2b0c35a77db1",
+          "task": "understand",
+          "family": "g7-depth:1:opposite:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-opposite-02-v1",
+          "question_sha256": "712966df5dd8af342adc0e1ea9ad97dc3cf745706924bf2fa2da429b8868f91f",
+          "task": "apply",
+          "family": "math-g7-upper:1:相反数",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-opposite-03-v1",
+          "question_sha256": "4e7e433f005d8591fb49444954e002fe170d150436315e3dcb35dd38c320143b",
+          "task": "distinguish",
+          "family": "g7-depth:1:opposite:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-opposite-04-v1",
+          "question_sha256": "d3543f6dee0d85a6f39bf91352bfc1df2eb0879cd5b73ff9de4860e35b47b34a",
+          "task": "transfer",
+          "family": "math-g7-upper:1:相反数",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:1:absolute",
+      "book_id": "math-g7-upper",
+      "chapter_id": "1",
+      "title": "绝对值",
+      "printed_page": 13,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释到原点距离",
+        "apply": "求绝对值",
+        "distinguish": "辨析绝对值相同的两个数",
+        "transfer": "结合位置约束确定原数"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-03-v1",
+          "question_sha256": "2db057fb798ad4b3de06d2343ea837fc5a7c1c1e22a146c0944ee42b7b60d480",
+          "task": "transfer",
+          "family": "math-g7-upper:1:绝对值与位置",
+          "rationale": "核对题干与解析：绝对值与位置，对应要求：结合位置约束确定原数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-06-v1",
+          "question_sha256": "9b2ffaafde67ae43cf60113d346d2c4f93bef4ebb3c29480d06e770ba9369b4a",
+          "task": "transfer",
+          "family": "math-g7-upper:1:绝对值与位置",
+          "rationale": "核对题干与解析：绝对值与位置，对应要求：结合位置约束确定原数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-09-v1",
+          "question_sha256": "34529cdbbb54b94f5d0dcd17461576353faae21173f144198820faa21589231c",
+          "task": "transfer",
+          "family": "math-g7-upper:1:绝对值与位置",
+          "rationale": "核对题干与解析：绝对值与位置，对应要求：结合位置约束确定原数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-12-v1",
+          "question_sha256": "a50afe14c3cd4a5d8e7ead67c483b9e51817a529de297b35c6718addde57a0f5",
+          "task": "transfer",
+          "family": "math-g7-upper:1:绝对值与位置",
+          "rationale": "核对题干与解析：绝对值与位置，对应要求：结合位置约束确定原数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-absolute-01-v1",
+          "question_sha256": "83f4844bd427c619a9c1c5dd79f59001b818d46f8bc9f267b254fa8ec28f6746",
+          "task": "understand",
+          "family": "g7-depth:1:absolute:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-absolute-02-v1",
+          "question_sha256": "53e83057cee0216a9fe7416485f993000d62983faf8b33c4febe7e9a83385531",
+          "task": "apply",
+          "family": "g7-depth:1:absolute:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-absolute-03-v1",
+          "question_sha256": "d5d265b0986fc351ff52c3bae35c357ec7dd8b2ca16db76c10b50285b7f7ec1f",
+          "task": "distinguish",
+          "family": "g7-depth:1:absolute:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-absolute-04-v1",
+          "question_sha256": "86ec21a4837332a9046c8580cb2d4ef97d486ef0ee4a4f194979b05b57f711c5",
+          "task": "transfer",
+          "family": "math-g7-upper:1:绝对值与位置",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:1:order",
+      "book_id": "math-g7-upper",
+      "chapter_id": "1",
+      "title": "有理数大小比较",
+      "printed_page": 14,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释负数比较规则",
+        "apply": "比较有理数大小",
+        "distinguish": "辨析绝对值大与数值大",
+        "transfer": "综合数轴和绝对值排序"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-order-01-v1",
+          "question_sha256": "265cac8363f7afa4aeba6bdddf41c9e71c192649c58d39c961da0debb42e5cfc",
+          "task": "understand",
+          "family": "g7-depth:1:order:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-order-02-v1",
+          "question_sha256": "4d92a4636c971823086516cde8d7d00b3aa431ca7f3feac5c5af92969d6864e0",
+          "task": "apply",
+          "family": "g7-depth:1:order:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-order-03-v1",
+          "question_sha256": "4f404cf90da26bcd0eb03c6f35a7f16dd7df37ee1840c555cfd6ae0446061164",
+          "task": "distinguish",
+          "family": "g7-depth:1:order:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-1-depth-order-04-v1",
+          "question_sha256": "03421a5d1894e2085dcaaf267dc821674dde82e48b2313368b93f663d12d61cc",
+          "task": "transfer",
+          "family": "g7-depth:1:order:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:2:add",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "title": "有理数加法",
+      "printed_page": 25,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释同号异号相加",
+        "apply": "按法则计算",
+        "distinguish": "辨析符号与绝对值错误",
+        "transfer": "用加法解释多次变化"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-word-g7-warming-v1",
+          "question_sha256": "830e1082e67018e672fbf7bd044dff00e5c87eb29ef21e0adb5926d10468a59e",
+          "task": "apply",
+          "family": "g7:add:signed-sum",
+          "rationale": "核对题干与解析：清晨到中午，对应要求：按法则计算"
+        },
+        {
+          "question_version_id": "family-word-g7-sea-rise-v1",
+          "question_sha256": "ff3de1b11c8954adc293fbeb099a3fde991b9ce8db1d7c62ac99e029e2fb1d48",
+          "task": "apply",
+          "family": "g7:add:signed-sum",
+          "rationale": "核对题干与解析：潜水员上升，对应要求：按法则计算"
+        },
+        {
+          "question_version_id": "family-word-g7-points-v1",
+          "question_sha256": "5ce51d454d4ef7e4c3930d4cf4c0ea9ee651afb8f03cb78c3023cdc65dc16d52",
+          "task": "transfer",
+          "family": "math-g7-upper:2:知识竞赛积分",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_002_q4-v1",
+          "question_sha256": "9e92bac4c2284aa8d3e6547e92c044981990cbca50b9da0f3df9e0963895a9e6",
+          "task": "transfer",
+          "family": "g7:add:successive-changes",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-g7-stock-v1",
+          "question_sha256": "3208e8e4c9be46d12ca1fd68e95c3528652589b6d7f82891884ac29ac43e3abc",
+          "task": "transfer",
+          "family": "g7:add:successive-changes",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-g7-alternating-v1",
+          "question_sha256": "7bf633e12784b58a2593311a66646f2fcf6b36fafd0bc4803384acea140a83ac",
+          "task": "transfer",
+          "family": "math-g7-upper:2:闯关积分规律",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-g7-robot-route-v1",
+          "question_sha256": "3bbfd4e83c65a98f249b94a40dec8f69774fc93e9860a36a03f0ba3dcb9d4867",
+          "task": "transfer",
+          "family": "math-g7-upper:2:机器人回到哪里",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-g7-return-trip-v1",
+          "question_sha256": "cc1c1de7777940d44c3d2cc6d1d253643ef926cdbbcfc650ec77d27969eabce2",
+          "task": "transfer",
+          "family": "math-g7-upper:2:往返运输路程",
+          "rationale": "路线分段求和辅助理解多次变化，原题未要求乘法倍率或独立解释。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-add-01-v1",
+          "question_sha256": "fddc0c589b96df3f0d40709ef4cca54a2f6fc8ffde0e45dff4d2cb985db62f32",
+          "task": "understand",
+          "family": "g7-depth:2:add:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-add-02-v1",
+          "question_sha256": "7766a5f21b514315b325c1c4516d6c4ace1aa1a3be92865d466b2ebc05c5a35f",
+          "task": "apply",
+          "family": "g7:add:signed-sum",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-add-03-v1",
+          "question_sha256": "6ef6522bb7ce894962620afc28132f3dc7d0f224e024056bec1b725c099cfde3",
+          "task": "distinguish",
+          "family": "g7-depth:2:add:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-add-04-v1",
+          "question_sha256": "a04e08ef279b235ae180f2471fcc3d9de18d554dd8cae4afeeb23adcc8dfafa5",
+          "task": "transfer",
+          "family": "g7:add:successive-changes",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:2:subtract",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "title": "有理数减法",
+      "printed_page": 30,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释减法转化",
+        "apply": "计算有理数差",
+        "distinguish": "辨析减去负数",
+        "transfer": "用差表达变化与比较"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-word-cnm_012_q5-v1",
+          "question_sha256": "39dd4af0990c0c8a1933ca45810a78b2d307f5b473196a1e63f5cd4472e77978",
+          "task": "apply",
+          "family": "g7:subtract:difference",
+          "rationale": "核对题干与解析：记录一天温差，对应要求：计算有理数差"
+        },
+        {
+          "question_version_id": "family-word-g7-two-sites-v1",
+          "question_sha256": "cf57ad19f3a62c1b98c209717f7a5b82f731f0c1e100cc68ea222e65116f5c7e",
+          "task": "transfer",
+          "family": "g7:subtract:difference",
+          "rationale": "核对题干与解析：两地温差，对应要求：用差表达变化与比较"
+        },
+        {
+          "question_version_id": "family-word-g7-storage-compare-v1",
+          "question_sha256": "81dc429418b727fa6a2a85323d567531bff42687633e108b15b3f8af268f4e62",
+          "task": "transfer",
+          "family": "g7:subtract:compare-differences",
+          "rationale": "核对题干与解析：两天的温度变化，对应要求：用差表达变化与比较"
+        },
+        {
+          "question_version_id": "family-reserve-g7-two-rises-v1",
+          "question_sha256": "8f4815bd4b119341fd31a23b0ae422d7df7b126416a05cb00c982bdeeaef902e",
+          "task": "transfer",
+          "family": "g7:subtract:compare-differences",
+          "rationale": "核对题干与解析：比较两天升温，对应要求：用差表达变化与比较"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-subtract-01-v1",
+          "question_sha256": "b540a6667da444ef4b2f3ee6e340b1ee4594105473ec1b65f58d93ec0fc31fe5",
+          "task": "understand",
+          "family": "g7-depth:2:subtract:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-subtract-02-v1",
+          "question_sha256": "1649be2f558139a309a1c603edeb400a40dee5eb621ec61ffe152c716f31a48d",
+          "task": "apply",
+          "family": "g7:subtract:difference",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-subtract-03-v1",
+          "question_sha256": "4b48402037bea0a587bf58a67211f6dc34ee840df6c15b86fc67fc3357eb8225",
+          "task": "distinguish",
+          "family": "g7-depth:2:subtract:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-subtract-04-v1",
+          "question_sha256": "9bbf287c0bbf76fe2a3f1429016cfa2815be58f5efb284c1f69c3a3f41ca1d80",
+          "task": "transfer",
+          "family": "g7:subtract:difference",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:2:multiply",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "title": "有理数乘法",
+      "printed_page": 38,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释乘积符号",
+        "apply": "计算乘积",
+        "distinguish": "辨析多个负因子和零",
+        "transfer": "情境中的连续倍率变化"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-word-g7-daily-change-v1",
+          "question_sha256": "4fac9346338b51d5967a2a11213b4bc8e29575da8043b796229d3571dda49578",
+          "task": "transfer",
+          "family": "math-g7-upper:2:冷库降温",
+          "rationale": "核对题干与解析：冷库降温，对应要求：情境中的连续倍率变化"
+        },
+        {
+          "question_version_id": "family-reserve-g7-factor-sign-v1",
+          "question_sha256": "d15e860bcba6d8f5e1ef7861305958157694262e558ddd5cb257668973e19c33",
+          "task": "transfer",
+          "family": "g7:multiply:product",
+          "rationale": "核对题干与解析：多个因子与小数，对应要求：情境中的连续倍率变化"
+        },
+        {
+          "question_version_id": "family-reserve-g7-signed-product-v1",
+          "question_sha256": "17c8a5b2b8355c7b0fc7f9386e7996fa70f8c037f64202cd1ec31f5e7ccf8671",
+          "task": "apply",
+          "family": "g7:multiply:product",
+          "rationale": "核对题干与解析：确定两数乘积，对应要求：计算乘积"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-multiply-01-v1",
+          "question_sha256": "6eb51cc54c817c5bc9f3b87a3da000ed228ebe6829cd64ef213d69848e51a1fb",
+          "task": "understand",
+          "family": "g7-depth:2:multiply:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-multiply-02-v1",
+          "question_sha256": "bd5322ecdd1e7d68bc0b4efabbb13e5dafa08e4b71c57911350c9588ee4068f0",
+          "task": "apply",
+          "family": "g7:multiply:product",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-multiply-03-v1",
+          "question_sha256": "b0b25b45fb5727e5cfddc57f0a00f1bf31a46e06d008c7826d6c7d08b2b2779f",
+          "task": "distinguish",
+          "family": "g7-depth:2:multiply:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-multiply-04-v1",
+          "question_sha256": "565769844eec6fa5254b8495878169b08b0fe3964a944185890a76031498ff57",
+          "task": "transfer",
+          "family": "g7:multiply:product",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:2:laws",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "title": "乘法运算律",
+      "printed_page": 41,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释交换结合分配律",
+        "apply": "用运算律简算",
+        "distinguish": "检查分配律漏乘或符号",
+        "transfer": "分数混合运算选择策略"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-reserve-g7-distribute-v1",
+          "question_sha256": "76ec56b6c35635f66fbfec6a2b72d802c4e37f5070555be4014750a46bb57006",
+          "task": "apply",
+          "family": "math-g7-upper:2:用分配律计算",
+          "rationale": "核对题干与解析：用分配律计算，对应要求：用运算律简算"
+        },
+        {
+          "question_version_id": "family-reserve-g7-fraction-distribute-v1",
+          "question_sha256": "0c7aa1332a41c9350cf52fd186b52af3ef19ed210c7a90d3e3f17a0ca335bd5a",
+          "task": "transfer",
+          "family": "math-g7-upper:2:分数与分配律",
+          "rationale": "核对题干与解析：分数与分配律，对应要求：分数混合运算选择策略"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-laws-01-v1",
+          "question_sha256": "9ef4ba9b7ef9562e764e1bf11c8cfafc61b22bc57fadc02897462e2c9d337a45",
+          "task": "understand",
+          "family": "g7-depth:2:laws:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-laws-02-v1",
+          "question_sha256": "08eb1ecc0da11d77f978d716b42109502c5d41f96f03a269b81969b3691f8983",
+          "task": "apply",
+          "family": "math-g7-upper:2:用分配律计算",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-laws-03-v1",
+          "question_sha256": "2b0b813aa9d12787baec8d4227472a4944dac73420a6174a6adbcae40f6e9b95",
+          "task": "distinguish",
+          "family": "g7-depth:2:laws:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-laws-04-v1",
+          "question_sha256": "c28d2e189da5a613e9fa9b5dbace194cf9c60b348d46dca7f70c6f8063dff337",
+          "task": "transfer",
+          "family": "g7-depth:2:laws:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:2:divide",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "title": "除法与倒数",
+      "printed_page": 43,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释倒数与除法转乘法",
+        "apply": "计算商或倒数",
+        "distinguish": "辨析零无倒数及符号",
+        "transfer": "多步运算中的乘除选择"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-reserve-g7-reciprocal-v1",
+          "question_sha256": "119e7ed1483aeee72e47b27b8374d892916827e1aeba90387262ec75c7501ed0",
+          "task": "apply",
+          "family": "math-g7-upper:2:负数的倒数",
+          "rationale": "核对题干与解析：负数的倒数，对应要求：计算商或倒数"
+        },
+        {
+          "question_version_id": "family-reserve-g7-signed-division-v1",
+          "question_sha256": "ea54bf9da6beb660f4f90ce5f910923d2cfa0dd8fd142cd9b0264fb954309ebb",
+          "task": "apply",
+          "family": "math-g7-upper:2:除法的符号",
+          "rationale": "核对题干与解析：除法的符号，对应要求：计算商或倒数"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-divide-01-v1",
+          "question_sha256": "8d7fd161b3f26590c408372185323b936b3f82f42eb4b8164c06124dd54b843f",
+          "task": "understand",
+          "family": "g7-depth:2:divide:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-divide-02-v1",
+          "question_sha256": "1713a0211b408a909218f2edf2046f0589854a3ac3a44f07344d53cedb71dd03",
+          "task": "apply",
+          "family": "math-g7-upper:2:除法的符号",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-divide-03-v1",
+          "question_sha256": "33f3e523cd1d522dcaf8d9872ec3b1d25585279522666abeed7c6e0ceda1d942",
+          "task": "distinguish",
+          "family": "g7-depth:2:divide:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-divide-04-v1",
+          "question_sha256": "af8b0d092aad5c34002bec8d244d1ae61cc66af2cf3b8e5ceadfeafdc111cb68",
+          "task": "transfer",
+          "family": "g7-depth:2:divide:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:2:power",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "title": "乘方",
+      "printed_page": 51,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释底数指数与幂",
+        "apply": "计算有理数乘方",
+        "distinguish": "区别负数乘方与幂的相反数",
+        "transfer": "按次序计算混合运算"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-reserve-g7-cube-v1",
+          "question_sha256": "9e1ea30178f039f57f2a9d1410a75fc4c35e1b7d6e20fdc43e3f1d5b41248646",
+          "task": "apply",
+          "family": "math-g7-upper:2:负数的三次方",
+          "rationale": "核对题干与解析：负数的三次方，对应要求：计算有理数乘方"
+        },
+        {
+          "question_version_id": "family-reserve-g7-mixed-v1",
+          "question_sha256": "19ce1939a1bf3dcfb5149483ff99981f558b7b8f8008c3259b8b313e31a1e508",
+          "task": "transfer",
+          "family": "math-g7-upper:2:先乘方再乘除",
+          "rationale": "核对题干与解析：先乘方再乘除，对应要求：按次序计算混合运算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-power-01-v1",
+          "question_sha256": "a9d0b407e347a301edcc763e3c59db86324a35fa8c52449019c04dfbfcee933f",
+          "task": "understand",
+          "family": "g7-depth:2:power:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-power-02-v1",
+          "question_sha256": "1e97b30cab9481029aa14be9bf39ce37ddc8e47170ff93039cab5a2d02cf2ee3",
+          "task": "apply",
+          "family": "math-g7-upper:2:负数的三次方",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-power-03-v1",
+          "question_sha256": "ef67432ad7390b1c6d3147c9f2ed369d426345f28cd14ac12cde16afc352b22e",
+          "task": "distinguish",
+          "family": "g7-depth:2:power:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-power-04-v1",
+          "question_sha256": "45cf436dd003184a24841e5c9d882d8b61f3b6c1f2b4e8eda2fa6b973f3875e9",
+          "task": "transfer",
+          "family": "math-g7-upper:2:先乘方再乘除",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:2:scientific",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "title": "科学记数法",
+      "printed_page": 54,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明系数和指数范围",
+        "apply": "大数与科学记数法互写",
+        "distinguish": "检查系数范围与指数",
+        "transfer": "科学记数法结合单位换算"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-reserve-g7-scientific-exponent-v1",
+          "question_sha256": "ec7c46ff3156e23204bea6d9e5926ec2cc5bbb3c8c501a9cbcc7bd907ab28b95",
+          "task": "apply",
+          "family": "math-g7-upper:2:科学记数法的指数",
+          "rationale": "核对题干与解析：科学记数法的指数，对应要求：大数与科学记数法互写"
+        },
+        {
+          "question_version_id": "family-reserve-g7-volume-conversion-v1",
+          "question_sha256": "f9e7cd3b6797f7de46aa06dfdd066548e8f45ec7cbe00390b93d58e7a920647a",
+          "task": "transfer",
+          "family": "math-g7-upper:2:科学记数法与换算",
+          "rationale": "核对题干与解析：科学记数法与换算，对应要求：科学记数法结合单位换算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-scientific-01-v1",
+          "question_sha256": "5cd0b9c1e06d76ecb9314bf45b8c25406f4df91d1612293879444fcca5dd1f69",
+          "task": "understand",
+          "family": "g7-depth:2:scientific:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-scientific-02-v1",
+          "question_sha256": "bc82ad3a5898da6045c8c704c7f67822ccd4394fbf9861e71176097c70e60532",
+          "task": "apply",
+          "family": "math-g7-upper:2:科学记数法的指数",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-scientific-03-v1",
+          "question_sha256": "47454389e054c1cbb0e85287ea054596a52ecb0d25232ac0a9f57090ccf0153c",
+          "task": "distinguish",
+          "family": "g7-depth:2:scientific:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-scientific-04-v1",
+          "question_sha256": "315f4839091ad62571ddd54ff24651e5fbf98501b9aad53f9c20f26ce272b2e9",
+          "task": "transfer",
+          "family": "math-g7-upper:2:科学记数法与换算",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:2:approximate",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "title": "近似数",
+      "printed_page": 55,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释精确度",
+        "apply": "按要求取近似值",
+        "distinguish": "辨析近似数与准确数",
+        "transfer": "根据测量要求解释取值"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-reserve-g7-rounding-v1",
+          "question_sha256": "feba361446e173a3c91cc5742a4faff97231bc34b54ccc9e28bd6d5d59316720",
+          "task": "apply",
+          "family": "math-g7-upper:2:按精确度取近似值",
+          "rationale": "核对题干与解析：按精确度取近似值，对应要求：按要求取近似值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-approximate-01-v1",
+          "question_sha256": "44dc6a1cb117b646f932736f0bc16229c27b7bda6ee54cd4b106521600c74bb7",
+          "task": "understand",
+          "family": "g7-depth:2:approximate:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-approximate-02-v1",
+          "question_sha256": "831f0858942634e1d44de000912a537f41c244175b56a776b613f215e95db074",
+          "task": "apply",
+          "family": "math-g7-upper:2:按精确度取近似值",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-approximate-03-v1",
+          "question_sha256": "223e29ce7e4923549504b16386fe8a6f62d5e86dc0e08d1d36c5ea4e425d570b",
+          "task": "distinguish",
+          "family": "g7-depth:2:approximate:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-approximate-04-v1",
+          "question_sha256": "db9ddffdf5f94c34f13b1fd64e9576ddb071ad2c45e1d4bd6791ba241a310b06",
+          "task": "transfer",
+          "family": "math-g7-upper:2:按精确度取近似值",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:2:binary",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "title": "进位制探究",
+      "printed_page": 63,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释进位规则",
+        "apply": "按给定规则换算",
+        "distinguish": "辨析不同进位制数码含义",
+        "transfer": "解释一种换算策略"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-binary-01-v1",
+          "question_sha256": "985a66351a0800d02fd4a75fa7bd4f7a306a02405f5f8f4bfe00fefff585de14",
+          "task": "understand",
+          "family": "g7-depth:2:binary:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-binary-02-v1",
+          "question_sha256": "fffcda626c0a68d5c358897536370a9924a380885dd633382781b846a6343b55",
+          "task": "apply",
+          "family": "g7-depth:2:binary:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-binary-03-v1",
+          "question_sha256": "7df766107a5447524213ebb5dfde5b74e3a358cabbd8c90b635c17b6019a8d08",
+          "task": "distinguish",
+          "family": "g7-depth:2:binary:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-2-depth-binary-04-v1",
+          "question_sha256": "c104394d714e9e79cab558926151dd057d942b8706e71e833a6086fa227c85f9",
+          "task": "transfer",
+          "family": "g7-depth:2:binary:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:3:expression",
+      "book_id": "math-g7-upper",
+      "chapter_id": "3",
+      "title": "列代数式",
+      "printed_page": 69,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释字母与运算含义",
+        "apply": "由数量关系列式",
+        "distinguish": "辨析书写和数量对应错误",
+        "transfer": "从新情境表达数量关系"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-expression-01-v1",
+          "question_sha256": "b341b098e5b20e1de193506a6ea1f7cdc6f4f6eac5c7cc60bdfc9e0f3bb95602",
+          "task": "understand",
+          "family": "g7-depth:3:expression:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-expression-02-v1",
+          "question_sha256": "76e6d6e4b3f6f2b65527b4dc66895c17915fc2e5a976848458f31e4c7998d85c",
+          "task": "apply",
+          "family": "g7-depth:3:expression:2",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-expression-03-v1",
+          "question_sha256": "c36655873a4350c6005f625165ff10359e24e1b63bea644ef2cb4df0c37f117b",
+          "task": "distinguish",
+          "family": "g7-depth:3:expression:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-expression-04-v1",
+          "question_sha256": "d09f945556ce5e1daef90cb19da35239ed8af093b6cc73cb781906a4dbb899f1",
+          "task": "transfer",
+          "family": "g7-depth:3:expression:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:3:value",
+      "book_id": "math-g7-upper",
+      "chapter_id": "3",
+      "title": "代数式的值",
+      "printed_page": 79,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释代入求值",
+        "apply": "按给定值计算",
+        "distinguish": "检查负数代入括号",
+        "transfer": "整体代入或规律求值"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-01-v1",
+          "question_sha256": "795d98e36180c6fba561eb0efba6d4231a98684e0373b10eacde5c7b82b4f72b",
+          "task": "apply",
+          "family": "math-g7-upper:3:代入求值",
+          "rationale": "核对题干与解析：代入求值，对应要求：按给定值计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-04-v1",
+          "question_sha256": "ec52d6223b18debdb767ff31df9a5c3772436a502782f5c88f2d7a71bf2c7b0b",
+          "task": "apply",
+          "family": "math-g7-upper:3:代入求值",
+          "rationale": "核对题干与解析：代入求值，对应要求：按给定值计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-07-v1",
+          "question_sha256": "1df843c71cb2f91a042b8bf0a47fcc4a2a1faf991db3b8a7676411317a29d1c2",
+          "task": "apply",
+          "family": "math-g7-upper:3:代入求值",
+          "rationale": "核对题干与解析：代入求值，对应要求：按给定值计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-10-v1",
+          "question_sha256": "511dba1cb570be1056794012b2b533fa67940ca664da548ba062a962a3505dfc",
+          "task": "apply",
+          "family": "math-g7-upper:3:代入求值",
+          "rationale": "核对题干与解析：代入求值，对应要求：按给定值计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-02-v1",
+          "question_sha256": "3b565f8784fe07e6d5213477281412ca86b3decd5b93745ef3735d7d14e99782",
+          "task": "apply",
+          "family": "math-g7-upper:3:从数量关系到值",
+          "rationale": "核对题干与解析：从数量关系到值，对应要求：按给定值计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-05-v1",
+          "question_sha256": "c5d6699b752d249d4b4e169d72ce828c12946191cc0e00d6fe41b51e30b24941",
+          "task": "apply",
+          "family": "math-g7-upper:3:从数量关系到值",
+          "rationale": "核对题干与解析：从数量关系到值，对应要求：按给定值计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-08-v1",
+          "question_sha256": "4d18ba5acbef4797045634b7494bb0eafc9c65156aa34ba23ca9f6db313f5355",
+          "task": "apply",
+          "family": "math-g7-upper:3:从数量关系到值",
+          "rationale": "核对题干与解析：从数量关系到值，对应要求：按给定值计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-11-v1",
+          "question_sha256": "e53c5aba3314c54a112a66fa6d1dadc6d6c536787f34b367d74411adbcc15f68",
+          "task": "apply",
+          "family": "math-g7-upper:3:从数量关系到值",
+          "rationale": "核对题干与解析：从数量关系到值，对应要求：按给定值计算"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-03-v1",
+          "question_sha256": "28b969e1be74598bc61ad6712dbed5daec399c432ba29625e426ec651f46357d",
+          "task": "transfer",
+          "family": "math-g7-upper:3:代数式的整体代入",
+          "rationale": "核对题干与解析：代数式的整体代入，对应要求：整体代入或规律求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-06-v1",
+          "question_sha256": "142d61107d5b237ed7596d2ca449957a90b3389219f5d17a42e1633030099d79",
+          "task": "transfer",
+          "family": "math-g7-upper:3:代数式的整体代入",
+          "rationale": "核对题干与解析：代数式的整体代入，对应要求：整体代入或规律求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-09-v1",
+          "question_sha256": "e4f24e471baf06aceb19fe7f07720bdd9c8c57210b05e1d10c651f6fabb07afd",
+          "task": "transfer",
+          "family": "math-g7-upper:3:代数式的整体代入",
+          "rationale": "核对题干与解析：代数式的整体代入，对应要求：整体代入或规律求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-12-v1",
+          "question_sha256": "2ba6e45507e1ab513bbc3c5272a8a1e33392449bf8d48ea8a1118b604752899f",
+          "task": "transfer",
+          "family": "math-g7-upper:3:代数式的整体代入",
+          "rationale": "核对题干与解析：代数式的整体代入，对应要求：整体代入或规律求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-value-01-v1",
+          "question_sha256": "f3e0fac08266bb7844ec5ef2590e32a59f3643d6f15e51f5349569c3445fe3ab",
+          "task": "understand",
+          "family": "g7-depth:3:value:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-value-02-v1",
+          "question_sha256": "89888cf9ecb945e6d4809aaf97af477d178d9a86affe2f063efd1938fad71473",
+          "task": "apply",
+          "family": "math-g7-upper:3:代入求值",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-value-03-v1",
+          "question_sha256": "4d12eac310a682648c97a25284c94629209298a9365c2d6e181e4125be82e4f2",
+          "task": "distinguish",
+          "family": "g7-depth:3:value:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-value-04-v1",
+          "question_sha256": "346806c478e8103dca486d18e22ab0aef8fccb8444a4c5d81c5baeca2fb0c8e5",
+          "task": "transfer",
+          "family": "math-g7-upper:3:代数式的整体代入",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:3:pattern",
+      "book_id": "math-g7-upper",
+      "chapter_id": "3",
+      "title": "规律表达",
+      "printed_page": 83,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "识别变化与不变量",
+        "apply": "用式表达简单规律",
+        "distinguish": "用特例检查猜想",
+        "transfer": "说明一般式为何成立"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-pattern-01-v1",
+          "question_sha256": "430b15933c64023fb0a5a794ab9e57d2cdefeaab8c0b6fb44bbb2c26ae8855a5",
+          "task": "understand",
+          "family": "g7-depth:3:pattern:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-pattern-02-v1",
+          "question_sha256": "c2b3ce3a6e9255c088641ff5a29999619779893d0f7449692db6314643cbee89",
+          "task": "apply",
+          "family": "g7-depth:3:pattern:2",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-pattern-03-v1",
+          "question_sha256": "6dfb4bf6f655fe17e681e7910a443c220683a114d427ced09df101812b86e094",
+          "task": "distinguish",
+          "family": "g7-depth:3:pattern:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-3-depth-pattern-04-v1",
+          "question_sha256": "8c1c24b7200fa6d4b013a0c0ab3fc1f7deb88236b281f364e989aa4f57abbef9",
+          "task": "transfer",
+          "family": "g7-depth:3:pattern:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:4:polynomial",
+      "book_id": "math-g7-upper",
+      "chapter_id": "4",
+      "title": "单项式与多项式",
+      "printed_page": 89,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释系数次数项",
+        "apply": "识别整式的项与次数",
+        "distinguish": "辨析负号常数项次数",
+        "transfer": "由条件确定整式结构"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-polynomial-01-v1",
+          "question_sha256": "8d94a85d9d874b1dc74f7b95793c7b534ce6051083bd6af0c280d7d55b9587d3",
+          "task": "understand",
+          "family": "g7-depth:4:polynomial:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-polynomial-02-v1",
+          "question_sha256": "27aa81f28f6ed6150344e6324dca131eee6058d2dbfc2742dd621f4eb345b369",
+          "task": "apply",
+          "family": "g7-depth:4:polynomial:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-polynomial-03-v1",
+          "question_sha256": "768d38935f6ce4c9decd2f919ea47689e6d0db6819dd71e73bcaed172c460f4b",
+          "task": "distinguish",
+          "family": "g7-depth:4:polynomial:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-polynomial-04-v1",
+          "question_sha256": "e5fb5753fe53ed1133933b1ce12081e31a16c109f2f44cd1a13b515797560f46",
+          "task": "transfer",
+          "family": "g7-depth:4:polynomial:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:4:like",
+      "book_id": "math-g7-upper",
+      "chapter_id": "4",
+      "title": "同类项与合并",
+      "printed_page": 95,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释同类项条件",
+        "apply": "合并同类项",
+        "distinguish": "辨析字母指数不同的项",
+        "transfer": "结合参数条件处理同类项"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-01-v1",
+          "question_sha256": "dae7d19fd0399e3b6e21da42462d74b99b7020401fe283cd25ddaf850f743c52",
+          "task": "apply",
+          "family": "math-g7-upper:4:合并同类项的系数",
+          "rationale": "核对题干与解析：合并同类项的系数，对应要求：合并同类项"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-04-v1",
+          "question_sha256": "95c8e0028abe66b89be0139d39f86a698b92b3b20d89638966979b0d506373c5",
+          "task": "apply",
+          "family": "math-g7-upper:4:合并同类项的系数",
+          "rationale": "核对题干与解析：合并同类项的系数，对应要求：合并同类项"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-07-v1",
+          "question_sha256": "a69c0ec2ba3a20513c189082e5d697497948ab418f2d29dd38f78987c7b2a436",
+          "task": "apply",
+          "family": "math-g7-upper:4:合并同类项的系数",
+          "rationale": "核对题干与解析：合并同类项的系数，对应要求：合并同类项"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-10-v1",
+          "question_sha256": "be7b140a5397195b9cc0cb6c292ec4a0d0e54f6f9738a82ffa2c01848f001096",
+          "task": "apply",
+          "family": "math-g7-upper:4:合并同类项的系数",
+          "rationale": "核对题干与解析：合并同类项的系数，对应要求：合并同类项"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-like-01-v1",
+          "question_sha256": "db0018dbb3c9c3ae16bf491a3bf81dd228023dc73b39340101258d5941d65b70",
+          "task": "understand",
+          "family": "g7-depth:4:like:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-like-02-v1",
+          "question_sha256": "24e3da899f0ea5db63ab96b496883570c0bab61ca636270822a46dbf2465482f",
+          "task": "apply",
+          "family": "math-g7-upper:4:合并同类项的系数",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-like-03-v1",
+          "question_sha256": "a52661efbcf5afa1e0a99c2ecc82437709e3c5fc1b099816f579cd497febf340",
+          "task": "distinguish",
+          "family": "g7-depth:4:like:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-like-04-v1",
+          "question_sha256": "a38780d7426fb6c0f62ef5bdac6eb8a73bed1376ea235e09e77f8e75097abd9d",
+          "task": "transfer",
+          "family": "g7-depth:4:like:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:4:bracket",
+      "book_id": "math-g7-upper",
+      "chapter_id": "4",
+      "title": "去括号",
+      "printed_page": 95,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释括号前符号作用",
+        "apply": "正确展开括号",
+        "distinguish": "检查漏变号或漏乘",
+        "transfer": "去括号合并后求值"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-02-v1",
+          "question_sha256": "16f6f5a8c81348433d9f902c39514bf00e2059a601bae6234a70f646a358dfe3",
+          "task": "transfer",
+          "family": "math-g7-upper:4:括号前的负号",
+          "rationale": "核对题干与解析：括号前的负号，对应要求：去括号合并后求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-05-v1",
+          "question_sha256": "6e32c92a59eff97683e2b18e0889b312351eb43ceef4e803d2bba32a24333aad",
+          "task": "transfer",
+          "family": "math-g7-upper:4:括号前的负号",
+          "rationale": "核对题干与解析：括号前的负号，对应要求：去括号合并后求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-08-v1",
+          "question_sha256": "4eddb48e844917631a156cd8805c747a6e92728300b09b55d6e696e33881b0fa",
+          "task": "transfer",
+          "family": "math-g7-upper:4:括号前的负号",
+          "rationale": "核对题干与解析：括号前的负号，对应要求：去括号合并后求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-11-v1",
+          "question_sha256": "f6d4782edbbb193f29c22ec10e7ba72f0ed9b3e275e8ca8a88da15b6025ff730",
+          "task": "transfer",
+          "family": "math-g7-upper:4:括号前的负号",
+          "rationale": "核对题干与解析：括号前的负号，对应要求：去括号合并后求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-03-v1",
+          "question_sha256": "dcdaa9b3a536a97c0203a67662a3d0bc716de840ae266769586675c420ebdaf7",
+          "task": "transfer",
+          "family": "math-g7-upper:4:合并后再代入",
+          "rationale": "核对题干与解析：合并后再代入，对应要求：去括号合并后求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-06-v1",
+          "question_sha256": "b97a2b13edde4e1bf17c137ca301190d35f92ab8b276037f4c033cbf14e20177",
+          "task": "transfer",
+          "family": "math-g7-upper:4:合并后再代入",
+          "rationale": "核对题干与解析：合并后再代入，对应要求：去括号合并后求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-09-v1",
+          "question_sha256": "10068802c08e96975c52cd33a7253142b4a070dadbae9fccfcc8ac55ea406a63",
+          "task": "transfer",
+          "family": "math-g7-upper:4:合并后再代入",
+          "rationale": "核对题干与解析：合并后再代入，对应要求：去括号合并后求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-12-v1",
+          "question_sha256": "6aa982975e9b4576dfebc90ecfde997fb5d35a673258bf3074aa9cc891b802c0",
+          "task": "transfer",
+          "family": "math-g7-upper:4:合并后再代入",
+          "rationale": "核对题干与解析：合并后再代入，对应要求：去括号合并后求值"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-bracket-01-v1",
+          "question_sha256": "c014734fde18e6fc2836ed9ef68c5def5c548a8f29e0d45fd58929621e4bbda7",
+          "task": "understand",
+          "family": "g7-depth:4:bracket:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-bracket-02-v1",
+          "question_sha256": "d871aebf5b46b87c4343a9c6273289cb5aa54c7ab18710e36b05d45f2eb6dcff",
+          "task": "apply",
+          "family": "g7-depth:4:bracket:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-bracket-03-v1",
+          "question_sha256": "e142a8287095ef4af8893ab71d522a3ad20fb42739bb2508893dd5f9099c0e29",
+          "task": "distinguish",
+          "family": "g7-depth:4:bracket:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-bracket-04-v1",
+          "question_sha256": "bb8a5467a98d32c2b69396d4cb0da7a25e241b0d172ec978eebb7929f6698e17",
+          "task": "transfer",
+          "family": "math-g7-upper:4:括号前的负号",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:4:application",
+      "book_id": "math-g7-upper",
+      "chapter_id": "4",
+      "title": "整式加减应用",
+      "printed_page": 105,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明式的数量含义",
+        "apply": "求两个整式的和差",
+        "distinguish": "检查减去整个式",
+        "transfer": "用整式说明数量关系"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-application-01-v1",
+          "question_sha256": "c1b432dacad276bd3dcc93c1b4be33efcf455d49d0cf30fa6487aca50d8937b3",
+          "task": "understand",
+          "family": "g7-depth:4:application:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-application-02-v1",
+          "question_sha256": "a37e15f0bf4992ad8d50e2e749b8d453b71e129a020457b68df1d8910fdfdb14",
+          "task": "apply",
+          "family": "g7-depth:4:application:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-application-03-v1",
+          "question_sha256": "a2c93c28a5081519866e789118c14b05dba370249a0a76c5fcdb09ac59405d11",
+          "task": "distinguish",
+          "family": "g7-depth:4:application:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-4-depth-application-04-v1",
+          "question_sha256": "2fce2011389bc5cd9e6882ce631b6a4326b2efbb6f740f6cc2b9721218fa3d1a",
+          "task": "transfer",
+          "family": "g7-depth:4:application:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:5:equation",
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "title": "方程与方程的解",
+      "printed_page": 111,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释方程及解的含义",
+        "apply": "代入检验一个解",
+        "distinguish": "辨析一元一次方程定义",
+        "transfer": "从数量关系列方程"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-equation-01-v1",
+          "question_sha256": "335fe3cd01443dc3920106de5881acd9a5740d50105de35265850314a16c5e00",
+          "task": "understand",
+          "family": "g7-depth:5:equation:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-equation-02-v1",
+          "question_sha256": "61fcc71c8709b1a58ea28e9de6721bec185e544916808e3c305bf8d54dc5c33f",
+          "task": "apply",
+          "family": "g7-depth:5:equation:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-equation-03-v1",
+          "question_sha256": "a7bab2ba55378ce56fb5a6c572193d8f64cada08b3f73e2846a71a4f23e5a772",
+          "task": "distinguish",
+          "family": "g7-depth:5:equation:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-equation-04-v1",
+          "question_sha256": "9f602a927a70e74189aaae32c64ad82217d4b5265b3e5abc404fff13143e0b08",
+          "task": "transfer",
+          "family": "g7-depth:5:equation:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:5:equality",
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "title": "等式的性质",
+      "printed_page": 115,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明等式变形条件",
+        "apply": "按性质变形",
+        "distinguish": "辨析乘除零等错误",
+        "transfer": "用性质说明解题步骤"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-equality-01-v1",
+          "question_sha256": "d75e426f4fcf5ef64328a1ee36b13d7af82036ea2fa9fc59732e188029594c7f",
+          "task": "understand",
+          "family": "g7-depth:5:equality:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-equality-02-v1",
+          "question_sha256": "dabff12a41601e1357b69bc5b651590d0fdf8b87c0e2927ec7606c992f2f41ca",
+          "task": "apply",
+          "family": "g7-depth:5:equality:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-equality-03-v1",
+          "question_sha256": "e8384dddbb77927206da9147cd8b260d79ebca1ddc663c8292cf50dd75af81cf",
+          "task": "distinguish",
+          "family": "g7-depth:5:equality:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-equality-04-v1",
+          "question_sha256": "705870eebcef4106ac7aba15fecf8c1b95ce171cb4e2524c2a96d8f757845abe",
+          "task": "transfer",
+          "family": "g7-depth:5:equality:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:5:solve",
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "title": "解一元一次方程",
+      "printed_page": 120,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释移项和系数化1",
+        "apply": "解含括号分母的方程",
+        "distinguish": "查出去分母移项错误",
+        "transfer": "选择步骤并代入检验"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-solve-01-v1",
+          "question_sha256": "50d0a3ad7d43e65a8eaa60b3a31249eb283a45834ee05d79359c23e84905a57f",
+          "task": "understand",
+          "family": "g7-depth:5:solve:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-solve-02-v1",
+          "question_sha256": "058e6e4bec0d09033f1e4c8758079a9c21a6f68f4bf24ba370ab97f93d5bfde8",
+          "task": "apply",
+          "family": "g7-depth:5:solve:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-solve-03-v1",
+          "question_sha256": "481cba9e1319866c20160d1b5907522746f7003e4ca4ecd11cdb67ab6e9dad64",
+          "task": "distinguish",
+          "family": "g7-depth:5:solve:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-solve-04-v1",
+          "question_sha256": "7080730c657bed7c3067678a86915d8d33c4b2be0c031db4df8581c84ece2e87",
+          "task": "transfer",
+          "family": "g7-depth:5:solve:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:5:model",
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "title": "实际问题与方程",
+      "printed_page": 133,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "识别未知量和等量关系",
+        "apply": "列方程并求解",
+        "distinguish": "辨析单位基数和无效解",
+        "transfer": "解释结果是否符合情境"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-word-cnm_045_q3-v1",
+          "question_sha256": "8b2176d98c4c8277265c41e0dd5287768c00a3f3895a4e113fee3427402b492c",
+          "task": "apply",
+          "family": "math-g7-upper:5:班级人数",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_048_q2-v1",
+          "question_sha256": "6b922d70b5ededa4324d344bf34253a8620a7fa46d5ca1b38435f9dc0b64287e",
+          "task": "apply",
+          "family": "math-g7-upper:5:商店打折",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_049_q2-v1",
+          "question_sha256": "8d3a7c78234d25f95de844a89fe75de777f306387217727b2ef9676483b70985",
+          "task": "apply",
+          "family": "math-g7-upper:5:通话费用",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_047_q1-v1",
+          "question_sha256": "7c726b7ef19c2864d136a047dafc805751deda45e7a062bd9f8f910c35cb3747",
+          "task": "apply",
+          "family": "math-g7-upper:5:两车相遇",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_047_q3-v1",
+          "question_sha256": "d3618cf26b45c5dc7b33a400867f90589f2d5b17e06dca564efb27452da922d0",
+          "task": "transfer",
+          "family": "math-g7-upper:5:追上先出发的人",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_048_q3-v1",
+          "question_sha256": "94709d25bc63195ee80a88d71495ad4a9d2a0fbc16d34cc095b44c62f97616ee",
+          "task": "transfer",
+          "family": "math-g7-upper:5:打折后还盈利",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_049_q3-v1",
+          "question_sha256": "243daf8bfe56f84b6c1ed983389b59371b84043797989848684963511727d79b",
+          "task": "transfer",
+          "family": "math-g7-upper:5:两种租车方案",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_046_q2-v1",
+          "question_sha256": "9f4601b46270998362ba9f944b3fc7535546e998c3ee19bcbe367e45cfda0d0e",
+          "task": "transfer",
+          "family": "math-g7-upper:5:合作完成任务",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_046_q3-v1",
+          "question_sha256": "332ebfaf0752e0003bf32b934132a8aa57021d993b0bfb39b1038e359fdefd58",
+          "task": "transfer",
+          "family": "math-g7-upper:5:配套生产安排",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_046_q4-v1",
+          "question_sha256": "772fc512ca760647ae31808fe31c61e9691ccd11a95fc44ead472e961733547f",
+          "task": "transfer",
+          "family": "math-g7-upper:5:先独做再合作",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_047_q4-v1",
+          "question_sha256": "db0a66f1edf37c84ab7715f78c251941f973cb84056093ee6687372dbd429878",
+          "task": "transfer",
+          "family": "math-g7-upper:5:尚未相遇的距离",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-word-cnm_048_q4-v1",
+          "question_sha256": "ce31e852f8d736baa973bcf07aacac4fca80cdf445a9f8b4df766c4c33f16603",
+          "task": "transfer",
+          "family": "math-g7-upper:5:利润率的基数",
+          "rationale": "原题只要求最终数值，未要求独立列方程或解释过程；仅计辅助练习。",
+          "role": "supporting"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-model-01-v1",
+          "question_sha256": "118b5b0ba5fbc90a051d02eb86c941951422169ac7af57735bbdeabb932c5c38",
+          "task": "understand",
+          "family": "g7-depth:5:model:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-model-02-v1",
+          "question_sha256": "9d2786ad0e7687890053cdf2f74965d70306322ae6843655e8ae6ae6cffb39fb",
+          "task": "apply",
+          "family": "g7-depth:5:model:2",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-model-03-v1",
+          "question_sha256": "1ea77b35a957927dc8f3183d34d934a8d5ea4d3d3b0d45dd8f0c543f7f583af2",
+          "task": "distinguish",
+          "family": "g7-depth:5:model:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-5-depth-model-04-v1",
+          "question_sha256": "2819e9a38be52431175a17a8de4e50e8eb263fe4d7e6d40628ec4bf715ec1de5",
+          "task": "transfer",
+          "family": "g7-depth:5:model:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:6:shapes",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "title": "立体图形与平面图形",
+      "printed_page": 151,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "辨认常见图形",
+        "apply": "联系实物与图形",
+        "distinguish": "辨析平面与立体",
+        "transfer": "从不同观察角度说明图形"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-shapes-01-v1",
+          "question_sha256": "9d1e7874ebddfbd7b627a5c305af9e720e48d535c6413fe06e8113ed5e7e2287",
+          "task": "understand",
+          "family": "g7-depth:6:shapes:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-shapes-02-v1",
+          "question_sha256": "3ad020e25093a62a4fa2f3859b18d5ba9d31b29f540fdcd9d3fce6be1436404c",
+          "task": "apply",
+          "family": "g7-depth:6:shapes:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-shapes-03-v1",
+          "question_sha256": "2ad90c699e9a782f0e694d78ad00ff73a084419ed9a3d107e7b081fe7121644b",
+          "task": "distinguish",
+          "family": "g7-depth:6:shapes:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-shapes-04-v1",
+          "question_sha256": "61612c365254f672d5a2e410e71742e9c95eeefd10ec45feb6ccab0e8942da7b",
+          "task": "transfer",
+          "family": "g7-depth:6:shapes:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:6:elements",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "title": "点线面体",
+      "printed_page": 155,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明基本元素联系",
+        "apply": "辨认组成元素",
+        "distinguish": "辨析概念混淆",
+        "transfer": "解释生活中的点线面体关系"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-elements-01-v1",
+          "question_sha256": "5c1a1c537816293caa2068defbaa41cffc74132dcacbdef450a31ee97121b168",
+          "task": "understand",
+          "family": "g7-depth:6:elements:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-elements-02-v1",
+          "question_sha256": "2eed08347efa7a0555cae28bb6838f1099ca312445063c03638da0a19974b41f",
+          "task": "apply",
+          "family": "g7-depth:6:elements:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-elements-03-v1",
+          "question_sha256": "c1283674c8236e0ddfb27d7d9805df046edad35776c7e477ac3aa8128cc3a81d",
+          "task": "distinguish",
+          "family": "g7-depth:6:elements:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-elements-04-v1",
+          "question_sha256": "5ec6d8958ba71f23f95761aa23e94c6c7e820a101cbb90629ba3218827803c9a",
+          "task": "transfer",
+          "family": "g7-depth:6:elements:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:6:lines",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "title": "直线射线线段",
+      "printed_page": 162,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释端点与延伸",
+        "apply": "区分并表示三种线",
+        "distinguish": "辨析长度与表示方法",
+        "transfer": "结合条件判断位置关系"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-lines-01-v1",
+          "question_sha256": "dec7b1bf395e72e53a232029b0a16dd9297e31055324f0dc21883d268bd2a32a",
+          "task": "understand",
+          "family": "g7-depth:6:lines:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-lines-02-v1",
+          "question_sha256": "19c74a4d53a0def9187b1fd533648d3764f570177678727b8915384bfb807039",
+          "task": "apply",
+          "family": "g7-depth:6:lines:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-lines-03-v1",
+          "question_sha256": "3636f7769a1f47ffe12eefa80890e562e9841c018e6efdae71621472bb6ace12",
+          "task": "distinguish",
+          "family": "g7-depth:6:lines:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-lines-04-v1",
+          "question_sha256": "63f751d601c4865c5c0824a89265f88114e0981c9c510401a46e3f225b8be2e1",
+          "task": "transfer",
+          "family": "g7-depth:6:lines:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:6:segments",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "title": "线段比较与运算",
+      "printed_page": 164,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释中点和距离",
+        "apply": "计算线段长度",
+        "distinguish": "检查点的先后顺序",
+        "transfer": "中点与线段关系综合求解"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-01-v1",
+          "question_sha256": "0c65dec01c0af909772d523d6b2eccc610b8c3d73946eff1d1474c883424ffda",
+          "task": "apply",
+          "family": "math-g7-upper:6:线段中点",
+          "rationale": "核对题干与解析：线段中点，对应要求：计算线段长度"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-04-v1",
+          "question_sha256": "9325700530e80764edd1f13c698adb035040cef60025eebc612928d63fe6eee6",
+          "task": "apply",
+          "family": "math-g7-upper:6:线段中点",
+          "rationale": "核对题干与解析：线段中点，对应要求：计算线段长度"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-07-v1",
+          "question_sha256": "b25f41885c6ca4b2b76e9b049419b7eb52e396de8edc009ba6969752e8bd39b4",
+          "task": "apply",
+          "family": "math-g7-upper:6:线段中点",
+          "rationale": "核对题干与解析：线段中点，对应要求：计算线段长度"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-10-v1",
+          "question_sha256": "7e7c5a6b8568bbe791f72558dcd3175bea7ab43dc9de76a3a983ca6d18c399f4",
+          "task": "apply",
+          "family": "math-g7-upper:6:线段中点",
+          "rationale": "核对题干与解析：线段中点，对应要求：计算线段长度"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-03-v1",
+          "question_sha256": "324c783b1e9ead004ba4c8aeaf8f6ce7ed4462e543fb1c57d468a45326a5e423",
+          "task": "transfer",
+          "family": "math-g7-upper:6:线段上的顺序",
+          "rationale": "核对题干与解析：线段上的顺序，对应要求：中点与线段关系综合求解"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-06-v1",
+          "question_sha256": "518192aa3782b7578c01ac1529d6c737e41bfe6ca486c8dd552d1f4a429ebc3e",
+          "task": "transfer",
+          "family": "math-g7-upper:6:线段上的顺序",
+          "rationale": "核对题干与解析：线段上的顺序，对应要求：中点与线段关系综合求解"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-09-v1",
+          "question_sha256": "ce472d90432facecea9aa0ffb3d053b2fa008d9d222334e4993849e95f0f271f",
+          "task": "transfer",
+          "family": "math-g7-upper:6:线段上的顺序",
+          "rationale": "核对题干与解析：线段上的顺序，对应要求：中点与线段关系综合求解"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-12-v1",
+          "question_sha256": "24b5b4dffb7e3ad3750de09b964001c60a6fab83497c37463a5b1665e8cc0650",
+          "task": "transfer",
+          "family": "math-g7-upper:6:线段上的顺序",
+          "rationale": "核对题干与解析：线段上的顺序，对应要求：中点与线段关系综合求解"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-segments-01-v1",
+          "question_sha256": "5c45b22f345dc8802c6e406bbd740b8c3063c6d41b83432e6d01878a5cc9cf86",
+          "task": "understand",
+          "family": "g7-depth:6:segments:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-segments-02-v1",
+          "question_sha256": "6ab57ef7c0c118053a46d5600934c728e63c89fde1237267643b1070ee6dce47",
+          "task": "apply",
+          "family": "g7-depth:6:segments:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-segments-03-v1",
+          "question_sha256": "f179fb9523d40e11f2551c335b752cb231c112684ab55dfccca9bcaa8b35fcc7",
+          "task": "distinguish",
+          "family": "g7-depth:6:segments:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-segments-04-v1",
+          "question_sha256": "377c8ff1158cbd8629a6278c7f38854166a436e70d0ee455b49379f6f803f26d",
+          "task": "transfer",
+          "family": "g7-depth:6:segments:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:6:angle",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "title": "角的概念与度量",
+      "printed_page": 171,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释顶点两边与角度",
+        "apply": "读写或测量角度",
+        "distinguish": "辨析边长与角大小",
+        "transfer": "不同角单位或测量问题"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-angle-01-v1",
+          "question_sha256": "32d9510bff808cb9c909042315247c2d4f6c8163b0ced03d49146b090477a00f",
+          "task": "understand",
+          "family": "g7-depth:6:angle:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-angle-02-v1",
+          "question_sha256": "016ce6dffe354fec04c71bcf345bcd69181a7ac93134aba0578a5a24067712f2",
+          "task": "apply",
+          "family": "g7-depth:6:angle:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-angle-03-v1",
+          "question_sha256": "e2dce398e679612c22c39d197e301c3ac0dad387cd07482e4bcc858971e2d7fe",
+          "task": "distinguish",
+          "family": "g7-depth:6:angle:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-angle-04-v1",
+          "question_sha256": "f677ef5aafc37b0c70f68994b59d83d692c0871e4f5eb0df7fe370c7a62a660a",
+          "task": "transfer",
+          "family": "g7-depth:6:angle:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:6:bisect",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "title": "角的比较与运算",
+      "printed_page": 174,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释角平分线",
+        "apply": "求角和差或一半",
+        "distinguish": "检查内外射线位置",
+        "transfer": "组合角关系求未知角"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-02-v1",
+          "question_sha256": "8fe4f4c4db11ee45dae000b83eac69576ccc9267876474f6feacba540fd21208",
+          "task": "apply",
+          "family": "math-g7-upper:6:角平分线",
+          "rationale": "核对题干与解析：角平分线，对应要求：求角和差或一半"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-05-v1",
+          "question_sha256": "bdad486cd4c0700dbd56236fe424632669787db30440f05c7449bb515e4da363",
+          "task": "apply",
+          "family": "math-g7-upper:6:角平分线",
+          "rationale": "核对题干与解析：角平分线，对应要求：求角和差或一半"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-08-v1",
+          "question_sha256": "f8674c308f20016ac323a2a387ec9caa49ababfc4ad8233b77fd7d96d6af797a",
+          "task": "apply",
+          "family": "math-g7-upper:6:角平分线",
+          "rationale": "核对题干与解析：角平分线，对应要求：求角和差或一半"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-11-v1",
+          "question_sha256": "b345664a7ddd2652b7727df87c992b8dc41ce2c4cd17865bfc460f1fb90a8028",
+          "task": "apply",
+          "family": "math-g7-upper:6:角平分线",
+          "rationale": "核对题干与解析：角平分线，对应要求：求角和差或一半"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-bisect-01-v1",
+          "question_sha256": "44506b9aba3473044ce4297c1c762065f7cf254a48af832167f771ab3ce7c432",
+          "task": "understand",
+          "family": "g7-depth:6:bisect:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-bisect-02-v1",
+          "question_sha256": "b351323fcefc7c18665e56cbce6750f562eb7f1cb023807584f3d7c43c4e2148",
+          "task": "apply",
+          "family": "math-g7-upper:6:角平分线",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-bisect-03-v1",
+          "question_sha256": "c9e6712be95f6883ba119998a71d79dad50294a658637950d15da77023fccf95",
+          "task": "distinguish",
+          "family": "g7-depth:6:bisect:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-bisect-04-v1",
+          "question_sha256": "4fc0797d6f299ca2f827465ad3e095aa2f6cc3f404fe79f9774a00de6e93f4cf",
+          "task": "transfer",
+          "family": "g7-depth:6:bisect:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:6:complement",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "title": "余角和补角",
+      "printed_page": 176,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "解释90度180度关系",
+        "apply": "求余角补角",
+        "distinguish": "辨析相等角和互余互补",
+        "transfer": "结合多个角关系推理"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-complement-01-v1",
+          "question_sha256": "7e0f324fdc67afc500bdac5356e05c1b015864249326841fe385c6add2ed574e",
+          "task": "understand",
+          "family": "g7-depth:6:complement:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-complement-02-v1",
+          "question_sha256": "b8ff54b7783a41b500517132d0048b79568d6109f42fd5dab6af833de7919c4b",
+          "task": "apply",
+          "family": "g7-depth:6:complement:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-complement-03-v1",
+          "question_sha256": "c8c1893404aa19517d89a7f96c656dbe0de04633567942a4a1cf8f26cddcba5e",
+          "task": "distinguish",
+          "family": "g7-depth:6:complement:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-complement-04-v1",
+          "question_sha256": "f216d9da7ae24b3472d1052ef3bf5b7b5f835d7aa5bf2f0c6bc7c94607adc478",
+          "task": "transfer",
+          "family": "g7-depth:6:complement:4",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        }
+      ]
+    },
+    {
+      "id": "math-g7-upper:6:design",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "title": "场地设计实践（综合）",
+      "printed_page": 190,
+      "location_kind": "topic_location_not_quote",
+      "requirements": {
+        "understand": "说明设计所需量",
+        "apply": "计算实际长度",
+        "distinguish": "检查测量与比例单位",
+        "transfer": "给出方案并说明约束"
+      },
+      "mappings": [
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-design-01-v1",
+          "question_sha256": "48bcc3698ed026c877af5f4b207381e8b9ccdd35fd6ebb6ec47623f51f2ba635",
+          "task": "understand",
+          "family": "g7-depth:6:design:1",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-design-02-v1",
+          "question_sha256": "b45018bd7999b4870d89d38a742866a6715da7b97abbe33313de044d7ec5d66d",
+          "task": "apply",
+          "family": "g7-depth:6:design:2",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-design-03-v1",
+          "question_sha256": "1ff48dae328a564a91c4ac60564caf86cbb50476398ced71391bc8c4b11d9fd7",
+          "task": "distinguish",
+          "family": "g7-depth:6:design:3",
+          "role": "direct",
+          "rationale": "根据条件计算、辨错或迁移到新情境。"
+        },
+        {
+          "question_version_id": "family-chapter-math-g7-upper-6-depth-design-04-v1",
+          "question_sha256": "a31cd56bf9b517c13df2e52fe3f09a2f38deb31a4aa4710637f53e921d842e55",
+          "task": "transfer",
+          "family": "g7-depth:6:design:4",
+          "role": "supporting",
+          "rationale": "选择解释、表达式或方案只作为辅助辨认；独立表达或操作仍需线下任务。"
+        }
+      ]
+    }
+  ],
+  "mapping_policy": "direct_tasks_count_toward_target; explanation_recognition_is_supporting_only"
+}

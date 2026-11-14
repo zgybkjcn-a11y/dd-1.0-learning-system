@@ -1,0 +1,1082 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "math_g7_multistep",
+  "questions": [
+    {
+      "id": "family-chapter-math-g7-upper-1-math_g7_multistep-distances-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "三个位置与三段距离",
+      "prompt": "数轴向右为正。A、B、C的位置见表。分别求两点间的距离，距离应为非负数。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"6\",\"b\":\"3\",\"c\":\"9\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "AB=6，BC=3，AC=9。B在A、C之间，因此AB+BC=AC。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一章 有理数",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          9
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "AB的距离",
+          "answer": "6",
+          "independent_check": "2-(-4)",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "BC的距离",
+          "answer": "3",
+          "independent_check": "5-2",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "AC的距离",
+          "answer": "9",
+          "independent_check": "5-(-4)",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "读表推理",
+        "family": "math-g7-upper:1:数轴的距离",
+        "priority": 2,
+        "order": 1,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "数轴上的点",
+        "rows": [
+          [
+            "点",
+            "A",
+            "B",
+            "C"
+          ],
+          [
+            "表示的数",
+            "−4",
+            "2",
+            "5"
+          ]
+        ]
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:1:line",
+        "task": "transfer",
+        "role": "direct",
+        "family": "math-g7-upper:1:数轴的距离",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-1-math_g7_multistep-absolute-constraints-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "1",
+      "difficulty": "hard",
+      "title": "先确定符号再运算",
+      "prompt": "已知|a|=3、|b|=5，并且a<0、b>0。分别确定a、b，再求a+b和数轴上两点的距离。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"-3\",\"b\":\"5\",\"c\":\"2\",\"d\":\"8\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "符号条件排除a=3和b=−5，故a=−3、b=5；和为2，距离为8。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一章 有理数",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          13
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "a",
+          "answer": "-3",
+          "independent_check": "-3",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "b",
+          "answer": "5",
+          "independent_check": "5",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "a+b",
+          "answer": "2",
+          "independent_check": "-3+5",
+          "units": [],
+          "options": [],
+          "id": "c"
+        },
+        {
+          "label": "两点距离",
+          "answer": "8",
+          "independent_check": "5-(-3)",
+          "units": [],
+          "options": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "条件推理",
+        "family": "math-g7-upper:1:绝对值与位置",
+        "priority": 2,
+        "order": 2,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:1:absolute",
+        "task": "transfer",
+        "role": "direct",
+        "family": "math-g7-upper:1:绝对值与位置",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-2-math_g7_multistep-changes-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "余额和变化量分别记",
+      "prompt": "用正数表示收入、负数表示支出。账户起始余额为−3元（欠3元），按表记录变化。填写第二天结束、第三天结束的余额，以及三天的总变化量。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"-1\",\"b\":\"3\",\"c\":\"6\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "依次余额为4、−1、3元。变化量为+7−5+4=+6元，最终余额3减起始余额−3也得6。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二章 有理数的运算",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          25
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "第二天结束的余额",
+          "answer": "-1",
+          "independent_check": "-3+7-5",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "第三天结束的余额",
+          "answer": "3",
+          "independent_check": "-3+7-5+4",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "三天总变化量",
+          "answer": "6",
+          "independent_check": "7-5+4",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "读表计算",
+        "family": "g7:add:successive-changes",
+        "priority": 2,
+        "order": 3,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "每天的变化",
+        "rows": [
+          [
+            "日期",
+            "第一天",
+            "第二天",
+            "第三天"
+          ],
+          [
+            "变化/元",
+            "+7",
+            "−5",
+            "+4"
+          ]
+        ]
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:2:add",
+        "task": "transfer",
+        "role": "supporting",
+        "family": "g7:add:successive-changes",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-2-math_g7_multistep-operation-order-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "负号、乘方与运算顺序",
+      "prompt": "计算(−2)³−3×(−4)+(−6)÷2。先分别填写乘方和除法的结果，再计算整个式子。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"-8\",\"b\":\"-3\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "(−2)³=−8，(−6)÷2=−3，3×(−4)=−12。原式为−8−(−12)−3=1。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二章 有理数的运算",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          51
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "(−2)³",
+          "answer": "-8",
+          "independent_check": "(-2)*(-2)*(-2)",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "(−6)÷2",
+          "answer": "-3",
+          "independent_check": "(-6)/2",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "整个式子的值",
+          "answer": "1",
+          "independent_check": "-8-3*(-4)-3",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分步计算",
+        "family": "math-g7-upper:2:先乘方再乘除",
+        "priority": 2,
+        "order": 4,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:2:power",
+        "task": "transfer",
+        "role": "direct",
+        "family": "math-g7-upper:2:先乘方再乘除",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-3-math_g7_multistep-fare-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "把分段收费写成代数式",
+      "prompt": "某接送车行程不超过3千米收费8元；超过3千米后，每多1千米加2元。只考虑整数千米且x≥3。把总费用写成ax+b元，填写a、b和行驶6千米的费用。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\",\"c\":\"14\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "费用=8+2(x−3)=2x+2，所以a=2、b=2；x=6时费用14元。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三章 代数式",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          69
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "a",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "b",
+          "answer": "2",
+          "independent_check": "8-2*3",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "6千米的费用",
+          "answer": "14",
+          "independent_check": "8+(6-3)*2",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "模型填空",
+        "family": "g7:expression:base-plus-excess",
+        "priority": 2,
+        "order": 5,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:3:expression",
+        "task": "apply",
+        "role": "supporting",
+        "family": "g7:expression:base-plus-excess",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-3-math_g7_multistep-table-pattern-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "3",
+      "difficulty": "hard",
+      "title": "用表格确定规律并反推",
+      "prompt": "把方桌紧贴排成一行，相邻两桌贴合处不能放椅子，其余每边放1把椅子。记录见表。把n张桌子的椅子数写成an+b，填写系数并解决两个问题。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\",\"c\":\"18\",\"d\":\"15\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "上下两侧各n把，两端共2把，所以2n+2；n=8时18把，2n+2=32时n=15。填写系数不替代独立口述规律来源。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三章 代数式",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          83
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "a",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "b",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "8张桌子放几把椅子",
+          "answer": "18",
+          "independent_check": "2*8+2",
+          "units": [
+            "把"
+          ],
+          "options": [],
+          "id": "c"
+        },
+        {
+          "label": "放32把椅子需要几张桌子",
+          "answer": "15",
+          "independent_check": "(32-2)/2",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "规律推理",
+        "family": "g7:pattern:shared-table-edges",
+        "priority": 2,
+        "order": 6,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "摆放记录",
+        "rows": [
+          [
+            "桌子/张",
+            "1",
+            "2",
+            "3"
+          ],
+          [
+            "椅子/把",
+            "4",
+            "6",
+            "8"
+          ]
+        ]
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:3:pattern",
+        "task": "transfer",
+        "role": "supporting",
+        "family": "g7:pattern:shared-table-edges",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-4-math_g7_multistep-coefficients-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "先化简再代入核对",
+      "prompt": "将3(2x−1)−2(x+4)化简为ax+b，再取x=−2求值。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"-11\",\"c\":\"-19\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "去括号得6x−3−2x−8=4x−11；代入x=−2得−19。括号前的−2须乘括号内每一项。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四章 整式的加减",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          95
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "a",
+          "answer": "4",
+          "independent_check": "3*2-2",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "b",
+          "answer": "-11",
+          "independent_check": "-3-2*4",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "x=−2时的值",
+          "answer": "-19",
+          "independent_check": "3*(2*(-2)-1)-2*((-2)+4)",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分步化简",
+        "family": "math-g7-upper:4:合并后再代入",
+        "priority": 2,
+        "order": 7,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:4:bracket",
+        "task": "transfer",
+        "role": "direct",
+        "family": "math-g7-upper:4:合并后再代入",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-4-math_g7_multistep-cancel-variable-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "4",
+      "difficulty": "hard",
+      "title": "结果与x无关的条件",
+      "prompt": "式子(kx+3)−(2x−5)的值与x无关。先求k，再填写这个式子的恒定值，并判断x换成−7时结果是否改变。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"8\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "化简为(k−2)x+8。与x无关要求k−2=0，即k=2，此时任何x都得到8。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四章 整式的加减",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          105
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "k",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "恒定值",
+          "answer": "8",
+          "independent_check": "3+5",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "x换成−7时",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "仍为8",
+            "无法确定",
+            "变成−7"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "条件推理",
+        "family": "g7:polynomial:cancel-variable",
+        "priority": 2,
+        "order": 8,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:4:application",
+        "task": "transfer",
+        "role": "supporting",
+        "family": "g7:polynomial:cancel-variable",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-5-math_g7_multistep-fraction-equation-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "去分母后解并检验",
+      "prompt": "解方程(x−1)/3=(x+1)/4。两边乘12得到a(x−1)=b(x+1)。填a、b、x及代回原方程左边的值。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"3\",\"c\":\"7\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "得到4x−4=3x+3，所以x=7。左边(7−1)/3=2，右边(7+1)/4=2，检验成立。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第五章 一元一次方程",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          127
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "a",
+          "answer": "4",
+          "independent_check": "12/3",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "b",
+          "answer": "3",
+          "independent_check": "12/4",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "x",
+          "answer": "7",
+          "independent_check": "7",
+          "units": [],
+          "options": [],
+          "id": "c"
+        },
+        {
+          "label": "原方程左边的值",
+          "answer": "2",
+          "independent_check": "(7-1)/3",
+          "units": [],
+          "options": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "分步解方程",
+        "family": "g7-depth:5:solve:2",
+        "priority": 2,
+        "order": 9,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:5:solve",
+        "task": "apply",
+        "role": "direct",
+        "family": "g7-depth:5:solve:2",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-5-math_g7_multistep-tickets-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "两种票价和总人数",
+      "prompt": "成人票18元、儿童票12元，共买10张票，合计150元。设成人票x张，儿童票为10−x张。总费用化简成ax+b，填写a、b和两种票的张数。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"6\",\"b\":\"120\",\"c\":\"5\",\"d\":\"5\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "18x+12(10−x)=6x+120。由6x+120=150得x=5；成人、儿童各5张，90+60=150元。未知量与表达形式已给定，仅计建模辅助。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第五章 一元一次方程",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          133
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "a",
+          "answer": "6",
+          "independent_check": "18-12",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "b",
+          "answer": "120",
+          "independent_check": "12*10",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "成人票张数",
+          "answer": "5",
+          "independent_check": "(150-120)/6",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "c"
+        },
+        {
+          "label": "儿童票张数",
+          "answer": "5",
+          "independent_check": "10-5",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "建模与检验",
+        "family": "g7:model:two-ticket-types",
+        "priority": 2,
+        "order": 10,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:5:model",
+        "task": "transfer",
+        "role": "supporting",
+        "family": "g7:model:two-ticket-types",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-6-math_g7_multistep-midpoint-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "中点和内部分段",
+      "prompt": "A、B、C在同一条直线上，对应数轴位置见表。M为AC中点。求M的位置、BC长度和BM长度。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"5\",\"b\":\"6\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "AC长10，M在位置5；BC=10−4=6，BM=5−4=1。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第六章 几何图形初步",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          164
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "M表示的数",
+          "answer": "5",
+          "independent_check": "(0+10)/2",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "BC长度",
+          "answer": "6",
+          "independent_check": "10-4",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "BM长度",
+          "answer": "1",
+          "independent_check": "5-4",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "读表推理",
+        "family": "math-g7-upper:6:线段中点",
+        "priority": 2,
+        "order": 11,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "数轴位置",
+        "rows": [
+          [
+            "点",
+            "A",
+            "B",
+            "C"
+          ],
+          [
+            "数值",
+            "0",
+            "4",
+            "10"
+          ]
+        ]
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:6:segments",
+        "task": "transfer",
+        "role": "direct",
+        "family": "math-g7-upper:6:线段中点",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-6-math_g7_multistep-angle-bisectors-v1",
+      "batch": "math_g7_multistep",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "6",
+      "difficulty": "hard",
+      "title": "两条角平分线之间",
+      "prompt": "∠AOB=120°，射线OC在角内，∠AOC=40°。OD平分∠AOC，OE平分∠COB，射线顺序为OA、OD、OC、OE、OB。求下列角度。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"80\",\"b\":\"20\",\"c\":\"40\",\"d\":\"60\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "∠COB=80°，∠AOD=∠DOC=20°，∠COE=40°，所以∠DOE=20°+40°=60°。射线顺序决定这里应相加。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第六章 几何图形初步",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          177
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "∠COB",
+          "answer": "80",
+          "independent_check": "120-40",
+          "units": [
+            "度"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "∠AOD",
+          "answer": "20",
+          "independent_check": "40/2",
+          "units": [
+            "度"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "∠COE",
+          "answer": "40",
+          "independent_check": "80/2",
+          "units": [
+            "度"
+          ],
+          "options": [],
+          "id": "c"
+        },
+        {
+          "label": "∠DOE",
+          "answer": "60",
+          "independent_check": "40/2+80/2",
+          "units": [
+            "度"
+          ],
+          "options": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "几何分步推理",
+        "family": "g7:angle:two-bisectors",
+        "priority": 2,
+        "order": 12,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:6:bisect",
+        "task": "transfer",
+        "role": "direct",
+        "family": "g7:angle:two-bisectors",
+        "rationale": "按完整能力要求判断对应或辅助；多个输入项不单独计题型，不替代独立表达或作图。"
+      }
+    }
+  ]
+}

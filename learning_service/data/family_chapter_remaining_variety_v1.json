@@ -1,0 +1,3145 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "remaining_variety",
+  "questions": [
+    {
+      "id": "family-chapter-math-g7-lower-7-remaining_variety-parallel-angles-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "7",
+      "difficulty": "hard",
+      "title": "同旁内角求未知数",
+      "prompt": "两条平行线被第三条直线所截，一对同旁内角分别为(3x+10)°和(5x+10)°。求x及两个角的度数。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"20\",\"b\":\"70\",\"c\":\"110\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "同旁内角互补，8x+20=180，x=20；两角为70°、110°，和为180°。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第七章 相交线与平行线",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "x",
+          "answer": "20",
+          "independent_check": "(180-20)/8",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "第一个角",
+          "answer": "70",
+          "independent_check": "3*20+10",
+          "units": [
+            "度"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "第二个角",
+          "answer": "110",
+          "independent_check": "5*20+10",
+          "units": [
+            "度"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "条件推理",
+        "family": "math-g7-lower:7:parallel-angles",
+        "priority": 2,
+        "order": 1,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-8-remaining_variety-root-bounds-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "8",
+      "difficulty": "normal",
+      "title": "平方根定位和立方根",
+      "prompt": "填写√50所在的两个相邻整数，以及−27的立方根。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"7\",\"b\":\"8\",\"c\":\"-3\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "7²=49<50<64=8²，所以7<√50<8；(−3)³=−27。平方根范围和立方根符号需分别判断。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第八章 实数",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          39
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "较小整数",
+          "answer": "7",
+          "independent_check": "7",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "较大整数",
+          "answer": "8",
+          "independent_check": "8",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "−27的立方根",
+          "answer": "-3",
+          "independent_check": "-3",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "数值与范围",
+        "family": "math-g7-lower:8:root-bounds",
+        "priority": 2,
+        "order": 2,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-9-remaining_variety-reflection-shift-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "9",
+      "difficulty": "normal",
+      "title": "先对称再平移",
+      "prompt": "点P(−3,4)先关于y轴对称得到Q，再将Q向右平移2个单位、向下平移5个单位得到R。分别填Q和R的坐标。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"4\",\"c\":\"5\",\"d\":\"-1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "关于y轴对称只改变横坐标符号，Q(3,4)；平移后R(5,−1)。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第九章 平面直角坐标系",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          63
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "Q的横坐标",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "Q的纵坐标",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "R的横坐标",
+          "answer": "5",
+          "independent_check": "3+2",
+          "units": [],
+          "options": [],
+          "id": "c"
+        },
+        {
+          "label": "R的纵坐标",
+          "answer": "-1",
+          "independent_check": "4-5",
+          "units": [],
+          "options": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "坐标变换",
+        "family": "math-g7-lower:9:reflection-shift",
+        "priority": 2,
+        "order": 3,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-10-remaining_variety-system-check-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "10",
+      "difficulty": "normal",
+      "title": "两种文具的数量",
+      "prompt": "共买9件文具，笔每支2元、本子每本3元，共花23元。设笔x支、本子y本，已知x+y=9、2x+3y=23。填写数量并核对费用。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"5\",\"c\":\"23\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "第二式减第一式的2倍得到y=5，再得x=4。4+5=9，8+15=23，两项条件同时满足。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第十章 二元一次方程组",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          87
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "笔的支数x",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "本子的本数y",
+          "answer": "5",
+          "independent_check": "5",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "代入2x+3y所得费用",
+          "answer": "23",
+          "independent_check": "2*4+3*5",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "联立与检验",
+        "family": "math-g7-lower:10:system-check",
+        "priority": 2,
+        "order": 4,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-11-remaining_variety-integer-solutions-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "11",
+      "difficulty": "hard",
+      "title": "变号后筛选整数解",
+      "prompt": "同时满足−2x+3>9和x≥−6。先把第一条化成x<a，再求两条件下整数解的个数和最大整数解。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"-3\",\"b\":\"3\",\"c\":\"-4\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "除以−2须改变不等号方向，得x<−3。与x≥−6合并，整数解为−6、−5、−4，最大为−4。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第十一章 不等式与不等式组",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          120
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "a",
+          "answer": "-3",
+          "independent_check": "(9-3)/(-2)",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "整数解个数",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "最大整数解",
+          "answer": "-4",
+          "independent_check": "-4",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "条件筛选",
+        "family": "math-g7-lower:11:integer-solutions",
+        "priority": 2,
+        "order": 5,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-12-remaining_variety-survey-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "12",
+      "difficulty": "normal",
+      "title": "通学统计是否能代表全班",
+      "prompt": "全班40人的主要通学方式见表。求步行与骑车合计人数、公交比例，再判断只问乘公交的同学是否能代表全班的通学方式。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"20\",\"b\":\"50\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "步行骑车合计20人；公交20÷40=50%。只调查公交乘客会遗漏其他方式，样本有偏。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第十二章 数据的收集、整理与描述",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          150
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "步行与骑车合计",
+          "answer": "20",
+          "independent_check": "8+12",
+          "units": [
+            "人"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "公交占全班百分之几",
+          "answer": "50",
+          "independent_check": "20/40*100",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "只调查公交同学",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "能代表全班",
+            "不能代表全班"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "读表与质疑",
+        "family": "math-g7-lower:12:survey",
+        "priority": 2,
+        "order": 6,
+        "skills": [],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "主要通学方式",
+        "rows": [
+          [
+            "方式",
+            "步行",
+            "骑车",
+            "公交"
+          ],
+          [
+            "人数",
+            "8",
+            "12",
+            "20"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-1-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "春天记录里有什么",
+      "prompt": "自编材料：小禾写：“柳枝上长出嫩芽，池边的冰变薄了。今天我看见两只燕子。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "嫩芽和燕子都有记录；不能添加所有花开或明天天气等信息。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "哪一项是材料中的观察",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "柳枝长出嫩芽",
+            "明天一定炎热",
+            "所有花都开了"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "“两只”表示什么",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "树枝的长度",
+            "燕子的数量",
+            "天气的温度"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g2-lower:1:reading",
+        "priority": 2,
+        "order": 7,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-2-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "帮助别人先问需要",
+      "prompt": "自编材料：同学抱着书站在楼梯旁。小雨先问：“需要我帮忙吗？”得到同意后，她接过一部分书，一起送到教室。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "文中“先”和“得到同意后”标明顺序，也体现尊重对方。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          15
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "帮助前先做什么",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "直接抢过书",
+            "询问对方需要",
+            "先去操场"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "事情顺序",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "送书→询问→同意",
+            "询问→同意→一起送书"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g2-lower:2:reading",
+        "priority": 2,
+        "order": 8,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-3-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "从偏旁联系字义",
+      "prompt": "自编材料：把“炒、烧、煮”和“河、湖、海”分成两组。想一想字形中的线索，以及每组大多与什么有关。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"3\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "火和灬常提示加热，氵常提示与水有关；偏旁是线索，并不决定所有字的具体意思。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元·识字",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          29
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "第一组通常与什么有关",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "道路",
+            "水域",
+            "加热烹饪"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "第二组共同偏旁",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "扌",
+            "木",
+            "氵"
+          ],
+          "id": "b"
+        },
+        {
+          "label": "看偏旁能否代替核对具体字义",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "不能，还需结合词语核对",
+            "能，所有同偏旁字义相同"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分类辨析",
+        "family": "chinese-g2-lower:3:reading",
+        "priority": 2,
+        "order": 9,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-4-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "4",
+      "difficulty": "hard",
+      "title": "想象故事也要前后连贯",
+      "prompt": "自编材料：故事设定：一把小伞只能在下雨时飞。开头写大雨来了，小猫乘伞过河。结尾写雨停后小猫继续乘伞飞回家。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "想象故事也要遵守自己给出的条件。改走桥既保留设定也能回家。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          42
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "哪里与设定不一致",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "小猫出门",
+            "下雨时过河",
+            "雨停后仍乘伞飞"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "怎样修改更连贯",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "雨停后沿桥走回家",
+            "删掉所有地点",
+            "说伞一直只能下雨时飞又照飞"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g2-lower:4:reading",
+        "priority": 2,
+        "order": 10,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-5-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "补救与反思",
+      "prompt": "自编材料：小羊发现羊圈破洞，第一次没修。羊丢了以后，它补好洞，此后没有再丢。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "前后结果说明补救有效，也提醒发现问题应及时处理。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第五单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "哪件事在丢羊以后",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "第一次发现破洞",
+            "补好洞",
+            "最初没有修"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "最合适的理解",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "出错后永远无法改正",
+            "发现问题后及时补救仍有用",
+            "只要丢羊就不用修"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g2-lower:5:reading",
+        "priority": 2,
+        "order": 11,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-6-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "6",
+      "difficulty": "hard",
+      "title": "按条件选择观察工具",
+      "prompt": "自编材料：要记录一周每天正午的气温，小组准备了温度计和记录表。有人建议改成每天想到时随手摸一摸窗台。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "固定时刻方便比较；摸窗台没有提供可核对的气温数值。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第六单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          69
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "原方案控制了什么",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "人数必须一样",
+            "所有天气相同",
+            "每天观察的时刻"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "摸窗台能否替代气温记录",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "能，手比温度计准确",
+            "不能，感觉和表面温度不是气温读数"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g2-lower:6:reading",
+        "priority": 2,
+        "order": 12,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-7-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "7",
+      "difficulty": "normal",
+      "title": "把修改过程排顺序",
+      "prompt": "自编材料：A：小虫看到同伴能搬动树叶，愿意再试。B：小虫觉得自己很小，什么也做不了。C：它和同伴合作，把树叶搬回洞口。按故事发展排序。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\",\"c\":\"3\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "先不自信，受到启发后愿意尝试，最后合作完成。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第七单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          84
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "A排第几",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "B排第几",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "C排第几",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "故事排序",
+        "family": "chinese-g2-lower:7:reading",
+        "priority": 2,
+        "order": 13,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-8-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "8",
+      "difficulty": "normal",
+      "title": "分清神话想象和观察",
+      "prompt": "自编材料：自编故事说巨人挥动长袖，把乌云卷到山后。小禾的天气记录写：“下午风变大，云向东移动。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "文学想象与观察记录用途不同，不能把故事当作自然原因的证据。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第八单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          100
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "巨人卷走乌云属于",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "故事想象",
+            "观察事实"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "云向东移动属于",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "人物对话",
+            "观察记录"
+          ],
+          "id": "b"
+        },
+        {
+          "label": "能否用故事证明风由巨人制造",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "不能",
+            "能"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "材料对照",
+        "family": "chinese-g2-lower:8:reading",
+        "priority": 2,
+        "order": 14,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-9-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "9",
+      "difficulty": "normal",
+      "title": "联系句子选字义",
+      "prompt": "自编材料：字典给“深”的义项：①从表面到底距离大；②颜色浓；③时间久。“这口井很深”“他穿深蓝外套”各用哪个义项？\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "井的深度对应①，颜色浓对应②。同一个字在不同词句中可有不同意思。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "识字、写字与词语表",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          113
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "井很深的义项序号",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "深蓝外套的义项序号",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "词义对应",
+        "family": "chinese-g2-lower:9:reading",
+        "priority": 2,
+        "order": 15,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-1-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "从两个片段概括人物",
+      "prompt": "自编材料：片段一：研究者连续三次实验失败，仍逐项检查记录。片段二：成功后，他在报告中写出同伴提供的关键方法。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"3\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "失败后检查记录支持严谨与坚持；明确同伴贡献支持合作意识，不能夸大为从不失败。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "片段一支持",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "严谨且有毅力",
+            "不用记录",
+            "从不失败"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "片段二支持",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "拒绝交流",
+            "独自完成一切",
+            "尊重合作贡献"
+          ],
+          "id": "b"
+        },
+        {
+          "label": "合并概括的要求",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "评价越夸张越好",
+            "分别有对应事例支撑"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g7-lower:1:reading",
+        "priority": 2,
+        "order": 16,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-2-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "抒情对象与行动依据",
+      "prompt": "自编材料：自编段落：“家乡的河流穿过田野。洪水来时，大家连夜搬沙袋，守住堤岸。我愿把这条河的故事讲给远方的人。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"3\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "守堤岸是行动依据，讲述故事体现珍视；洪水信息反而说明存在风险。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          27
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "体现集体行动的是",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "河流穿过田野",
+            "连夜搬沙袋守堤岸",
+            "故事里有远方"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "较合适的情感理解",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "厌恶所有河流",
+            "认为家乡没有任何风险",
+            "对家乡与守护者的珍视"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g7-lower:2:reading",
+        "priority": 2,
+        "order": 17,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-3-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "平凡人物的细节",
+      "prompt": "自编材料：保洁员每次扫到台阶边，都先扶稳摇晃的花盆；有人道谢，她只是摆手，又弯腰捡起落叶。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"3\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "扶、摆手、弯腰等动作展示做事方式。人物评价须控制在细节支持的范围内。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          59
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "主要描写方式",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "动作描写",
+            "天气描写",
+            "外貌描写"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "概括最贴近细节",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "不喜欢植物",
+            "从不需要休息",
+            "做事细心，默默付出"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g7-lower:3:reading",
+        "priority": 2,
+        "order": 18,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-4-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "4",
+      "difficulty": "hard",
+      "title": "提出观点后怎样论证",
+      "prompt": "自编材料：观点：“爱护公共图书需要每个人行动。”材料A：班级借阅后及时修补书角的记录。B：书架颜色。C：只把观点换一种说法再说一遍。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "A提供行动事实，仍需说明事实与观点的联系；重复观点不是论据。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          95
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "最有效的材料",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "C",
+            "A",
+            "B"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "材料与观点之间还需什么",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "解释具体行动如何体现爱护",
+            "删除所有事实",
+            "只增加感叹号"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g7-lower:4:reading",
+        "priority": 2,
+        "order": 19,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-5-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "托物言志须看语境",
+      "prompt": "自编材料：自编段落写竹子：“风压弯它的枝，风停后它又挺起。我也要在挫折之后重新站稳。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "最后一句明确建立物与志向的联系；脱离语境不能机械套用固定象征意义。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第五单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          121
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "竹子特点与“我”的联系",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "只说明天气预报",
+            "证明人就是植物",
+            "由恢复挺立联系面对挫折"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "删去最后一句后应怎样判断寓意",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "任何竹子都只能有一种寓意",
+            "结合全文再判断，不能只凭竹子定论"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "材料阅读",
+        "family": "chinese-g7-lower:5:reading",
+        "priority": 2,
+        "order": 20,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-6-remaining_variety-reading-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "6",
+      "difficulty": "hard",
+      "title": "探究报告检查证据",
+      "prompt": "自编材料：小组想比较两种纸桥承重，每种做3座，尺寸相同，逐步加相同砝码。记录显示A组三次均比B组承重大。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "结论应限于本次实验条件，重复观察提高可靠性但不能消除所有误差；报告应保留过程证据。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第六单元·活动探究",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          143
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "较稳妥的结论",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "在本次条件下A方案承重较好",
+            "A在一切条件下都最好"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "应保留的报告内容",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "只写最好二字",
+            "制作条件、每次记录及限制"
+          ],
+          "id": "b"
+        },
+        {
+          "label": "重复3次的作用",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "检查结果是否较稳定",
+            "消除所有误差"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "报告评议",
+        "family": "chinese-g7-lower:6:reading",
+        "priority": 2,
+        "order": 21,
+        "skills": [
+          "提取信息",
+          "依据材料判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-7-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "7",
+      "difficulty": "normal",
+      "title": "平行线的判定不能漏条件",
+      "prompt": "两条直线被第三条直线所截，一对同位角分别为(2x+15)°与75°。要使这两条直线平行。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"30\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "需2x+15=75，得x=30；判定必须有同位角位置关系。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第七章 相交线与平行线",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "x",
+          "answer": "30",
+          "independent_check": "(75-15)/2",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "采用的判定",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "任意两角相等，两直线平行",
+            "同位角相等，两直线平行"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "检验与应用",
+        "family": "math-g7-lower:7:second",
+        "priority": 2,
+        "order": 22,
+        "skills": [
+          "检验与应用",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-8-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "8",
+      "difficulty": "normal",
+      "title": "平方根与算术平方根分清",
+      "prompt": "已知a²=81，且a<0；b是81的算术平方根。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"-9\",\"b\":\"9\",\"c\":\"0\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "81有两个平方根±9，负号条件给a=−9；算术平方根为非负值9。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第八章 实数",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          39
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "a",
+          "answer": "-9",
+          "independent_check": "-9",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "b",
+          "answer": "9",
+          "independent_check": "9",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "a+b",
+          "answer": "0",
+          "independent_check": "-9+9",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "检验与应用",
+        "family": "math-g7-lower:8:second",
+        "priority": 2,
+        "order": 23,
+        "skills": [
+          "检验与应用",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-9-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "9",
+      "difficulty": "normal",
+      "title": "从平移结果倒推原坐标",
+      "prompt": "点P先向左平移4个单位，再向上平移3个单位，到达Q(−1,5)。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"2\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "反向恢复得P(3,2)。横向和纵向路程之和是折线长，不能直接当作两点直线距离。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第九章 平面直角坐标系",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          63
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "P的横坐标",
+          "answer": "3",
+          "independent_check": "-1+4",
+          "units": [],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "P的纵坐标",
+          "answer": "2",
+          "independent_check": "5-3",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "PQ长度是否等于4+3",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "等于",
+            "不等于，折线路程与线段不同"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "检验与应用",
+        "family": "math-g7-lower:9:second",
+        "priority": 2,
+        "order": 24,
+        "skills": [
+          "检验与应用",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-10-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "10",
+      "difficulty": "normal",
+      "title": "只满足一个方程不算解",
+      "prompt": "方程组x+y=7、2x−y=2。甲给出(x,y)=(4,3)，乙给出(3,4)。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"5\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "甲满足第一式但第二式为5；乙两式分别得7和2，故为方程组的解。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第十章 二元一次方程组",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          87
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "满足两个方程的是",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "乙",
+            "两者都满足",
+            "甲"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "甲代入第二式左边的值",
+          "answer": "5",
+          "independent_check": "2*4-3",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "乙代入第二式左边的值",
+          "answer": "2",
+          "independent_check": "2*3-4",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "检验与应用",
+        "family": "math-g7-lower:10:second",
+        "priority": 2,
+        "order": 25,
+        "skills": [
+          "检验与应用",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-11-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "11",
+      "difficulty": "normal",
+      "title": "不等式边界能否取到",
+      "prompt": "某活动入场费用12元，每本手册5元，预算至多32元。购买手册本数为非负整数n。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"32\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "至多包含等号，12+5n≤32，n≤4；4本恰好用完预算。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第十一章 不等式与不等式组",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          120
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "最多可买手册本数",
+          "answer": "4",
+          "independent_check": "(32-12)/5",
+          "units": [
+            "本"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "买到最多本数时的费用",
+          "answer": "32",
+          "independent_check": "12+5*4",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "花费等于32元是否允许",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "不允许",
+            "允许"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "检验与应用",
+        "family": "math-g7-lower:11:second",
+        "priority": 2,
+        "order": 26,
+        "skills": [
+          "检验与应用",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-12-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "12",
+      "difficulty": "normal",
+      "title": "频数与频率相互核对",
+      "prompt": "40名同学参加调查，喜欢球类的有18人，喜欢棋类的有12人，其余选其他；每人只能选一类。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"10\",\"b\":\"30\",\"c\":\"45\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "三类人数之和为40，其他10人；12÷40=30%，18÷40=45%。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第十二章 数据的收集、整理与描述",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          150
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "选其他的人数",
+          "answer": "10",
+          "independent_check": "40-18-12",
+          "units": [
+            "人"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "棋类频率百分之几",
+          "answer": "30",
+          "independent_check": "12/40*100",
+          "units": [],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "球类频率百分之几",
+          "answer": "45",
+          "independent_check": "18/40*100",
+          "units": [],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "检验与应用",
+        "family": "math-g7-lower:12:second",
+        "priority": 2,
+        "order": 27,
+        "skills": [
+          "检验与应用",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-1-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "把春天写得更具体",
+      "prompt": "A“春天来了。”B“柳枝冒出嫩芽，燕子掠过池塘。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "B用柳枝、嫩芽和燕子的动作写出具体景象。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "哪句写了具体景物",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "A",
+            "B"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "B中表示燕子动作的词",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "掠过",
+            "池塘",
+            "嫩芽"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g2-lower:1:second",
+        "priority": 2,
+        "order": 28,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-2-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "比较动作前后的心情",
+      "prompt": "自编材料：小文起初低着头，不敢参加朗读。练习几次后，他举起手说：“我想试试。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "低头和举手表现前后变化，愿意尝试不等于以后永远不紧张。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          15
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "起初的表现",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "举手报名",
+            "不敢参加"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "后来的变化",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "愿意尝试了",
+            "永远不会紧张"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g2-lower:2:second",
+        "priority": 2,
+        "order": 29,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-3-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "查字典先找部首",
+      "prompt": "用部首查字法查“湖”。本题按氵部查找：“湖”共12画，氵计3画。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"9\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "先查氵部，再按剩余9画找“湖”；总笔画不能直接当部外笔画。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元·识字",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          29
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "先找的部首",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "氵",
+            "讠",
+            "木"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "除去部首还有几画",
+          "answer": "9",
+          "independent_check": "12-3",
+          "units": [],
+          "options": [],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g2-lower:3:second",
+        "priority": 2,
+        "order": 30,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-4-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "4",
+      "difficulty": "easy",
+      "title": "给故事补上能接住下文的句子",
+      "prompt": "开头：小纸船被树枝挡住。结尾：小船又顺着水流向前走。中间需要补一句。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "推开树枝连接受阻与继续前行，说明变化原因。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          42
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "最连贯的一句",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "石头一直没动",
+            "天空还是蓝的",
+            "小鸭轻轻推开挡路的树枝"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "补句主要交代",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "障碍怎样被解决",
+            "小船的价格"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g2-lower:4:second",
+        "priority": 2,
+        "order": 31,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-5-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "建议要针对问题",
+      "prompt": "小禾种花，连续几天忘记浇水，土很干。朋友给他提建议。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "建议对应缺水情境，还应考虑植物需要；不能扩大成不停浇水。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第五单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "哪条建议针对材料中的问题",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "每天把花盆换颜色",
+            "查看土壤并按植物需要及时浇水"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "能否因此认定所有花都要不停浇水",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "不能",
+            "能"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g2-lower:5:second",
+        "priority": 2,
+        "order": 32,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-6-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "6",
+      "difficulty": "easy",
+      "title": "说明先后关系的词",
+      "prompt": "自编句：“先把种子放进湿棉花里，再放到合适的位置，最后每天观察并记录。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "先、再、最后帮助按步骤理解，记录应依据实际观察。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第六单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          69
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "标明第二步的词",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "先",
+            "再",
+            "最后"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "记录在句中对应",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "观察到的情况",
+            "随意编的结果"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g2-lower:6:second",
+        "priority": 2,
+        "order": 33,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-7-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "7",
+      "difficulty": "normal",
+      "title": "从语言看想法变化",
+      "prompt": "小虫先说“我什么也做不好”，后来和伙伴搬回树叶，说“我们合作也能办成事”。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "两句语言反映小虫从否定自己到认识合作的价值。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第七单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          84
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "前一句表现",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "非常骄傲",
+            "不自信"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "后一句的认识",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "合作能帮助完成任务",
+            "任何事情都不必努力"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g2-lower:7:second",
+        "priority": 2,
+        "order": 34,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-8-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "8",
+      "difficulty": "normal",
+      "title": "神话中夸张形象怎样理解",
+      "prompt": "自编神话：“巨人一步跨过高山，一口气吹散厚云。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "神话通过夸张塑造形象，不能当作真实测量数据。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第八单元·阅读",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          100
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "最明显的特点",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "精确的身高测量",
+            "大胆的想象和夸张"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "能否按此计算真实人的步长",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "不能",
+            "能"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g2-lower:8:second",
+        "priority": 2,
+        "order": 35,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-lower-9-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-lower",
+      "chapter_id": "9",
+      "difficulty": "easy",
+      "title": "句子里用哪个标点",
+      "prompt": "A“小猫在哪里”；B“小猫在门口睡觉”。本题只选择句末问号或句号。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "A提出问题，用问号；B陈述情况，用句号。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "识字、写字与词语表",
+        "textbook_sha256": "2884c15b54396a331612bc8294f883320ba6d1dcfbdaf975ecbd86698a46bfab",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          113
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "A句末",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "。",
+            "？"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "B句末",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "？",
+            "。"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g2-lower:9:second",
+        "priority": 2,
+        "order": 36,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-1-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "间接描写的作用",
+      "prompt": "自编材料：“实验室里，他的桌灯又亮了一夜。第二天，同事看到桌上厚厚的修改稿。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "细节可以侧面表现投入，但不能把没交代的过程写成确定事实。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "较有依据的理解",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "修改稿和灯光侧面表现投入",
+            "直接证明实验已经成功"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "能否断定他一整夜未休息",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "能，绝无其他可能",
+            "不能，材料未写全过程"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g7-lower:1:second",
+        "priority": 2,
+        "order": 37,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-2-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "排比句里的共同情感",
+      "prompt": "自编句：“我记得村口的老桥，记得雨后的田野，记得邻里相助的夜晚。”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "重复句式串联场景与生活，增强怀念之情；不能只据词语个数判断情感。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          27
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "主要修辞",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "设问",
+            "反问",
+            "排比"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "较贴近的情感",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "对所有村民的责备",
+            "对故乡生活的怀念"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g7-lower:2:second",
+        "priority": 2,
+        "order": 38,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-3-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "细节删去后人物怎样变化",
+      "prompt": "原文写车夫送客人下车后“又绕回来，把松动的踏板拧紧”。删改版只写“车夫完成了工作”。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "具体动作提供评价依据，概括句会减弱人物特点的表现。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          59
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "删去的主要信息",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "车夫的姓名",
+            "主动检查并处理细节的行动"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "原文更能支持",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "做事细致负责",
+            "永不犯错"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g7-lower:3:second",
+        "priority": 2,
+        "order": 39,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-4-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "观点和例子之间补解释",
+      "prompt": "观点“守信体现在小事中”；例子“同学按约定归还图书”。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "论证需说明例子与观点的联系，范围不能超过材料。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          95
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "恰当的解释",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "按约归还体现兑现承诺",
+            "图书封面一定很新"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "一个例子能否证明此人从未失信",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "能",
+            "不能"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g7-lower:4:second",
+        "priority": 2,
+        "order": 40,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-5-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "托物言志与单纯写景比较",
+      "prompt": "A“松树的枝条在风中摇动”。B“松树迎风仍挺立，我愿像它一样坚守信念”。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "B明确把松树形象与人的志向联系；A单句没有给出这种联系。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第五单元",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          121
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "明确由物联系志向的是",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "A",
+            "B"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "B中建立联系的关键",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "枝条这个名词",
+            "我愿像它一样坚守信念"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g7-lower:5:second",
+        "priority": 2,
+        "order": 41,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-lower-6-remaining_variety-second-v1",
+      "batch": "remaining_variety",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-lower",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "探究报告怎样处理反例",
+      "prompt": "小组认为“所有纸桥都在100克时断裂”，却有两座承受120克仍未断。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "逐项回到材料找条件，注意区分事实、推断和所求量。",
+      "explanation": "反例否定绝对判断，报告应呈现真实记录并分析差异。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第六单元·活动探究",
+        "textbook_sha256": "0974eea39362a8905537f0c1a6c0e23b316fa3328fefa98744572b523383fe3e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          143
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "报告应如何处理这两次记录",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "删去不合预期的记录",
+            "如实保留并修改原判断"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "新的表述应",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "继续写所有都一样",
+            "说明测试条件和不同结果"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "语句辨析",
+        "family": "chinese-g7-lower:6:second",
+        "priority": 2,
+        "order": 42,
+        "skills": [
+          "语句辨析",
+          "条件核对"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      }
+    }
+  ]
+}

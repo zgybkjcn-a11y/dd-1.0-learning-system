@@ -1,0 +1,1520 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "math_g2_multistep",
+  "questions": [
+    {
+      "id": "family-chapter-math-g2-upper-1-multistep-two-standards-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "分别按颜色和形状整理",
+      "prompt": "每张卡片只有一种颜色和一种形状。按表中的记录，先算红色卡片总数，再算方形卡片总数。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"10\",\"b\":\"7\"}",
+      "units": [],
+      "hint": "按颜色看一行，按形状看一列。",
+      "explanation": "红色有6+4=10张；方形有4+3=7张。两次使用的分类标准不同。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          3
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "红色卡片共几张",
+          "answer": "10",
+          "independent_check": "6+4",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "方形卡片共几张",
+          "answer": "7",
+          "independent_check": "4+3",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:classification:cross-table-count",
+        "priority": 2,
+        "order": 1,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:classify",
+        "task": "apply",
+        "role": "direct",
+        "family": "g2:classification:cross-table-count",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "卡片记录（张）",
+        "rows": [
+          [
+            "颜色",
+            "圆形",
+            "方形"
+          ],
+          [
+            "红色",
+            "6",
+            "4"
+          ],
+          [
+            "蓝色",
+            "5",
+            "3"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-multistep-changed-cards-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "hard",
+      "title": "变了颜色也变了形状",
+      "prompt": "表中18张卡片互不重复。取出其中3张红色圆形卡，逐张改成蓝色方形卡后放回。卡片数量没有增加。分别填写变化后的四类数量。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"7\",\"b\":\"11\",\"c\":\"8\",\"d\":\"10\"}",
+      "units": [],
+      "hint": "每次只看一种标准。变化的3张从哪一类减少，又给哪一类增加？",
+      "explanation": "红色10−3=7，蓝色8+3=11；圆形11−3=8，方形7+3=10。按颜色7+11=18，按形状8+10=18，总数都不变。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          3
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "红色共几张",
+          "answer": "7",
+          "independent_check": "6+4-3",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "蓝色共几张",
+          "answer": "11",
+          "independent_check": "5+3+3",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "圆形共几张",
+          "answer": "8",
+          "independent_check": "6+5-3",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "c"
+        },
+        {
+          "label": "方形共几张",
+          "answer": "10",
+          "independent_check": "4+3+3",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:classification:cross-table-conservation",
+        "priority": 2,
+        "order": 2,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:classify",
+        "task": "transfer",
+        "role": "direct",
+        "family": "g2:classification:cross-table-conservation",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "变化前（张）",
+        "rows": [
+          [
+            "颜色",
+            "圆形",
+            "方形"
+          ],
+          [
+            "红色",
+            "6",
+            "4"
+          ],
+          [
+            "蓝色",
+            "5",
+            "3"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-multistep-array-count-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "先补完整再数圆片",
+      "prompt": "图中每行有6个位置，共4行。●表示圆片，空表示缺少圆片的位置。分别填完整方阵、缺少和实际摆出的圆片数。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"24\",\"b\":\"5\",\"c\":\"19\"}",
+      "units": [],
+      "hint": "可以先算摆满时的数量，再减去空位；也可以逐行数后相加。",
+      "explanation": "摆满需要4×6=24片；最后一行空5格，实际24−5=19片。用6+6+6+1也能核对。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          11
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "摆满全部位置需要几片",
+          "answer": "24",
+          "independent_check": "4*6",
+          "units": [
+            "片"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "现在缺少几片",
+          "answer": "5",
+          "independent_check": "5",
+          "units": [
+            "片"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "现在实际有几片",
+          "answer": "19",
+          "independent_check": "6+6+6+1",
+          "units": [
+            "片"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:multiply:incomplete-array",
+        "priority": 2,
+        "order": 3,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:meaning",
+        "task": "understand",
+        "role": "supporting",
+        "family": "g2:multiply:incomplete-array",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      },
+      "visual": {
+        "kind": "grid",
+        "caption": "4行、每行6个位置",
+        "rows": [
+          [
+            "●",
+            "●",
+            "●",
+            "●",
+            "●",
+            "●"
+          ],
+          [
+            "●",
+            "●",
+            "●",
+            "●",
+            "●",
+            "●"
+          ],
+          [
+            "●",
+            "●",
+            "●",
+            "●",
+            "●",
+            "●"
+          ],
+          [
+            "●",
+            "空",
+            "空",
+            "空",
+            "空",
+            "空"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-multistep-neighbor-products-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "用一个积推另外两个积",
+      "prompt": "已知5组圆片，每组6片，共30片。每组仍是6片，分别把组数变成6组和4组。请利用30片的记录填写结果。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"36\",\"b\":\"24\",\"c\":\"6\"}",
+      "units": [],
+      "hint": "组数每变1组，就是多或少6片。",
+      "explanation": "6组比5组多1组，30+6=36；4组少1组，30−6=24。两次与30的差都是6。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          23
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "6组共几片",
+          "answer": "36",
+          "independent_check": "30+6",
+          "units": [
+            "片"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "4组共几片",
+          "answer": "24",
+          "independent_check": "30-6",
+          "units": [
+            "片"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "每增加或减少1组，数量相差几片",
+          "answer": "6",
+          "independent_check": "6",
+          "units": [
+            "片"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:multiply:adjacent-groups",
+        "priority": 2,
+        "order": 4,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:tables",
+        "task": "transfer",
+        "role": "direct",
+        "family": "g2:multiply:adjacent-groups",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-multistep-two-divisions-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "同一批彩笔的两种分法",
+      "prompt": "24支彩笔，一种分法是每盒装4支，另一种是每盒装6支。分别填写需要的盒数，并判断总支数是否改变。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"6\",\"b\":\"4\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "每盒支数乘盒数，都应该是24。",
+      "explanation": "24÷4=6盒；24÷6=4盒。4×6和6×4都是24，盒数变化了，彩笔总数没有变。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          34
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "每盒4支，需要几盒",
+          "answer": "6",
+          "independent_check": "24/4",
+          "units": [
+            "盒"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "每盒6支，需要几盒",
+          "answer": "4",
+          "independent_check": "24/6",
+          "units": [
+            "盒"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "换分法后总支数",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "不变",
+            "变多",
+            "变少"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "多项判断",
+        "family": "g2:divide:compare-group-sizes",
+        "priority": 2,
+        "order": 5,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:equal",
+        "task": "transfer",
+        "role": "supporting",
+        "family": "g2:divide:compare-group-sizes",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-multistep-extra-round-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "hard",
+      "title": "先分一轮再分剩下的",
+      "prompt": "30张贴纸分给6个小组。先给每组4张，再把剩下的平均分给这6组。请按顺序填写。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"24\",\"b\":\"6\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "先求已经分出去多少，再求剩下多少，最后把剩下的平均分。",
+      "explanation": "第一轮6×4=24张；剩30−24=6张；第二轮每组6÷6=1张。每组最后5张，6×5=30可核对。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          46
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "第一轮共分出几张",
+          "answer": "24",
+          "independent_check": "6*4",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "第一轮后剩下几张",
+          "answer": "6",
+          "independent_check": "30-24",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "第二轮每组又分到几张",
+          "answer": "1",
+          "independent_check": "6/6",
+          "units": [
+            "张"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:divide:subtract-then-share",
+        "priority": 2,
+        "order": 6,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:word",
+        "task": "transfer",
+        "role": "direct",
+        "family": "g2:divide:subtract-then-share",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-multistep-route-directions-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "normal",
+      "title": "分段说出校园路线",
+      "prompt": "从校门先沿最下面一行走到食堂，再沿最右边一列走到图书馆。分别选择这两段路的方向。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"4\"}",
+      "units": [],
+      "hint": "方向以地图标注为准，每次从这一段的起点看终点。",
+      "explanation": "校门到食堂向右，是向东；食堂到图书馆向上，是向北。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          50
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "校门到食堂，向哪里走",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "东",
+            "南",
+            "西",
+            "北"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "食堂到图书馆，向哪里走",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "东",
+            "南",
+            "西",
+            "北"
+          ],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "多项判断",
+        "family": "g2:direction:segmented-route",
+        "priority": 2,
+        "order": 7,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:route",
+        "task": "apply",
+        "role": "supporting",
+        "family": "g2:direction:segmented-route",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      },
+      "visual": {
+        "kind": "grid",
+        "caption": "上北下南，左西右东；每相邻格之间有路",
+        "rows": [
+          [
+            "实验室",
+            "花园",
+            "图书馆"
+          ],
+          [
+            "小路",
+            "操场",
+            "小路"
+          ],
+          [
+            "校门",
+            "小路",
+            "食堂"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-multistep-check-routes-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "hard",
+      "title": "逐条检查绕开操场的路线",
+      "prompt": "从校门到图书馆，每次只走到相邻一格，不能进入中间的操场。分别判断下面三条路线能否按要求到达。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "每走一步就在图中找当前位置，检查是否进入操场。",
+      "explanation": "第一条沿左侧和上侧到达；第二条第2步进入操场；第三条沿下侧和右侧到达。第1、3条满足要求，第2条不满足。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          51
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "北→北→东→东",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "能到达且避开操场",
+            "不能满足要求"
+          ],
+          "id": "a"
+        },
+        {
+          "label": "北→东→北→东",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "能到达且避开操场",
+            "不能满足要求"
+          ],
+          "id": "b"
+        },
+        {
+          "label": "东→东→北→北",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "能到达且避开操场",
+            "不能满足要求"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "多项判断",
+        "family": "g2:direction:trace-obstructed-routes",
+        "priority": 2,
+        "order": 8,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:route",
+        "task": "distinguish",
+        "role": "direct",
+        "family": "g2:direction:trace-obstructed-routes",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      },
+      "visual": {
+        "kind": "grid",
+        "caption": "上北下南，左西右东；每相邻格之间有路",
+        "rows": [
+          [
+            "实验室",
+            "花园",
+            "图书馆"
+          ],
+          [
+            "小路",
+            "操场",
+            "小路"
+          ],
+          [
+            "校门",
+            "小路",
+            "食堂"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-multistep-two-lengths-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "分别测量再比较",
+      "prompt": "图中单位是厘米。甲从刻度2到7，乙从刻度5到11。填写两条线段的长度，再求乙比甲长多少。以刻度为准，不要直接量屏幕。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"5\",\"b\":\"6\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "每条线段都用右端刻度减左端刻度，然后比较长度。",
+      "explanation": "甲7−2=5厘米，乙11−5=6厘米，乙长6−5=1厘米。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          57
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "甲长几厘米",
+          "answer": "5",
+          "independent_check": "7-2",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "乙长几厘米",
+          "answer": "6",
+          "independent_check": "11-5",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "乙比甲长几厘米",
+          "answer": "1",
+          "independent_check": "6-5",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:ruler:compare-offset-segments",
+        "priority": 2,
+        "order": 9,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:ruler",
+        "task": "apply",
+        "role": "direct",
+        "family": "g2:ruler:compare-offset-segments",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      },
+      "visual": {
+        "kind": "ruler",
+        "caption": "两条线段在同一把尺子上（厘米）",
+        "maximum": 12,
+        "segments": [
+          {
+            "label": "甲",
+            "start": 2,
+            "end": 7
+          },
+          {
+            "label": "乙",
+            "start": 5,
+            "end": 11
+          }
+        ]
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-multistep-ribbon-plan-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "hard",
+      "title": "彩带够不够再剪四段",
+      "prompt": "1米彩带，先剪3段，每段12厘米，再剪去25厘米。剩下的还想剪4段，每段10厘米。填写已用长度、剩余长度和还差的长度。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"61\",\"b\":\"39\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "先把1米换成100厘米。最后比较剩余长度和40厘米。",
+      "explanation": "先用12+12+12=36厘米，再用25厘米，共61厘米；剩39厘米。4段各10厘米需要40厘米，还差1厘米。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          58
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "前两次共用掉几厘米",
+          "answer": "61",
+          "independent_check": "12+12+12+25",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "剩下几厘米",
+          "answer": "39",
+          "independent_check": "100-61",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "再剪4段各10厘米，还差几厘米",
+          "answer": "1",
+          "independent_check": "40-39",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:measurement:unit-cutting",
+        "priority": 2,
+        "order": 10,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:units",
+        "task": "transfer",
+        "role": "direct",
+        "family": "g2:measurement:unit-cutting",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity2-multistep-calibrate-span-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity2",
+      "difficulty": "normal",
+      "title": "先校准再用身体尺",
+      "prompt": "小宁用标准尺校准，1拃约18厘米。每次手掌张开一样大，连续测量时没有空隙或重叠。按这个标准，填写3拃和5拃的长度。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"54\",\"b\":\"90\"}",
+      "units": [],
+      "hint": "3拃和5拃分别用3个、5个18厘米相加。",
+      "explanation": "3拃约18+18+18=54厘米；5拃约18+18+18+18+18=90厘米。这里采用题目给定的校准值，实际测量仍需验证。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "身体上的尺子",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          70
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "3拃约几厘米",
+          "answer": "54",
+          "independent_check": "18+18+18",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "5拃约几厘米",
+          "answer": "90",
+          "independent_check": "18+18+18+18+18",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:body:calibrate-then-estimate",
+        "priority": 2,
+        "order": 11,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity2:body",
+        "task": "apply",
+        "role": "supporting",
+        "family": "g2:body:calibrate-then-estimate",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity2-multistep-compare-measures-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity2",
+      "difficulty": "hard",
+      "title": "估测和实测放在一起比",
+      "prompt": "小宁用校准后的身体尺估测一条彩带：1拃约18厘米，彩带约4拃。用标准尺复测是68厘米。填写估测值、误差大小，并判断估测偏大还是偏小。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"72\",\"b\":\"4\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "先把4拃换成厘米，再与68厘米比较。",
+      "explanation": "4拃约72厘米，比标准尺测得的68厘米多4厘米，所以估测偏大。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "身体上的尺子",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          71
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "估测约几厘米",
+          "answer": "72",
+          "independent_check": "18+18+18+18",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "估测值与实测值相差几厘米",
+          "answer": "4",
+          "independent_check": "72-68",
+          "units": [
+            "厘米",
+            "cm"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "这次估测",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "偏大",
+            "偏小",
+            "相等"
+          ],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "多项判断",
+        "family": "g2:body:compare-estimation-errors",
+        "priority": 2,
+        "order": 12,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity2:body",
+        "task": "transfer",
+        "role": "supporting",
+        "family": "g2:body:compare-estimation-errors",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "两次记录",
+        "rows": [
+          [
+            "方法",
+            "记录"
+          ],
+          [
+            "身体尺",
+            "1拃约18厘米；共4拃"
+          ],
+          [
+            "标准尺",
+            "68厘米"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-multistep-array-removal-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "拿走两列以后还有多少",
+      "prompt": "一共有7行、每行8个圆片，摆成方阵。拿走最右边的2整列。分别填写原有、拿走和剩余的数量。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"56\",\"b\":\"14\",\"c\":\"42\"}",
+      "units": [],
+      "hint": "每列7个。拿走2列，每行就少2个。",
+      "explanation": "原有7×8=56个，拿走7×2=14个，剩56−14=42个；7行每行6个也是42个。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          75
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "原来共有几个",
+          "answer": "56",
+          "independent_check": "7*8",
+          "units": [
+            "个"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "拿走了几个",
+          "answer": "14",
+          "independent_check": "7*2",
+          "units": [
+            "个"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "剩下几个",
+          "answer": "42",
+          "independent_check": "56-14",
+          "units": [
+            "个"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:tables:array-partition",
+        "priority": 2,
+        "order": 13,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:tables",
+        "task": "transfer",
+        "role": "direct",
+        "family": "g2:tables:array-partition",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-multistep-bead-plan-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "两种手串分步做",
+      "prompt": "54颗珠子，先做3条手串，每条用8颗；再把剩下的全部做成每条6颗的手串。填写每一步的数量，最后求手串总条数。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"24\",\"b\":\"30\",\"c\":\"5\",\"d\":\"8\"}",
+      "units": [],
+      "hint": "珠子数与手串条数要分清。最后把两次的条数相加。",
+      "explanation": "先用24颗，剩30颗，后来做30÷6=5条，总共3+5=8条。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          83
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "先用掉几颗珠子",
+          "answer": "24",
+          "independent_check": "3*8",
+          "units": [
+            "颗"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "剩下几颗珠子",
+          "answer": "30",
+          "independent_check": "54-24",
+          "units": [
+            "颗"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "后来做了几条手串",
+          "answer": "5",
+          "independent_check": "30/6",
+          "units": [
+            "条"
+          ],
+          "options": [],
+          "id": "c"
+        },
+        {
+          "label": "两次一共做了几条手串",
+          "answer": "8",
+          "independent_check": "3+5",
+          "units": [
+            "条"
+          ],
+          "options": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:tables:multiply-subtract-divide",
+        "priority": 2,
+        "order": 14,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:word",
+        "task": "transfer",
+        "role": "direct",
+        "family": "g2:tables:multiply-subtract-divide",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-multistep-budget-steps-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "先买本子再买彩笔",
+      "prompt": "有50元，先买4本本子，每本8元；剩下的钱买彩笔，每盒彩笔9元。按顺序填写，彩笔只能整盒购买。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"32\",\"b\":\"18\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "先算花费，再算余额，最后求余额里有几个9。",
+      "explanation": "本子花32元，剩18元，18÷9=2盒，刚好用完。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          92
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "买本子花几元",
+          "answer": "32",
+          "independent_check": "4*8",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "买完本子剩几元",
+          "answer": "18",
+          "independent_check": "50-32",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "最多还能买几盒彩笔",
+          "answer": "2",
+          "independent_check": "18/9",
+          "units": [
+            "盒"
+          ],
+          "options": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "分步填空",
+        "family": "g2:review:multiply-subtract-divide",
+        "priority": 2,
+        "order": 15,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:relations",
+        "task": "apply",
+        "role": "direct",
+        "family": "g2:review:multiply-subtract-divide",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-multistep-compare-packages-v1",
+      "batch": "math_g2_multistep",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "hard",
+      "title": "核对两种整盒购买方案",
+      "prompt": "4组同学，每组需要6支同样的铅笔。甲包装每盒8支、9元，乙包装每盒6支、7元。方案甲只买甲包装，方案乙只买乙包装，两种方案都正好买够。填写两种花费，再比较。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"27\",\"b\":\"28\",\"c\":\"1\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先求一共需要几支，再分别求盒数和花费。别只比较一盒的价格。",
+      "explanation": "共需4×6=24支；甲需3盒，3×9=27元；乙需4盒，4×7=28元。甲便宜1元，虽然甲每盒价格更高。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "既有教材主题核对；分步任务为本地自编，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          92
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "方案甲共花几元",
+          "answer": "27",
+          "independent_check": "24/8*9",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "a"
+        },
+        {
+          "label": "方案乙共花几元",
+          "answer": "28",
+          "independent_check": "24/6*7",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "b"
+        },
+        {
+          "label": "选哪种方案更省钱",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "方案甲",
+            "方案乙"
+          ],
+          "id": "c"
+        },
+        {
+          "label": "省几元",
+          "answer": "1",
+          "independent_check": "28-27",
+          "units": [
+            "元"
+          ],
+          "options": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "多项判断",
+        "family": "g2:review:enumerate-minimum-cost",
+        "priority": 2,
+        "order": 16,
+        "demand": "分别完成多个关键结果或判断，所有项目正确才算本题通过",
+        "assessment_limit": "只检查所填结果和所选判断，不替代独立口述、作图和实测。"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:relations",
+        "task": "transfer",
+        "role": "direct",
+        "family": "g2:review:enumerate-minimum-cost",
+        "rationale": "按完整任务要求标记对应或辅助；增加填空数量不作为新增题型或能力达标的依据。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "包装信息",
+        "rows": [
+          [
+            "包装",
+            "每盒支数",
+            "每盒价钱"
+          ],
+          [
+            "甲",
+            "8支",
+            "9元"
+          ],
+          [
+            "乙",
+            "6支",
+            "7元"
+          ]
+        ]
+      }
+    }
+  ]
+}

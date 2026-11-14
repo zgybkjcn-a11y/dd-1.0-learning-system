@@ -117,6 +117,101 @@ PATHS = (*EVIDENCE_RUNTIME_PATHS, "learning_service/textbook_cache.py",
          "learning_service/study_deadline.py", "learning_service/study_cancellation.py",
          "docs/open-webui-reuse/study-performance.md")
 
+PERFORMANCE_RUNTIME_PATHS = PATHS
+PERFORMANCE_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-study-read-connections-v1"
+PATHS = (*PERFORMANCE_RUNTIME_PATHS, "learning_service/study_read_db.py",
+         "docs/open-webui-reuse/study-read-latency.md")
+
+READ_CONNECTION_RUNTIME_PATHS = PATHS
+READ_CONNECTION_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-study-read-scheduling-v1"
+PATHS = (*READ_CONNECTION_RUNTIME_PATHS, "docs/open-webui-reuse/study-read-scheduling.md")
+
+READ_SCHEDULING_RUNTIME_PATHS = PATHS
+READ_SCHEDULING_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-study-host-compatibility-v1"
+PATHS = (*READ_SCHEDULING_RUNTIME_PATHS, "docs/open-webui-reuse/host-compatibility.md")
+
+HOST_RUNTIME_PATHS = PATHS
+HOST_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-chapter-practice-v1"
+PATHS = (*HOST_RUNTIME_PATHS, "learning_service/chapter_practice.py",
+         "learning_service/data/family_chapter_math_v1.json",
+         "learning_service/data/family_chapter_upper_v1.json",
+         "learning_service/data/family_chapter_remaining_v1.json",
+         "scripts/import_chapter_practice.py", "scripts/prepare_chapter_practice.py",
+         "docs/open-webui-reuse/chapter-practice.md", "learning_service/practice_coverage.py",
+         "learning_service/data/family_math_coverage_plan_v1.json")
+
+CHAPTER_RUNTIME_PATHS = PATHS
+CHAPTER_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-math-knowledge-v2"
+PATHS = (*CHAPTER_RUNTIME_PATHS, "learning_service/data/family_chapter_math_g2_depth_v1.json",
+         "learning_service/data/family_math_coverage_plan_v2.json")
+
+MATH_V2_RUNTIME_PATHS = PATHS
+MATH_V2_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-math-knowledge-v3"
+PATHS = (*MATH_V2_RUNTIME_PATHS, "learning_service/data/family_chapter_math_g7_depth_v1.json",
+         "learning_service/data/family_math_coverage_plan_v3.json")
+
+MATH_V3_RUNTIME_PATHS = PATHS
+MATH_V3_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-math-challenge-v4"
+PATHS = (*MATH_V3_RUNTIME_PATHS, "learning_service/data/family_chapter_math_g2_challenge_v1.json",
+         "learning_service/data/family_math_coverage_plan_v4.json", "learning_service/practice_design.py")
+
+
+MATH_V4_RUNTIME_PATHS = PATHS
+MATH_V4_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-math-multistep-v5"
+PATHS = (*MATH_V4_RUNTIME_PATHS, "learning_service/data/family_chapter_math_g2_multistep_v1.json",
+         "learning_service/data/family_math_coverage_plan_v5.json", "learning_service/practice_response.py")
+
+VARIETY_V5_RUNTIME_PATHS = PATHS
+VARIETY_V5_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-other-textbooks-v6"
+PATHS = (*VARIETY_V5_RUNTIME_PATHS, "learning_service/data/family_chapter_math_g7_multistep_v1.json",
+         "learning_service/data/family_chapter_upper_variety_v1.json",
+         "learning_service/data/family_chapter_remaining_variety_v1.json",
+         "learning_service/data/family_math_coverage_plan_v6.json")
+
+VARIETY_V6_RUNTIME_PATHS = PATHS
+VARIETY_V6_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-subject-knowledge-v7"
+PATHS = (*VARIETY_V6_RUNTIME_PATHS, "learning_service/subject_coverage.py",
+         "learning_service/data/family_chapter_subject_knowledge_v1.json",
+         "learning_service/data/family_subject_coverage_plan_v1.json")
+
+SUBJECT_V7_RUNTIME_PATHS = PATHS
+SUBJECT_V7_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-challenge-tier-v8"
+PATHS = (*SUBJECT_V7_RUNTIME_PATHS, "learning_service/migrations/014_challenge_difficulty.sql",
+         "learning_service/data/family_chapter_challenge_variety_v1.json",
+         "learning_service/data/family_subject_coverage_plan_v2.json")
+
+CHALLENGE_V8_RUNTIME_PATHS = PATHS
+CHALLENGE_V8_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-knowledge-quality-v9"
+PATHS = (*CHALLENGE_V8_RUNTIME_PATHS, "learning_service/data/family_subject_coverage_plan_v3.json")
+
+QUALITY_V9_RUNTIME_PATHS = PATHS
+QUALITY_V9_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-math-gaps-v10"
+PATHS = (*QUALITY_V9_RUNTIME_PATHS, "learning_service/data/family_chapter_math_gaps_v1.json",
+         "learning_service/data/family_subject_coverage_plan_v4.json")
+
+MATH_GAPS_V10_RUNTIME_PATHS = PATHS
+MATH_GAPS_V10_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-subject-gaps-v11"
+PATHS = (*MATH_GAPS_V10_RUNTIME_PATHS, "learning_service/data/family_chapter_subject_gaps_v1.json",
+         "learning_service/data/family_subject_coverage_plan_v5.json")
+
+SUBJECT_GAPS_V11_RUNTIME_PATHS = PATHS
+SUBJECT_GAPS_V11_RUNTIME_PROFILE = REUSE_PROFILE
+REUSE_PROFILE = "reuse-runtime-textbook-completion-v12"
+PATHS = (*SUBJECT_GAPS_V11_RUNTIME_PATHS, "learning_service/data/textbook_lower_reading_v1.json")
 
 def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
@@ -157,7 +252,7 @@ def prepare(destination: Path, root: Path = ROOT) -> dict:
         "state": "local_source_candidate_not_built_not_deployed",
         "git_head": head.stdout.strip() if head.returncode == 0 else None,
         "worktree_dirty": bool(status.stdout.strip()) if status.returncode == 0 else None,
-        "schema_revision": 13, "open_webui_target_version": "0.12.5",
+        "schema_revision": 14, "open_webui_target_version": "0.12.5",
         "source_profile": REUSE_PROFILE,
         "image_digest": None, "source_sha256": fingerprints,
         "source_set_sha256": sha256(_json(fingerprints)), "archive_sha256": sha256(archive_bytes),
@@ -175,8 +270,38 @@ def prepare(destination: Path, root: Path = ROOT) -> dict:
 def verify(destination: Path) -> dict:
     manifest = json.loads((destination / "manifest.json").read_text())
     paths = {9: LEGACY_PATHS, 10: SCHEMA10_PATHS, 11: SCHEMA11_PATHS}.get(manifest.get("schema_revision"))
-    if manifest.get("source_profile") == REUSE_PROFILE and manifest.get("schema_revision") == 13:
+    if manifest.get("source_profile") == REUSE_PROFILE and manifest.get("schema_revision") == 14:
         paths = PATHS
+    elif manifest.get("source_profile") == SUBJECT_GAPS_V11_RUNTIME_PROFILE and manifest.get("schema_revision") == 14:
+        paths = SUBJECT_GAPS_V11_RUNTIME_PATHS
+    elif manifest.get("source_profile") == MATH_GAPS_V10_RUNTIME_PROFILE and manifest.get("schema_revision") == 14:
+        paths = MATH_GAPS_V10_RUNTIME_PATHS
+    elif manifest.get("source_profile") == QUALITY_V9_RUNTIME_PROFILE and manifest.get("schema_revision") == 14:
+        paths = QUALITY_V9_RUNTIME_PATHS
+    elif manifest.get("source_profile") == CHALLENGE_V8_RUNTIME_PROFILE and manifest.get("schema_revision") == 14:
+        paths = CHALLENGE_V8_RUNTIME_PATHS
+    elif manifest.get("source_profile") == SUBJECT_V7_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = SUBJECT_V7_RUNTIME_PATHS
+    elif manifest.get("source_profile") == VARIETY_V6_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = VARIETY_V6_RUNTIME_PATHS
+    elif manifest.get("source_profile") == VARIETY_V5_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = VARIETY_V5_RUNTIME_PATHS
+    elif manifest.get("source_profile") == MATH_V4_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = MATH_V4_RUNTIME_PATHS
+    elif manifest.get("source_profile") == MATH_V3_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = MATH_V3_RUNTIME_PATHS
+    elif manifest.get("source_profile") == MATH_V2_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = MATH_V2_RUNTIME_PATHS
+    elif manifest.get("source_profile") == CHAPTER_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = CHAPTER_RUNTIME_PATHS
+    elif manifest.get("source_profile") == HOST_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = HOST_RUNTIME_PATHS
+    elif manifest.get("source_profile") == READ_SCHEDULING_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = READ_SCHEDULING_RUNTIME_PATHS
+    elif manifest.get("source_profile") == READ_CONNECTION_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = READ_CONNECTION_RUNTIME_PATHS
+    elif manifest.get("source_profile") == PERFORMANCE_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
+        paths = PERFORMANCE_RUNTIME_PATHS
     elif manifest.get("source_profile") == EVIDENCE_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:
         paths = EVIDENCE_RUNTIME_PATHS
     elif manifest.get("source_profile") == BACKUP_RUNTIME_PROFILE and manifest.get("schema_revision") == 13:

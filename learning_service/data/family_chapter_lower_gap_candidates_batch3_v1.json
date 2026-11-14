@@ -1,0 +1,1713 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "lower_gap_candidates_batch3",
+  "status": "local_candidate_not_registered",
+  "teacher_reviewed": false,
+  "curriculum_standard_crosscheck": "pending",
+  "student_calibrated": false,
+  "questions": [
+    {
+      "id": "family-chapter-math-g7-lower-7-lower_gap_candidates_batch3-definition-and-foot-v1",
+      "batch": "lower_gap_candidates_batch3",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "7",
+      "difficulty": "normal",
+      "title": "垂直的定义与垂足",
+      "prompt": "同一平面内，直线 AB 与 CD 相交于点 O。只根据垂直的定义回答，不需要原图。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"90\",\"c\":\"4\",\"d\":\"90\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "垂直的定义是双向的：四个角中有一个是直角，两条直线就互相垂直；反过来，两条直线互相垂直，四个角就都是直角。理由是相邻两角互补、对顶角相等，一个角是 90°，其余三个角也只能是 90°。垂直的两条直线一定相交，交点叫垂足，但普通的相交直线交点不叫垂足，垂足也不在端点处。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第七章 相交线与平行线",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          4
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 4 页支持垂直定义、垂线、垂足与由直角判定垂直；题目中的字母与角度为本地自编，未抄录教材例题或习题。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四个判断均只依据第 4 页垂直定义、垂线与垂足的文字；相邻角互补与旋转 90° 均为本地独立复算，未引用原图数据。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由一个直角判断互相垂直",
+          "b": "由垂直推出相邻角为直角",
+          "c": "辨析垂直与相交的双向关系",
+          "d": "把垂直转化为 90° 的旋转"
+        }
+      },
+      "responses": [
+        {
+          "label": "相交所成的四个角中，有一个角是 90°。这两条直线是什么关系？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "互相垂直",
+            "无法判断",
+            "互相平行",
+            "只是相交，不垂直"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "平行线不相交，而本题两条直线已相交于 O。",
+              "action": "先看两条直线有没有交点。"
+            },
+            {
+              "answer": "4",
+              "message": "有一个角是 90°，按定义就是互相垂直。",
+              "action": "回到“有一个角是直角”这个条件。"
+            },
+            {
+              "answer": "2",
+              "message": "定义已给出判断依据。",
+              "action": "直接使用垂直的定义。"
+            }
+          ]
+        },
+        {
+          "label": "若 AB⊥CD，垂足为 O，∠AOD=90°，那么与它相邻的 ∠AOC 是多少度？",
+          "answer": "90",
+          "independent_check": "180-90",
+          "units": [
+            "度"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "180",
+              "message": "这是相邻两角的和，不是 ∠AOC 的度数。",
+              "action": "相邻两角互补，还要减去已知的 90°。"
+            },
+            {
+              "answer": "45",
+              "message": "把直角误当成锐角。",
+              "action": "先确认 ∠AOD=90°，再求邻角。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "下面哪一句说法正确？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "两条直线相交时，交点都叫垂足",
+            "垂足一定在两条直线的端点处",
+            "两条直线互相垂直时，可能没有交点",
+            "两条互相垂直的直线的交点叫作垂足"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "只有互相垂直的两条直线，交点才叫垂足。",
+              "action": "先看两线是否垂直。"
+            },
+            {
+              "answer": "2",
+              "message": "垂足是交点，可以在直线的任意位置。",
+              "action": "回到垂足的定义。"
+            },
+            {
+              "answer": "3",
+              "message": "垂直的两条直线一定相交，交点就是垂足。",
+              "action": "回到垂足的定义。"
+            }
+          ]
+        },
+        {
+          "label": "AB⊥CD 于 O。把直线 AB 绕点 O 旋转到与 CD 重合，至少旋转多少度？",
+          "answer": "90",
+          "independent_check": "90",
+          "units": [
+            "度"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "180",
+              "message": "旋转 180° 会回到原来的方向，不是最短的重合角度。",
+              "action": "一条直线转 90° 就与它的垂线重合。"
+            },
+            {
+              "answer": "45",
+              "message": "45° 只是直角的一半，不能与垂线重合。",
+              "action": "从垂直关系直接想直角。"
+            }
+          ],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "垂直的定义与垂足",
+        "family": "math-g7-lower:7:perpendicular-definition:definition-and-foot",
+        "priority": 3,
+        "order": 1,
+        "skills": [
+          "垂直的定义与垂足"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由一个直角判断互相垂直",
+          "由垂直推出相邻角为直角",
+          "辨析垂直与相交的双向关系",
+          "把垂直转化为 90° 的旋转"
+        ],
+        "difficulty_rationale": "四项分别考定义的正用、反用、常见误判和旋转角度，需要把“直角”与“垂直”在双向推理中来回转换。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g7-lower:7:perpendicular-definition",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g7-lower:7:perpendicular-definition:definition-and-foot",
+        "rationale": "四个判断均只依据第 4 页垂直定义、垂线与垂足的文字；相邻角互补与旋转 90° 均为本地独立复算，未引用原图数据。"
+      },
+      "common_error_feedback": "常见错误：平行线不相交，而本题两条直线已相交于 O；有一个角是 90°，按定义就是互相垂直；定义已给出判断依据；这是相邻两角的和，不是 ∠AOC 的度数；把直角误当成锐角；只有互相垂直的两条直线，交点才叫垂足；垂足是交点，可以在直线的任意位置；垂直的两条直线一定相交，交点就是垂足；旋转 180° 会回到原来的方向，不是最短的重合角度；45° 只是直角的一半，不能与垂线重合。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用两把直尺或两张纸片摆出两条互相垂直的直线，指出垂足，再说明“相交所成的四个角中有一个是直角”与“两条直线互相垂直”怎样互相推出。",
+        "criteria": [
+          "摆出的两条直线确实相交成直角",
+          "能指出垂足的位置",
+          "能说出定义的两个方向",
+          "不以“看起来像”代替直角依据"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-7-lower_gap_candidates_batch3-unique-perpendicular-v1",
+      "batch": "lower_gap_candidates_batch3",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "7",
+      "difficulty": "normal",
+      "title": "垂线的基本事实",
+      "prompt": "在同一平面内，研究过一点画已知直线垂线的情况，逐项作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"4\",\"c\":\"1\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "垂线的基本事实是：在同一平面内，过一点有且只有一条直线与已知直线垂直。这个点既可以在直线上，也可以在直线外。射线和线段都只是直线的一部分，画它们的垂线，就是画它们所在直线的垂线。用三角尺作图时，先把一条直角边与已知直线重合，再让另一条直角边经过已知点。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第七章 相交线与平行线",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          5
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 5 页支持“同一平面内过一点有且只有一条垂线”和例 2 的画法；题目情境为本地自编，未抄录教材图 7.1-8、图 7.1-9。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项均对应第 5 页探究与例 2 的文字结论；“有且只有一条”对直线上、直线外两种位置都成立。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "判断过直线上一点的垂线条数",
+          "b": "判断过直线外一点的垂线条数",
+          "c": "识别射线、线段的垂线是所在直线的垂线",
+          "d": "排列三角尺作垂线的步骤"
+        }
+      },
+      "responses": [
+        {
+          "label": "过直线 l 上一点 A 画 l 的垂线，能画出几条？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "一条也画不出",
+            "有且只有一条",
+            "两条",
+            "无数条"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "同一平面内过一点只能画一条垂线。",
+              "action": "回忆“有且只有一条”。"
+            },
+            {
+              "answer": "4",
+              "message": "无数条直线经过该点，但只有一条与 l 垂直。",
+              "action": "只数与 l 垂直的那一条。"
+            },
+            {
+              "answer": "1",
+              "message": "过直线上一点同样能画出垂线。",
+              "action": "把三角尺的直角边与 l 重合再画。"
+            }
+          ]
+        },
+        {
+          "label": "垂线的基本事实中，“在同一平面内”这个条件说明什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "这个条件可以去掉，结论仍然成立",
+            "这个条件只对线段成立",
+            "这个条件说明垂线只能画在纸上",
+            "这个条件不能去掉，去掉后结论不一定成立"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "离开“同一平面内”，过一点可能画出不止一条垂线。",
+              "action": "基本事实必须先写明在同一个平面内。"
+            },
+            {
+              "answer": "2",
+              "message": "基本事实对直线、射线、线段所在直线都适用。",
+              "action": "看条件限制的是平面范围。"
+            },
+            {
+              "answer": "3",
+              "message": "“平面”是数学上的平面，不是纸面。",
+              "action": "按数学定义理解“同一平面内”。"
+            }
+          ]
+        },
+        {
+          "label": "过点 P 画线段 AB 的垂线，实质上是画哪条直线的垂线？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "线段 AB 所在的直线",
+            "经过点 P 的任意直线",
+            "线段 AB 的中垂线",
+            "与线段 AB 平行的直线"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "垂线必须与 AB 所在直线成直角。",
+              "action": "先找 AB 所在的整条直线。"
+            },
+            {
+              "answer": "3",
+              "message": "中垂线经过 AB 的中点，不一定经过 P。",
+              "action": "本题要求经过 P。"
+            },
+            {
+              "answer": "4",
+              "message": "平行线不会与 AB 垂直。",
+              "action": "垂线要与 AB 相交成直角。"
+            }
+          ]
+        },
+        {
+          "label": "用三角尺过直线外一点 P 画直线 l 的垂线，第一步应做什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "先量出 P 到 l 的长度",
+            "把三角尺的斜边放在 P 点",
+            "先画一条与 l 平行的直线",
+            "把三角尺的一条直角边与直线 l 重合"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "作垂线不需要先量长度。",
+              "action": "先用三角尺定位直角。"
+            },
+            {
+              "answer": "2",
+              "message": "直角边才用来与已知直线重合。",
+              "action": "认清三角尺的直角。"
+            },
+            {
+              "answer": "3",
+              "message": "平行线不能代替垂线。",
+              "action": "直接作垂线。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "垂线的基本事实",
+        "family": "math-g7-lower:7:perpendicular-unique:unique-perpendicular",
+        "priority": 3,
+        "order": 2,
+        "skills": [
+          "垂线的基本事实"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "判断过直线上一点的垂线条数",
+          "判断过直线外一点的垂线条数",
+          "识别射线、线段的垂线是所在直线的垂线",
+          "排列三角尺作垂线的步骤"
+        ],
+        "difficulty_rationale": "四项都要守住“同一平面内”和“过一点有且只有一条”，还要把线段、射线的垂线还原为所在直线的垂线。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g7-lower:7:perpendicular-unique",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g7-lower:7:perpendicular-unique:unique-perpendicular",
+        "rationale": "四项均对应第 5 页探究与例 2 的文字结论；“有且只有一条”对直线上、直线外两种位置都成立。"
+      },
+      "common_error_feedback": "常见错误：同一平面内过一点只能画一条垂线；无数条直线经过该点，但只有一条与 l 垂直；过直线上一点同样能画出垂线；离开“同一平面内”，过一点可能画出不止一条垂线；基本事实对直线、射线、线段所在直线都适用；“平面”是数学上的平面，不是纸面；垂线必须与 AB 所在直线成直角；中垂线经过 AB 的中点，不一定经过 P；平行线不会与 AB 垂直；作垂线不需要先量长度；直角边才用来与已知直线重合；平行线不能代替垂线。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用三角尺分别过直线上一点和直线外一点画已知直线的垂线，数一数各能画出几条，并说明“在同一平面内”这个条件；再说明画射线或线段的垂线时实际画的是哪条直线。",
+        "criteria": [
+          "两种位置都实际画过",
+          "各自只画出一条垂线",
+          "说出“有且只有一条”",
+          "说明射线、线段的垂线是所在直线的垂线"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-lower-7-lower_gap_candidates_batch3-shortest-and-distance-v1",
+      "batch": "lower_gap_candidates_batch3",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-lower",
+      "chapter_id": "7",
+      "difficulty": "normal",
+      "title": "垂线段最短与点到直线的距离",
+      "prompt": "点 P 在直线 l 外，PO⊥l 于点 O，A 是 l 上不与 O 重合的一点。逐项判断或计算。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"3\",\"c\":\"8\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "连接直线外一点与直线上各点的所有线段中，垂线段最短。点到直线的距离，就是这条垂线段的长度，不是随便一条斜线段的长度。第 3 项中 BC⊥AC，所以点 B 到直线 AC 的垂线段是 BC，距离为 8；同理点 A 到直线 BC 的垂线段是 AC。两条直角边都比与直角相对的斜边短，所以与直角相对的那条边最长。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第七章 相交线与平行线",
+        "textbook_sha256": "eb9bf6ac19ca7756f4587de2e3a842d69f22e1b3ec0ec3b87a795c93fe22257b",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          6
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 6 页支持垂线段最短、点到直线的距离和灌溉挖渠问题；三角形边长与字母为本地自编，未抄录教材练习第 3 题。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "第 6 页支持垂线段最短与点到直线的距离定义；三角形三边 6、8、10 满足 6²+8²=10²，距离与最长边的结论均独立复算。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "比较垂线段与斜线段的长短",
+          "b": "说明点到直线的距离取垂线段长度",
+          "c": "在直角三角形中读出点到直线的距离",
+          "d": "由垂线段最短判断最长边"
+        }
+      },
+      "responses": [
+        {
+          "label": "比较垂线段 PO 与斜线段 PA 的长度，结论是哪一个？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "PO < PA",
+            "PO = PA",
+            "PO > PA",
+            "无法比较"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "斜线段 PA 比垂线段 PO 长。",
+              "action": "回到“垂线段最短”。"
+            },
+            {
+              "answer": "3",
+              "message": "把长短关系弄反了。",
+              "action": "垂线段是最短的一条。"
+            },
+            {
+              "answer": "4",
+              "message": "两点确定后长度关系是确定的。",
+              "action": "用垂线段最短判断。"
+            }
+          ]
+        },
+        {
+          "label": "点到直线的距离指的是哪条线段的长度？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "直线本身的长度",
+            "从这点到直线端点的线段",
+            "从这点到直线的垂线段",
+            "从这点到直线上任意一点的线段"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "任意线段不一定与直线垂直。",
+              "action": "距离必须取垂线段。"
+            },
+            {
+              "answer": "1",
+              "message": "直线可以无限延伸，没有有限长度。",
+              "action": "距离是两点间线段的长度。"
+            },
+            {
+              "answer": "2",
+              "message": "直线没有端点，这个说法本身不成立。",
+              "action": "回到垂线段的定义。"
+            }
+          ]
+        },
+        {
+          "label": "三角形 ABC 中，∠C=90°，AC=6，BC=8，AB=10。点 B 到直线 AC 的距离是多少？",
+          "answer": "8",
+          "independent_check": "8",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "6",
+              "message": "6 是 AC 的长度，而垂足在 AC 上，垂线段是 BC。",
+              "action": "先找点 B 到 AC 的垂线段。"
+            },
+            {
+              "answer": "10",
+              "message": "AB 是斜边，不与 AC 垂直。",
+              "action": "距离取垂线段的长度。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "同一个三角形中，哪条边最长？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "三条边一样长",
+            "无法判断",
+            "与直角相对的那条边",
+            "与直角相邻的两条边"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "两条直角边都比与直角相对的斜边短。",
+              "action": "用垂线段最短比较。"
+            },
+            {
+              "answer": "1",
+              "message": "三边分别为 6、8、10，不相等。",
+              "action": "先读清三条边的长度。"
+            },
+            {
+              "answer": "2",
+              "message": "三条边长已知，可以比较。",
+              "action": "找与直角相对的那条边。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "垂线段最短与点到直线的距离",
+        "family": "math-g7-lower:7:perpendicular-distance:shortest-and-distance",
+        "priority": 3,
+        "order": 3,
+        "skills": [
+          "垂线段最短与点到直线的距离"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "比较垂线段与斜线段的长短",
+          "说明点到直线的距离取垂线段长度",
+          "在直角三角形中读出点到直线的距离",
+          "由垂线段最短判断最长边"
+        ],
+        "difficulty_rationale": "核心是把“距离”绑定到垂线段，再用垂线段最短推出斜边最长，不能凭图形看起来的长短作答。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g7-lower:7:perpendicular-distance",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g7-lower:7:perpendicular-distance:shortest-and-distance",
+        "rationale": "第 6 页支持垂线段最短与点到直线的距离定义；三角形三边 6、8、10 满足 6²+8²=10²，距离与最长边的结论均独立复算。"
+      },
+      "common_error_feedback": "常见错误：斜线段 PA 比垂线段 PO 长；把长短关系弄反了；两点确定后长度关系是确定的；任意线段不一定与直线垂直；直线可以无限延伸，没有有限长度；直线没有端点，这个说法本身不成立；6 是 AC 的长度，而垂足在 AC 上，垂线段是 BC；AB 是斜边，不与 AC 垂直；两条直角边都比与直角相对的斜边短；三边分别为 6、8、10，不相等；三条边长已知，可以比较。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "在纸上画一条直线和线外一点，画出垂线段并量出点到直线的距离；再从该点画两条斜线段，比较三条线段的长度，说明哪一条最短。",
+        "criteria": [
+          "垂线段标出直角记号",
+          "距离取垂线段的长度",
+          "实测说明斜线段更长",
+          "写明测量单位并说明误差范围"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-lower-2-lower_gap_candidates_batch3-times-relation-v1",
+      "batch": "lower_gap_candidates_batch3",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "倍的认识与三类倍数问题",
+      "prompt": "先想清楚把谁看作一份，再逐项作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"8\",\"c\":\"2\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "把黄球的 3 个看作一份，红球有 2 份，所以是 2 倍。长绳是 2 米的 4 倍，就是 4 个 2 米，2×4=8 米。小丽的只数是一份，8÷4=2 只。最后一题大树高3+6=9 米，9÷3=3，是大树的 3 倍；“比小树高 6 米”说的是多几，不是几倍。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "二 数量间的乘除关系",
+        "textbook_sha256": "aa34f13d5d305ed6761052d4c24d0cd0c101930e665290bc1bd22b6b884fd060",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          25,
+          27,
+          31
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 25、27、31 页支持倍的认识、求几倍、求几倍量和求一份量；本题数量与情境为本地自编，未使用教材原题。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项均在第 25、27、31 页的倍数主题内自编；6÷3=2、2×4=8、8÷4=2、9÷3=3 均独立复算，答案唯一。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由两个数量求几倍",
+          "b": "由一份量和倍数求几倍量",
+          "c": "由几倍量和倍数求一份量",
+          "d": "区分“多几”与“几倍”"
+        }
+      },
+      "responses": [
+        {
+          "label": "红球有 6 个，黄球有 3 个。红球的个数是黄球的几倍？",
+          "answer": "2",
+          "independent_check": "6/3",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "把黄球的个数当成了倍数。",
+              "action": "先数黄球有几份，再看红球有几个这样的一份。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "一根跳绳长 2 米，一根长绳的长度是它的 4 倍。长绳长多少米？",
+          "answer": "8",
+          "independent_check": "2*4",
+          "units": [
+            "米"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "6",
+              "message": "把 2 米和 4 倍相加了。",
+              "action": "求几倍量用乘法。"
+            },
+            {
+              "answer": "2",
+              "message": "只写了一份的长度，没有乘 4。",
+              "action": "4 倍就是 4 个 2 米。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "小华折了 8 只纸鹤，是小丽折的 4 倍。小丽折了多少只？",
+          "answer": "2",
+          "independent_check": "8/4",
+          "units": [
+            "只"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "32",
+              "message": "把 8 只和 4 倍相乘了。",
+              "action": "已知几倍量和倍数，求一份量用除法。"
+            },
+            {
+              "answer": "12",
+              "message": "把 8 和 4 相加了。",
+              "action": "先判断谁是一份。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "小树高 3 米，大树比小树高 6 米。下面哪种说法正确？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "大树的高度是小树的 3 倍",
+            "大树的高度是小树的 2 倍",
+            "大树比小树高 3 倍",
+            "大树的高度是小树的 9 倍"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "大树高 9 米，9÷3=3。",
+              "action": "先把“多 6 米”合成大树高度。"
+            },
+            {
+              "answer": "3",
+              "message": "高 3 倍表示高出 3 个小树的高度，不是本题的 6 米。",
+              "action": "区分“多几米”和“几倍”。"
+            },
+            {
+              "answer": "4",
+              "message": "9 是大树的高度，不是倍数。",
+              "action": "用大树高度除以小树高度。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "倍的认识与三类倍数问题",
+        "family": "math-g2-lower:2:inventory-1:times-relation",
+        "priority": 3,
+        "order": 4,
+        "skills": [
+          "倍的认识与三类倍数问题"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由两个数量求几倍",
+          "由一份量和倍数求几倍量",
+          "由几倍量和倍数求一份量",
+          "区分“多几”与“几倍”"
+        ],
+        "difficulty_rationale": "三种倍数问题分别用除法、乘法、除法，最后一项还要把“多 6 米”先合成 9 米再比较，不能把“多几”直接当倍数。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g2-lower:2:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g2-lower:2:inventory-1:times-relation",
+        "rationale": "四项均在第 25、27、31 页的倍数主题内自编；6÷3=2、2×4=8、8÷4=2、9÷3=3 均独立复算，答案唯一。"
+      },
+      "common_error_feedback": "常见错误：把黄球的个数当成了倍数；把 2 米和 4 倍相加了；只写了一份的长度，没有乘 4；把 8 只和 4 倍相乘了；把 8 和 4 相加了；大树高 9 米，9÷3=3；高 3 倍表示高出 3 个小树的高度，不是本题的 6 米；9 是大树的高度，不是倍数。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用实物或线段图解释“多几”和“几倍”的不同；完整说清单位与比较对象。",
+        "criteria": [
+          "分别摆出或画出“多几”和“几倍”",
+          "说清把谁看作一份",
+          "单位与比较对象一致",
+          "能举一个容易混淆的反例"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-lower-3-lower_gap_candidates_batch3-place-value-zero-v1",
+      "batch": "lower_gap_candidates_batch3",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "数位、十进制与含零的数",
+      "prompt": "按数位和十进制逐项作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1000\",\"b\":\"2\",\"c\":\"4320\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "10 个一是十，10 个十是一百，10 个一百是一千。三千零五的百位和十位都是 0，写作 3005，两个 0 都要占位。4 个千、3 个百、2 个十就是 4320，个位没有就写 0。2500 是 25 个百，不是 250 个百。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "三 万以内数的认识",
+        "textbook_sha256": "aa34f13d5d305ed6761052d4c24d0cd0c101930e665290bc1bd22b6b884fd060",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          41,
+          44,
+          50
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 41、44、50 页支持十进制单位、含零读写和数的组成；题目数值为本地自编，未抄录教材例题。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项对应第 41 页 10 个一百是一千、第 44 页含零读数与数位组成、第 50 页“2500 里有几个百”；数值均独立复算。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由十进制单位换算计数单位",
+          "b": "读写含零的数并说明零的占位",
+          "c": "按数位组成写数",
+          "d": "把整百数看成若干个百"
+        }
+      },
+      "responses": [
+        {
+          "label": "10 个一百是多少？",
+          "answer": "1000",
+          "independent_check": "10*100",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "100",
+              "message": "10 个一百是一千，不是一百。",
+              "action": "一百一百地数，数 10 次。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "下面哪个数读作“三千零五”？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "30005",
+            "3005",
+            "3050",
+            "3500"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "3050 读作三千零五十。",
+              "action": "十位是 0、个位是 5，零要占位。"
+            },
+            {
+              "answer": "4",
+              "message": "3500 读作三千五百。",
+              "action": "百位和十位都是 0。"
+            },
+            {
+              "answer": "1",
+              "message": "这是五位数，读作三万零五。",
+              "action": "本题是三千多，四位数的最高位是千位。"
+            }
+          ]
+        },
+        {
+          "label": "由 4 个千、3 个百、2 个十组成的数是多少？",
+          "answer": "4320",
+          "independent_check": "4*1000+3*100+2*10",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "4302",
+              "message": "把 2 个十写成了 2 个一。",
+              "action": "2 个十应写在十位上。"
+            },
+            {
+              "answer": "432",
+              "message": "少写了一个 0，数位不够。",
+              "action": "千位、百位、十位都要有数，个位写 0。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "2500 里面有几个百？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "250",
+            "2",
+            "5",
+            "25"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "把 2500 的末尾 0 去掉了。",
+              "action": "先想 100 个百是一万，再看 2500 里有几个百。"
+            },
+            {
+              "answer": "2",
+              "message": "2 是千位上的数，不是百的个数。",
+              "action": "用 2500÷100 想。"
+            },
+            {
+              "answer": "3",
+              "message": "5 是百位上的数，不是百的个数。",
+              "action": "2500 是 25 个一百。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "数位、十进制与含零的数",
+        "family": "math-g2-lower:3:inventory-1:place-value-zero",
+        "priority": 3,
+        "order": 5,
+        "skills": [
+          "数位、十进制与含零的数"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由十进制单位换算计数单位",
+          "读写含零的数并说明零的占位",
+          "按数位组成写数",
+          "把整百数看成若干个百"
+        ],
+        "difficulty_rationale": "含零的读写与“2500 里有几个百”都要守住数位，不能把末尾的 0 省略，也不能把 2500 当成 250 个百。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g2-lower:3:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g2-lower:3:inventory-1:place-value-zero",
+        "rationale": "四项对应第 41 页 10 个一百是一千、第 44 页含零读数与数位组成、第 50 页“2500 里有几个百”；数值均独立复算。"
+      },
+      "common_error_feedback": "常见错误：10 个一百是一千，不是一百；3050 读作三千零五十；3500 读作三千五百；这是五位数，读作三万零五；把 2 个十写成了 2 个一；少写了一个 0，数位不够；把 2500 的末尾 0 去掉了；2 是千位上的数，不是百的个数；5 是百位上的数，不是百的个数。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用计数器或方块表示含零的数，说明零的占位作用。",
+        "criteria": [
+          "正确摆出含零的数",
+          "指出哪一位是 0",
+          "说明不写 0 会变成哪个数",
+          "用另一种方式表示同一个数"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-lower-3-lower_gap_candidates_batch3-tens-hundreds-thousands-v1",
+      "batch": "lower_gap_candidates_batch3",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "整十、整百、整千数的加减",
+      "prompt": "先想清楚相同的计数单位，再计算。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"130\",\"b\":\"1500\",\"c\":\"800\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "80 和 50 都是几个十：8 个十加 5 个十是 13 个十，就是 130。900 和 600 都是几个百：9 个百加 6 个百是 15 个百，就是 1500。1700 减 900 是 17 个百减 9 个百，得 8 个百，就是 800。2000 减 1000 是 2 个千减 1 个千，得 1 个千。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "三 万以内数的认识",
+        "textbook_sha256": "aa34f13d5d305ed6761052d4c24d0cd0c101930e665290bc1bd22b6b884fd060",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          57
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 57 页支持整十、整百、整千数加减和“相同计数单位”的算法；题目数值为本地自编，未使用教材电器情境。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "80+50=130、900+600=1500、1700-900=800、2000-1000=1000 均独立复算；与第 57 页“8 个十加 5 个十是 13 个十”的算法一致。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "整十数相加",
+          "b": "整百数相加",
+          "c": "整百数相减",
+          "d": "用计数单位说明整千数相减"
+        }
+      },
+      "responses": [
+        {
+          "label": "80+50=？",
+          "answer": "130",
+          "independent_check": "80+50",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "120",
+              "message": "把 8+5 算成了 12。",
+              "action": "8 个十加 5 个十是 13 个十。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "900+600=？",
+          "answer": "1500",
+          "independent_check": "900+600",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "150",
+              "message": "少写了一个 0，把百当成十。",
+              "action": "9 个百加 6 个百是 15 个百。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "1700-900=？",
+          "answer": "800",
+          "independent_check": "1700-900",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "700",
+              "message": "17 个百减 9 个百是 8 个百。",
+              "action": "先统一成百再减。"
+            },
+            {
+              "answer": "900",
+              "message": "退位时少减了一个百。",
+              "action": "17-9=8，再添两个 0。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "计算 2000-1000 时，下面哪种想法正确？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "不够减，要向前一位借 1",
+            "2 个千减 1 个千是 1 个千，就是 1000",
+            "2 个千减 1 个千是 1 个百，就是 100",
+            "2000 减 1000 要进位"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "千减千得到的还是千。",
+              "action": "单位不变。"
+            },
+            {
+              "answer": "4",
+              "message": "减法看的是够不够减，不是进位。",
+              "action": "2 个千够减 1 个千。"
+            },
+            {
+              "answer": "1",
+              "message": "2000 比 1000 大，够减。",
+              "action": "先比较两个数的大小。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "整十、整百、整千数的加减",
+        "family": "math-g2-lower:3:inventory-2:tens-hundreds-thousands",
+        "priority": 3,
+        "order": 6,
+        "skills": [
+          "整十、整百、整千数的加减"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "整十数相加",
+          "整百数相加",
+          "整百数相减",
+          "用计数单位说明整千数相减"
+        ],
+        "difficulty_rationale": "四项都要先统一计数单位再加减，最后一项还要说明“千”这个单位，不能只报结果。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g2-lower:3:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g2-lower:3:inventory-2:tens-hundreds-thousands",
+        "rationale": "80+50=130、900+600=1500、1700-900=800、2000-1000=1000 均独立复算；与第 57 页“8 个十加 5 个十是 13 个十”的算法一致。"
+      },
+      "common_error_feedback": "常见错误：把 8+5 算成了 12；少写了一个 0，把百当成十；17 个百减 9 个百是 8 个百；退位时少减了一个百；千减千得到的还是千；减法看的是够不够减，不是进位；2000 比 1000 大，够减。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "口述相同单位数量相加减的过程，并用计数器核对。",
+        "criteria": [
+          "说清相同计数单位",
+          "口述加减过程",
+          "用计数器核对结果",
+          "指出结果末尾 0 的个数"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-lower-4-lower_gap_candidates_batch3-written-add-subtract-v1",
+      "batch": "lower_gap_candidates_batch3",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-lower",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "万以内加减的笔算与进退位",
+      "prompt": "先按相同数位对齐，再逐位计算。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"302\",\"b\":\"743\",\"c\":\"68\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "271+31：十位 7+3=10，向百位进 1，得 302。445+298：个位 5+8=13 进 1，十位 4+9+1=14 再进 1，百位 4+2+1=7，得 743。213-145：个位不够减向十位退，十位也不够再向百位退，得 68。278-98：十位 7 减 9 不够，从百位退 1，十位变成 17，17-9=8，百位剩 1，结果 180。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "四 万以内的加法和减法",
+        "textbook_sha256": "aa34f13d5d305ed6761052d4c24d0cd0c101930e665290bc1bd22b6b884fd060",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          64,
+          65,
+          69
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 64、65、69 页支持相同数位对齐、从个位算起、满十进一和不够减退一；题目数值为本地自编，未抄录教材湿地或捐书情境。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "271+31=302、445+298=743、213-145=68、278-98=180 均独立复算；进退位规则与第 64、69 页文字一致。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "处理一次进位的加法",
+          "b": "处理连续进位的加法",
+          "c": "处理连续退位的减法",
+          "d": "定位漏退位并说明正确做法"
+        }
+      },
+      "responses": [
+        {
+          "label": "271+31=？",
+          "answer": "302",
+          "independent_check": "271+31",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "292",
+              "message": "十位 7+3=10 没有向百位进 1。",
+              "action": "满十要向前一位进 1。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "445+298=？",
+          "answer": "743",
+          "independent_check": "445+298",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "633",
+              "message": "十位和百位都漏加了进位的 1。",
+              "action": "连续进位要逐位加上进位数。"
+            },
+            {
+              "answer": "733",
+              "message": "十位相加时漏加了从个位进上来的 1。",
+              "action": "个位满十进到十位，十位要一起加。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "213-145=？",
+          "answer": "68",
+          "independent_check": "213-145",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "132",
+              "message": "个位不够减时没有向十位退 1。",
+              "action": "个位 3 减 5 不够，要退位。"
+            },
+            {
+              "answer": "78",
+              "message": "十位退位后没有减去退走的 1。",
+              "action": "退位后十位要少 1。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "计算 278-98 时，个位 8 减 8 得 0；十位 7 减 9 不够减。正确做法是？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "从十位退 1 给个位，得 170",
+            "把 98 看成 100，得 178",
+            "从百位退 1，十位加 10 再减，得 180",
+            "直接写 9，得 190"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "十位 7 减 9 不够减，不能直接写 9。",
+              "action": "先退位再加 10。"
+            },
+            {
+              "answer": "1",
+              "message": "个位已经够减，问题在十位。",
+              "action": "看哪一位不够减。"
+            },
+            {
+              "answer": "2",
+              "message": "减去 100 后还要把多减的 2 加回来。",
+              "action": "减 98 不等于直接减 100。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "万以内加减的笔算与进退位",
+        "family": "math-g2-lower:4:inventory-1:written-add-subtract",
+        "priority": 3,
+        "order": 7,
+        "skills": [
+          "万以内加减的笔算与进退位"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "处理一次进位的加法",
+          "处理连续进位的加法",
+          "处理连续退位的减法",
+          "定位漏退位并说明正确做法"
+        ],
+        "difficulty_rationale": "三道笔算分别含一次进位、连续进位、连续退位；最后一项要求指出错误做法错在哪一位，不能只看最终数值。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g2-lower:4:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g2-lower:4:inventory-1:written-add-subtract",
+        "rationale": "271+31=302、445+298=743、213-145=68、278-98=180 均独立复算；进退位规则与第 64、69 页文字一致。"
+      },
+      "common_error_feedback": "常见错误：十位 7+3=10 没有向百位进 1；十位和百位都漏加了进位的 1；十位相加时漏加了从个位进上来的 1；个位不够减时没有向十位退 1；十位退位后没有减去退走的 1；十位 7 减 9 不够减，不能直接写 9；个位已经够减，问题在十位；减去 100 后还要把多减的 2 加回来。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "独立写竖式，解释进退位的数位意义；不能只据最终数值判定过程正确。",
+        "criteria": [
+          "数位对齐",
+          "逐位说明进退位",
+          "竖式过程与结果一致",
+          "用验算或估算核对结果"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-lower-4-lower_gap_candidates_batch3-add-subtract-parts-v1",
+      "batch": "lower_gap_candidates_batch3",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-lower",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "加减各部分的关系",
+      "prompt": "利用加法各部分之间的关系逐项作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"249\",\"b\":\"358\",\"c\":\"289\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "加法中，和=加数+加数，所以一个加数=和-另一个加数。709-460=249，836-478=358，664-375=289。减法是加法的逆运算，因此已知和与一个加数，求另一个加数就用减法。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "四 万以内的加法和减法",
+        "textbook_sha256": "aa34f13d5d305ed6761052d4c24d0cd0c101930e665290bc1bd22b6b884fd060",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          73
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 73 页支持加法各部分关系与减法是加法的逆运算；题目数值为本地自编，未使用教材电器情境。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "709-460=249、836-478=358、664-375=289 均独立复算；关系式与第 73 页“和=加数+加数、加数=和-另一个加数”一致。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由和与一个加数求另一个加数",
+          "b": "用文字表述同一关系",
+          "c": "由已知加法算式直接写减法结果",
+          "d": "辨析加减各部分关系式"
+        }
+      },
+      "responses": [
+        {
+          "label": "249+460=709。那么 709-460=？",
+          "answer": "249",
+          "independent_check": "709-460",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "460",
+              "message": "把另一个加数当成了所求结果。",
+              "action": "709 减去 460 才是一个加数。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "两个加数的和是 836，其中一个加数是 478，另一个加数是多少？",
+          "answer": "358",
+          "independent_check": "836-478",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "1314",
+              "message": "把 836 和 478 相加了。",
+              "action": "已知和，求加数要用减法。"
+            },
+            {
+              "answer": "478",
+              "message": "把已知的加数当成了所求结果。",
+              "action": "836 减去 478 才是另一个加数。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "375+289=664。那么 664-375=？",
+          "answer": "289",
+          "independent_check": "664-375",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "375",
+              "message": "把减数当成了差。",
+              "action": "664 减去 375 得另一个加数。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "下面哪一组关系正确？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "加数=和+另一个加数",
+            "和=加数-另一个加数",
+            "被减数=减数-差",
+            "加数=和-另一个加数"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这样会把和越加越大，不符合部分与整体的关系。",
+              "action": "加数应小于和。"
+            },
+            {
+              "answer": "2",
+              "message": "和是两个加数合起来的数，应该用加法。",
+              "action": "回到加法的意义。"
+            },
+            {
+              "answer": "3",
+              "message": "被减数是减数与差的和。",
+              "action": "被减数=减数+差。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "加减各部分的关系",
+        "family": "math-g2-lower:4:inventory-2:add-subtract-parts",
+        "priority": 3,
+        "order": 8,
+        "skills": [
+          "加减各部分的关系"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由和与一个加数求另一个加数",
+          "用文字表述同一关系",
+          "由已知加法算式直接写减法结果",
+          "辨析加减各部分关系式"
+        ],
+        "difficulty_rationale": "前三项反复使用“加数=和-另一个加数”，最后一项要求辨认关系式，不能用“和=加数-另一个加数”之类的错式。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g2-lower:4:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g2-lower:4:inventory-2:add-subtract-parts",
+        "rationale": "709-460=249、836-478=358、664-375=289 均独立复算；关系式与第 73 页“和=加数+加数、加数=和-另一个加数”一致。"
+      },
+      "common_error_feedback": "常见错误：把另一个加数当成了所求结果；把 836 和 478 相加了；把已知的加数当成了所求结果；把减数当成了差；这样会把和越加越大，不符合部分与整体的关系；和是两个加数合起来的数，应该用加法；被减数是减数与差的和。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "将一道加法改编为对应减法问题，说明数量关系。",
+        "criteria": [
+          "改编后数量关系不变",
+          "说明已知什么、求什么",
+          "用减法列式并验算",
+          "讲清“逆运算”的意思"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-lower-5-lower_gap_candidates_batch3-number-operation-links-v1",
+      "batch": "lower_gap_candidates_batch3",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-lower",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "数与运算的关联整理",
+      "prompt": "把本学期的数与运算联系起来，逐项作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"6\",\"c\":\"1\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "32÷8=4，所以 32 元是 8 元的 4 倍。45÷7 商 6 余 3，商是 6。加法和减法的笔算都要相同数位对齐、从个位算起。“和=加数+加数”写在关系图的“加、减法各部分间的关系”分支，不属于数的认识，也不属于乘除数量关系。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "五 复习与关联",
+        "textbook_sha256": "aa34f13d5d305ed6761052d4c24d0cd0c101930e665290bc1bd22b6b884fd060",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          87,
+          89,
+          92
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 87 页关系图、第 89 页数量间的乘除关系、第 92 页商与余数练习；题目数值与情境为本地自编，未抄录教材练习。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "32÷8=4、45÷7=6……3 独立复算；归类依据第 87 页“数与运算”关系图与第 89 页“数量间的乘除关系”四例；第 92 页支持商与余数的读法。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由两个数量求倍数",
+          "b": "求两位数的商",
+          "c": "概括加减笔算的共同规则",
+          "d": "按关系图判断所属分支"
+        }
+      },
+      "responses": [
+        {
+          "label": "32 元是 8 元的几倍？",
+          "answer": "4",
+          "independent_check": "32/8",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "24",
+              "message": "用 32 减 8 了。",
+              "action": "求几倍要用除法。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "45÷7 的商是多少？",
+          "answer": "6",
+          "independent_check": "(45-3)/7",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "7",
+              "message": "把商和除数弄混了。",
+              "action": "6×7=42，余 3，商是 6。"
+            },
+            {
+              "answer": "5",
+              "message": "估计偏小，5×7=35 离 45 还差 10。",
+              "action": "6×7=42，商是 6。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "计算 468+275 和 312-145 时，共同的一条规则是什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "相同数位对齐，从个位算起",
+            "都从百位算起",
+            "都把两个数交换位置",
+            "都先算十位"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "加减笔算都从个位算起。",
+              "action": "回忆竖式计算顺序。"
+            },
+            {
+              "answer": "3",
+              "message": "加法可以交换，减法不能随便交换。",
+              "action": "找两条规则共同点。"
+            },
+            {
+              "answer": "4",
+              "message": "从个位算起，不是十位。",
+              "action": "看竖式的计算顺序。"
+            }
+          ]
+        },
+        {
+          "label": "整理关系图时，“和=加数+加数”属于哪个分支？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "万以内数的认识",
+            "数量间的乘除关系",
+            "数的读写",
+            "加、减法各部分间的关系"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "“和=加数+加数”讲的是各部分间的关系，不是数的认识。",
+              "action": "看关系图右下的分支。"
+            },
+            {
+              "answer": "2",
+              "message": "这个式子讲的是加法各部分，不是乘除。",
+              "action": "先看式子中的运算。"
+            },
+            {
+              "answer": "3",
+              "message": "式子是数量关系，不是读写规则。",
+              "action": "按关系图归类。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "数与运算的关联整理",
+        "family": "math-g2-lower:5:inventory-1:number-operation-links",
+        "priority": 3,
+        "order": 9,
+        "skills": [
+          "数与运算的关联整理"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由两个数量求倍数",
+          "求两位数的商",
+          "概括加减笔算的共同规则",
+          "按关系图判断所属分支"
+        ],
+        "difficulty_rationale": "四项跨“数的认识”“加减笔算”“乘除数量关系”三个分支，最后一项还要求按关系图归类，不能只凭算式表面判断。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g2-lower:5:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g2-lower:5:inventory-1:number-operation-links",
+        "rationale": "32÷8=4、45÷7=6……3 独立复算；归类依据第 87 页“数与运算”关系图与第 89 页“数量间的乘除关系”四例；第 92 页支持商与余数的读法。"
+      },
+      "common_error_feedback": "常见错误：用 32 减 8 了；把商和除数弄混了；估计偏小，5×7=35 离 45 还差 10；加减笔算都从个位算起；加法可以交换，减法不能随便交换；从个位算起，不是十位；“和=加数+加数”讲的是各部分间的关系，不是数的认识；这个式子讲的是加法各部分，不是乘除；式子是数量关系，不是读写规则。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "独立制作关系图并解释至少两种联系，不能把重复计算拆为多个题型族。",
+        "criteria": [
+          "关系图覆盖数与运算两个分支",
+          "至少解释两种联系",
+          "联系有具体例子",
+          "不把同一类重复计算拆成多个题型族"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    }
+  ]
+}

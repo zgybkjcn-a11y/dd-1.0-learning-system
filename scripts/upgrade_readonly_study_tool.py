@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Pinned 1.2.0 Tool lifecycle for an explicitly supplied, existing SQLite DB.
+"""Pinned 1.2.1 Tool lifecycle for an explicitly supplied, existing SQLite DB.
 
 No Docker calls, environment/config imports, registration, global reads or code
 execution. Packages contain private target configuration: keep them local.
@@ -20,21 +20,11 @@ import uuid
 
 TOOL_ID = 'dd_family_study_readonly_v1'
 WEBUI_IMAGE = 'sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd'
-CANDIDATE_SHA256 = '23fc5c2558a0141750031acaee434f7b0abd81d884974e8d15ee781c1f2404d7'
+CANDIDATE_SHA256 = '3da7d6a0b9a6575c7fd89e62daf92afde1cce91f3af6cc6c8d0dfe5c0ccb504b'
 SPECS_SHA256 = 'b2590ce999d95b330a2daab7e68330e45c3c3e53e1d4a01d377b953fae1a020e'
-METADATA_SHA256 = 'db67e7837cf6927366baf99728c1d8a02b33a6c24fcad8c40a7186256d73ab93'
-# A07 code identities, independent of documentation-only release rebuilds.
-BACKEND = {
-    'learning_service/app.py': '4252f9ee3f1fe9925196337c109bad3cb5bc37a005cfa6caa50750106fb72ffb',
-    'learning_service/config.py': '54bfdc6afd44048da3f3fe0f9dfc305de3810bf46ce6c2169cf5f924c9c686eb',
-    'learning_service/login_gateway.py': 'e12c4e0f6131a6424aa136f913160facdb37df0f61be3122b66b0f24cfee10ff',
-    'learning_service/textbooks.py': '457c627e6d21943fd07caa414c36b34f23008f1056cde2d87680df745b38225a',
-    'learning_service/passage_evidence.py': 'c29ab513580a162800158664b27eddfb340033e2ebfc303efb5a829ff9e24738',
-    'learning_service/passage_retrieval.py': 'a10e1b4b995720c273db0ce8b09ed7edbd0fdc380a5a186650db30e631fdca96',
-    'learning_service/textbook_passages.py': '08293a7a11c393af1564d2e347a7bfb5e1a7eaff9e2d51cd1e4957e659c2649e',
-    'docs/contracts/openapi-v1.json': '57708794dc2b18bb5b762cffe45a6976cef714bd0ba55c1c757cb7aa95eb98aa',
-    'deploy/open-webui-reuse/main-study/family-bridge.js': '876cb599ea7c1729bde5964138b4f22d5fdcd8ea6a580004c6b4807b4f3c7ab7',
-}
+METADATA_SHA256 = '82a22ac2c789e683ff1631fb008ac55c9d6bd611414c7dbedccb76b1945ae3bf'
+# B11 / schema13 compatible source identities; independently verified deployment required.
+BACKEND = {'learning_service/app.py': 'da49a71989a26245c3fa1b6218df0703533a6359b737d93158fb31c91ad7f5f8', 'learning_service/config.py': '54bfdc6afd44048da3f3fe0f9dfc305de3810bf46ce6c2169cf5f924c9c686eb', 'learning_service/login_gateway.py': '303f177b03c7399981614a19325ff007b276e46885d37d75ede57a6308379ae0', 'learning_service/textbooks.py': '5b149f43e16ad38548e0a159ca2d2c18fb635582bb2ea1f5e9fa614707be847a', 'learning_service/passage_evidence.py': '5901da00255bb12b895584bb171a0576d6c504981cf8c8933fcef6c632a2ff69', 'learning_service/passage_retrieval.py': 'a10e1b4b995720c273db0ce8b09ed7edbd0fdc380a5a186650db30e631fdca96', 'learning_service/textbook_passages.py': 'bfd8cbef05a307963b88d88a4781d82b3cb3285c62c3daa282a63e5b4d2ddff1', 'docs/contracts/openapi-v1.json': '4fd9bb5661f8417ae5b8275e81769149aafd352618a6165680d9ceec0d520506', 'deploy/open-webui-reuse/main-study/family-bridge.js': 'a3c455ded7b165a3e5178c67f31b797a484eada68b04dae08a4d8ca354f498f4', 'learning_service/study_reference.py': '323676fa530ed3489a2dd443e7308be924b8158f29d19bd6a664beb3dd22c382', 'learning_service/study_routes.py': 'b003d7bfc7ba785ca909938ffde40bc007d29ded992dd49959a6d0e2803dd26c', 'learning_service/study_read_db.py': 'acf818fa6ddd27e0a051cfea60907d294e7ca62d8f324a7290cd65450e149ead', 'learning_service/study_deadline.py': '2a7766eada6f96aaff3375b30097fb6cc5586daa814e11771242a19306b801a8', 'learning_service/study_cancellation.py': '336d22995ddbc5b455b27a0b8c8c5f290b518a9b9d95bc71739ef854a0ee9b31', 'learning_service/evidence_contracts.py': '9f5273983e3fe63243b63c844c6acf462336d85b2578d2d3e3b227758b75fbe2', 'learning_service/gateway_http.py': 'f409d35c1aaa1a0c3c579662c6c0b56b1ca922facb5ff3aed4e88840813d944e', 'learning_service/db.py': 'd147306358da8877b41f9a36dcc7dfca3d61e82a0a7b87eb787ca7f30cc68ce3'}
 COLUMNS = {
     'tool': ('id', 'version_id', 'user_id', 'name', 'content', 'specs', 'meta', 'valves', 'created_at', 'updated_at'),
     'tool_history': ('id', 'tool_id', 'parent_id', 'snapshot', 'user_id', 'commit_message', 'created_at'),
@@ -349,7 +339,7 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('mode', choices=['prepare', 'dry-run', 'apply', 'verify', 'rollback'])
     parser.add_argument('--db', type=Path, required=True)
-    parser.add_argument('--backend-root', type=Path, required=True, help='Read-only A07 service/gateway/bridge source root; active deployment mapping must be established separately')
+    parser.add_argument('--backend-root', type=Path, required=True, help='Read-only B11/schema13 service/gateway/bridge source root; active deployment mapping must be established separately')
     parser.add_argument('--source', type=Path)
     parser.add_argument('--native-report', type=Path)
     parser.add_argument('--expected-old-sha256')

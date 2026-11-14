@@ -1,0 +1,1511 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "lower_gap_candidates_batch7",
+  "status": "local_candidate_not_registered",
+  "teacher_reviewed": false,
+  "curriculum_standard_crosscheck": "pending",
+  "student_calibrated": false,
+  "questions": [
+    {
+      "id": "family-chapter-ethics-g2-lower-2-lower_gap_candidates_batch7-observe-nature-v1",
+      "batch": "lower_gap_candidates_batch7",
+      "grade": 2,
+      "subject": "ethics",
+      "book_id": "ethics-g2-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "大自然的语言与爱护生命",
+      "prompt": "下面是本题自编的情境，按第二单元“大自然，谢谢您”的内容作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"4\",\"c\":\"2\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "大自然有自己的“语言”：白云飘得高，明天可能是晴天；蚂蚁忙着搬家，雨水可能到身边。观察自然是去看、去听、去记录，不是把花草虫鸟带回家或破坏掉。大树有生命，花儿有生命，小草也有生命，它们会发芽，有的会开花、结果，种子落在地上又长出新的嫩芽，所以要爱护它们。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 大自然，谢谢您",
+        "textbook_sha256": "2cd52fe154b0835132637189154dc466bdc64327cf00634a5a57988f5eba9640",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          16,
+          20
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 16、20 页原页图像支持白云与蚂蚁的天气线索、花草树木有生命；本册无原生文字层，未使用 OCR，题目情境为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "白云与蚂蚁两句、以及“大树有生命……又长出新的嫩芽”分别对应第 16、20 页原页图像；两项天气线索为教材给出的可能判断，不是确定预报。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由白云读出天气线索",
+          "b": "由蚂蚁搬家读出天气线索",
+          "c": "在观察情境中选择不伤害动植物的做法",
+          "d": "说明不能折枝踩草的理由"
+        }
+      },
+      "responses": [
+        {
+          "label": "天上的白云飘得高，可能预示什么天气？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "下雪",
+            "晴天",
+            "大雨",
+            "大风"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "白云飘得高通常提示晴天。",
+              "action": "回到“明天可能是晴天”。"
+            },
+            {
+              "answer": "4",
+              "message": "教材没有把白云高与大风对应。",
+              "action": "按第 16 页的句子判断。"
+            },
+            {
+              "answer": "1",
+              "message": "教材没有把白云高与下雪对应。",
+              "action": "按第 16 页的句子判断。"
+            }
+          ]
+        },
+        {
+          "label": "地上的蚂蚁忙着搬家，可能预示什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "天气会一直很热",
+            "要下大雪",
+            "不会有任何变化",
+            "雨水可能到身边"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "蚂蚁搬家提示的是雨水。",
+              "action": "看“蚂蚁忙着搬家”后面一句。"
+            },
+            {
+              "answer": "2",
+              "message": "教材写的是雨水，不是雪。",
+              "action": "回到原文。"
+            },
+            {
+              "answer": "3",
+              "message": "蚂蚁搬家是天气变化的信号。",
+              "action": "看两句对应的关系。"
+            }
+          ]
+        },
+        {
+          "label": "到校园里观察花草时，下面哪种做法合适？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "剥下一块树皮看里面的纹路",
+            "只用眼睛看、用笔画，记录自己真实看到的样子",
+            "摘下花朵带回教室比较",
+            "把小虫捉进瓶子带回家养"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "摘花会伤害植物。",
+              "action": "观察不等于采摘。"
+            },
+            {
+              "answer": "4",
+              "message": "把小动物带走会伤害它。",
+              "action": "只观察，不捕捉。"
+            },
+            {
+              "answer": "1",
+              "message": "剥树皮会伤害大树。",
+              "action": "不破坏植物的任何部分。"
+            }
+          ]
+        },
+        {
+          "label": "为什么不能随意折树枝、踩花草？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "大树、花儿和小草都有生命，它们会发芽、开花、结果",
+            "树枝太硬，容易划伤手",
+            "折了不好看，会被老师批评",
+            "花草上有虫子，会咬人"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这是安全考虑，不是不能折枝的主要理由。",
+              "action": "想花草树木有没有生命。"
+            },
+            {
+              "answer": "3",
+              "message": "爱护的理由不是怕批评。",
+              "action": "看“它们会发芽、开花、结果”。"
+            },
+            {
+              "answer": "4",
+              "message": "这也不是不能踩草的理由。",
+              "action": "回到生命与生长。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "大自然的语言与爱护生命",
+        "family": "ethics-g2-lower:2:inventory-1:observe-nature",
+        "priority": 3,
+        "order": 1,
+        "skills": [
+          "大自然的语言与爱护生命"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由白云读出天气线索",
+          "由蚂蚁搬家读出天气线索",
+          "在观察情境中选择不伤害动植物的做法",
+          "说明不能折枝踩草的理由"
+        ],
+        "difficulty_rationale": "前两项要求把自然现象与可能的天气对应，第三项在四个行为中辨别“观察”与“伤害”，第四项要说出生命与生长这一理由，而不是怕被批评或怕划伤手。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g2-lower:2:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g2-lower:2:inventory-1:observe-nature",
+        "rationale": "白云与蚂蚁两句、以及“大树有生命……又长出新的嫩芽”分别对应第 16、20 页原页图像；两项天气线索为教材给出的可能判断，不是确定预报。"
+      },
+      "common_error_feedback": "常见错误：白云飘得高通常提示晴天；教材没有把白云高与大风对应；教材没有把白云高与下雪对应；蚂蚁搬家提示的是雨水；教材写的是雨水，不是雪；蚂蚁搬家是天气变化的信号；摘花会伤害植物；把小动物带走会伤害它；剥树皮会伤害大树；这是安全考虑，不是不能折枝的主要理由；爱护的理由不是怕批评；这也不是不能踩草的理由。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "进行不伤害动植物的观察，口述或画出真实发现。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g2-lower-2-lower_gap_candidates_batch7-water-and-paper-v1",
+      "batch": "lower_gap_candidates_batch7",
+      "grade": 2,
+      "subject": "ethics",
+      "book_id": "ethics-g2-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "水和纸的用途",
+      "prompt": "按第二单元“大自然，谢谢您”中关于水和纸的内容作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"3\",\"c\":\"1\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "水走过山川，山川绿了；流进田野，秧苗长了；经过草原，牛羊乐了；流进人们嘴里，大家心里甜了，所以说水是“地球的血液”“生命的源泉”，说明水对动植物和人的生活都很重要。纸是学习和生活的好朋友：书本、作业本、纸雕、折纸都要用纸，我国古代蔡伦改进了造纸工艺。小水滴的不幸是被人随意浪费、被乱扔垃圾污染。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 大自然，谢谢您",
+        "textbook_sha256": "2cd52fe154b0835132637189154dc466bdc64327cf00634a5a57988f5eba9640",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          24,
+          25,
+          26,
+          28
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 24—26、28 页原页图像支持水的用途、小水滴的不幸与纸的用途；具体的节约做法在教材中尚未逐条展开，本题只考最直接的分类与辨认。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "水的用途、“地球的血液／生命的源泉”与小水滴的不幸分别对应第 25、26 页；纸的用途与蔡伦改进造纸工艺对应第 28 页；四项均按原页图像核对。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "把生活材料归为水的用途",
+          "b": "把生活材料归为纸的用途",
+          "c": "理解水重要的比喻含义",
+          "d": "辨认浪费和污染水的行为"
+        }
+      },
+      "responses": [
+        {
+          "label": "下面哪一项是水的用途？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "印成图画书",
+            "流进田野，让秧苗长起来",
+            "装订成本子用来写字",
+            "折成纸飞机"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "这是纸的用途。",
+              "action": "区分水的用途与纸的用途。"
+            },
+            {
+              "answer": "4",
+              "message": "折纸用的是纸。",
+              "action": "看这一项用的是水还是纸。"
+            },
+            {
+              "answer": "1",
+              "message": "印书用的是纸。",
+              "action": "回到“水”的用途。"
+            }
+          ]
+        },
+        {
+          "label": "下面哪一项是纸的用途？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "给牛羊解渴",
+            "用来洗衣服",
+            "装订成作业本，用来写字画画",
+            "流进田野浇灌秧苗"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "这是水的用途。",
+              "action": "区分纸与水的用途。"
+            },
+            {
+              "answer": "1",
+              "message": "给牛羊喝水用的是水。",
+              "action": "看“纸”的用途。"
+            },
+            {
+              "answer": "2",
+              "message": "洗衣服要用到水。",
+              "action": "回到“纸”的用途。"
+            }
+          ]
+        },
+        {
+          "label": "课文说水是“地球的血液”“生命的源泉”，主要想说明什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "水对动植物和人的生活都非常重要",
+            "水只能用来喝，不能做别的",
+            "水很多，浪费一点没关系",
+            "只有生活在海岛上的人才需要水"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "课文还写了浇灌、养牛羊等用途。",
+              "action": "看“山川绿了、秧苗长了”。"
+            },
+            {
+              "answer": "3",
+              "message": "小水滴正是不希望被浪费。",
+              "action": "理解比喻想强调什么。"
+            },
+            {
+              "answer": "4",
+              "message": "水对所有人都重要。",
+              "action": "看“生命的源泉”。"
+            }
+          ]
+        },
+        {
+          "label": "小水滴说有人“随意浪费，还往我身上乱扔垃圾”。下面哪种行为属于它说的不幸？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "把没喝完的水倒掉，还把垃圾丢进河里",
+            "用洗菜的水浇花",
+            "随手关紧正在滴水的水龙头",
+            "把雨水收集起来浇树"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这是节约用水的做法。",
+              "action": "题目问的是“不幸”。"
+            },
+            {
+              "answer": "3",
+              "message": "这是珍惜水的做法。",
+              "action": "题目问的是浪费或污染。"
+            },
+            {
+              "answer": "4",
+              "message": "这是利用雨水的做法。",
+              "action": "回到“随意浪费”“乱扔垃圾”。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "水和纸的用途",
+        "family": "ethics-g2-lower:2:inventory-2:water-and-paper",
+        "priority": 3,
+        "order": 2,
+        "skills": [
+          "水和纸的用途"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "把生活材料归为水的用途",
+          "把生活材料归为纸的用途",
+          "理解水重要的比喻含义",
+          "辨认浪费和污染水的行为"
+        ],
+        "difficulty_rationale": "前两项要求在两份用途列表中把水和纸分开，不能把浇灌与书写混用；第三项要理解比喻说的是重要性而不是“只能喝”；第四项要从四个行为中认出哪一个是教材所说的浪费与污染。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g2-lower:2:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g2-lower:2:inventory-2:water-and-paper",
+        "rationale": "水的用途、“地球的血液／生命的源泉”与小水滴的不幸分别对应第 25、26 页；纸的用途与蔡伦改进造纸工艺对应第 28 页；四项均按原页图像核对。"
+      },
+      "common_error_feedback": "常见错误：这是纸的用途；折纸用的是纸；印书用的是纸；这是水的用途；给牛羊喝水用的是水；洗衣服要用到水；课文还写了浇灌、养牛羊等用途；小水滴正是不希望被浪费；水对所有人都重要；这是节约用水的做法；这是珍惜水的做法；这是利用雨水的做法。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "记录一次用水或用纸的实际情境，提出可行改进并由成人核对。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g2-lower-3-lower_gap_candidates_batch7-virtue-stories-v1",
+      "batch": "lower_gap_candidates_batch7",
+      "grade": 2,
+      "subject": "ethics",
+      "book_id": "ethics-g2-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "行为与品质的对应",
+      "prompt": "按第三单元“传统美德我弘扬”的故事，把具体行为与相应品质对应起来。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"4\",\"c\":\"1\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "勤劳让祖先种出粮食、建起房屋，带来庄稼丰收、共同富裕和创新进步。诚信是立身之本，无人售货时按标价付款、讲好的事按时做到，都是诚信的表现。小竹笋冲破泥土、掀翻石块、一直生长，说明要自强不息、坚持努力。孔子说“见贤思齐”，意思是见到有道德有才能的人，要向他看齐，向他学习。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元 传统美德我弘扬",
+        "textbook_sha256": "2cd52fe154b0835132637189154dc466bdc64327cf00634a5a57988f5eba9640",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          32,
+          36,
+          39,
+          42
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 32、36、39、42 页原页图像支持勤劳、诚信、自强与“见贤思齐”的事例和释义；题目只用这些行为线索，不要求背人物称号。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "勤劳的三幅图、诚信的两个场景、小竹笋的四幅图和“见贤思齐”的释义分别对应第 32、36、39、42 页原页图像，逐项核对。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由勤劳的事例概括品质",
+          "b": "在无人售货情境中辨认诚信",
+          "c": "由小竹笋的故事概括自强",
+          "d": "解释“见贤思齐”的含义"
+        }
+      },
+      "responses": [
+        {
+          "label": "课文写祖先“播下第一颗谷种，架起第一根房梁”，想说明什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "房子比庄稼更重要",
+            "劳动是一件轻松的事",
+            "勤劳创造了幸福生活",
+            "祖先只靠天气生活"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "课文强调的是勤劳创造生活。",
+              "action": "看“播种”“架梁”这些行动。"
+            },
+            {
+              "answer": "1",
+              "message": "课文没有比较两者。",
+              "action": "回到“勤劳”。"
+            },
+            {
+              "answer": "2",
+              "message": "课文写的是用汗水浇灌。",
+              "action": "看“用汗水浇灌”。"
+            }
+          ]
+        },
+        {
+          "label": "在无人售货店买东西，顾客按标价自己付款，这体现了哪种品质？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "勤劳",
+            "自强",
+            "谦虚",
+            "诚信"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这里考的是按标价自己付款。",
+              "action": "看“无人售货”的信任关系。"
+            },
+            {
+              "answer": "2",
+              "message": "自强是努力进取，不是诚实付款。",
+              "action": "区分四种品质。"
+            },
+            {
+              "answer": "3",
+              "message": "谦虚是不自满，与付款无关。",
+              "action": "回到“诚信”。"
+            }
+          ]
+        },
+        {
+          "label": "小竹笋冲破泥土、掀翻石块，一直努力生长，这告诉我们什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "遇到困难要坚持努力，自强不息",
+            "只要力气大就什么都能搬动",
+            "竹笋长得快只是因为雨水多",
+            "石头挡不住任何植物"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "故事强调的是一直努力，不是力气。",
+              "action": "看“一直努力，不断生长”。"
+            },
+            {
+              "answer": "3",
+              "message": "故事的重点是克服困难。",
+              "action": "回到“冲破”“掀翻”。"
+            },
+            {
+              "answer": "4",
+              "message": "故事不是讲所有植物。",
+              "action": "看小竹笋怎么做的。"
+            }
+          ]
+        },
+        {
+          "label": "“见贤思齐”的意思是什么？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "看到别人的优点就心里不服气",
+            "见到有道德有才能的人，要向他看齐",
+            "见到比自己差的人，要离他远一点",
+            "只向有称号的人学习"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "“见贤”指见到有道德有才能的人。",
+              "action": "看“贤”的意思。"
+            },
+            {
+              "answer": "4",
+              "message": "要看品德和才能，不是看称号。",
+              "action": "避免只看称号。"
+            },
+            {
+              "answer": "1",
+              "message": "“思齐”是想向他看齐。",
+              "action": "回到“看齐”。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "行为与品质的对应",
+        "family": "ethics-g2-lower:3:inventory-1:virtue-stories",
+        "priority": 3,
+        "order": 3,
+        "skills": [
+          "行为与品质的对应"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由勤劳的事例概括品质",
+          "在无人售货情境中辨认诚信",
+          "由小竹笋的故事概括自强",
+          "解释“见贤思齐”的含义"
+        ],
+        "difficulty_rationale": "四项都要求从具体行为或故事推出品质，不能只看人物称号；第四项还要把古文说法解释成“向有道德有才能的人看齐”，而不是嫉妒或只学有名的人。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g2-lower:3:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g2-lower:3:inventory-1:virtue-stories",
+        "rationale": "勤劳的三幅图、诚信的两个场景、小竹笋的四幅图和“见贤思齐”的释义分别对应第 32、36、39、42 页原页图像，逐项核对。"
+      },
+      "common_error_feedback": "常见错误：课文强调的是勤劳创造生活；课文没有比较两者；课文写的是用汗水浇灌；这里考的是按标价自己付款；自强是努力进取，不是诚实付款；谦虚是不自满，与付款无关；故事强调的是一直努力，不是力气；故事的重点是克服困难；故事不是讲所有植物；“见贤”指见到有道德有才能的人；要看品德和才能，不是看称号；“思齐”是想向他看齐。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "讲清一个身边榜样的事实，提出自己可以学习的具体做法。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g2-lower-4-lower_gap_candidates_batch7-dreams-and-actions-v1",
+      "batch": "lower_gap_candidates_batch7",
+      "grade": 2,
+      "subject": "ethics",
+      "book_id": "ethics-g2-lower",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "个人梦想、共同梦想与学习行动",
+      "prompt": "按第四单元“播下梦想的种子”的内容作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"1\",\"c\":\"1\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "课文先写身边人的梦想：渔民希望年年丰收，无人车让服务更高效，新能源让大家用上清洁能源，说明不同的人有不同的梦想，梦想有大有小。接着写我们共同的梦想：国家富强、国泰民安。实现梦想需要一代代人接力，也要从现在做起：珍惜时光，好好学习，像海绵吸水一样学习知识；一次做不好没关系，多做几次就学会了；既要学课本知识，也要积极参加户外活动。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 播下梦想的种子",
+        "textbook_sha256": "2cd52fe154b0835132637189154dc466bdc64327cf00634a5a57988f5eba9640",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          46,
+          50,
+          54,
+          58
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 46、50、54、58 页原页图像支持个人梦想、共同的梦想、代际接力与学习行动；题目不评价任何学生自己的梦想内容。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "身边人的三种梦想、共同的梦想、代际接力与“实现梦想从学习开始”的四幅情境分别对应第 46、50、54、58 页原页图像，逐项核对。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "区分共同的梦想与个人梦想",
+          "b": "由不同人的梦想概括梦想有大有小",
+          "c": "说出实现梦想的学习行动",
+          "d": "在失败情境中选择继续练习的态度"
+        }
+      },
+      "responses": [
+        {
+          "label": "“国家富强、国泰民安”属于什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "某一个人的梦想",
+            "一条交通规则",
+            "一种天气现象",
+            "我们共同的梦想"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这是全体人民共同的愿望。",
+              "action": "看“我们共同的梦想”。"
+            },
+            {
+              "answer": "2",
+              "message": "这不是规则问题。",
+              "action": "区分梦想与规则。"
+            },
+            {
+              "answer": "3",
+              "message": "这与天气无关。",
+              "action": "回到“国家富强、国泰民安”。"
+            }
+          ]
+        },
+        {
+          "label": "渔民希望年年丰收，无人车让服务更高效，这些说明什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "不同的人有不同的梦想，梦想有大有小",
+            "所有人的梦想完全一样",
+            "只有科学家才有梦想",
+            "梦想与自己的工作没有关系"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "课文写的是各人有各人的梦想。",
+              "action": "看三个不同职业的例子。"
+            },
+            {
+              "answer": "3",
+              "message": "渔民、工人也有自己的梦想。",
+              "action": "看“身边的人”。"
+            },
+            {
+              "answer": "4",
+              "message": "例子里的梦想都和自己的工作有关。",
+              "action": "看渔民与无人车。"
+            }
+          ]
+        },
+        {
+          "label": "实现梦想，课文建议先从哪里做起？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "珍惜时光，好好学习，天天向上",
+            "等长大以后再考虑",
+            "只做自己喜欢的事，不学习",
+            "让别人替自己完成"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "课文说要从现在做起。",
+              "action": "看“从现在做起”。"
+            },
+            {
+              "answer": "3",
+              "message": "课文强调好好学习。",
+              "action": "看“珍惜时光”。"
+            },
+            {
+              "answer": "4",
+              "message": "梦想要靠自己努力。",
+              "action": "回到“天天向上”。"
+            }
+          ]
+        },
+        {
+          "label": "做一件事一次没做好时，下面哪种想法符合课文？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "让别人替自己做",
+            "多做几次就学会了，继续练",
+            "做不好就说明自己没有能力",
+            "换一件容易的事，永远不再尝试"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "一次没做好不代表没有能力。",
+              "action": "看“多做几次”。"
+            },
+            {
+              "answer": "4",
+              "message": "课文鼓励继续练。",
+              "action": "回到“多做几次就学会了”。"
+            },
+            {
+              "answer": "1",
+              "message": "学会本领要靠自己练习。",
+              "action": "看第 58 页的情境。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "个人梦想、共同梦想与学习行动",
+        "family": "ethics-g2-lower:4:inventory-1:dreams-and-actions",
+        "priority": 3,
+        "order": 4,
+        "skills": [
+          "个人梦想、共同梦想与学习行动"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "区分共同的梦想与个人梦想",
+          "由不同人的梦想概括梦想有大有小",
+          "说出实现梦想的学习行动",
+          "在失败情境中选择继续练习的态度"
+        ],
+        "difficulty_rationale": "第一项要求把“国家富强、国泰民安”归为共同的梦想而不是个人愿望；第二项要同时承认差异和大小；第三、四项要落到具体学习行动和反复练习，不能用“等长大”“让别人替我做”代替。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g2-lower:4:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g2-lower:4:inventory-1:dreams-and-actions",
+        "rationale": "身边人的三种梦想、共同的梦想、代际接力与“实现梦想从学习开始”的四幅情境分别对应第 46、50、54、58 页原页图像，逐项核对。"
+      },
+      "common_error_feedback": "常见错误：这是全体人民共同的愿望；这不是规则问题；这与天气无关；课文写的是各人有各人的梦想；渔民、工人也有自己的梦想；例子里的梦想都和自己的工作有关；课文说要从现在做起；课文强调好好学习；梦想要靠自己努力；一次没做好不代表没有能力；课文鼓励继续练；学会本领要靠自己练习。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用自己的话提出梦想及近期可执行的一步；实际完成情况另记，不能照抄示例算完成。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g7-lower-2-lower_gap_candidates_batch7-self-respect-confidence-v1",
+      "batch": "lower_gap_candidates_batch7",
+      "grade": 7,
+      "subject": "ethics",
+      "book_id": "ethics-g7-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "自尊、自信与恰当目标",
+      "prompt": "根据第二单元“焕发青春活力”的教材内容作答，不涉及任何同学的真实个人评价。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\",\"c\":\"1\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "自尊是对自我价值的肯定，包括自我尊重和赢得他人的尊重；自尊的人能认可自己，也能知廉耻、明是非，用行动改正不恰当的行为。自尊与尊重他人分不开：给别人起难听的绰号、反复无视对方反对，既伤害他人，也得不到真正的自尊。自信是实事求是地看待自己；自负过高估计自己，自卑则低估自己。确定目标要恰当：过低难以提高自信，过高难以达到，也不利于获得自信。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 焕发青春活力",
+        "textbook_sha256": "aec0bdbafcb98215747061f8d17a8bcec1d8b728f69f2fca21a7fac63c96bf63",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          26,
+          27,
+          30,
+          35,
+          40
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 26、27、30、35、40 页支持自尊的含义、知耻改正、自尊与尊重他人、自信与自负自卑的区分和恰当目标；题目用虚构情境，不评价任何真实同学。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "自尊的含义、小明的情境、绰号冲突与“目标要恰当”分别对应第 26、27、30、40 页原文；第 35 页区分自信、自负、自卑，作为第三项的判断依据。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "说出自尊的两个方面",
+          "b": "由改正行为判断知耻明是非",
+          "c": "在绰号冲突中区分自尊与伤害他人",
+          "d": "说明恰当目标与自信的关系"
+        }
+      },
+      "responses": [
+        {
+          "label": "自尊包括哪两个方面？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "自我尊重和赢得他人的尊重",
+            "只要求别人尊重自己",
+            "只看自己的优点，不看缺点",
+            "与别人比较后获得的优越感"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "自尊还包括自我尊重。",
+              "action": "看“包括”后面的两个方面。"
+            },
+            {
+              "answer": "3",
+              "message": "自尊的人能看到缺点也能肯定价值。",
+              "action": "看第 27 页的说明。"
+            },
+            {
+              "answer": "4",
+              "message": "这不是教材对自尊的界定。",
+              "action": "回到定义。"
+            }
+          ]
+        },
+        {
+          "label": "小明值日时忘了整理讲台，班级丢了流动红旗，他第二天主动留下来认真打扫。这体现了什么？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "只要成绩好，卫生扣分没关系",
+            "知廉耻、明是非，用行动改正",
+            "害怕老师批评才装样子",
+            "自尊就是不能被指出错误"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "他的行为指向改正，不是应付检查。",
+              "action": "看第二天主动留下。"
+            },
+            {
+              "answer": "4",
+              "message": "自尊的人知耻并改正。",
+              "action": "看“知廉耻、明是非”。"
+            },
+            {
+              "answer": "1",
+              "message": "值日责任与成绩是两件事。",
+              "action": "回到行为本身。"
+            }
+          ]
+        },
+        {
+          "label": "小勇给小章起难听的绰号，小章多次反对后两人争执。下面评价正确的是？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "小勇伤害了他人，不尊重别人也得不到真正的自尊",
+            "起绰号只是开玩笑，小章不该反对",
+            "小章反驳说明他过于自负",
+            "两人都有错，因为小章不该在意绰号"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "小章已多次明确反对。",
+              "action": "看对方是否接受。"
+            },
+            {
+              "answer": "3",
+              "message": "维护自己的尊严不是自负。",
+              "action": "区分自尊与自负。"
+            },
+            {
+              "answer": "4",
+              "message": "伤害他人的人应承担责任。",
+              "action": "看谁先伤害了谁。"
+            }
+          ]
+        },
+        {
+          "label": "关于确定目标，教材认为怎样更有利于获得自信？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "目标越低越容易获得自信",
+            "目标越高越能激励自己",
+            "不需要目标，顺其自然就好",
+            "目标要恰当：过低难以提高，过高难以达到"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "目标过低难以提高自信。",
+              "action": "看教材对过低目标的说明。"
+            },
+            {
+              "answer": "2",
+              "message": "目标过高难以达到。",
+              "action": "看教材对过高目标的说明。"
+            },
+            {
+              "answer": "3",
+              "message": "恰当地确定目标有助于获得自信。",
+              "action": "回到“恰当”。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "自尊、自信与恰当目标",
+        "family": "ethics-g7-lower:2:inventory-1:self-respect-confidence",
+        "priority": 3,
+        "order": 5,
+        "skills": [
+          "自尊、自信与恰当目标"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "说出自尊的两个方面",
+          "由改正行为判断知耻明是非",
+          "在绰号冲突中区分自尊与伤害他人",
+          "说明恰当目标与自信的关系"
+        ],
+        "difficulty_rationale": "四项都要求用具体事实判断，而不是只凭“自尊”“自信”这类词：第二项看行为是否指向改正，第三项要同时看伤害他人与真正自尊，第四项要同时否定“越低越好”和“越高越好”。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g7-lower:2:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g7-lower:2:inventory-1:self-respect-confidence",
+        "rationale": "自尊的含义、小明的情境、绰号冲突与“目标要恰当”分别对应第 26、27、30、40 页原文；第 35 页区分自信、自负、自卑，作为第三项的判断依据。"
+      },
+      "common_error_feedback": "常见错误：自尊还包括自我尊重；自尊的人能看到缺点也能肯定价值；这不是教材对自尊的界定；他的行为指向改正，不是应付检查；自尊的人知耻并改正；值日责任与成绩是两件事；小章已多次明确反对；维护自己的尊严不是自负；伤害他人的人应承担责任；目标过低难以提高自信；目标过高难以达到；恰当地确定目标有助于获得自信。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "制定恰当目标并说明能力依据，后续用实际行动记录核对自强表现。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g7-lower-3-lower_gap_candidates_batch7-traditional-ideas-v1",
+      "batch": "lower_gap_candidates_batch7",
+      "grade": 7,
+      "subject": "ethics",
+      "book_id": "ethics-g7-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "传统思想理念与当代表达",
+      "prompt": "根据第三单元“传承中华优秀传统文化”的教材内容作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"4\",\"c\":\"2\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "二十四节气是先民观察时令、气候、物候形成的知识体系，2016 年被列入联合国教科文组织人类非物质文化遗产代表作名录。“道法自然、天人合一”主张尊重、顺应自然规律，与天地万物和谐共生。“和实生物，同则不继”说明多样性相互作用才能生生不息，完全相同的东西简单相加反而失去生机。所以在今天，促进和谐要正确运用求同存异、和而不同的方法，尊重合理的差异，而不是要求所有人完全一样。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元 传承中华优秀传统文化",
+        "textbook_sha256": "aec0bdbafcb98215747061f8d17a8bcec1d8b728f69f2fca21a7fac63c96bf63",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          51,
+          56,
+          63
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 51、56、63 页支持二十四节气、道法自然与天人合一、和实生物与求同存异；题目只考文字结论，不要求背诵全部原文。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "二十四节气的名录与年份、道法自然与天人合一的解释、和实生物与求同存异分别对应第 51、56、63 页原文，逐项核对。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "说出二十四节气的名录归属",
+          "b": "概括道法自然与天人合一的主张",
+          "c": "解释“和实生物，同则不继”",
+          "d": "在当代情境中运用和而不同"
+        }
+      },
+      "responses": [
+        {
+          "label": "二十四节气在 2016 年被列入哪一名录？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "联合国教科文组织人类非物质文化遗产代表作名录",
+            "世界自然遗产名录",
+            "世界记忆名录",
+            "国家级非物质文化遗产名录"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "二十四节气是非物质文化遗产。",
+              "action": "区分自然遗产与非物质遗产。"
+            },
+            {
+              "answer": "3",
+              "message": "教材写的是人类非物质文化遗产代表作名录。",
+              "action": "回到原文。"
+            },
+            {
+              "answer": "4",
+              "message": "教材写的是联合国教科文组织的名录。",
+              "action": "看名录层级。"
+            }
+          ]
+        },
+        {
+          "label": "“道法自然、天人合一”主要主张什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "人类可以随意改造自然",
+            "人与自然互不相关",
+            "只有古代人才需要顺应自然",
+            "尊重、顺应大自然运行的规律，与天地万物和谐共生"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这一理念主张顺应自然规律。",
+              "action": "看“尊重、顺应”。"
+            },
+            {
+              "answer": "2",
+              "message": "这一理念强调和谐共生。",
+              "action": "看“与天地万物和谐共生”。"
+            },
+            {
+              "answer": "3",
+              "message": "这一理念在当代仍有意义。",
+              "action": "看“历久弥新”。"
+            }
+          ]
+        },
+        {
+          "label": "“和实生物，同则不继”说明什么？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "和谐就是要求所有人完全一样",
+            "多样性的东西相互作用才能生生不息，完全相同的东西简单相加会失去生机",
+            "只要意见相同就能把事情办好",
+            "差异和矛盾必须全部消除"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "“同则不继”正说明完全相同难以维系。",
+              "action": "区分“和”与“同”。"
+            },
+            {
+              "answer": "4",
+              "message": "教材主张正确看待差异与矛盾。",
+              "action": "看“多样性统一”。"
+            },
+            {
+              "answer": "1",
+              "message": "和谐不是完全相同。",
+              "action": "回到“和实生物”。"
+            }
+          ]
+        },
+        {
+          "label": "今天促进社会和谐，下面哪种做法符合“求同存异、和而不同”？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "回避一切不同意见",
+            "只和自己想法相同的人来往",
+            "保留各自合理的不同，在共同目标上合作",
+            "要求所有人想法完全一致"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "这属于只求“同”。",
+              "action": "看“和而不同”。"
+            },
+            {
+              "answer": "1",
+              "message": "回避不是和谐。",
+              "action": "看“正确看待差异与矛盾”。"
+            },
+            {
+              "answer": "2",
+              "message": "这会排斥差异。",
+              "action": "回到“求同存异”。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "传统思想理念与当代表达",
+        "family": "ethics-g7-lower:3:inventory-1:traditional-ideas",
+        "priority": 3,
+        "order": 6,
+        "skills": [
+          "传统思想理念与当代表达"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "说出二十四节气的名录归属",
+          "概括道法自然与天人合一的主张",
+          "解释“和实生物，同则不继”",
+          "在当代情境中运用和而不同"
+        ],
+        "difficulty_rationale": "第二项要把古文理念解释成尊重自然规律，不能理解成“随意改造”；第三项要读出“多样性统一”而不是“消除差异”；第四项要求把同一原则用到当代相处情境，区分尊重差异与要求完全相同。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g7-lower:3:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g7-lower:3:inventory-1:traditional-ideas",
+        "rationale": "二十四节气的名录与年份、道法自然与天人合一的解释、和实生物与求同存异分别对应第 51、56、63 页原文，逐项核对。"
+      },
+      "common_error_feedback": "常见错误：二十四节气是非物质文化遗产；教材写的是人类非物质文化遗产代表作名录；教材写的是联合国教科文组织的名录；这一理念主张顺应自然规律；这一理念强调和谐共生；这一理念在当代仍有意义；“同则不继”正说明完全相同难以维系；教材主张正确看待差异与矛盾；和谐不是完全相同；这属于只求“同”；回避不是和谐；这会排斥差异。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "选择一个传统文化事例，说明来源和当代可行做法，允许多种有依据的表达。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g7-lower-4-lower_gap_candidates_batch7-law-and-rights-v1",
+      "batch": "lower_gap_candidates_batch7",
+      "grade": 7,
+      "subject": "ethics",
+      "book_id": "ethics-g7-lower",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "权利的界限与知识产权保护",
+      "prompt": "根据第四单元“生活在法治社会”的案例与结论作答，不用于判断任何真实纠纷。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"3\",\"c\":\"1\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "法律通过设定个人权利的界限，平衡个人利益与社会公共利益：个人行使权利时必须履行法律规定的义务，不得滥用权利损害社会公共利益。刘某拆承重墙看似处置自家财产，却危及整栋楼的安全，损害了 200 多户居民的利益，应承担法律责任。知识产权包括著作权、专利权、商标权等，使用他人作品要依法获得许可；保护知识产权就是尊重劳动、保护创新。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 生活在法治社会",
+        "textbook_sha256": "aec0bdbafcb98215747061f8d17a8bcec1d8b728f69f2fca21a7fac63c96bf63",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          80,
+          90
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 80、90 页支持权利界限、个人利益与公共利益、著作权案例与保护知识产权的理由；题目只复述教材结论，不构成法律意见。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "承重墙案例与法律平衡两种利益的结论对应第 80 页，著作权案例与保护知识产权的理由对应第 90 页；题目使用教材案例的公开情节，结论限于教材表述，不裁定任何现实案件。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由案例判断权利行使的界限",
+          "b": "说明法律如何平衡两种利益",
+          "c": "由案例判断作品使用是否合法",
+          "d": "说明保护知识产权的理由"
+        }
+      },
+      "responses": [
+        {
+          "label": "刘某拆掉自家承重墙，导致 200 多户居民紧急疏散。下面评价正确的是？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "他在行使自己权利时损害了社会公共利益，应承担法律责任",
+            "他拆的是自家的墙，与他人无关",
+            "只要恢复原状就不需要负责",
+            "这是装修自由，法律不应干涉"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "承重墙关系到整栋楼的安全。",
+              "action": "看 200 多户居民被迫疏散。"
+            },
+            {
+              "answer": "3",
+              "message": "恢复原状之外还要依法承担责任。",
+              "action": "看教材的结论。"
+            },
+            {
+              "answer": "4",
+              "message": "行使权利有法律界限。",
+              "action": "看“不得滥用权利”。"
+            }
+          ]
+        },
+        {
+          "label": "法律通过什么方式平衡个人利益与社会公共利益？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "只保护公共利益，不考虑个人",
+            "由个人自行协商，不需要法律",
+            "设定个人权利的界限，要求行使权利时履行法定义务",
+            "只保护个人利益"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "法律同时保护社会公共利益。",
+              "action": "看两种利益。"
+            },
+            {
+              "answer": "1",
+              "message": "法律也保护个人的合法权利。",
+              "action": "看“平衡”。"
+            },
+            {
+              "answer": "2",
+              "message": "法律设定权利界限。",
+              "action": "回到“设定个人权利的界限”。"
+            }
+          ]
+        },
+        {
+          "label": "孙某未经许可在自己出版的书中使用尹某的摄影作品，法院判决他停止侵权并赔偿。这说明什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "知识产权受法律保护，使用他人作品要依法获得许可",
+            "只要注明作者就可以随意使用",
+            "获奖的作品不受保护",
+            "摄影作品不属于知识产权"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "使用他人作品还要依法获得许可。",
+              "action": "看案例中的判决。"
+            },
+            {
+              "answer": "3",
+              "message": "获奖不改变著作权归属。",
+              "action": "回到“知识产权受法律保护”。"
+            },
+            {
+              "answer": "4",
+              "message": "著作权包括摄影作品等作品。",
+              "action": "看知识产权的范围。"
+            }
+          ]
+        },
+        {
+          "label": "保护知识产权的主要理由是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "为了让作品卖得更贵",
+            "为了防止别人学习知识",
+            "只保护有名的人的作品",
+            "保护知识产权就是尊重劳动、保护创新"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "保护的理由不是价格。",
+              "action": "看“尊重劳动、保护创新”。"
+            },
+            {
+              "answer": "2",
+              "message": "保护知识产权不排斥合理学习。",
+              "action": "回到“尊重劳动”。"
+            },
+            {
+              "answer": "3",
+              "message": "知识产权保护所有权利人的作品。",
+              "action": "看“权利人”。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "权利的界限与知识产权保护",
+        "family": "ethics-g7-lower:4:inventory-1:law-and-rights",
+        "priority": 3,
+        "order": 7,
+        "skills": [
+          "权利的界限与知识产权保护"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由案例判断权利行使的界限",
+          "说明法律如何平衡两种利益",
+          "由案例判断作品使用是否合法",
+          "说明保护知识产权的理由"
+        ],
+        "difficulty_rationale": "第一项要求同时看到“自家财产”与“公共安全”两面；第二项要把权利的界限与义务连起来；第三、四项要从案例走向知识产权的定义与保护理由，不能说成只要注明作者就可以使用。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g7-lower:4:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g7-lower:4:inventory-1:law-and-rights",
+        "rationale": "承重墙案例与法律平衡两种利益的结论对应第 80 页，著作权案例与保护知识产权的理由对应第 90 页；题目使用教材案例的公开情节，结论限于教材表述，不裁定任何现实案件。"
+      },
+      "common_error_feedback": "常见错误：承重墙关系到整栋楼的安全；恢复原状之外还要依法承担责任；行使权利有法律界限；法律同时保护社会公共利益；法律也保护个人的合法权利；法律设定权利界限；使用他人作品还要依法获得许可；获奖不改变著作权归属；著作权包括摄影作品等作品；保护的理由不是价格；保护知识产权不排斥合理学习；知识产权保护所有权利人的作品。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "围绕虚构纠纷说明事实、规则和求助路径；后续出题须复核法律适用，不由教材摘句裁定现实案件。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    }
+  ]
+}

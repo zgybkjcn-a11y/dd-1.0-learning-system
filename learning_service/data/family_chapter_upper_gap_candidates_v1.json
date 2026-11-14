@@ -1,0 +1,2797 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "upper_gap_candidates",
+  "status": "local_candidate_not_registered",
+  "teacher_reviewed": false,
+  "curriculum_standard_crosscheck": "pending",
+  "student_calibrated": false,
+  "questions": [
+    {
+      "id": "family-chapter-ethics-g2-upper-4-upper_gap_candidates-activity-plan-components-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 2,
+      "subject": "ethics",
+      "book_id": "ethics-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "让了解祖国的活动具体起来",
+      "prompt": "小安想了解家乡的一种传统手艺。周末可以用30分钟向熟悉这门手艺的家人请教，下周向同学分享。下面先判断活动计划；你自己的计划另由家长核对。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"3\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "计划要有具体了解对象、可执行的了解方法和可分享的成果。选择这些要素只是准备，还不能说明你已独立提出或完成活动。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 我爱我们的祖国",
+        "textbook_sha256": "aa412c71473b401f34fee653f2f77d18ef614eea2455c85e32fd3b68f15dbd1c",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          51,
+          62,
+          63
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "三个选项判断均有目标依据，但不能替代学生自行提出活动，因此只映射辅助。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "辨认了解对象与问题",
+          "b": "辨认可执行的了解方法",
+          "c": "辨认与目标相符的成果"
+        }
+      },
+      "responses": [
+        {
+          "label": "哪个问题最能帮助了解这门手艺？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "今天谁跑得最快？",
+            "能不能不做记录？",
+            "这门手艺用什么材料、怎样制作？"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "计划要与了解手艺的目标相连，并留下能分享的具体发现。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "与目标相合且能完成的安排",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "30分钟走遍全国",
+            "只写一句我很喜欢",
+            "请教并记下材料和一个制作步骤"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "向同学分享的成果",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "一份跑步成绩",
+            "一张标明手艺名称、材料和步骤的小卡片",
+            "一张没有说明的空白纸"
+          ],
+          "kind": "choice",
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "让了解祖国的活动具体起来",
+        "family": "ethics-g2-upper:4:participate:activity-plan-components",
+        "priority": 3,
+        "order": 1,
+        "skills": [
+          "让了解祖国的活动具体起来"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "辨认了解对象与问题",
+          "辨认可执行的了解方法",
+          "辨认与目标相符的成果"
+        ],
+        "difficulty_rationale": "二年级熟悉的家庭请教情境，三个有界判断；不评判开放作品。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g2-upper:4:participate",
+        "task": "check",
+        "role": "supporting",
+        "family": "ethics-g2-upper:4:participate:activity-plan-components",
+        "rationale": "三个选项判断均有目标依据，但不能替代学生自行提出活动，因此只映射辅助。"
+      },
+      "common_error_feedback": "计划要与了解手艺的目标相连，并留下能分享的具体发现。",
+      "manual_followup": {
+        "prompt": "不用选项，自己提出一项了解祖国的学习活动，说明想了解什么、向谁或从哪里了解、何时进行、准备怎样分享；可口述，也可画图后说明。无需照抄示例。",
+        "criteria": [
+          "对象具体且与祖国相关",
+          "方法和时间可实行",
+          "成果与问题对应",
+          "记录孩子实际表述和所用提示"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g7-upper-2-upper_gap_candidates-needs-and-constraints-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "ethics",
+      "book_id": "ethics-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "需要与家人处境",
+      "prompt": "小雨今天19:00要练笛20分钟，明天上音乐课要用。爸爸刚上完夜班，正在客厅休息；关门后的书房可以练习且不会影响客厅。两人还没有商量。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "题中只说明爸爸夜班后休息，不能推断他故意阻止学习。清楚说明需要并协商合适场所，可以兼顾双方。能选出示例，不等于能独立说出这些话。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 成长的时空",
+        "textbook_sha256": "1a3d34f93331a369b8d060894703f5dff584c2b38e3eefb40e5b49b9d336cad6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          31,
+          32
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "家庭情境补齐，但表达需要这一动作未由学生独立产出，保留辅助及人工表达任务。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "识别本人需要",
+          "b": "根据事实理解另一成员处境",
+          "c": "判断兼顾需要的沟通方案"
+        }
+      },
+      "responses": [
+        {
+          "label": "小雨的具体需要",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "为明天的课练笛20分钟",
+            "让爸爸永远不休息",
+            "证明自己总是对的"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "理解家人应依据题中事实；协商方案也应保留双方合理需要。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "爸爸当前的处境",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "故意不让小雨学习",
+            "夜班后需要安静休息",
+            "不喜欢任何音乐"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "兼顾双方的商量方式",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "不解释就把音量开到最大",
+            "说明练习需要，询问能否关书房门练20分钟",
+            "把自己的所有需要都取消"
+          ],
+          "kind": "choice",
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "需要与家人处境",
+        "family": "ethics-g7-upper:2:family:needs-and-constraints",
+        "priority": 3,
+        "order": 2,
+        "skills": [
+          "需要与家人处境"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "识别本人需要",
+          "根据事实理解另一成员处境",
+          "判断兼顾需要的沟通方案"
+        ],
+        "difficulty_rationale": "从同一情境区分事实、动机猜测和可执行方案。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g7-upper:2:family",
+        "task": "check",
+        "role": "supporting",
+        "family": "ethics-g7-upper:2:family:needs-and-constraints",
+        "rationale": "家庭情境补齐，但表达需要这一动作未由学生独立产出，保留辅助及人工表达任务。"
+      },
+      "common_error_feedback": "理解家人应依据题中事实；协商方案也应保留双方合理需要。",
+      "manual_followup": {
+        "prompt": "以小雨的身份，用自己的话说出需要、理解爸爸处境，并提出可协商的办法；请另一人扮演爸爸回应后，再说明你会如何调整。可用虚构情境，无需提交家庭隐私。",
+        "criteria": [
+          "需要具体",
+          "理解有事实依据",
+          "提出可协商方案",
+          "听到回应后作调整"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g7-upper-2-upper_gap_candidates-facts-before-disagreement-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "ethics",
+      "book_id": "ethics-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "拿事实与老师沟通",
+      "prompt": "老师说小林没有交周二作业。小林保存着周二18:40上传成功的记录，文件名也与本次作业一致。目前不知道老师是否看到该文件。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"2\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "可核对的时间和文件记录是事实，故意误判是未经证实的动机判断。先说明事实、提出核对请求，再听取老师的说明。此题只检查沟通示例，实际表达另核对。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 成长的时空",
+        "textbook_sha256": "1a3d34f93331a369b8d060894703f5dff584c2b38e3eefb40e5b49b9d336cad6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          39,
+          40
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "已补具体师生分歧；选出沟通语仍不足以证明实际沟通能力，只计辅助。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "选择具体证据",
+          "b": "选择基于事实的核对请求",
+          "c": "区分事实与动机推断"
+        }
+      },
+      "responses": [
+        {
+          "label": "能用于沟通的具体事实",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "我平时很聪明",
+            "老师肯定讨厌我",
+            "周二18:40上传成功的本次作业记录"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "记录支持核对上传情况，不能直接证明任何人的动机。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "有理有据的请求",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "让同学一起指责老师",
+            "展示记录，请老师一起核对文件是否收到",
+            "不看原因就删掉作业"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "对目前信息的判断",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "老师一定没有任何理由",
+            "上传记录值得核对，但还不能断定老师故意误判",
+            "已经证明老师故意误判"
+          ],
+          "kind": "choice",
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "拿事实与老师沟通",
+        "family": "ethics-g7-upper:2:teacher:facts-before-disagreement",
+        "priority": 3,
+        "order": 3,
+        "skills": [
+          "拿事实与老师沟通"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "选择具体证据",
+          "选择基于事实的核对请求",
+          "区分事实与动机推断"
+        ],
+        "difficulty_rationale": "区分可核对证据与未经证实的归因，并选择恰当请求。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g7-upper:2:teacher",
+        "task": "check",
+        "role": "supporting",
+        "family": "ethics-g7-upper:2:teacher:facts-before-disagreement",
+        "rationale": "已补具体师生分歧；选出沟通语仍不足以证明实际沟通能力，只计辅助。"
+      },
+      "common_error_feedback": "记录支持核对上传情况，不能直接证明任何人的动机。",
+      "manual_followup": {
+        "prompt": "扮演小林，向老师说明事实并提出请求；由同伴给出一种回应，再继续沟通。",
+        "criteria": [
+          "时间和作业对应",
+          "不把猜测说成事实",
+          "请求明确且尊重双方",
+          "能回应对方的新信息"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g7-upper-2-upper_gap_candidates-compare-work-allocation-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "ethics",
+      "book_id": "ethics-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "比较两种分工的影响",
+      "prompt": "四名同学要制作班级海报。按已有试做记录，两种方案都能在截止前完成合格海报。甲方案由小雅独自做4小时，其他三人不参与；乙方案四人各做1小时并互相核对。这里的小时数是各人实际投入时间，大家均有足够时间。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"1\",\"c\":\"2\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "小雅投入由4小时变为1小时，其他三人获得参与机会。两方案总投入均为4人时，不能把乙的每人1小时当成总投入。题目已限定两方案都合格且按时，不凭空判定甲必然失败。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 成长的时空",
+        "textbook_sha256": "1a3d34f93331a369b8d060894703f5dff584c2b38e3eefb40e5b49b9d336cad6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          53,
+          54,
+          55
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项涵盖个人与集体双方面；质量和时间条件明示，答案不依赖未知个人能力。一个比较题型族。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "读出甲的个人负担",
+          "b": "读出乙的个人负担",
+          "c": "比较其他成员机会",
+          "d": "同时比较交付和合作影响"
+        }
+      },
+      "responses": [
+        {
+          "label": "甲方案中小雅投入几小时？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "a"
+        },
+        {
+          "label": "乙方案中小雅投入几小时？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "b"
+        },
+        {
+          "label": "两方案对其他三人的影响",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "两方案参与机会完全相同",
+            "乙提供参与和学习机会，甲没有",
+            "甲中三人各参与4小时"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "每人用时、总投入以及集体参与是不同指标，需分别比较。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "兼顾个人与集体的比较",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "两者都能按时交付；乙分担小雅负担并让全员合作",
+            "只要能交付，任何人的负担都不必考虑",
+            "甲乙总投入分别为4小时和1小时"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "比较两种分工的影响",
+        "family": "ethics-g7-upper:2:group:compare-work-allocation",
+        "priority": 3,
+        "order": 4,
+        "skills": [
+          "比较两种分工的影响"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "读出甲的个人负担",
+          "读出乙的个人负担",
+          "比较其他成员机会",
+          "同时比较交付和合作影响"
+        ],
+        "difficulty_rationale": "同时比较两方案、个人负担和集体参与，不以单一速度作判断。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g7-upper:2:group",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g7-upper:2:group:compare-work-allocation",
+        "rationale": "四项涵盖个人与集体双方面；质量和时间条件明示，答案不依赖未知个人能力。一个比较题型族。"
+      },
+      "common_error_feedback": "每人用时、总投入以及集体参与是不同指标，需分别比较。"
+    },
+    {
+      "id": "family-chapter-history-g7-upper-2-upper_gap_candidates-date-material-inference-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "年代、类别与文物信息",
+      "prompt": "阅读本项目整理的两张文物资料卡（不是原文引文）。A：商朝有字牛骨，刻有占卜记录；B：西周早期何尊，青铜器，铭文中有“中国”一词。这里只据两张卡判断。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"2\",\"c\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "商在西周之前；牛骨上的文字属甲骨文，青铜器铭文通常称金文。文物可提供当时记录方式与用词的证据，不能由一个词推出现代疆域，也不能由两件物品概括所有人的生活。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 夏商周时期",
+        "textbook_sha256": "e3ede4e845a500271a2941ac56dbb4d33605871e0b0a7be5aee26cd1d04a7f7f",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          45,
+          46,
+          47
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "商—西周次序、甲骨—金文类别与何尊用词均核对原页；未复制插图、拓片或教材练习。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "区别商与西周年代",
+          "b": "区分载体及文字类别",
+          "c": "界定文物支持的历史信息"
+        }
+      },
+      "responses": [
+        {
+          "label": "按所属年代从早到晚",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "两者都属于秦朝",
+            "B后接A",
+            "A后接B"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "文物的年代、载体和可支持结论要分别核对，不能用古代用词外推现代范围。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "文字和载体类别的对应",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "A为纸本文献；B为甲骨文",
+            "A为甲骨文；B为青铜器上的金文",
+            "两者都是现代复制的纸页"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "材料可以支持的判断",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "商朝使用甲骨记录占卜，西周青铜铭文保留当时用词",
+            "古代中国的范围与今天完全相同",
+            "两件文物能说明所有人的生活"
+          ],
+          "kind": "choice",
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "年代、类别与文物信息",
+        "family": "history-g7-upper:2:culture:date-material-inference",
+        "priority": 3,
+        "order": 5,
+        "skills": [
+          "年代、类别与文物信息"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "区别商与西周年代",
+          "区分载体及文字类别",
+          "界定文物支持的历史信息"
+        ],
+        "difficulty_rationale": "综合资料卡的年代、物质载体与推论边界。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-upper:2:culture",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-upper:2:culture:date-material-inference",
+        "rationale": "商—西周次序、甲骨—金文类别与何尊用词均核对原页；未复制插图、拓片或教材练习。"
+      },
+      "common_error_feedback": "文物的年代、载体和可支持结论要分别核对，不能用古代用词外推现代范围。"
+    },
+    {
+      "id": "family-chapter-history-g7-upper-3-upper_gap_candidates-classify-primary-functions-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "秦统一措施的直接作用",
+      "prompt": "为便于本题比较，按直接作用分类：行政管理归政治，交易计量归经济，文字交流归文化。这不否认同一措施还会影响其他方面。分别判断下面三项措施。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"1\",\"c\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "官员任免直接关系行政管理；统一货币和度量衡便利交易、计量；统一文字便利政令传达与文化交流。此处按题中给定的直接作用分类，不把三方面割裂。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元 秦汉时期",
+        "textbook_sha256": "e3ede4e845a500271a2941ac56dbb4d33605871e0b0a7be5aee26cd1d04a7f7f",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          54,
+          55
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "三个方面同题考查，原页54—55有对应事实；通过明确分类口径消除文字兼具政治作用的歧义。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "政治措施辨认",
+          "b": "经济措施辨认",
+          "c": "文化措施辨认"
+        }
+      },
+      "responses": [
+        {
+          "label": "郡县长官由朝廷任免",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "政治",
+            "经济",
+            "文化"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "本题按已给出的直接作用分类，并不否认措施之间的联系。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "统一货币与度量衡",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "经济",
+            "文化",
+            "政治"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "以小篆作为通用文字",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "政治",
+            "经济",
+            "文化"
+          ],
+          "kind": "choice",
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "秦统一措施的直接作用",
+        "family": "history-g7-upper:3:unification:classify-primary-functions",
+        "priority": 3,
+        "order": 6,
+        "skills": [
+          "秦统一措施的直接作用"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "政治措施辨认",
+          "经济措施辨认",
+          "文化措施辨认"
+        ],
+        "difficulty_rationale": "统一分类口径后比较三类措施，避免多重影响造成多解。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-upper:3:unification",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-upper:3:unification:classify-primary-functions",
+        "rationale": "三个方面同题考查，原页54—55有对应事实；通过明确分类口径消除文字兼具政治作用的歧义。"
+      },
+      "common_error_feedback": "本题按已给出的直接作用分类，并不否认措施之间的联系。"
+    },
+    {
+      "id": "family-chapter-history-g7-upper-4-upper_gap_candidates-war-and-state-timeline-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "战争与三国建国时间",
+      "prompt": "年表：200年官渡之战，208年赤壁之战，220年曹丕建立魏，221年刘备建立蜀汉，229年孙权称帝建立吴。根据年表比较战争和建国事件。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\",\"c\":\"3\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "200、208是战役年份；220、221、229分别对应魏、蜀汉、吴建立。赤壁之战为三国鼎立局面的形成奠定基础，但不是三国同年建立。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 三国两晋南北朝时期",
+        "textbook_sha256": "e3ede4e845a500271a2941ac56dbb4d33605871e0b0a7be5aee26cd1d04a7f7f",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          92,
+          93,
+          95
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "五个年份及事件核对；229采用教材的孙权称帝建吴口径，题干明确，避免与222年吴王纪年混淆。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "识别战争年份",
+          "b": "区别战争与建国",
+          "c": "核对三国建国次序",
+          "d": "比较战争与建国先后"
+        }
+      },
+      "responses": [
+        {
+          "label": "200年的事件",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "魏建立",
+            "官渡之战",
+            "吴建立"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "战争奠定局势基础，不等于三个政权在战争当年同时建立。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "208年的事件性质",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "魏建立",
+            "战争",
+            "三国全部建立"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "三国建国按时间的顺序",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "三国都建于208",
+            "吴229—魏220—蜀汉221",
+            "魏220—蜀汉221—吴229"
+          ],
+          "kind": "choice",
+          "id": "c"
+        },
+        {
+          "label": "依据时间能确定的关系",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "赤壁之战晚于吴建立",
+            "官渡之战发生在魏建立之后",
+            "赤壁之战早于三国建国"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "战争与三国建国时间",
+        "family": "history-g7-upper:4:three:war-and-state-timeline",
+        "priority": 3,
+        "order": 7,
+        "skills": [
+          "战争与三国建国时间"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "识别战争年份",
+          "区别战争与建国",
+          "核对三国建国次序",
+          "比较战争与建国先后"
+        ],
+        "difficulty_rationale": "从五个事件中同时核对年份、类型与先后关系。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-upper:4:three",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-upper:4:three:war-and-state-timeline",
+        "rationale": "五个年份及事件核对；229采用教材的孙权称帝建吴口径，题干明确，避免与222年吴王纪年混淆。"
+      },
+      "common_error_feedback": "战争奠定局势基础，不等于三个政权在战争当年同时建立。"
+    },
+    {
+      "id": "family-chapter-history-g7-upper-4-upper_gap_candidates-measure-to-integration-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "从北魏措施分析交融",
+      "prompt": "资料卡：北魏孝文帝迁都洛阳，规定官员在朝廷使用汉语，鼓励鲜卑贵族与汉人贵族通婚。根据具体措施判断其对交往的影响。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"3\",\"c\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "迁都、语言和通婚措施分别改变交往空间、沟通条件与社会联系，有助于民族交融。材料不能支持所有差异立刻消失或所有人必须通婚等绝对化结论。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 三国两晋南北朝时期",
+        "textbook_sha256": "e3ede4e845a500271a2941ac56dbb4d33605871e0b0a7be5aee26cd1d04a7f7f",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          109
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "具体措施与交融机制同题出现；没有把任何群体描写为高低优劣，影响用有助于限定。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "迁都与往来联系",
+          "b": "语言措施与沟通联系",
+          "c": "通婚与社会联系"
+        }
+      },
+      "responses": [
+        {
+          "label": "迁都洛阳可能提供的交往条件",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "切断所有交通",
+            "增加与中原地区往来",
+            "让各族从此不接触"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "影响分析要有对应措施，不能把促进交融说成差异立即全部消失。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "朝廷使用汉语的直接影响",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "使农业必然绝收",
+            "让所有地方语言立即消失",
+            "有助于朝廷官员间沟通"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "鼓励贵族通婚支持的判断",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "当时再也没有任何差异",
+            "所有人都必须立即通婚",
+            "有助于加强两个群体的社会联系"
+          ],
+          "kind": "choice",
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "从北魏措施分析交融",
+        "family": "history-g7-upper:4:reform:measure-to-integration",
+        "priority": 3,
+        "order": 8,
+        "skills": [
+          "从北魏措施分析交融"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "迁都与往来联系",
+          "语言措施与沟通联系",
+          "通婚与社会联系"
+        ],
+        "difficulty_rationale": "把三个具体措施与合理影响相连，并排除过度推断。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-upper:4:reform",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-upper:4:reform:measure-to-integration",
+        "rationale": "具体措施与交融机制同题出现；没有把任何群体描写为高低优劣，影响用有助于限定。"
+      },
+      "common_error_feedback": "影响分析要有对应措施，不能把促进交融说成差异立即全部消失。"
+    },
+    {
+      "id": "family-chapter-history-g7-upper-5-upper_gap_candidates-two-time-map-legend-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "按图例和时点读空间变化",
+      "prompt": "这是一组自绘教学地图，地区、政权和10年/20年时点均为虚构，不表示真实历史疆域。两期方位相同，上北下南、左西右东。图例：●甲政权，○乙政权，？无资料。每格只表示该地区的归属信息，不表示面积大小。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\",\"c\":\"2\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "先看时点和图例，再比较同一位置：东北格从○变为●，即从乙变甲。东南两期均为？；缺少资料不能当作没有政权，也不能据格子数计算真实领土面积。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "活动课与学史方法",
+        "textbook_sha256": "e3ede4e845a500271a2941ac56dbb4d33605871e0b0a7be5aee26cd1d04a7f7f",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          123
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "逐格复核：仅东北○到●，东南未知；图为方法练习，不伪造真实疆域或复制教材地图。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "读图例",
+          "b": "同位置跨时点比较",
+          "c": "解读归属变化方向",
+          "d": "处理未知地区"
+        }
+      },
+      "responses": [
+        {
+          "label": "图例○表示",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "甲政权",
+            "乙政权",
+            "无资料"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "同一位置的符号必须按同一图例跨时点比较；？不能当作确定归属。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "从10年到20年发生归属变化的地区",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "东北地区",
+            "东南地区",
+            "西南地区"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "该地区的变化",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "一直无资料",
+            "由乙政权变为甲政权",
+            "由甲政权变为乙政权"
+          ],
+          "kind": "choice",
+          "id": "c"
+        },
+        {
+          "label": "东南地区能得出的结论",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "一定从乙变甲",
+            "一直属于甲",
+            "两期均无资料，不能判断归属变化"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "按图例和时点读空间变化",
+        "family": "history-g7-upper:5:map:two-time-map-legend",
+        "priority": 3,
+        "order": 9,
+        "skills": [
+          "按图例和时点读空间变化"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "读图例",
+          "同位置跨时点比较",
+          "解读归属变化方向",
+          "处理未知地区"
+        ],
+        "difficulty_rationale": "联合方位、图例、两期时间及未知信息；不用外部历史知识猜图。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "两期空间示意（虚构，上北下南、左西右东）",
+        "rows": [
+          [
+            "时点与方位",
+            "西",
+            "东"
+          ],
+          [
+            "10年·北",
+            "●",
+            "○"
+          ],
+          [
+            "10年·南",
+            "○",
+            "？"
+          ],
+          [
+            "20年·北",
+            "●",
+            "●"
+          ],
+          [
+            "20年·南",
+            "○",
+            "？"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-upper:5:map",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-upper:5:map:two-time-map-legend",
+        "rationale": "逐格复核：仅东北○到●，东南未知；图为方法练习，不伪造真实疆域或复制教材地图。"
+      },
+      "common_error_feedback": "同一位置的符号必须按同一图例跨时点比较；？不能当作确定归属。"
+    },
+    {
+      "id": "family-chapter-geography-g7-upper-2-upper_gap_candidates-body-type-and-orbit-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "天体类别与所属关系",
+      "prompt": "本题采用基础分类：自身发光发热的太阳属于恒星；围绕太阳运行的地球属于行星；月球是围绕地球运行的天然卫星。已知太阳系是银河系的一部分。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\",\"c\":\"1\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "太阳、地球、月球分别为恒星、行星、天然卫星。公转的中心与系统所属关系要分清；太阳系只是银河系的一部分。月球也随地球在太阳系中运动，不与绕地球矛盾。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一章 地球",
+        "textbook_sha256": "00c554e16f476c4a25551314d11e9f20ddeeb6f18d20d3074b3868ab55ce83f7",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          6,
+          8,
+          13
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第6页直接支持恒星、太阳系与银河系；8/13页为探月及月球主题。天然卫星定义为自编补充，非这些页的引文。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项完整核对分类与关系；天然卫星定义在题内明示，书内6/8/13为宇宙及月球主题依据。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "恒星分类",
+          "b": "行星分类",
+          "c": "卫星分类",
+          "d": "轨道中心及系统所属"
+        }
+      },
+      "responses": [
+        {
+          "label": "太阳的类别",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "卫星",
+            "恒星",
+            "行星"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "区分类别时同时核对天体和它主要围绕的中心，不要倒置系统所属。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "地球的类别",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "卫星",
+            "行星",
+            "恒星"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "月球的类别",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "天然卫星",
+            "行星",
+            "恒星"
+          ],
+          "kind": "choice",
+          "id": "c"
+        },
+        {
+          "label": "正确的运行和所属关系",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "地球是月球的卫星",
+            "太阳绕月球，银河系属于地球",
+            "月球绕地球、地球绕太阳，太阳系属于银河系"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "天体类别与所属关系",
+        "family": "geography-g7-upper:2:space:body-type-and-orbit",
+        "priority": 3,
+        "order": 10,
+        "skills": [
+          "天体类别与所属关系"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "恒星分类",
+          "行星分类",
+          "卫星分类",
+          "轨道中心及系统所属"
+        ],
+        "difficulty_rationale": "按给定基础分类同时核对三类天体和层级，非默写或实际观测。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-upper:2:space",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-upper:2:space:body-type-and-orbit",
+        "rationale": "四项完整核对分类与关系；天然卫星定义在题内明示，书内6/8/13为宇宙及月球主题依据。"
+      },
+      "common_error_feedback": "区分类别时同时核对天体和它主要围绕的中心，不要倒置系统所属。"
+    },
+    {
+      "id": "family-chapter-geography-g7-upper-3-upper_gap_candidates-purpose-scale-content-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "用途决定地图选择",
+      "prompt": "三张纸质地图图幅相同且资料均为本次出行有效版本。甲：1∶5000公园导游图，标有道路、南门和博物馆；乙：1∶1000000全省交通图，标有城市和城际公路；丙：1∶5000同一公园植被图，只标植被分布，不标道路与场馆。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"3\",\"c\":\"2\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "1/5000大于1/1000000。图幅相同，甲表达范围较小而细；但比例尺大不保证有找路所需信息，还须看内容。省交通图适合先规划城际路线，公园导游图适合园内找路。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二章 地图",
+        "textbook_sha256": "00c554e16f476c4a25551314d11e9f20ddeeb6f18d20d3074b3868ab55ce83f7",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          37,
+          38
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "明示同图幅、有效版本与图内信息，甲丙的区别由内容决定，不能仅靠比例尺猜答案。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "按园内用途选择",
+          "b": "比较比例尺及范围细节",
+          "c": "核对同尺度图的内容差异",
+          "d": "按城际用途选择"
+        }
+      },
+      "responses": [
+        {
+          "label": "在公园内从南门走到博物馆，选哪张？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "丙",
+            "甲",
+            "乙"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "选图既看比例尺，也看是否包含当前任务需要的道路或地点。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "比较甲乙比例尺及适合的信息",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "两者内容完全一样",
+            "乙分母大所以比例尺大",
+            "甲比例尺大、内容较细；乙范围广适合城际规划"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "为何不能只凭比例尺用丙替代甲找路？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "比例尺相同就表示用途相同",
+            "丙虽同为大比例尺，却未提供道路和场馆信息",
+            "所有大比例尺图都有全部道路"
+          ],
+          "kind": "choice",
+          "id": "c"
+        },
+        {
+          "label": "规划从本省一个城市到另一个城市的公路路线，选哪张？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "乙",
+            "丙",
+            "甲"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "用途决定地图选择",
+        "family": "geography-g7-upper:3:selection:purpose-scale-content",
+        "priority": 3,
+        "order": 11,
+        "skills": [
+          "用途决定地图选择"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "按园内用途选择",
+          "比较比例尺及范围细节",
+          "核对同尺度图的内容差异",
+          "按城际用途选择"
+        ],
+        "difficulty_rationale": "两个使用目的，同时判断比例尺和地图主题，排除只看分母的错误。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-upper:3:selection",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-upper:3:selection:purpose-scale-content",
+        "rationale": "明示同图幅、有效版本与图内信息，甲丙的区别由内容决定，不能仅靠比例尺猜答案。"
+      },
+      "common_error_feedback": "选图既看比例尺，也看是否包含当前任务需要的道路或地点。"
+    },
+    {
+      "id": "family-chapter-geography-g7-upper-5-upper_gap_candidates-daily-yearly-and-season-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "日较差、年较差与季节",
+      "prompt": "某中纬度陆地地点按南北半球通常的季节规律变化。某日最低14℃、最高24℃；全年12个月的月平均气温见表。按材料计算并判断该地所属半球和7月季节。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"10\",\"b\":\"28\",\"c\":\"1\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "日较差24−14=10℃；年较差用最高月平均26℃减最低月平均−2℃，得28℃。该地点7月最暖、1月最冷，按题设中纬度陆地的通常规律判为北半球，7月为夏季。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四章 天气与气候",
+        "textbook_sha256": "00c554e16f476c4a25551314d11e9f20ddeeb6f18d20d3074b3868ab55ce83f7",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          73,
+          74
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "独立复算10、28；全年最高26最低−2。题设限定中纬度陆地通常规律，不推广为所有地点的绝对判据。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "日最高最低差",
+          "b": "最高最低月均温差",
+          "c": "据季节规律判半球",
+          "d": "半球与月份判季节"
+        }
+      },
+      "responses": [
+        {
+          "label": "这一天的气温日较差（℃）",
+          "answer": "10",
+          "independent_check": "24-14",
+          "units": [
+            "℃"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "38",
+              "message": "较差不是最高与最低之和。",
+              "action": "用最高减最低。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "气温年较差（℃）",
+          "answer": "28",
+          "independent_check": "26-(-2)",
+          "units": [
+            "℃"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "24",
+              "message": "最低月均温是负数，减负数应正确处理。",
+              "action": "核对26减负2。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "所属半球",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "北半球",
+            "仅从经度决定",
+            "南半球"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "日较差使用某日极值，年较差使用各月平均值的极值，不能混用。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "该地7月通常是什么季节？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "夏季",
+            "春季",
+            "冬季"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "日较差、年较差与季节",
+        "family": "geography-g7-upper:5:temperature:daily-yearly-and-season",
+        "priority": 3,
+        "order": 12,
+        "skills": [
+          "日较差、年较差与季节"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "日最高最低差",
+          "最高最低月均温差",
+          "据季节规律判半球",
+          "半球与月份判季节"
+        ],
+        "difficulty_rationale": "同题联结两类较差和季节，包含减负数，使用完整12个月数据。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "全年月平均气温（℃），上下两组接续",
+        "rows": [
+          [
+            "月",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"
+          ],
+          [
+            "气温",
+            "-2",
+            "0",
+            "6",
+            "14",
+            "20",
+            "24"
+          ],
+          [
+            "月",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"
+          ],
+          [
+            "气温",
+            "26",
+            "25",
+            "20",
+            "12",
+            "5",
+            "0"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-upper:5:temperature",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-upper:5:temperature:daily-yearly-and-season",
+        "rationale": "独立复算10、28；全年最高26最低−2。题设限定中纬度陆地通常规律，不推广为所有地点的绝对判据。"
+      },
+      "common_error_feedback": "日较差使用某日极值，年较差使用各月平均值的极值，不能混用。"
+    },
+    {
+      "id": "family-chapter-geography-g7-upper-5-upper_gap_candidates-seasonal-totals-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "累计季节降水再比较",
+      "prompt": "本题把3—5月定义为春季、6—8月定义为夏季。下表是同一地点完整的六个月降水量。比较两个季节的降水总量，不能只比较某一个月。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"120\",\"b\":\"300\",\"c\":\"180\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "春季30+40+50=120毫米，夏季80+120+100=300毫米，相差180毫米。累计月降水量仍用毫米，不变成表示降水强度的毫米/小时。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四章 天气与气候",
+        "textbook_sha256": "00c554e16f476c4a25551314d11e9f20ddeeb6f18d20d3074b3868ab55ce83f7",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          79,
+          80
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "独立核算120、300、180；季节月份明确，未以单月差冒充季节总量差。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "春季累计",
+          "b": "夏季累计",
+          "c": "比较季节总量",
+          "d": "区分量与强度单位"
+        }
+      },
+      "responses": [
+        {
+          "label": "春季降水总量（毫米）",
+          "answer": "120",
+          "independent_check": "30+40+50",
+          "units": [
+            "毫米"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "a"
+        },
+        {
+          "label": "夏季降水总量（毫米）",
+          "answer": "300",
+          "independent_check": "80+120+100",
+          "units": [
+            "毫米"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "b"
+        },
+        {
+          "label": "夏季比春季总量多多少毫米？",
+          "answer": "180",
+          "independent_check": "(80+120+100)-(30+40+50)",
+          "units": [
+            "毫米"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "c"
+        },
+        {
+          "label": "本表降水量及其季节累计值的单位",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "毫米/小时",
+            "摄氏度",
+            "毫米"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "累计的降水量仍是毫米；毫米/小时表示强度。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "累计季节降水再比较",
+        "family": "geography-g7-upper:5:rain:seasonal-totals",
+        "priority": 3,
+        "order": 13,
+        "skills": [
+          "累计季节降水再比较"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "春季累计",
+          "夏季累计",
+          "比较季节总量",
+          "区分量与强度单位"
+        ],
+        "difficulty_rationale": "两组三个月累计再作差，连同单位判断。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "月降水量",
+        "rows": [
+          [
+            "月份",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8"
+          ],
+          [
+            "降水量/毫米",
+            "30",
+            "40",
+            "50",
+            "80",
+            "120",
+            "100"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-upper:5:rain",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-upper:5:rain:seasonal-totals",
+        "rationale": "独立核算120、300、180；季节月份明确，未以单月差冒充季节总量差。"
+      },
+      "common_error_feedback": "累计的降水量仍是毫米；毫米/小时表示强度。"
+    },
+    {
+      "id": "family-chapter-geography-g7-upper-6-upper_gap_candidates-total-density-natural-growth-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "总量、密度和自然增长",
+      "prompt": "甲地区年平均人口20万人，面积1000平方千米，年出生率1.4%、死亡率0.6%；乙地区年平均人口12万人，面积300平方千米，年出生率2.0%、死亡率1.6%。本题密度用给出的年平均人口计算，自然增长率不包括迁移。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"200\",\"b\":\"0.8\",\"c\":\"0.4\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "甲密度200000÷1000=200人/平方千米；乙为120000÷300=400人/平方千米。自然增长率分别为1.4%−0.6%=0.8%和2.0%−1.6%=0.4%。甲总量较大但密度较低，出生率高也未必自然增长率高，迁移另属机械增长因素。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第五章 居民与文化",
+        "textbook_sha256": "00c554e16f476c4a25551314d11e9f20ddeeb6f18d20d3074b3868ab55ce83f7",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          92,
+          93,
+          95
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "独立算出甲200乙400、0.8%与0.4%；指定年平均人口口径，不用期初人数近似冒充精确增长率。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "总量单位换算求密度",
+          "b": "出生减死亡求甲自然增长",
+          "c": "求乙自然增长",
+          "d": "比较总量和密度"
+        }
+      },
+      "responses": [
+        {
+          "label": "甲的人口密度（人/平方千米）",
+          "answer": "200",
+          "independent_check": "200000/1000",
+          "units": [
+            "人/平方千米"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "a"
+        },
+        {
+          "label": "甲的人口自然增长率（填百分数的数值）",
+          "answer": "0.8",
+          "independent_check": "1.4-0.6",
+          "units": [
+            "%"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "b"
+        },
+        {
+          "label": "乙的人口自然增长率（填百分数的数值）",
+          "answer": "0.4",
+          "independent_check": "2.0-1.6",
+          "units": [
+            "%"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "c"
+        },
+        {
+          "label": "总量与密度的比较",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "甲总量大；乙密度大",
+            "乙总量与密度都小",
+            "甲总量大所以密度也必然大"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "人口总量不能直接代替密度；自然增长率还须扣除死亡率。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "总量、密度和自然增长",
+        "family": "geography-g7-upper:6:population:total-density-natural-growth",
+        "priority": 3,
+        "order": 14,
+        "skills": [
+          "总量、密度和自然增长"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "总量单位换算求密度",
+          "出生减死亡求甲自然增长",
+          "求乙自然增长",
+          "比较总量和密度"
+        ],
+        "difficulty_rationale": "同时处理万人换算、面积归一与百分率差，区分三个概念。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-upper:6:population",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-upper:6:population:total-density-natural-growth",
+        "rationale": "独立算出甲200乙400、0.8%与0.4%；指定年平均人口口径，不用期初人数近似冒充精确增长率。"
+      },
+      "common_error_feedback": "人口总量不能直接代替密度；自然增长率还须扣除死亡率。"
+    },
+    {
+      "id": "family-chapter-geography-g7-upper-6-upper_gap_candidates-material-based-cultural-comparison-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "从材料比较文化表达",
+      "prompt": "两所虚构学校举办交流活动。甲校卡片：学生用汉语介绍春节家庭团聚的故事；乙校卡片：学生用西班牙语介绍当地新年亲友相聚的故事。两张卡片都表达对亲友的祝福。材料仅代表参与活动的学生，不代表所有说这种语言的人。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"3\",\"c\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "共同点是相聚与祝福，明示差异是表达语言和所述节庆情境。不同不等于优劣，更不能由两张卡推断整个人群都怎样。可以询问具体经历、相互介绍。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第五章 居民与文化",
+        "textbook_sha256": "00c554e16f476c4a25551314d11e9f20ddeeb6f18d20d3074b3868ab55ce83f7",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          103,
+          104,
+          105
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "材料自编、群体范围明示；不把某种语言与唯一宗教或行为绑定。仅计限定比较，不代替真实交往。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "据材料找相同点",
+          "b": "据材料找差异",
+          "c": "选择尊重且不以偏概全的行动"
+        }
+      },
+      "responses": [
+        {
+          "label": "两张卡片的共同点",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "使用同一种语言",
+            "都提到亲友相聚和祝福",
+            "日期和习俗完全相同"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "比较必须有材料依据，语言或习俗差异不支持对人群作高低评价。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "材料明确给出的不同点",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "所有习俗互不相容",
+            "亲友感情有高低之分",
+            "使用的语言不同"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "尊重差异的交流方式",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "只凭两张卡给整个人群排高低",
+            "请对方介绍具体习俗，也分享自己的经验",
+            "要求对方取消自己的习俗"
+          ],
+          "kind": "choice",
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "从材料比较文化表达",
+        "family": "geography-g7-upper:6:culture:material-based-cultural-comparison",
+        "priority": 3,
+        "order": 15,
+        "skills": [
+          "从材料比较文化表达"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "据材料找相同点",
+          "据材料找差异",
+          "选择尊重且不以偏概全的行动"
+        ],
+        "difficulty_rationale": "从有限材料提取异同，再检查交流方式是否越界。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-upper:6:culture",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-upper:6:culture:material-based-cultural-comparison",
+        "rationale": "材料自编、群体范围明示；不把某种语言与唯一宗教或行为绑定。仅计限定比较，不代替真实交往。"
+      },
+      "common_error_feedback": "比较必须有材料依据，语言或习俗差异不支持对人群作高低评价。"
+    },
+    {
+      "id": "family-chapter-biology-g7-upper-1-upper_gap_candidates-control-and-repeat-records-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "对照条件与三次记录",
+      "prompt": "纸面模拟：探究光照对某种幼苗7天高度增长的影响。每次重新随机分成两组，各10株；品种、初始高度、土壤、水量和温度相同。A正常光照，B遮光。三次独立重复所得各组平均增高见表。这是编题数据，不是真实实验结果。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"2\",\"c\":\"10\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "两组只在光照上不同，其他条件相同以减少干扰。A的三个平均增高数相加为3+4+3=10厘米，这不是单株增高10厘米。三次都须如实保留。读编题记录不能代替设置对照和实测记录。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 第一章 认识生物",
+        "textbook_sha256": "a3fa62c010ba830872e4a52354186009495fda15ea5d0668516f7698fe3c7354",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          3,
+          4,
+          5
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第3—5页支持有目的观察和真实记录；控制变量另参本书48页。未声称第一章原页穷尽实验设计要求。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "纸面题补齐重复数据，但没有学生本人设置实验与记录结果，仍为辅助；控制变量的原页在第48页，跨章依据另列。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "辨认自变量",
+          "b": "辨认对照条件",
+          "c": "读取重复结果",
+          "d": "判断完整记录原则"
+        }
+      },
+      "responses": [
+        {
+          "label": "有意改变的条件",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "品种",
+            "水量",
+            "光照"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "重复记录必须保留完整条件和结果，不能挑选或修改数据迎合预想。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "为什么其余条件保持相同？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "省略对照组",
+            "减少其他因素对比较的干扰",
+            "保证所有植物一定长得一样"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "A组三次平均增高数值之和（厘米）",
+          "answer": "10",
+          "independent_check": "3+4+3",
+          "units": [
+            "厘米"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "c"
+        },
+        {
+          "label": "对三次记录的处理",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "把不符合预想的数据改掉",
+            "只保留A增长最高的一次",
+            "逐次保留A、B结果和条件，不能只留符合预想的一次"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "对照条件与三次记录",
+        "family": "biology-g7-upper:1:observation:control-and-repeat-records",
+        "priority": 3,
+        "order": 16,
+        "skills": [
+          "对照条件与三次记录"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "辨认自变量",
+          "辨认对照条件",
+          "读取重复结果",
+          "判断完整记录原则"
+        ],
+        "difficulty_rationale": "同时检查变量、对照和重复数据的记录原则，实际操作另核。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "每次独立重复的组平均增高（厘米）",
+        "rows": [
+          [
+            "重复",
+            "A正常光照",
+            "B遮光"
+          ],
+          [
+            "1",
+            "3",
+            "1"
+          ],
+          [
+            "2",
+            "4",
+            "2"
+          ],
+          [
+            "3",
+            "3",
+            "1"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-upper:1:observation",
+        "task": "check",
+        "role": "supporting",
+        "family": "biology-g7-upper:1:observation:control-and-repeat-records",
+        "rationale": "纸面题补齐重复数据，但没有学生本人设置实验与记录结果，仍为辅助；控制变量的原页在第48页，跨章依据另列。"
+      },
+      "common_error_feedback": "重复记录必须保留完整条件和结果，不能挑选或修改数据迎合预想。",
+      "manual_followup": {
+        "prompt": "在老师指导下，用安全的幼苗观察方案写清单一变量和对照条件，进行三组独立重复观察；如实记录每组起始、结束高度、时间、条件及异常，未观察的数据留空。不要复制题内数值。",
+        "criteria": [
+          "只改变预定变量",
+          "设置对照并说明一致条件",
+          "逐次原始记录有时间与单位",
+          "不删去异常或编造结果",
+          "解释局限并保留未完成状态"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-biology-g7-upper-2-upper_gap_candidates-membrane-nucleus-energy-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "细胞结构各有作用",
+      "prompt": "以正常的绿色植物叶肉细胞为例，将四项功能分别对应到主要结构。每一项只填最直接对应的结构。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\",\"c\":\"3\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "细胞膜控制物质进出；细胞核储存主要遗传信息并调控生命活动；叶绿体把光能转成有机物中的化学能；线粒体参与分解有机物、释放能量。题目限定叶肉细胞，不说所有植物细胞都有叶绿体。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 第二章 认识细胞",
+        "textbook_sha256": "a3fa62c010ba830872e4a52354186009495fda15ea5d0668516f7698fe3c7354",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          28,
+          29,
+          30,
+          31
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四个答案及能量方向逐项核对；使用主要遗传信息措辞，避免把少量细胞器DNA排除。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "物质进出结构",
+          "b": "遗传与控制结构",
+          "c": "光能转换结构",
+          "d": "有机物供能结构"
+        }
+      },
+      "responses": [
+        {
+          "label": "控制物质进出",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "细胞核",
+            "细胞膜",
+            "叶绿体",
+            "线粒体"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "控制进出、遗传信息、光能转化和有机物供能是不同功能。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "储存主要遗传信息并控制细胞生命活动",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "细胞核",
+            "细胞膜",
+            "线粒体",
+            "叶绿体"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "吸收光能，转化为有机物中的化学能",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "细胞核",
+            "细胞膜",
+            "叶绿体",
+            "线粒体"
+          ],
+          "kind": "choice",
+          "id": "c"
+        },
+        {
+          "label": "通过分解有机物释放能量供细胞利用",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "叶绿体",
+            "线粒体",
+            "细胞核",
+            "细胞膜"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "细胞结构各有作用",
+        "family": "biology-g7-upper:2:celllife:membrane-nucleus-energy",
+        "priority": 3,
+        "order": 17,
+        "skills": [
+          "细胞结构各有作用"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "物质进出结构",
+          "遗传与控制结构",
+          "光能转换结构",
+          "有机物供能结构"
+        ],
+        "difficulty_rationale": "四项功能分别配对，需区别两种能量转换结构。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-upper:2:celllife",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-upper:2:celllife:membrane-nucleus-energy",
+        "rationale": "四个答案及能量方向逐项核对；使用主要遗传信息措辞，避免把少量细胞器DNA排除。"
+      },
+      "common_error_feedback": "控制进出、遗传信息、光能转化和有机物供能是不同功能。"
+    },
+    {
+      "id": "family-chapter-biology-g7-upper-3-upper_gap_candidates-one-cell-multiple-functions-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "一个细胞怎样独立生活",
+      "prompt": "草履虫整个身体只有一个细胞。观察资料：纤毛摆动时它移动；食物经口沟进入并在食物泡中消化；氧和二氧化碳经表膜进出；遇到不利刺激时它改变运动方向。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\",\"c\":\"2\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "运动、摄食消化、气体交换和刺激反应发生在同一个草履虫细胞内。结构分工不等于多细胞器官分工，单细胞生物也能独立完成多种生命活动。此处核对有材料限定的解释，开放说明仍人工核对。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 第三章 从细胞到生物体",
+        "textbook_sha256": "a3fa62c010ba830872e4a52354186009495fda15ea5d0668516f7698fe3c7354",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          46,
+          48,
+          49
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "三个功能与综合解释均核对第48—49页；多结构不误作多细胞。完整限定理解要求计一个直接族，口述任务仍为human。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "运动证据",
+          "b": "营养活动证据",
+          "c": "气体交换证据",
+          "d": "以多种活动支持单细胞解释"
+        }
+      },
+      "responses": [
+        {
+          "label": "纤毛摆动主要对应哪项活动？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "消化",
+            "运动",
+            "形成多细胞器官"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "一个细胞可以有多个结构，结构数量不能当成细胞数量。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "口沟和食物泡共同参与哪类活动？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "摄食和消化",
+            "制造阳光",
+            "只起支撑作用"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "表膜进出氧和二氧化碳对应",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "形成器官",
+            "气体交换",
+            "产生肢体"
+          ],
+          "kind": "choice",
+          "id": "c"
+        },
+        {
+          "label": "这些资料支持怎样的解释？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "同一个细胞内不同结构配合完成多种生命活动",
+            "只有多细胞生物才能运动和摄食",
+            "有多个结构就一定是多个细胞"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "一个细胞怎样独立生活",
+        "family": "biology-g7-upper:3:single:one-cell-multiple-functions",
+        "priority": 3,
+        "order": 18,
+        "skills": [
+          "一个细胞怎样独立生活"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "运动证据",
+          "营养活动证据",
+          "气体交换证据",
+          "以多种活动支持单细胞解释"
+        ],
+        "difficulty_rationale": "从多个结构与活动推出同一个细胞可独立生活的结论。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-upper:3:single",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-upper:3:single:one-cell-multiple-functions",
+        "rationale": "三个功能与综合解释均核对第48—49页；多结构不误作多细胞。完整限定理解要求计一个直接族，口述任务仍为human。"
+      },
+      "common_error_feedback": "一个细胞可以有多个结构，结构数量不能当成细胞数量。"
+    },
+    {
+      "id": "family-chapter-biology-g7-upper-6-upper_gap_candidates-fungus-bacterium-comparison-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "真菌与细菌的结构和营养",
+      "prompt": "比较酵母菌与乳酸菌，并检查能否推广到整个类群。注意用“大多数”与“所有”的区别。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"3\",\"c\":\"3\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "酵母菌是真菌，有成形细胞核；乳酸菌是细菌，没有成形细胞核。二者都利用现成有机物。真菌不能靠叶绿体光合作用；大多数细菌利用现成有机物，不能把例子外推成所有细菌的唯一营养方式。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 第三章 微生物",
+        "textbook_sha256": "a3fa62c010ba830872e4a52354186009495fda15ea5d0668516f7698fe3c7354",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          104,
+          110,
+          111
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "核结构、酵母单细胞属性和大多数细菌的营养措辞核对；未写成所有细菌异养。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "核结构比较",
+          "b": "真菌营养",
+          "c": "细菌实例营养",
+          "d": "区分类群概括范围"
+        }
+      },
+      "responses": [
+        {
+          "label": "成形细胞核的比较",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "二者都没有",
+            "二者都有",
+            "酵母菌有，乳酸菌没有"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "结构差异不意味着二者营养方式一定相反；类群概括还要注意例外。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "酵母菌获得有机营养的方式",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "只吸收无机盐就够",
+            "靠叶绿体制造有机物",
+            "利用现成有机物"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "乳酸菌获得有机营养的方式",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "不需要物质与能量",
+            "通过叶绿体光合作用",
+            "利用现成有机物"
+          ],
+          "kind": "choice",
+          "id": "c"
+        },
+        {
+          "label": "适当的类群概括",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "所有细菌都与植物一样进行光合作用",
+            "真菌利用现成有机物，大多数细菌也如此",
+            "所有真菌都是多细胞"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "真菌与细菌的结构和营养",
+        "family": "biology-g7-upper:6:fungi:fungus-bacterium-comparison",
+        "priority": 3,
+        "order": 19,
+        "skills": [
+          "真菌与细菌的结构和营养"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "核结构比较",
+          "真菌营养",
+          "细菌实例营养",
+          "区分类群概括范围"
+        ],
+        "difficulty_rationale": "同题比较结构和营养，并限制由实例外推的范围。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-upper:6:fungi",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-upper:6:fungi:fungus-bacterium-comparison",
+        "rationale": "核结构、酵母单细胞属性和大多数细菌的营养措辞核对；未写成所有细菌异养。"
+      },
+      "common_error_feedback": "结构差异不意味着二者营养方式一定相反；类群概括还要注意例外。"
+    },
+    {
+      "id": "family-chapter-biology-g7-upper-6-upper_gap_candidates-ferment-preserve-sterilize-v1",
+      "batch": "upper_gap_candidates",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "发酵、保存与灭菌的条件",
+      "prompt": "下面讨论食品生产原理，不是家庭操作步骤。资料：乳酸菌在适宜温度及其他适宜条件下可使牛奶发酵；冷藏可减慢许多微生物繁殖；合格的灭菌处理需要规定的温度、时间等条件，普通加热或冷藏不能直接视为灭菌。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\",\"c\":\"1\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "发酵利用适用微生物的活动；冷藏主要抑制繁殖；灭菌旨在杀灭微生物，需要有效工艺条件。用于发酵的活菌不能在接入时被过高温度杀死。此题不以外观、味道或纸面判断保证食品可食用。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 第三章 微生物",
+        "textbook_sha256": "a3fa62c010ba830872e4a52354186009495fda15ea5d0668516f7698fe3c7354",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          100,
+          102,
+          120
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目和材料为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "原页100/102/120支持灭菌冷却、环境条件与食品发酵；未给未经核验的食用或操作配方，冷藏说明为题内补充。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "发酵的活菌和环境条件",
+          "b": "保存的抑制作用",
+          "c": "灭菌的有效条件",
+          "d": "热处理与接种条件区分"
+        }
+      },
+      "responses": [
+        {
+          "label": "进行乳酸菌发酵需保留的条件",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "菌种先全部杀死",
+            "有活的适用菌种、营养及适宜环境",
+            "温度越高越好"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "发酵需要适用活菌，冷藏是抑制，灭菌需有效条件，三者不是同一件事。",
+              "action": "按题干给定条件，逐项核对后再作答。"
+            }
+          ]
+        },
+        {
+          "label": "冷藏保存的作用",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "把所有微生物瞬间杀死",
+            "减慢许多微生物繁殖，不保证全部杀死",
+            "让微生物永不恢复活动"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "判断已经灭菌的依据",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "达到规定且验证有效的灭菌条件",
+            "只要放进冰箱",
+            "只要摸起来温热"
+          ],
+          "kind": "choice",
+          "id": "c"
+        },
+        {
+          "label": "若先对原料作热处理，接入活菌前应注意",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "先降到适宜菌种的温度并避免再污染",
+            "随意加入来历不明的霉菌",
+            "越烫越利于所有菌种生长"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "发酵、保存与灭菌的条件",
+        "family": "biology-g7-upper:6:food:ferment-preserve-sterilize",
+        "priority": 3,
+        "order": 20,
+        "skills": [
+          "发酵、保存与灭菌的条件"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "发酵的活菌和环境条件",
+          "保存的抑制作用",
+          "灭菌的有效条件",
+          "热处理与接种条件区分"
+        ],
+        "difficulty_rationale": "区分三种目的及条件，并解释前后工序不能混同。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-upper:6:food",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-upper:6:food:ferment-preserve-sterilize",
+        "rationale": "原页100/102/120支持灭菌冷却、环境条件与食品发酵；未给未经核验的食用或操作配方，冷藏说明为题内补充。"
+      },
+      "common_error_feedback": "发酵需要适用活菌，冷藏是抑制，灭菌需有效条件，三者不是同一件事。"
+    }
+  ]
+}

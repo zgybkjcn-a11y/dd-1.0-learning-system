@@ -6,9 +6,16 @@ from .learner_context import read_context
 from .math_references import ReferenceError
 from .textbook_passages import PassageError
 from .study_deadline import check_deadline
+from .study_read_db import share_study_reads
 
 
 def read_study_reference(request, ctx, db, settings, allowed, reader, *, learner_for):
+    with share_study_reads(db) as reads:
+        return _read_study_reference(request, ctx, reads, settings, allowed, reader,
+                                     learner_for=learner_for)
+
+
+def _read_study_reference(request, ctx, db, settings, allowed, reader, *, learner_for):
     check_deadline()
     pairs = request.query_params.multi_items()
     if any(key not in allowed for key, _ in pairs) or len({key for key, _ in pairs}) != len(pairs):

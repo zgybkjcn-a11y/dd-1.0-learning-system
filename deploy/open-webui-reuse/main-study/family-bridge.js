@@ -10,15 +10,29 @@
   let queued = false, lastKey = '', lastValue = '', handledLink = '';
   const prefix = 'dd-study-family-scope-v1:';
   function pulse() { localStorage.setItem('dd-study-family-pulse-v1', String(Date.now()) + Math.random()); }
+  function clearShared() {
+    if (lastKey) { try { localStorage.removeItem(lastKey); pulse(); } catch (_) {} }
+    lastKey = ''; lastValue = ''; handledLink = '';
+    document.getElementById('dd-family-continue')?.remove();
+  }
+  function unavailable() {
+    clearShared();
+    if (document.getElementById('dd-family-bridge-status')) return;
+    const notice = document.createElement('p'); notice.id = 'dd-family-bridge-status'; notice.setAttribute('role', 'status');
+    notice.textContent = '当前家庭页面无法同步教材范围，已暂停关联入口。请刷新页面，确认档案后重试。';
+    document.body.prepend(notice);
+  }
   function update() {
     queued = false;
     // The existing workbench exposes these lexical functions after its inline
     // script initializes. Fail closed if a future version changes the contract.
-    if (typeof contextNamespace !== 'function' || typeof contextVersion === 'undefined') return;
+    if (typeof contextNamespace !== 'function' || typeof contextVersion === 'undefined') { unavailable(); return; }
     const main = document.querySelector('main'), learner = document.getElementById('learner');
     const book = document.getElementById('textbookBook'), chapter = document.getElementById('textbookChapter');
+    if (!main || !learner || !book || !chapter) { unavailable(); return; }
+    document.getElementById('dd-family-bridge-status')?.remove();
     if (!main || main.inert || !learner?.value || !book?.value) {
-      if (lastKey) { try { localStorage.removeItem(lastKey); pulse(); } catch (_) {} lastKey = ''; lastValue = ''; }
+      clearShared();
       return;
     }
     if (book.disabled || chapter.disabled) return;

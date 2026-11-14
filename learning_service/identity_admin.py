@@ -183,7 +183,11 @@ def apply_identity(manifest, database: Path, operator: str, reviewed_sha256: str
     conn = sqlite3.connect(path, isolation_level=None, timeout=15)
     conn.row_factory = sqlite3.Row
     try:
-        conn.execute("PRAGMA foreign_keys=ON")
+        # Table rebuilds must disable enforcement before opening the atomic
+        # administration transaction, then validate all references at commit.
+        has_schema = conn.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='schema_migrations'").fetchone()
+        rebuild = not has_schema or not conn.execute("SELECT 1 FROM schema_migrations WHERE version=14").fetchone()
+        conn.execute("PRAGMA foreign_keys=" + ("OFF" if rebuild else "ON"))
         conn.execute("BEGIN IMMEDIATE")
         locked = _plan(manifest, path, operator, _snapshot(conn))
         if reviewed_sha256 != locked["plan_sha256"]:
@@ -221,6 +225,8 @@ def apply_identity(manifest, database: Path, operator: str, reviewed_sha256: str
             _initialize_math(conn)
         conn.execute("INSERT INTO audit_events(id,account_id,operation,resource_type,resource_id,result,metadata_json,created_at) VALUES (?,?,?,?,?,?,?,?)",
                      (new_id("audit"), operator, "identity_manifest_apply", "identity_plan", reviewed_sha256, "applied", json_dumps({"plan_sha256": reviewed_sha256, "state_sha256": locked["state_sha256"], "operations": locked["operations"], "initialize_math": manifest["initialize_math"], "invalidated_accounts": sorted(invalidated), "changes": {k: [{f: v for f, v in r.items() if f != "display_name"} for r in manifest[k]] for k in ROWS}}), now))
+        if rebuild and conn.execute("PRAGMA foreign_key_check").fetchall():
+            raise ValueError("migration introduced foreign key violations")
         conn.commit()
         return {"status": "applied", "plan_sha256": reviewed_sha256, "operations": locked["operations"], "invalidated_accounts": sorted(invalidated)}
     except BaseException:

@@ -1,0 +1,86 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "math_g7_action_candidates",
+  "questions": [
+    {
+      "id": "family-chapter-math-g7-upper-2-01-v1",
+      "batch": "math_g7_action_candidates",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "减去负数的错误辨析",
+      "prompt": "小明计算4−(−3)=1，并说“减去负数就是减去它的绝对值”。哪项指出错误并给出正确结果？\n1. 减去负数要加上它的相反数，4−(−3)=4+3=7。\n2. 运算过程正确，但结果应为−7。\n3. 减去负数仍是减去3，所以结果是1。\n4. 两个负号可以直接删去，结果是4−3=1。\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "把减数−3看成一个整体，再用“减去一个数等于加上它的相反数”核对。",
+      "explanation": "4−(−3)=4+3=7。原算式把减去负数误作减去正数。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材目录主题；题干与情境为自编",
+        "chapter_title": "第二章 有理数的运算",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:2:subtract",
+        "task": "distinguish",
+        "family": "g7:subtract:negative-subtrahend-error",
+        "role": "direct",
+        "rationale": "要求判断具体错误并给出正确变形与结果；不同于只计算减法结果。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g7-upper-2-02-v1",
+      "batch": "math_g7_action_candidates",
+      "grade": 7,
+      "subject": "math",
+      "book_id": "math-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "负因数和零因子辨析",
+      "prompt": "小林作出两项判断：①(−1)×(−2)×(−3)=6；②(−2)×0×4=0。哪项评价正确？\n1. ①正确，积为6；②错误，忽略零因子后积为−8。\n2. ①错误，积为−6；②正确，含零因子的积为0。\n3. ①错误，积为−6；②错误，忽略零因子后积为−8。\n4. ①正确，积为6；②正确，含零因子的积为0。\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "分别检查非零负因子的个数奇偶，再检查乘积中是否有零因子。",
+      "explanation": "三个非零负因子个数为奇数，积为负；任何因数为0，积就是0。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材目录主题；题干与情境为自编",
+        "chapter_title": "第二章 有理数的运算",
+        "textbook_sha256": "d995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8",
+        "textbook_original_question": false,
+        "template_relation": null
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g7-upper:2:multiply",
+        "task": "distinguish",
+        "family": "g7:multiply:zero-and-negative-parity-diagnosis",
+        "role": "direct",
+        "rationale": "分别判断奇数个非零负因子的积与含零因子的积；同时要求识别两类常见错误。"
+      }
+    }
+  ]
+}

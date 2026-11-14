@@ -1,0 +1,1750 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "lower_gap_candidates_batch2",
+  "status": "local_candidate_not_registered",
+  "teacher_reviewed": false,
+  "curriculum_standard_crosscheck": "pending",
+  "student_calibrated": false,
+  "questions": [
+    {
+      "id": "family-chapter-ethics-g2-lower-1-lower_gap_candidates_batch2-exercise-share-help-v1",
+      "batch": "lower_gap_candidates_batch2",
+      "grade": 2,
+      "subject": "ethics",
+      "book_id": "ethics-g2-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "分辨锻炼、分享快乐与帮助他人",
+      "prompt": "读下面几位同学做的事，一项一项判断。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"3\",\"c\":\"1\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "跳绳是身体活动，属于锻炼；把自己高兴的事告诉别人、让别人也高兴，属于分享快乐；扶起摔倒的同学属于帮助他人。分享快乐能同时让自己和别人高兴，而只顾自己或让别人替自己做事，都不是。能选出答案，不等于自己愿意去分享。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 我乐观 我向上",
+        "textbook_sha256": "2cd52fe154b0835132637189154dc466bdc64327cf00634a5a57988f5eba9640",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          2,
+          5,
+          9
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目、情境与数据均为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "三条记录与教材第2、5、9页的“天天锻炼”“我分享，我快乐”“真诚赞美多助人”主题对应；选项两两互不重叠，正确项唯一。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "辨认锻炼身体的行为",
+          "b": "辨认分享快乐的行为",
+          "c": "辨认帮助他人的行为",
+          "d": "按两个条件同时判断"
+        }
+      },
+      "responses": [
+        {
+          "label": "小亮每天和爸爸跳绳10分钟。这属于哪一类？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "帮助他人",
+            "分享快乐",
+            "锻炼身体"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "跳绳是身体活动，不是把快乐告诉别人。",
+              "action": "看这件事是不是在活动身体。"
+            },
+            {
+              "answer": "1",
+              "message": "题中没有别人需要帮助。",
+              "action": "先看有没有人需要帮忙。"
+            }
+          ]
+        },
+        {
+          "label": "小美把自己画的画拿给同学看，同学笑了。这属于哪一类？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "锻炼身体",
+            "帮助他人",
+            "分享快乐"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "把画给别人看并不是运动。",
+              "action": "看这件事是不是在活动身体。"
+            },
+            {
+              "answer": "2",
+              "message": "同学只是看了画笑了，没有遇到困难。",
+              "action": "看有没有人需要帮忙。"
+            }
+          ]
+        },
+        {
+          "label": "小军看见同学摔倒，把他扶起来。这属于哪一类？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "帮助他人",
+            "锻炼身体",
+            "分享快乐"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "扶起同学不是锻炼身体。",
+              "action": "看这件事是不是在活动身体。"
+            },
+            {
+              "answer": "3",
+              "message": "这里是帮别人解决困难。",
+              "action": "看同学是不是需要帮忙。"
+            }
+          ]
+        },
+        {
+          "label": "小美做的这件事，为什么既让自己快乐又让别人快乐？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "她让别人替自己值日",
+            "她一个人偷偷看动画片",
+            "她把自己的快乐说出来，和别人一起高兴"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "一个人看只有自己高兴，没有和别人分享。",
+              "action": "看这件事有没有让别人也高兴。"
+            },
+            {
+              "answer": "1",
+              "message": "让别人替自己做事，是给别人添麻烦。",
+              "action": "看看有没有让别人更辛苦。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "分辨锻炼、分享快乐与帮助他人",
+        "family": "ethics-g2-lower:1:inventory-1:exercise-share-help",
+        "priority": 3,
+        "order": 1,
+        "skills": [
+          "分辨锻炼、分享快乐与帮助他人"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "辨认锻炼身体的行为",
+          "辨认分享快乐的行为",
+          "辨认帮助他人的行为",
+          "按两个条件同时判断"
+        ],
+        "difficulty_rationale": "二年级用三个短情境做三向分类，再同时核对“自己和别人都快乐”两个条件。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g2-lower:1:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g2-lower:1:inventory-1:exercise-share-help",
+        "rationale": "三条记录与教材第2、5、9页的“天天锻炼”“我分享，我快乐”“真诚赞美多助人”主题对应；选项两两互不重叠，正确项唯一。"
+      },
+      "common_error_feedback": "常见错误：跳绳是身体活动，不是把快乐告诉别人；题中没有别人需要帮助；把画给别人看并不是运动；同学只是看了画笑了，没有遇到困难；扶起同学不是锻炼身体；这里是帮别人解决困难；一个人看只有自己高兴，没有和别人分享；让别人替自己做事，是给别人添麻烦。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "不用照着上面说，自己讲一件愿意分享的快乐事：讲清是什么事、想告诉谁、说了以后对方怎么样了。可以用画的，也可以请别人扮演听你说的人。",
+        "criteria": [
+          "讲清具体是哪一件事",
+          "说明想分享给谁",
+          "说出对方的反应",
+          "记录孩子原话或画的内容，不代写成标准答案"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g2-lower-1-lower_gap_candidates_batch2-practice-record-and-result-v1",
+      "batch": "lower_gap_candidates_batch2",
+      "grade": 2,
+      "subject": "ethics",
+      "book_id": "ethics-g2-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "从练习记录看出坚持和收获",
+      "prompt": "小林记录了自己练毛笔字的情况，一项一项按要求回答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"3\",\"c\":\"3\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "记录里第1周是“1次、10分钟、字歪”，第8周是“3次、20分钟、老师夸进步”。次数和时间说明一直坚持在做；字的进步是收获。两栏要分开看，不能说买了毛笔或练一次就有收获。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 我乐观 我向上",
+        "textbook_sha256": "2cd52fe154b0835132637189154dc466bdc64327cf00634a5a57988f5eba9640",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          12
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目、情境与数据均为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "表格三行数字为自编；1→3 次、10→20 分钟与“字歪→老师夸进步”逐项对应；结论只承认记录中显示的进步，不外推为全部书写能力。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "读取记录中的次数",
+          "b": "辨认持续行动的记录",
+          "c": "辨认收获的证据",
+          "d": "由前后变化得出结论"
+        }
+      },
+      "responses": [
+        {
+          "label": "第1周每周练1次，第8周每周练几次？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "第8周记录的是3次。",
+              "action": "看表格最后一行的“每周练几次”。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "“每周练几次、每次练几分钟”这一栏，记录的是什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "别人的表扬",
+            "最后的结果",
+            "持续行动的情况"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这一栏记的是练了多少次、多久，是过程。",
+              "action": "分清“怎么练”和“练成什么样”。"
+            },
+            {
+              "answer": "1",
+              "message": "表扬记在“字的样子”那一栏。",
+              "action": "找记录行动的那一栏。"
+            }
+          ]
+        },
+        {
+          "label": "记录里哪一条能说明“有收获”？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "用的是毛笔和宣纸",
+            "第1周只练了1次",
+            "字从“有点歪”变成“老师夸进步”"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这是刚开始的情况，不是收获。",
+              "action": "找表示进步的那一条。"
+            },
+            {
+              "answer": "1",
+              "message": "用什么工具不等于有收获。",
+              "action": "找表示进步的那一条。"
+            }
+          ]
+        },
+        {
+          "label": "从这份记录可以得出什么结论？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "只要买好毛笔，字就会自己变好",
+            "练一次就能写得很好",
+            "练的次数多了、时间长了，字比一开始写得好"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "记录里没有出现过换毛笔。",
+              "action": "结论要有记录支持。"
+            },
+            {
+              "answer": "2",
+              "message": "记录显示从第1周到第8周一直练。",
+              "action": "看变化花了多少周。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "从练习记录看出坚持和收获",
+        "family": "ethics-g2-lower:1:inventory-2:practice-record-and-result",
+        "priority": 3,
+        "order": 2,
+        "skills": [
+          "从练习记录看出坚持和收获"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "读取记录中的次数",
+          "辨认持续行动的记录",
+          "辨认收获的证据",
+          "由前后变化得出结论"
+        ],
+        "difficulty_rationale": "二年级先读表格数字，再用“行动”和“收获”两栏分别判断，最后合成结论。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "小林练字的记录（自编示例）",
+        "rows": [
+          [
+            "周次",
+            "每周练几次",
+            "每次几分钟",
+            "字的样子"
+          ],
+          [
+            "第1周",
+            "1",
+            "10",
+            "有点歪"
+          ],
+          [
+            "第4周",
+            "3",
+            "20",
+            "比较直"
+          ],
+          [
+            "第8周",
+            "3",
+            "20",
+            "老师夸进步"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g2-lower:1:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g2-lower:1:inventory-2:practice-record-and-result",
+        "rationale": "表格三行数字为自编；1→3 次、10→20 分钟与“字歪→老师夸进步”逐项对应；结论只承认记录中显示的进步，不外推为全部书写能力。"
+      },
+      "common_error_feedback": "常见错误：第8周记录的是3次；这一栏记的是练了多少次、多久，是过程；表扬记在“字的样子”那一栏；这是刚开始的情况，不是收获；用什么工具不等于有收获；记录里没有出现过换毛笔；记录显示从第1周到第8周一直练。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "自己想一件愿意试着坚持的小事（例如每天整理书包、每天读5分钟），定一个小目标并做一张简单的记录表，连续记几天；没做的格子如实留空。",
+        "criteria": [
+          "目标具体、能做到",
+          "记录表有日期和内容",
+          "如实记录没完成的日子",
+          "几天后说说有没有变化，变化由孩子自己说明"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g7-lower-1-lower_gap_candidates_batch2-puberty-change-and-respect-v1",
+      "batch": "lower_gap_candidates_batch2",
+      "grade": 7,
+      "subject": "ethics",
+      "book_id": "ethics-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "生理变化、心理矛盾与尊重差异",
+      "prompt": "下面四条都是虚构的记录，不涉及任何真实的人和事。请逐条判断。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"3\",\"c\":\"2\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "青春期变化既包括身高、体重、机能、性的发育等生理变化，也包括自我意识增强带来的心理变化；独立与依赖并存、闭锁与开放并存，都是身心发展不平衡造成的心理矛盾。发育早晚属于正常差异，不嘲弄、不焦虑；烦恼既可以自我调节，也可以向信任的成年人求助。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 珍惜青春时光",
+        "textbook_sha256": "aec0bdbafcb98215747061f8d17a8bcec1d8b728f69f2fca21a7fac63c96bf63",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第2—5页支持青春期的生理变化、心理矛盾与自我调节方法；四条记录为自编，未使用教材中的学生自述，也不要求披露个人身体数据。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项与第3—5页的“生理变化”“心理矛盾”“正确对待发育差异”“求助老师家长心理医生”逐条对应；不要求学生填写本人身高体重或发育情况。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "辨认生理变化",
+          "b": "辨认心理矛盾",
+          "c": "辨认尊重身体差异的态度",
+          "d": "选择符合教材的求助方式"
+        }
+      },
+      "responses": [
+        {
+          "label": "“这一年个子长得很快，声音也变了。”这属于什么变化？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "心理矛盾",
+            "生理变化",
+            "稳定情感"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "声音变化是身体上的变化。",
+              "action": "看这条写的是身体还是心里。"
+            },
+            {
+              "answer": "3",
+              "message": "稳定情感是长期的情绪倾向，不是身体变化。",
+              "action": "先区分身体与心理。"
+            }
+          ]
+        },
+        {
+          "label": "“很想自己决定周末安排，遇到麻烦时又希望父母帮忙。”这属于什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "对他人身体差异的不尊重",
+            "生理发育的变化",
+            "心理上独立与依赖并存的矛盾"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这条写的是想法上的矛盾，不是身体变化。",
+              "action": "看是不是同时有想独立和想依赖两种想法。"
+            },
+            {
+              "answer": "1",
+              "message": "这条讲的是自己心里的矛盾。",
+              "action": "看主语说的是谁。"
+            }
+          ]
+        },
+        {
+          "label": "“同班同学有人发育早、有人发育晚，小舟认为这是正常差异，不去议论。”这体现的是什么？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "嘲弄他人的生理变化",
+            "尊重身体发育的差异",
+            "否认发育有早有晚"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "记录里说的是认为正常、不去议论。",
+              "action": "看记录里做的是尊重还是嘲笑。"
+            },
+            {
+              "answer": "3",
+              "message": "记录承认有早有晚。",
+              "action": "看记录是否承认差异存在。"
+            }
+          ]
+        },
+        {
+          "label": "遇到自己一时解决不了的烦恼，下面哪种做法符合本册的建议？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "向信任的老师、家长或心理老师求助",
+            "一个人憋着，谁也不说",
+            "在班里公开议论别人的身体变化"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "长期独自憋着并不能解决自己解决不了的烦恼。",
+              "action": "找本册列出的求助对象。"
+            },
+            {
+              "answer": "3",
+              "message": "这会伤害同学，不是处理自己烦恼的方法。",
+              "action": "分清处理自己的事和议论别人。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "生理变化、心理矛盾与尊重差异",
+        "family": "ethics-g7-lower:1:inventory-1:puberty-change-and-respect",
+        "priority": 3,
+        "order": 3,
+        "skills": [
+          "生理变化、心理矛盾与尊重差异"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "辨认生理变化",
+          "辨认心理矛盾",
+          "辨认尊重身体差异的态度",
+          "选择符合教材的求助方式"
+        ],
+        "difficulty_rationale": "四条都需要区分“身体的变化”“心里的矛盾”“对他人的态度”“求助做法”，用的是虚构记录而不是需要披露个人经历的提问。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g7-lower:1:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g7-lower:1:inventory-1:puberty-change-and-respect",
+        "rationale": "四项与第3—5页的“生理变化”“心理矛盾”“正确对待发育差异”“求助老师家长心理医生”逐条对应；不要求学生填写本人身高体重或发育情况。"
+      },
+      "common_error_feedback": "常见错误：声音变化是身体上的变化；稳定情感是长期的情绪倾向，不是身体变化；这条写的是想法上的矛盾，不是身体变化；这条讲的是自己心里的矛盾；记录里说的是认为正常、不去议论；记录承认有早有晚；长期独自憋着并不能解决自己解决不了的烦恼；这会伤害同学，不是处理自己烦恼的方法。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用完全虚构的两位同学，说出其中一人会遇到的一种心理矛盾，再提一条支持建议（对本人说或对身边同学说）并说明理由。不必讲自己的发育情况。",
+        "criteria": [
+          "矛盾说得具体，能指出是哪一类",
+          "建议针对这个矛盾",
+          "说明建议为什么可行、尊重对方",
+          "只记录虚构情境中的表现，不追问个人隐私"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g7-lower-1-lower_gap_candidates_batch2-body-boundary-and-help-v1",
+      "batch": "lower_gap_candidates_batch2",
+      "grade": 7,
+      "subject": "ethics",
+      "book_id": "ethics-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "身体边界、拒绝与求助",
+      "prompt": "下面是虚构情境，不涉及任何真实的人和事：放学路上，一名不认识的成年人反复靠近并要求小楠说出自己的联系方式和住址，小楠感到害怕和不舒服。请逐项判断。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\",\"c\":\"3\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "身体边界由自己做主。对方反复靠近、索要个人信息，已经越过了让人不舒服的边界，责任在越界的一方，不在被冒犯的人。遇到这种情况可以明确说“不”、尽快走到人多安全的地方，并把事情告诉信任的成年人，必要时报警。是否受伤不是判断越界的唯一标准。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 珍惜青春时光",
+        "textbook_sha256": "aec0bdbafcb98215747061f8d17a8bcec1d8b728f69f2fca21a7fac63c96bf63",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          9,
+          10,
+          11
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第9—11页支持正规途径了解性知识、身体边界与自我保护做法；情境为自编虚构，未使用教材公交车案例原文，不要求提供任何真实遭遇。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项与第10—11页的“身体警戒线”“勇于说不”“快速离开”“寻求帮助”和“相信自己没有错”逐条对应；情境为自编，不含具体侵害细节，不收集真实遭遇。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "辨认行为越界",
+          "b": "选择拒绝与离开的做法",
+          "c": "判断责任归属",
+          "d": "辨认求助类自保做法"
+        }
+      },
+      "responses": [
+        {
+          "label": "这个情境里，让小楠感到不舒服的是什么？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "小楠自己走路的速度",
+            "对方越过了让小楠不舒服的身体和交往边界",
+            "小楠背的双肩包"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "走路快慢不是对方越界的原因。",
+              "action": "看是谁做出了让人不舒服的举动。"
+            },
+            {
+              "answer": "3",
+              "message": "背什么包与对方的越界无关。",
+              "action": "看是谁做出了让人不舒服的举动。"
+            }
+          ]
+        },
+        {
+          "label": "遇到这种情况，下面哪种做法合适？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "明确拒绝，走向人多的地方，并告诉信任的成年人",
+            "先答应对方，回家后谁也不说",
+            "为了礼貌，站着听对方说完再走"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "安全比“礼貌”更重要，不必留在原地。",
+              "action": "先离开再求助。"
+            },
+            {
+              "answer": "2",
+              "message": "答应并隐瞒会让危险继续。",
+              "action": "找本册列出的三种做法。"
+            }
+          ]
+        },
+        {
+          "label": "关于“这是谁的责任”，下面哪种说法正确？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "只要没有受伤，就不算越界",
+            "小楠被靠近是因为自己不小心",
+            "越界的是对方，小楠没有错"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "越界是对方的选择，不是被冒犯者的错。",
+              "action": "分清谁做了越界的事。"
+            },
+            {
+              "answer": "1",
+              "message": "让人不舒服的越界不以受伤为前提。",
+              "action": "看边界有没有被越过。"
+            }
+          ]
+        },
+        {
+          "label": "把事情告诉信任的成年人、必要时报警，属于哪种自我保护做法？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "拒绝黄色笑话",
+            "快速离开危险",
+            "寻求帮助"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这条问的是告诉别人、报警，属于求助。",
+              "action": "区分“离开现场”和“找人帮忙”。"
+            },
+            {
+              "answer": "1",
+              "message": "本情境没有涉及这类言语。",
+              "action": "看这条做法是不是在找人帮忙。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "身体边界、拒绝与求助",
+        "family": "ethics-g7-lower:1:inventory-2:body-boundary-and-help",
+        "priority": 3,
+        "order": 4,
+        "skills": [
+          "身体边界、拒绝与求助"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "辨认行为越界",
+          "选择拒绝与离开的做法",
+          "判断责任归属",
+          "辨认求助类自保做法"
+        ],
+        "difficulty_rationale": "四项都在同一虚构情境中区分“越界行为”“应对做法”“责任归属”“自保类别”。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g7-lower:1:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g7-lower:1:inventory-2:body-boundary-and-help",
+        "rationale": "四项与第10—11页的“身体警戒线”“勇于说不”“快速离开”“寻求帮助”和“相信自己没有错”逐条对应；情境为自编，不含具体侵害细节，不收集真实遭遇。"
+      },
+      "common_error_feedback": "常见错误：走路快慢不是对方越界的原因；背什么包与对方的越界无关；安全比“礼貌”更重要，不必留在原地；答应并隐瞒会让危险继续；越界是对方的选择，不是被冒犯者的错；让人不舒服的越界不以受伤为前提；这条问的是告诉别人、报警，属于求助；本情境没有涉及这类言语。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用假设角色练一次：先说一句明确的拒绝，再说明会走到哪里、告诉哪位信任的成年人；由同伴扮演对方回应，再补充你的应对。全程使用假设情节，不讲述真实经历。",
+        "criteria": [
+          "拒绝的话清楚、不含糊",
+          "说出具体的安全去处",
+          "说出可信成年人的身份或称谓",
+          "被追问时能坚持拒绝",
+          "只记录演练表现，不追问真实经历"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-ethics-g7-lower-1-lower_gap_candidates_batch2-emotion-trigger-and-regulation-v1",
+      "batch": "lower_gap_candidates_batch2",
+      "grade": 7,
+      "subject": "ethics",
+      "book_id": "ethics-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "情绪表现、触发因素与调节方法",
+      "prompt": "虚构记录：小舟准备了很久的班级朗诵排练今晚7点开始，6点50分妈妈让他先把碗洗完。他一下子很生气，把抹布扔在水池里。请逐项判断。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"1\",\"c\":\"1\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "情绪表现是能被看到的部分（生气、扔抹布），触发因素是引起情绪的事情（时间冲突），稳定情感是长期的情绪倾向，三者要分开。注意转移是把注意力移到别的事情上（去浇花），认知调节是换一种看法（想到妈妈是为自己好），两者常一起使用。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 珍惜青春时光",
+        "textbook_sha256": "aec0bdbafcb98215747061f8d17a8bcec1d8b728f69f2fca21a7fac63c96bf63",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          14,
+          15,
+          16,
+          17,
+          19,
+          21
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第14—17页支持情绪表现、影响情绪的因素、认识与调节情绪的方法；情境与选项为自编，未复制教材情境题。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项与第14—17页“情绪表现”“影响情绪的因素”“注意转移法”“认知调节”逐条对应；情境为自编，未使用教材小杰看球赛的原文对话。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "辨认情绪表现",
+          "b": "辨认触发因素",
+          "c": "辨认注意转移",
+          "d": "辨认认知调节"
+        }
+      },
+      "responses": [
+        {
+          "label": "“一下子很生气，把抹布扔在水池里”属于哪一项？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "稳定情感",
+            "触发因素",
+            "情绪表现"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "扔抹布是能看到的情绪表现，不是引起情绪的事情。",
+              "action": "分清“被看到的表现”和“引起它的事情”。"
+            },
+            {
+              "answer": "1",
+              "message": "稳定情感是长期倾向，不是这一次的爆发。",
+              "action": "看这条是不是一时发生的。"
+            }
+          ]
+        },
+        {
+          "label": "“排练时间与洗碗要求撞在一起”属于哪一项？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "触发因素",
+            "情绪表现",
+            "调节方法"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这一条说的是时间冲突这件事。",
+              "action": "看这条是不是在说发生了什么。"
+            },
+            {
+              "answer": "3",
+              "message": "调节方法是用来缓解情绪的做法。",
+              "action": "看这条有没有“怎么做”。"
+            }
+          ]
+        },
+        {
+          "label": "小舟先去阳台给花浇水，等不那么生气了再回来洗碗。这属于哪种调节方法？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "注意转移",
+            "合理宣泄",
+            "认知调节"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "去浇花是换了做的事情，不是换想法。",
+              "action": "看有没有“换一种想法”。"
+            },
+            {
+              "answer": "2",
+              "message": "宣泄是把情绪释放出来，这里是把注意力移开。",
+              "action": "看注意力有没有转到别处。"
+            }
+          ]
+        },
+        {
+          "label": "小舟想：“妈妈让我先洗碗，是怕我弄得太晚影响睡觉。”这属于哪种调节方法？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "认知调节",
+            "注意转移",
+            "放松训练"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这里没有换做的事，换的是想法。",
+              "action": "看有没有“换一种看法”。"
+            },
+            {
+              "answer": "3",
+              "message": "放松训练是让身体放松下来，这里是改变想法。",
+              "action": "找“换一种解释”的句子。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "情绪表现、触发因素与调节方法",
+        "family": "ethics-g7-lower:1:inventory-3:emotion-trigger-and-regulation",
+        "priority": 3,
+        "order": 5,
+        "skills": [
+          "情绪表现、触发因素与调节方法"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "辨认情绪表现",
+          "辨认触发因素",
+          "辨认注意转移",
+          "辨认认知调节"
+        ],
+        "difficulty_rationale": "同一情境里区分四个相邻概念，其中两种调节方法最容易混淆，需按定义判断。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "ethics-g7-lower:1:inventory-3",
+        "task": "check",
+        "role": "direct",
+        "family": "ethics-g7-lower:1:inventory-3:emotion-trigger-and-regulation",
+        "rationale": "四项与第14—17页“情绪表现”“影响情绪的因素”“注意转移法”“认知调节”逐条对应；情境为自编，未使用教材小杰看球赛的原文对话。"
+      },
+      "common_error_feedback": "常见错误：扔抹布是能看到的情绪表现，不是引起情绪的事情；稳定情感是长期倾向，不是这一次的爆发；这一条说的是时间冲突这件事；调节方法是用来缓解情绪的做法；去浇花是换了做的事情，不是换想法；宣泄是把情绪释放出来，这里是把注意力移开；这里没有换做的事，换的是想法；放松训练是让身体放松下来，这里是改变想法。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "选一件愿意分享、或完全虚构的事，说清当时发生了什么、自己是什么感受、身体上有什么反应，用过哪种调节方法、效果如何。不愿分享真实经历时可用虚构故事。",
+        "criteria": [
+          "事件、感受、身体反应分别说清",
+          "能指出自己的触发因素",
+          "说出一种调节方法并说明为什么适合",
+          "记录是否自愿分享，不追问隐私"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-history-g7-lower-1-lower_gap_candidates_batch2-sui-timeline-and-collapse-v1",
+      "batch": "lower_gap_candidates_batch2",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "隋朝时间线与速亡原因",
+      "prompt": "按本册给出的年代回答，并依据材料判断隋朝速亡的原因。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"581\",\"b\":\"589\",\"c\":\"618\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "581年杨坚建立隋朝，589年灭陈统一全国，618年隋炀帝在江都被杀、隋朝灭亡。材料列出的是营建、巡游、征辽等大量征发劳动力的事实，结果是不恤民力、民不聊生、社会矛盾激化；大运河实际加强了南北交流，科举制则扩大了统治基础，两者都与材料指向相反。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 隋唐时期：繁荣与开放的时代",
+        "textbook_sha256": "7ca9d6b0ee3752e410bb5af81b9cc0d016c8ff488387a337935375d77e1dc174",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          4,
+          6,
+          7
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第4、6、7页支持581、589、618三个年代及隋炀帝役使民力的材料；题干与选项为自编，未复制教材课后活动题。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "581、589、618 三个年份按第4、7页核对；第四项的干扰项与第5—6页结论相反（运河加强南北交流、科举扩大统治基础），可据材料排除。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "读出建立年份",
+          "b": "读出统一年份",
+          "c": "读出灭亡年份",
+          "d": "依据材料归纳速亡原因"
+        }
+      },
+      "responses": [
+        {
+          "label": "隋朝建立于哪一年？（公元纪年，只填年份数字）",
+          "answer": "581",
+          "independent_check": "581",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "589",
+              "message": "589年是统一全国的年份。",
+              "action": "建立在前、统一在后。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "隋灭陈、统一全国是哪一年？",
+          "answer": "589",
+          "independent_check": "589",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "581",
+              "message": "581年是建立隋朝的年份。",
+              "action": "先建立政权，后灭陈统一。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "隋朝灭亡是哪一年？",
+          "answer": "618",
+          "independent_check": "618",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "605",
+              "message": "605年是大运河开始开凿的年份，不是灭亡年份。",
+              "action": "到第7页找隋朝结束的那一年。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "材料：隋炀帝“营建东都洛阳、开凿大运河、修筑长城和驰道”，“多次巡游”，“三次征辽东，役使大量农民”。据此判断，隋朝速亡的主要原因是什么？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "开凿大运河使南北交通完全断绝",
+            "徭役兵役繁重，百姓无法正常生产，社会矛盾激化",
+            "科举取士让平民子弟再也无法做官"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "本册认为运河加强了南北交流。",
+              "action": "核对第6页对运河作用的叙述。"
+            },
+            {
+              "answer": "3",
+              "message": "科举使平民有了通过考试晋升的机会。",
+              "action": "核对第6页对科举的叙述。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "隋朝时间线与速亡原因",
+        "family": "history-g7-lower:1:inventory-1:sui-timeline-and-collapse",
+        "priority": 3,
+        "order": 6,
+        "skills": [
+          "隋朝时间线与速亡原因"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "读出建立年份",
+          "读出统一年份",
+          "读出灭亡年份",
+          "依据材料归纳速亡原因"
+        ],
+        "difficulty_rationale": "三个年代需要按书内顺序分辨，第四项要从材料列出的措施推到社会后果。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-lower:1:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-lower:1:inventory-1:sui-timeline-and-collapse",
+        "rationale": "581、589、618 三个年份按第4、7页核对；第四项的干扰项与第5—6页结论相反（运河加强南北交流、科举扩大统治基础），可据材料排除。"
+      },
+      "common_error_feedback": "常见错误：589年是统一全国的年份；581年是建立隋朝的年份；605年是大运河开始开凿的年份，不是灭亡年份；本册认为运河加强了南北交流；科举使平民有了通过考试晋升的机会。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用两段有来源的材料（可用本册课文加一处补充材料），写一段话说明隋朝灭亡的原因，指出不只一个原因，并注明每句话依据哪段材料。",
+        "criteria": [
+          "至少给出两个相互关联的原因",
+          "每个原因能对应具体材料",
+          "不把灭亡归因于单一工程或某一个人",
+          "说明材料没有直接证明的部分"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-history-g7-lower-1-lower_gap_candidates_batch2-canal-and-exam-v1",
+      "batch": "lower_gap_candidates_batch2",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "大运河与科举制的类别与作用",
+      "prompt": "按材料判断类别和作用，每项只选最直接的一项。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"1\",\"c\":\"3\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "大运河是人工开凿的水上交通工程，科举制是通过考试选拔官员的制度，两者类别不同。材料中的“连接五大水系”说明它沟通南北，直接作用是加强南北交通与交流；科举制以考试取士，改变了魏晋以来看重门第的做法，扩大了统治基础。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元 隋唐时期：繁荣与开放的时代",
+        "textbook_sha256": "7ca9d6b0ee3752e410bb5af81b9cc0d016c8ff488387a337935375d77e1dc174",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          5,
+          6
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第5—6页支持运河走向、五大水系、进士科与依才能取士；题干与选项为自编，未复制教材“读地图”或课后活动题，未使用教材地图图像。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项与第5—6页的运河走向、五大水系、进士科与“依才能取士”逐条对应；干扰项与原文结论相反，答案唯一。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "区分类别为工程",
+          "b": "区分类别为制度",
+          "c": "据材料说明工程作用",
+          "d": "比较选官方式的变化"
+        }
+      },
+      "responses": [
+        {
+          "label": "大运河属于下面哪一类？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "考试科目",
+            "制度",
+            "工程"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "大运河是开凿出来的水路工程。",
+              "action": "看它是不是实体的设施。"
+            },
+            {
+              "answer": "1",
+              "message": "大运河与考试无关。",
+              "action": "看它的用途是交通还是选人。"
+            }
+          ]
+        },
+        {
+          "label": "科举制属于下面哪一类？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "制度",
+            "工程",
+            "水利设施"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "科举制是选官的办法，不是工程。",
+              "action": "看它是制度还是设施。"
+            },
+            {
+              "answer": "3",
+              "message": "科举制与水利无关。",
+              "action": "看它管的是选人还是治水。"
+            }
+          ]
+        },
+        {
+          "label": "材料：大运河“以洛阳为中心，北抵涿郡，南至余杭郡，连接海河、黄河、淮河、长江、钱塘江五大水系”。据此，大运河的直接作用是什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "取代了通过考试选官的做法",
+            "使全国河流都改成东西流向",
+            "加强南北交通，带动沿河城市繁荣和南北交流"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "运河是人工开凿的南北水路，不改变自然河流流向。",
+              "action": "看材料写的是连接哪些水系。"
+            },
+            {
+              "answer": "1",
+              "message": "科举制本身就是通过考试选官。",
+              "action": "分清工程和制度各起什么作用。"
+            }
+          ]
+        },
+        {
+          "label": "与魏晋南北朝“选官看重门第、不太注重才识”相比，科举制最主要的变化是什么？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "选官权完全交给地方世家大族",
+            "依才识通过考试选拔，平民子弟有了晋升机会",
+            "取消了所有考试科目"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这恰是科举要改变的做法。",
+              "action": "看变化的方向是看门第还是看才识。"
+            },
+            {
+              "answer": "3",
+              "message": "科举制正是以考试取士。",
+              "action": "看变化前后的取士依据。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "大运河与科举制的类别与作用",
+        "family": "history-g7-lower:1:inventory-2:canal-and-exam",
+        "priority": 3,
+        "order": 7,
+        "skills": [
+          "大运河与科举制的类别与作用"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "区分类别为工程",
+          "区分类别为制度",
+          "据材料说明工程作用",
+          "比较选官方式的变化"
+        ],
+        "difficulty_rationale": "两问区分“工程/制度”，两问分别从材料推作用、从对比推变化。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-lower:1:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-lower:1:inventory-2:canal-and-exam",
+        "rationale": "四项与第5—6页的运河走向、五大水系、进士科与“依才能取士”逐条对应；干扰项与原文结论相反，答案唯一。"
+      },
+      "common_error_feedback": "常见错误：大运河是开凿出来的水路工程；大运河与考试无关；科举制是选官的办法，不是工程；科举制与水利无关；运河是人工开凿的南北水路，不改变自然河流流向；科举制本身就是通过考试选官；这恰是科举要改变的做法；科举制正是以考试取士。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "选大运河或科举制其中一项，用有来源的材料说明它的作用和局限各一点，写明所用材料出处；谈运河连通关系前先对照完整地图。",
+        "criteria": [
+          "作用和局限都有材料依据",
+          "注明材料来源",
+          "不把一项工程或制度说成只有好处或只有坏处",
+          "地图连通关系经原图核对"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-geography-g7-lower-7-lower_gap_candidates_batch2-position-and-profile-v1",
+      "batch": "lower_gap_candidates_batch2",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-lower",
+      "chapter_id": "7",
+      "difficulty": "normal",
+      "title": "位置判读与地形剖面读图",
+      "prompt": "下表的纬度范围和剖面海拔是本题给出的数据（剖面为自编示意值，不是教材原图）。按要求逐项判断。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"81\",\"b\":\"2\",\"c\":\"1\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "81°N到11°S 跨过赤道，所以同时跨南北半球。剖面中段约4500米、东西段明显更低，对应“中部高、四周低”。剖面只表示沿某一条线的起伏，不含面积信息，也不能说明全洲每一处都超过某个高度。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第七章 我们生活的大洲——亚洲",
+        "textbook_sha256": "1a720dbf86203de323f96a59bd47f03ec77cacbeda899cdeb601a94a24c11fc6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          2,
+          3,
+          5,
+          6
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第2、3、5、6页支持亚洲纬度范围、六大分区与“中部高、四周低”；剖面数值为自编示意值，未抄录教材图7.5、图7.6，也未据此声称真实海拔。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "81°N与11°S按第2页文字核对；剖面数值为自编示意值，未复制教材图7.6；第四项据此排除“全洲都在4500米以上”和“面积最大”这两类越界结论。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "读出纬度数值",
+          "b": "由纬度范围判断半球",
+          "c": "由剖面判断地势特点",
+          "d": "界定剖面能支持的结论"
+        }
+      },
+      "responses": [
+        {
+          "label": "亚洲最北大约到多少度北纬？（只填数字）",
+          "answer": "81",
+          "independent_check": "81",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "11",
+              "message": "11是南端的南纬度数，不是北端。",
+              "action": "题目问的是最北的北纬。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "亚洲的最北端在北半球高纬，最南端越过赤道到南半球。据此判断，它跨越了哪些半球？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "只有北半球",
+            "北半球和南半球",
+            "只有南半球"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "南端到11°S，已越过赤道进入南半球。",
+              "action": "看有没有纬度在0°以南。"
+            },
+            {
+              "answer": "3",
+              "message": "大部分地区在北半球。",
+              "action": "看绝大多数纬度在赤道哪一侧。"
+            }
+          ]
+        },
+        {
+          "label": "按表中沿30°N的剖面数据，亚洲大陆自西向东的地势大致是什么特点？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "中部高、东西两侧低",
+            "南北高、中部低",
+            "东高西低、中部最低"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "剖面中段最高，不是最低。",
+              "action": "比较三段数值的大小。"
+            },
+            {
+              "answer": "2",
+              "message": "这条剖面是自西向东，看不出南北高低。",
+              "action": "先确认剖面沿哪个方向。"
+            }
+          ]
+        },
+        {
+          "label": "这份剖面数据能直接支持下面哪一句判断？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "亚洲的面积在世界各大洲中最大",
+            "全洲海拔都在4500米以上",
+            "中部有海拔很高的高原，东西两侧分布较低的地形"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "东西两侧只有约1000米和500米。",
+              "action": "看三段数值是否都大于4500。"
+            },
+            {
+              "answer": "1",
+              "message": "剖面不含面积信息。",
+              "action": "想想剖面图能表示什么。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "位置判读与地形剖面读图",
+        "family": "geography-g7-lower:7:inventory-1:position-and-profile",
+        "priority": 3,
+        "order": 8,
+        "skills": [
+          "位置判读与地形剖面读图"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "读出纬度数值",
+          "由纬度范围判断半球",
+          "由剖面判断地势特点",
+          "界定剖面能支持的结论"
+        ],
+        "difficulty_rationale": "四项分别考数值读取、半球判断、剖面概括与图示功能边界。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "沿30°N的剖面示意（自编示意值，非教材原图）",
+        "rows": [
+          [
+            "位置（自西向东）",
+            "0—2 000千米",
+            "2 000—5 000千米",
+            "5 000—7 000千米"
+          ],
+          [
+            "大致平均海拔/米",
+            "约1 000",
+            "约4 500",
+            "约500"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-lower:7:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-lower:7:inventory-1:position-and-profile",
+        "rationale": "81°N与11°S按第2页文字核对；剖面数值为自编示意值，未复制教材图7.6；第四项据此排除“全洲都在4500米以上”和“面积最大”这两类越界结论。"
+      },
+      "common_error_feedback": "常见错误：11是南端的南纬度数，不是北端；南端到11°S，已越过赤道进入南半球；大部分地区在北半球；剖面中段最高，不是最低；这条剖面是自西向东，看不出南北高低；东西两侧只有约1000米和500米；剖面不含面积信息。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "在完整方向与图例的地图上找出亚洲的四至和六大分区并说明判断依据；看不懂的图例或数字如实留空，不按文字层猜读。",
+        "criteria": [
+          "位置描述用到了方向和图例",
+          "分区名称与位置对应",
+          "地势描述与剖面方向一致",
+          "看不清的数据留空并说明"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-geography-g7-lower-7-lower_gap_candidates_batch2-population-and-economy-indicators-v1",
+      "batch": "lower_gap_candidates_batch2",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-lower",
+      "chapter_id": "7",
+      "difficulty": "normal",
+      "title": "人口、密度与人均指标",
+      "prompt": "表中为本题自编的两个地区数据（2020年，仅用于练习，不代表当前实时数值）。按要求计算并判断，结果四舍五入到整数。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"50\",\"b\":\"40000\",\"c\":\"2\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "甲：20000万人÷400万千米²=50人/千米²；80000亿元÷20000万人=40000元/人。乙：5000万人÷50万千米²=100人/千米²；60000亿元÷5000万人=120000元/人。所以甲的总量大而密度低、人均也低。总量、密度、经济总量和人均是四个不同指标，不能用一个结论代替另一个。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第七章 我们生活的大洲——亚洲",
+        "textbook_sha256": "1a720dbf86203de323f96a59bd47f03ec77cacbeda899cdeb601a94a24c11fc6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          12,
+          14,
+          16
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第12、14、16页支持人口总量、人口密度、经济总量与人均指标的区分；表内数值为自编练习数据，不是教材2020年统计值，也不代表当前实际情况。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "50人/千米²、40000元/人、乙密度100人/千米²、乙人均120000元/人 均独立复算；表格明示年份并注明为自编练习数据，未使用教材2020年真实统计值。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由人口与面积求密度",
+          "b": "由经济总量与人口求人均",
+          "c": "比较两地密度",
+          "d": "综合区分总量与人均指标"
+        }
+      },
+      "responses": [
+        {
+          "label": "甲地区的人口密度是多少？（人/千米²）",
+          "answer": "50",
+          "independent_check": "20000*10000/(400*10000)",
+          "units": [
+            "人/千米²"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "200",
+              "message": "用人口数除以面积时没有统一“万”的单位。",
+              "action": "万人与万千米² 要同时换算。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "甲地区的人均国内生产总值是多少？（元/人）",
+          "answer": "40000",
+          "independent_check": "80000*100000000/(20000*10000)",
+          "units": [
+            "元/人"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "亿元与万人相除后还要换算成元/人。",
+              "action": "1亿元=1亿，1万人=1万人，先统一再相除。"
+            },
+            {
+              "answer": "4000",
+              "message": "少算了一个数量级。",
+              "action": "核对亿元与万元、人与万人的换算。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "比较两个地区的人口密度，结论是哪个？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "甲地区更大",
+            "乙地区更大",
+            "两地一样大"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "甲密度50、乙密度100。",
+              "action": "先算出两地的密度再比较。"
+            },
+            {
+              "answer": "3",
+              "message": "两地密度分别是50和100。",
+              "action": "计算后再比较。"
+            }
+          ]
+        },
+        {
+          "label": "综合表内数据，下面哪种说法正确？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "甲地区经济总量更大，但人均国内生产总值低于乙地区",
+            "两地人口总数相同，无法比较",
+            "甲地区经济总量和人均都高于乙地区"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "甲人均40000元，乙人均120000元。",
+              "action": "人均要单独计算。"
+            },
+            {
+              "answer": "2",
+              "message": "表中人口写明为20000万和5000万。",
+              "action": "先读人口那一列。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "人口、密度与人均指标",
+        "family": "geography-g7-lower:7:inventory-2:population-and-economy-indicators",
+        "priority": 3,
+        "order": 9,
+        "skills": [
+          "人口、密度与人均指标"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由人口与面积求密度",
+          "由经济总量与人口求人均",
+          "比较两地密度",
+          "综合区分总量与人均指标"
+        ],
+        "difficulty_rationale": "两项计算都要先统一“万”的进制，后两项要求同时处理四类指标，不能用总量代替人均。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "两个地区的部分指标（自编练习数据，2020年，不代表当前值）",
+        "rows": [
+          [
+            "地区",
+            "人口/万人",
+            "面积/万千米²",
+            "国内生产总值/亿元"
+          ],
+          [
+            "甲地区",
+            "20000",
+            "400",
+            "80000"
+          ],
+          [
+            "乙地区",
+            "5000",
+            "50",
+            "60000"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-lower:7:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-lower:7:inventory-2:population-and-economy-indicators",
+        "rationale": "50人/千米²、40000元/人、乙密度100人/千米²、乙人均120000元/人 均独立复算；表格明示年份并注明为自编练习数据，未使用教材2020年真实统计值。"
+      },
+      "common_error_feedback": "常见错误：用人口数除以面积时没有统一“万”的单位；亿元与万人相除后还要换算成元/人；少算了一个数量级；甲密度50、乙密度100；两地密度分别是50和100；甲人均40000元，乙人均120000元；表中人口写明为20000万和5000万。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "选两份同年份、同口径的公开材料，说明某地区的人口或经济差异；标明数据年份与来源，不把2020年数据写成现在的情况。",
+        "criteria": [
+          "两份材料年份与口径一致",
+          "注明来源与年份",
+          "区分总量与人均指标",
+          "不把历史数据当作当前实时数值"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    }
+  ]
+}

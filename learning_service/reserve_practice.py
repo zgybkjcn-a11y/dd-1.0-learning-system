@@ -71,7 +71,7 @@ def bank():
         raise ValueError('base question version changed')
     parents = {q['id']: q for q in json.loads(base_raw)['questions']}
     questions = {q['id']: q for q in payload['questions']}
-    if len(questions) != 12 or any(sum(q['difficulty'] == level for q in questions.values()) != 4 for level in LEVELS):
+    if len(questions) != 12 or any(sum(q['difficulty'] == level for q in questions.values()) != 4 for level in ('easy','normal','hard')):
         raise ValueError('reserve counts do not reconcile')
     for q in questions.values():
         r = q['review']

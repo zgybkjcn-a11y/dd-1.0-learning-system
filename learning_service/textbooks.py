@@ -1,6 +1,7 @@
 """Verified edition catalogue; reference retrieval is separate from question approval."""
 from copy import deepcopy
 import hashlib
+import json
 import re
 import unicodedata
 import threading
@@ -9,7 +10,7 @@ from . import textbook_cache
 from .study_deadline import check_deadline
 
 
-# Match the exact PDFs used for the vector index; offsets apply only to these files.
+# Match exact reading PDFs; offsets apply only to these files.
 PDF_SHA256 = {
     'math-g2-upper': 'df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66',
     'math-g7-upper': 'd995a2072c2b00418eacf1fdfc7a00234953592f5fba61a4b227731c8a19fdd8',
@@ -191,6 +192,15 @@ for entry in ADDITIONAL_BOOKS:
     book.pop("reader_url")
     BOOKS.append(book)
     PDF_SHA256[entry["key"]] = entry["sha256"]
+
+# Original-page reading is independent of OCR approval and vector indexing.
+_LOWER_READING = json.loads((Path(__file__).parent / 'data/textbook_lower_reading_v1.json').read_text())
+for entry in _LOWER_READING['books']:
+    book = _book(entry['key'], entry['grade'], '下册', entry['file_id'],
+                 entry['official_id'], entry['offset'], entry['chapters'])
+    book.update(verified_on=_LOWER_READING['verified_on'], search_available=False, collection='')
+    BOOKS.append(book)
+    PDF_SHA256[entry['key']] = entry['sha256']
 
 # Printed-page section starts transcribed from these exact PDFs' contents and headings.
 # Chapter boundaries below prevent a section label carrying into the next chapter.
@@ -521,6 +531,10 @@ SECTION_STARTS['ethics-g2-upper'] = {
 }
 
 
+for entry in _LOWER_READING['books']:
+    SECTION_STARTS[entry['key']] = {int(page): title for page, title in entry['sections'].items()}
+
+
 def page_title(book, chapter, printed_page, text):
     if not chapter['id']:
         chapter = next(c for c in book['chapters'] if c['printed_page'] <= printed_page <=
@@ -587,7 +601,6 @@ def subject_catalogue(curriculum_id):
     return [{'id':subject,'title':SUBJECT_NAMES[subject],
              'available':any(b['subject']==subject for b in books),
              'notice': '新版教材待补齐' if not any(b['subject']==subject for b in books) else
-                       '下册正在核验，暂未开放检索' if subject=='math' and books[0]['grade']==2 else
                        '目前已接入上册，下册待补齐' if not any(b['subject']==subject and b['semester']=='下册' for b in books) else ''}
             for subject in applicable]
 
@@ -604,7 +617,7 @@ def search_scope(curriculum_id, body):
     if type(offset) is not int or not 0 <= offset < total or (query.strip() and offset):
         raise ValueError('invalid chapter page offset')
     return {'book':book,'chapter':chapter,'query':(chapter['title']+' ' if chapter['id'] else '')+query.strip(),
-            'mode':'search' if query.strip() else 'browse','page_offset':offset}
+            'mode':'search' if query.strip() and book.get('search_available', True) else 'browse','page_offset':offset}
 
 
 def chapter_references(scope):
@@ -619,6 +632,8 @@ def chapter_references(scope):
         previous_offset=max(0,offset-4) if offset else None,
         next_offset=offset+4 if offset+4<total else None,
         notice=('本章' if chapter['id'] else '本书')+'按页码顺序浏览，每次显示最多4页。点标题展开原页；未经题目审核，不作为标准答案。')
+    if book.get('search_available') is False:
+        result['notice'] = '本册暂不支持关键词检索，可通过目录或页码阅读原页。仅供阅读，不作为标准答案。'
     return result
 
 

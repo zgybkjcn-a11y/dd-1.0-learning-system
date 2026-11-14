@@ -1,0 +1,1367 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "subject_gaps",
+  "questions": [
+    {
+      "id": "family-chapter-chinese-g2-upper-1-subject_gaps-seed-action-context-v1",
+      "batch": "subject_gaps",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "动作词放进传播语境",
+      "prompt": "根据句意选择合适的动作词：\n① 有绒毛的蒲公英种子借着风在空中____。\n② 凤仙花果实成熟裂开后，种子会被____周围。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "蒲公英带绒毛，适合借风传播；凤仙花果实裂开时会把种子弹出。句子分别给出了传播方式线索。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元·阅读",
+        "textbook_sha256": "b53ae7565d1b20670df202eb7bacd33fefb675845f57706f34eaeafdc4ad5be9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          11
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "①",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "挂在动物毛上",
+            "乘风飘散",
+            "留在果壳里",
+            "顺水漂走"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "②",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "随风飘走",
+            "挂在",
+            "沉进",
+            "弹到"
+          ],
+          "kind": "choice",
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "动作词语境",
+        "family": "chinese-g2-upper:1:words:subject-gaps:seed-action-context",
+        "priority": 3,
+        "order": 1,
+        "skills": [
+          "动作词放进传播语境"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "chinese-g2-upper:1:words",
+        "task": "check",
+        "role": "direct",
+        "family": "chinese-g2-upper:1:words:subject-gaps:seed-action-context",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-upper-2-subject_gaps-near-shape-context-v1",
+      "batch": "subject_gaps",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "偏旁和句意一起选字",
+      "prompt": "从“晴、清、情、睛”中填字：\n雨停后，天放____了；河水也变得很____。\n再填“清”的偏旁所提示的意思类别。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"晴\",\"b\":\"清\",\"c\":\"水\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "“放晴”写天气转晴；“清”用于河水清澈。日字旁和三点水能提示字义类别，但仍需结合词语语境。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元·识字",
+        "textbook_sha256": "b53ae7565d1b20670df202eb7bacd33fefb675845f57706f34eaeafdc4ad5be9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          18
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "kind": "text",
+          "label": "天放____（填一个字）",
+          "answer": "晴",
+          "accepted": [
+            "晴"
+          ],
+          "case_sensitive": true,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "a"
+        },
+        {
+          "kind": "text",
+          "label": "河水很____（填一个字）",
+          "answer": "清",
+          "accepted": [
+            "清"
+          ],
+          "case_sensitive": true,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "b"
+        },
+        {
+          "kind": "text",
+          "label": "“清”的偏旁提示它与什么有关（填一个字）",
+          "answer": "水",
+          "accepted": [
+            "水"
+          ],
+          "case_sensitive": true,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "形近字语境辨析",
+        "family": "chinese-g2-upper:2:radical:subject-gaps:near-shape-context",
+        "priority": 3,
+        "order": 2,
+        "skills": [
+          "偏旁和句意一起选字"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "chinese-g2-upper:2:radical",
+        "task": "check",
+        "role": "direct",
+        "family": "chinese-g2-upper:2:radical:subject-gaps:near-shape-context",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-upper-4-subject_gaps-radical-stroke-count-v1",
+      "batch": "subject_gaps",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "部首笔画和部外笔画",
+      "prompt": "查“桥”字时，已知它由“木”和“乔”组成：“木”4画，“乔”6画。按部首查字法填写笔画数。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"4\",\"c\":\"6\",\"d\":\"10\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "部首是木，部首本身4画；部首以外的“乔”6画，总笔画为4+6=10。部外笔画不包含部首。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元·阅读",
+        "textbook_sha256": "b53ae7565d1b20670df202eb7bacd33fefb675845f57706f34eaeafdc4ad5be9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          50
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "“桥”的部首",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "扌",
+            "乔",
+            "氵",
+            "木"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "部首笔画数",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "b"
+        },
+        {
+          "label": "部外笔画数",
+          "answer": "6",
+          "independent_check": "6",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "c"
+        },
+        {
+          "label": "总笔画数",
+          "answer": "10",
+          "independent_check": "4+6",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "部首查字与笔画核对",
+        "family": "chinese-g2-upper:4:dictionary:subject-gaps:radical-stroke-count",
+        "priority": 3,
+        "order": 3,
+        "skills": [
+          "部首笔画和部外笔画"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "chinese-g2-upper:4:dictionary",
+        "task": "check",
+        "role": "direct",
+        "family": "chinese-g2-upper:4:dictionary:subject-gaps:radical-stroke-count",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g2-upper-9-subject_gaps-common-word-context-v1",
+      "batch": "subject_gaps",
+      "grade": 2,
+      "subject": "chinese",
+      "book_id": "chinese-g2-upper",
+      "chapter_id": "9",
+      "difficulty": "easy",
+      "title": "按句意选常用词语",
+      "prompt": "根据句意选择合适的词语：\n① 早读时大家轻声读书，教室里没有吵闹声。\n② 窗户擦干净后，阳光照进教室，房间显得很____。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "轻声读书、没有吵闹声对应“安静”；阳光照进房间对应“明亮”。词语选择要看句意，不能只按同一主题套词。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "识字、写字与词语表",
+        "textbook_sha256": "b53ae7565d1b20670df202eb7bacd33fefb675845f57706f34eaeafdc4ad5be9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          116
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "①",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "安静",
+            "明亮",
+            "热闹",
+            "急忙"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "②",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "匆忙",
+            "安静",
+            "危险",
+            "明亮"
+          ],
+          "kind": "choice",
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "词语语境填空",
+        "family": "chinese-g2-upper:9:usage:subject-gaps:common-word-context",
+        "priority": 3,
+        "order": 4,
+        "skills": [
+          "按句意选常用词语"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "chinese-g2-upper:9:usage",
+        "task": "check",
+        "role": "direct",
+        "family": "chinese-g2-upper:9:usage:subject-gaps:common-word-context",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-upper-1-subject_gaps-scene-and-imagination-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "诗句中的实景与联想",
+      "prompt": "《观沧海》：“水何澹澹，山岛竦峙。日月之行，若出其中。”只按诗句判断。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "前两句描写水面和山岛；“若出其中”用想象写大海仿佛包容日月，不是说日月真的从海里升起。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第一单元",
+        "textbook_sha256": "b23b7c884609c51c4b9caace7435cde226d01c0b37f321c5ffbf23cbdd89d919",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          15
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "直接写出的眼前景物",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "海中住着神仙",
+            "日月真实地沉入海底",
+            "海水起伏、山岛耸立",
+            "星河从海面升出"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "带有想象的诗句画面",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "海水起伏",
+            "山岛耸立",
+            "渔船停在岸边",
+            "日月仿佛从大海中运行出来"
+          ],
+          "kind": "choice",
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "诗句证据辨析",
+        "family": "chinese-g7-upper:1:poetry:subject-gaps:scene-and-imagination",
+        "priority": 3,
+        "order": 5,
+        "skills": [
+          "诗句中的实景与联想"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "chinese-g7-upper:1:poetry",
+        "task": "check",
+        "role": "direct",
+        "family": "chinese-g7-upper:1:poetry:subject-gaps:scene-and-imagination",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-chinese-g7-upper-2-subject_gaps-action-supports-feeling-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "chinese",
+      "book_id": "chinese-g7-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "用动作支持情感判断",
+      "prompt": "自编片段：小晴把伞往弟弟那边移，自己的肩膀被雨淋湿；弟弟说冷，她又把围巾递给弟弟。只按片段判断。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "把伞让向弟弟并递出围巾是具体行动，支持她关心弟弟；片段不能证明她对所有雨天的态度。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元",
+        "textbook_sha256": "b23b7c884609c51c4b9caace7435cde226d01c0b37f321c5ffbf23cbdd89d919",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          24
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "最有依据的人物情感",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "讨厌所有雨天",
+            "关心弟弟",
+            "保证弟弟永远不生病",
+            "不愿意回家"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "最直接支持判断的细节",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "天气很凉",
+            "把伞偏向弟弟并把围巾给他",
+            "弟弟说冷",
+            "雨正在下"
+          ],
+          "kind": "choice",
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "行动与情感证据",
+        "family": "chinese-g7-upper:2:evidence:subject-gaps:action-supports-feeling",
+        "priority": 3,
+        "order": 6,
+        "skills": [
+          "用动作支持情感判断"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "chinese-g7-upper:2:evidence",
+        "task": "check",
+        "role": "direct",
+        "family": "chinese-g7-upper:2:evidence:subject-gaps:action-supports-feeling",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-upper-1-subject_gaps-letter-order-spelling-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-upper",
+      "chapter_id": "1",
+      "difficulty": "easy",
+      "title": "字母顺序与单词拼写",
+      "prompt": "先按英语字母顺序排列字母，再选出“朋友”的正确拼写。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"A, B, C\",\"b\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "A、B、C按字母表顺序排列；friend的拼写依次为f-r-i-e-n-d。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Starter Unit 1 Hello!",
+        "textbook_sha256": "6c51f67ecdbf4104ff6ed5cf36aa97c9ab6b12683407ca506d094598eeee1c2e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          4
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "kind": "text",
+          "label": "按字母表顺序写出 C、A、B",
+          "answer": "A, B, C",
+          "accepted": [
+            "A, B, C",
+            "ABC"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "a"
+        },
+        {
+          "label": "“朋友”的正确拼写",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "friend",
+            "firend",
+            "freind",
+            "frend"
+          ],
+          "kind": "choice",
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "字母顺序与拼读",
+        "family": "english-g7-upper:1:alphabet:subject-gaps:letter-order-spelling",
+        "priority": 3,
+        "order": 7,
+        "skills": [
+          "字母顺序与单词拼写"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-upper:1:alphabet",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-upper:1:alphabet:subject-gaps:letter-order-spelling",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-upper-3-subject_gaps-there-is-are-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-upper",
+      "chapter_id": "3",
+      "difficulty": "easy",
+      "title": "用There be描述数量",
+      "prompt": "根据单数或复数名词选择合适的表达。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "one cat是单数，用There is；two books是复数，用There are。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Starter Unit 3 Welcome!",
+        "textbook_sha256": "6c51f67ecdbf4104ff6ed5cf36aa97c9ab6b12683407ca506d094598eeee1c2e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          13
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "____ one cat on the chair.",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "There is",
+            "There are",
+            "It are",
+            "They is"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "____ two books under the desk.",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "There is",
+            "It is",
+            "They are",
+            "There are"
+          ],
+          "kind": "choice",
+          "id": "b"
+        }
+      ],
+      "design": {
+        "form": "There be语境填空",
+        "family": "english-g7-upper:3:there:subject-gaps:there-is-are",
+        "priority": 3,
+        "order": 8,
+        "skills": [
+          "用There be描述数量"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-upper:3:there",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-upper:3:there:subject-gaps:there-is-are",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-upper-11-subject_gaps-facts-and-pronouns-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-upper",
+      "chapter_id": "11",
+      "difficulty": "normal",
+      "title": "从上下文找事实和代词所指",
+      "prompt": "Read the passage: “Mia borrowed a green book from Ben. She put it beside the window. Before class, Ben asked for the book back, and Mia returned it.”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\",\"c\":\"4\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "She指Mia；it指前一句提到的green book。短文明确说她把书放在窗边，Ben在上课前要回书。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Reading Plus 拓展阅读",
+        "textbook_sha256": "6c51f67ecdbf4104ff6ed5cf36aa97c9ab6b12683407ca506d094598eeee1c2e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          75
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "Who does “She” refer to?",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "Mia",
+            "Ben",
+            "the teacher",
+            "the book"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "What does “it” refer to in “She put it beside the window”?",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "the class",
+            "the green book",
+            "the window",
+            "Ben"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "Where did Mia put the book?",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "under the desk",
+            "in the classroom",
+            "on the bus",
+            "beside the window"
+          ],
+          "kind": "choice",
+          "id": "c"
+        },
+        {
+          "label": "When did Ben ask for the book back?",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "at lunch",
+            "on Sunday",
+            "before class",
+            "after school"
+          ],
+          "kind": "choice",
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "篇章事实与指代",
+        "family": "english-g7-upper:11:reading:subject-gaps:facts-and-pronouns",
+        "priority": 3,
+        "order": 9,
+        "skills": [
+          "从上下文找事实和代词所指"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-upper:11:reading",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-upper:11:reading:subject-gaps:facts-and-pronouns",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-upper-14-subject_gaps-be-agreement-and-transforms-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-upper",
+      "chapter_id": "14",
+      "difficulty": "normal",
+      "title": "be动词的人称数与句式",
+      "prompt": "按给定句子完成be动词和句式转换。转换只检查语法形式。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"3\",\"c\":\"Ken is not a student.\",\"d\":\"Is Ken a student?\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "Ken是第三人称单数，用is；Ken and Amy是复数，用are。be动词否定在be后加not，一般疑问句把be移到主语前。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Grammar 语法",
+        "textbook_sha256": "6c51f67ecdbf4104ff6ed5cf36aa97c9ab6b12683407ca506d094598eeee1c2e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          102
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "Ken ____ a student.",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "be",
+            "are",
+            "is",
+            "am"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "Ken and Amy ____ classmates.",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "is",
+            "am",
+            "are",
+            "be"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "kind": "text",
+          "label": "把“Ken is a student.”改成否定句",
+          "answer": "Ken is not a student.",
+          "accepted": [
+            "Ken is not a student.",
+            "Ken isn't a student."
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "c"
+        },
+        {
+          "kind": "text",
+          "label": "把“Ken is a student.”改成一般疑问句",
+          "answer": "Is Ken a student?",
+          "accepted": [
+            "Is Ken a student?",
+            "Is Ken a student"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "be动词句式转换",
+        "family": "english-g7-upper:14:be:subject-gaps:be-agreement-and-transforms",
+        "priority": 3,
+        "order": 10,
+        "skills": [
+          "be动词的人称数与句式"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-upper:14:be",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-upper:14:be:subject-gaps:be-agreement-and-transforms",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-upper-14-subject_gaps-can-question-and-short-answer-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-upper",
+      "chapter_id": "14",
+      "difficulty": "normal",
+      "title": "can疑问句与简答",
+      "prompt": "Facts: Mia can swim. Ben cannot swim. 根据事实写出Can问句，并补全简答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"Can Mia swim?\",\"b\":\"can\",\"c\":\"Can Ben swim?\",\"d\":\"can't\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "can构成疑问句时放在主语前，后接动词原形；简答使用can或can't，不随主语改变形式。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Grammar 语法",
+        "textbook_sha256": "6c51f67ecdbf4104ff6ed5cf36aa97c9ab6b12683407ca506d094598eeee1c2e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          100
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "kind": "text",
+          "label": "询问Mia是否会游泳",
+          "answer": "Can Mia swim?",
+          "accepted": [
+            "Can Mia swim?",
+            "Can Mia swim"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "a"
+        },
+        {
+          "kind": "text",
+          "label": "Yes, she ____.",
+          "answer": "can",
+          "accepted": [
+            "can"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "b"
+        },
+        {
+          "kind": "text",
+          "label": "询问Ben是否会游泳",
+          "answer": "Can Ben swim?",
+          "accepted": [
+            "Can Ben swim?",
+            "Can Ben swim"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "c"
+        },
+        {
+          "kind": "text",
+          "label": "No, he ____.",
+          "answer": "can't",
+          "accepted": [
+            "can't",
+            "cannot"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "can问答",
+        "family": "english-g7-upper:14:can:subject-gaps:can-question-and-short-answer",
+        "priority": 3,
+        "order": 11,
+        "skills": [
+          "can疑问句与简答"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-upper:14:can",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-upper:14:can:subject-gaps:can-question-and-short-answer",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-upper-15-subject_gaps-word-form-in-context-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-upper",
+      "chapter_id": "15",
+      "difficulty": "normal",
+      "title": "根据句意填写词形",
+      "prompt": "Use the correct form of the word in brackets.\nSam ____ up at seven. (get)\nShe ____ breakfast at home. (have)\nHer friends ____ by bus. (come)\n请分别完成下面各项。",
+      "answer": "{\"a\":\"gets\",\"b\":\"has\",\"c\":\"come\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "Sam和She是第三人称单数，动词用gets、has；Her friends是复数，使用come。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Vocabulary in Each Unit 单元词汇",
+        "textbook_sha256": "6c51f67ecdbf4104ff6ed5cf36aa97c9ab6b12683407ca506d094598eeee1c2e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          106
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "kind": "text",
+          "label": "get的合适形式",
+          "answer": "gets",
+          "accepted": [
+            "gets"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "a"
+        },
+        {
+          "kind": "text",
+          "label": "have的合适形式",
+          "answer": "has",
+          "accepted": [
+            "has"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "b"
+        },
+        {
+          "kind": "text",
+          "label": "come的合适形式",
+          "answer": "come",
+          "accepted": [
+            "come"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "单元词汇词形",
+        "family": "english-g7-upper:15:context:subject-gaps:word-form-in-context",
+        "priority": 3,
+        "order": 12,
+        "skills": [
+          "根据句意填写词形"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-upper:15:context",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-upper:15:context:subject-gaps:word-form-in-context",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-upper-16-subject_gaps-dictionary-entry-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-upper",
+      "chapter_id": "16",
+      "difficulty": "normal",
+      "title": "按词条选择词性和义项",
+      "prompt": "Mini dictionary entries:\nlight /laɪt/ adj. not heavy; n. brightness.\nplay /pleɪ/ v. take part in a game; n. a drama.\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"3\",\"c\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "词条给出light的形容词与名词义项、play的动词与名词词性。句中“is light”描述重量，“there is light”表示光，“play a game”是动作。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Vocabulary A–Z",
+        "textbook_sha256": "6c51f67ecdbf4104ff6ed5cf36aa97c9ab6b12683407ca506d094598eeee1c2e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          113
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "In “This bag is light”, light is a ...",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "verb",
+            "adjective",
+            "pronoun",
+            "noun"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "In “There is light in the room”, light means ...",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "a game",
+            "weight",
+            "brightness",
+            "a person"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "label": "In “We play a game”, play is a ...",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "noun",
+            "adjective",
+            "verb",
+            "number"
+          ],
+          "kind": "choice",
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "词典词条语境",
+        "family": "english-g7-upper:16:entry:subject-gaps:dictionary-entry",
+        "priority": 3,
+        "order": 13,
+        "skills": [
+          "按词条选择词性和义项"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-upper:16:entry",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-upper:16:entry:subject-gaps:dictionary-entry",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-upper-18-subject_gaps-month-weekday-calendar-v1",
+      "batch": "subject_gaps",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-upper",
+      "chapter_id": "18",
+      "difficulty": "normal",
+      "title": "用月份日期和星期核对日历",
+      "prompt": "Use this class calendar for the exercise; follow the card rather than a real-year calendar.\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"3\",\"c\":\"Wednesday, March 20\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "卡片给出March 18 Monday、March 19 Tuesday、March 20 Wednesday。按卡片核对，星期和日期要对应。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Reference Word List 参考词表",
+        "textbook_sha256": "6c51f67ecdbf4104ff6ed5cf36aa97c9ab6b12683407ca506d094598eeee1c2e",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          127
+        ],
+        "reference_scope": "topic_location_not_verbatim_question"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "responses": [
+        {
+          "label": "March 19 is ...",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "Tuesday",
+            "Monday",
+            "Wednesday",
+            "Thursday"
+          ],
+          "kind": "choice",
+          "id": "a"
+        },
+        {
+          "label": "The class meeting is on Wednesday. Which date is it?",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "March 19",
+            "March 21",
+            "March 20",
+            "March 18"
+          ],
+          "kind": "choice",
+          "id": "b"
+        },
+        {
+          "kind": "text",
+          "label": "Write the date in “weekday, month day” order: Wednesday / March 20",
+          "answer": "Wednesday, March 20",
+          "accepted": [
+            "Wednesday, March 20",
+            "Wednesday March 20"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "c"
+        }
+      ],
+      "design": {
+        "form": "月份星期与日期核对",
+        "family": "english-g7-upper:18:calendar:subject-gaps:month-weekday-calendar",
+        "priority": 3,
+        "order": 14,
+        "skills": [
+          "用月份日期和星期核对日历"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "Class calendar",
+        "rows": [
+          [
+            "Date",
+            "Weekday"
+          ],
+          [
+            "March 18",
+            "Monday"
+          ],
+          [
+            "March 19",
+            "Tuesday"
+          ],
+          [
+            "March 20",
+            "Wednesday"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-upper:18:calendar",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-upper:18:calendar:subject-gaps:month-weekday-calendar",
+        "rationale": "题目直接核对本项限定要求；自动结果不代表开放表达或人工任务完成。"
+      }
+    }
+  ]
+}

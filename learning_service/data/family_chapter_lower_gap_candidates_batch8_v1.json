@@ -1,0 +1,857 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "lower_gap_candidates_batch8",
+  "status": "local_candidate_not_registered",
+  "teacher_reviewed": false,
+  "curriculum_standard_crosscheck": "pending",
+  "student_calibrated": false,
+  "questions": [
+    {
+      "id": "family-chapter-history-g7-lower-2-lower_gap_candidates_batch8-northern-song-v1",
+      "batch": "lower_gap_candidates_batch8",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "北宋的建立与中央集权的加强",
+      "prompt": "根据第二单元第 8 课的内容作答，时间为教材给出的纪年。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"960\",\"b\":\"2\",\"c\":\"1\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "960 年，赵匡胤在陈桥兵变后夺取后周政权，改国号为宋，以开封为东京，史称北宋。北宋建立后先南后北，979 年宋太宗消灭北汉，结束了五代十国的分裂局面。为加强中央集权，宋太祖杯酒释兵权、用文臣管理军务、调换将领定期换防，分化事权分割宰相权力，派文臣任知州并设通判分权，取消节度使收税的权力。崇文抑武使政权稳固、社会安定，但文臣掌兵不熟悉军务，军队战斗力减弱；机构重叠、官吏冗余，又增加了财政支出。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第二单元 辽宋夏金元时期：民族关系发展和社会变化",
+        "textbook_sha256": "7ca9d6b0ee3752e410bb5af81b9cc0d016c8ff488387a337935375d77e1dc174",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          44,
+          45,
+          46
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 44、45、46 页支持北宋建立、结束分裂、中央集权措施与崇文抑武的代价；题目只考文字结论，不要求评价宋太祖个人。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "960 年建国、979 年灭北汉、通判分知州之权与崇文抑武的代价分别对应第 44、45、46 页原文，逐项核对；两项年份以教材纪年为准。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "说出北宋建立的年份",
+          "b": "区分结束分裂的年份",
+          "c": "指出分割知州权力的官职",
+          "d": "由措施说明崇文抑武的代价"
+        }
+      },
+      "responses": [
+        {
+          "label": "北宋建立于哪一年？",
+          "answer": "960",
+          "independent_check": "960",
+          "units": [
+            "年"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "979",
+              "message": "979 年是结束五代十国分裂的年份。",
+              "action": "区分建国与结束分裂。"
+            },
+            {
+              "answer": "1127",
+              "message": "1127 年是靖康之变、北宋灭亡的年份。",
+              "action": "回到北宋建立的 960 年。"
+            },
+            {
+              "answer": "1368",
+              "message": "1368 年是明朝建立的年份。",
+              "action": "区分宋与明。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "五代十国的分裂局面在哪一年结束？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "1127 年",
+            "979 年",
+            "960 年",
+            "1005 年"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "960 年是北宋建立的年份。",
+              "action": "看“结束分裂局面”发生在哪一年。"
+            },
+            {
+              "answer": "4",
+              "message": "教材没有把这一年份作为结束分裂的时间。",
+              "action": "回到宋太宗灭北汉。"
+            },
+            {
+              "answer": "1",
+              "message": "1127 年北宋已经灭亡。",
+              "action": "结束分裂在北宋初年。"
+            }
+          ]
+        },
+        {
+          "label": "宋太祖为防止知州权力过大，设置了什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "通判",
+            "节度使",
+            "丞相",
+            "御史大夫"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "节度使是唐末以来掌握地方的官职，正是要防范的对象。",
+              "action": "看“以分知州的权力”。"
+            },
+            {
+              "answer": "3",
+              "message": "丞相在中央，与知州不是同一层级。",
+              "action": "通判是州一级的副职。"
+            },
+            {
+              "answer": "4",
+              "message": "这不是宋朝设置的地方官职。",
+              "action": "回到第 45 页的措施。"
+            }
+          ]
+        },
+        {
+          "label": "崇文抑武方针带来的一项代价是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "武将专权，政权动荡",
+            "地方节度使重新掌握全部税收",
+            "科举取士的名额大幅减少",
+            "文臣掌兵，大多不熟悉军务，军队战斗力减弱"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这是唐末以来的积弊，正是崇文抑武要解决的问题。",
+              "action": "看这项方针带来的新问题。"
+            },
+            {
+              "answer": "2",
+              "message": "宋太祖恰恰取消了节度使收税的权力。",
+              "action": "看第 45 页的税收措施。"
+            },
+            {
+              "answer": "3",
+              "message": "北宋反而大幅增加了取士名额。",
+              "action": "看第 46 页的科举。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "北宋的建立与中央集权的加强",
+        "family": "history-g7-lower:2:inventory-1:northern-song",
+        "priority": 3,
+        "order": 1,
+        "skills": [
+          "北宋的建立与中央集权的加强"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "说出北宋建立的年份",
+          "区分结束分裂的年份",
+          "指出分割知州权力的官职",
+          "由措施说明崇文抑武的代价"
+        ],
+        "difficulty_rationale": "第一、二项容易把建国（960 年）与结束分裂（979 年）混为一个时间；第三项要把通判与节度使、丞相等不同层级分开；第四项要求从材料读出代价，而不是写成加强集权的目的。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-lower:2:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-lower:2:inventory-1:northern-song",
+        "rationale": "960 年建国、979 年灭北汉、通判分知州之权与崇文抑武的代价分别对应第 44、45、46 页原文，逐项核对；两项年份以教材纪年为准。"
+      },
+      "common_error_feedback": "常见错误：979 年是结束五代十国分裂的年份；1127 年是靖康之变、北宋灭亡的年份；1368 年是明朝建立的年份；960 年是北宋建立的年份；教材没有把这一年份作为结束分裂的时间；1127 年北宋已经灭亡；节度使是唐末以来掌握地方的官职，正是要防范的对象；丞相在中央，与知州不是同一层级；这不是宋朝设置的地方官职；这是唐末以来的积弊，正是崇文抑武要解决的问题；宋太祖恰恰取消了节度使收税的权力；北宋反而大幅增加了取士名额。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "整理措施—目的—影响关系，引用具体材料；本条不覆盖辽夏金元与全部经济文化内容。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-history-g7-lower-3-lower_gap_candidates_batch8-ming-rule-v1",
+      "batch": "lower_gap_candidates_batch8",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "明朝的建立、迁都与强化皇权",
+      "prompt": "根据第三单元第 15 课的内容作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1368\",\"b\":\"3\",\"c\":\"1\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "1368 年，朱元璋称帝，建立明朝，定都应天府，他就是明太祖。明成祖朱棣在靖难之役后夺位，1421 年为加强北方防御迁都北京。明太祖在中央废除丞相，提升六部职权，使六部直接向皇帝负责；把大都督府分为五军都督府，兵权归兵部；又设锦衣卫等厂卫机构。在地方分设三司，互不统属。科举方面，考试题目出自四书五经，解释以朱熹的《四书章句集注》为标准，答卷要写成八个部分、后四部分各两股对仗文字的“八股文”。八股文是考试文体的规定，不是官制改革。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元 明清时期（至鸦片战争前）：统一多民族封建国家的巩固与发展",
+        "textbook_sha256": "7ca9d6b0ee3752e410bb5af81b9cc0d016c8ff488387a337935375d77e1dc174",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          86,
+          87,
+          88
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 86、87、88 页支持明朝建立、迁都、中央与地方官制改革、厂卫和科举文体变化；题目只考教材表述，不要求背诵全部细节。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "1368 年建国、1421 年迁都、废丞相与六部直接负责、八股文规定分别对应第 86、87、88 页原文，逐项核对。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "说出明朝建立的年份",
+          "b": "区分迁都的年份",
+          "c": "指出中央强化皇权的主要措施",
+          "d": "把八股文归入考试文体而非官制"
+        }
+      },
+      "responses": [
+        {
+          "label": "明朝建立于哪一年？",
+          "answer": "1368",
+          "independent_check": "1368",
+          "units": [
+            "年"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "1421",
+              "message": "1421 年是明成祖迁都北京的年份。",
+              "action": "区分建国与迁都。"
+            },
+            {
+              "answer": "1644",
+              "message": "1644 年是明朝灭亡的年份。",
+              "action": "回到明朝建立。"
+            },
+            {
+              "answer": "1402",
+              "message": "1402 年是靖难之役结束的年份。",
+              "action": "建国在 1368 年。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "明成祖迁都北京是在哪一年？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "1402 年",
+            "1644 年",
+            "1421 年",
+            "1368 年"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "1368 年是明朝建立的年份。",
+              "action": "看“迁都”发生在哪一年。"
+            },
+            {
+              "answer": "1",
+              "message": "这是靖难之役结束的年份。",
+              "action": "迁都在此之后。"
+            },
+            {
+              "answer": "2",
+              "message": "1644 年明朝已经灭亡。",
+              "action": "回到 1421 年。"
+            }
+          ]
+        },
+        {
+          "label": "明太祖在中央强化皇权的主要措施是什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "废除丞相，提升六部职权，使六部直接向皇帝负责",
+            "设立丞相，分割六部权力",
+            "恢复行中书省，由地方管理军政",
+            "废除科举，改由地方举荐选官"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "明太祖恰恰废除了丞相。",
+              "action": "看第 87 页的措施。"
+            },
+            {
+              "answer": "3",
+              "message": "明太祖把行中书省的权力一分为三。",
+              "action": "看地方的三司。"
+            },
+            {
+              "answer": "4",
+              "message": "明朝仍行科举，只是规定了考试内容与文体。",
+              "action": "看第 88 页。"
+            }
+          ]
+        },
+        {
+          "label": "“八股文”属于哪一方面？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "地方行政制度",
+            "军事指挥制度",
+            "科举考试的文体规定",
+            "中央官制的改革措施"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "八股文是考试答卷的规定。",
+              "action": "区分制度与考试文体。"
+            },
+            {
+              "answer": "1",
+              "message": "地方设三司，与考试文体无关。",
+              "action": "看“一篇文章须分成八个部分”。"
+            },
+            {
+              "answer": "2",
+              "message": "五军都督府属于军事制度。",
+              "action": "回到科举考试。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "明朝的建立、迁都与强化皇权",
+        "family": "history-g7-lower:3:inventory-1:ming-rule",
+        "priority": 3,
+        "order": 2,
+        "skills": [
+          "明朝的建立、迁都与强化皇权"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "说出明朝建立的年份",
+          "区分迁都的年份",
+          "指出中央强化皇权的主要措施",
+          "把八股文归入考试文体而非官制"
+        ],
+        "difficulty_rationale": "第一、二项要区分建国（1368 年）与迁都（1421 年）；第三项要在四项制度中只挑出中央官制改革；第四项要求把八股文与官制、地方制度、军事制度分开，不能只凭名词归类。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-lower:3:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-lower:3:inventory-1:ming-rule",
+        "rationale": "1368 年建国、1421 年迁都、废丞相与六部直接负责、八股文规定分别对应第 86、87、88 页原文，逐项核对。"
+      },
+      "common_error_feedback": "常见错误：1421 年是明成祖迁都北京的年份；1644 年是明朝灭亡的年份；1402 年是靖难之役结束的年份；1368 年是明朝建立的年份；这是靖难之役结束的年份；1644 年明朝已经灭亡；明太祖恰恰废除了丞相；明太祖把行中书省的权力一分为三；明朝仍行科举，只是规定了考试内容与文体；八股文是考试答卷的规定；地方设三司，与考试文体无关；五军都督府属于军事制度。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用材料比较两项措施的联系与不同，不据名词记忆认定历史解释完成。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-history-g7-lower-4-lower_gap_candidates_batch8-sources-and-facts-v1",
+      "batch": "lower_gap_candidates_batch8",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-lower",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "史料出处、内容与史事要素",
+      "prompt": "根据“学史方法”的说明作答。材料只用于本题，不扩展到其他史事。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\",\"c\":\"1\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "读懂文献史料可以从出处、字词、整体意思和相互印证四方面入手。“以铜为镜，可以正衣冠；以古为镜，可以知兴替；以人为镜，可以明得失”出自刘昫等编撰的《旧唐书·魏征传》，是唐太宗对魏征劝谏的高度评价。“以人为镜”指虚心接受别人的意见。掌握史事要从时间、地点、人物、原因、过程、结果入手：靖康之变发生在 1127 年，地点是北宋都城东京。“今魏征殂逝”直接说明魏征已经去世，率军北伐、唐朝由盛转衰等都不能由这一句直接推出。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "活动课与学史方法",
+        "textbook_sha256": "7ca9d6b0ee3752e410bb5af81b9cc0d016c8ff488387a337935375d77e1dc174",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          130,
+          131
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 130、131 页支持史料出处、词义、互证与史事六要素；题目只用这两页给出的史料与史事，不扩展到其他文献。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "《旧唐书·魏征传》出处、“以人为镜”释义、1127 年与东京、以及《新唐书》互证文字分别对应第 130、131 页原文；第四项的边界限定在“今魏征殂逝”一句。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "辨认史料的出处",
+          "b": "理解史料中词语的含义",
+          "c": "说出史事的时间与地点",
+          "d": "区分史料直接内容与推断"
+        }
+      },
+      "responses": [
+        {
+          "label": "“以铜为镜，可以正衣冠……”这则史料出自哪里？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "《皇明祖训》",
+            "《旧唐书·魏征传》",
+            "《新唐书·魏征传》",
+            "《资治通鉴》"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "教材说这则史料出自《旧唐书》，并用《新唐书》互证。",
+              "action": "看“出自”后面的书名。"
+            },
+            {
+              "answer": "4",
+              "message": "教材没有说这则史料出自《资治通鉴》。",
+              "action": "回到出处。"
+            },
+            {
+              "answer": "1",
+              "message": "这是明朝的文献，与唐太宗无关。",
+              "action": "按朝代判断。"
+            }
+          ]
+        },
+        {
+          "label": "这则史料中“以人为镜”指的是什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "虚心接受别人的意见",
+            "用铜镜照见衣冠是否端正",
+            "以历史作为镜鉴",
+            "把人当作装饰品"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这是“以铜为镜”。",
+              "action": "区分三种“镜”。"
+            },
+            {
+              "answer": "3",
+              "message": "这是“以古为镜”。",
+              "action": "看“以人”。"
+            },
+            {
+              "answer": "4",
+              "message": "这一解释与史料原意不符。",
+              "action": "看“明得失”。"
+            }
+          ]
+        },
+        {
+          "label": "靖康之变发生的时间和地点是什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "1127 年，北宋都城东京",
+            "960 年，开封",
+            "1368 年，应天府",
+            "1421 年，北京"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "960 年是北宋建立的年份。",
+              "action": "靖康之变在北宋末年。"
+            },
+            {
+              "answer": "3",
+              "message": "这是明朝建立的年份与都城。",
+              "action": "区分宋与明。"
+            },
+            {
+              "answer": "4",
+              "message": "这是明成祖迁都北京的年份。",
+              "action": "回到 1127 年。"
+            }
+          ]
+        },
+        {
+          "label": "只读到“今魏征殂逝，遂亡一镜矣”，可以直接得到哪一项？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "魏征已经去世",
+            "魏征曾经率军北伐",
+            "唐朝从此由盛转衰",
+            "《旧唐书》由魏征编写"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "材料没有写魏征带兵。",
+              "action": "只承认材料直接写出的内容。"
+            },
+            {
+              "answer": "3",
+              "message": "这一结论不能由这一句直接推出。",
+              "action": "区分记载与推断。"
+            },
+            {
+              "answer": "4",
+              "message": "材料只说这则史料出自《旧唐书·魏征传》。",
+              "action": "看作者与传主的关系。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "史料出处、内容与史事要素",
+        "family": "history-g7-lower:4:inventory-1:sources-and-facts",
+        "priority": 3,
+        "order": 3,
+        "skills": [
+          "史料出处、内容与史事要素"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "辨认史料的出处",
+          "理解史料中词语的含义",
+          "说出史事的时间与地点",
+          "区分史料直接内容与推断"
+        ],
+        "difficulty_rationale": "四项分别对应学史方法的四个步骤：第一项看出处，第二项看词义，第三项提取史事要素，第四项要求只承认材料直接写出的内容，不把推断当成记载。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-lower:4:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-lower:4:inventory-1:sources-and-facts",
+        "rationale": "《旧唐书·魏征传》出处、“以人为镜”释义、1127 年与东京、以及《新唐书》互证文字分别对应第 130、131 页原文；第四项的边界限定在“今魏征殂逝”一句。"
+      },
+      "common_error_feedback": "常见错误：教材说这则史料出自《旧唐书》，并用《新唐书》互证；教材没有说这则史料出自《资治通鉴》；这是明朝的文献，与唐太宗无关；这是“以铜为镜”；这是“以古为镜”；这一解释与史料原意不符；960 年是北宋建立的年份；这是明朝建立的年份与都城；这是明成祖迁都北京的年份；材料没有写魏征带兵；这一结论不能由这一句直接推出；材料只说这则史料出自《旧唐书·魏征传》。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "选择两则材料互证并说明不能推出的结论。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-history-g7-lower-4-lower_gap_candidates_batch8-festival-continuity-v1",
+      "batch": "lower_gap_candidates_batch8",
+      "grade": 7,
+      "subject": "history",
+      "book_id": "history-g7-lower",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "节日的延续、变化与文明特征",
+      "prompt": "根据活动课“我国传统节日的起源与传承”的内容作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"1\",\"c\":\"1\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "《岁朝村庆图》描绘江南乡村百姓春节的活动，与现在人们欢度春节的景象高度一致，说明传统节日习俗有延续与传承，这是中华文明连续性的直接体现。春节、清明节、端午节、中秋节等家喻户晓，反映中华文明突出的统一性；傣族泼水节、彝族和白族火把节、藏族藏历新年等民族节日各具特色，共同构成中华民族的节日习俗文化。一幅画只能说明画中描绘的活动在当时出现，不能据此断定今天的全部习俗在明代都已存在，习俗本身也会发展变化。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "活动课与学史方法",
+        "textbook_sha256": "7ca9d6b0ee3752e410bb5af81b9cc0d016c8ff488387a337935375d77e1dc174",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          128
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 128 页支持《岁朝村庆图》与春节习俗的延续、民族节日、连续性与统一性的表述；题目不把当代习俗直接外推到全部历史时期。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "《岁朝村庆图》与“高度一致”的结论、民族节日表述、连续性表述分别对应第 128页原文；第三项的边界限定在一幅绘画能证明的范围。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由绘画内容说明习俗的延续",
+          "b": "辨认教材对民族节日的表述",
+          "c": "判断能否由一幅画外推全部习俗",
+          "d": "对应连续性这一文明特征"
+        }
+      },
+      "responses": [
+        {
+          "label": "《岁朝村庆图》描绘的春节活动与现在高度一致，这说明什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "明代人已经使用今天全部的过节方式",
+            "春节是明代才出现的节日",
+            "图画中的活动都是画家凭空想象",
+            "传统节日习俗有延续与传承"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "图画只能说明画中活动当时出现。",
+              "action": "看“高度一致”不是“完全相同”。"
+            },
+            {
+              "answer": "2",
+              "message": "春节的历史比明代更早。",
+              "action": "看“历史悠久”。"
+            },
+            {
+              "answer": "3",
+              "message": "教材把它作为习俗延续的证据。",
+              "action": "回到“延续与传承”。"
+            }
+          ]
+        },
+        {
+          "label": "教材把傣族泼水节、彝族和白族火把节、藏族藏历新年等称为什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "各具特色的民族节日",
+            "外来节日",
+            "现代新创的节日",
+            "不属于中华民族的节日"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这是我国少数民族的传统节日。",
+              "action": "看“各具特色”。"
+            },
+            {
+              "answer": "3",
+              "message": "这些节日历史悠久。",
+              "action": "区分传统与现代。"
+            },
+            {
+              "answer": "4",
+              "message": "它们共同构成中华民族的节日习俗文化。",
+              "action": "看最后一句。"
+            }
+          ]
+        },
+        {
+          "label": "仅凭一幅明代绘画，能不能直接说明今天所有春节习俗在明代都已存在？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "不能，只能说明画中描绘的活动在当时出现，习俗还会发展变化",
+            "能，画里的活动就是今天的全部习俗",
+            "能，明代以后习俗再没有变化",
+            "不能，因为绘画不能作为史料"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "一幅画不能覆盖全部习俗。",
+              "action": "注意“全部”这个词。"
+            },
+            {
+              "answer": "3",
+              "message": "习俗会发展变化。",
+              "action": "看“起源、发展与演变”。"
+            },
+            {
+              "answer": "4",
+              "message": "绘画可以作为史料，只是范围有限。",
+              "action": "区分证据有限与不能作证据。"
+            }
+          ]
+        },
+        {
+          "label": "教材认为传统节日习俗的延续与传承体现了什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "各民族节日完全相同",
+            "节日习俗从不变化",
+            "中华文明的连续性",
+            "中华文明的统一性"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "统一性对应春节等节日家喻户晓。",
+              "action": "看“连续性”的表述。"
+            },
+            {
+              "answer": "1",
+              "message": "民族节日各具特色。",
+              "action": "回到文明特征。"
+            },
+            {
+              "answer": "2",
+              "message": "教材讲的是起源、发展与演变。",
+              "action": "看“演变”。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "节日的延续、变化与文明特征",
+        "family": "history-g7-lower:4:inventory-2:festival-continuity",
+        "priority": 3,
+        "order": 4,
+        "skills": [
+          "节日的延续、变化与文明特征"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由绘画内容说明习俗的延续",
+          "辨认教材对民族节日的表述",
+          "判断能否由一幅画外推全部习俗",
+          "对应连续性这一文明特征"
+        ],
+        "difficulty_rationale": "第一、四项要求区分“延续”与“统一性”两个特征；第三项要求承认材料的证据边界，既不能外推全部习俗，也不能因此否定绘画的史料价值。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "history-g7-lower:4:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "history-g7-lower:4:inventory-2:festival-continuity",
+        "rationale": "《岁朝村庆图》与“高度一致”的结论、民族节日表述、连续性表述分别对应第 128页原文；第三项的边界限定在一幅绘画能证明的范围。"
+      },
+      "common_error_feedback": "常见错误：图画只能说明画中活动当时出现；春节的历史比明代更早；教材把它作为习俗延续的证据；这是我国少数民族的传统节日；这些节日历史悠久；它们共同构成中华民族的节日习俗文化；一幅画不能覆盖全部习俗；习俗会发展变化；绘画可以作为史料，只是范围有限；统一性对应春节等节日家喻户晓；民族节日各具特色；教材讲的是起源、发展与演变。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "完成有来源的节日调查或展示；真实调查与作品由人工验收。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    }
+  ]
+}

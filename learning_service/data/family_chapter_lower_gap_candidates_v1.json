@@ -1,0 +1,1160 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "lower_gap_candidates",
+  "status": "local_candidate_not_registered",
+  "teacher_reviewed": false,
+  "curriculum_standard_crosscheck": "pending",
+  "student_calibrated": false,
+  "questions": [
+    {
+      "id": "family-chapter-math-g2-lower-1-lower_gap_candidates-remainder-identity-v1",
+      "batch": "lower_gap_candidates",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "摆小棒求商、余数与检验",
+      "prompt": "用小棒摆五边形，每个五边形用5根小棒。现在有23根小棒，摆到不能再摆为止。下面的判断都只用题中给出的数量。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"3\",\"c\":\"3\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "23÷5=4余3：4个五边形用去20根，剩3根，且3<5。检验要用除数×商+余数还原被除数，4×6+2=26成立；只算4×6=24不是完整检验。余数等于或大于除数、余数为负，都不是正确的写法。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "一 有余数的除法",
+        "textbook_sha256": "aa34f13d5d305ed6761052d4c24d0cd0c101930e665290bc1bd22b6b884fd060",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          11,
+          12,
+          15
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目、材料与数据为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "23÷5=4…3与26÷4=6…2独立复算；错误选项分别违反余数范围或漏掉余数；题目自编，未使用教材原题或插图。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由分组求商",
+          "b": "由分组求余数",
+          "c": "检查余数小于除数",
+          "d": "用关系式还原被除数"
+        }
+      },
+      "responses": [
+        {
+          "label": "能摆成几个五边形？",
+          "answer": "4",
+          "independent_check": "(23-3)/5",
+          "units": [
+            "个"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "5",
+              "message": "商超过了实际能摆出的个数。",
+              "action": "先算5×4，再比较剩余根数。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "还剩几根小棒？",
+          "answer": "3",
+          "independent_check": "23-5*4",
+          "units": [
+            "根"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "余数应等于总根数减去已用根数。",
+              "action": "从23中减去5×4。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "哪个算式的写法符合“余数必须小于除数”？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "17÷5=4……−3",
+            "17÷5=2……7",
+            "17÷5=3……2"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "余数7不小于除数5。",
+              "action": "余数必须小于除数。"
+            },
+            {
+              "answer": "1",
+              "message": "余数不能是负数。",
+              "action": "余数表示剩下没分完的部分。"
+            }
+          ]
+        },
+        {
+          "label": "用“被除数=除数×商+余数”检验 26÷4=6……2，结论是哪个？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "不成立，因为26不能被4整除",
+            "成立，因为4×6=24",
+            "成立，因为4×6+2=26"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "只算了除数×商，漏掉余数。",
+              "action": "把余数也加回去还原被除数。"
+            },
+            {
+              "answer": "1",
+              "message": "有余数除法本来就允许不整除。",
+              "action": "用关系式检验，而不是判断能否整除。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "摆小棒求商、余数与检验",
+        "family": "math-g2-lower:1:inventory-1:remainder-identity",
+        "priority": 3,
+        "order": 1,
+        "skills": [
+          "摆小棒求商、余数与检验"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由分组求商",
+          "由分组求余数",
+          "检查余数小于除数",
+          "用关系式还原被除数"
+        ],
+        "difficulty_rationale": "同一情境里同时求商、求余数、检查约束并验算，四项全部正确才算本题答对。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g2-lower:1:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g2-lower:1:inventory-1:remainder-identity",
+        "rationale": "23÷5=4…3与26÷4=6…2独立复算；错误选项分别违反余数范围或漏掉余数；题目自编，未使用教材原题或插图。"
+      },
+      "common_error_feedback": "常见错误：商超过了实际能摆出的个数；余数应等于总根数减去已用根数；余数7不小于除数5；余数不能是负数；只算了除数×商，漏掉余数；有余数除法本来就允许不整除。逐项回到题干给出的条件核对后再作答。"
+    },
+    {
+      "id": "family-chapter-math-g2-lower-1-lower_gap_candidates-remainder-in-context-v1",
+      "batch": "lower_gap_candidates",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "余数要不要再多算一份",
+      "prompt": "两个情境各只有一种问法：22枝玫瑰每5枝扎一束；40个鸡蛋每盒最多装6个。分别判断要算“完整的组数”“剩下的数量”，还是“至少要几个容器”。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"2\",\"c\":\"7\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "22÷5=4余2：能扎4整束，剩2枝，2枝不够一束，不多算。40÷6=6余4：装满6盒后还剩4个，仍需再装一盒，至少7盒。剩下的部分能不能单独成一份，决定余数是否再多算一次。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "一 有余数的除法",
+        "textbook_sha256": "aa34f13d5d305ed6761052d4c24d0cd0c101930e665290bc1bd22b6b884fd060",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          19
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "固定原页只作主题与学科事实依据；题目、材料与数据为本地自编。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "22÷5、40÷6独立复算；四个选项对应四种不同问法，正确答案唯一；数据为自编，未使用教材原题。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "求完整组数",
+          "b": "求剩余数量",
+          "c": "求至少所需容器数",
+          "d": "判断何时余数要多算一份"
+        }
+      },
+      "responses": [
+        {
+          "label": "22枝玫瑰，每5枝扎一束，最多能扎几束？",
+          "answer": "4",
+          "independent_check": "(22-2)/5",
+          "units": [
+            "束"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "5",
+              "message": "剩下的2枝不够一束，不能多算一束。",
+              "action": "先算5×4，再比较剩余枝数。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "22枝玫瑰按上面扎法，还剩几枝？",
+          "answer": "2",
+          "independent_check": "22-5*4",
+          "units": [
+            "枝"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "余数等于总枝数减去已用枝数。",
+              "action": "从22中减去5×4。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "40个鸡蛋，每盒最多装6个，全部装完至少要几个盒子？",
+          "answer": "7",
+          "independent_check": "(40-4)/6+1",
+          "units": [
+            "个"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "6",
+              "message": "装满6盒后还剩4个，还要再装一盒。",
+              "action": "余数不为0时容器数要加1。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "哪个问题必须把余数再多算一份？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "40个鸡蛋每盒最多装6个，至少要几个盒子",
+            "22枝玫瑰每5枝扎一束，最多扎几束",
+            "17个草莓平均分给3只刺猬，每只分几个"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "这是求每份多少，不涉及容器数。",
+              "action": "区分“每份多少”和“要几个容器”。"
+            },
+            {
+              "answer": "2",
+              "message": "问的是最多几整束，剩下的不够一束。",
+              "action": "看清问的是组数、余数还是容器数。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "余数要不要再多算一份",
+        "family": "math-g2-lower:1:inventory-2:remainder-in-context",
+        "priority": 3,
+        "order": 2,
+        "skills": [
+          "余数要不要再多算一份"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "求完整组数",
+          "求剩余数量",
+          "求至少所需容器数",
+          "判断何时余数要多算一份"
+        ],
+        "difficulty_rationale": "同一页面上的三类问法同时出现，需逐题判断余数的处理方式。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g2-lower:1:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g2-lower:1:inventory-2:remainder-in-context",
+        "rationale": "22÷5、40÷6独立复算；四个选项对应四种不同问法，正确答案唯一；数据为自编，未使用教材原题。"
+      },
+      "common_error_feedback": "常见错误：剩下的2枝不够一束，不能多算一束；余数等于总枝数减去已用枝数；装满6盒后还剩4个，还要再装一盒；这是求每份多少，不涉及容器数；问的是最多几整束，剩下的不够一束。逐项回到题干给出的条件核对后再作答。"
+    },
+    {
+      "id": "family-chapter-english-g7-lower-1-lower_gap_candidates-animal-card-facts-v1",
+      "batch": "lower_gap_candidates",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "Animal card: facts and the reason",
+      "prompt": "Read the card (written for this exercise, not taken from the textbook), then answer.\nName: snow leopard. Looks: thick grey fur with dark spots and a long tail. Home: high mountains in Asia. Food: wild sheep and other small animals. Ability: it can jump far and climb steep rocks. People like it because it is quiet and strong.\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"1\",\"c\":\"1\",\"d\":\"Because it is quiet and strong.\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "The card gives looks, home, food, ability and one reason. Only one option in each question matches what the card says, and the home-and-ability sentence must keep both facts together. A “Because …” answer repeats the reason on the card. Choosing these does not show that you can describe an animal yourself.",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Unit 1 Animal Friends",
+        "textbook_sha256": "23931ae73882e93c213b28fb32a713e1fd312bb6d3f22abe7d34625375c444a9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          2,
+          4,
+          5
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第2、4、5页支持动物信息卡与why/because问答；卡片内容与选项均为自编，未复制教材对话或图片。朗读、听力与自主介绍不在此题范围，须另由人工核对。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "卡片为自编材料，三项选择与一项短答逐条对照卡片文字；because项接受句号与it is / it's 共四种写法，不接受其他理由。朗读与自主介绍不在本题范围。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "匹配栖息地与能力",
+          "b": "匹配外形",
+          "c": "匹配食物",
+          "d": "用because说出卡片上的理由"
+        }
+      },
+      "responses": [
+        {
+          "label": "Which sentence gives BOTH the home and the ability on the card?",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "It lives in high mountains and can jump far.",
+            "It lives on farms and cannot climb.",
+            "It lives in the sea and can swim fast."
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "卡片写的是高山，不是海洋。",
+              "action": "回到Home一行核对。"
+            }
+          ]
+        },
+        {
+          "label": "Which words describe its looks on the card?",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "thick grey fur and a long tail",
+            "white wool and small ears",
+            "green feathers and a short beak"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "卡片写的是浓密灰色毛皮和长尾。",
+              "action": "回到Looks一行核对。"
+            }
+          ]
+        },
+        {
+          "label": "What does it eat on the card?",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "wild sheep and other small animals",
+            "fish and sea animals",
+            "leaves and grass only"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "卡片写的是野羊等小动物。",
+              "action": "回到Food一行核对。"
+            }
+          ]
+        },
+        {
+          "kind": "text",
+          "label": "Why do people like it? Answer with “Because …”",
+          "answer": "Because it is quiet and strong.",
+          "accepted": [
+            "Because it is quiet and strong.",
+            "Because it is quiet and strong",
+            "Because it's quiet and strong.",
+            "Because it's quiet and strong"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "Animal card: facts and the reason",
+        "family": "english-g7-lower:1:inventory-1:animal-card-facts",
+        "priority": 3,
+        "order": 3,
+        "skills": [
+          "Animal card: facts and the reason"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "匹配栖息地与能力",
+          "匹配外形",
+          "匹配食物",
+          "用because说出卡片上的理由"
+        ],
+        "difficulty_rationale": "四项都回到同一张资料卡逐条对应，含一个限定句式与拼写的短答。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-lower:1:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-lower:1:inventory-1:animal-card-facts",
+        "rationale": "卡片为自编材料，三项选择与一项短答逐条对照卡片文字；because项接受句号与it is / it's 共四种写法，不接受其他理由。朗读与自主介绍不在本题范围。"
+      },
+      "common_error_feedback": "常见错误：卡片写的是高山，不是海洋；卡片写的是浓密灰色毛皮和长尾；卡片写的是野羊等小动物。逐项回到题干给出的条件核对后再作答。"
+    },
+    {
+      "id": "family-chapter-english-g7-lower-1-lower_gap_candidates-plural-and-adjectives-v1",
+      "batch": "lower_gap_candidates",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "Plurals and describing words",
+      "prompt": "Complete the plurals, then choose the correct sentence and the matching description. Each item is checked on its own.\n请分别完成下面各项。",
+      "answer": "{\"a\":\"mice\",\"b\":\"sheep\",\"c\":\"3\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "mouse 的复数是 mice（不规则），sheep 的复数与单数同形；复数主语用 are，所以“There are three sheep on the hill.”正确。描述只使用卡片上出现的词，不能凭对动物的印象另加特征。写出词形不等于会读，词尾发音另由人工核对。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Unit 1 Animal Friends",
+        "textbook_sha256": "23931ae73882e93c213b28fb32a713e1fd312bb6d3f22abe7d34625375c444a9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          3,
+          5
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第3、5页支持复数词形与形容词描述；词汇与句子为自编，未复制教材词表或练习。词尾发音与朗读须另由人工核对，写出词形不等于口语达标。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "mice/sheep 两个答案按教材通行口径核对；sheep 复数同形，故带 are 的句子唯一正确；描述题四个选项与卡片有可判断的差异。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "写出不规则复数mice",
+          "b": "写出单复数同形的sheep",
+          "c": "选择主谓一致的正确句子",
+          "d": "选择与卡片一致的描述词"
+        }
+      },
+      "responses": [
+        {
+          "kind": "text",
+          "label": "Write the plural of “mouse”.",
+          "answer": "mice",
+          "accepted": [
+            "mice"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [
+            {
+              "answer": "mouses",
+              "message": "mouse 的复数是不规则形式。",
+              "action": "记住 mouse–mice 这一对。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "kind": "text",
+          "label": "Write the plural of “sheep”.",
+          "answer": "sheep",
+          "accepted": [
+            "sheep"
+          ],
+          "case_sensitive": false,
+          "units": [],
+          "options": [],
+          "errors": [
+            {
+              "answer": "sheeps",
+              "message": "sheep 的复数与单数同形。",
+              "action": "不要给 sheep 加 -s。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "Which sentence is correct?",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "There is three sheep on the hill.",
+            "There are three sheeps on the hill.",
+            "There are three sheep on the hill."
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "sheep 的复数不加 -s。",
+              "action": "先改词形，再看主谓一致。"
+            },
+            {
+              "answer": "1",
+              "message": "复数主语要用 are。",
+              "action": "核对 be 动词与主语是否一致。"
+            }
+          ]
+        },
+        {
+          "label": "The card says: “The fox is small and quick. It has a long tail.” Which description matches the card?",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "huge and slow",
+            "small and quick",
+            "big and dangerous"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "卡片写的是 small and quick。",
+              "action": "只使用卡片上出现的词。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "Plurals and describing words",
+        "family": "english-g7-lower:1:inventory-2:plural-and-adjectives",
+        "priority": 3,
+        "order": 4,
+        "skills": [
+          "Plurals and describing words"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "写出不规则复数mice",
+          "写出单复数同形的sheep",
+          "选择主谓一致的正确句子",
+          "选择与卡片一致的描述词"
+        ],
+        "difficulty_rationale": "两个短答含不规则与同形复数，两个选择分别检查主谓一致和资料一致性。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-lower:1:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-lower:1:inventory-2:plural-and-adjectives",
+        "rationale": "mice/sheep 两个答案按教材通行口径核对；sheep 复数同形，故带 are 的句子唯一正确；描述题四个选项与卡片有可判断的差异。"
+      },
+      "common_error_feedback": "常见错误：mouse 的复数是不规则形式；sheep 的复数与单数同形；sheep 的复数不加 -s；复数主语要用 are；卡片写的是 small and quick。逐项回到题干给出的条件核对后再作答。"
+    },
+    {
+      "id": "family-chapter-english-g7-lower-1-lower_gap_candidates-main-idea-and-details-v1",
+      "batch": "lower_gap_candidates",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "Main idea, reason and ways to help",
+      "prompt": "Read this short text (written for this exercise).\n“Many animals live in the forests. People cut down too many trees, so the animals lose their homes. Some people also catch wild animals for money. We can help. Do not buy things made from wild animals, and plant trees with your family.”\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"3\",\"c\":\"1\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "短文先说动物需要帮助，再给出两个原因（砍树、为钱捕捉野生动物）和两个做法（不买野生动物制品、种树）。主旨是把它要讲的问题和做法合起来的概括；某一条具体原因只是细节。四项都要回到短文文字核对，不能补充短文没有写的内容。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Unit 1 Animal Friends",
+        "textbook_sha256": "23931ae73882e93c213b28fb32a713e1fd312bb6d3f22abe7d34625375c444a9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          6,
+          7,
+          8
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第6、7、8页支持从短文提取问题、原因与保护方法并区分主旨细节；短文与题目为自编，未使用教材大象短文原文。阅读理解选择题不代替写作、朗读或听力验收。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "短文为自编材料，四项答案逐项对应原文；没有把阅读选择题说成写作或口语能力。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "概括短文主旨",
+          "b": "提取动物失去家园的原因",
+          "c": "提取两种保护做法",
+          "d": "区分主旨与细节"
+        }
+      },
+      "responses": [
+        {
+          "label": "What is the text mainly about?",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "How much money hunters make",
+            "Why trees are green in spring",
+            "Why animals lose their homes and how we can help"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "短文没有谈树叶颜色。",
+              "action": "主旨要覆盖整段内容。"
+            }
+          ]
+        },
+        {
+          "label": "Why do the animals lose their homes, according to the text?",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "The forests are too wet in winter.",
+            "The animals move away by themselves.",
+            "People cut down too many trees."
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "短文说的是人们砍树。",
+              "action": "回到因果句核对。"
+            }
+          ]
+        },
+        {
+          "label": "Which two ways to help does the text give?",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "Not buying wild-animal products and planting trees",
+            "Buying wild-animal products and cutting trees down",
+            "Catching more animals and cutting more trees"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "这两种做法会加重问题，不是帮助。",
+              "action": "核对短文说的两件帮助的事。"
+            }
+          ]
+        },
+        {
+          "label": "Which sentence is a detail in the text, not its main idea?",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "We should protect animals in the forests.",
+            "Many animals lose their homes and we can help them.",
+            "Some people catch wild animals for money."
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这句接近概括，不是某一处具体细节。",
+              "action": "细节通常是对某一点的具体说明。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "Main idea, reason and ways to help",
+        "family": "english-g7-lower:1:inventory-3:main-idea-and-details",
+        "priority": 3,
+        "order": 5,
+        "skills": [
+          "Main idea, reason and ways to help"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "概括短文主旨",
+          "提取动物失去家园的原因",
+          "提取两种保护做法",
+          "区分主旨与细节"
+        ],
+        "difficulty_rationale": "四项都要求区分概括与原文细节，干扰项把细节说成主旨。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-lower:1:inventory-3",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-lower:1:inventory-3:main-idea-and-details",
+        "rationale": "短文为自编材料，四项答案逐项对应原文；没有把阅读选择题说成写作或口语能力。"
+      },
+      "common_error_feedback": "常见错误：短文没有谈树叶颜色；短文说的是人们砍树；这两种做法会加重问题，不是帮助；这句接近概括，不是某一处具体细节。逐项回到题干给出的条件核对后再作答。"
+    },
+    {
+      "id": "family-chapter-biology-g7-lower-1-lower_gap_candidates-germination-conditions-and-design-v1",
+      "batch": "lower_gap_candidates",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "萌发条件、自身条件与对照设计",
+      "prompt": "纸面练习：判断环境条件、种子自身条件和实验设计。表内数据是编题用的模拟记录，不是真实实验结果；真实观察另按人工任务核对。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\",\"c\":\"3\",\"d\":\"27\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "温度、适量的水和充足的空气是萌发需要的环境条件；干瘪或胚被破坏的种子缺少自身条件，即使环境适宜也可能不萌发。探究一个条件时只改变它，其余条件与对照组相同。9+9+9=27 粒只是读表合计，不等于做过实验。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元 第一章 被子植物的一生",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第2—5页支持萌发的环境条件、自身条件、萌发过程与对照实验设计；模拟记录与题目为自编，未复制教材实验数据。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "三项环境条件与自身条件按第5页口径核对；对照设计要求只改变温度；9+9+9=27 独立复算。读表不等于做过实验，故只计辅助并保留人工任务。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "辨认萌发的环境条件",
+          "b": "辨认种子自身条件",
+          "c": "辨认单变量对照设计",
+          "d": "读取重复记录"
+        }
+      },
+      "responses": [
+        {
+          "label": "下面哪一组都是种子萌发所需要的环境条件？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "光照、土壤和肥料",
+            "适宜的温度、适量的水和充足的空气",
+            "只需要水，其它条件都不影响"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "本册列出的萌发环境条件不含这些。",
+              "action": "回到教材总结的三项环境条件。"
+            }
+          ]
+        },
+        {
+          "label": "下面哪种情况属于种子自身条件不具备，而不是环境条件不合适？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "种子干瘪，胚已被动物咬坏",
+            "种子完全浸在水中，得不到空气",
+            "培养皿放在冰箱冷藏室"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这是环境条件不合适（缺氧）。",
+              "action": "区分外部环境与种子本身。"
+            }
+          ]
+        },
+        {
+          "label": "要探究“温度”对萌发的影响，哪个设计能做到只让温度这一个条件不同？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "只做一组，把它放进冰箱冷藏室",
+            "两组温度不同，水量也不同",
+            "两组种子同样饱满，水和空气相同，只有温度不同"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "同时改变了两个条件，无法判断原因。",
+              "action": "一次只改变一个条件。"
+            },
+            {
+              "answer": "1",
+              "message": "没有对照，无法排除种子自身原因。",
+              "action": "设置其余条件相同的对照组。"
+            }
+          ]
+        },
+        {
+          "label": "按表中的模拟记录，适宜温度组三次一共萌发了多少粒？",
+          "answer": "27",
+          "independent_check": "9+9+9",
+          "units": [
+            "粒"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "18",
+              "message": "应是三次记录相加，不是两次。",
+              "action": "把三次的9相加。"
+            }
+          ],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "萌发条件、自身条件与对照设计",
+        "family": "biology-g7-lower:1:inventory-1:germination-conditions-and-design",
+        "priority": 3,
+        "order": 6,
+        "skills": [
+          "萌发条件、自身条件与对照设计"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "辨认萌发的环境条件",
+          "辨认种子自身条件",
+          "辨认单变量对照设计",
+          "读取重复记录"
+        ],
+        "difficulty_rationale": "四项分别考查条件分类、自身条件、设计原则与记录合计，需在同题区分概念。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "模拟记录：每格为每组10粒中的萌发粒数（编题数据，不是真实实验结果）",
+        "rows": [
+          [
+            "组别与条件",
+            "第1次",
+            "第2次",
+            "第3次"
+          ],
+          [
+            "适宜温度、适量水、充足空气",
+            "9",
+            "9",
+            "9"
+          ],
+          [
+            "低温、适量水、充足空气",
+            "0",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:1:inventory-1",
+        "task": "check",
+        "role": "supporting",
+        "family": "biology-g7-lower:1:inventory-1:germination-conditions-and-design",
+        "rationale": "三项环境条件与自身条件按第5页口径核对；对照设计要求只改变温度；9+9+9=27 独立复算。读表不等于做过实验，故只计辅助并保留人工任务。"
+      },
+      "common_error_feedback": "常见错误：本册列出的萌发环境条件不含这些；这是环境条件不合适（缺氧）；同时改变了两个条件，无法判断原因；没有对照，无法排除种子自身原因；应是三次记录相加，不是两次。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "在老师或家长指导下，用安全的种子（如绿豆）设计并实施一次观察：写清只改变的一个条件、对照组的相同条件、观察间隔与重复次数；如实记录每组萌发数、未萌发数和异常，未观察的格子留空。不要抄用题中数值。",
+        "criteria": [
+          "只改变预定条件",
+          "说明对照组的相同条件",
+          "逐次记录有时间与单位",
+          "保留未萌发和异常结果",
+          "能说明本次观察的局限"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-biology-g7-lower-1-lower_gap_candidates-root-growth-and-flower-v1",
+      "batch": "lower_gap_candidates",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "根尖生长、传粉与受精",
+      "prompt": "把每项功能或过程对应到本册给出的名称。每项只填最直接对应的一项。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"2\",\"c\":\"1\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "幼根生长一方面靠分生区细胞分裂增加细胞数量，另一方面主要靠伸长区细胞伸长增大细胞体积；成熟区表皮细胞向外突出形成根毛，是吸收水和无机盐的主要部位。传粉是花粉落到柱头上的过程，受精是精子与卵细胞结合形成受精卵的过程，两者先后不同、场所不同。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元 第一章 被子植物的一生",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          8,
+          9,
+          16,
+          17,
+          18
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第8—9页支持根尖结构与幼根生长，第16—18页支持花的结构、传粉与受精；题目为自编，未复制教材插图。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "根尖各区域功能、传粉与受精定义逐项按第9、17、18页口径核对；没有把开花等同于结果，也没有把传粉等同于受精。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "区分分生区与伸长区的作用",
+          "b": "辨认吸收水和无机盐的部位",
+          "c": "辨认传粉过程",
+          "d": "辨认受精过程"
+        }
+      },
+      "responses": [
+        {
+          "label": "幼根能不断伸长，主要靠哪两处起作用？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "分生区细胞分裂增加数量，伸长区细胞伸长增大体积",
+            "根毛摆动带动幼根向前伸长",
+            "根冠细胞不断伸长"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "根冠主要起保护作用。",
+              "action": "回到根尖各区域的功能。"
+            }
+          ]
+        },
+        {
+          "label": "根吸收水和无机盐的主要部位是哪里？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "根冠",
+            "成熟区（有大量根毛）",
+            "伸长区"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "伸长区主要使细胞体积增大。",
+              "action": "找有大量根毛的区域。"
+            }
+          ]
+        },
+        {
+          "label": "“传粉”指的是哪个过程？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "花粉从花药散放后落到雌蕊柱头上",
+            "精子与卵细胞结合形成受精卵",
+            "花粉管穿过花柱进入子房"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "这是花粉管生长，不是传粉。",
+              "action": "传粉发生在柱头上。"
+            },
+            {
+              "answer": "2",
+              "message": "这是受精，不是传粉。",
+              "action": "区分传粉与受精的先后。"
+            }
+          ]
+        },
+        {
+          "label": "“受精”指的是哪个过程？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "花瓣展开吸引昆虫",
+            "花粉落到柱头上",
+            "精子与卵细胞结合形成受精卵"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这是传粉。",
+              "action": "受精发生在胚珠内。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "根尖生长、传粉与受精",
+        "family": "biology-g7-lower:1:inventory-2:root-growth-and-flower",
+        "priority": 3,
+        "order": 7,
+        "skills": [
+          "根尖生长、传粉与受精"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "区分分生区与伸长区的作用",
+          "辨认吸收水和无机盐的部位",
+          "辨认传粉过程",
+          "辨认受精过程"
+        ],
+        "difficulty_rationale": "四项都是成对易混的概念，需按本册定义区分，不能凭日常语感作答。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:1:inventory-2",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-lower:1:inventory-2:root-growth-and-flower",
+        "rationale": "根尖各区域功能、传粉与受精定义逐项按第9、17、18页口径核对；没有把开花等同于结果，也没有把传粉等同于受精。"
+      },
+      "common_error_feedback": "常见错误：根冠主要起保护作用；伸长区主要使细胞体积增大；这是花粉管生长，不是传粉；这是受精，不是传粉；这是传粉。逐项回到题干给出的条件核对后再作答。"
+    }
+  ]
+}

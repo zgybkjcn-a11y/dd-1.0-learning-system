@@ -69,12 +69,19 @@ class Database:
                 # after taking the write lock. Otherwise two processes can
                 # both observe a missing migration and the second can fail on
                 # an ALTER TABLE already applied by the first.
+                # SQLite table rebuilding must disable FK enforcement outside
+                # the transaction; validate every reference before committing.
+                rebuild = version == 14
+                if rebuild:
+                    conn.execute("PRAGMA foreign_keys = OFF")
                 conn.execute("BEGIN IMMEDIATE")
                 try:
                     if conn.execute("SELECT 1 FROM schema_migrations WHERE version = ?", (version,)).fetchone():
                         conn.rollback()
                         continue
                     self._execute_migration(conn, path.read_text(encoding="utf-8"))
+                    if rebuild and conn.execute("PRAGMA foreign_key_check").fetchall():
+                        raise ValueError("migration introduced foreign key violations")
                     conn.execute(
                         "INSERT INTO schema_migrations(version, applied_at) VALUES (?, ?)",
                         (version, utc_now()),
@@ -83,6 +90,9 @@ class Database:
                 except BaseException:
                     conn.rollback()
                     raise
+                finally:
+                    if rebuild:
+                        conn.execute("PRAGMA foreign_keys = ON")
         finally:
             conn.close()
 

@@ -29,7 +29,10 @@ from .practice import (metadata as practice_metadata, learner_guidance, grade_nu
                        question_snapshot, frozen_question, workspace_state, update_workspace,
                        prepare_workspace_session, attach_workspace_session)
 from .api_types import APIError, Context
+from .practice_design import visual_fields
+from .practice_response import response_fields, grade_fields, grade_short_fields
 from .study_routes import create_study_router
+from .study_read_db import share_study_reads
 from .study_cancellation import StudyDisconnectMiddleware
 from .study_deadline import (CURRENT_DEADLINE, STUDY_BUDGET_HEADER, StudyDeadline,
                              budget_seconds, is_study_path)
@@ -61,6 +64,12 @@ FORBIDDEN_AGENT_ACTIONS = {
 
 
 def _validate_reserve_version(conn, question_version_id):
+    if question_version_id.startswith('family-chapter-'):
+        from .chapter_practice import validate_installed
+        try:
+            validate_installed(conn, question_version_id)
+        except (OSError, ValueError, KeyError, TypeError):
+            raise APIError(503, 'PRACTICE_CHAPTER_UNAVAILABLE', '章节练习版本校验未通过，请稍后重试')
     if question_version_id.startswith('family-reserve-'):
         from .reserve_practice import validate_installed
         try:
@@ -169,7 +178,7 @@ class PracticeWorkspaceRequest(BaseModel):
     expected_revision: int = Field(ge=0, strict=True)
     book_id: str = Field(min_length=1, max_length=100)
     chapter_id: str = Field(default='', max_length=100)
-    difficulty: str = Field(default='auto', pattern='^(auto|easy|normal|hard)$')
+    difficulty: str = Field(default='auto', pattern='^(auto|easy|normal|hard|challenge)$')
     pool: str = Field(default='initial', pattern='^(initial|reserve)$')
     restart_round: bool = Field(default=False, strict=True)
     discard_current: bool = Field(default=False, strict=True)
@@ -822,6 +831,23 @@ _UI_HTML = """<!doctype html>
     .family-game #testSection { max-width: 830px; margin-left: auto; margin-right: auto; padding: 29px; }
     .family-game #testPrompt { text-align: center; font-size: clamp(28px, 4vw, 44px); font-weight: 850; color: #253b4d; letter-spacing: 1px; padding: 39px 18px; margin: 15px 0 19px; background: #f5f6ed; border: 1px dashed #dfe6d3; border-radius: 21px; min-height: 133px; }
     .family-game #testPrompt.word-problem { font-size: clamp(20px, 2.5vw, 27px); line-height: 1.85; text-align: left; letter-spacing: 0; padding: 24px; white-space: pre-wrap; overflow-wrap: anywhere; }
+    #practiceResponses { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,230px),1fr)); gap: 14px; margin: 18px 0; }
+    #practiceResponses label { display: flex; flex-direction: column; gap: 8px; min-width: 0; line-height: 1.6; }
+    #practiceResponses .wide-response { grid-column: 1 / -1; }
+    #practiceResponses .response-group { min-width:0; display:flex; flex-direction:column; gap:8px; }
+    #practiceResponses .multi-option { flex-direction:row; align-items:center; padding:10px; border:1px solid #bacac4; border-radius:8px; cursor:pointer; }
+    #practiceResponses .multi-option input { width:24px; min-height:24px; flex:none; }
+    #practiceResponses .order-card { display:flex; align-items:center; gap:8px; margin:8px 0; }
+    #practiceResponses .order-card span { flex:1; min-width:0; overflow-wrap:anywhere; }
+    #practiceResponses .order-card button { flex:none; padding:8px; min-height:44px; }
+    #practiceResponses input, #practiceResponses select { width: 100%; min-width: 0; min-height: 46px; font-size: 19px; }
+    #practiceVisual { margin: 12px 0 20px; padding: 14px; border: 1px solid #bdcecf; border-radius: 14px; background: #fffef8; max-width: 100%; overflow-x: auto; }
+    #practiceVisual figcaption { margin-bottom: 10px; font-size: 16px; line-height: 1.6; }
+    #practiceVisual table { border-collapse: collapse; margin: auto; font-size: 18px; text-align: center; }
+    #practiceVisual td, #practiceVisual th { border: 1px solid #9daf9b; padding: 8px 10px; white-space: nowrap; }
+    #practiceVisual th { background: #e7eedf; }
+    #practiceVisual[data-kind="grid"] td { background: #f3f7ed; min-width: 22px; }
+    #practiceVisual svg { display: block; width: 100%; min-width: 310px; max-width: 700px; margin: auto; }
     .family-game #solutionText { white-space: pre-wrap; line-height: 1.8; }
     .family-game #questionCredit { font-size: 11px; line-height: 1.6; }
     .family-game[data-grade="7"] #testPrompt { background: #f3effa; border-color: #ded5f1; }
@@ -909,14 +935,14 @@ _UI_HTML = """<!doctype html>
     .textbook-page-summary { cursor: pointer; padding: 8px 0; }
     .textbook-page-summary:focus-visible { outline: 2px solid #135c70; outline-offset: 4px; }
     .textbook-page-meta { display: inline; font-size: 12px; color: #526779; }
-    .textbook-page-title { display: block; margin: 8px 0; font-size: 16px; }
+    .textbook-page-title { display: inline; margin: 0; font-size: 16px; }
     .textbook-fold-state { color: #135c70; font-size: 13px; font-weight: 600; }
     .textbook-page-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 14px; }
     .textbook-page-actions .textbook-page-link { margin-top: 0; }
     .textbook-reader { margin-top: 20px; border: 1px solid #dce3eb; border-radius: 14px; padding: 12px; }
     .textbook-reader > summary, .textbook-contents > summary { cursor: pointer; padding: 8px; font-weight: 700; }
     .textbook-reader-layout { display: grid; grid-template-columns: clamp(136px, 13vw, 168px) minmax(0, 1fr); gap: 12px; margin-top: 12px; }
-    .textbook-contents { max-height: 75vh; overflow: auto; background: #f3f5f8; border-radius: 10px; }
+    .textbook-contents { position: sticky; top: 12px; align-self: start; max-height: 75vh; overflow: auto; background: #f3f5f8; border-radius: 10px; }
     #textbookToc { display: grid; gap: 6px; padding: 8px; }
     #textbookToc button { text-align: left; padding: 10px; font-size: 12px; border-radius: 8px; }
     #textbookToc button[aria-current="true"] { color: #39266d; background: #e9e2fb; border-color: #7962bb; }
@@ -926,6 +952,14 @@ _UI_HTML = """<!doctype html>
     #textbookPageRange { white-space: nowrap; }
     .reader-toolbar label { display: flex; align-items: center; gap: 4px; margin: 0; }
     #textbookPageInput { width: 65px; }
+    .textbook-page-frame { position: relative; }
+    button.textbook-page-nav { position: absolute; z-index: 2; top: 50%; transform: translateY(-50%); width: 52px; min-height: 64px; padding: 8px 2px; font-size: 12px; white-space: nowrap; color: #174b5c; background: #fffffff0; border: 1px solid #9db3bf; border-radius: 12px; box-shadow: 0 2px 12px #17394e33; }
+    .textbook-page-nav:hover:not(:disabled) { background: #fff; border-color: #174b5c; }
+    .textbook-page-nav:focus-visible { outline: 3px solid #7962bb; outline-offset: 2px; }
+    .textbook-page-nav span { display: block; font-size: 26px; line-height: 1; margin-bottom: 6px; }
+    .textbook-page-nav[hidden] { display: none; }
+    #textbookPagePrev { left: 24px; }
+    #textbookPageNext { right: 24px; }
     .textbook-page-viewport { max-height: 78vh; overflow: auto; background: #e9edf2; border-radius: 10px; padding: 10px; }
     .textbook-page-image { cursor: zoom-in; }
     .textbook-stage .textbook-page-image { max-width: none; }
@@ -933,9 +967,14 @@ _UI_HTML = """<!doctype html>
     #textbookZoom::backdrop { background: #16202bd9; }
     #textbookZoom[open] { display: flex; flex-direction: column; }
     #textbookZoom .zoom-controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-    #textbookZoomViewport { flex: 1; min-height: 0; overflow: auto; background: #e6eaf0; margin-top: 10px; }
+    #textbookZoomFrame { position: relative; flex: 1; min-height: 0; margin-top: 10px; }
+    #textbookZoomViewport { height: 100%; overflow: auto; background: #e6eaf0; }
+    #textbookZoomPrev { left: max(12px, calc((100% - var(--zoom-image-width, 100%)) / 2 + 12px)); }
+    #textbookZoomNext { right: max(12px, calc((100% - var(--zoom-image-width, 100%)) / 2 + 12px)); }
+    #textbookZoomFrame .textbook-page-nav { top: var(--zoom-nav-top, 50%); }
+    #textbookZoomStatus { margin: 8px 0; }
     #textbookZoomImage { display: block; height: auto; margin: auto; max-width: none; }
-    @media (max-width: 760px) { .textbook-reader-layout { grid-template-columns: minmax(0, 1fr); } .textbook-contents { max-height: 240px; } .textbook-reader { padding: 8px; } .reader-toolbar button { padding: 8px; } }
+    @media (max-width: 760px) { .textbook-reader-layout { grid-template-columns: minmax(0, 1fr); } .textbook-contents { position: static; max-height: 240px; } .textbook-reader { padding: 8px; } .reader-toolbar button { padding: 8px; } button.textbook-page-nav { width: 44px; min-height: 60px; } .textbook-page-viewport { padding: 6px; } #textbookPagePrev { left: 20px; } #textbookPageNext { right: 20px; } }
     /* STUDY_SUPPORT_STYLE */
     @media (prefers-reduced-motion: reduce) { .family-game * { transition: none !important; scroll-behavior: auto !important; } }
   </style>
@@ -974,7 +1013,8 @@ _UI_HTML = """<!doctype html>
         <details><summary id="chapterPickerLabel">浏览本册全部章节</summary><div id="chapterChoices" class="chapter-options" role="group" aria-labelledby="chapterPickerLabel"></div></details>
         <h3 id="selectedChapterTitle" class="chapter-heading" aria-live="polite">先选择你的档案</h3>
         <p id="scopeAvailability" class="chapter-note" role="status"></p>
-        <div class="row game-only"><label>挑战难度 <select id="homeDifficulty"><option value="auto">自动进阶（推荐）</option><option value="easy">简单</option><option value="normal">正常</option><option value="hard">困难</option></select></label><span id="homeDifficultyNote" class="chapter-note"></span></div>
+        <details id="coveragePlan" class="study-support" hidden><summary>知识点与配题缺口</summary><p id="coverageNote" class="chapter-note"></p><p id="coverageSummary"></p><div id="coverageRows" class="study-cards"></div></details>
+        <div class="row game-only"><label>挑战难度 <select id="homeDifficulty"><option value="auto">自动进阶（推荐）</option><option value="easy">简单</option><option value="normal">正常</option><option value="hard">困难</option><option value="challenge">挑战</option></select></label><span id="homeDifficultyNote" class="chapter-note"></span></div>
         <div id="reservePicker" class="row game-only" hidden><label>练习题组 <select id="practicePool"><option value="initial">普通练习</option><option value="reserve">未见过的备用题</option></select></label><span id="reserveAvailability" class="chapter-note" role="status"></span></div>
         <div class="row"><button id="scopeChallenge" class="game-primary" disabled>开始挑战 ↗</button><button id="textbookSearch" class="secondary" disabled>阅读整本书</button><button id="studySupportOpen" class="secondary" type="button" disabled>打开理解工坊</button></div>
         <!-- STUDY_SUPPORT_PANEL -->
@@ -984,10 +1024,15 @@ _UI_HTML = """<!doctype html>
           <div class="textbook-reader-layout">
             <details id="textbookContents" class="textbook-contents" open><summary>本册目录</summary><nav id="textbookToc" aria-label="教材目录"></nav></details>
             <div class="textbook-stage">
-              <div class="reader-toolbar"><button id="textbookPrev" type="button">上一页</button><span id="textbookPageRange" aria-live="polite"></span><button id="textbookNext" type="button">下一页</button><label>跳至 <input id="textbookPageInput" type="number" min="1" aria-label="书内页码"></label><button id="textbookJump" type="button">跳转</button><div id="textbookResultTools" class="textbook-result-tools" hidden><span id="textbookResultCount"></span><button id="textbookExpandAll" type="button">展开本页</button><button id="textbookCollapseAll" type="button">收起本页</button></div></div>
+              <div class="reader-toolbar"><button id="textbookPrev" type="button" hidden>上一页</button><span id="textbookPageRange" aria-live="polite"></span><button id="textbookNext" type="button" hidden>下一页</button><label>跳至 <input id="textbookPageInput" type="number" min="1" aria-label="书内页码"></label><button id="textbookJump" type="button">跳转</button><div id="textbookResultTools" class="textbook-result-tools" hidden><span id="textbookResultCount"></span><button id="textbookExpandAll" type="button">展开本页</button><button id="textbookCollapseAll" type="button">收起本页</button></div></div>
               <div class="row"><label>查找内容（可选）<input id="textbookQuery" maxlength="160" placeholder="例如：有理数减法"></label><button id="textbookFind" type="button">查找</button><button id="textbookBrowse" type="button">返回顺序阅读</button></div>
               <p id="textbookStatus" class="chapter-note" role="status"></p>
-              <div id="textbookPager" hidden></div><div id="textbookResults" class="textbook-page-viewport"></div>
+              <div id="textbookPager" hidden></div>
+              <div class="textbook-page-frame">
+                <button id="textbookPagePrev" class="secondary textbook-page-nav" type="button" aria-label="教材上一页" aria-controls="textbookResults" disabled hidden><span aria-hidden="true">‹</span>上一页</button>
+                <div id="textbookResults" class="textbook-page-viewport"></div>
+                <button id="textbookPageNext" class="secondary textbook-page-nav" type="button" aria-label="教材下一页" aria-controls="textbookResults" disabled hidden><span aria-hidden="true">›</span>下一页</button>
+              </div>
             </div>
           </div>
         </details>
@@ -1036,7 +1081,7 @@ _UI_HTML = """<!doctype html>
     </section>
     <section id="testSection">
       <div class="section-heading game-only"><div><span class="section-eyebrow">ONE QUESTION, ONE STEP</span><h2 id="challengeTitle">小挑战，轮到你啦</h2><p id="practiceChapter" class="chapter-note"></p></div><button id="changeChapter" type="button">换个单元 ↗</button></div>
-      <div class="row game-only"><label>下一题难度 <select id="practiceDifficulty"><option value="auto">自动进阶（推荐）</option><option value="easy">简单</option><option value="normal">正常</option><option value="hard">困难</option></select></label><span id="practiceDifficultyNote" class="chapter-note" role="status"></span></div>
+      <div class="row game-only"><label>下一题难度 <select id="practiceDifficulty"><option value="auto">自动进阶（推荐）</option><option value="easy">简单</option><option value="normal">正常</option><option value="hard">困难</option><option value="challenge">挑战</option></select></label><span id="practiceDifficultyNote" class="chapter-note" role="status"></span></div>
       <p id="questionBadge" class="chapter-note game-only"></p><p id="questionCredit" class="chapter-note game-only"></p>
       <div id="gamePracticeEmpty" class="practice-empty game-only"><p>准备好了？从一道小题开始。</p><button id="practiceStart" class="game-primary" disabled>来一题 ↗</button></div>
       <h2>数学练习</h2>
@@ -1047,7 +1092,9 @@ _UI_HTML = """<!doctype html>
       </details>
       <div class="row"><button id="restoreTest" class="secondary">恢复测验</button><button id="refreshTest" class="secondary">读取状态</button><button id="requestHint" class="secondary">请求提示</button><button id="cancelTest" class="secondary">取消测验</button></div>
       <div id="testPrompt" class="status muted">题面将在开始或恢复测验后显示。</div>
-      <div class="row"><label>原始作答 <input id="answer" autocomplete="off"></label><button id="submitAnswer" class="secondary">提交并等待判分</button><button id="refreshAttempt" class="secondary">读取判分</button><button id="requestReview" class="secondary">申请复核</button></div>
+      <figure id="practiceVisual" hidden></figure>
+      <div id="practiceResponses" hidden></div>
+      <div class="row"><label id="singleAnswerLabel">原始作答 <input id="answer" autocomplete="off"></label><button id="submitAnswer" class="secondary">提交并等待判分</button><button id="refreshAttempt" class="secondary">读取判分</button><button id="requestReview" class="secondary">申请复核</button></div>
       <div id="testStatus" class="status muted">尚未开始测验。</div>
       <div id="gameHint" class="game-only" hidden></div>
       <div class="game-only"><p id="practiceRecoveryStatus" role="status">提交后的作答可跨设备恢复；未提交草稿仅保留在本标签页。</p><button id="reloadPracticeProgress" class="secondary">读取最新进度</button><p id="savedPracticeAnswer" class="status"></p><details id="practiceAnswerConflict" hidden><summary>本标签页尚未提交的内容</summary><pre id="practiceConflictAnswer" class="status"></pre></details></div>
@@ -1068,22 +1115,23 @@ _UI_HTML = """<!doctype html>
     </details></section>
   </main>
   <p class="game-footer game-only">不用一次学会所有。今天前进一小步，就很棒。</p>
-  <dialog id="textbookZoom" aria-label="教材原页放大"><div class="zoom-controls"><strong id="textbookZoomTitle"></strong><button id="textbookZoomOut" type="button" aria-label="缩小">−</button><span id="textbookZoomLevel">100%</span><button id="textbookZoomIn" type="button" aria-label="放大">＋</button><button id="textbookZoomReset" type="button">适应宽度</button><button id="textbookZoomClose" type="button">关闭</button></div><div id="textbookZoomViewport"><img id="textbookZoomImage" alt=""></div></dialog>
+  <dialog id="textbookZoom" aria-label="教材原页放大"><div class="zoom-controls"><strong id="textbookZoomTitle" aria-live="polite"></strong><button id="textbookZoomOut" type="button" aria-label="缩小">−</button><span id="textbookZoomLevel">100%</span><button id="textbookZoomIn" type="button" aria-label="放大">＋</button><button id="textbookZoomReset" type="button">适应宽度</button><button id="textbookZoomClose" type="button">关闭</button></div><p id="textbookZoomStatus" role="status" hidden></p><button id="textbookZoomRetry" class="secondary" type="button" hidden>重新加载原页</button><div id="textbookZoomFrame"><div id="textbookZoomViewport"><img id="textbookZoomImage" alt=""></div><button id="textbookZoomPrev" class="secondary textbook-page-nav" type="button" aria-label="放大教材上一页" aria-controls="textbookZoomImage" disabled><span aria-hidden="true">‹</span>上一页</button><button id="textbookZoomNext" class="secondary textbook-page-nav" type="button" aria-label="放大教材下一页" aria-controls="textbookZoomImage" disabled><span aria-hidden="true">›</span>下一页</button></div></dialog>
   <script>
     const $ = (id) => document.getElementById(id);
     const browserSessionMode = false;
     const familyGameMode = false;
-    let textbookBooks = [], textbookSubjects = [], textbookGeneration = 0, textbookObjectUrls = [];
+    let textbookBooks = [], textbookSubjects = [], textbookGeneration = 0, textbookObjectUrls = [], readerPage = null;
     const publicBasePath = "";
     let serverContextMode = false, contextVersion = 0, contextEpoch = 0;
     let manualObjectives = [], manualObjectiveChosen = false;
     let gameLearners = [], gameChoices = [], gameStarting = false, gameSubmitting = false;
     let gameCatalog = [], gameObjectives = [], gameTasks = [], gameBook = '', gameChapter = '', gameChangingChapter = false;
+    let gameCoverage = null;
     let gameGraded = 0, gameMistakes = 0, gameItemStatus = '', gameRefreshGeneration = 0;
     const gameUpdatedAttempts = new Set();
     let gameCompletedChoices = new Set(), gamePool = 'initial';
     let gameDifficulty = 'auto', gameGuidance = {}, gameLoadingChoices = false;
-    const difficultyNames = {easy:'简单',normal:'正常',hard:'困难'};
+    const difficultyNames = {easy:'简单',normal:'正常',hard:'困难',challenge:'挑战'};
     let passageExpiryTimer = null, activePassage = false;
     const pendingRequests = new Set();
     class StaleContextError extends Error {}
@@ -1101,7 +1149,7 @@ _UI_HTML = """<!doctype html>
       }
       uploadedDocuments = []; savedTest = {};
       document.querySelectorAll('main input, main textarea').forEach((field) => { field.value = ''; });
-      ['documents','items','pageSummary','mistakes','testPrompt','testStatus','output','uploadStatus','manualStatus','today','progress','practiceChoices','variantJobs','variantDetail'].forEach((id) => { if ($(id)) $(id).replaceChildren(); });
+      ['documents','items','pageSummary','mistakes','testPrompt','practiceVisual','testStatus','output','uploadStatus','manualStatus','today','progress','practiceChoices','variantJobs','variantDetail'].forEach((id) => { if ($(id)) $(id).replaceChildren(); });
       $('manualObjective').replaceChildren(new Option('暂不分类', ''));
       manualObjectives = []; manualObjectiveChosen = false;
       $('manualObjectiveStatus').textContent = '';
@@ -1120,6 +1168,7 @@ _UI_HTML = """<!doctype html>
     const serviceUrl = (path) => publicBasePath + path;
     const saved = browserSessionMode ? {} : JSON.parse(localStorage.getItem('dd-learning-context') || '{}');
     let savedTest = browserSessionMode ? {} : JSON.parse(localStorage.getItem('dd-learning-test') || '{}');
+    let practiceResponseSpec = [];
     let uploadedDocuments = [];
     let sourceObjectUrls = [];
     let sourceRenderGeneration = 0;
@@ -1222,6 +1271,7 @@ _UI_HTML = """<!doctype html>
       $('challengeTitle').textContent = senior ? '星球挑战，等你解锁思路' : '小挑战，轮到你啦';
     }
     function resetGameWorkspace(message = '') {
+      renderPracticeResponses(null);
       gameRefreshGeneration += 1;
       resetStudySupport(); $('studySupportOpen').disabled = true;
       releaseTextbookPages(); textbookBooks = []; textbookSubjects = [];
@@ -1231,6 +1281,7 @@ _UI_HTML = """<!doctype html>
       $('textbookQuery').value = ''; $('textbookStatus').textContent = ''; $('textbookEdition').textContent = '人教新版教材 · 选择档案后查看';
       gameChoices = []; gameGraded = 0; gameMistakes = 0; gameItemStatus = '';
       gameCatalog = []; gameObjectives = []; gameTasks = []; gameBook = ''; gameChapter = ''; gameChangingChapter = false;
+      gameCoverage = null; $('coveragePlan').hidden = true; $('coverageRows').replaceChildren();
       $('chapterChoices').replaceChildren(); $('selectedChapterTitle').textContent = '先选择你的档案'; $('practiceChapter').textContent = '';
       gameStarting = false; gameSubmitting = false; gameUpdatedAttempts.clear();
       practiceWorkspace = null; recoveryBusy = false;
@@ -1277,6 +1328,7 @@ _UI_HTML = """<!doctype html>
       const active = Boolean($('testItem').value) && ['reserved','presented'].includes(gameItemStatus);
       $('gamePracticeEmpty').hidden = Boolean($('testItem').value);
       $('answer').disabled = !active || gameSubmitting;
+      $('practiceResponses').querySelectorAll('input,select,button').forEach(el => { el.disabled = !active || gameSubmitting || el.dataset.edgeDisabled==='true'; });
       $('submitAnswer').disabled = !active || gameSubmitting;
       $('requestHint').hidden = !active;
       $('cancelTest').hidden = !active;
@@ -1294,13 +1346,30 @@ _UI_HTML = """<!doctype html>
       setGameView('practice');
       await $('startTest').onclick({...choice, replace_current: ['reserved','presented'].includes(gameItemStatus)});
     }
-    function difficultyGuidance() { return gameGuidance[gameBook + '|' + gameChapter] || {difficulty:'easy', reason:'先从简单题开始；同一难度连续独立答对 4 道不同题后，尝试下一档。'}; }
+    function difficultyGuidance() {
+      const guide = gameGuidance[gameBook + '|' + gameChapter] || {difficulty:'easy', reason:'先从简单题开始；同一难度连续独立答对 4 道不同题后，尝试下一档。'};
+      const levels = ['easy','normal','hard','challenge'];
+      const available = levels.filter(level => gameChoices.some(choice => choice.practice?.difficulty === level));
+      if (!available.length || available.includes(guide.difficulty)) return guide;
+      const fallback = available.filter(level => levels.indexOf(level) <= levels.indexOf(guide.difficulty)).at(-1) || available[0];
+      return {...guide, difficulty:fallback, reason:'本范围暂未配置' + difficultyNames[guide.difficulty] + '题，继续练习' + difficultyNames[fallback] + '题或选择其他章节。'};
+    }
     function selectedDifficulty() { return gameDifficulty === 'auto' ? difficultyGuidance().difficulty : gameDifficulty; }
     function roundChoices() {
       return gameChoices.some((choice) => choice.practice) ? gameChoices.filter((choice) => choice.practice?.difficulty === selectedDifficulty()) : gameChoices;
     }
     function gameNextChoice() {
-      return roundChoices().find((choice) => !gameCompletedChoices.has(choice.question_version_id)) || null;
+      const available = roundChoices().filter((choice) => !gameCompletedChoices.has(choice.question_version_id));
+      if (!available.some(choice => choice.practice?.task_family)) return available[0] || null;
+      const family = (choice) => choice.practice?.task_family || choice.practice?.title || choice.question_version_id;
+      const seen = new Map();
+      gameChoices.filter((choice) => gameCompletedChoices.has(choice.question_version_id)).forEach((choice) => {
+        const key = family(choice); seen.set(key, (seen.get(key) || 0) + 1);
+      });
+      available.sort((a,b) => (seen.get(family(a)) || 0) - (seen.get(family(b)) || 0)
+        || (b.practice?.selection_priority || 0) - (a.practice?.selection_priority || 0)
+        || (a.practice?.selection_order || 0) - (b.practice?.selection_order || 0));
+      return available[0] || null;
     }
     async function saveGameRound(options = {}) {
       return persistPracticeWorkspace(options);
@@ -1323,19 +1392,22 @@ _UI_HTML = """<!doctype html>
     function syncDifficulty() {
       $('homeDifficulty').value = gameDifficulty; $('practiceDifficulty').value = gameDifficulty;
       const label = difficultyNames[selectedDifficulty()];
-      const message = gamePool === 'reserve' && !gameChoices.length ? '本范围已没有未见备用题，可切换普通练习或阅读教材。' : gameChoices.some((c) => c.practice) ? (gameDifficulty === 'auto' ? '下一题：' + label + '。' + difficultyGuidance().reason : '下一题使用' + label + '难度。') : '此范围暂时只有起步题，尚未配置三档题。';
+      const levelCount = gameChoices.filter((c) => c.practice?.difficulty === selectedDifficulty()).length;
+      const smallPool = gameDifficulty === 'auto' && gameChoices.some((c) => c.practice?.chapter_supplement) && levelCount > 0 && levelCount < 4;
+      const message = gamePool === 'reserve' && !gameChoices.length ? '本范围已没有未见备用题，可切换普通练习或阅读教材。' : gameChoices.some((c) => c.practice) ? (!levelCount ? '本范围暂未配置' + label + '题，请选择其他难度或自动进阶。' : smallPool ? '当前为' + label + '，本档只有 ' + levelCount + ' 道起步题；做完可选择其他已有题目的难度或章节。题量不足以自动进阶。' : gameDifficulty === 'auto' ? '下一题：' + label + '。' + difficultyGuidance().reason : '下一题使用' + label + '难度。') : '此范围暂时只有起步题，尚未配置分档题。';
       $('homeDifficultyNote').textContent = message; $('practiceDifficultyNote').textContent = message;
     }
     function renderQuestionMeta() {
       if (!familyGameMode) return;
       const info = gameCatalog.find((c) => c.question_version_id === $('questionVersion').value)?.practice;
       $('testPrompt').classList.toggle('word-problem', Boolean(info));
-      $('questionBadge').textContent = info ? difficultyNames[info.difficulty] + ' · ' + info.title + (info.reserve ? ' · 备用题' : '') + (info.extension ? ' · 思维拓展' : '') : '';
+      $('questionBadge').textContent = info ? difficultyNames[info.difficulty] + ' · ' + info.title + (info.task_form ? ' · ' + info.task_form : '') + (info.reserve ? ' · 备用题' : '') + (info.extension ? ' · 思维拓展' : '') : '';
       const credit = $('questionCredit'); credit.replaceChildren();
       if (info?.reserve) {
         credit.append(document.createTextNode('助手编写与核对 · 非教师审核。'));
         if (info.template_relation?.kind === 'numeric_variant') credit.append(document.createTextNode(' 同母题改数：' + info.template_relation.parent_title + '；不算新情境。'));
       }
+      if (info?.chapter_supplement) credit.append(document.createTextNode('自编章节练习 · 助手核对 · 非教材原题。' + (info.source.template_relation ? ' ' + info.source.template_relation : '')));
       if (info?.source.kind === 'adapted') {
         credit.append(document.createTextNode('题目改编自 '));
         const link = document.createElement('a'); link.href = info.source.url; link.textContent = 'cn-math-taxonomy'; link.target = '_blank'; link.rel = 'noopener noreferrer'; credit.append(link);
@@ -1370,7 +1442,7 @@ _UI_HTML = """<!doctype html>
       $('practicePool').disabled = Boolean(busy) || Boolean(active);
       $('practicePool').value = gamePool;
       const reserves = gameCatalog.filter((choice) => choice.textbook_scope?.book_id === gameBook && (!gameChapter || choice.textbook_scope.chapter_id === gameChapter) && choice.practice?.reserve);
-      $('reserveAvailability').textContent = ['easy','normal','hard'].map((level) => difficultyNames[level] + ' ' + reserves.filter((choice) => choice.practice.difficulty === level && choice.practice.reserve_unseen).length + ' 道未见题').join(' · ');
+      $('reserveAvailability').textContent = ['easy','normal','hard','challenge'].map((level) => difficultyNames[level] + ' ' + reserves.filter((choice) => choice.practice.difficulty === level && choice.practice.reserve_unseen).length + ' 道未见题').join(' · ');
       $('startAdventure').disabled = (!roundChoices().length && !active) || Boolean(busy);
       $('scopeChallenge').disabled = !roundChoices().length || Boolean(busy);
       $('practiceStart').disabled = !roundChoices().length || Boolean(busy);
@@ -1388,11 +1460,53 @@ _UI_HTML = """<!doctype html>
         $('roundProgress').textContent = gamePool === 'reserve' ? `本档还有 ${remaining} 道未见备用题；已看过的题不会重新算作新题。` : exhausted ? `本轮已完成 ${completed} / ${eligible.length} 道。本档已练完，可以换个难度、选择其他章节，或主动再练一轮。` : eligible.length ? `本轮已完成 ${completed} / ${eligible.length} 道（当前难度）。` : '当前难度暂未配题，请选择其他难度。';
       } else { $('restartRound').hidden = true; $('roundProgress').textContent = ''; }
     }
+    function renderCoveragePlan() {
+      const panel = $('coveragePlan'), target = $('coverageRows'); target.replaceChildren();
+      const rows = (gameCoverage?.items || []).filter(row => row.book_id === gameBook && (!gameChapter || row.chapter_id === gameChapter));
+      panel.hidden = !rows.length;
+      if (!rows.length) return;
+      $('coverageNote').textContent = gameCoverage.notice;
+      const tasks = rows.flatMap(row => row.tasks);
+      const seeded = rows.filter(row => row.tasks.some(task => task.question_count)).length;
+      const configured = tasks.filter(task => task.status === 'configured').length;
+      const bounded = tasks.filter(task => task.assessment_mode === 'bounded').length;
+      const human = tasks.filter(task => task.assessment_mode === 'human').length;
+      const unspecified = tasks.length - bounded - human;
+      $('coverageSummary').textContent = `清单中 ${seeded}/${rows.length} 个知识点已有映射题；在线配题 ${configured}/${bounded} 项达到两种题型目标；${human} 项需人工表达或操作核对。`;
+      if (unspecified) $('coverageSummary').textContent += ` 另有 ${unspecified} 项待确认核对方式。`;
+      const scopes = (gameCoverage?.section_inventory || []).filter(row => row.book_id === gameBook && (!gameChapter || row.chapter_id === gameChapter));
+      if (scopes.length) {
+        const unmapped = scopes.reduce((n,row) => n + row.unmapped_available_questions,0);
+        $('coverageSummary').textContent += ` 另有 ${unmapped} 道现有章节题待细项核对。`;
+      }
+      rows.forEach(row => {
+        const card = document.createElement('article'); card.className = 'study-card';
+        const title = document.createElement('h4'); title.textContent = row.title + ' · 教材主题位置 p.' + row.printed_page; card.append(title);
+        row.tasks.forEach(task => {
+          const p = document.createElement('p');
+          const supporting = task.supporting_question_count || 0;
+          const isHuman = task.assessment_mode === 'human';
+          const counts = isHuman ? '待人工练习与核对' + (supporting ? `；另有 ${supporting} 道线上辅助练习` : '') : task.question_count ? `${task.question_count - supporting} 道对应练习 / ${task.family_count} 种题型` + (supporting ? `；另有 ${supporting} 道辅助练习` : '') : '待补题';
+          p.textContent = task.label + '：' + task.requirement + ' · ' + counts + (!isHuman && task.status === 'partial' ? '，仍待补对应任务' : '');
+          card.append(p);
+        });
+        if (row.manual_task) {
+          const details = document.createElement('details');
+          const summary = document.createElement('summary'); summary.textContent = '独立表达与操作任务'; details.append(summary);
+          const prompt = document.createElement('p'); prompt.textContent = row.manual_task.prompt; details.append(prompt);
+          const rubric = document.createElement('p'); rubric.textContent = '核对：' + row.manual_task.criteria.join('；') + '。记录“独立完成／需要提示／待练习”，不计自动得分。'; details.append(rubric);
+          card.append(details);
+        }
+        target.append(card);
+      });
+    }
     function renderGameChapters() {
       const hasReserve = gameCatalog.some((choice) => choice.textbook_scope?.book_id === gameBook && (!gameChapter || choice.textbook_scope.chapter_id === gameChapter) && choice.practice?.reserve);
       $('reservePicker').hidden = !hasReserve;
       if (!hasReserve) gamePool = 'initial';
       gameChoices = choicesInScope(gameBook, gameChapter);
+      gameChoices.sort((a,b) => (b.practice?.selection_priority || 0) - (a.practice?.selection_priority || 0)
+        || (a.practice?.selection_order || 0) - (b.practice?.selection_order || 0));
       const book = selectedBook(), target = $('chapterChoices'); target.replaceChildren();
       const chapters = book ? [{id:'', title:'整本书 · 不限章节'}, ...book.chapters] : [];
       chapters.forEach((chapter) => {
@@ -1409,7 +1523,7 @@ _UI_HTML = """<!doctype html>
       $('gamePracticeEmpty').querySelector('p').textContent = gamePool === 'reserve' && !gameChoices.length ? '本范围已没有未见备用题，可切换普通练习或阅读教材。' : gameChoices.length ? '准备好了？从所选范围的一道题开始。' : '所选范围暂未配题，请返回首页阅读教材或选择其他范围。';
       renderPracticeChoices(gameChoices, gameObjectives);
       renderReviewTasks(gameTasks.filter((task) => (task.saved_practice || []).some(savedChoiceInScope) || gameChoices.some((choice) => choice.objective_id === task.objective_id)), gameChoices);
-      renderReaderToc(); updateChapterControls();
+      renderCoveragePlan(); renderReaderToc(); updateChapterControls();
     }
     async function selectLearningScope(bookId, chapterId = '', openReader = false) {
       if (gameStarting || gameSubmitting || gameChangingChapter || gameItemStatus === 'grading_pending') { syncScopeSelectors(); return; }
@@ -1427,7 +1541,7 @@ _UI_HTML = """<!doctype html>
         workspaceStorage.removeItem(testStateKey()); savedTest = {};
         resetPracticeCollection();
         ['questionVersion','card','session','testItem','attempt','answer'].forEach((id) => { $(id).value = ''; });
-        $('testPrompt').textContent = ''; testStatus(''); $('gameFeedback').hidden = true; $('gameHint').hidden = true;
+        $('testPrompt').textContent = ''; renderPracticeVisual(null); renderPracticeResponses(null); testStatus(''); $('gameFeedback').hidden = true; $('gameHint').hidden = true;
         gameItemStatus = ''; gameBook = bookId; gameChapter = chapterId;
         $('practicePicker').open = false;
         $('textbookQuery').value = ''; releaseTextbookPages(); syncScopeSelectors(); renderGameChapters(); updateGameAnswerControls(); show('');
@@ -1539,16 +1653,145 @@ _UI_HTML = """<!doctype html>
       workspaceStorage.setItem(testStateKey(), JSON.stringify(state));
       savedTest = state;
     }
+    function responseControls() { return [...$('practiceResponses').querySelectorAll('input[data-field],select[data-field]')]; }
+    function fillResponseValues(raw) {
+      let values = {}; try { values = JSON.parse(raw || '{}'); } catch (_) {}
+      responseControls().forEach(el => { el.value = typeof values?.[el.dataset.field] === 'string' ? values[el.dataset.field] : ''; });
+      practiceResponseSpec.forEach(f => {
+        const input=$('practiceResponse-'+f.id);
+        if (f.kind==='multi') {
+          const selected=new Set(input.value.split(','));
+          input.parentElement.querySelectorAll('input[type=checkbox]').forEach(el => { el.checked=selected.has(el.value); });
+        } else if (f.kind==='order') renderOrderCards(f,input);
+      });
+    }
+    function formatResponseAnswer(raw, spec = practiceResponseSpec) {
+      if (!spec.length) return raw;
+      try {
+        const values = JSON.parse(raw);
+        return spec.map(f => {
+          const value = values[f.id];
+          const shown = ['multi','order'].includes(f.kind) ? (value ? value.split(',').map(n=>f.options[Number(n)-1] || '未选择').join(f.kind==='order' ? ' → ' : '、') : '未选择') : f.options.length ? (f.options[Number(value)-1] || '未选择') : (value || '未填写');
+          return f.label + '：' + shown;
+        }).join('；');
+      } catch (_) { return raw; }
+    }
+    function responseValueChanged() {
+      const values=Object.fromEntries(responseControls().map(el=>[el.dataset.field,el.value]));
+      $('answer').value=Object.values(values).some(Boolean) ? JSON.stringify(values) : '';
+      $('answer').dispatchEvent(new Event('input'));
+    }
+    function renderOrderCards(f,input) {
+      const list=input.parentElement.querySelector('.order-cards');list.replaceChildren();
+      const values=input.value ? input.value.split(',') : f.options.map((_,i)=>String(i+1));
+      values.forEach((n,index)=>{
+        const row=document.createElement('div');row.className='order-card';
+        const text=document.createElement('span');text.textContent=(index+1)+'. '+f.options[Number(n)-1];row.append(text);
+        [-1,1].forEach(delta=>{
+          const button=document.createElement('button');button.type='button';button.textContent=delta<0?'上移':'下移';
+          button.setAttribute('aria-label',f.options[Number(n)-1]+(delta<0?'上移':'下移'));
+          button.disabled=index+delta<0 || index+delta>=values.length;
+          button.dataset.edgeDisabled=String(button.disabled);
+          button.onclick=()=>{
+            const next=[...values],target=index+delta;if(target<0 || target>=next.length)return;
+            [next[index],next[target]]=[next[target],next[index]];input.value=next.join(',');
+            renderOrderCards(f,input);responseValueChanged();updateGameAnswerControls();
+            list.children[target]?.querySelector(delta<0?'button':'button:last-child')?.focus();
+          };row.append(button);
+        });list.append(row);
+      });
+      const confirm=input.parentElement.querySelector('.confirm-order');
+      confirm.textContent=input.value?'当前顺序已记录':'确认当前顺序';
+      confirm.onclick=()=>{ input.value=values.join(',');renderOrderCards(f,input);responseValueChanged(); };
+    }
+    function renderPracticeResponses(spec, raw = '') {
+      practiceResponseSpec = Array.isArray(spec) ? spec : [];
+      const target = $('practiceResponses'); target.replaceChildren(); target.hidden = !practiceResponseSpec.length;
+      $('singleAnswerLabel').hidden = Boolean(practiceResponseSpec.length);
+      practiceResponseSpec.forEach(f => {
+        const group=document.createElement('div');group.className='response-group';
+        const label=document.createElement('label');label.textContent=f.label;label.htmlFor='practiceResponse-'+f.id;group.append(label);
+        if (['multi','order'].includes(f.kind)) {
+          group.classList.add('wide-response');group.setAttribute('role','group');group.setAttribute('aria-label',f.label);
+          const input=document.createElement('input');input.type='hidden';input.id='practiceResponse-'+f.id;input.dataset.field=f.id;group.append(input);
+          const note=document.createElement('small');note.textContent=f.kind==='multi'?'选择所有符合条件的项，漏选或多选均需重看。':'用上移、下移调整卡片；也可确认当前顺序。';group.append(note);
+          if(f.kind==='multi') {
+            f.options.forEach((text,i)=>{
+              const option=document.createElement('label');option.className='multi-option';
+              const check=document.createElement('input');check.type='checkbox';check.value=String(i+1);
+              check.onchange=()=>{input.value=[...group.querySelectorAll('input[type=checkbox]:checked')].map(el=>el.value).join(',');responseValueChanged();};
+              const caption=document.createElement('span');caption.textContent=text;option.append(check,caption);group.append(option);
+            });
+          } else {
+            const list=document.createElement('div');list.className='order-cards';group.append(list);
+            const confirm=document.createElement('button');confirm.type='button';confirm.className='confirm-order';group.append(confirm);
+          }
+        } else {
+          const input = document.createElement(f.options.length ? 'select' : 'input');
+          input.id = 'practiceResponse-' + f.id; input.dataset.field = f.id;
+          if (f.options.length) {
+            const blank = document.createElement('option'); blank.value = ''; blank.textContent = '请选择'; input.append(blank);
+            f.options.forEach((text,i) => { const option = document.createElement('option'); option.value = String(i+1); option.textContent = text; input.append(option); });
+          } else { input.type = 'text'; input.inputMode = f.kind === 'text' ? 'text' : 'decimal'; input.autocomplete = 'off'; input.maxLength = 80; input.placeholder = f.kind === 'text' ? '填写词语或短答' : f.units[0] || '填写数值'; }
+          input.oninput = responseValueChanged;
+          input.onkeydown = event => {
+            if (event.key !== 'Enter' || event.isComposing) return;
+            event.preventDefault(); const controls = responseControls().filter(el=>el.type!=='hidden'), next = controls[controls.indexOf(input)+1];
+            if (next) next.focus(); else if (!$('submitAnswer').disabled) $('submitAnswer').onclick();
+          };
+          group.append(input);
+        }
+        target.append(group);
+      });
+      fillResponseValues(raw);
+    }
+    function renderPracticeVisual(spec) {
+      const target = $('practiceVisual'); target.replaceChildren(); target.hidden = true;
+      if (!spec || !['table','grid','ruler'].includes(spec.kind)) return;
+      const caption = document.createElement('figcaption'); caption.textContent = spec.caption; target.append(caption);
+      target.dataset.kind = spec.kind;
+      if (spec.kind === 'ruler') {
+        const ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg');
+        const height = 100 + spec.segments.length * 48;
+        svg.setAttribute('viewBox', `0 0 560 ${height}`); svg.setAttribute('role','img'); svg.setAttribute('aria-label',spec.caption);
+        const node = (tag, attrs, text) => { const el = document.createElementNS(ns,tag); Object.entries(attrs).forEach(([k,v]) => el.setAttribute(k,String(v))); if (text !== undefined) el.textContent = text; svg.append(el); };
+        const x = (n) => 40 + n * 480 / spec.maximum;
+        node('line', {x1:x(0),y1:40,x2:x(spec.maximum),y2:40,stroke:'#344d41','stroke-width':2});
+        for (let i=0; i<=spec.maximum; i++) {
+          node('line',{x1:x(i),y1:32,x2:x(i),y2:48,stroke:'#344d41','stroke-width':2});
+          node('text',{x:x(i),y:24,'text-anchor':'middle','font-size':20,fill:'#253b4d'},String(i));
+        }
+        node('text',{x:535,y:24,'font-size':18,fill:'#253b4d'},'cm');
+        spec.segments.forEach((s,i) => {
+          const y = 85 + i*48;
+          node('line',{x1:x(s.start),y1:y,x2:x(s.end),y2:y,stroke:i%2 ? '#836149':'#3f7561','stroke-width':7});
+          [s.start,s.end].forEach(n => node('line',{x1:x(n),y1:48,x2:x(n),y2:y+6,stroke:'#83928b','stroke-dasharray':'4 4'}));
+          node('text',{x:(x(s.start)+x(s.end))/2,y:y+28,'text-anchor':'middle','font-size':21,fill:'#253b4d'},s.label);
+        });
+        target.append(svg);
+      } else {
+        const table = document.createElement('table'); table.setAttribute('aria-label',spec.caption);
+        spec.rows.forEach((row,index) => {
+          const tr = document.createElement('tr');
+          row.forEach(value => { const cell = document.createElement(spec.kind === 'table' && index === 0 ? 'th' : 'td'); cell.textContent = value; if (cell.tagName === 'TH') cell.scope = 'col'; tr.append(cell); });
+          table.append(tr);
+        });
+        target.append(table);
+      }
+      target.hidden = false;
+    }
     function renderTest(data) {
       resetPracticeCollection();
       const item = (data.items || [])[0] || data;
       if (item.prompt !== undefined) $('testPrompt').textContent = item.prompt || '题面为空。';
+      renderPracticeVisual(item.visual);
+      renderPracticeResponses(item.response_fields, $('answer').value);
       if (familyGameMode) { $('solutionDetails').open = false; $('solutionDetails').hidden = true; renderQuestionMeta(); }
       if (item.test_item_id) $('testItem').value = item.test_item_id;
       if (data.session_id) $('session').value = data.session_id;
       if (item.question_version_id) $('questionVersion').value = item.question_version_id;
       if (data.practice_workspace) acceptPracticeWorkspace(data.practice_workspace);
-      if (familyGameMode) { gameItemStatus = item.status || 'presented'; $('gameFeedback').hidden = true; $('gameHint').hidden = true; $('answer').value = ''; updateGameAnswerControls(); }
+      if (familyGameMode) { gameItemStatus = item.status || 'presented'; $('gameFeedback').hidden = true; $('gameHint').hidden = true; $('answer').value = ''; fillResponseValues(''); updateGameAnswerControls(); }
       if (familyGameMode) { $('savedPracticeAnswer').textContent = ''; $('practiceAnswerConflict').hidden = true; }
       if (familyGameMode) {
         const info = gameCatalog.find((c) => c.question_version_id === item.question_version_id)?.practice;
@@ -1576,6 +1819,8 @@ _UI_HTML = """<!doctype html>
         if (item.attempt_id) $('attempt').value = item.attempt_id;
         $('card').value = item.card_id || '';
         $('testPrompt').textContent = item.prompt || '题面不可用。';
+        renderPracticeVisual(item.visual);
+      renderPracticeResponses(item.response_fields, $('answer').value);
         if (familyGameMode) {
           gameItemStatus = item.status; renderQuestionMeta(); updateGameAnswerControls();
           showSubmittedAnswer({...item, session_mode: data.session.mode});
@@ -1820,7 +2065,7 @@ _UI_HTML = """<!doctype html>
         const details = document.createElement('div'); details.hidden = true;
         if (familyGameMode && item.objective_title) { const goal = document.createElement('p'); goal.textContent = '知识目标：' + item.objective_title; details.append(goal); }
         for (const [key, label] of [['student_answer','当时的答案'],['correct_answer','参考答案'],['note','备注']]) {
-          if (content[key]) { const line = document.createElement('p'); line.textContent = label + '：' + content[key]; details.append(line); }
+          if (content[key]) { const line = document.createElement('p'); line.textContent = label + '：' + (key === 'student_answer' ? formatResponseAnswer(content[key], content.response_fields || []) : content[key]); details.append(line); }
         }
         if (content.source_kind === 'frozen_practice_attempt') {
           for (const text of ['原题版本：' + content.question_version_id, '作答记录：' + content.attempt_id,
@@ -1847,7 +2092,7 @@ _UI_HTML = """<!doctype html>
         if (familyGameMode) {
           button.className = 'challenge-card';
           const number = document.createElement('span'); number.className = 'challenge-number'; number.textContent = String(choiceIndex + 1);
-          const heading = document.createElement('strong'); heading.textContent = choice.practice ? difficultyNames[choice.practice.difficulty] + ' · ' + choice.practice.title : title.replace('理解减去负数的运算方向', '减去负数的秘密');
+          const heading = document.createElement('strong'); heading.textContent = choice.practice ? difficultyNames[choice.practice.difficulty] + ' · ' + choice.practice.title + (choice.practice.task_form ? ' · ' + choice.practice.task_form : '') : title.replace('理解减去负数的运算方向', '减去负数的秘密');
           if (gameCompletedChoices.has(choice.question_version_id)) heading.textContent += ' · 本轮已做';
           const arrow = document.createElement('span'); arrow.className = 'challenge-arrow'; arrow.textContent = '↗'; arrow.setAttribute('aria-hidden','true');
           button.append(number, heading, arrow); button.onclick = () => launchGameChoice(choice);
@@ -1896,11 +2141,18 @@ _UI_HTML = """<!doctype html>
         }); container.append(row);
       });
     }
-    function releaseTextbookPages() {
+    function releaseTextbookPages(keepZoom = false) {
       textbookGeneration += 1;
+      readerPage = null;
+      ['textbookPagePrev','textbookPageNext'].forEach((id) => { $(id).disabled = true; $(id).hidden = true; });
+      $('textbookPrev').disabled = true; $('textbookNext').disabled = true;
+      $('textbookPrev').hidden = true; $('textbookNext').hidden = true;
+      $('textbookZoomPrev').disabled = true; $('textbookZoomNext').disabled = true;
+      $('textbookZoomImage').removeAttribute('src'); $('textbookZoomRetry').hidden = true;
+      if (keepZoom) { $('textbookZoomTitle').textContent = '正在翻课本…'; $('textbookZoomStatus').textContent = '正在加载教材原页…'; $('textbookZoomStatus').hidden = false; }
       clearTimeout(passageExpiryTimer); activePassage = false;
       textbookObjectUrls.forEach((url) => URL.revokeObjectURL(url)); textbookObjectUrls = [];
-      if ($('textbookZoom').open) $('textbookZoom').close();
+      if (!keepZoom && $('textbookZoom').open) $('textbookZoom').close();
       $('textbookResults').replaceChildren();
       $('textbookResultTools').hidden = true; $('textbookResultCount').textContent = '';
       $('textbookPager').hidden = true;
@@ -1931,6 +2183,7 @@ _UI_HTML = """<!doctype html>
         close.onclick = () => { const card = target.closest('details'); card.open = false; card.querySelector('summary').focus({preventScroll:true}); card.querySelector('summary').scrollIntoView({block:'nearest'}); };
         const actions = document.createElement('div'); actions.className = 'textbook-page-actions'; actions.append(link, close);
         target.replaceChildren(image, actions);
+        if ($('textbookZoom').open) updateTextbookZoom(url, item);
         return true;
       } catch (error) {
         if (error instanceof StaleContextError || !current()) return;
@@ -1938,6 +2191,7 @@ _UI_HTML = """<!doctype html>
         const retry = document.createElement('button'); retry.className = 'secondary'; retry.textContent = '重新加载原页';
         retry.onclick = () => renderTextbookPage(item, target, epoch, generation);
         target.replaceChildren(message, retry);
+        if ($('textbookZoom').open) { $('textbookZoomStatus').textContent = message.textContent; $('textbookZoomStatus').hidden = false; $('textbookZoomRetry').hidden = false; $('textbookZoomRetry').onclick = () => { $('textbookZoomRetry').hidden = true; renderTextbookPage(item, target, epoch, generation); }; }
       }
     }
     let readerOffset = 0, readerHits = null, readerHitIndex = 0, zoomScale = 100;
@@ -1945,12 +2199,24 @@ _UI_HTML = """<!doctype html>
       if (activePassage) { releaseTextbookPages(); readerHits = null; $('textbookStatus').textContent = '请重新查询片段，以核对当前有效状态；也可清空关键词阅读原页。'; }
     });
     function openTextbookZoom(url, item) {
+      zoomScale = 100; updateTextbookZoom(url, item); $('textbookZoom').showModal();
+      positionTextbookZoomButtons(); syncReaderPageButtons(); $('textbookZoomClose').focus();
+    }
+    function updateTextbookZoom(url, item) {
       $('textbookZoomImage').src = url; $('textbookZoomImage').alt = item.content_title;
       $('textbookZoomTitle').textContent = '第 ' + item.printed_page + ' 页 · ' + item.content_title;
-      zoomScale = 100; setTextbookZoom(); $('textbookZoom').showModal();
-      $('textbookZoomViewport').scrollTo(0,0); $('textbookZoomClose').focus();
+      $('textbookZoomStatus').hidden = true; $('textbookZoomRetry').hidden = true;
+      setTextbookZoom(); $('textbookZoomViewport').scrollTo(0,0);
     }
-    function setTextbookZoom() { $('textbookZoomImage').style.width = zoomScale + '%'; $('textbookZoomLevel').textContent = zoomScale + '%'; }
+    function positionTextbookZoomButtons() {
+      if (!$('textbookZoom').open) return;
+      const frame = $('textbookZoomFrame'), height = $('textbookZoomImage').getBoundingClientRect().height;
+      frame.style.setProperty('--zoom-nav-top', Math.min(frame.clientHeight, height || frame.clientHeight) / 2 + 'px');
+    }
+    const textbookZoomResize = new ResizeObserver(positionTextbookZoomButtons);
+    textbookZoomResize.observe($('textbookZoomFrame')); textbookZoomResize.observe($('textbookZoomImage'));
+    $('textbookZoomImage').addEventListener('load', positionTextbookZoomButtons);
+    function setTextbookZoom() { $('textbookZoomImage').style.width = zoomScale + '%'; $('textbookZoomFrame').style.setProperty('--zoom-image-width', zoomScale + '%'); $('textbookZoomLevel').textContent = zoomScale + '%'; positionTextbookZoomButtons(); }
     $('textbookZoomIn').onclick = () => { zoomScale = Math.min(300, zoomScale + 25); setTextbookZoom(); };
     $('textbookZoomOut').onclick = () => { zoomScale = Math.max(50, zoomScale - 25); setTextbookZoom(); };
     $('textbookZoomReset').onclick = () => { zoomScale = 100; setTextbookZoom(); };
@@ -1970,7 +2236,10 @@ _UI_HTML = """<!doctype html>
       $('textbookSearch').disabled = !book;
       $('studySupportOpen').disabled = !book;
       $('textbookSearch').textContent = gameChapter ? '阅读本章' : '阅读整本书';
-      $('textbookQuery').placeholder = {math:'例如：有理数减法',chinese:'例如：课文、古诗',english:'例如：family',geography:'例如：地图、气候'}[book?.subject] || '输入想找的内容';
+      const canSearch = !!book && book.search_available !== false;
+      $('textbookQuery').disabled = !canSearch; $('textbookFind').disabled = !canSearch;
+      $('textbookQuery').placeholder = canSearch ? ({math:'例如：有理数减法',chinese:'例如：课文、古诗',english:'例如：family',geography:'例如：地图、气候'}[book?.subject] || '输入想找的内容') : '本册请通过目录或页码阅读';
+      if (!canSearch) $('textbookQuery').value = '';
       $('textbookStatus').textContent = '';
       syncStudySupport();
     }
@@ -1980,11 +2249,47 @@ _UI_HTML = """<!doctype html>
       (book ? [{id:'',title:'整本书 · 从头阅读'}, ...book.chapters] : []).forEach((chapter) => {
         const button = document.createElement('button'); button.type = 'button'; button.dataset.chapter = chapter.id;
         button.textContent = chapter.title + (chapter.printed_page ? ' · 第 ' + chapter.printed_page + ' 页' : '');
-        button.setAttribute('aria-current', String(chapter.id === gameChapter));
         button.onclick = () => { selectLearningScope(gameBook, chapter.id, true); if (innerWidth <= 760) $('textbookContents').open = false; };
         target.append(button);
       });
+      syncReaderToc();
     }
+    function syncReaderToc() {
+      const book = selectedBook();
+      const page = readerPage && readerPage.bookId === book?.id ? readerPage.printedPage : null;
+      const chapter = page === null ? gameChapter : book.chapters.find((c) => page >= c.printed_page && page <= c.printed_page + c.page_end - c.page_start)?.id || '';
+      let active;
+      $('textbookToc').querySelectorAll('button').forEach((button) => {
+        const current = button.dataset.chapter === chapter;
+        button.setAttribute('aria-current', String(current));
+        if (current) active = button;
+      });
+      const contents = $('textbookContents');
+      if (!active || !contents.open) return;
+      const bounds = contents.getBoundingClientRect(), item = active.getBoundingClientRect();
+      if (item.top < bounds.top) contents.scrollTop -= bounds.top - item.top + 8;
+      else if (item.bottom > bounds.bottom) contents.scrollTop += item.bottom - bounds.bottom + 8;
+    }
+    $('textbookContents').addEventListener('toggle', () => { if ($('textbookContents').open) syncReaderToc(); });
+    function syncReaderPageButtons() {
+      const page = readerPage?.bookId === gameBook ? readerPage.printedPage : null, range = readerRange();
+      $('textbookPagePrev').hidden = page === null; $('textbookPageNext').hidden = page === null;
+      $('textbookPagePrev').disabled = page === null || page <= range.start;
+      $('textbookPageNext').disabled = page === null || page >= range.end;
+      $('textbookZoomPrev').disabled = $('textbookPagePrev').disabled;
+      $('textbookZoomNext').disabled = $('textbookPageNext').disabled;
+    }
+    function turnReaderPage(direction, keepZoom = false) {
+      if (!readerPage || readerPage.bookId !== gameBook) return;
+      const range = readerRange(), page = readerPage.printedPage + direction;
+      if (page < range.start || page > range.end) return;
+      $('textbookQuery').value = ''; readerHits = null;
+      loadTextbookResults(page - range.start, null, keepZoom);
+    }
+    $('textbookPagePrev').onclick = () => turnReaderPage(-1);
+    $('textbookPageNext').onclick = () => turnReaderPage(1);
+    $('textbookZoomPrev').onclick = () => turnReaderPage(-1, true);
+    $('textbookZoomNext').onclick = () => turnReaderPage(1, true);
     async function loadTextbooks() {
       const epoch = contextEpoch, generation = ++textbookGeneration;
       try {
@@ -2019,7 +2324,7 @@ _UI_HTML = """<!doctype html>
       $('textbookStatus').textContent = '点击“查找”，在所选范围内寻找内容。';
     };
     $('textbookBrowse').onclick = () => { $('textbookQuery').value = ''; loadTextbookResults(); };
-    function readerRange() { const book = selectedBook(); const chapter = book?.chapters.find((c) => c.id === gameChapter); return {start:chapter?.printed_page || book?.chapters[0].printed_page || 1, end:chapter ? chapter.printed_page + chapter.page_end - chapter.page_start : book ? book.chapters.at(-1).printed_page + book.chapters.at(-1).page_end - book.chapters.at(-1).page_start : 1}; }
+    function readerRange() { const chapters = selectedBook()?.chapters || [], last = chapters.at(-1); return {start:chapters[0]?.printed_page || 1, end:last ? last.printed_page + last.page_end - last.page_start : 1}; }
     $('textbookJump').onclick = () => {
       const value = Number($('textbookPageInput').value), range = readerRange();
       if (!Number.isInteger(value) || value < range.start || value > range.end) { $('textbookStatus').textContent = `请输入 ${range.start}～${range.end} 之间的书内页码。`; return; }
@@ -2027,6 +2332,7 @@ _UI_HTML = """<!doctype html>
     };
     $('textbookPageInput').onkeydown = (event) => { if (event.key === 'Enter') $('textbookJump').onclick(); };
     async function showReaderPage(item, epoch, generation) {
+      if (epoch !== contextEpoch || generation !== textbookGeneration) return;
       const card = document.createElement('details'); card.className = 'review-card textbook-page'; card.dataset.page = item.printed_page; card.open = true;
       const summary = document.createElement('summary'); summary.className = 'textbook-page-summary';
       const title = document.createElement('strong'); title.className = 'textbook-page-title'; title.textContent = '第 ' + item.printed_page + ' 页 · ' + (item.content_title || '本页教材内容');
@@ -2035,6 +2341,7 @@ _UI_HTML = """<!doctype html>
       $('textbookResultTools').hidden = false;
       $('textbookPageInput').value = item.printed_page;
       $('textbookPageRange').textContent = '第 ' + item.printed_page + ' 页';
+      readerPage = {bookId:gameBook, printedPage:item.printed_page}; syncReaderToc();
       return await renderTextbookPage(item, preview, epoch, generation);
     }
     async function showReaderPassage(passage, stamp, page, epoch, generation) {
@@ -2069,24 +2376,27 @@ _UI_HTML = """<!doctype html>
         const e = fresh.item.evidence;
         if (e.evidence_id !== evidenceId || e.printed_page !== printedPage) throw new Error('stale evidence');
         await showReaderPassage(fresh.item, fresh, {book_title:e.book_title, printed_page:e.printed_page, content_title:e.chapter_title}, epoch, generation);
-        if (epoch === contextEpoch && generation === textbookGeneration) $('textbookStatus').textContent = '当前有效片段 · 请结合原页核对。';
+        if (epoch === contextEpoch && generation === textbookGeneration) { $('textbookStatus').textContent = '当前有效片段 · 请结合原页核对。'; syncReaderPageButtons(); }
       } catch (error) {
         if (epoch === contextEpoch && generation === textbookGeneration) { releaseTextbookPages(); $('textbookStatus').textContent = '这条片段已失效、材料不可用或档案已变化，请重新查询；可清空关键词阅读原页。'; }
       }
     }
-    async function loadTextbookResults(pageOffset = 0, hitIndex = null) {
+    async function loadTextbookResults(pageOffset = null, hitIndex = null, keepZoom = false) {
       if (!selectedBook()) return;
-      releaseTextbookPages(); $('textbookReader').open = true;
+      const query = $('textbookQuery').value;
+      const range = readerRange(), chapter = selectedBook().chapters.find((c) => c.id === gameChapter);
+      pageOffset ??= query.trim() ? 0 : (chapter?.printed_page || range.start) - range.start;
+      releaseTextbookPages(keepZoom && $('textbookZoom').open); $('textbookReader').open = true;
       const epoch = contextEpoch, generation = textbookGeneration;
       $('textbookStatus').textContent = '正在翻课本…';
       $('textbookPrev').disabled = true; $('textbookNext').disabled = true;
       $('textbookPageInput').disabled = true; $('textbookJump').disabled = true;
-      const range = readerRange(); $('textbookPageInput').min = range.start; $('textbookPageInput').max = range.end;
+      $('textbookPageInput').min = range.start; $('textbookPageInput').max = range.end;
       try {
         let result;
         if (hitIndex !== null && readerHits) result = readerHits;
         else {
-          result = await call('/api/v1/textbooks/search', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({book_id:gameBook, chapter_id:gameChapter, query:$('textbookQuery').value, page_offset:pageOffset})});
+          result = await call('/api/v1/textbooks/search', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({book_id:gameBook, chapter_id:query.trim() ? gameChapter : '', query, page_offset:pageOffset})});
         }
         if (epoch !== contextEpoch || generation !== textbookGeneration) return;
         const items = (result.items || []).slice().sort((a,b) => a.printed_page - b.printed_page);
@@ -2103,12 +2413,21 @@ _UI_HTML = """<!doctype html>
         } else await showReaderPage(selected, epoch, generation);
         if (epoch !== contextEpoch || generation !== textbookGeneration) return;
         $('textbookPrev').textContent = browse ? '上一页' : '上个匹配'; $('textbookNext').textContent = browse ? '下一页' : '下个匹配';
+        $('textbookPrev').hidden = browse; $('textbookNext').hidden = browse;
         $('textbookPrev').disabled = browse ? pageOffset <= 0 : readerHitIndex <= 0;
         $('textbookNext').disabled = browse ? pageOffset + 1 >= result.total_pages : readerHitIndex + 1 >= items.length;
         $('textbookPrev').onclick = () => loadTextbookResults(browse ? pageOffset - 1 : 0, browse ? null : readerHitIndex - 1);
         $('textbookNext').onclick = () => loadTextbookResults(browse ? pageOffset + 1 : 0, browse ? null : readerHitIndex + 1);
-      } catch (error) { if (!(error instanceof StaleContextError) && epoch === contextEpoch && generation === textbookGeneration) { releaseTextbookPages(); readerHits = null; $('textbookStatus').textContent = '资料已失效或暂时不可用，请重新查询；可清空关键词阅读原页。'; } }
-      finally { if (epoch === contextEpoch && generation === textbookGeneration) { $('textbookPageInput').disabled = false; $('textbookJump').disabled = false; } }
+      } catch (error) {
+        if (!(error instanceof StaleContextError) && epoch === contextEpoch && generation === textbookGeneration) {
+          const retryInZoom = keepZoom && $('textbookZoom').open;
+          releaseTextbookPages(retryInZoom); readerHits = null;
+          $('textbookStatus').textContent = '资料已失效或暂时不可用，请重新查询；可清空关键词阅读原页。';
+          if (retryInZoom) { $('textbookZoomStatus').textContent = '教材暂未加载成功，请重试。'; $('textbookZoomRetry').hidden = false; $('textbookZoomRetry').onclick = () => loadTextbookResults(pageOffset, null, true); }
+          $('textbookPageInput').disabled = false; $('textbookJump').disabled = false;
+        }
+      }
+      finally { if (epoch === contextEpoch && generation === textbookGeneration) { $('textbookPageInput').disabled = false; $('textbookJump').disabled = false; syncReaderPageButtons(); } }
     }
     $('loadToday').onclick = async () => {
       const generation = ++gameRefreshGeneration, epoch = contextEpoch;
@@ -2128,6 +2447,7 @@ _UI_HTML = """<!doctype html>
         if (!familyGameMode) { renderPracticeChoices(choices.items, objectives); renderReviewTasks(tasks.items, choices.items); }
         if (familyGameMode) {
           gameCatalog = choices.items; gameObjectives = objectives; gameTasks = tasks.items; gameGuidance = choices.practice_guidance || {}; renderQuestionMeta();
+          gameCoverage = choices.subject_coverage_plan?.status === 'draft' ? choices.subject_coverage_plan : choices.coverage_plan || null;
           acceptPracticeWorkspace(recovery);
 
           gameGraded = progress.attempts.graded || 0;
@@ -2198,6 +2518,10 @@ _UI_HTML = """<!doctype html>
       if (familyGameMode && gameSubmitting) return;
       const epoch = contextEpoch;
       try {
+        if (practiceResponseSpec.length) {
+          const empty = [...$('practiceResponses').querySelectorAll('input,select')].find(el => !el.value.trim());
+          if (empty) { empty.focus(); throw new Error('请完成每一项后再提交。'); }
+        }
         const rawAnswer = $('answer').value;
         const item = $('testItem').value.trim(); if (!item || !rawAnswer) throw new Error('请填写作答项和原始作答');
         if (familyGameMode) { gameSubmitting = true; updateGameAnswerControls(); }
@@ -2299,9 +2623,9 @@ _UI_HTML = """<!doctype html>
     function restoreCurrentTest() {
       if (familyGameMode) { savedTest = {}; return; }
       if (browserSessionMode) savedTest = parseSaved(testStateKey());
-      if (familyGameMode) { const scope = parseSaved(chapterStateKey()); gameBook = scope.bookId || ''; gameChapter = scope.chapterId || ''; gamePool = scope.pool === 'reserve' ? 'reserve' : 'initial'; gameDifficulty = ['auto','easy','normal','hard'].includes(scope.difficulty) ? scope.difficulty : 'auto'; gameCompletedChoices = new Set(Array.isArray(scope.completedIds) ? scope.completedIds.filter((id) => typeof id === 'string') : []); }
+      if (familyGameMode) { const scope = parseSaved(chapterStateKey()); gameBook = scope.bookId || ''; gameChapter = scope.chapterId || ''; gamePool = scope.pool === 'reserve' ? 'reserve' : 'initial'; gameDifficulty = ['auto','easy','normal','hard','challenge'].includes(scope.difficulty) ? scope.difficulty : 'auto'; gameCompletedChoices = new Set(Array.isArray(scope.completedIds) ? scope.completedIds.filter((id) => typeof id === 'string') : []); }
       [['questionVersion','questionVersionId'],['card','cardId'],['session','sessionId'],['testItem','testItemId'],['attempt','attemptId']].forEach(([field,key]) => { $(field).value = savedTest[key] || ''; });
-      $('testPrompt').textContent = ''; $('mistakes').textContent = ''; show('');
+      $('testPrompt').textContent = ''; renderPracticeVisual(null); renderPracticeResponses(null); $('mistakes').textContent = ''; show('');
       if (savedTest.sessionId && savedTest.account === $('account').value.trim() && savedTest.learner === $('learner').value.trim()) $('restoreTest').onclick();
     }
     async function initializeBrowserSession() {
@@ -2475,6 +2799,12 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             raise APIError(404, "NOT_FOUND", "资源不存在")
 
     def get_context(request: Request, settings: Settings = Depends(get_settings), db: Database = Depends(get_db)) -> Context:
+        if is_study_path(request.url.path):
+            with share_study_reads(db) as reads:
+                return resolve_context(request, settings, reads, BrowserSessions(settings, reads))
+        return resolve_context(request, settings, db, browser_sessions)
+
+    def resolve_context(request: Request, settings: Settings, db, sessions) -> Context:
         def shared_selection(account_id: str, fallback: str | None, browser: bool) -> str | None:
             if not settings.shared_learner_context_enabled:
                 return fallback
@@ -2491,7 +2821,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                     raise APIError(409, "LEARNER_CONTEXT_CHANGED", "学习者已变化，请刷新工作台后重试")
             return selected
         if settings.browser_auth_enabled and request.cookies.get(SESSION_COOKIE):
-            session = browser_sessions.authenticate(request)
+            session = sessions.authenticate(request)
             learner_id = shared_selection(session["account_id"], request.headers.get("X-Learner-Id") or session["learner_id"], True)
             role = "student"
             if learner_id:
@@ -2864,9 +3194,10 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
 
     @app.get("/api/v1/auth/session")
     def get_browser_session(request: Request):
-        session = browser_sessions.authenticate(request)
-        with db.session() as conn:
-            current = read_context(conn, session["account_id"])
+        with share_study_reads(db) as reads:
+            session = BrowserSessions(settings, reads).authenticate(request)
+            with reads.session() as conn:
+                current = read_context(conn, session["account_id"])
         return JSONResponse({"account_id": session["account_id"], "learner_id": current["learner_id"] if settings.shared_learner_context_enabled else session["learner_id"],
                              "expires_at": session["expires_at"], "context_version": current["context_version"], "server_context_mode": settings.shared_learner_context_enabled,
                              "identity": {"provider": session["provider"], "issuer": session["issuer"], "subject": session["subject"]}}, headers={"Cache-Control": "no-store"})
@@ -3763,7 +4094,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             conn.execute("INSERT INTO test_items(id,session_id,learner_id,question_version_id,card_id,cycle_id,reserved_revision,status,presented_at,question_snapshot_json) VALUES (?,?,?,?,?,?,?,?,?,?)", (item_id, session_id, learner_id, body.question_version_id, card["id"] if card else None, cycle_id, card["revision"] if card else None, "presented", utc_now(), json_dumps(question_snapshot(conn, body.question_version_id))))
             content = json_loads(question["content_json"], {})
             recovery = attach_workspace_session(conn, learner_id, workspace, round_row, session_id, item_id) if workspace else None
-        result = {"session_id": session_id, "items": [{"test_item_id": item_id, "question_version_id": body.question_version_id, "prompt": content.get("prompt", ""), "input_type": content.get("input_type", "text"), "status": "presented"}], "answer_key": None}
+        result = {"session_id": session_id, "items": [{"test_item_id": item_id, "question_version_id": body.question_version_id, "prompt": content.get("prompt", ""), "input_type": content.get("input_type", "text"), "status": "presented", **visual_fields(content), **response_fields(content)}], "answer_key": None}
         if recovery is not None:
             result['practice_workspace'] = recovery
         return result
@@ -3785,7 +4116,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             for row in rows:
                 _validate_reserve_version(conn, row['question_version_id'])
                 frozen_question(conn, row['id'])
-        return {"session": dict(session), "items": [{"test_item_id": row["id"], "question_version_id": row["question_version_id"], "prompt": json_loads(row["content_json"], {}).get("prompt", ""), "status": row["status"], "assistance": row["assistance"], "attempt_id": row["attempt_id"], "attempt_status": row["attempt_status"], "submitted_answer": row['submitted_answer'], 'card_id': row['card_id']} for row in rows], "answer_key": None}
+        return {"session": dict(session), "items": [{"test_item_id": row["id"], "question_version_id": row["question_version_id"], "prompt": json_loads(row["content_json"], {}).get("prompt", ""), "status": row["status"], "assistance": row["assistance"], "attempt_id": row["attempt_id"], "attempt_status": row["attempt_status"], "submitted_answer": row['submitted_answer'], 'card_id': row['card_id'], **visual_fields(json_loads(row['content_json'], {})), **response_fields(json_loads(row['content_json'], {}))} for row in rows], "answer_key": None}
 
     @app.post("/api/v1/test-sessions/{session_id}/cancel")
     def cancel_session(session_id: str, ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
@@ -3850,6 +4181,7 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             "test_item_id": row["id"],
             "question_version_id": row["question_version_id"],
             "prompt": content.get("prompt", ""),
+            **visual_fields(content), **response_fields(content),
             "input_type": content.get("input_type", "text"),
             "status": row["status"],
             "assistance": row["assistance"],
@@ -4073,13 +4405,26 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
                     info = practice_metadata(row['question_version_id'])
                 except (OSError, ValueError, KeyError, TypeError):
                     raise APIError(503, 'PRACTICE_UNAVAILABLE', '练习题版本校验未通过，请稍后重试')
+                if row['question_version_id'].startswith('family-chapter-'):
+                    _validate_reserve_version(conn, row['question_version_id'])
                 if row['question_version_id'].startswith('family-reserve-'):
                     from .reserve_practice import unseen
                     _validate_reserve_version(conn, row['question_version_id'])
                     info['reserve_unseen'] = unseen(conn, learner_id, row['question_version_id'])
                 items.append({**dict(row),
                               'textbook_scope': textbook_practice_scope(row['question_version_id']), 'practice': info})
-        return {"items": items,
+            curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
+            from .practice_coverage import report as coverage_report
+            try:
+                coverage = coverage_report(curriculum, {item['question_version_id'] for item in items})
+            except (OSError, ValueError, KeyError, TypeError):
+                coverage = {'status': 'unavailable', 'items': []}
+            from .subject_coverage import report as subject_report
+            try:
+                subject_coverage=subject_report(curriculum,{item['question_version_id'] for item in items})
+            except (OSError,ValueError,KeyError,TypeError):
+                subject_coverage={'status':'unavailable','items':[]}
+        return {"items": items, "coverage_plan": coverage, "subject_coverage_plan":subject_coverage,
                 "objectives": [dict(row) for row in objectives], "practice_guidance": practice_guidance}
 
     def reviewer_context(request: Request, ctx: Context, db: Database) -> str:
@@ -4979,8 +5324,12 @@ def _process_grade(db: Database, job: sqlite3.Row, token: str, settings: Setting
         if row["validator_version"] == "numeric-answer-v1":
             outcome = grade_numeric(row["raw_answer"], answer_key)
             feedback = answer_key.get("explanation", "")
+        if row["validator_version"] == "numeric-fields-v1":
+            outcome, feedback = grade_fields(row["raw_answer"], answer_key)
+        if row["validator_version"] in {"short-fields-v2", "structured-fields-v3"}:
+            outcome, feedback = grade_short_fields(row["raw_answer"], answer_key)
         grade_id = new_id("grade")
-        conn.execute("INSERT INTO grade_versions(id,attempt_id,outcome,score,feedback,rubric_version,validator_version,created_at) VALUES (?,?,?,?,?,?,?,?)", (grade_id, attempt_id, outcome, 1.0 if outcome == "correct" else 0.0 if outcome == "incorrect" else None, feedback, "numeric-answer-v1" if row["validator_version"] == "numeric-answer-v1" else "exact-text-v1", row["validator_version"], utc_now()))
+        conn.execute("INSERT INTO grade_versions(id,attempt_id,outcome,score,feedback,rubric_version,validator_version,created_at) VALUES (?,?,?,?,?,?,?,?)", (grade_id, attempt_id, outcome, 1.0 if outcome == "correct" else 0.0 if outcome == "incorrect" else None, feedback, row["validator_version"] if row["validator_version"] in {"numeric-answer-v1", "numeric-fields-v1", "short-fields-v2", "structured-fields-v3"} else "exact-text-v1", row["validator_version"], utc_now()))
         conn.execute("UPDATE attempts SET normalized_answer=?,status='graded' WHERE id=?", (normalized, attempt_id))
         conn.execute("UPDATE test_items SET status='graded' WHERE id=?", (row["item_id"],))
         conn.execute("UPDATE test_sessions SET status='completed',completed_at=? WHERE id=? AND NOT EXISTS (SELECT 1 FROM test_items WHERE session_id=? AND status NOT IN ('graded','cancelled','invalidated'))", (utc_now(), row["session_id"], row["session_id"]))

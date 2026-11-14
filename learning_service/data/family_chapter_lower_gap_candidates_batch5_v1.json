@@ -1,0 +1,1892 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "lower_gap_candidates_batch5",
+  "status": "local_candidate_not_registered",
+  "teacher_reviewed": false,
+  "curriculum_standard_crosscheck": "pending",
+  "student_calibrated": false,
+  "questions": [
+    {
+      "id": "family-chapter-biology-g7-lower-6-lower_gap_candidates_batch5-blood-composition-v1",
+      "batch": "lower_gap_candidates_batch5",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "血液的组成与红细胞运输氧",
+      "prompt": "根据第四章第一节的实验、检验单与图示说明作答，不要求重做实验，也不使用任何真实人的检验单。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"55\",\"b\":\"1\",\"c\":\"1\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "血液分层后，上层淡黄色半透明的液体是血浆，约占血液总量的 55%；下层暗红色的是红细胞；两层交界处还有很薄的一层白色成分，是白细胞与血小板。所以血液由血浆和血细胞组成。成熟的红细胞没有细胞核，呈两面凹的圆饼状，富含血红蛋白；血红蛋白在氧含量高的地方容易与氧结合，在氧含量低的地方又容易与氧分离，红细胞因此能运输氧。红细胞数或血红蛋白含量低于正常值，可以初步判断为贫血。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 第四章 人体内物质的运输",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          103,
+          104,
+          106
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 103、104、106 页支持血液分层、血浆占比、三类血细胞与血红蛋白运输氧；题目用合成情境，不使用任何真实人的检验数据。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "55% 取自第 104 页血液分层说明；血液组成、红细胞两面凹形状与血红蛋白特性、贫血初步判断分别对应第 104、106 页原文，四项均只用文字结论。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由分层比例说出血浆占比",
+          "b": "概括血液的组成",
+          "c": "联系结构说明红细胞运输氧",
+          "d": "由检验数值初步判断贫血"
+        }
+      },
+      "responses": [
+        {
+          "label": "把加了抗凝剂的人血离心后，血浆大约占血液总量的百分之几？",
+          "answer": "55",
+          "independent_check": "55",
+          "units": [
+            "%"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "45",
+              "message": "45% 是血细胞所占的比例，血浆约占 55%。",
+              "action": "先分清血浆层与血细胞层。"
+            },
+            {
+              "answer": "50",
+              "message": "教材给出的是约 55%，不是一半。",
+              "action": "回到分层说明的比例。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "血液由哪些部分组成？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "血浆和血细胞（红细胞、白细胞和血小板）",
+            "血浆和红细胞，不包含白细胞和血小板",
+            "只有红细胞和白细胞",
+            "血浆和血红蛋白"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "两层交界处还有很薄的一层白细胞与血小板。",
+              "action": "看分层图交界处。"
+            },
+            {
+              "answer": "3",
+              "message": "血液还包含血浆和血小板。",
+              "action": "按“血浆+血细胞”核对。"
+            },
+            {
+              "answer": "4",
+              "message": "血红蛋白在红细胞内，不是独立成分。",
+              "action": "血细胞包括红细胞、白细胞和血小板。"
+            }
+          ]
+        },
+        {
+          "label": "红细胞能运输氧，主要与它的哪一特点有关？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "富含血红蛋白，在氧含量高处结合氧、在氧含量低处释放氧",
+            "有细胞核，能不断分裂",
+            "体积比白细胞大，形状不规则",
+            "能穿过毛细血管壁吞噬病菌"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "成熟的红细胞没有细胞核。",
+              "action": "看第 106 页对成熟红细胞的说明。"
+            },
+            {
+              "answer": "3",
+              "message": "这是白细胞的特点。",
+              "action": "区分红细胞与白细胞的形态。"
+            },
+            {
+              "answer": "4",
+              "message": "吞噬病菌是白细胞的功能。",
+              "action": "红细胞的功能是运输氧。"
+            }
+          ]
+        },
+        {
+          "label": "体检中若红细胞数量或血红蛋白含量低于正常值，可以初步判断为什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "炎症",
+            "凝血功能异常",
+            "白细胞增多",
+            "贫血"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "白细胞明显增多才提示感染或炎症。",
+              "action": "本题看的是红细胞与血红蛋白。"
+            },
+            {
+              "answer": "2",
+              "message": "凝血主要与血小板有关。",
+              "action": "区分红细胞与血小板。"
+            },
+            {
+              "answer": "3",
+              "message": "题目给出的数值是红细胞或血红蛋白低于正常值。",
+              "action": "按“红细胞或血红蛋白低”判断。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "血液的组成与红细胞运输氧",
+        "family": "biology-g7-lower:6:inventory-1:blood-composition",
+        "priority": 3,
+        "order": 1,
+        "skills": [
+          "血液的组成与红细胞运输氧"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由分层比例说出血浆占比",
+          "概括血液的组成",
+          "联系结构说明红细胞运输氧",
+          "由检验数值初步判断贫血"
+        ],
+        "difficulty_rationale": "第一项要从分层现象取出比例，第二项要区分血浆与三类血细胞，第三项要把形状、血红蛋白特性与运输氧的功能连起来，第四项要把检验数值与初步判断对应，不能把白细胞或血小板的功能混入红细胞。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:6:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-lower:6:inventory-1:blood-composition",
+        "rationale": "55% 取自第 104 页血液分层说明；血液组成、红细胞两面凹形状与血红蛋白特性、贫血初步判断分别对应第 104、106 页原文，四项均只用文字结论。"
+      },
+      "common_error_feedback": "常见错误：45% 是血细胞所占的比例，血浆约占 55%；教材给出的是约 55%，不是一半；两层交界处还有很薄的一层白细胞与血小板；血液还包含血浆和血小板；血红蛋白在红细胞内，不是独立成分；成熟的红细胞没有细胞核；这是白细胞的特点；吞噬病菌是白细胞的功能；白细胞明显增多才提示感染或炎症；凝血主要与血小板有关；题目给出的数值是红细胞或血红蛋白低于正常值。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "使用合成检验单或模型解释血液分层与红细胞运输氧；不收集真实检验单、不要求抽血。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-biology-g7-lower-7-lower_gap_candidates_batch5-urine-formation-v1",
+      "batch": "lower_gap_candidates_batch5",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "7",
+      "difficulty": "normal",
+      "title": "泌尿系统的组成与尿的形成",
+      "prompt": "根据第五章的结构示意图与文字说明作答，不要求实际解剖或检测尿液。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"1\",\"c\":\"180\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "泌尿系统由肾、输尿管、膀胱和尿道组成：肾生成尿液，输尿管输送尿液，膀胱储存尿液，尿液经尿道排出。每个肾包括一百多万个肾单位，肾单位由肾小球、肾小囊和肾小管组成。血液流经肾小球时，除血细胞和大分子蛋白质外，血浆中的一部分水、无机盐、葡萄糖和尿素等滤过到肾小囊中，形成原尿，人体每天形成的原尿大约 180 升。原尿流经肾小管时，全部葡萄糖、大部分水和部分无机盐被重吸收回血液，剩下的形成尿液。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 第五章 人体内废物的排出",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          124,
+          125,
+          127
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 124、125、127 页支持泌尿系统组成、肾单位结构、滤过与重吸收、原尿与尿量；题目只考文字与示意图结论，不替代解剖观察或尿液检测。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "180 升取自第 127 页原文；泌尿系统组成、肾单位结构与滤过、重吸收内容分别对应第 125、127 页；每天约 1.5 升的尿量只用于干扰项说明，不与原尿量混同。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "说出泌尿系统的组成器官",
+          "b": "说出肾单位的组成",
+          "c": "读出每天形成的原尿量",
+          "d": "比较滤过作用与重吸收作用"
+        }
+      },
+      "responses": [
+        {
+          "label": "泌尿系统由哪些器官组成？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "肾、膀胱和尿道",
+            "输尿管、膀胱和尿道",
+            "肾、输尿管、膀胱和尿道",
+            "肾、肾小球、肾小囊和肾小管"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "肾小球、肾小囊和肾小管是肾单位的结构，不是泌尿系统的器官。",
+              "action": "先按器官层面列组成。"
+            },
+            {
+              "answer": "1",
+              "message": "还缺少输送尿液的输尿管。",
+              "action": "按“肾—输尿管—膀胱—尿道”核对。"
+            },
+            {
+              "answer": "2",
+              "message": "缺少生成尿液的肾。",
+              "action": "看哪个器官生成尿液。"
+            }
+          ]
+        },
+        {
+          "label": "每个肾单位由哪些部分组成？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "肾小球、肾小囊和肾小管",
+            "肾小球、肾小囊和输尿管",
+            "肾、肾小囊和肾小管",
+            "肾小球、膀胱和肾小管"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "输尿管属于泌尿系统，不属于肾单位。",
+              "action": "肾单位只到肾小管。"
+            },
+            {
+              "answer": "3",
+              "message": "肾单位在肾的内部，肾本身不是肾单位的一部分。",
+              "action": "区分器官与结构功能单位。"
+            },
+            {
+              "answer": "4",
+              "message": "膀胱是储存尿液的器官，不属于肾单位。",
+              "action": "回到肾单位三部分。"
+            }
+          ]
+        },
+        {
+          "label": "人体每天形成的原尿大约有多少升？",
+          "answer": "180",
+          "independent_check": "180",
+          "units": [
+            "升"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "1.5",
+              "message": "1.5 升是每天排出的尿量，原尿比尿液多得多。",
+              "action": "区分原尿量与尿量。"
+            },
+            {
+              "answer": "18",
+              "message": "少算了一个数量级。",
+              "action": "回到原文的 180 升。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "关于尿的形成，下面哪一项说法正确？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "血细胞和大分子蛋白质也能滤过到肾小囊中",
+            "原尿中的葡萄糖全部随尿液排出体外",
+            "肾小球和肾小囊内壁起滤过作用，肾小管起重吸收作用",
+            "肾小管起滤过作用，肾小球起重吸收作用"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "两个作用的位置说反了。",
+              "action": "滤过发生在肾小球和肾小囊内壁。"
+            },
+            {
+              "answer": "1",
+              "message": "滤过时血细胞和大分子蛋白质留在血液里。",
+              "action": "看哪些物质不能滤过。"
+            },
+            {
+              "answer": "2",
+              "message": "原尿中的葡萄糖会被肾小管全部重吸收。",
+              "action": "看肾小管的重吸收作用。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "泌尿系统的组成与尿的形成",
+        "family": "biology-g7-lower:7:inventory-1:urine-formation",
+        "priority": 3,
+        "order": 2,
+        "skills": [
+          "泌尿系统的组成与尿的形成"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "说出泌尿系统的组成器官",
+          "说出肾单位的组成",
+          "读出每天形成的原尿量",
+          "比较滤过作用与重吸收作用"
+        ],
+        "difficulty_rationale": "第一、二项要求把器官层面与肾单位层面分开，第三项要从原文取原尿量而不是尿量，第四项要求同时判对滤过与重吸收的承担结构，不能把两个作用互换。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:7:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-lower:7:inventory-1:urine-formation",
+        "rationale": "180 升取自第 127 页原文；泌尿系统组成、肾单位结构与滤过、重吸收内容分别对应第 125、127 页；每天约 1.5 升的尿量只用于干扰项说明，不与原尿量混同。"
+      },
+      "common_error_feedback": "常见错误：肾小球、肾小囊和肾小管是肾单位的结构，不是泌尿系统的器官；还缺少输送尿液的输尿管；缺少生成尿液的肾；输尿管属于泌尿系统，不属于肾单位；肾单位在肾的内部，肾本身不是肾单位的一部分；膀胱是储存尿液的器官，不属于肾单位；1.5 升是每天排出的尿量，原尿比尿液多得多；少算了一个数量级；两个作用的位置说反了；滤过时血细胞和大分子蛋白质留在血液里；原尿中的葡萄糖会被肾小管全部重吸收。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "独立画出尿液形成与排出的流向，并说明各结构的功能；不要求实际检测尿液。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-biology-g7-lower-activity2-lower_gap_candidates_batch5-body-model-v1",
+      "batch": "lower_gap_candidates_batch5",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "activity2",
+      "difficulty": "normal",
+      "title": "人体结构模型的结构、功能与检验",
+      "prompt": "下面是本题自编的模型项目情境，请根据教材第 130、131 页的项目要求作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"4\",\"c\":\"4\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "制作人体结构模型要体现结构与功能的对应：不同的结构有不同的功能，模型应能形象、直观地演示这种功能。初步制作后要检验结构能否有效地演示功能，发现不足再通过小组讨论优化方案。展示时要介绍模型展示的结构和对应的功能，并给模型写说明书。评价表从材料选择、方案设计、项目实施、项目成果四个维度进行，其中“人体结构是否完整、各部分比例是否适当、是否绘制设计图”属于方案设计。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "综合实践项目：设计并制作人体结构模型",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          130,
+          131
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 130、131 页支持模型原理、任务选择、材料、检验与评价维度；题目情境为本地自编，不指定唯一成品，也不要求拍照提交。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项对应第 130 页“背景资料—确定任务—制订方案”与第 131 页“实施方案—展示交流—评价维度表”；比例与设计图要点位于方案设计一行，逐项按原页核对。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "说出模型制作的基本原理",
+          "b": "按检验环节判断做法",
+          "c": "说明模型说明书的内容",
+          "d": "把评价要点对应到评价维度"
+        }
+      },
+      "responses": [
+        {
+          "label": "设计人体结构模型时要符合的基本原理是什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "结构不同，功能也不同，模型要体现结构与功能的对应",
+            "模型体积越大，说明功能越完整",
+            "只要外形逼真，就说明结构正确",
+            "模型必须与真实器官的大小完全相同"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "体积大小与结构功能是否对应无关。",
+              "action": "先看“结构—功能”是否对应。"
+            },
+            {
+              "answer": "3",
+              "message": "外形逼真不能代替结构功能的展示。",
+              "action": "看模型能否演示功能。"
+            },
+            {
+              "answer": "4",
+              "message": "模型可以按比例放大或缩小。",
+              "action": "关注结构与功能的对应，而非等大。"
+            }
+          ]
+        },
+        {
+          "label": "初步制作好模型后，最合适的检验做法是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "只要外观与照片一致就直接提交",
+            "不能修改，否则说明方案失败",
+            "请老师重做一个标准模型代替",
+            "检验结构能否有效演示功能，发现不足再通过小组讨论优化方案"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "检验的是结构能否演示功能，不是外观是否像照片。",
+              "action": "回到“检验结构能否有效演示功能”。"
+            },
+            {
+              "answer": "2",
+              "message": "发现不足后优化方案是项目要求的一部分。",
+              "action": "看第 131 页实施方案的说明。"
+            },
+            {
+              "answer": "3",
+              "message": "模型应由小组分工合作完成，不能用标准模型代替。",
+              "action": "保留本组的设计与修改记录。"
+            }
+          ]
+        },
+        {
+          "label": "展示模型时写说明书，最需要说明的是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "材料的购买价格和数量",
+            "制作一共用了多少时间",
+            "模型放在哪个柜子里",
+            "模型所展示的结构和对应的功能"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "价格与数量不是说明书的主要内容。",
+              "action": "说明书介绍结构与功能。"
+            },
+            {
+              "answer": "2",
+              "message": "用时不说明模型展示了什么。",
+              "action": "写清结构与对应功能。"
+            },
+            {
+              "answer": "3",
+              "message": "存放位置与模型说明无关。",
+              "action": "回到展示交流的要求。"
+            }
+          ]
+        },
+        {
+          "label": "评价要点“模型中各部分的比例是否适当，是否绘制了设计图”属于哪个评价维度？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "项目实施",
+            "项目成果",
+            "方案设计",
+            "材料选择"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "材料选择的要点是材料能否表现相应结构功能、是否环保易得。",
+              "action": "对照评价表的四行内容。"
+            },
+            {
+              "answer": "1",
+              "message": "项目实施的要点是是否完整实施方案、是否据检验优化。",
+              "action": "注意“比例”“设计图”出现在哪一行。"
+            },
+            {
+              "answer": "2",
+              "message": "项目成果的要点是模型是否制作成功、能否展示结构与功能、说明书是否清晰。",
+              "action": "回到方案设计一行的要点。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "人体结构模型的结构、功能与检验",
+        "family": "biology-g7-lower:activity2:inventory-1:body-model",
+        "priority": 3,
+        "order": 3,
+        "skills": [
+          "人体结构模型的结构、功能与检验"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "说出模型制作的基本原理",
+          "按检验环节判断做法",
+          "说明模型说明书的内容",
+          "把评价要点对应到评价维度"
+        ],
+        "difficulty_rationale": "四项对应项目流程的不同环节：原理、检验、展示与评价；第二项要承认可以修改优化，第四项要求把具体要点放回四个维度之一，不能凭印象归类。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:activity2:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-lower:activity2:inventory-1:body-model",
+        "rationale": "四项对应第 130 页“背景资料—确定任务—制订方案”与第 131 页“实施方案—展示交流—评价维度表”；比例与设计图要点位于方案设计一行，逐项按原页核对。"
+      },
+      "common_error_feedback": "常见错误：体积大小与结构功能是否对应无关；外形逼真不能代替结构功能的展示；模型可以按比例放大或缩小；检验的是结构能否演示功能，不是外观是否像照片；发现不足后优化方案是项目要求的一部分；模型应由小组分工合作完成，不能用标准模型代替；价格与数量不是说明书的主要内容；用时不说明模型展示了什么；存放位置与模型说明无关；材料选择的要点是材料能否表现相应结构功能、是否环保易得；项目实施的要点是是否完整实施方案、是否据检验优化；项目成果的要点是模型是否制作成功、能否展示结构与功能、说明书是否清晰。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "设计、制作、检验并优化一个模型，记录分工、实际修改与局限；不要求统一成品。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-geography-g7-lower-activity1-lower_gap_candidates_batch5-se-asia-heritage-v1",
+      "batch": "lower_gap_candidates_batch5",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-lower",
+      "chapter_id": "activity1",
+      "difficulty": "normal",
+      "title": "东南亚世界遗产的分类与图例",
+      "prompt": "根据第 55、56 页的任务说明、表 1 与图 1 作答。世界遗产处数是教材给出的统计值，教材注明截至 2021 年第 44 届世界遗产大会。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"42\",\"b\":\"3\",\"c\":\"4\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "教材注明截至 2021 年第 44 届世界遗产大会，东南亚共有世界遗产 42 处。表 1 的符号规定：○ 表示自然遗产、□ 表示文化遗产、△ 表示自然和文化双遗产。因此下龙湾是自然遗产、会安古镇是文化遗产、长安名胜群是自然和文化双遗产。绘制分布图时，图例要按这三类设计，符号与类别一一对应并在全图统一使用，同时说明统计截止时间，否则图上的数量与类别无法核对。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "跨学科主题学习：认识东南亚的世界遗产",
+        "textbook_sha256": "1a720dbf86203de323f96a59bd47f03ec77cacbeda899cdeb601a94a24c11fc6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55,
+          56
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 55、56 页支持世界遗产处数及其时间口径、表 1 的符号分类与任务要求；分布图图例按原页空白图例框设计，题目不引用图 1 中未核对的具体点位数据。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "42 处与“截至 2021 年第 44 届”取自第 55 页原文；表 1 的三个符号和越南三项遗产的类别已按第 55 页原页核对；第 56 页图 1 的图例框为空白，需学生自主设计，第四项据此设置。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "读取带时间口径的统计值",
+          "b": "按表 1 符号判断遗产类别",
+          "c": "按表 1 符号判断双遗产类别",
+          "d": "检查图例与类别的一致性"
+        }
+      },
+      "responses": [
+        {
+          "label": "截至 2021 年第 44 届世界遗产大会，东南亚共有世界遗产多少处？",
+          "answer": "42",
+          "independent_check": "42",
+          "units": [
+            "处"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "44",
+              "message": "44 是大会届次，不是遗产处数。",
+              "action": "区分届次与处数。"
+            },
+            {
+              "answer": "24",
+              "message": "把 42 记成了 24。",
+              "action": "回到表 1 上方的统计说明。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "表 1 中，下龙湾后的符号 ○ 表示哪一类世界遗产？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "自然和文化双遗产",
+            "需要修复的遗产",
+            "自然遗产",
+            "文化遗产"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "○ 在表 1 下方图例中表示自然遗产。",
+              "action": "对照三个符号的说明。"
+            },
+            {
+              "answer": "1",
+              "message": "△ 才表示自然和文化双遗产。",
+              "action": "区分 ○ 与 △。"
+            },
+            {
+              "answer": "2",
+              "message": "表 1 没有这一类符号。",
+              "action": "只按图例的三类判断。"
+            }
+          ]
+        },
+        {
+          "label": "按表 1 的符号，长安名胜群属于哪一类？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "自然遗产",
+            "文化遗产",
+            "不属于世界遗产",
+            "自然和文化双遗产"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "长安名胜群后的符号是 △，不是 ○。",
+              "action": "看名称后面的符号。"
+            },
+            {
+              "answer": "2",
+              "message": "长安名胜群后的符号是 △，不是 □。",
+              "action": "区分 △ 与 □。"
+            },
+            {
+              "answer": "3",
+              "message": "长安名胜群列在表 1 中，属于世界遗产。",
+              "action": "表 1 只列世界遗产。"
+            }
+          ]
+        },
+        {
+          "label": "绘制东南亚世界遗产分布图时，关于图例的做法哪一项正确？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "同一种符号可以同时表示自然遗产和文化遗产",
+            "只标出位置即可，不必说明统计的截止时间",
+            "图例可以留空，读者看图就能分出类别",
+            "按表 1 的三类设计图例，符号与类别一一对应，并在全图统一使用"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "一个符号对应一类，否则无法判读。",
+              "action": "让符号与类别一一对应。"
+            },
+            {
+              "answer": "2",
+              "message": "不注明截止时间，读者无法核对数量。",
+              "action": "在图题或图例中写出统计截止时间。"
+            },
+            {
+              "answer": "3",
+              "message": "第 56 页图 1 的图例框是留待自主设计的。",
+              "action": "按表 1 补全图例。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "东南亚世界遗产的分类与图例",
+        "family": "geography-g7-lower:activity1:inventory-1:se-asia-heritage",
+        "priority": 3,
+        "order": 4,
+        "skills": [
+          "东南亚世界遗产的分类与图例"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "读取带时间口径的统计值",
+          "按表 1 符号判断遗产类别",
+          "按表 1 符号判断双遗产类别",
+          "检查图例与类别的一致性"
+        ],
+        "difficulty_rationale": "第一项要区分大会届次与遗产处数并保留时间口径，第二、三项要求符号与类别一一对应，第四项要求同时检查图例是否一致、是否说明统计截止时间，不能留空或混用符号。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-lower:activity1:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-lower:activity1:inventory-1:se-asia-heritage",
+        "rationale": "42 处与“截至 2021 年第 44 届”取自第 55 页原文；表 1 的三个符号和越南三项遗产的类别已按第 55 页原页核对；第 56 页图 1 的图例框为空白，需学生自主设计，第四项据此设置。"
+      },
+      "common_error_feedback": "常见错误：44 是大会届次，不是遗产处数；把 42 记成了 24；○ 在表 1 下方图例中表示自然遗产；△ 才表示自然和文化双遗产；表 1 没有这一类符号；长安名胜群后的符号是 △，不是 ○；长安名胜群后的符号是 △，不是 □；长安名胜群列在表 1 中，属于世界遗产；一个符号对应一类，否则无法判读；不注明截止时间，读者无法核对数量；第 56 页图 1 的图例框是留待自主设计的。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "自主完成资料表、位置图与线路方案，注明来源并说明保护价值；不要求提交真实旅行计划。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-geography-g7-lower-9-lower_gap_candidates_batch5-west-asia-location-v1",
+      "batch": "lower_gap_candidates_batch5",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-lower",
+      "chapter_id": "9",
+      "difficulty": "normal",
+      "title": "西亚的“三洲五海”与两条通道",
+      "prompt": "根据第 58 页图 9.1 与第 59 页的文字、框图作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"1\",\"c\":\"3\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "西亚位于亚洲西南部，沟通大西洋和印度洋，联系亚、欧、非三大洲，位于阿拉伯海、红海、地中海、黑海和里海之间，自古以来是东西方交通枢纽。“五海”中里海是被陆地包围的湖泊，不是海洋。苏伊士运河沟通地中海与红海，处在亚洲与非洲的分界上，是大西洋与印度洋之间航线的捷径；土耳其海峡沟通黑海与地中海，是黑海沿岸地区出入地中海的通道。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第九章 东半球其他的地区和国家",
+        "textbook_sha256": "1a720dbf86203de323f96a59bd47f03ec77cacbeda899cdeb601a94a24c11fc6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          58,
+          59
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 58、59 页支持西亚的位置、三洲五海与土耳其海峡、苏伊士运河的连接关系；题目不使用图中未核对的资源或人口统计。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "三大洲、五个海名与两条通道的连接关系按第 58 页图 9.1 与第 59 页文字、框图逐项核对；里海为湖泊由第 59 页活动第 2 题要求据图判断，图 9.1 上里海四周均为陆地。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "说出西亚联系的三大洲",
+          "b": "从五个名称中辨出湖泊",
+          "c": "指出苏伊士运河沟通的两个海",
+          "d": "说明土耳其海峡的作用"
+        }
+      },
+      "responses": [
+        {
+          "label": "西亚联系哪三大洲？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "亚洲、欧洲和北美洲",
+            "亚洲、非洲和大洋洲",
+            "欧洲、非洲和南美洲",
+            "亚洲、欧洲和非洲"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "西亚不与北美洲相邻。",
+              "action": "看第 58 页图 9.1 三大洲标注。"
+            },
+            {
+              "answer": "2",
+              "message": "大洋洲不在西亚周围。",
+              "action": "回到“亚、欧、非”三大洲。"
+            },
+            {
+              "answer": "3",
+              "message": "南美洲不在西亚周围。",
+              "action": "按图上洲界核对。"
+            }
+          ]
+        },
+        {
+          "label": "西亚周围的“五海”之中，哪一个是湖泊？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "里海",
+            "红海",
+            "黑海",
+            "地中海"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "红海通过苏伊士运河与地中海相通，属于海。",
+              "action": "看哪个水域四周被陆地包围。"
+            },
+            {
+              "answer": "3",
+              "message": "黑海经土耳其海峡与地中海相通，属于海。",
+              "action": "看是否有水道与外海相通。"
+            },
+            {
+              "answer": "4",
+              "message": "地中海经直布罗陀海峡与大西洋相通，属于海。",
+              "action": "分辨湖泊与海。"
+            }
+          ]
+        },
+        {
+          "label": "苏伊士运河沟通的是哪两个海？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "红海和阿拉伯海",
+            "里海和黑海",
+            "地中海和红海",
+            "黑海和地中海"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "沟通这两个海的是土耳其海峡。",
+              "action": "看第 59 页框图的两条通道。"
+            },
+            {
+              "answer": "1",
+              "message": "这两个海本就相通，不需要运河。",
+              "action": "苏伊士运河在红海北端。"
+            },
+            {
+              "answer": "2",
+              "message": "里海是内陆湖泊，与苏伊士运河无关。",
+              "action": "回到埃及境内的运河。"
+            }
+          ]
+        },
+        {
+          "label": "土耳其海峡的重要作用是什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "沟通大西洋和太平洋，缩短洲际航线",
+            "连接里海和黑海，属于内陆水运",
+            "沟通黑海和地中海，是黑海沿岸地区出入地中海的通道",
+            "连接红海和地中海，是亚洲与非洲的分界"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "这是苏伊士运河的作用。",
+              "action": "区分苏伊士运河与土耳其海峡。"
+            },
+            {
+              "answer": "1",
+              "message": "土耳其海峡位于黑海与地中海之间。",
+              "action": "看第 59 页框图中海峡两侧的海。"
+            },
+            {
+              "answer": "2",
+              "message": "里海是湖泊，土耳其海峡不经过里海。",
+              "action": "回到黑海—地中海的连接。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "西亚的“三洲五海”与两条通道",
+        "family": "geography-g7-lower:9:inventory-1:west-asia-location",
+        "priority": 3,
+        "order": 5,
+        "skills": [
+          "西亚的“三洲五海”与两条通道"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "说出西亚联系的三大洲",
+          "从五个名称中辨出湖泊",
+          "指出苏伊士运河沟通的两个海",
+          "说明土耳其海峡的作用"
+        ],
+        "difficulty_rationale": "四项要求把位置、名称与通道对应起来：第二项要把湖泊从五个海名中辨出，第三、四项要求把两条通道各自连接的海分开，两者不能互换。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-lower:9:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-lower:9:inventory-1:west-asia-location",
+        "rationale": "三大洲、五个海名与两条通道的连接关系按第 58 页图 9.1 与第 59 页文字、框图逐项核对；里海为湖泊由第 59 页活动第 2 题要求据图判断，图 9.1 上里海四周均为陆地。"
+      },
+      "common_error_feedback": "常见错误：西亚不与北美洲相邻；大洋洲不在西亚周围；南美洲不在西亚周围；红海通过苏伊士运河与地中海相通，属于海；黑海经土耳其海峡与地中海相通，属于海；地中海经直布罗陀海峡与大西洋相通，属于海；沟通这两个海的是土耳其海峡；这两个海本就相通，不需要运河；里海是内陆湖泊，与苏伊士运河无关；这是苏伊士运河的作用；土耳其海峡位于黑海与地中海之间；里海是湖泊，土耳其海峡不经过里海。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "独立画出西亚交通联系示意图并说明条件；石油资源与其他地区待后续展开。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-geography-g7-lower-10-lower_gap_candidates_batch5-us-agriculture-v1",
+      "batch": "lower_gap_candidates_batch5",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-lower",
+      "chapter_id": "10",
+      "difficulty": "normal",
+      "title": "美国的自然条件与农业地区专门化",
+      "prompt": "根据第 90、92、93、94 页的地图与文字作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\",\"c\":\"4\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "美国本土绝大部分位于温带，地形呈南北纵列分布：西部为高原山地，中部为平原，东部为低缓山地；平原面积占全国总面积一半以上。农业生产规模大、机械化程度高，从事农业的人口仅占全国总人口的 2% 左右。地区专门化是美国农业的显著特点：每个农业带（区）主要种植一两种作物或养殖一两种畜禽，便于推广先进技术、发挥大规模机械化的优势。农业带（区）由地形、气候、水源、市场等条件共同作用逐步形成，不能只用单一条件推出全部农业分布。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第十章 西半球的国家",
+        "textbook_sha256": "1a720dbf86203de323f96a59bd47f03ec77cacbeda899cdeb601a94a24c11fc6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          90,
+          92,
+          93,
+          94
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 90、92、93、94 页支持美国位置地形、农业人口比例、地区专门化与农业带形成条件；题目不引用图 10.3、10.5 中未逐项核对的面积或产量统计。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "地形、平原占比、农业人口 2% 与地区专门化说明分别对应第 92、93 页；农业带（区）形成的多条件结论对应第 94 页“综合地形、气候、水源、市场等多种条件”；第 90、93 页地图已按原页核实地形与农业带分布。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "概括美国本土的地形分布",
+          "b": "说明农业地区专门化的含义",
+          "c": "说明农业带形成的多个条件",
+          "d": "读取从事农业的人口比例"
+        }
+      },
+      "responses": [
+        {
+          "label": "美国本土的地形分布特点是什么？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "全境以高原为主，平原面积很小",
+            "西部为高原山地，中部为平原，东部为低缓山地",
+            "西部为平原，中部为高原，东部为山地",
+            "四周高、中间低，以盆地为主"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "美国本土西部是高原山地，中部是平原。",
+              "action": "看第 90 页图 10.1 的陆高海深配色。"
+            },
+            {
+              "answer": "4",
+              "message": "美国本土的地形不是盆地结构。",
+              "action": "按“南北纵列”核对。"
+            },
+            {
+              "answer": "1",
+              "message": "美国平原面积占全国总面积一半以上。",
+              "action": "回到第 92 页的地形说明。"
+            }
+          ]
+        },
+        {
+          "label": "美国农业地区专门化的含义是什么？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "每个农业带（区）主要种植一两种作物或养殖一两种畜禽",
+            "全国只种植一种农作物",
+            "每个农场都种植所有作物",
+            "农业生产只集中在东北部一个地区"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "专门化指每个带（区）种一两种，不是全国只种一种。",
+              "action": "看“每个农业带（区）”。"
+            },
+            {
+              "answer": "3",
+              "message": "专门化与“种所有作物”相反。",
+              "action": "抓住“一两种”。"
+            },
+            {
+              "answer": "4",
+              "message": "小麦区、玉米带、乳畜带分布在不同地区。",
+              "action": "看第 93 页图 10.3。"
+            }
+          ]
+        },
+        {
+          "label": "美国农业带（区）是怎样形成的？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "只由地形一个条件决定",
+            "只由市场需求一个条件决定",
+            "由人口数量单独决定",
+            "地形、气候、水源、市场等条件共同作用，逐步形成"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "农业带还受气候、水源、市场等影响。",
+              "action": "回到第 94 页的多条件说明。"
+            },
+            {
+              "answer": "2",
+              "message": "自然条件同样参与农业带形成。",
+              "action": "看“综合地形、气候、水源、市场”。"
+            },
+            {
+              "answer": "3",
+              "message": "农业带形成不由人口数量单独决定。",
+              "action": "按教材列出的多种条件核对。"
+            }
+          ]
+        },
+        {
+          "label": "美国从事农业的人口约占全国总人口的百分之几？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [
+            "%"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "20",
+              "message": "教材给出的是 2% 左右，不是 20%。",
+              "action": "回到第 92 页的人口比例。"
+            },
+            {
+              "answer": "50",
+              "message": "教材给出的是 2% 左右，不是一半。",
+              "action": "按原文比例作答。"
+            }
+          ],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "美国的自然条件与农业地区专门化",
+        "family": "geography-g7-lower:10:inventory-1:us-agriculture",
+        "priority": 3,
+        "order": 6,
+        "skills": [
+          "美国的自然条件与农业地区专门化"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "概括美国本土的地形分布",
+          "说明农业地区专门化的含义",
+          "说明农业带形成的多个条件",
+          "读取从事农业的人口比例"
+        ],
+        "difficulty_rationale": "第一项要求按南北纵列说出三段地形，第二项要抓住“一两种”而不是“全部”或“一种”，第三项要求承认多条件综合、拒绝单一条件，第四项要从原文取百分比，不能与国土或人口的其他比例混同。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-lower:10:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-lower:10:inventory-1:us-agriculture",
+        "rationale": "地形、平原占比、农业人口 2% 与地区专门化说明分别对应第 92、93 页；农业带（区）形成的多条件结论对应第 94 页“综合地形、气候、水源、市场等多种条件”；第 90、93 页地图已按原页核实地形与农业带分布。"
+      },
+      "common_error_feedback": "常见错误：美国本土西部是高原山地，中部是平原；美国本土的地形不是盆地结构；美国平原面积占全国总面积一半以上；专门化指每个带（区）种一两种，不是全国只种一种；专门化与“种所有作物”相反；小麦区、玉米带、乳畜带分布在不同地区；农业带还受气候、水源、市场等影响；自然条件同样参与农业带形成；农业带形成不由人口数量单独决定；教材给出的是 2% 左右，不是 20%；教材给出的是 2% 左右，不是一半。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "据完整地图作自然条件与生产活动的有依据说明；巴西及美国其他内容待展开。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-geography-g7-lower-11-lower_gap_candidates_batch5-polar-comparison-v1",
+      "batch": "lower_gap_candidates_batch5",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-lower",
+      "chapter_id": "11",
+      "difficulty": "normal",
+      "title": "南北极地区的海陆、气候与生物比较",
+      "prompt": "比较指标限定为海陆主体、年平均气温、年降水量、年平均风速和代表生物，材料范围为第 110—112 页的文字与地图。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"1\",\"c\":\"50\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "极地地区包括南极地区和北极地区。南极地区主要位于南极圈以南，主体是南极大陆，冰层平均厚度 2000 多米，有“冰雪高原”之称；北极地区主要位于北极圈以北，主体是北冰洋。南极地区大部分地区年平均气温低于 -25℃，年降水量约 50 毫米，年平均风速17—18 米/秒，被称为“白色荒漠”和“风库”；北极地区年平均气温约 -10℃，年降水量100—250 毫米，沿岸年平均风速约 10 米/秒。南极比北极冷，是因为南极以大陆为主体、平均海拔超过 2300 米，且被冰冷的海水环绕。企鹅是南极地区的象征，北极熊是北极地区的代表。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第十一章 极地地区",
+        "textbook_sha256": "1a720dbf86203de323f96a59bd47f03ec77cacbeda899cdeb601a94a24c11fc6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          110,
+          111,
+          112
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 110—112 页支持两地海陆主体、气候数值、温差成因与代表生物；题目只考文字结论，不引用图中科考站或资源符号的统计。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "海陆主体、气温、降水、风速、生物与温差成因分别对应第 110、111、112 页原文；比较指标已在题干中限定，四项数值与描述逐项核对。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "比较两地的海陆主体",
+          "b": "用海陆、海拔与海水温度解释温差",
+          "c": "读取南极地区年降水量",
+          "d": "对应两地的代表生物"
+        }
+      },
+      "responses": [
+        {
+          "label": "南极地区和北极地区的主体分别是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "两地都以海洋为主体",
+            "两地都以大陆为主体",
+            "南极地区以海洋为主体，北极地区以大陆为主体",
+            "南极地区以大陆为主体，北极地区以海洋为主体"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "南极地区的主体是大陆。",
+              "action": "区分南极大陆与北冰洋。"
+            },
+            {
+              "answer": "2",
+              "message": "北极地区的主体是海洋。",
+              "action": "看第 111 页图 11.2。"
+            },
+            {
+              "answer": "3",
+              "message": "两个主体的位置说反了。",
+              "action": "把大陆与海洋对应回各自的地区。"
+            }
+          ]
+        },
+        {
+          "label": "为什么南极地区比北极地区冷得多？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "南极以大陆为主体、平均海拔高，且被冰冷的海水环绕",
+            "南极距离太阳更远，得到的太阳辐射更少",
+            "南极的冰层会自己产生冷空气",
+            "北极地区没有冰雪覆盖，所以更暖"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "两地的纬度位置相近，温差另有原因。",
+              "action": "回到第 112 页的三方面解释。"
+            },
+            {
+              "answer": "3",
+              "message": "冰层不会自己产生冷空气。",
+              "action": "看海陆、海拔与海水温度。"
+            },
+            {
+              "answer": "4",
+              "message": "北极大部分地区终年冰封。",
+              "action": "看第 111 页说明。"
+            }
+          ]
+        },
+        {
+          "label": "南极地区年降水量大约是多少毫米？",
+          "answer": "50",
+          "independent_check": "50",
+          "units": [
+            "毫米"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "100",
+              "message": "100 毫米是北极地区年降水量的下限。",
+              "action": "区分南极与北极的降水。"
+            },
+            {
+              "answer": "250",
+              "message": "250 毫米是北极地区年降水量的上限。",
+              "action": "南极年降水量约 50 毫米。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "关于两地的代表生物，下面哪一项正确？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "企鹅生活在北极地区，北极熊生活在南极地区",
+            "两种动物都生活在北极地区",
+            "两种动物都生活在南极地区",
+            "企鹅生活在南极地区，北极熊生活在北极地区"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "两种动物所在地区说反了。",
+              "action": "看第 112 页图 11.3、图 11.4 的图注。"
+            },
+            {
+              "answer": "2",
+              "message": "企鹅是南极地区的象征。",
+              "action": "按“南极企鹅、北极熊”核对。"
+            },
+            {
+              "answer": "3",
+              "message": "北极熊是北极地区的代表。",
+              "action": "区分两地的代表生物。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "南北极地区的海陆、气候与生物比较",
+        "family": "geography-g7-lower:11:inventory-1:polar-comparison",
+        "priority": 3,
+        "order": 7,
+        "skills": [
+          "南北极地区的海陆、气候与生物比较"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "比较两地的海陆主体",
+          "用海陆、海拔与海水温度解释温差",
+          "读取南极地区年降水量",
+          "对应两地的代表生物"
+        ],
+        "difficulty_rationale": "四项分别对应海陆、气温成因、降水和生物四个比较指标；第二项要求同时用海陆分布、海拔差异与海水温度三方面解释，不能只说“纬度更高”或“更靠南”。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-lower:11:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-lower:11:inventory-1:polar-comparison",
+        "rationale": "海陆主体、气温、降水、风速、生物与温差成因分别对应第 110、111、112 页原文；比较指标已在题干中限定，四项数值与描述逐项核对。"
+      },
+      "common_error_feedback": "常见错误：南极地区的主体是大陆；北极地区的主体是海洋；两个主体的位置说反了；两地的纬度位置相近，温差另有原因；冰层不会自己产生冷空气；北极大部分地区终年冰封；100 毫米是北极地区年降水量的下限；250 毫米是北极地区年降水量的上限；两种动物所在地区说反了；企鹅是南极地区的象征；北极熊是北极地区的代表。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用表格和地图形成有证据的比较说明，注明所用指标；科考与环境保护要求后续补充。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-lower-3-lower_gap_candidates_batch5-frequency-possessives-v1",
+      "batch": "lower_gap_candidates_batch5",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "How often and possessive pronouns",
+      "prompt": "Read the sentences and choose the best answer. This unit is about keeping fit: how often we do sport or exercise, and possessive pronouns for ownership.\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"3\",\"c\":\"4\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "How often 问频率，可以用次数短语回答，如 once a week、twice a week、three times a week，也可以用频率副词：never、hardly ever、seldom、sometimes、often、usually、always。按从少到多排列是 never → sometimes → always 这样的顺序。名词性物主代词mine、yours、his 等可以单独使用，后面不再加名词：This bike is yours. / It’s mine. / It’s Li Wei’s; his has “LW” on it. 注意区分形容词性 your 与名词性 yours。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Unit 3 Keep Fit",
+        "textbook_sha256": "23931ae73882e93c213b28fb32a713e1fd312bb6d3f22abe7d34625375c444a9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          17,
+          21
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 17、21 页支持 how often 的次数回答、名词性物主代词与频率副词；句子与情境为本地自编，未抄录教材练习。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "第 17 页单元目标列出“share how often you do sport or exercise”与“use possessive pronouns to identify ownership”；第 21 页 Grammar Focus 与 3a、3b 给出 twice a week、yours/mine/his 与频率副词。四句为本地自编，未抄录教材练习。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "用次数短语回答频率问题",
+          "b": "用第二人称名词性物主代词指代",
+          "c": "用第三人称名词性物主代词指代",
+          "d": "按频率给副词排序"
+        }
+      },
+      "responses": [
+        {
+          "label": "— How often do you play basketball?\n— I play it ___ a week.",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "two time",
+            "twice",
+            "two",
+            "second"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "次数要用 twice，two 只表示数量。",
+              "action": "区分基数词与次数表达。"
+            },
+            {
+              "answer": "4",
+              "message": "second 表示“第二”，不是“两次”。",
+              "action": "看答语问的是频率。"
+            },
+            {
+              "answer": "1",
+              "message": "表达两次要用 twice，不能写成 two time。",
+              "action": "记住 once、twice 的形式。"
+            }
+          ]
+        },
+        {
+          "label": "— Lucy, is this bike ___?\n— Yes, it’s mine. Thank you!",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "you",
+            "yourself",
+            "yours",
+            "your"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "空格后没有名词，要用名词性物主代词。",
+              "action": "your 后面必须接名词。"
+            },
+            {
+              "answer": "1",
+              "message": "you 是主格或宾格，不能表示所属。",
+              "action": "看“手套是谁的”。"
+            },
+            {
+              "answer": "2",
+              "message": "yourself 是反身代词，不表示所属。",
+              "action": "区分反身代词与物主代词。"
+            }
+          ]
+        },
+        {
+          "label": "— Whose volleyball is this?\n— I think it’s Li Wei’s. ___ has “LW” on it.",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "Him",
+            "He",
+            "He's",
+            "His"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "Him 是宾格，不能作主语表示所属。",
+              "action": "这里需要能单独使用的名词性物主代词。"
+            },
+            {
+              "answer": "2",
+              "message": "He 是主格，不表示所属。",
+              "action": "看“他的球拍”这一含义。"
+            },
+            {
+              "answer": "3",
+              "message": "He's 是 He is 或 He has 的缩写，不表示所属。",
+              "action": "区分缩写与物主代词。"
+            }
+          ]
+        },
+        {
+          "label": "Which group is ordered from the least often to the most often?",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "sometimes, never, always",
+            "never, always, sometimes",
+            "never, sometimes, always",
+            "always, sometimes, never"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "这组是从多到少排列。",
+              "action": "按从少到多重新排序。"
+            },
+            {
+              "answer": "1",
+              "message": "never 比 sometimes 更少。",
+              "action": "先放 never 再放 sometimes。"
+            },
+            {
+              "answer": "2",
+              "message": "always 比 sometimes 更多。",
+              "action": "always 应放在最后。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "How often and possessive pronouns",
+        "family": "english-g7-lower:3:inventory-1:frequency-possessives",
+        "priority": 3,
+        "order": 8,
+        "skills": [
+          "How often and possessive pronouns"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "用次数短语回答频率问题",
+          "用第二人称名词性物主代词指代",
+          "用第三人称名词性物主代词指代",
+          "按频率给副词排序"
+        ],
+        "difficulty_rationale": "四项分别考次数短语、第二人称与第三人称的名词性物主代词和频率副词排序；要区分形容词性 your 与名词性 yours，也要区分基数词 two 与次数 twice。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-lower:3:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-lower:3:inventory-1:frequency-possessives",
+        "rationale": "第 17 页单元目标列出“share how often you do sport or exercise”与“use possessive pronouns to identify ownership”；第 21 页 Grammar Focus 与 3a、3b 给出 twice a week、yours/mine/his 与频率副词。四句为本地自编，未抄录教材练习。"
+      },
+      "common_error_feedback": "常见错误：次数要用 twice，two 只表示数量；second 表示“第二”，不是“两次”；表达两次要用 twice，不能写成 two time；空格后没有名词，要用名词性物主代词；you 是主格或宾格，不能表示所属；yourself 是反身代词，不表示所属；Him 是宾格，不能作主语表示所属；He 是主格，不表示所属；He's 是 He is 或 He has 的缩写，不表示所属；这组是从多到少排列；never 比 sometimes 更少；always 比 sometimes 更多。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "询问同伴运动习惯并转述；频率回答、指代准确与真实交流分别核对。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-lower-4-lower_gap_candidates_batch5-countable-food-v1",
+      "batch": "lower_gap_candidates_batch5",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-lower",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "Countable and uncountable food nouns",
+      "prompt": "Read the sentences and choose the best answer. This unit practises talking about meals, asking about food preferences and offering choices, and using countable and uncountable nouns.\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"4\",\"c\":\"1\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "可数名词有单复数形式，可以加 a/an 或与数词连用，如 an egg、two noodles、some strawberries；不可数名词一般不用复数、不加 a/an，如 bread、milk、rice、sugar、tofu。cabbage、cake、chicken、fish、fruit、salad、sweet、tea 等在具体语境中既可作可数也可作不可数：We had fish for dinner. 中的 fish 指鱼肉，是不可数；two fish 指两条鱼，是可数。提供选择用 Would you like … or …?，回答用 I’d like …。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Unit 4 Eat Well",
+        "textbook_sha256": "23931ae73882e93c213b28fb32a713e1fd312bb6d3f22abe7d34625375c444a9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          25,
+          29
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 25、29 页支持可数与不可数名词分类及提供选择的表达；句子与情境为本地自编，未抄录教材练习。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "第 25 页单元目标列出 countable and uncountable nouns；第 29 页 Grammar Focus 给出可数、不可数与两者皆可三类词表，fish 属于“可数与不可数”一组；题目要求按语境判断，避免把可数性绝对化。句子为本地自编。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "判断食品名词的可数性",
+          "b": "按语境使用名词复数形式",
+          "c": "在语境中判断名词的可数性",
+          "d": "用 I’d like 回答提供选择的问句"
+        }
+      },
+      "responses": [
+        {
+          "label": "Which of these words is uncountable in the food list?",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "bread",
+            "egg",
+            "noodle",
+            "strawberry"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "egg 是可数名词，可以说 an egg、two eggs。",
+              "action": "看能否加 a/an 或变复数。"
+            },
+            {
+              "answer": "3",
+              "message": "noodle 是可数名词，可以说 two noodles。",
+              "action": "词表把 noodle 列在可数一组。"
+            },
+            {
+              "answer": "4",
+              "message": "strawberry 是可数名词，复数是 strawberries。",
+              "action": "看能否变复数。"
+            }
+          ]
+        },
+        {
+          "label": "She bought some fruit and ___ at the market.",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "vegetable",
+            "many vegetable",
+            "a vegetables",
+            "vegetables"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "与 fruit 并列时需要复数形式。",
+              "action": "看 some fruit and 后面并列的成分。"
+            },
+            {
+              "answer": "2",
+              "message": "many 后面接可数名词复数。",
+              "action": "many 后面要用复数形式。"
+            },
+            {
+              "answer": "3",
+              "message": "a/an 后面只能接单数可数名词。",
+              "action": "去掉冠词或用复数。"
+            }
+          ]
+        },
+        {
+          "label": "In “We had fish for dinner.”, how is “fish” used?",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "As an uncountable noun for food",
+            "As a countable noun for one fish",
+            "Only as a countable noun in every sentence",
+            "As a verb, not a noun"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "这里指餐桌上的鱼肉，不是一条鱼。",
+              "action": "看 for dinner 的语境。"
+            },
+            {
+              "answer": "3",
+              "message": "fish 在词表中属于两者皆可。",
+              "action": "可数性要看语境。"
+            },
+            {
+              "answer": "4",
+              "message": "句中的 fish 作名词，是 had 的宾语。",
+              "action": "看它在句中的成分。"
+            }
+          ]
+        },
+        {
+          "label": "— Would you like tea or milk?\n— ___",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "Tea is a drink.",
+            "I’d like tea, please.",
+            "Yes, I do.",
+            "Twice a week."
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "这是回答 Do you …? 的方式，不能回答提供选择的问句。",
+              "action": "看问句是 Would you like …?"
+            },
+            {
+              "answer": "4",
+              "message": "这是回答 How often …? 的频率。",
+              "action": "问句在提供食物选择。"
+            },
+            {
+              "answer": "1",
+              "message": "这是陈述事实，不是对邀请的回应。",
+              "action": "用 I’d like … 回答。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "Countable and uncountable food nouns",
+        "family": "english-g7-lower:4:inventory-1:countable-food",
+        "priority": 3,
+        "order": 9,
+        "skills": [
+          "Countable and uncountable food nouns"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "判断食品名词的可数性",
+          "按语境使用名词复数形式",
+          "在语境中判断名词的可数性",
+          "用 I’d like 回答提供选择的问句"
+        ],
+        "difficulty_rationale": "四项要求把词表分类放回具体语境：第二项要选与 fruit 并列的复数形式，第三项要说明 fish 在这一句中指食物而不是一条鱼，第四项要区分提供选择的问句与回答方式。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-lower:4:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-lower:4:inventory-1:countable-food",
+        "rationale": "第 25 页单元目标列出 countable and uncountable nouns；第 29 页 Grammar Focus 给出可数、不可数与两者皆可三类词表，fish 属于“可数与不可数”一组；题目要求按语境判断，避免把可数性绝对化。句子为本地自编。"
+      },
+      "common_error_feedback": "常见错误：egg 是可数名词，可以说 an egg、two eggs；noodle 是可数名词，可以说 two noodles；strawberry 是可数名词，复数是 strawberries；与 fruit 并列时需要复数形式；many 后面接可数名词复数；a/an 后面只能接单数可数名词；这里指餐桌上的鱼肉，不是一条鱼；fish 在词表中属于两者皆可；句中的 fish 作名词，是 had 的宾语；这是回答 Do you …? 的方式，不能回答提供选择的问句；这是回答 How often …? 的频率；这是陈述事实，不是对邀请的回应。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "角色扮演询问饮食偏好并提供选择，说明搭配理由。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    }
+  ]
+}

@@ -29,19 +29,85 @@
   const difficulties = {easy: '简单', normal: '正常', hard: '困难'};
   let pageDialog, pageUrl, pageNumber, classroomDialog, reviewDialog, printFrame;
   let mermaidLoader;
+  let suspendedDraft = null, contextChanged = false, insertFocus = null;
   const field = key => panel.querySelector('#dd-study-' + key);
   const signature = session => session ? [session.account_id, session.learner_id, session.context_version].join('|') : '';
   const scopeKey = session => scopePrefix + encodeURIComponent(location.origin + '/learning') + ':' +
     encodeURIComponent(session.account_id) + ':' + encodeURIComponent(session.learner_id) + ':' + session.context_version;
   const gradeLabel = () => family.data?.scope.grade === 2 ? '二年级' : '七年级';
 
+  function chatEditor() {
+    const editors = document.querySelectorAll('#chat-input');
+    if (editors.length !== 1) return null;
+    const editor = editors[0];
+    if (!(editor instanceof HTMLTextAreaElement) && !(editor.tagName === 'DIV' && editor.isContentEditable)) return null;
+    if (editor.disabled || editor.readOnly || editor.matches('[aria-readonly="true"]') ||
+        editor.closest('[inert], [hidden], [aria-hidden="true"], [aria-disabled="true"]') ||
+        !editor.getClientRects().length || getComputedStyle(editor).visibility !== 'visible') return null;
+    return editor;
+  }
+  function setText(element, text) { if (element && element.textContent !== text) element.textContent = text; }
+  function disabled(element, value) { if (element && element.disabled !== value) element.disabled = value; }
+  function updateHostStatus() {
+    const editor = chatEditor();
+    const sidebar = document.querySelectorAll('a#sidebar-new-chat-button').length === 1 ||
+      document.querySelectorAll('#sidebar[role="navigation"]').length === 1;
+    let notice = document.getElementById('dd-study-host-status');
+    if (!notice) {
+      notice = document.createElement('p'); notice.id = 'dd-study-host-status'; notice.setAttribute('role', 'status');
+      document.body.append(notice);
+    }
+    const message = !editor ? '当前聊天框不可用，已暂停填入。请打开新聊天，或从伴学预览复制需要的内容。'
+      : !sidebar ? '当前侧栏入口不可用，请从聊天框旁的“学科助手”进入。' : '';
+    setText(notice, message);
+    if (notice.hidden !== !message) notice.hidden = !message;
+    if (panel) {
+      disabled(field('insert'), !editor || family.busy || family.blocked);
+      let local = field('host-notice');
+      if (!local) { local = document.createElement('p'); local.id = 'dd-study-host-notice'; local.setAttribute('role', 'status'); field('insert').parentElement.after(local); }
+      setText(local, message);
+    }
+    document.querySelectorAll('#dd-chat-study [data-study-action]').forEach(button => {
+      if (button.dataset.studyAction !== 'assistant') disabled(button, !editor || button.dataset.pending === 'true');
+    });
+    updateContextNotice();
+  }
+  function updateContextNotice() {
+    for (const [parent, id] of [[panel, 'dd-study-context-notice'], [document.getElementById('dd-chat-study'), 'dd-chat-context-notice']]) {
+      if (!parent || !contextChanged || document.getElementById(id)) continue;
+      const notice = document.createElement('p'); notice.id = id; notice.setAttribute('role', 'status');
+      notice.append('家庭档案或登录已变化。历史聊天和聊天框草稿不会自动切换，请核对后再发送；建议为当前档案');
+      const link = document.createElement('a'); link.href = chatStudyUrl; link.target = '_blank'; link.rel = 'noopener';
+      link.textContent = '打开新课本聊天'; notice.append(link); parent.prepend(notice);
+    }
+  }
+  function discardChangedDraft() {
+    suspendedDraft = null; contextChanged = true; clearPersonalInputs(); updateContextNotice();
+  }
+  function suspendDraft() {
+    if (!suspendedDraft && family.session) suspendedDraft = {identity: signature(family.session),
+      values: Object.fromEntries(['topic', 'source', 'material'].map(key => [key, field(key).value]))};
+    clearPersonalInputs();
+  }
+  function transientFailure(error) { return error instanceof TypeError || error.status >= 500; }
+  function restoreDraft(session) {
+    if (!suspendedDraft) return;
+    if (suspendedDraft.identity === signature(session)) {
+      for (const [key, value] of Object.entries(suspendedDraft.values)) field(key).value = value;
+    }
+    suspendedDraft = null;
+  }
+
   function mountNavigation() {
     // Expanded and collapsed sidebars are separate host components.
-    const newChat = document.querySelector('a#sidebar-new-chat-button');
-    const compact = document.querySelector('#sidebar[role="navigation"]');
-    mountOne(newChat?.parentElement.parentElement, '', false);
+    const links = document.querySelectorAll('a#sidebar-new-chat-button');
+    const sidebars = document.querySelectorAll('#sidebar[role="navigation"]');
+    const newChat = links.length === 1 ? links[0] : null;
+    const compact = sidebars.length === 1 ? sidebars[0] : null;
+    mountOne(newChat?.parentElement?.parentElement, '', false);
     mountOne(compact && !compact.contains(newChat) ? compact.firstElementChild : null, '-compact', true);
     mountChatStudy();
+    updateHostStatus();
   }
   function mountOne(parent, suffix, compact) {
     const old = document.getElementById('dd-study-nav' + suffix);
@@ -68,10 +134,10 @@
   }
 
   function mountChatStudy() {
-    const editor = document.getElementById('chat-input');
+    const editor = chatEditor();
     const host = editor?.closest('form') || editor?.parentElement;
-    if (!host || host.isContentEditable) return;
     const old = document.getElementById('dd-chat-study');
+    if (!host || host.isContentEditable) { old?.remove(); return; }
     if (old?.parentElement === host) return;
     old?.remove();
     const bar = document.createElement('div'); bar.id = 'dd-chat-study';
@@ -91,15 +157,18 @@
 
   async function quickStudy(action, button) {
     const status = () => document.getElementById('dd-chat-study-status');
-    const editor = document.getElementById('chat-input');
+    const editor = chatEditor(), page = location.href;
     if (!editor || (editor.value ?? editor.innerText ?? '').trim()) {
       if (status()) status().textContent = '聊天框已有草稿，请先处理草稿后再使用快捷提问。'; return;
     }
-    button.disabled = true;
+    button.dataset.pending = 'true'; button.disabled = true;
     try {
       if (!panel) createPanel();
       await loadFamily();
       if (!await verifyFamily() || !family.data) { if (status()) status().textContent = '请先登录家庭学习并选择档案，再使用快捷提问。'; return; }
+      if (chatEditor() !== editor || location.href !== page) {
+        if (status()) status().textContent = '聊天页面已变化，已暂停填入，请确认当前聊天后重试。'; return;
+      }
       if ((editor.value ?? editor.innerText ?? '').trim()) { if (status()) status().textContent = '已有新草稿，已保留。'; return; }
       const scope = family.data.scope;
       const prompts = {
@@ -120,7 +189,7 @@
       } else throw new Error('Editor unsupported');
       if (status()) status().textContent = '已填入草稿，请补全空白并确认后发送。可在“学科助手”更换学科和章节。';
     } catch (_) { if (status()) status().textContent = '暂时无法填入，请打开学科助手重试。'; }
-    finally { button.disabled = false; }
+    finally { delete button.dataset.pending; updateHostStatus(); }
   }
 
   function createPanel() {
@@ -154,7 +223,10 @@
       <details class="dd-study-sources"><summary>开源采用与使用说明</summary><p>数学练习采用 <a href="https://github.com/xiaoyang111222/cn-math-taxonomy/tree/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab" target="_blank" rel="noopener noreferrer">cn-math-taxonomy</a> 的 29 道改编题（CC BY-NC 4.0）。章节、概念、先修关系和出处组织参考 <a href="https://github.com/dangjian/faststudy-knowledge/tree/508748a2c8dddc1253100b2d10d91c9526903f67" target="_blank" rel="noopener noreferrer">faststudy-knowledge</a>（代码 MIT；图谱数据 CC BY-NC-SA 4.0）。当前家庭非商业使用；教材版权归出版社。</p><p>当前精确映射为 20 道题、18 个概念；仅覆盖二上第二/三/五单元、七上第二/五章的局部内容。faststudy 的数学示例与本地教材版本不同，本地章节和原页单独核对；该项目本身不含题库。</p><p>资料伴读参考 <a href="https://github.com/HKUDS/DeepTutor/tree/60fb3bdfddb30b7740c7ce3bd9b28d908f2af6db" target="_blank" rel="noopener noreferrer">DeepTutor</a> 的资料范围和来源引用设计（Apache-2.0）；分步学习参考 <a href="https://github.com/THU-MAIC/OpenMAIC/tree/5bd8cc840ee6397d063e1fe6aba974b9f0401593" target="_blank" rel="noopener noreferrer">OpenMAIC</a> 的分段课堂与可导出学习内容设计（MIT）。</p><p>本面板由本项目编写，提供学习请求和提纲。未安装这两个项目的引擎；引用与讲解仍需对照原资料核对，不作为正式判分依据。</p></details>`;
     document.body.append(panel);
     panel.querySelector('#dd-study-close').onclick = () => panel.close();
-    panel.addEventListener('close', () => { if (opener?.isConnected) opener.focus(); });
+    panel.addEventListener('close', () => {
+      const target = insertFocus || opener; insertFocus = null;
+      if (target?.isConnected) target.focus();
+    });
     panel.addEventListener('click', event => { if (event.target === panel) {
       const rect = panel.getBoundingClientRect();
       if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) panel.close();
@@ -220,7 +292,7 @@
       ? '① 确认材料与问题　② 指出原文依据　③ 用自己的话解释'
       : '① 明确学习目标　② 一个解释或例子　③ 一个理解问题';
     panel.querySelector('#dd-study-status').textContent = '填入后可以编辑；点击聊天发送按钮才会发送。';
-    field('insert').disabled = family.busy || family.blocked;
+    field('insert').disabled = family.busy || family.blocked || !chatEditor();
     field('download').disabled = family.busy || family.blocked;
     for (const name of ['classroom-open', 'classroom-download']) field(name).disabled = family.busy || family.blocked || !family.data;
     field('review-open').disabled = family.busy || family.blocked || !hasReviewSample();
@@ -235,18 +307,18 @@
     loadFamily();
   }
   async function insert() {
+    const editor = chatEditor(), page = location.href;
     if (!await verifyFamily()) return;
     const status = panel.querySelector('#dd-study-status');
-    const editor = document.getElementById('chat-input');
-    if (!editor || (!editor.isContentEditable && editor.tagName !== 'TEXTAREA') || editor.disabled || editor.readOnly) {
-      status.textContent = '请先打开一个聊天再填入，或从预览中复制学习请求。'; return;
+    if (!editor || chatEditor() !== editor || location.href !== page) {
+      status.textContent = '聊天页面已变化，已暂停填入，请确认当前聊天后重试，或从预览复制。'; return;
     }
     // Never replace a draft. No submit/click/keyboard event is dispatched.
     if ((editor.value ?? editor.innerText ?? '').trim()) {
       status.textContent = '聊天框已有草稿，请先处理草稿；也可以从预览中复制需要的部分。'; return;
     }
     const text = requestText();
-    panel.close(); editor.focus();
+    insertFocus = editor; panel.close(); editor.focus();
     if (editor.tagName === 'TEXTAREA') {
       Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set.call(editor, text);
       editor.dispatchEvent(new Event('input', {bubbles: true}));
@@ -316,7 +388,7 @@
       const session = await familyGet('auth/session', null, signal);
       if (!current()) return;
       if (session.server_context_mode !== true || !Number.isInteger(session.context_version)) throw new Error('Invalid session');
-      if (previous && signature(previous) !== signature(session)) { clearPersonalInputs(); routePreferences.clear(); }
+      if (previous && signature(previous) !== signature(session)) { discardChangedDraft(); routePreferences.clear(); }
       family.session = session;
       if (!session.learner_id) { const error = new Error('Choose profile'); error.status = 412; throw error; }
       const [catalogue, learners] = await Promise.all([
@@ -344,6 +416,7 @@
       field('family-status').textContent = '已连接 · ' + book.subject_title + ' · ' + data.scope.chapter_title;
       panel.querySelector('.dd-study-eyebrow').textContent = gradeLabel() + ' · 学科伴学';
       field('source').value = gradeLabel() + ' · ' + book.title + ' · ' + data.scope.chapter_title + '；' + book.edition;
+      restoreDraft(session);
       field('topic').placeholder = chapter?.title || (book.grade === 2 && book.subject === 'math' ? '例如：用相同的组理解乘法' : subjects[book.subject_title][0]);
       field('family-continue').href = '/learning/ui#' + new URLSearchParams({studyBook: book.id, studyChapter: chapter?.id || '', studyRevision: session.context_version});
       renderFamilyCards();
@@ -359,11 +432,13 @@
     } catch (error) {
       if (!current() || error.name === 'AbortError') return;
       clearReferences();
-      family.blocked = Boolean(previous || family.session);
-      if (family.blocked) clearPersonalInputs();
+      const transient = transientFailure(error);
+      family.blocked = Boolean(previous || family.session || transient);
+      if (family.blocked) { if (transient) suspendDraft(); else discardChangedDraft(); }
       field('profile').textContent = ''; field('family-scope').hidden = true;
       field('family-continue').href = familyUrl;
-      field('family-status').textContent = error.status === 412 ? '请在家庭学习中选择一个档案，再点击同步。'
+      field('family-status').textContent = transient ? '连接暂时中断，草稿已在本页内存暂存；恢复后核对同一档案再还原。请勿刷新或关闭此页。'
+        : error.status === 412 ? '请在家庭学习中选择一个档案，再点击同步。'
         : error.status === 401 || error.status === 403 ? '请打开家庭学习并点击“进入学习工作区”，返回后同步即可，无需重绑。'
         : error.status === 409 ? '家庭档案已切换，旧资料已清空。请点击同步重新读取。'
         : '家庭资料暂时无法读取，请稍后点击同步。';
@@ -391,7 +466,7 @@
       const checked = await familyGet('auth/session', null, signal);
       if (!current()) return;
       if (signature(checked) !== signature(session)) {
-        family.blocked = true; clearReferences(); clearPersonalInputs(); refresh();
+        family.blocked = true; clearReferences(); discardChangedDraft(); refresh();
         field('family-status').textContent = '家庭档案已变化，请同步后再查看知识路线。'; return;
       }
       if (data.scope.book_id !== scope.book_id || data.scope.chapter_id !== scope.chapter_id || data.scope.grade !== scope.grade ||
@@ -871,9 +946,16 @@
       const checked = await familyGet('auth/session');
       if (generation !== family.generation) return false;
       if (signature(checked) === pinned) return true;
-    } catch (_) {}
+    } catch (error) {
+      if (generation !== family.generation) return false;
+      if (transientFailure(error)) {
+        family.blocked = true; suspendDraft(); clearReferences(); refresh();
+        field('family-status').textContent = '连接暂时中断，草稿已在本页内存暂存；恢复后核对同一档案再还原。请勿刷新或关闭此页。';
+        return false;
+      }
+    }
     if (generation === family.generation) {
-      family.blocked = true; clearReferences(); clearPersonalInputs(); refresh();
+      family.blocked = true; clearReferences(); discardChangedDraft(); refresh();
       field('family-status').textContent = '登录或档案已变化，旧资料已清空。请点击同步，核对后再继续。';
     }
     return false;
@@ -920,13 +1002,26 @@
     requestAnimationFrame(() => { queued = false; mountNavigation(); });
   }
   function start() {
+    // Preserve the host viewport layout while allowing users to pinch-zoom.
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) viewport.content = viewport.content.split(',').map(value => value.trim())
+      .filter(value => !/^(maximum-scale|minimum-scale|user-scalable)\s*=/i.test(value)).join(', ');
     mountNavigation();
-    new MutationObserver(schedule).observe(document.body, {childList: true, subtree: true});
-    window.addEventListener('storage', event => {
-      if (panel?.open && (event.key === 'dd-study-family-pulse-v1' || event.key === (family.session && scopeKey(family.session)))) loadFamily();
+    new MutationObserver(schedule).observe(document.body, {childList: true, subtree: true, attributes: true,
+      attributeFilter: ['id', 'contenteditable', 'disabled', 'readonly', 'inert', 'hidden', 'aria-disabled', 'aria-readonly', 'aria-hidden', 'style', 'class']});
+    window.addEventListener('resize', schedule);
+    window.addEventListener('online', () => { if (panel && family.blocked) loadFamily(); });
+    window.addEventListener('offline', () => {
+      if (!panel || !family.session) return;
+      family.generation++; family.controller?.abort(); family.busy = false; family.blocked = true;
+      suspendDraft(); clearReferences(); refresh();
+      field('family-status').textContent = '连接暂时中断，草稿已在本页内存暂存；恢复后核对同一档案再还原。请勿刷新或关闭此页。';
     });
-    document.addEventListener('visibilitychange', () => { if (panel?.open && !document.hidden) loadFamily(); });
-    setInterval(() => { if (panel?.open && !document.hidden && !family.busy && family.session) verifyFamily(); }, 15000);
+    window.addEventListener('storage', event => {
+      if (panel && (event.key === 'dd-study-family-pulse-v1' || event.key === (family.session && scopeKey(family.session)))) loadFamily();
+    });
+    document.addEventListener('visibilitychange', () => { if (panel && !document.hidden) loadFamily(); });
+    setInterval(() => { if (panel && !document.hidden && !family.busy && family.session) verifyFamily(); }, 15000);
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, {once: true});
   else start();

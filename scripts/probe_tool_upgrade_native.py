@@ -65,7 +65,7 @@ async def main():
     reports = [u.transition('dry-run',db,root/'backend',package,pin), u.transition('apply',db,root/'backend',package,pin)]
     upgraded = await Tools.get_tool_by_id(u.TOOL_ID)
     assert upgraded.content == (root/'candidate.py').read_text()
-    assert upgraded.meta.manifest['version']=='1.2.0' and len(upgraded.access_grants)==1
+    assert upgraded.meta.manifest['version']=='1.2.1' and len(upgraded.access_grants)==1
     second = await loaded()
     assert first['search_textbook']['callable'] is not second['search_textbook']['callable']
     reports += [u.transition('verify',db,root/'backend',package,pin),u.transition('apply',db,root/'backend',package,pin),u.transition('rollback',db,root/'backend',package,pin)]

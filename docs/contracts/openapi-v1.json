@@ -4134,7 +4134,7 @@
           },
           "difficulty": {
             "type": "string",
-            "pattern": "^(auto|easy|normal|hard)$",
+            "pattern": "^(auto|easy|normal|hard|challenge)$",
             "title": "Difficulty",
             "default": "auto"
           },
@@ -4472,6 +4472,11 @@
             },
             "type": "array",
             "title": "Chapters"
+          },
+          "search_available": {
+            "type": "boolean",
+            "title": "Search Available",
+            "default": true
           }
         },
         "additionalProperties": false,

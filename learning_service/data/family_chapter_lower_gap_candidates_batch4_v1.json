@@ -1,0 +1,1817 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "lower_gap_candidates_batch4",
+  "status": "local_candidate_not_registered",
+  "teacher_reviewed": false,
+  "curriculum_standard_crosscheck": "pending",
+  "student_calibrated": false,
+  "questions": [
+    {
+      "id": "family-chapter-math-g2-lower-activity2-lower_gap_candidates_batch4-number-story-picture-v1",
+      "batch": "lower_gap_candidates_batch4",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-lower",
+      "chapter_id": "activity2",
+      "difficulty": "normal",
+      "title": "数学连环画中的数量与算式",
+      "prompt": "下面这个故事是本题自编的，读一读，再按要求作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"1\",\"c\":\"10\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "11 根每天吃 5 根：11÷5=2（天）……1（根），够吃 2 天，还剩 1 根；2 天吃掉 5×2=10 根。数学连环画要让每幅画的故事、数学问题和算式互相对应，并按顺序连成完整故事，画面漂亮或只写算式都不能代替这个对应关系。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "数学连环画",
+        "textbook_sha256": "aa34f13d5d305ed6761052d4c24d0cd0c101930e665290bc1bd22b6b884fd060",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          83,
+          84
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 83、84 页支持故事、数学问题、算式与画的顺序对应；本题故事与数量为本地自编，未复制教材小猫买罐头情节。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "11÷5=2……1、11-5×2=1、5×2=10 均独立复算；第 83 页示例与第 84 页“故事—数学问题—提纲”流程支持对应关系。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "由总数和每天用量求天数",
+          "b": "求余下的数量",
+          "c": "求若干天的总用量",
+          "d": "判断故事、问题与算式是否对应"
+        }
+      },
+      "responses": [
+        {
+          "label": "小兔买了 11 根胡萝卜，每天吃 5 根，够吃几天？",
+          "answer": "2",
+          "independent_check": "(11-1)/5",
+          "units": [
+            "天"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "余下的 1 根不够再吃一天。",
+              "action": "先看余数够不够一整天。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "照上面的吃法，2 天后还剩几根？",
+          "answer": "1",
+          "independent_check": "11-5*2",
+          "units": [
+            "根"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "把剩下的 1 根记成了 2 根。",
+              "action": "11-10=1。"
+            },
+            {
+              "answer": "4",
+              "message": "多算了一天。",
+              "action": "先算 2 天吃掉 10 根。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "小兔一家 2 天一共吃掉几根？",
+          "answer": "10",
+          "independent_check": "5*2",
+          "units": [
+            "根"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "5",
+              "message": "只算了一天的数量。",
+              "action": "2 天就是 2 个 5 根。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "一幅合格的数学连环画，下面哪一项必须做到？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "每幅画的故事和数学问题对应，按顺序连成完整故事",
+            "画得越漂亮，数学就学得越好",
+            "只要写出算式，不需要故事",
+            "每幅画都必须用除法"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "画面好看不等于数量关系正确。",
+              "action": "先检查故事与算式是否对应。"
+            },
+            {
+              "answer": "3",
+              "message": "连环画要求故事和问题对应。",
+              "action": "补上故事和问题。"
+            },
+            {
+              "answer": "4",
+              "message": "可以用加法、减法或乘法，只要与故事对应。",
+              "action": "按故事中的数量关系选择运算。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "数学连环画中的数量与算式",
+        "family": "math-g2-lower:activity2:inventory-1:number-story-picture",
+        "priority": 3,
+        "order": 1,
+        "skills": [
+          "数学连环画中的数量与算式"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "由总数和每天用量求天数",
+          "求余下的数量",
+          "求若干天的总用量",
+          "判断故事、问题与算式是否对应"
+        ],
+        "difficulty_rationale": "前三项要求把有余数除法放回故事情境，第四项还要检查故事、问题、算式三者对应，不能只凭画面或单一算式。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "math-g2-lower:activity2:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "math-g2-lower:activity2:inventory-1:number-story-picture",
+        "rationale": "11÷5=2……1、11-5×2=1、5×2=10 均独立复算；第 83 页示例与第 84 页“故事—数学问题—提纲”流程支持对应关系。"
+      },
+      "common_error_feedback": "常见错误：余下的 1 根不够再吃一天；把剩下的 1 根记成了 2 根；多算了一天；只算了一天的数量；画面好看不等于数量关系正确；连环画要求故事和问题对应；可以用加法、减法或乘法，只要与故事对应。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "自编并绘制数学连环画，讲清故事、问题、算式和结果；保留作品及提示记录。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-english-g7-lower-2-lower_gap_candidates_batch4-rules-and-obligation-v1",
+      "batch": "lower_gap_candidates_batch4",
+      "grade": 7,
+      "subject": "english",
+      "book_id": "english-g7-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "规则与义务：can, must, have to",
+      "prompt": "读下面的校园和家庭规则，选择最合适的词或形式。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"2\",\"c\":\"2\",\"d\":\"1\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "must 表示必须，mustn't 表示禁止，don't have to 表示没有必要，can't 表示不允许或不能。图书馆要保持安静，用 must；公园里乱扔垃圾被禁止，用 mustn't；星期天不必早起，用 don't have to；祈使句以动词原形开头，用 Walk。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "Unit 2 No Rules, No Order",
+        "textbook_sha256": "23931ae73882e93c213b28fb32a713e1fd312bb6d3f22abe7d34625375c444a9",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          9,
+          13
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 9 页单元目标与第 13 页 Grammar Focus、3b 支持祈使句和 can、must、have to 的用法；句子与情境为本地自编，未抄录教材练习。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项均对应第 9 页单元目标与第 13 页 Grammar Focus、3b 的 can、have to/must、can't/mustn't 语境；句子为本地自编，答案唯一。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "用 must 表达必须",
+          "b": "用 mustn't 表达禁止",
+          "c": "用 don't have to 表达没有必要",
+          "d": "用动词原形构成祈使句"
+        }
+      },
+      "responses": [
+        {
+          "label": "In the library, you ___ keep quiet.",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "can't",
+            "must",
+            "mustn't",
+            "don't have to"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "图书馆里必须保持安静，不是禁止安静。",
+              "action": "先判断是“必须”还是“禁止”。"
+            },
+            {
+              "answer": "4",
+              "message": "保持安静是要求，不是没有必要。",
+              "action": "看规则是否必须遵守。"
+            }
+          ]
+        },
+        {
+          "label": "You ___ litter in the park. It is not allowed.",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "have to",
+            "mustn't",
+            "must",
+            "don't have to"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "乱扔垃圾是禁止行为，不是必须做。",
+              "action": "禁止用 mustn't。"
+            },
+            {
+              "answer": "4",
+              "message": "不允许不等于没有必要。",
+              "action": "区分禁止与没有必要。"
+            }
+          ]
+        },
+        {
+          "label": "It's Sunday tomorrow. You ___ get up early.",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "can't",
+            "don't have to",
+            "mustn't",
+            "must"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "星期天不早起不是禁止，而是没有必要。",
+              "action": "没有必要用 don't have to。"
+            },
+            {
+              "answer": "1",
+              "message": "这里不是能力或许可问题。",
+              "action": "看句子表达的是“不必”。"
+            }
+          ]
+        },
+        {
+          "label": "___ in the hallway. It's a rule.",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "Walk",
+            "Walks",
+            "Walking",
+            "To walk"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "祈使句用动词原形，不用第三人称单数。",
+              "action": "祈使句开头用原形。"
+            },
+            {
+              "answer": "3",
+              "message": "祈使句不用 -ing 形式。",
+              "action": "用动词原形。"
+            },
+            {
+              "answer": "4",
+              "message": "祈使句不用不定式。",
+              "action": "用动词原形。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "规则与义务：can, must, have to",
+        "family": "english-g7-lower:2:inventory-1:rules-and-obligation",
+        "priority": 3,
+        "order": 2,
+        "skills": [
+          "规则与义务：can, must, have to"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "用 must 表达必须",
+          "用 mustn't 表达禁止",
+          "用 don't have to 表达没有必要",
+          "用动词原形构成祈使句"
+        ],
+        "difficulty_rationale": "四项集中区分 must、mustn't、don't have to 与 can't，最后一项还要求辨认祈使句的动词形式。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "english-g7-lower:2:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "english-g7-lower:2:inventory-1:rules-and-obligation",
+        "rationale": "四项均对应第 9 页单元目标与第 13 页 Grammar Focus、3b 的 can、have to/must、can't/mustn't 语境；句子为本地自编，答案唯一。"
+      },
+      "common_error_feedback": "常见错误：图书馆里必须保持安静，不是禁止安静；保持安静是要求，不是没有必要；乱扔垃圾是禁止行为，不是必须做；不允许不等于没有必要；星期天不早起不是禁止，而是没有必要；这里不是能力或许可问题；祈使句用动词原形，不用第三人称单数；祈使句不用 -ing 形式；祈使句不用不定式。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "为一个具体场所设计规则标志，并解释规则帮助了谁、为何可行。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-biology-g7-lower-2-lower_gap_candidates_batch4-photosynthesis-respiration-v1",
+      "batch": "lower_gap_candidates_batch4",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "光合作用与呼吸作用",
+      "prompt": "根据本章的实验与结论作答，不要求重做实验。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"2\",\"b\":\"3\",\"c\":\"4\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "光合作用在叶绿体中进行，利用光能，以二氧化碳和水为原料合成有机物并释放氧气；呼吸作用则是分解有机物、释放能量。普里斯特利看到植物与蜡烛同罩时蜡烛不熄灭，说明植物能更新蜡烛燃烧后变污浊的空气；后来的实验证明光合作用消耗二氧化碳、释放氧气。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第三单元 第二章 植物体内的物质与能量变化",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          29,
+          31,
+          33,
+          38
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 29、31、33、38 页支持光合作用的场所、原料、产物、条件与呼吸作用实质；题目只考文字结论，不要求实际完成酒精加热或氢氧化钠实验。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项对应第 29、31、33、38 页的光合作用与呼吸作用实验和结论；场所、原料、实质与实验结论均逐项核对。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "指出光合作用的场所",
+          "b": "指出光合作用的原料",
+          "c": "概括呼吸作用的实质",
+          "d": "由对照实验现象推出结论"
+        }
+      },
+      "responses": [
+        {
+          "label": "光合作用主要在叶片的哪个结构中进行？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "液泡",
+            "叶绿体",
+            "线粒体",
+            "细胞核"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "线粒体与呼吸作用有关，不是光合作用的场所。",
+              "action": "看“制造有机物”发生在哪里。"
+            },
+            {
+              "answer": "4",
+              "message": "细胞核不是光合作用的场所。",
+              "action": "回忆叶绿体的功能。"
+            }
+          ]
+        },
+        {
+          "label": "光合作用的原料是什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "有机物和氧气",
+            "二氧化碳和氧气",
+            "二氧化碳和水",
+            "氧气和水"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "氧气是光合作用的产物，不是原料。",
+              "action": "区分原料与产物。"
+            },
+            {
+              "answer": "1",
+              "message": "有机物是产物，光合作用还需要二氧化碳。",
+              "action": "回到光合作用公式。"
+            }
+          ]
+        },
+        {
+          "label": "呼吸作用的实质是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "合成有机物，储存能量",
+            "吸收二氧化碳，释放氧气",
+            "把光能转变为化学能",
+            "分解有机物，释放能量"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这是光合作用，不是呼吸作用。",
+              "action": "呼吸作用分解有机物。"
+            },
+            {
+              "answer": "2",
+              "message": "这是光合作用的气体变化。",
+              "action": "看“分解有机物”。"
+            }
+          ]
+        },
+        {
+          "label": "普里斯特利的实验中，植物与点燃的蜡烛放在同一密闭玻璃罩内，蜡烛没有熄灭。这个结果说明什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "蜡烛燃烧不需要氧气",
+            "密闭玻璃罩里根本没有氧气",
+            "植物能更新蜡烛燃烧后变污浊的空气",
+            "植物能直接制造蜡烛"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "实验只说明空气被更新，不是制造蜡烛。",
+              "action": "看蜡烛为什么能继续燃烧。"
+            },
+            {
+              "answer": "1",
+              "message": "蜡烛燃烧需要氧气，只是植物补充了氧气。",
+              "action": "联系后来的实验结论。"
+            },
+            {
+              "answer": "2",
+              "message": "玻璃罩是密闭的，但里面有空气，蜡烛原本能燃烧。",
+              "action": "看蜡烛是否熄灭。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "光合作用与呼吸作用",
+        "family": "biology-g7-lower:2:inventory-1:photosynthesis-respiration",
+        "priority": 3,
+        "order": 3,
+        "skills": [
+          "光合作用与呼吸作用"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "指出光合作用的场所",
+          "指出光合作用的原料",
+          "概括呼吸作用的实质",
+          "由对照实验现象推出结论"
+        ],
+        "difficulty_rationale": "前三项区分光合作用与呼吸作用的场所、原料和实质，最后一项要求从实验现象推出结论，不能把蜡烛燃烧说成不需要氧气。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:2:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-lower:2:inventory-1:photosynthesis-respiration",
+        "rationale": "四项对应第 29、31、33、38 页的光合作用与呼吸作用实验和结论；场所、原料、实质与实验结论均逐项核对。"
+      },
+      "common_error_feedback": "常见错误：线粒体与呼吸作用有关，不是光合作用的场所；细胞核不是光合作用的场所；氧气是光合作用的产物，不是原料；有机物是产物，光合作用还需要二氧化碳；这是光合作用，不是呼吸作用；这是光合作用的气体变化；实验只说明空气被更新，不是制造蜡烛；蜡烛燃烧需要氧气，只是植物补充了氧气；玻璃罩是密闭的，但里面有空气，蜡烛原本能燃烧。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "先解释实验方案；教材涉及酒精加热和腐蚀性试剂的实验由教师组织，当前只记录待观察，后续补水分利用等要求。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-biology-g7-lower-activity1-lower_gap_candidates_batch4-planting-project-v1",
+      "batch": "lower_gap_candidates_batch4",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "activity1",
+      "difficulty": "normal",
+      "title": "栽培项目的变量与记录",
+      "prompt": "下面是本题自编的栽培探究记录要求，逐项作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"4\",\"c\":\"15\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "探究一个环境条件时，其他条件要相同，只改变要探究的那一个，所以唯一不同的条件应是浇水量。记录表要能看出生长变化，至少包括日期、株高、叶片数量和大小。三次株高的平均值为 (12+15+18)÷3=15 厘米。植株生长不正常时，应分析原因、修订方案并继续记录，不能删掉不利结果或换一盆植物代替。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "综合实践项目：栽培一种植物，探究所需的环境条件",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          51,
+          52
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 51、52 页支持项目目标、变量控制、观察指标、记录表与失败修订；题目中的株高数值为本地自编，未使用教材小组数据。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "(12+15+18)/3=15 独立复算；变量控制、记录指标与修订要求对应第 51、52 页“确定任务—制订方案—实施方案—展示交流”的流程。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "确定单变量对照中的自变量",
+          "b": "选择与生长相关的记录指标",
+          "c": "计算重复测量的平均值",
+          "d": "依据失败结果修订方案"
+        }
+      },
+      "responses": [
+        {
+          "label": "探究“浇水量多少”对植物生长的影响时，两组之间唯一不同的条件应该是什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "花盆颜色",
+            "摆放的房间",
+            "浇水量",
+            "植物种类"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "探究浇水量时，植物种类应保持一致。",
+              "action": "只改变要探究的条件。"
+            },
+            {
+              "answer": "1",
+              "message": "花盆颜色不是本题要探究的变量。",
+              "action": "其他条件保持相同。"
+            }
+          ]
+        },
+        {
+          "label": "为了比较植株的生长情况，记录表最应该记录哪一组指标？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "花盆的价格和颜色",
+            "浇水人的姓名",
+            "每天的心情",
+            "日期、株高、叶片数量和大小"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "价格和颜色不能反映生长变化。",
+              "action": "选能测量的生长指标。"
+            },
+            {
+              "answer": "2",
+              "message": "姓名与植株生长无关。",
+              "action": "记录可比较的生长数据。"
+            },
+            {
+              "answer": "3",
+              "message": "心情不是植株的生长指标。",
+              "action": "选株高、叶片等指标。"
+            }
+          ]
+        },
+        {
+          "label": "三次测量同一株植物的株高分别为 12 厘米、15 厘米、18 厘米，平均值是多少厘米？",
+          "answer": "15",
+          "independent_check": "(12+15+18)/3",
+          "units": [
+            "厘米"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "9",
+              "message": "把三个数相加后没有除以 3。",
+              "action": "平均值要先求和再除以次数。"
+            },
+            {
+              "answer": "18",
+              "message": "只取了最大的一个测量值。",
+              "action": "三次测量要取平均。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "栽培过程中发现植株生长不正常，最合适的做法是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "把不正常的记录删掉",
+            "直接宣布实验成功",
+            "换一盆已经长好的植物拍照",
+            "分析可能原因，修订方案后再实施并继续记录"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "删掉记录会掩盖真实结果。",
+              "action": "保留全部记录并分析原因。"
+            },
+            {
+              "answer": "2",
+              "message": "结果不正常时不能宣布成功。",
+              "action": "先分析原因再修订。"
+            },
+            {
+              "answer": "3",
+              "message": "换植物不能代表本组结果。",
+              "action": "保留本组实际记录。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "栽培项目的变量与记录",
+        "family": "biology-g7-lower:activity1:inventory-1:planting-project",
+        "priority": 3,
+        "order": 4,
+        "skills": [
+          "栽培项目的变量与记录"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "确定单变量对照中的自变量",
+          "选择与生长相关的记录指标",
+          "计算重复测量的平均值",
+          "依据失败结果修订方案"
+        ],
+        "difficulty_rationale": "四项覆盖变量控制、观察指标、平均值和失败修订；最后一项要求保留真实记录，不能以成功照片代替过程。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:activity1:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-lower:activity1:inventory-1:planting-project",
+        "rationale": "(12+15+18)/3=15 独立复算；变量控制、记录指标与修订要求对应第 51、52 页“确定任务—制订方案—实施方案—展示交流”的流程。"
+      },
+      "common_error_feedback": "常见错误：探究浇水量时，植物种类应保持一致；花盆颜色不是本题要探究的变量；价格和颜色不能反映生长变化；姓名与植株生长无关；心情不是植株的生长指标；把三个数相加后没有除以 3；只取了最大的一个测量值；删掉记录会掩盖真实结果；结果不正常时不能宣布成功；换植物不能代表本组结果。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "制定方案、分工实施、保留连续记录并据失败修订，报告实际结果；不要求成功开花才算有记录。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-biology-g7-lower-3-lower_gap_candidates_batch4-reproduction-puberty-v1",
+      "batch": "lower_gap_candidates_batch4",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "生殖系统与青春期的普遍规律",
+      "prompt": "本题只使用教材中的普遍规律，不涉及任何真实个人的身体数据。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"4\",\"b\":\"4\",\"c\":\"1\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "睾丸产生精子并分泌雄激素；卵巢产生卵细胞并分泌雌激素。精子与卵细胞在输卵管相遇形成受精卵，受精卵发育成胚泡后植入子宫内膜，胚胎在子宫内发育。青春期身体变化有一般规律，但个体之间存在差异，不能用同一个时间表要求所有人。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 第一章 人的生殖和发育",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          58,
+          60,
+          64
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 58、60、64 页支持生殖器官功能、受精与胚胎发育场所、青春期一般规律；题目不涉及真实个人数据，也不替代正规健康教育。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项对应第 58、60、64 页的生殖系统、受精与胚胎发育、青春期变化；题目只用普遍规律，未索取任何个人或家庭身体数据。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "对应男性主要生殖器官与功能",
+          "b": "指出受精发生的场所",
+          "c": "指出胚胎发育的主要场所",
+          "d": "区分一般发育规律与个体差异"
+        }
+      },
+      "responses": [
+        {
+          "label": "男性产生精子的主要生殖器官是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "卵巢",
+            "子宫",
+            "输卵管",
+            "睾丸"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "卵巢是女性的主要生殖器官。",
+              "action": "区分男性与女性的生殖器官。"
+            },
+            {
+              "answer": "2",
+              "message": "子宫是胚胎发育的场所，不产生精子。",
+              "action": "看“产生精子”这个功能。"
+            }
+          ]
+        },
+        {
+          "label": "受精卵形成的场所是哪里？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "子宫",
+            "卵巢",
+            "阴道",
+            "输卵管"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "受精发生在输卵管，胚胎才在子宫发育。",
+              "action": "区分受精与胚胎发育的场所。"
+            },
+            {
+              "answer": "2",
+              "message": "卵巢排出卵细胞，不是受精场所。",
+              "action": "看精子与卵细胞在哪里相遇。"
+            }
+          ]
+        },
+        {
+          "label": "胚胎在母体内发育的主要场所是哪里？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "子宫",
+            "输卵管",
+            "卵巢",
+            "睾丸"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "输卵管是受精场所，胚胎发育主要在子宫。",
+              "action": "区分两个场所。"
+            },
+            {
+              "answer": "3",
+              "message": "卵巢不承担胚胎发育。",
+              "action": "看“胚胎发育”。"
+            }
+          ]
+        },
+        {
+          "label": "关于青春期发育，下面哪一句正确？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "所有人在同一年龄出现完全相同的变化",
+            "青春期只有身体变化，没有心理变化",
+            "青春期发育速度只由个人意愿决定",
+            "身体变化有一般规律，但每个人的开始时间和速度可能不同"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "青春期变化存在个体差异。",
+              "action": "一般规律不等于统一时间表。"
+            },
+            {
+              "answer": "2",
+              "message": "青春期也有心理变化。",
+              "action": "看教材对青春期的说明。"
+            },
+            {
+              "answer": "3",
+              "message": "发育受多种因素影响，不只由意愿决定。",
+              "action": "区分规律与个人选择。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "生殖系统与青春期的普遍规律",
+        "family": "biology-g7-lower:3:inventory-1:reproduction-puberty",
+        "priority": 3,
+        "order": 5,
+        "skills": [
+          "生殖系统与青春期的普遍规律"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "对应男性主要生殖器官与功能",
+          "指出受精发生的场所",
+          "指出胚胎发育的主要场所",
+          "区分一般发育规律与个体差异"
+        ],
+        "difficulty_rationale": "前三项要求把器官与功能、场所对应起来，最后一项要求同时承认一般规律和个体差异，不能把统计规律当成对每个人的硬性要求。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:3:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-lower:3:inventory-1:reproduction-puberty",
+        "rationale": "四项对应第 58、60、64 页的生殖系统、受精与胚胎发育、青春期变化；题目只用普遍规律，未索取任何个人或家庭身体数据。"
+      },
+      "common_error_feedback": "常见错误：卵巢是女性的主要生殖器官；子宫是胚胎发育的场所，不产生精子；受精发生在输卵管，胚胎才在子宫发育；卵巢排出卵细胞，不是受精场所；输卵管是受精场所，胚胎发育主要在子宫；卵巢不承担胚胎发育；青春期变化存在个体差异；青春期也有心理变化；发育受多种因素影响，不只由意愿决定。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "用教材模型解释过程或虚构情境提出健康建议；不要求提供本人或家人的身体数据。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-biology-g7-lower-4-lower_gap_candidates_batch4-nutrients-and-evidence-v1",
+      "batch": "lower_gap_candidates_batch4",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "营养物质的作用与重复测量",
+      "prompt": "根据本章资料作答，不要求实际做实验。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"2\",\"c\":\"3\",\"d\":\"3.0\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "糖类是重要的能源物质；蛋白质是建造和修复身体的重要原料；铁是血红蛋白的组成成分，缺铁易引起缺铁性贫血。重复组的数据应取平均值：(2.8+3.0+3.2)÷3=3.0，这样可以减少偶然因素的影响。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 第二章 人体的营养",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          70,
+          71,
+          74
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 70、71、74 页支持六类营养物质、糖类与蛋白质作用、缺铁表现和重复组平均值；题目数值为本地自编，未使用真实检验数据。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "(2.8+3.0+3.2)/3=3.0 独立复算；糖类、蛋白质、铁的作用与平均值方法对应第 70、71、74 页的六类营养物质与“设置重复组”。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "对应糖类与能量供应",
+          "b": "对应蛋白质与建造修复",
+          "c": "对应缺铁与缺铁性贫血",
+          "d": "计算重复测量的平均值"
+        }
+      },
+      "responses": [
+        {
+          "label": "糖类对人体的主要作用是什么？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "运输氧气",
+            "构成骨骼的唯一材料",
+            "提供生命活动需要的能量",
+            "建造和修复身体"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "这是蛋白质的主要作用。",
+              "action": "看“提供能量”。"
+            },
+            {
+              "answer": "1",
+              "message": "运输氧气主要与红细胞和血红蛋白有关。",
+              "action": "区分能源物质与运输功能。"
+            }
+          ]
+        },
+        {
+          "label": "蛋白质对人体的主要作用是什么？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "代替水运输废物",
+            "建造和修复身体的重要原料",
+            "提供全部能量",
+            "预防缺铁性贫血"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "蛋白质也能供能，但不是“全部能量”的唯一来源。",
+              "action": "看主要作用。"
+            },
+            {
+              "answer": "4",
+              "message": "预防缺铁性贫血主要与铁有关。",
+              "action": "区分蛋白质与无机盐。"
+            }
+          ]
+        },
+        {
+          "label": "人体缺铁时，最容易出现哪种情况？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "地方性甲状腺肿",
+            "夜盲症",
+            "缺铁性贫血",
+            "佝偻病"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "佝偻病主要与缺钙有关。",
+              "action": "看缺的是铁还是钙。"
+            },
+            {
+              "answer": "1",
+              "message": "这与缺碘有关。",
+              "action": "对应无机盐种类。"
+            },
+            {
+              "answer": "2",
+              "message": "夜盲症主要与维生素 A 有关。",
+              "action": "本题问缺铁。"
+            }
+          ]
+        },
+        {
+          "label": "同一实验在相同条件下重复三次，测得数值为 2.8、3.0、3.2（单位相同），三次的平均值是多少？",
+          "answer": "3.0",
+          "independent_check": "(2.8+3.0+3.2)/3",
+          "units": [],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "9",
+              "message": "把三个数相加后没有除以 3。",
+              "action": "平均值要先求和再除以次数。"
+            },
+            {
+              "answer": "2.8",
+              "message": "只取了第一个测量值。",
+              "action": "三次测量要取平均。"
+            }
+          ],
+          "id": "d"
+        }
+      ],
+      "design": {
+        "form": "营养物质的作用与重复测量",
+        "family": "biology-g7-lower:4:inventory-1:nutrients-and-evidence",
+        "priority": 3,
+        "order": 6,
+        "skills": [
+          "营养物质的作用与重复测量"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "对应糖类与能量供应",
+          "对应蛋白质与建造修复",
+          "对应缺铁与缺铁性贫血",
+          "计算重复测量的平均值"
+        ],
+        "difficulty_rationale": "前三项区分糖类、蛋白质和铁的典型作用，最后一项要求把重复组数据取平均，不能只取某一个测量值。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:4:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-lower:4:inventory-1:nutrients-and-evidence",
+        "rationale": "(2.8+3.0+3.2)/3=3.0 独立复算；糖类、蛋白质、铁的作用与平均值方法对应第 70、71、74 页的六类营养物质与“设置重复组”。"
+      },
+      "common_error_feedback": "常见错误：这是蛋白质的主要作用；运输氧气主要与红细胞和血红蛋白有关；蛋白质也能供能，但不是“全部能量”的唯一来源；预防缺铁性贫血主要与铁有关；佝偻病主要与缺钙有关；这与缺碘有关；夜盲症主要与维生素 A 有关；把三个数相加后没有除以 3；只取了第一个测量值。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "说明均衡选择食物的依据；实验操作、消化吸收和食品安全需继续逐项展开。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-biology-g7-lower-5-lower_gap_candidates_batch4-breathing-system-v1",
+      "batch": "lower_gap_candidates_batch4",
+      "grade": 7,
+      "subject": "biology",
+      "book_id": "biology-g7-lower",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "呼吸系统的组成与通气",
+      "prompt": "根据本章文字与示意图的说明作答，不要求实际测量。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"3\",\"b\":\"4\",\"c\":\"4\",\"d\":\"3\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "呼吸系统由呼吸道和肺组成，呼吸道是气体进出肺的通道。吸气时肋间肌和膈肌收缩，胸廓扩大；呼气时相反。呼出气体中二氧化碳明显增多、氧气减少。肺泡与血液之间，氧气进入血液，二氧化碳进入肺泡。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第四单元 第三章 人体的呼吸",
+        "textbook_sha256": "d68d722f99ae7d1edce0b43684e8e1130db1c0d368fcfe5596db5cc0b5a80aa1",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          92,
+          93,
+          98
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 92、93、98 页支持呼吸系统组成、胸廓变化和吸入呼出气体成分；题目只考文字与表格结论，不替代模型制作或实际测量。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项对应第 92、93、98 页的呼吸系统组成、胸廓变化与气体成分表；气体方向与数据表一致，题目不要求实际肺活量测量。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "说出呼吸系统的两部分",
+          "b": "联系胸廓变化与吸气",
+          "c": "比较吸入与呼出气体成分",
+          "d": "说明肺泡与血液的气体交换方向"
+        }
+      },
+      "responses": [
+        {
+          "label": "人体的呼吸系统由哪两部分组成？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "鼻腔和膈",
+            "肺和胃",
+            "呼吸道和肺",
+            "气管和心脏"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "心脏属于循环系统，不是呼吸系统的一部分。",
+              "action": "看呼吸系统的组成。"
+            },
+            {
+              "answer": "1",
+              "message": "鼻腔只是呼吸道的一部分，膈是呼吸肌。",
+              "action": "呼吸道包括鼻、咽、喉、气管、支气管。"
+            }
+          ]
+        },
+        {
+          "label": "吸气时，胸廓的变化和主要原因是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "肋间肌和膈肌舒张，胸廓缩小",
+            "肋间肌收缩、膈肌舒张，胸廓不变",
+            "只有肺自己变大，胸廓不变",
+            "肋间肌和膈肌收缩，胸廓扩大"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这是呼气时的变化。",
+              "action": "吸气时肌肉收缩、胸廓扩大。"
+            },
+            {
+              "answer": "2",
+              "message": "吸气时两种肌肉都收缩。",
+              "action": "联系胸廓扩大。"
+            },
+            {
+              "answer": "3",
+              "message": "肺不能自己主动变大，胸廓变化是动力。",
+              "action": "看肋骨和膈的运动。"
+            }
+          ]
+        },
+        {
+          "label": "与吸入的气体相比，呼出的气体中明显增多的是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "氧气",
+            "氮气",
+            "水蒸气以外的所有气体",
+            "二氧化碳"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "呼出气体中氧气减少，不是增多。",
+              "action": "看气体成分表。"
+            },
+            {
+              "answer": "2",
+              "message": "氮气含量基本不变。",
+              "action": "比较表中数值。"
+            },
+            {
+              "answer": "3",
+              "message": "这个说法把增多和减少混在一起。",
+              "action": "只找明显增多的成分。"
+            }
+          ]
+        },
+        {
+          "label": "肺泡与血液之间进行气体交换时，气体怎样移动？",
+          "answer": "3",
+          "independent_check": "3",
+          "units": [],
+          "options": [
+            "氧气和二氧化碳都进入血液",
+            "氧气和二氧化碳都不移动",
+            "氧气进入血液，二氧化碳进入肺泡",
+            "二氧化碳进入血液，氧气进入肺泡"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "4",
+              "message": "方向反了。",
+              "action": "血液需要氧气，肺泡需要排出二氧化碳。"
+            },
+            {
+              "answer": "1",
+              "message": "二氧化碳应从血液进入肺泡。",
+              "action": "分清两种气体的去向。"
+            },
+            {
+              "answer": "2",
+              "message": "气体交换会发生扩散。",
+              "action": "看肺泡与血液的功能。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "呼吸系统的组成与通气",
+        "family": "biology-g7-lower:5:inventory-1:breathing-system",
+        "priority": 3,
+        "order": 7,
+        "skills": [
+          "呼吸系统的组成与通气"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "说出呼吸系统的两部分",
+          "联系胸廓变化与吸气",
+          "比较吸入与呼出气体成分",
+          "说明肺泡与血液的气体交换方向"
+        ],
+        "difficulty_rationale": "四项把结构、通气运动和气体交换连起来，最后一项要求分清气体移动方向，不能把呼吸运动与细胞呼吸混为一谈。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "biology-g7-lower:5:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "biology-g7-lower:5:inventory-1:breathing-system",
+        "rationale": "四项对应第 92、93、98 页的呼吸系统组成、胸廓变化与气体成分表；气体方向与数据表一致，题目不要求实际肺活量测量。"
+      },
+      "common_error_feedback": "常见错误：心脏属于循环系统，不是呼吸系统的一部分；鼻腔只是呼吸道的一部分，膈是呼吸肌；这是呼气时的变化；吸气时两种肌肉都收缩；肺不能自己主动变大，胸廓变化是动力；呼出气体中氧气减少，不是增多；氮气含量基本不变；这个说法把增多和减少混在一起；方向反了；二氧化碳应从血液进入肺泡；气体交换会发生扩散。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "制作或使用模型解释呼吸运动，指出模型局限；气体交换全过程后续细化。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-geography-g7-lower-8-lower_gap_candidates_batch4-japan-nature-v1",
+      "batch": "lower_gap_candidates_batch4",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-lower",
+      "chapter_id": "8",
+      "difficulty": "normal",
+      "title": "日本的位置、地形与火山地震",
+      "prompt": "根据教材文字与地图信息作答。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"1\",\"b\":\"4\",\"c\":\"1\",\"d\":\"4\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "日本是太平洋西北部的岛国，由北海道、本州、四国、九州四个大岛及附近小岛组成。它位于亚欧板块与太平洋板块的交界地带，地壳活动活跃，因此多火山、地震。国土南北狭长，山地、丘陵广布，沿海平原狭小。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "第八章 我们邻近的地区和国家",
+        "textbook_sha256": "1a720dbf86203de323f96a59bd47f03ec77cacbeda899cdeb601a94a24c11fc6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          20,
+          21
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 20、21 页支持日本四大岛、板块交界、火山地震和地形特点；题目未使用图中未核对的统计数字，也未扩展到其他地区。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "四项对应第 20、21 页日本位置与地形图、板块交界和火山地震说明；岛屿名称、板块名称与地形描述均逐项核对。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "指认日本的四个大岛",
+          "b": "说出日本所处的两大板块",
+          "c": "由板块位置解释火山地震",
+          "d": "概括日本的地形特点"
+        }
+      },
+      "responses": [
+        {
+          "label": "日本由四个大岛及附近小岛组成，四个大岛是哪些？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "北海道、本州、四国、九州",
+            "北海道、本州、四国、冲绳",
+            "本州、四国、九州、台湾",
+            "北海道、九州、琉球、四国"
+          ],
+          "kind": "choice",
+          "id": "a",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "冲绳不是四个大岛之一。",
+              "action": "按教材四大岛名称核对。"
+            },
+            {
+              "answer": "3",
+              "message": "台湾不是日本的岛屿。",
+              "action": "看日本领土范围。"
+            },
+            {
+              "answer": "4",
+              "message": "琉球群岛不是四个大岛之一。",
+              "action": "按四大岛名称核对。"
+            }
+          ]
+        },
+        {
+          "label": "日本位于哪两大板块的交界地带？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "亚欧板块与印度洋板块",
+            "美洲板块与非洲板块",
+            "南极洲板块与太平洋板块",
+            "亚欧板块与太平洋板块"
+          ],
+          "kind": "choice",
+          "id": "b",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "这是喜马拉雅一带的板块关系。",
+              "action": "看日本所在位置。"
+            },
+            {
+              "answer": "2",
+              "message": "这两大板块不在日本交界。",
+              "action": "回到东亚板块图。"
+            },
+            {
+              "answer": "3",
+              "message": "南极洲板块不在日本附近。",
+              "action": "看日本周边的板块。"
+            }
+          ]
+        },
+        {
+          "label": "日本多火山、地震的主要原因是？",
+          "answer": "1",
+          "independent_check": "1",
+          "units": [],
+          "options": [
+            "位于板块交界地带，地壳活动活跃",
+            "国土面积狭小",
+            "海岸线曲折",
+            "降水丰富"
+          ],
+          "kind": "choice",
+          "id": "c",
+          "errors": [
+            {
+              "answer": "2",
+              "message": "面积小不是多火山地震的原因。",
+              "action": "看板块位置。"
+            },
+            {
+              "answer": "3",
+              "message": "海岸线曲折影响港湾，不是火山地震原因。",
+              "action": "联系板块交界。"
+            },
+            {
+              "answer": "4",
+              "message": "降水与火山地震无直接关系。",
+              "action": "看地壳活动。"
+            }
+          ]
+        },
+        {
+          "label": "日本的地形特点是什么？",
+          "answer": "4",
+          "independent_check": "4",
+          "units": [],
+          "options": [
+            "平原广布，山地很少",
+            "全境都是高原",
+            "地势低平，没有山地",
+            "山地、丘陵广布，沿海平原狭小"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "1",
+              "message": "日本山地丘陵广布。",
+              "action": "看地形图。"
+            },
+            {
+              "answer": "2",
+              "message": "日本不是高原国家。",
+              "action": "看地形描述。"
+            },
+            {
+              "answer": "3",
+              "message": "日本多山。",
+              "action": "看“山地、丘陵广布”。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "日本的位置、地形与火山地震",
+        "family": "geography-g7-lower:8:inventory-1:japan-nature",
+        "priority": 3,
+        "order": 8,
+        "skills": [
+          "日本的位置、地形与火山地震"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "指认日本的四个大岛",
+          "说出日本所处的两大板块",
+          "由板块位置解释火山地震",
+          "概括日本的地形特点"
+        ],
+        "difficulty_rationale": "四项分别考位置组成、板块、火山地震原因和地形，需要把地图信息与板块解释连起来，不能只背结论。"
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-lower:8:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-lower:8:inventory-1:japan-nature",
+        "rationale": "四项对应第 20、21 页日本位置与地形图、板块交界和火山地震说明；岛屿名称、板块名称与地形描述均逐项核对。"
+      },
+      "common_error_feedback": "常见错误：冲绳不是四个大岛之一；台湾不是日本的岛屿；琉球群岛不是四个大岛之一；这是喜马拉雅一带的板块关系；这两大板块不在日本交界；南极洲板块不在日本附近；面积小不是多火山地震的原因；海岸线曲折影响港湾，不是火山地震原因；降水与火山地震无直接关系；日本山地丘陵广布；日本不是高原国家；日本多山。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "结合可核对的地图说明自然条件与生活的联系；东南亚、印度、俄罗斯后续展开。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    },
+    {
+      "id": "family-chapter-geography-g7-lower-activity2-lower_gap_candidates_batch4-rainforest-carbon-v1",
+      "batch": "lower_gap_candidates_batch4",
+      "grade": 7,
+      "subject": "geography",
+      "book_id": "geography-g7-lower",
+      "chapter_id": "activity2",
+      "difficulty": "normal",
+      "title": "雨林固碳项目：面积、碳储量与单位面积",
+      "prompt": "下表数据来自教材第 108 页图 1，按原页目视核对，单位为森林面积万公顷、森林碳储量亿吨。只用于本题计算，不代表当前实时统计。\n请分别完成下面各项。",
+      "answer": "{\"a\":\"6960\",\"b\":\"128.5\",\"c\":\"220\",\"d\":\"2\"}",
+      "units": [],
+      "hint": "先辨认本题要求的量或词语，再回到条件逐项核对；短答只填本项要求的词语或数值。",
+      "explanation": "森林面积合计 1600+900+460+4000=6960 万公顷；碳储量合计 17.1+15.4+8.0+88.0=128.5 亿吨。热带森林 88 亿吨、4000 万公顷，88×100000000÷(4000×10000)=220 吨/公顷。表中热带森林的面积和碳储量都最大，说明其固碳贡献突出；面积、碳储量和单位面积指标不能混为一谈。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地固定教材目录与主题核对；材料、情境及题目为自编，非教材原题",
+        "chapter_title": "跨学科主题学习：探寻热带雨林的固碳功能",
+        "textbook_sha256": "1a720dbf86203de323f96a59bd47f03ec77cacbeda899cdeb601a94a24c11fc6",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          107,
+          108
+        ],
+        "reference_scope": "topic_location_not_verbatim_question",
+        "evidence_limit": "第 107、108 页支持森林固碳原理与不同热量带森林面积、碳储量的比较；图 1 数字以原页目视核对值为准（文字层乱码），不代表当前实时统计。"
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated",
+        "content_check": "6960、128.5、220 均独立复算；表内数字取自教材第 108 页图 1 的目视核对值（文字层对应数字为乱码），并在题干与表题注明出处、单位与统计口径。",
+        "curriculum_standard_crosscheck": "pending",
+        "deployment_status": "local_candidate_not_registered",
+        "field_coverage": {
+          "a": "合计四类森林面积",
+          "b": "合计四类森林碳储量",
+          "c": "由碳储量与面积求单位面积碳储量",
+          "d": "比较面积与碳储量两项指标"
+        }
+      },
+      "responses": [
+        {
+          "label": "四个热量带的森林面积一共是多少万公顷？",
+          "answer": "6960",
+          "independent_check": "1600+900+460+4000",
+          "units": [
+            "万公顷"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "7060",
+              "message": "把亚热带的 460 当成了 560。",
+              "action": "逐个核对加数。"
+            }
+          ],
+          "id": "a"
+        },
+        {
+          "label": "四个热量带的森林碳储量一共是多少亿吨？",
+          "answer": "128.5",
+          "independent_check": "17.1+15.4+8.0+88.0",
+          "units": [
+            "亿吨"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "127.5",
+              "message": "小数相加时漏掉了 1。",
+              "action": "先算 17.1+15.4，再加 8.0 和 88.0。"
+            },
+            {
+              "answer": "130.5",
+              "message": "把 8.0 加成了 10.0。",
+              "action": "按表内数字逐项相加。"
+            }
+          ],
+          "id": "b"
+        },
+        {
+          "label": "热带森林的碳储量约合每公顷多少吨？（1 亿吨=100000000 吨，1 万公顷=10000 公顷）",
+          "answer": "220",
+          "independent_check": "88*100000000/(4000*10000)",
+          "units": [
+            "吨/公顷"
+          ],
+          "options": [],
+          "kind": "number",
+          "errors": [
+            {
+              "answer": "22",
+              "message": "少算了一个数量级。",
+              "action": "亿吨换成吨要乘 1 亿，万公顷换成公顷要乘 1 万。"
+            },
+            {
+              "answer": "2200",
+              "message": "多算了一个数量级。",
+              "action": "核对两次单位换算。"
+            }
+          ],
+          "id": "c"
+        },
+        {
+          "label": "根据表中的面积和碳储量，下面哪种说法正确？",
+          "answer": "2",
+          "independent_check": "2",
+          "units": [],
+          "options": [
+            "四类森林的碳储量相同",
+            "热带森林面积和碳储量都是四类中最大的",
+            "热带森林面积最大，但碳储量最小",
+            "寒带森林碳储量最大"
+          ],
+          "kind": "choice",
+          "id": "d",
+          "errors": [
+            {
+              "answer": "3",
+              "message": "热带碳储量 88.0 亿吨，是四类中最大的。",
+              "action": "同时看两列。"
+            },
+            {
+              "answer": "4",
+              "message": "寒带碳储量 17.1 亿吨，小于热带。",
+              "action": "比较碳储量列。"
+            },
+            {
+              "answer": "1",
+              "message": "四类碳储量分别为 17.1、15.4、8.0、88.0。",
+              "action": "逐项比较。"
+            }
+          ]
+        }
+      ],
+      "design": {
+        "form": "雨林固碳项目：面积、碳储量与单位面积",
+        "family": "geography-g7-lower:activity2:inventory-1:rainforest-carbon",
+        "priority": 3,
+        "order": 9,
+        "skills": [
+          "雨林固碳项目：面积、碳储量与单位面积"
+        ],
+        "demand": "联合材料完成多个结果或判断，全部正确才记本题答对",
+        "assessment_limit": "只核对指定结果或判断，不代替自由写作、口述、听说或实际操作。",
+        "core_actions": [
+          "合计四类森林面积",
+          "合计四类森林碳储量",
+          "由碳储量与面积求单位面积碳储量",
+          "比较面积与碳储量两项指标"
+        ],
+        "difficulty_rationale": "两项合计分别用整数和一位小数，第三项要先统一亿吨与吨、万公顷与公顷，最后一项要求同时比较面积和碳储量，不能用总量代替单位面积指标。"
+      },
+      "visual": {
+        "kind": "table",
+        "caption": "教材第 108 页图 1（原页目视核对值；面积单位万公顷，碳储量单位亿吨）",
+        "rows": [
+          [
+            "热量带",
+            "森林面积/万公顷",
+            "森林碳储量/亿吨"
+          ],
+          [
+            "寒带森林",
+            "1600",
+            "17.1"
+          ],
+          [
+            "温带森林",
+            "900",
+            "15.4"
+          ],
+          [
+            "亚热带森林",
+            "460",
+            "8.0"
+          ],
+          [
+            "热带森林",
+            "4000",
+            "88.0"
+          ]
+        ]
+      },
+      "response_protocol": "short-fields-v2",
+      "knowledge": {
+        "point_id": "geography-g7-lower:activity2:inventory-1",
+        "task": "check",
+        "role": "direct",
+        "family": "geography-g7-lower:activity2:inventory-1:rainforest-carbon",
+        "rationale": "6960、128.5、220 均独立复算；表内数字取自教材第 108 页图 1 的目视核对值（文字层对应数字为乱码），并在题干与表题注明出处、单位与统计口径。"
+      },
+      "common_error_feedback": "常见错误：把亚热带的 460 当成了 560；小数相加时漏掉了 1；把 8.0 加成了 10.0；少算了一个数量级；多算了一个数量级；热带碳储量 88.0 亿吨，是四类中最大的；寒带碳储量 17.1 亿吨，小于热带；四类碳储量分别为 17.1、15.4、8.0、88.0。逐项回到题干给出的条件核对后再作答。",
+      "manual_followup": {
+        "prompt": "绘制光合作用和气候关系图，注明统计对象与数据来源；本题数据取自原页 108 图 1 的目视核对值，不按文字层取数。",
+        "criteria": [
+          "说明具体材料或步骤",
+          "理由与本条知识相符",
+          "保留实际表现及所用提示，不以模板代替"
+        ],
+        "automatically_graded": false,
+        "completion": "not_observed",
+        "reviewer": null,
+        "learner_record_created": false,
+        "example_is_not_unique_answer": true
+      }
+    }
+  ]
+}

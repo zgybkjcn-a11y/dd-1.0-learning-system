@@ -18,9 +18,9 @@ from .db import json_dumps, json_loads, new_id, utc_now
 
 BANK_PATH = Path(__file__).parent / 'data/family_word_problems_v1.json'
 BANK_SHA256 = '38e0903024ed9c402a8c66e8b02a3afd3e304ad55913fbdb0572a16589d211ef'
-LEVELS = ('easy', 'normal', 'hard')
+LEVELS = ('easy', 'normal', 'hard', 'challenge')
 AUTO_PROMOTION_CORRECT = 4
-LABELS = dict(zip(LEVELS, ('简单', '正常', '困难')))
+LABELS = dict(zip(LEVELS, ('简单', '正常', '困难', '挑战')))
 OBJECTIVES = {
     (2, '2'): '生活中的1～6表内乘法',
     (2, '3'): '生活中的1～6表内除法',
@@ -93,6 +93,8 @@ def collection_preview(conn, learner_id, attempt_id):
                'assessment_eligibility': bool(row['assessment_eligibility']), 'session_mode': row['session_mode'],
                'objective_id': snapshot['objective_id'], 'diagnosis': None,
                'textbook_scope': practice_scope(row['question_version_id'])}
+    from .practice_response import response_fields
+    preview.update(response_fields(content))
     return {**preview, 'preview_sha256': fingerprint(preview)}
 
 
@@ -129,12 +131,22 @@ def workspace_state(conn, learner_id):
         return {'learner_id': learner_id, 'revision': 0, 'book_id': None, 'chapter_id': '',
                 'difficulty': 'auto', 'pool': 'initial', 'current_session_id': None, 'completed_ids': []}
     completed = conn.execute(
-        "SELECT DISTINCT ti.question_version_id FROM practice_rounds r JOIN test_items ti "
+        "SELECT DISTINCT ti.question_version_id,r.difficulty FROM practice_rounds r JOIN test_items ti "
         "ON ti.practice_round_id=r.id AND ti.practice_round_generation=r.generation "
         "WHERE r.learner_id=? AND r.book_id=? AND r.chapter_id=? AND r.pool=? "
         "AND ti.learner_id=? AND ti.status='graded' ORDER BY ti.question_version_id",
         (learner_id, row['book_id'], row['chapter_id'], row['pool'], learner_id)).fetchall()
-    return {**dict(row), 'completed_ids': [r[0] for r in completed]}
+    # A reclassified question starts in its corrected tier's round. Keep its
+    # original attempt and original round intact; restarting the new tier must
+    # not remain blocked by a completed item in an old, different tier.
+    from .practice_design import presentation
+    completed_ids = []
+    for item in completed:
+        q = question(item['question_version_id'])
+        if q and presentation(q).get('difficulty', q['difficulty']) != item['difficulty']:
+            continue
+        completed_ids.append(item['question_version_id'])
+    return {**dict(row), 'completed_ids': completed_ids}
 
 
 def check_workspace_revision(conn, learner_id, revision):
@@ -255,6 +267,9 @@ def placement(version_id: str):
 
 
 def question(version_id: str):
+    if version_id.startswith('family-chapter-'):
+        from .chapter_practice import bank as chapter_bank
+        return chapter_bank().get(version_id)
     item = bank().get(version_id)
     if item is None and version_id.startswith('family-reserve-'):
         from .reserve_practice import bank as reserve_bank
@@ -265,10 +280,14 @@ def question(version_id: str):
 def metadata(version_id: str):
     item = question(version_id)
     if not item: return None
+    if version_id.startswith('family-chapter-'):
+        from .chapter_practice import metadata as chapter_metadata
+        return chapter_metadata(item)
     if version_id.startswith('family-reserve-'):
         from .reserve_practice import metadata as reserve_metadata
         return reserve_metadata(item)
-    return {k: item[k] for k in ('title', 'difficulty', 'extension', 'source')}
+    from .practice_design import presentation
+    return {k: item[k] for k in ('title', 'difficulty', 'extension', 'source')} | presentation(item)
 
 
 def numeric_answer(raw: str, units: list[str]) -> Fraction | None:
@@ -323,14 +342,14 @@ def guidance(records: list[dict]) -> dict:
             counted.add(record['question_version_id'])
             streak += 1
             if streak >= AUTO_PROMOTION_CORRECT:
-                level = min(difficulty + 1, 2)
+                level = min(difficulty + 1, len(LEVELS)-1)
                 reason = ('同一难度已连续独立答对 4 道不同题，可以尝试' + LABELS[LEVELS[level]] + '题。'
-                          if difficulty < 2 else '困难题已连续独立答对 4 道不同题，继续巩固或选择其他章节。')
-                if difficulty < 2:
+                          if difficulty < len(LEVELS)-1 else '挑战题已连续独立答对 4 道不同题，继续巩固或选择其他章节。')
+                if difficulty < len(LEVELS)-1:
                     streak, streak_level = 0, level
                     counted.clear()
             else:
-                reason = f'{LABELS[LEVELS[difficulty]]}题已连续独立答对 {streak} / {AUTO_PROMOTION_CORRECT} 道不同题；再答对 {AUTO_PROMOTION_CORRECT - streak} 道后尝试进阶。' if difficulty < 2 else '继续保持自己的节奏。'
+                reason = f'{LABELS[LEVELS[difficulty]]}题已连续独立答对 {streak} / {AUTO_PROMOTION_CORRECT} 道不同题；再答对 {AUTO_PROMOTION_CORRECT - streak} 道后尝试进阶。' if difficulty < len(LEVELS)-1 else '继续保持自己的节奏。'
         else:
             # Easier practice does not count toward a harder-level streak.
             streak, streak_level = 0, level
@@ -340,6 +359,7 @@ def guidance(records: list[dict]) -> dict:
 
 
 def learner_guidance(conn, learner_id: str) -> dict:
+    from .practice_design import presentation
     records = conn.execute(
         "SELECT ti.question_version_id,a.assistance,a.assessment_eligibility,g.outcome "
         "FROM attempts a JOIN test_items ti ON ti.id=a.test_item_id "
@@ -350,7 +370,7 @@ def learner_guidance(conn, learner_id: str) -> dict:
         q = question(row['question_version_id'])
         if not q: continue
         for key in (q['book_id'] + '|', q['book_id'] + '|' + q['chapter_id']):
-            scoped.setdefault(key, []).append({**dict(row), 'difficulty': q['difficulty']})
+            scoped.setdefault(key, []).append({**dict(row), 'difficulty': presentation(q).get('difficulty', q['difficulty'])})
     return {key: guidance(items) for key, items in scoped.items()}
 
 

@@ -1,0 +1,3939 @@
+{
+  "format": "dd-family-chapter-practice-v1",
+  "batch": "math_g2_depth",
+  "questions": [
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-classify-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "easy",
+      "title": "按同一种特征分",
+      "prompt": "把红色的圆片、红色的方片放一组，把蓝色的圆片、蓝色的方片放另一组。这是按什么分类？\n1. 颜色\n2. 形状\n3. 大小\n4. 厚度\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "看同一组的物品有什么相同特征。",
+      "explanation": "同组形状不同，但颜色相同，所以分类标准是颜色。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          3,
+          5
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:classify",
+        "task": "understand",
+        "family": "g2-depth:1:classify:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-classify-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "分类后更好找",
+      "prompt": "书柜里原来各种书混放。把故事书、科普书、字典分别放好后，为什么更容易找一本字典？\n1. 字典的页数变少了\n2. 可以直接到字典这一类里找\n3. 每本书的大小都变了\n4. 书柜里的书总数变少了\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "想想分类改变了位置还是物品本身。",
+      "explanation": "按种类整理后，字典集中在一处；分类并没有改变页数、大小或书的总数。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          3,
+          5
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:classify",
+        "task": "understand",
+        "family": "g2-depth:1:classify:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-classify-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "同一次分类别换标准",
+      "prompt": "整理积木时，小文打算分成“红色”和“圆形”两组，并让每块积木只进一组。哪种积木会同时符合这两个条件？\n1. 蓝色圆形积木\n2. 红色方形积木\n3. 红色圆形积木\n4. 蓝色方形积木\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "分别检查颜色和形状两个条件。",
+      "explanation": "红色圆形积木既是红色又是圆形，两个分类标准混在一起会发生重叠。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          3,
+          5
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:classify",
+        "task": "distinguish",
+        "family": "g2-depth:1:classify:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-classify-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "hard",
+      "title": "检查整理有没有漏掉",
+      "prompt": "袋里有4枚红扣子、3枚蓝扣子和2枚黄扣子。按颜色整理时，只放了红、蓝两个盒子，黄扣子还在桌上。哪种修改能把所有扣子分好？\n1. 把黄扣子算进蓝色，仍说按颜色分类\n2. 把黄扣子扔掉，说总数本来是7\n3. 再数一次红扣子，就不用管黄扣子\n4. 再加一个黄扣子盒，把2枚黄扣子放进去\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "分类应让每个物品都有合适的位置。",
+      "explanation": "黄色是第三类；增加黄色盒后，4+3+2=9枚扣子全部归类，没有漏掉。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          3,
+          5
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:classify",
+        "task": "distinguish",
+        "family": "g2-depth:1:classify:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-compare-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "easy",
+      "title": "读懂分类记录",
+      "prompt": "记录表写着：苹果5个、梨3个、橘子4个。表中“梨3个”表示什么？\n1. 梨这一类有3个\n2. 所有水果一共3个\n3. 梨比苹果多3个\n4. 每种水果都是3个\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "把类别和对应的数量连起来读。",
+      "explanation": "3是梨这一类的数量，其他类别分别有自己的数量。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          2,
+          3
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:compare",
+        "task": "understand",
+        "family": "g2-depth:1:compare:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-compare-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "比较的对象要一致",
+      "prompt": "两盒里分别有6支和4支铅笔。哪句话正确说明了第一盒比第二盒多的数量？\n1. 两盒共有10支，所以第一盒多10支\n2. 从第一盒拿出4支配成对，还多2支\n3. 第二盒有4支，所以第一盒多4支\n4. 第一盒有6支，所以第一盒多6支\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "把两盒中相同的数量配对。",
+      "explanation": "相同的4支抵消后，第一盒还剩6−4=2支，表示多出的数量。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          2,
+          3
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:compare",
+        "task": "understand",
+        "family": "g2-depth:1:compare:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-compare-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "把多几误算成共几",
+      "prompt": "红花7朵、黄花4朵。小安用7+4=11回答“红花比黄花多几朵”。应怎样改？\n1. 仍用7+4，红花多11朵\n2. 用7×4，红花多28朵\n3. 用7−4=3，红花多3朵\n4. 不用计算，红花多4朵\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "“多几”要求两个数量的差。",
+      "explanation": "7+4求的是总数；比较多几要用7−4=3。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          2,
+          3
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:compare",
+        "task": "distinguish",
+        "family": "g2-depth:1:compare:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-compare-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "hard",
+      "title": "总数和差不能混用",
+      "prompt": "图书角有故事书8本、科普书5本。有人说“两类书一共3本”，他把哪件事算错了？\n1. 把8+5得到的总数当成了数量差\n2. 正确求出了两类书的总数\n3. 因为科普书比故事书多3本\n4. 把8−5得到的数量差当成了总数\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "先分别求总数和相差数量。",
+      "explanation": "两类书共有8+5=13本；8−5=3表示故事书多3本，不是总数。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          2,
+          3
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:compare",
+        "task": "distinguish",
+        "family": "g2-depth:1:compare:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-meaning-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "几个相同加数",
+      "prompt": "加法算式4+4+4中，相同加数是4，一共有几个4？\n1. 3个4\n2. 4个3\n3. 3个3\n4. 4个4\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "数一数加号连接了几个4。",
+      "explanation": "4出现了3次，表示3个4相加。能辨认这个含义，还需要自己练习说出来。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          11,
+          12
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:meaning",
+        "task": "understand",
+        "family": "g2-depth:2:meaning:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-meaning-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "每份相同才简便",
+      "prompt": "4个盘子，每盘放3个桃。为什么可以用3×4求总数？\n1. 因为盘子比桃子大\n2. 每盘都是3个，求4个3的和\n3. 因为数字3比4小\n4. 只要题里有两个数，就一定相乘\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "看每份数量是否相同，以及有几份。",
+      "explanation": "每盘3个且有4盘，所以总数是3+3+3+3，可以简写为3×4。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          11,
+          12
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:meaning",
+        "task": "understand",
+        "family": "g2-depth:2:meaning:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-meaning-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "加数不同不能直接合并",
+      "prompt": "下面哪个加法算式不能直接写成“相同加数×个数”的乘法算式？\n1. 2+2+2\n2. 3+3+3\n3. 2+2+3\n4. 4+4\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "先比较每个算式中的加数是否都相同。",
+      "explanation": "2+2+3的加数不全相同，不能直接按同一个加数乘个数；其他三个都可以。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          11,
+          12
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:meaning",
+        "task": "distinguish",
+        "family": "g2-depth:2:meaning:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-meaning-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "数清份数再列式",
+      "prompt": "小林看到5+5+5，写成5×2。他错在哪里？\n1. 把加数5误看成了3\n2. 把乘法误写成了除法\n3. 没有错误，两个算式相等\n4. 把3个5误数成了2个5\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "加号的个数不等于加数的个数。",
+      "explanation": "有2个加号，但有3个加数5，应写成5×3；5×2只表示2个5。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          11,
+          12
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:meaning",
+        "task": "distinguish",
+        "family": "g2-depth:2:meaning:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-tables-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "一句口诀两个算式",
+      "prompt": "“三四十二”可以帮助计算哪一组算式？\n1. 3×4和4×3\n2. 3+4和4+3\n3. 12−3和12−4\n4. 3×3和4×4\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "口诀中的三、四是乘数，十二是积。",
+      "explanation": "3×4和4×3的积都是12；交换两个乘数的位置，积不变。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          16,
+          24,
+          28
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:tables",
+        "task": "understand",
+        "family": "g2-depth:2:tables:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-tables-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "多一份就加一份",
+      "prompt": "已知4×5=20，怎样利用它想出4×6？\n1. 再加一个5，20+5=25\n2. 再加一个4，20+4=24\n3. 再加一个6，20+6=26\n4. 把20乘2，得到40\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "从5份4变成6份4，多了几份4？",
+      "explanation": "6个4比5个4多1个4，所以在20上加4。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          16,
+          24,
+          28
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:tables",
+        "task": "understand",
+        "family": "g2-depth:2:tables:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-tables-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "口诀不能当加法",
+      "prompt": "有人说“四五二十，所以4+5=20”。哪种改正正确？\n1. 4+5=20，4×5=9\n2. 4−5=20\n3. 4×5=20，4+5=9\n4. 4×5=45\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "口诀用来帮助求两个数相乘的积。",
+      "explanation": "四五二十对应4×5=20；加法4+5应得9。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          16,
+          24,
+          28
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:tables",
+        "task": "distinguish",
+        "family": "g2-depth:2:tables:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-tables-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "少一组少几个",
+      "prompt": "已知6×4=24，小晴认为6×3=23，因为少了1组。应怎样改正？\n1. 少了1个4，应算24−4=20\n2. 少了1组就少1，23正确\n3. 把24减3，得到21\n4. 少了1组6，应算24−6=18\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "区分“少1组”和“少1个”。",
+      "explanation": "每组6个，从4组变3组少的是6个，积应为18。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          16,
+          24,
+          28
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:tables",
+        "task": "distinguish",
+        "family": "g2-depth:2:tables:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-word-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "easy",
+      "title": "找每份数和份数",
+      "prompt": "6个纸袋，每袋放4颗糖。哪句话正确说明了题里的每份数和份数？\n1. 每份数是4颗，份数是6袋\n2. 每份数是6颗，份数是4袋\n3. 每份数是10颗，份数是1袋\n4. 每份数是2颗，份数是6袋\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "“每袋”后面的数量就是每份数。",
+      "explanation": "每袋4颗表示每份数，6袋表示份数，求总数可用4×6。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          12,
+          24
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:word",
+        "task": "understand",
+        "family": "g2-depth:2:word:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-word-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "求总量的理由",
+      "prompt": "3辆玩具车，每辆有4个轮子。求总轮数，为什么用4×3？\n1. 求4比3多多少\n2. 求3个4相加的总数\n3. 把4个轮子分成3份\n4. 只数车辆，不数轮子\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "找出相同的几份。",
+      "explanation": "每辆4个轮子，3辆有3个4，共12个轮子。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          12,
+          24
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:word",
+        "task": "understand",
+        "family": "g2-depth:2:word:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-word-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "多余条件不用算",
+      "prompt": "买5袋种子，每袋3元。小林今年8岁。求买种子的钱，哪种列式正确？\n1. 3×5+8\n2. 3+5+8\n3. 3×5\n4. 8×5\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "年龄与购买金额有没有关系？",
+      "explanation": "买种子的金额由每袋价格和袋数决定，年龄8岁是多余条件。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          12,
+          24
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:word",
+        "task": "distinguish",
+        "family": "g2-depth:2:word:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-word-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "hard",
+      "title": "先问清所求量",
+      "prompt": "书架有4层，每层放6本书。问题是“这个书架有几层？”小安答24层。哪里错了？\n1. 24就是层数，没有错\n2. 把6当成书的本数，应答6层\n3. 题中没有提供层数\n4. 24是书的总本数，层数已知是4\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "计算前先读清问题在问什么。",
+      "explanation": "4×6=24求的是书的总数；题目所问的层数已明确给出，是4层。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          12,
+          24
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:word",
+        "task": "distinguish",
+        "family": "g2-depth:2:word:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-equal-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "easy",
+      "title": "平均分看每份",
+      "prompt": "把12块积木分给3人。下面哪一种是平均分？\n1. 每人4块\n2. 一人2块、一人4块、一人6块\n3. 一人3块、一人4块、一人5块\n4. 一人1块、一人5块、一人6块\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "平均分要求每份同样多。",
+      "explanation": "4、4、4三份相同且共12块；其他分法总数虽相同，但各份不同。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          31,
+          33,
+          35
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:equal",
+        "task": "understand",
+        "family": "g2-depth:3:equal:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-equal-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "两种分法分清楚",
+      "prompt": "有18支笔，“每3支一袋”和“平均装进3袋”，这两句话有什么不同？\n1. 两句都只说每袋3支\n2. 前一句已知每袋3支，后一句已知有3袋\n3. 两句都只说有3袋\n4. 两句都说明还剩3支\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "看数字3的单位是支还是袋。",
+      "explanation": "每3支一袋已知每份数，平均装进3袋已知份数，两种分法所求不同。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          31,
+          33,
+          35
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:equal",
+        "task": "understand",
+        "family": "g2-depth:3:equal:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-equal-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "总数相同不一定平均",
+      "prompt": "把9个球分成2个、3个、4个三堆。小明说“总数没少，所以是平均分”。哪句判断正确？\n1. 是平均分，因为共有三堆\n2. 是平均分，因为总数还是9\n3. 不是平均分，因为三堆数量不同\n4. 不是平均分，因为总数变成了8\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "判断平均分时，要比较每一份。",
+      "explanation": "2+3+4=9只说明总数没变；各份不同，因此不是平均分。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          31,
+          33,
+          35
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:equal",
+        "task": "distinguish",
+        "family": "g2-depth:3:equal:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-equal-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "hard",
+      "title": "除数表示什么",
+      "prompt": "20颗珠子平均分给5人，用20÷5=4。小雨说“5表示每人分5颗”。应怎样改？\n1. 5表示总数，20表示人数\n2. 4表示4人，5表示每人5颗\n3. 20表示每人20颗\n4. 5表示5人，4表示每人4颗\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "题中平均分给几人，是已知的份数。",
+      "explanation": "这里5的单位是人，表示份数；商4是每人得到的颗数。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          31,
+          33,
+          35
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:equal",
+        "task": "distinguish",
+        "family": "g2-depth:3:equal:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-quotient-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "easy",
+      "title": "乘法帮助求商",
+      "prompt": "求24÷6时，为什么可以想“四六二十四”？\n1. 因为4个6合起来是24\n2. 因为24比6多4\n3. 因为24和6相加等于4\n4. 因为6个24合起来是4\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "想一想几个6组成24。",
+      "explanation": "4×6=24，所以24里面有4个6，24÷6=4。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          41,
+          46
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:quotient",
+        "task": "understand",
+        "family": "g2-depth:3:quotient:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-quotient-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "一句口诀联系乘除",
+      "prompt": "哪一组算式能用“三五十五”这同一句口诀帮助计算？\n1. 3+5=8，8−3=5，8−5=3\n2. 3×5=15，15÷3=5，15÷5=3\n3. 3×3=9，9÷3=3\n4. 5×5=25，25÷5=5\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "找同一句口诀里的两个乘数和积。",
+      "explanation": "三五十五联系3、5和15，可计算对应的乘法与两道除法。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          41,
+          46
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:quotient",
+        "task": "understand",
+        "family": "g2-depth:3:quotient:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-quotient-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "把除数商说反了",
+      "prompt": "16块饼干，每4块装一袋。小文说16÷4=4中的除数4表示4袋。哪种说法正确？\n1. 除数4和商4都表示4块\n2. 除数4和商4都表示4袋\n3. 除数4表示每袋4块，商4表示4袋\n4. 除数4表示16块\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "两个4数值相同，但在题里的单位不同。",
+      "explanation": "已知每袋4块，这个4是除数；求出的4袋是商。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          41,
+          46
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:quotient",
+        "task": "distinguish",
+        "family": "g2-depth:3:quotient:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-quotient-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "hard",
+      "title": "求商后用乘法检查",
+      "prompt": "小青算30÷5=5。用哪道乘法最能检查并发现这个答案有错？\n1. 5×6=30，所以错误答案5也对\n2. 30×5=150，所以商是150\n3. 30−5=25，所以商是25\n4. 5×5=25，不是30\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "用他求出的商乘除数，看能否得到被除数。",
+      "explanation": "错误答案5乘除数5得到25，不是30；正确商应为6，因为6×5=30。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          41,
+          46
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:quotient",
+        "task": "transfer",
+        "family": "g2-depth:3:quotient:transfer:inverse-check",
+        "role": "direct",
+        "rationale": "用商与除数的乘积检验被除数，定位并纠正错误的商。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-word-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "easy",
+      "title": "找总数和分组条件",
+      "prompt": "18张卡片，每3张装一袋。要知道能装几袋，必须用哪两个条件？\n1. 一共18张，每袋3张\n2. 一共18张，袋子是红色\n3. 每袋3张，卡片很漂亮\n4. 袋子是红色，卡片很漂亮\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "求份数需要总数和每份数。",
+      "explanation": "18是总张数，3是每袋张数，18÷3能求出袋数。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          35,
+          46
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:word",
+        "task": "understand",
+        "family": "g2-depth:3:word:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-word-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "求每份还是求份数",
+      "prompt": "把24个球平均放入4个筐，求每筐几个。算式24÷4的商表示什么？\n1. 筐的总个数\n2. 每筐球的个数\n3. 球的总个数\n4. 多出来的球的个数\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "问题问的是每一个筐里有多少。",
+      "explanation": "4个筐是已知份数，商6表示每筐6个球。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          35,
+          46
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:word",
+        "task": "understand",
+        "family": "g2-depth:3:word:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-word-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "先留下再平均分",
+      "prompt": "有20颗糖，先留下4颗，其余平均分给4人。哪种方法正确？\n1. 先20÷4=5，再5−4=1\n2. 直接20÷4=5\n3. 先20−4=16，再16÷4=4\n4. 先20+4=24，再24÷4=6\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "留下的4颗不参加平均分。",
+      "explanation": "参加平均分的糖有16颗，平均分给4人，每人4颗。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          35,
+          46
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:word",
+        "task": "distinguish",
+        "family": "g2-depth:3:word:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-word-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "hard",
+      "title": "给一人还是给每人",
+      "prompt": "把18张贴纸平均分给3人后，只给小美再添2张。小文说三人现在共有24张。怎样改正？\n1. 给3人各添2张，总数才会是20\n2. 每人原来6张，所以总数只有8张\n3. 总数一定是24张\n4. 只添给1人2张，总数是18+2=20\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "“只给小美”与“给每人”不同。",
+      "explanation": "原来共18张，只增加2张，因此现共20张；24是每人都增加2张时的总数。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          35,
+          46
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:word",
+        "task": "distinguish",
+        "family": "g2-depth:3:word:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-depth-direction-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "easy",
+      "title": "相对的两个方向",
+      "prompt": "东和西相对。下面哪两个方向也互相相对？\n1. 南和北\n2. 东和南\n3. 西和北\n4. 东和北\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "把四个方向按顺序排在方向牌上。",
+      "explanation": "南和北相对，东和西相对；相邻的两个方向不相对。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          49,
+          50,
+          51
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:direction",
+        "task": "understand",
+        "family": "g2-depth:activity1:direction:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-depth-direction-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "normal",
+      "title": "朝向决定左右",
+      "prompt": "小林面向北站立，他的右手指向东。转身面向南后，为什么右手会指向西？\n1. 只要转身，东就变成了西\n2. 人的左右随着朝向变化，东南西北的方向不变\n3. 任何时候右手都指东\n4. 任何时候左手都指北\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "人的左右是相对于自身朝向来说的。",
+      "explanation": "转身后人的左右改变，但固定方位不改变，因此面向南时右手在西边。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          49,
+          50,
+          51
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:direction",
+        "task": "understand",
+        "family": "g2-depth:activity1:direction:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-depth-direction-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "normal",
+      "title": "右边不总是东",
+      "prompt": "小文说：“无论我朝哪里看，右边总是东。”用哪个例子能指出他的错误？\n1. 面向北时，右边是东\n2. 面向南时，右边还是东\n3. 面向东时，右边是南\n4. 面向西时，右边还是东\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "想象面向东站在方向牌中央。",
+      "explanation": "面向东时右侧是南，这一个例子就能说明右边并不总是东。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          49,
+          50,
+          51
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:direction",
+        "task": "distinguish",
+        "family": "g2-depth:activity1:direction:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-depth-direction-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "hard",
+      "title": "转身不会移动建筑",
+      "prompt": "教学楼在操场的北面。站在操场的小明向后转身。教学楼现在在操场的哪面？\n1. 变到南面\n2. 变到东面\n3. 变到西面\n4. 仍在北面\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "转身的是人，建筑物的位置有没有变？",
+      "explanation": "建筑物没有移动，操场与教学楼的方位关系仍是北面。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          49,
+          50,
+          51
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:direction",
+        "task": "distinguish",
+        "family": "g2-depth:activity1:direction:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-depth-route-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "easy",
+      "title": "路线从哪里出发",
+      "prompt": "路线说明是“从校门出发，先向北到花坛，再向东到图书室”。这条路线的起点在哪里？\n1. 校门\n2. 花坛\n3. 图书室\n4. 没有起点\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "找出“从……出发”的位置。",
+      "explanation": "校门是出发地点，花坛是经过的位置，图书室是终点。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          49,
+          52
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:route",
+        "task": "understand",
+        "family": "g2-depth:activity1:route:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-depth-route-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "normal",
+      "title": "两段路线要依次读",
+      "prompt": "从操场先向东到水房，再从水房向北到教室。“向北”这一段是从哪里开始的？\n1. 操场\n2. 水房\n3. 教室\n4. 校门\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "上一段的终点是下一段的起点。",
+      "explanation": "第一段到达水房后再向北，第二段以水房为参照位置。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          49,
+          52
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:route",
+        "task": "understand",
+        "family": "g2-depth:activity1:route:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-depth-route-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "normal",
+      "title": "缺少起点不好找",
+      "prompt": "给第一次来学校的人指路，只说“往北走，再往东走到音乐室”，最需要补充什么？\n1. 指路人的年龄\n2. 音乐课的上课时间\n3. 从哪个位置出发\n4. 今天吃了什么\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "相同方向从不同地点出发，会到不同地方。",
+      "explanation": "路线需要明确起点，再说明方向和经过位置；此处缺少起点。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          49,
+          52
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:route",
+        "task": "distinguish",
+        "family": "g2-depth:activity1:route:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity1-depth-route-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity1",
+      "difficulty": "hard",
+      "title": "走到哪里再转弯",
+      "prompt": "从校门向北到花坛，再向东到阅览室。小林走到花坛后，仍以校门为起点向东找。哪句提醒正确？\n1. 第二段应从校门向西走\n2. 走到花坛后只能向南走\n3. 无论从哪里向东，都会到阅览室\n4. 第二段应从花坛向东走\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "每一段都要使用该段自己的起点。",
+      "explanation": "已经到了花坛，接下来的向东应从花坛开始，不能改回校门。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "校园小导游",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          49,
+          52
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity1:route",
+        "task": "distinguish",
+        "family": "g2-depth:activity1:route:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-units-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "easy",
+      "title": "为什么统一单位",
+      "prompt": "同一张桌子，小明量出5拃，小红量出4拃。为什么改用厘米更方便比较？\n1. 厘米是统一的长度单位，两人的一拃可能不同\n2. 用厘米量，桌子会变短\n3. 用厘米量，结果一定都是1\n4. 一拃永远等于1厘米\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "比较时需要相同大小的单位。",
+      "explanation": "不同人的一拃可能不同；厘米大小统一，便于比较和交流。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55,
+          56,
+          58,
+          63
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:units",
+        "task": "understand",
+        "family": "g2-depth:4:units:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-units-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "一米有多长",
+      "prompt": "1米长的绳子上，每隔1厘米作一个记号，把绳子分成小段。共能分成多少个1厘米的小段？\n1. 10个\n2. 100个\n3. 1个\n4. 99个\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "使用1米与厘米的关系。",
+      "explanation": "1米=100厘米，里面包含100个1厘米的小段。这里数的是小段，不是内部记号。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55,
+          56,
+          58,
+          63
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:units",
+        "task": "understand",
+        "family": "g2-depth:4:units:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-units-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "数值相同单位不同",
+      "prompt": "小安说“2米和2厘米一样长，因为都是2”。哪句改正正确？\n1. 2厘米是200米，所以更长\n2. 2米等于20厘米，仍和2厘米相等\n3. 2米是200厘米，比2厘米长\n4. 只要数字相同，长度就相同\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "先把两个长度化成同一个单位。",
+      "explanation": "2米=200厘米，单位不同不能只看数值，200厘米比2厘米长。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55,
+          56,
+          58,
+          63
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:units",
+        "task": "distinguish",
+        "family": "g2-depth:4:units:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-units-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "hard",
+      "title": "厘米不能直接减米",
+      "prompt": "一根绳长1米，剪掉25厘米。小美列1−25。哪种修改正确？\n1. 把25厘米写成25米，再算25−1\n2. 直接算25−1，得24厘米\n3. 两个单位都去掉即可\n4. 把1米换成100厘米，再算100−25\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "先统一长度单位再计算。",
+      "explanation": "把1米换成100厘米后相减，剩75厘米；只去掉单位会改变数量含义。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55,
+          56,
+          58,
+          63
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:units",
+        "task": "distinguish",
+        "family": "g2-depth:4:units:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-ruler-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "easy",
+      "title": "量长度要看什么",
+      "prompt": "量一根短纸条，左端对准直尺0刻度，右端对准6厘米刻度。6厘米表示什么？\n1. 纸条占了6个1厘米的长度\n2. 纸条两端共有6个点\n3. 纸条有6种颜色\n4. 尺子上只能有6个数字\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "长度表示物体占了多少个相同的长度单位。",
+      "explanation": "从0到6厘米之间有6个1厘米的小段，所以纸条长6厘米。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          56,
+          60,
+          61,
+          62
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:ruler",
+        "task": "understand",
+        "family": "g2-depth:4:ruler:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-ruler-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "线段的特点",
+      "prompt": "下面哪句话符合线段的特点？\n1. 一定是弯的\n2. 是直的，两端之间的长度可以测量\n3. 一定比1米长\n4. 只有横着画才是线段\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "想想拉直的一根线和尺子画出的线。",
+      "explanation": "线段是直的，有两个端点，可以量出长度；朝向和是否超过1米不是判断标准。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          56,
+          60,
+          61,
+          62
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:ruler",
+        "task": "understand",
+        "family": "g2-depth:4:ruler:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-ruler-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "右端刻度不等于长度",
+      "prompt": "纸条左端对准2厘米刻度，右端对准9厘米刻度。小明直接读9厘米。怎样改正？\n1. 9+2=11厘米\n2. 左端不是0，就永远量不出长度\n3. 9−2=7厘米\n4. 长度仍是9厘米\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "要数两端之间有几个1厘米。",
+      "explanation": "从2到9共有7个1厘米，所以长7厘米，不能把右端刻度直接当长度。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          56,
+          60,
+          61,
+          62
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:ruler",
+        "task": "distinguish",
+        "family": "g2-depth:4:ruler:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-ruler-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "hard",
+      "title": "尺子放斜了",
+      "prompt": "要量长方形纸片的一条长边，小文把尺子从纸片左上角斜放到右下角。哪种调整正确？\n1. 只要尺子碰到纸片就行\n2. 换成更长的尺子，继续斜放\n3. 只读尺子最大的数字\n4. 让尺子的刻度边沿着要量的那条长边摆放\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "尺子要贴合实际要测量的那一条边。",
+      "explanation": "斜着量的是两个对角之间的距离，调整到长边上才是在量长边。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          56,
+          60,
+          61,
+          62
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:ruler",
+        "task": "distinguish",
+        "family": "g2-depth:4:ruler:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-estimate-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "easy",
+      "title": "用熟悉长度作参照",
+      "prompt": "已知一块小积木长约1厘米。用它估计橡皮长度，哪种方法合适？\n1. 想象沿橡皮长边能连续摆几块这样的小积木\n2. 只看橡皮的颜色\n3. 看橡皮卖几元，就说长几厘米\n4. 认为所有橡皮都一样长\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "把熟悉的1厘米当作参照。",
+      "explanation": "沿长边连续摆放几个约1厘米的参照物，可以估计大约几厘米，但仍需实测核对。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          56,
+          60,
+          63
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:estimate",
+        "task": "understand",
+        "family": "g2-depth:4:estimate:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-estimate-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "选择合理的估计",
+      "prompt": "小林高1米多，一扇常见教室门比他高一些。门高约2厘米还是2米？哪种解释合理？\n1. 约2厘米，因为2比1大\n2. 约2米，因为2厘米远比小林的身高短\n3. 两种都一样，数字都是2\n4. 只能是2厘米，因为门很薄\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "用人的身高作为参照，区分高度和厚度。",
+      "explanation": "2厘米很短，不可能是一扇比小林还高的门的高度；约2米较合理。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          56,
+          60,
+          63
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:estimate",
+        "task": "understand",
+        "family": "g2-depth:4:estimate:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-estimate-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "normal",
+      "title": "比较两次估计",
+      "prompt": "尺子量出一支笔长14厘米。小安估计12厘米，小文估计18厘米。谁的估计更接近实测值？\n1. 小文，因为估计的数更大\n2. 一样接近，因为都不是14\n3. 小安，因为相差2厘米，小文相差4厘米\n4. 无法比较，估计值不能相减\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "分别比较两个估计与14厘米相差多少。",
+      "explanation": "14−12=2，18−14=4；2比4小，所以小安的估计更接近。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          56,
+          60,
+          63
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:estimate",
+        "task": "distinguish",
+        "family": "g2-depth:4:estimate:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-4-depth-estimate-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "4",
+      "difficulty": "hard",
+      "title": "估计值不是实测值",
+      "prompt": "小红估计一根木条长20厘米，随后用尺量出18厘米。记录单应怎样写？\n1. 估计18厘米，实测20厘米\n2. 两栏都填20厘米，因为先想到20\n3. 只写相差2厘米，删去两个原记录\n4. 估计20厘米，实测18厘米\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "估计与实测是两个不同的记录。",
+      "explanation": "保留估计20厘米和实测18厘米，才能比较误差并改进估测方法；不能改掉原估计。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "四 厘米和米",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          56,
+          60,
+          63
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:4:estimate",
+        "task": "distinguish",
+        "family": "g2-depth:4:estimate:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity2-depth-body-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity2",
+      "difficulty": "easy",
+      "title": "什么可以当身体尺",
+      "prompt": "下面哪一组都可以作为身体尺来估量长度？\n1. 自己的1拃和1步\n2. 书的页数和铅笔的颜色\n3. 钟表的时间和水杯的温度\n4. 书包的价格和自己的年龄\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "身体尺用的是身体部位或动作形成的长度。",
+      "explanation": "1拃是张开手指形成的长度，1步是一步的长度，都能作为估量长度的参照。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "身体上的尺子",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55,
+          69,
+          70,
+          71
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity2:body",
+        "task": "understand",
+        "family": "g2-depth:activity2:body:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity2-depth-body-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity2",
+      "difficulty": "normal",
+      "title": "先量自己的一拃",
+      "prompt": "用自己的拃估计桌长前，为什么先用直尺量一量自己一拃大约多少厘米？\n1. 为了让桌子缩短\n2. 要知道自己的1拃对应的厘米数\n3. 为了让每个人的一拃都一样长\n4. 为了让所有桌子都是1米长\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "身体尺要先有一个已知的参照长度。",
+      "explanation": "知道自己一拃大约多少厘米，才能根据拃数估计厘米数；这不会改变桌长或别人的手。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "身体上的尺子",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55,
+          69,
+          70,
+          71
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity2:body",
+        "task": "understand",
+        "family": "g2-depth:activity2:body:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity2-depth-body-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity2",
+      "difficulty": "normal",
+      "title": "别人一拃不能照搬",
+      "prompt": "小明1拃约12厘米，小红1拃约15厘米。小红量某物有4拃，小明用12×4估计它的长度。哪里错了？\n1. 拃数4不可以用于乘法\n2. 小红的一拃一定也是12厘米\n3. 用了小明的一拃，应按小红的15厘米来估计\n4. 任何人的一拃都必须是10厘米\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "是谁测出的4拃，就用谁的一拃长度。",
+      "explanation": "小红量出的4拃应按15×4估计，不能套用小明的12厘米。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "身体上的尺子",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55,
+          69,
+          70,
+          71
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity2:body",
+        "task": "distinguish",
+        "family": "g2-depth:activity2:body:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-activity2-depth-body-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "activity2",
+      "difficulty": "hard",
+      "title": "拃数少不代表物体短",
+      "prompt": "两人量同一根木条，小林量6拃，小安量5拃。小安说“我的木条更短”。哪句判断正确？\n1. 5比6小，所以同一根木条变短了\n2. 6比5大，所以小林手里的木条变长了\n3. 两人的一拃一定相同\n4. 木条是同一根，可能是两人的一拃长度不同\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "先确认测量的物体有没有改变。",
+      "explanation": "量的是同一根木条，拃数不同可能由身体尺不同造成，不能仅按拃数判断木条变长变短。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "身体上的尺子",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          55,
+          69,
+          70,
+          71
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:activity2:body",
+        "task": "distinguish",
+        "family": "g2-depth:activity2:body:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-depth-relations-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "easy",
+      "title": "乘除是怎样联系的",
+      "prompt": "已知5×6=30，为什么能知道30÷5=6？\n1. 30里有6个5\n2. 30比5多6\n3. 30和5相加等于6\n4. 5比6少30\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "乘法由每份数和份数求总数，除法可以反过来求份数。",
+      "explanation": "5×6=30说明6个5合成30，所以30÷5得到6。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          91,
+          92
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:relations",
+        "task": "understand",
+        "family": "g2-depth:6:relations:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-depth-relations-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "相同加数与乘法",
+      "prompt": "哪句话能正确联系2+2+2+2与2×4？\n1. 前者表示2个4，后者表示4个4\n2. 它们都表示4个2的和\n3. 前者只有3个2\n4. 它们的结果一个是6，一个是8\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "数加数时别只数加号。",
+      "explanation": "4个2相加等于8，可写成2×4=8；这里是在辨认表达，需要再自己说明。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          91,
+          92
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:relations",
+        "task": "understand",
+        "family": "g2-depth:6:relations:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-depth-relations-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "求几份还是求总数",
+      "prompt": "24本书，每6本装一包。小文列24×6求包数。怎样改正？\n1. 用24+6=30，求总数\n2. 用24−6=18，求包数\n3. 用24÷6=4，求24里有几个6\n4. 24×6正确，因为题里有“每”\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "已知总数与每份数，求份数用除法。",
+      "explanation": "24本是总数，每包6本，包数应是24÷6=4。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          91,
+          92
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:relations",
+        "task": "distinguish",
+        "family": "g2-depth:6:relations:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-depth-relations-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "hard",
+      "title": "不相同的份数别硬乘",
+      "prompt": "三盒球分别有4个、4个、6个。小雨用4×3算总数。哪种修改正确？\n1. 4×3仍然正确\n2. 6×3\n3. 4+3+6\n4. 4×2+6\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "先找相同的两盒，再加上第三盒。",
+      "explanation": "只有两盒是4个，所以先求2个4，再加6，共14个。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          91,
+          92
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:relations",
+        "task": "distinguish",
+        "family": "g2-depth:6:relations:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-depth-organize-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "easy",
+      "title": "知识之间连什么",
+      "prompt": "在知识图中把“乘法”与“相同加数的加法”连在一起，哪句说明合理？\n1. 乘法可以简便地表示几个相同加数的和\n2. 所有加法都只能用一次乘法表示\n3. 乘法与加法从没有联系\n4. 相同加数越多，和一定越小\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "回想乘法最初是怎样引入的。",
+      "explanation": "乘法与相同加数的加法有联系，不能把这一点扩大成所有加法都能直接这样改写。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          91,
+          93,
+          94
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:organize",
+        "task": "understand",
+        "family": "g2-depth:6:organize:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-depth-organize-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "把测量方法归在一起",
+      "prompt": "哪一组适合放进“长度测量”这一类？\n1. 加号、除号、乘号\n2. 厘米、米、身体尺\n3. 故事书、字典、词典\n4. 红色、蓝色、黄色\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "按知识的用途分类。",
+      "explanation": "厘米和米是长度单位，身体尺可以用来估量长度，它们都与长度测量有关。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          91,
+          93,
+          94
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:organize",
+        "task": "understand",
+        "family": "g2-depth:6:organize:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-depth-organize-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "normal",
+      "title": "知识卡片放错位置",
+      "prompt": "“长度单位”栏里放着厘米、米、东、南四张卡片。哪两张放错了？\n1. 厘米和米\n2. 厘米和东\n3. 东和南\n4. 米和南\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "方向与长度单位是不同类别。",
+      "explanation": "东、南是方向，应归入方位知识；厘米、米是长度单位。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          91,
+          93,
+          94
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:organize",
+        "task": "distinguish",
+        "family": "g2-depth:6:organize:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-6-depth-organize-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "6",
+      "difficulty": "hard",
+      "title": "整理表里的单位错误",
+      "prompt": "复习表有四条记录。哪条明显把常见物体的长度单位填错了？\n1. 教室长约8米\n2. 课桌高约70厘米\n3. 铅笔长约17厘米\n4. 橡皮长约5米\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "想象1米和1厘米实际有多长。",
+      "explanation": "普通橡皮长约5厘米较合理，5米远长于常见橡皮；其余数量与常见物体相符。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "六 复习与关联",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          91,
+          93,
+          94
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:6:organize",
+        "task": "distinguish",
+        "family": "g2-depth:6:organize:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-tables-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "七八五十六联系什么",
+      "prompt": "哪一组乘法算式都能用“七八五十六”？\n1. 7×8和8×7\n2. 7+8和8+7\n3. 7×7和8×8\n4. 56×7和56×8\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "口诀的前两个数是乘数，后面的数是积。",
+      "explanation": "7×8=56和8×7=56使用同一句口诀。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          73,
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:tables",
+        "task": "understand",
+        "family": "g2-depth:5:tables:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-tables-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "从七份推八份",
+      "prompt": "已知9×7=63，想9×8时，为什么可以在63上加9？\n1. 因为63里有8个9\n2. 8个9比7个9多1个9\n3. 因为8比7多9\n4. 因为所有乘积都每次加1\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "每一份是多少，就多加多少。",
+      "explanation": "相同的每份数是9，份数增加1，积就增加9。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          73,
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:tables",
+        "task": "understand",
+        "family": "g2-depth:5:tables:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-tables-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "口诀中的积写错了",
+      "prompt": "小安说“六八四十八，所以6×8=14”。哪句改正正确？\n1. 6×8=14，48是6+8的和\n2. 6×8=68\n3. 6×8=48，14是6+8的和\n4. 6×8=86\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "分清求和与求积。",
+      "explanation": "六八四十八说明乘积是48；14来自加法6+8。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          73,
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:tables",
+        "task": "distinguish",
+        "family": "g2-depth:5:tables:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-tables-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "比较相邻乘积",
+      "prompt": "已知7×7=49，小文认为7×8=50。哪种解释能指出错误？\n1. 多1份就只多1，所以50正确\n2. 要从49减去7\n3. 要在49上加8，得到57\n4. 多1个7，应得49+7=56\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "增加的是一份，每份里有7个。",
+      "explanation": "7×8比7×7多的是1个7，不能只加1，也不是加8。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          73,
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:tables",
+        "task": "distinguish",
+        "family": "g2-depth:5:tables:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-quotient-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "用口诀找份数",
+      "prompt": "求63÷9时，哪句话说明可以用“七九六十三”？\n1. 7个9合起来是63\n2. 63比9多7\n3. 63与9的和是7\n4. 9个63合起来是7\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "想几个9合成63。",
+      "explanation": "因为7×9=63，所以63里面有7个9，63÷9=7。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81,
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:quotient",
+        "task": "understand",
+        "family": "g2-depth:5:quotient:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-quotient-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "交换两种分法",
+      "prompt": "56支笔，每7支一盒与平均分装到7盒，两种情况的商8分别表示什么？\n1. 两者都表示每盒8支\n2. 前者8盒，后者每盒8支\n3. 两者都表示8盒\n4. 两者都表示剩下8支\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "看除数7在每句话中表示的量。",
+      "explanation": "每7支一盒已知每份数，求盒数；平均分到7盒已知份数，求每盒支数。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81,
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:quotient",
+        "task": "understand",
+        "family": "g2-depth:5:quotient:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-quotient-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "把每组人数当组数",
+      "prompt": "42人，每7人一组，分成6组。小文说算式42÷7=6中“7是组数”。应怎样改？\n1. 7是组数，6是每组人数\n2. 42是组数\n3. 7是每组人数，6是组数\n4. 7和6都是组数\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "根据题意给每个数配上单位。",
+      "explanation": "题中已知每组7人，求出的6才是组数。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81,
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:quotient",
+        "task": "distinguish",
+        "family": "g2-depth:5:quotient:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-quotient-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "检验错误的商",
+      "prompt": "小安算72÷8=8。哪种检查能发现错误？\n1. 72−8=64，所以8一定对\n2. 72+8=80，所以8一定对\n3. 8与除数一样，所以一定对\n4. 8×8=64，不等于72\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "商乘除数应回到被除数。",
+      "explanation": "8×8只有64，不能还原72；正确商是9，因为9×8=72。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81,
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:quotient",
+        "task": "understand",
+        "family": "g2-depth:5:quotient:distinguish:2",
+        "role": "supporting",
+        "rationale": "辨认乘除互逆的检查方法，仍需独立说明。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-word-understand-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "easy",
+      "title": "从总量选运算",
+      "prompt": "有7盒粉笔，每盒8支，求共有几支。哪句话说明了合适的数量关系？\n1. 每盒支数×盒数=总支数\n2. 总支数÷每盒支数=每盒支数\n3. 盒数+每盒支数=总支数\n4. 每盒支数−盒数=总支数\n请填正确选项的序号（1～4）。",
+      "answer": "1",
+      "independent_check": "1",
+      "units": [],
+      "hint": "已知相同的每份数和份数，求总数。",
+      "explanation": "每盒8支，有7盒，求7个8相加的总数，用8×7。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81,
+          83,
+          84
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:word",
+        "task": "understand",
+        "family": "g2-depth:5:word:understand:1",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-word-understand-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "总量相同换分法",
+      "prompt": "原来6盒珠子，每盒8颗，现在把全部珠子每4颗装一袋。两种包装之间什么量没变？\n1. 盒数与袋数一定相同\n2. 珠子的总颗数\n3. 每盒与每袋的颗数一定相同\n4. 包装的颜色一定相同\n请填正确选项的序号（1～4）。",
+      "answer": "2",
+      "independent_check": "2",
+      "units": [],
+      "hint": "重新装的是同一批珠子。",
+      "explanation": "总量仍是6×8=48颗；包装个数和每份数可以改变。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81,
+          83,
+          84
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:word",
+        "task": "understand",
+        "family": "g2-depth:5:word:understand:2",
+        "role": "supporting",
+        "rationale": "选择正确解释只提供辨认练习，未检验独立口述。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-word-distinguish-1-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "商的单位跟着问题走",
+      "prompt": "48支笔平均分给8人，48÷8=6。小林答“分给6人”。应怎样改？\n1. 每人分8支\n2. 一共6支\n3. 每人分6支\n4. 分给48人\n请填正确选项的序号（1～4）。",
+      "answer": "3",
+      "independent_check": "3",
+      "units": [],
+      "hint": "看所求是人数还是每人支数。",
+      "explanation": "已知8人，求每人支数，商6的单位是支，不是人。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81,
+          83,
+          84
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:word",
+        "task": "distinguish",
+        "family": "g2-depth:5:word:distinguish:1",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-word-distinguish-2-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "hard",
+      "title": "分完再给走一盒",
+      "prompt": "有8盒饼干，每盒7块，送走其中完整的2盒。求剩几块，小文用8×7−2。应怎样改？\n1. 8×7−2=54正确\n2. 先算7−2，再算8×5=40\n3. 先算8+2，再算10×7=70\n4. 先算剩6盒，再算6×7=42\n请填正确选项的序号（1～4）。",
+      "answer": "4",
+      "independent_check": "4",
+      "units": [],
+      "hint": "送走的是2盒，不是2块。",
+      "explanation": "送走2盒后还剩8−2=6盒，每盒7块，剩42块；或用56−14。",
+      "extension": true,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81,
+          83,
+          84
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:word",
+        "task": "distinguish",
+        "family": "g2-depth:5:word:distinguish:2",
+        "role": "direct",
+        "rationale": "根据题中完整条件识别错误及修正方法。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-meaning-apply-3a57f27065c7-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "把相同加数写成乘法",
+      "prompt": "把6+6+6+6写成6×□，□里填几？\n请只填最后所求的数值。",
+      "answer": "4",
+      "independent_check": "24/6",
+      "units": [],
+      "hint": "数一数一共有几个6。",
+      "explanation": "有4个6相加，所以写成6×4。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          11,
+          12
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:meaning",
+        "task": "apply",
+        "family": "g2-depth:2:meaning:apply:3a57f27065c7",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-meaning-apply-d339fd816263-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "从乘法回到加法",
+      "prompt": "把5×3写成3个相同加数相加，每个加数是几？\n请只填最后所求的数值。",
+      "answer": "5",
+      "independent_check": "15/3",
+      "units": [],
+      "hint": "已经规定写成3个相同加数，想每份是多少。",
+      "explanation": "5×3可表示3个5相加，所以每个加数是5。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          12
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:meaning",
+        "task": "apply",
+        "family": "g2-depth:2:meaning:apply:d339fd816263",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-tables-apply-c9f7a6857432-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "用口诀算积",
+      "prompt": "计算4×6。\n请只填最后所求的数值。",
+      "answer": "24",
+      "independent_check": "6+6+6+6",
+      "units": [],
+      "hint": "可以想“四六二十四”。",
+      "explanation": "4×6=24。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          24,
+          28
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:tables",
+        "task": "apply",
+        "family": "math-g2-upper:2:tables:table-calculation",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-2-depth-tables-apply-060fb1e6ef8a-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "2",
+      "difficulty": "normal",
+      "title": "根据图案份数找积",
+      "prompt": "用小棒摆5个互不共边的三角形，每个三角形用3根。一共用几根？\n请只填最后所求的数值（单位：根）。",
+      "answer": "15",
+      "independent_check": "3+3+3+3+3",
+      "units": [
+        "根"
+      ],
+      "hint": "每个三角形3根，共有5个，相互不共用小棒。",
+      "explanation": "3×5=15，共用15根。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "二 1～6的表内乘法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          24
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:2:tables",
+        "task": "apply",
+        "family": "math-g2-upper:2:tables:table-calculation",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-quotient-apply-a53de519c5f3-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "口诀求商填数",
+      "prompt": "24÷4=□，□里填几？\n请只填最后所求的数值。",
+      "answer": "6",
+      "independent_check": "24/4",
+      "units": [],
+      "hint": "想四几二十四。",
+      "explanation": "四六二十四，所以24÷4=6。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          41
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:quotient",
+        "task": "apply",
+        "family": "math-g2-upper:3:quotient:table-calculation",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-3-depth-quotient-apply-a01955df4637-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "3",
+      "difficulty": "normal",
+      "title": "装袋记录缺失",
+      "prompt": "有30颗玻璃珠，每袋装5颗，正好全部装完。记录单上的袋数应该填几？\n请只填最后所求的数值（单位：袋）。",
+      "answer": "6",
+      "independent_check": "30/5",
+      "units": [
+        "袋"
+      ],
+      "hint": "看30里包含几个5。",
+      "explanation": "五六三十，30÷5=6，需6袋。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "三 1～6的表内除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          41
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:3:quotient",
+        "task": "apply",
+        "family": "math-g2-upper:3:quotient:table-calculation",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-tables-apply-96a6328ff0f8-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "七到九的积",
+      "prompt": "计算7×9。\n请只填最后所求的数值。",
+      "answer": "63",
+      "independent_check": "70-7",
+      "units": [],
+      "hint": "用七九的口诀。",
+      "explanation": "七九六十三，所以7×9=63。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          73,
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:tables",
+        "task": "apply",
+        "family": "math-g2-upper:5:tables:table-calculation",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-tables-apply-5437ba6d1266-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "方阵座位总数",
+      "prompt": "小剧场有8排座位，每排8个，没有空缺。一共有多少个座位？\n请只填最后所求的数值（单位：个）。",
+      "answer": "64",
+      "independent_check": "8+8+8+8+8+8+8+8",
+      "units": [
+        "个"
+      ],
+      "hint": "求8个8相加。",
+      "explanation": "8×8=64，共有64个座位。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          87
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:tables",
+        "task": "apply",
+        "family": "math-g2-upper:5:tables:table-calculation",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-quotient-apply-4b3d383c7441-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "八九口诀求商",
+      "prompt": "72÷9=□，□里填几？\n请只填最后所求的数值。",
+      "answer": "8",
+      "independent_check": "72/9",
+      "units": [],
+      "hint": "想几九七十二。",
+      "explanation": "八九七十二，所以72÷9=8。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:quotient",
+        "task": "apply",
+        "family": "math-g2-upper:5:quotient:table-calculation",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-5-depth-quotient-apply-167c2428004a-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "5",
+      "difficulty": "normal",
+      "title": "每队领到的球",
+      "prompt": "把56个球平均分给8队，每队几个？\n请只填最后所求的数值（单位：个）。",
+      "answer": "7",
+      "independent_check": "56/8",
+      "units": [
+        "个"
+      ],
+      "hint": "想七八五十六。",
+      "explanation": "56÷8=7，每队7个球。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "五 7～9的表内乘、除法",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          81
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:5:quotient",
+        "task": "apply",
+        "family": "math-g2-upper:5:quotient:table-calculation",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-compare-apply-70248ab95cfc-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "从分类表求总数",
+      "prompt": "分类表记录：红卡片6张、蓝卡片5张、黄卡片4张。这三类卡片一共有几张？\n请只填最后所求的数值（单位：张）。",
+      "answer": "15",
+      "independent_check": "6+5+4",
+      "units": [
+        "张"
+      ],
+      "hint": "求总数要把各类数量相加。",
+      "explanation": "6+5+4=15，共15张。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          3
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:compare",
+        "task": "apply",
+        "family": "g2-depth:1:compare:apply:70248ab95cfc",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    },
+    {
+      "id": "family-chapter-math-g2-upper-1-depth-compare-apply-ed39a1648a93-v1",
+      "batch": "math_g2_depth",
+      "grade": 2,
+      "subject": "math",
+      "book_id": "math-g2-upper",
+      "chapter_id": "1",
+      "difficulty": "normal",
+      "title": "从分类表比较少几",
+      "prompt": "分类表中铅笔9支、彩笔6支。彩笔比铅笔少几支？\n请只填最后所求的数值（单位：支）。",
+      "answer": "3",
+      "independent_check": "9-6",
+      "units": [
+        "支"
+      ],
+      "hint": "比较少几，求两个数量的差。",
+      "explanation": "9−6=3，彩笔比铅笔少3支。",
+      "extension": false,
+      "source": {
+        "kind": "authored",
+        "attribution": "DD 家庭学习版 · 助手编写与核对",
+        "license": "project-authored",
+        "basis": "本地教材原页主题核对；自编题，非教材原题",
+        "chapter_title": "一 分类与整理",
+        "textbook_sha256": "df49e1b7465cb6e4f92d97d2f1c7739987f086e7833fe2777bfae9af7fd22d66",
+        "textbook_original_question": false,
+        "template_relation": null,
+        "topic_printed_pages": [
+          1,
+          2
+        ]
+      },
+      "review": {
+        "status": "assistant_checked",
+        "teacher_reviewed": false,
+        "method": "semantic_conditions_answer_and_explanation_check",
+        "difficulty_calibration": "author_trial_not_student_calibrated"
+      },
+      "coverage": {
+        "point_id": "math-g2-upper:1:compare",
+        "task": "apply",
+        "family": "math-g2-upper:1:分类后比较",
+        "role": "direct",
+        "rationale": "按给定条件计算或读出明确数值，不替代口述与实际测量。"
+      }
+    }
+  ]
+}

@@ -28,6 +28,7 @@ class TextbookBook(Contract):
     verified_on: str
     file_id: str
     collection: str
+    search_available: bool = True
     reader_url: str | None = None
     chapters: list[TextbookChapter]
 

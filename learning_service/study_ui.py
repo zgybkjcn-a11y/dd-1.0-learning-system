@@ -83,16 +83,17 @@ SCRIPT = r'''
     }
     function showSubmittedAnswer(item) {
       $('savedPracticeAnswer').textContent = item.submitted_answer == null ? '' :
-        '已保存的答案：' + item.submitted_answer + (item.assistance !== 'none' ? '（提示后练习）' : item.session_mode === 'independent' ? '（独立作答）' : '（练习作答）');
+        '已保存的答案：' + formatResponseAnswer(item.submitted_answer) + (item.assistance !== 'none' ? '（提示后练习）' : item.session_mode === 'independent' ? '（独立作答）' : '（练习作答）');
       const draft = answerDraft();
       if (!$('answer').value && draft.raw) $('answer').value = draft.raw;
       if (item.submitted_answer != null && $('answer').value === item.submitted_answer) {
         $('answer').value = ''; workspaceStorage.removeItem(answerDraftKey());
       }
       if (item.submitted_answer != null && $('answer').value) {
-        $('practiceConflictAnswer').textContent = $('answer').value;
+        $('practiceConflictAnswer').textContent = formatResponseAnswer($('answer').value);
         $('practiceAnswerConflict').hidden = false;
       }
+      fillResponseValues($('answer').value || item.submitted_answer || '');
       if (item.assistance !== 'none') {
         $('gameHint').textContent = '这道题已使用提示；恢复后仍记为辅助作答。'; $('gameHint').hidden = false;
       }
@@ -103,12 +104,12 @@ SCRIPT = r'''
       const session = state.current_session_id || '';
       if (!force && session === $('session').value) return;
       if ($('answer').value) {
-        keepAnswerDraft(); $('practiceConflictAnswer').textContent = $('answer').value;
+        keepAnswerDraft(); $('practiceConflictAnswer').textContent = formatResponseAnswer($('answer').value);
         $('practiceAnswerConflict').hidden = false;
       }
       resetPracticeCollection();
       ['questionVersion','card','session','testItem','attempt','answer'].forEach((id) => { $(id).value = ''; });
-      $('testPrompt').textContent = ''; $('savedPracticeAnswer').textContent = '';
+      $('testPrompt').textContent = ''; renderPracticeResponses(null); renderPracticeVisual(null); $('savedPracticeAnswer').textContent = '';
       $('gameFeedback').hidden = true; $('gameHint').hidden = true; gameItemStatus = ''; savedTest = {};
       if (session) {
         $('session').value = session;
@@ -303,7 +304,7 @@ SCRIPT = r'''
         if (!current()) return;
         collectionDraft = {data, key:'ui-collect-' + crypto.randomUUID(), epoch, generation};
         $('collectionPrompt').textContent = data.question_text;
-        $('collectionAnswer').textContent = '当时的答案：' + data.student_answer;
+        $('collectionAnswer').textContent = '当时的答案：' + formatResponseAnswer(data.student_answer, data.response_fields || []);
         $('collectionAssistance').textContent = data.assistance === 'none' && data.assessment_eligibility ? '独立作答记录' : '辅助练习记录（已使用提示或练习模式，不计入独立证据）';
         $('collectionVersion').textContent = '原题版本：' + data.question_version_id + '\n作答记录：' + data.attempt_id;
         $('collectionError').textContent = ''; $('confirmCollection').disabled = false;
