@@ -68,7 +68,7 @@ def test_unseen_pool_counts_cancel_restore_tiers_and_parent_notice(
         page.locator('#textbookChapter').select_option('2')
         expect(page.locator('#practiceChoices button')).to_have_count(18)
         expect(page.locator('#practicePool')).to_have_value('initial')
-        expect(page.locator('#reserveAvailability')).to_have_text('简单 4 道未见题 · 正常 4 道未见题 · 困难 4 道未见题')
+        expect(page.locator('#reserveAvailability')).to_have_text('简单 4 道未见题 · 正常 4 道未见题 · 困难 4 道未见题 · 挑战 0 道未见题')
         page.locator('#scopeChallenge').click()
         original_id = page.locator('#questionVersion').input_value()
         original_prompt = page.locator('#testPrompt').inner_text()

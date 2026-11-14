@@ -11,6 +11,13 @@ from learning_service.textbooks import BOOKS, learning_scope
 from test_family_math import family
 
 BATCHES = ('math_g7_multistep', 'upper_variety', 'remaining_variety')
+# These three additive batches were authored before the lower-book catalogue
+# existed; lower books are covered by their own chapter batches.
+COVERED_BOOKS = {
+    'math-g7-upper', 'math-g7-lower', 'chinese-g2-upper', 'chinese-g2-lower',
+    'chinese-g7-upper', 'chinese-g7-lower', 'english-g7-upper', 'ethics-g2-upper',
+    'ethics-g7-upper', 'history-g7-upper', 'geography-g7-upper', 'biology-g7-upper',
+}
 
 
 def questions():
@@ -23,7 +30,9 @@ def values(q):
 
 def test_every_remaining_scope_has_distinct_tasks_and_bounded_sources():
     qs = questions()
-    expected = {(b['id'],c['id']) for b in BOOKS if b['id']!='math-g2-upper' for c in b['chapters']}
+    expected = {(b['id'],c['id']) for b in BOOKS if b['id'] in COVERED_BOOKS for c in b['chapters']}
+    assert {b['id'] for b in BOOKS if b['id'] in COVERED_BOOKS} == COVERED_BOOKS
+    assert {q['book_id'] for q in qs.values()} == COVERED_BOOKS
     counts = Counter((q['book_id'],q['chapter_id']) for q in qs.values())
     assert counts == dict.fromkeys(expected, 2)
     assert len(qs)==180 and len(expected)==90

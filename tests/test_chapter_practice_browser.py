@@ -177,7 +177,8 @@ def test_chapter_batches_in_family_browser(family, textbook_sources, playwright,
         expect(page.locator('#practiceVisual svg')).to_have_count(1)
         expect(page.locator('#questionBadge')).to_contain_text('看图测量')
         page.reload()
-        expect(page.locator('#practiceVisual svg')).to_have_count(1)
+        # Reload also refetches material lists before restoring the session.
+        expect(page.locator('#practiceVisual svg')).to_have_count(1, timeout=15000)
         expect(page.locator('#testPrompt')).to_have_text(q['prompt'])
         assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth + 1')
         if os.environ.get('G2_REVIEW_ARTIFACTS'):
@@ -257,7 +258,7 @@ def test_chapter_batches_in_family_browser(family, textbook_sources, playwright,
         expect(page.locator('#practiceResponses input')).to_have_count(3)
         page.locator('#practiceResponse-a').fill('5')
         page.reload()
-        expect(page.locator('#practiceResponse-a')).to_have_value('5')
+        expect(page.locator('#practiceResponse-a')).to_have_value('5', timeout=15000)
         expect(page.locator('#practiceResponse-b')).to_have_value('')
         page.locator('#submitAnswer').click()
         expect(page.locator('#testStatus')).to_contain_text('请完成每一项')
@@ -284,7 +285,7 @@ def test_chapter_batches_in_family_browser(family, textbook_sources, playwright,
         page.locator('#practiceResponse-a').select_option('1')
         page.locator('#practiceResponse-b').select_option('4')
         page.reload()
-        expect(page.locator('#practiceResponse-b')).to_have_value('4')
+        expect(page.locator('#practiceResponse-b')).to_have_value('4', timeout=15000)
         page.locator('#submitAnswer').click()
         expect(page.locator('#feedbackTitle')).to_contain_text('答对',timeout=15000)
         page.locator('#changeChapter').click()

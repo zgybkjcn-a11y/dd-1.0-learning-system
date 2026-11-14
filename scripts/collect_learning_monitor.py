@@ -24,7 +24,7 @@ from learning_service.operations import monitor
 FORMAT = 'dd-learning-monitor-v1'
 # These revisions share the fixed aggregate queries below. Future revisions
 # require explicit compatibility verification, not a relaxed >= comparison.
-SUPPORTED_SCHEMAS = frozenset({11, 12, 13})
+SUPPORTED_SCHEMAS = frozenset({11, 12, 13, 14})
 ALERTS = frozenset({
     'METRICS_UNAVAILABLE', 'DATABASE_SCHEMA_UNSUPPORTED', 'QUEUE_AGE_EXCEEDED',
     'WORKER_LEASE_EXPIRED', 'IMPORT_PAGE_FAILURE', 'DELETION_PENDING',

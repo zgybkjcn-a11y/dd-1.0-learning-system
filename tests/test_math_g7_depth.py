@@ -105,7 +105,7 @@ def test_g7_expression_recognition_and_old_variants_cannot_inflate_coverage():
     assert rows['2:add']['apply']['family_count'] == 1
     assert rows['2:add']['transfer']['family_count'] == 0
     assert rows['5:model']['transfer']['family_count'] == 0
-    assert Counter(t['status'] for tasks in rows.values() for t in tasks.values()) == {'configured': 11, 'partial': 125}
+    assert Counter(t['status'] for tasks in rows.values() for t in tasks.values()) == {'configured': 17, 'partial': 119}
 
 
 def test_g2_inventory_is_preserved_byte_for_byte_as_rows():

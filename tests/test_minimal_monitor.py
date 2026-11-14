@@ -21,7 +21,7 @@ from learning_service.db import Database
 ROOT = Path(__file__).parents[1]
 
 
-@pytest.mark.parametrize('revision', [11, 12, 13])
+@pytest.mark.parametrize('revision', [11, 12, 13, 14])
 def test_real_historical_migrations_remain_readable_without_schema_writes(tmp_path, revision):
     migrations = tmp_path / 'migrations'; migrations.mkdir()
     for p in (ROOT / 'learning_service/migrations').glob('*.sql'):
@@ -47,7 +47,7 @@ def test_invalid_job_time_cannot_hide_beside_valid_row(tmp_path, status, created
     assert monitor.db_alerts(db.path, int(time.time()), 300, 100) == ['METRICS_UNAVAILABLE']
 
 
-@pytest.mark.parametrize('revision,expected', [(11,True),(12,True),(13,True),(14,False),(10,False),('13',False),(True,False),(None,False)])
+@pytest.mark.parametrize('revision,expected', [(11,True),(12,True),(13,True),(14,True),(15,False),(10,False),('13',False),(True,False),(None,False)])
 def test_health_revision_is_explicit_and_typed(monkeypatch, revision, expected):
     payload = {'status':'ok','service':'learning-api','schema_revision':revision,'private':'PRIVATE'}
     monkeypatch.setattr(monitor.GatewayHTTP, 'send', lambda *a,**k: SimpleNamespace(status=200,body=json.dumps(payload).encode()))

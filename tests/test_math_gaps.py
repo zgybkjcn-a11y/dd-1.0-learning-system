@@ -72,18 +72,31 @@ def test_new_mappings_only_and_no_candidate_counted_before_install():
             assert set(before_by_key) <= set(after_by_key)
             for key, mapping in before_by_key.items():
                 actual=after_by_key[key]
-                if key==('family-chapter-math-g2-upper-2-challenge-unknown-factor-v1','transfer'):
-                    assert actual['role']=='direct'
-                    assert '相邻乘积' in actual['rationale']
-                    continue
-                reviewed_actions={
-                    ('family-chapter-math-g2-upper-2-depth-word-understand-2-v1','understand'),
-                    ('family-chapter-math-g2-upper-5-depth-word-understand-2-v1','understand'),
+                reviewed={
+                    ('family-chapter-math-g2-upper-2-challenge-unknown-factor-v1','transfer'):
+                        ('direct','相邻乘积'),
+                    ('family-chapter-math-g2-upper-2-depth-word-understand-2-v1','understand'):
+                        ('direct','不代表'),
+                    ('family-chapter-math-g2-upper-5-depth-word-understand-2-v1','understand'):
+                        ('direct','不代表'),
+                    # Reviewed after plan v5: these items compute or recognise
+                    # only, so they cannot carry the full distinguish/apply task.
+                    ('family-chapter-math-g7-upper-2-depth-subtract-03-v1','distinguish'):
+                        ('supporting','不能作为'),
+                    ('family-chapter-math-g7-upper-2-depth-multiply-03-v1','distinguish'):
+                        ('supporting','零因子'),
+                    ('family-chapter-math-g7-upper-4-depth-application-03-v1','distinguish'):
+                        ('supporting','没有检查某人'),
+                    ('family-chapter-math-g7-upper-6-depth-lines-02-v1','apply'):
+                        ('supporting','不能证明'),
+                    ('family-chapter-math-g7-upper-6-depth-angle-02-v1','apply'):
+                        ('supporting','不能证明'),
                 }
-                if key in reviewed_actions:
-                    assert actual['role']=='direct'
+                if key in reviewed:
+                    role, keyword = reviewed[key]
+                    assert actual['role']==role
+                    assert keyword in actual['rationale']
                     assert actual['question_sha256']==mapping['question_sha256']
-                    assert '不代表' in actual['rationale']
                     continue
                 assert actual==mapping
             added.extend(m for m in after['mappings'] if m['question_version_id'] in new_ids)

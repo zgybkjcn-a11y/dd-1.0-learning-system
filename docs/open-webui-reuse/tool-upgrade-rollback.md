@@ -4,15 +4,15 @@
 
 ## 2026-11-09当前维护候选
 
-当前Tool1.2.1 SHA256为 `3da7d6a0b9a6575c7fd89e62daf92afde1cce91f3af6cc6c8d0dfe5c0ccb504b`；脚本固定B11相容后端17文件，六方法规格/metadata仍逐阶段核验。`tests/fixtures/readonly_study_tool_121_native.json` 与旧120证据分开，53项维护检查和原生升级/回退/缓存刷新通过。
+当前Tool1.2.1 SHA256为 `3da7d6a0b9a6575c7fd89e62daf92afde1cce91f3af6cc6c8d0dfe5c0ccb504b`；脚本固定schema14相容后端17文件，六方法规格/metadata仍逐阶段核验。`tests/fixtures/readonly_study_tool_121_native.json` 与旧120证据分开，53项维护检查和原生升级/回退/缓存刷新通过。
 
-正式操作先把API/worker/gateway迁至99文件候选及schema13、发布9静态资源，再对同一个Tool ID执行prepare/dry-run/apply/verify，保留归属、配置、分享和历史。当前入口已重新开放；不能直接用维护前快照覆盖新增数据，也不能用旧应用读schema13。完整备份与后续回退边界见上方部署验收。
+正式操作先把API/worker/gateway迁至99文件候选及schema14、发布9静态资源，再对同一个Tool ID执行prepare/dry-run/apply/verify，保留归属、配置、分享和历史。当前入口已重新开放；不能直接用维护前快照覆盖新增数据，也不能用旧应用读schema14。完整备份与后续回退边界见上方部署验收。
 
 ## 准备输入与操作范围
 
 脚本不默认指向任何数据库或容器，不读取环境秘密、其他用户配置或聊天，不调用 Docker、网络、模型，也不执行 Tool 源码。操作者明确提供现存 SQLite DB、后端源码根、候选源码、原生验证报告、预期旧源码 SHA256、预期归属账号 SHA256。所有读写查询限制为目标 Tool、其历史、其 access_grant 以及该归属账号的 role；不读取用户 settings。
 
-候选固定：Tool 1.2.0 SHA256 `23fc5c2558a0141750031acaee434f7b0abd81d884974e8d15ee781c1f2404d7`；原生六方法规格与 metadata 分别固定 hash。脚本内 `BACKEND` 固定 A07 API、网关、配置、证据/检索模块、OpenAPI与引用桥接的9个文件。prepare、dry-run、apply、verify、rollback 均检查这些字节，写事务结束前再查一次。后端不相容则零写入。
+候选固定：Tool 1.2.0 SHA256 `23fc5c2558a0141750031acaee434f7b0abd81d884974e8d15ee781c1f2404d7`；原生六方法规格与 metadata 分别固定 hash。脚本内 `BACKEND` 固定 A07 API、网关、配置、证据/检索模块、OpenAPI与引用桥接的17个文件。prepare、dry-run、apply、verify、rollback 均检查这些字节，写事务结束前再查一次。后端不相容则零写入。
 
 `--backend-root` 必须来自将使用的相容服务/网关/静态桥接；本地源码路径检查只能证明给定文件，不证明生产进程正在运行它。正式操作前应在已授权维护范围内建立“活动服务/网关镜像及桥接→已验证源码根”的部署证据，先完成 A07 配套服务/网关/桥接验证，再升级 Tool。旧线上服务缺少页级 evidence，不能只换 Tool。片段开关默认关闭，材料校验和启用另按[A07运行契约](textbook-passages-runtime.md)。
 

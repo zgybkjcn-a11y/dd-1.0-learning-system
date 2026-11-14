@@ -22,7 +22,7 @@ SQL 使用 `mode=ro`、`query_only`、读取事务与截止，不迁移或修改
 | 独立观察 | 心跳年龄大于180秒、缺失或来自未来 | `MONITOR_STALE` |
 | API | 超时、异常响应、错误服务或未知schema | `API_UNAVAILABLE` |
 | 数据库 | 缺失、不可读、无效队列/租约时间或关键记录缺失 | `METRICS_UNAVAILABLE` |
-| schema | 不属于11/12/13 | `DATABASE_SCHEMA_UNSUPPORTED`及不可用 |
+| schema | 不属于11/12/13/14 | `DATABASE_SCHEMA_UNSUPPORTED`及不可用 |
 | 队列 | 最老排队超过300秒 / 运行租约过期 | `QUEUE_AGE_EXCEEDED` / `WORKER_LEASE_EXPIRED` |
 | 人工复核 | 待核项超过100 | `REVIEW_BACKLOG_EXCEEDED` |
 | 空间 | 可用字节小于1GiB，或可用比例小于10% | `STORAGE_BYTES_LOW` |
