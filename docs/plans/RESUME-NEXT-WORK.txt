@@ -1,3 +1,180 @@
+2026-11-14会话总结（第五至八批，最新）：先读 docs/plans/HANDOFF-SESSION-2026-11-14-LOWER-BATCH5-8-SESSION-SUMMARY.md。本会话完成下册第五至第八批本地候选，共27题108个作答项（全部直接族）：第五批七下生物血液/排泄/模型项目、七下地理东南亚项目与第九至十一章、七下英语Unit 3—4（9题）；第六批二下数学activity1两条要求、七下英语Unit 5—8与Reading Plus（7题）；第七批二下道法第二至四单元4条、七下道法第二至四单元3条（7题）；第八批七下历史第二、三单元与活动课/学史方法（4题）。连同前四批，八批共61条候选行244个作答项（60直接族+1辅助族），覆盖清单58条可出候选的新初步要求（清单68条，另10条仅参照不单独出题）。全部未注册未安装未导入，批次补丁均未加入BATCHES；subject-v22至v25提案只在各自审阅包内；前四批34题与前五至七批逐字节未改。最后一批定向8项通过、15模块回归160项通过（0失败0跳过，476.25秒）、审阅页两视口无横向滚动、合成安装1145→1149且重复安装新增0、provider_calls为0。正式题仍1145题/schema14、线上subject-v5、本地math-v15/subject-v16；HEAD仍60e8498，工作树约285条改动，未提交未推送。下册清单已无剩余可出候选；下一步不是加题，而是教师逐题签署与课标交叉审核（先处理第五至八批27行）、学生真实难度校准、人工任务观察（拨钟、时间小书、模型制作优先），以及是否把候选注册为正式批次的单独决策。第一批6题缺少题目级manual_followup的历史差异仍未统一，建议新增说明或下次修订补齐，不重写第一批文件。本会话不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。
+
+2026-11-14第八批：先读 docs/plans/HANDOFF-SESSION-2026-11-14-LOWER-BATCH8.md。下册第七批本地候选已完成：二下道法第二单元两条要求（自然观察与爱护生命、水与纸的用途）、第三单元（行为与品质对应）、第四单元（个人与共同梦想）；七下道法第二单元（自尊与恰当目标）、第三单元（传统思想理念）、第四单元（权利界限与知识产权）。共7题28个作答项，全部直接族且全部挂人工任务，新增configured为0。审阅包 learning_data/verification/lower-gap-candidates-batch7-20261114/review-v1/，候选数据 learning_service/data/family_chapter_lower_gap_candidates_batch7_v1.json，批次 lower_gap_candidates_batch7 未加入BATCHES；subject-v24提案只在审阅包内。前六批50题及其审阅包逐字节未改。定向8项通过；同批回归152项通过、0失败0跳过（450.73秒）；审阅页两视口无横向滚动。二下道法第24页为空白课题页，水的内容在p25/26；未使用OCR。正式题仍1145题/schema14、线上subject-v5、本地math-v15/subject-v16。剩余4条可出候选：七下历史第二单元1条、第三单元1条、第四单元2条。下一步：第八批（七下历史4题），之后下册68条新要求全部出完候选（10条仅参照不单独出题）。本批不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。
+
+2026-11-14第六批：先读 docs/plans/HANDOFF-SESSION-2026-11-14-LOWER-BATCH6.md。下册第六批本地候选已完成：二下数学activity1两条要求（钟面与时间单位、作息记录经过时间）；七下英语Unit 5现在进行时、Unit 6天气与时态、Unit 7一般过去时、Unit 8叙事时态、Reading Plus章鱼事实。共7题28个作答项，全部直接族且全部挂人工任务，新增configured为0。审阅包 learning_data/verification/lower-gap-candidates-batch6-20261114/review-v1/，候选数据 learning_service/data/family_chapter_lower_gap_candidates_batch6_v1.json，批次 lower_gap_candidates_batch6 未加入BATCHES；subject-v23提案只在审阅包内。前五批43题及其审阅包逐字节未改。定向9项通过；同批回归144项通过、0失败0跳过（428.40秒）；审阅页两视口无横向滚动。二下数学p2/3/5/7按页面图像目视核对，未使用OCR。正式题仍1145题/schema14、线上subject-v5、本地math-v15/subject-v16。剩余11条可出候选：二下道法4条、七下道法3条、七下历史4条。下一步：第七批（二下道法第2—4单元4题＋七下道法第2—4单元3题），最后第八批（七下历史4题）。本批不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。
+
+2026-11-14第五批：先读 docs/plans/HANDOFF-SESSION-2026-11-14-LOWER-BATCH5.md。下册第五批本地候选已完成：七下生物第四章血液、第五章排泄、人体结构模型项目；七下地理东南亚世界遗产项目、第九章西亚、第十章美国、第十一章极地；七下英语Unit 3、Unit 4。共9题36个作答项，全部直接族且全部挂人工任务，新增configured为0。审阅包 learning_data/verification/lower-gap-candidates-batch5-20261114/review-v1/，候选数据 learning_service/data/family_chapter_lower_gap_candidates_batch5_v1.json，批次 lower_gap_candidates_batch5 未加入BATCHES；subject-v22提案只在审阅包内。前四批34题及其审阅包逐字节未改。定向9项通过；同批回归135项通过、0失败0跳过（369.59秒）；审阅页两视口无横向滚动。地理p55/56/58/59/90/93/94/110/111以渲染图像目视核对，未使用OCR；东南亚42处按“截至2021年第44届”口径引用。正式题仍1145题/schema14、线上subject-v5、本地math-v15/subject-v16。剩余18条可出候选：七下英语Unit 5—8与Reading Plus 5条、二下数学activity1 2条、二下道法4条、七下道法3条、七下历史4条。下一步：第六批（英语Unit 5—8与Reading Plus 5题＋二下数学activity1 2题），再第七批（二下道法4＋七下道法3），最后第八批（七下历史4）。本批不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。
+
+2026-11-14会话总结（新会话先读）：docs/plans/HANDOFF-SESSION-2026-11-14-SESSION-SUMMARY.md。本会话完成下册四批本地候选，共34题136个作答项（33直接族+1辅助族），覆盖下册清单68条新要求中的31条（另有3条七下数学perpendicular的p4/p5/p6 refine行）；四批均未注册未安装，正式题仍1145题/schema14、线上subject-v5、本地math-v15/subject-v16。最后一批定向10项通过、11模块回归126项通过（0失败0跳过），审阅页两视口无横向滚动，合成安装1145→1154且重复安装新增0、provider_calls为0。剩余27条可出候选：七下英语Unit 3—8与Reading Plus 7条、七下生物第四单元第六/七章与人体结构模型项目3条、七下地理东南亚项目与第九至十一章4条、二下道法第2—4单元4条、七下道法第2—4单元3条、七下历史第2—4单元4条、二下数学activity1 2条；另有10条仅参照不单独出题。第五批尚未开始（只读过原页文字，无候选文件）。下一步按总结第四节做第五批9题（生物第六章、第七章、模型项目；地理东南亚项目、西亚、美国、极地；英语Unit 3、Unit 4），命令见总结第五节。本会话不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。以下为同日前四批记录。
+
+2026-11-13第四批接续：先读 docs/plans/HANDOFF-SESSION-2026-11-13-LOWER-BATCH4.md。下册第四批候选已完成本地复核：九个范围各一处有界要求，共9题36个作答项——二下数学连环画；七下英语Unit 2规则与义务；七下生物光合作用与呼吸作用、栽培项目、生殖与青春期、营养物质、呼吸系统；七下地理日本自然环境与p108雨林固碳项目。全部为完整有界要求的一个直接题型族，全部挂人工任务，新增configured为0。审阅包 learning_data/verification/lower-gap-candidates-batch4-20261113/review-v1/，候选数据 learning_service/data/family_chapter_lower_gap_candidates_batch4_v1.json，未注册未安装（批次 lower_gap_candidates_batch4 未加入BATCHES）；subject-v21提案只在审阅包内。前三批25题及其审阅包逐字节未改。定向10项通过；同批回归126项通过、0失败0跳过（362.18秒）。二下教材无原生文字层，p83/84由页面图像目视核对；七下英语、生物、地理使用原生文字层。七下地理p108图1数字按原页目视核对为面积1600/900/460/4000万公顷、碳储量17.1/15.4/8.0/88.0亿吨，题内已注明图1、原页108、单位与“不代表当前实时统计”。线上仍subject-v5、1145题/schema14，本地math-v15/subject-v16。下一批：七下生物第四单元第六、七章与人体结构模型项目；七下地理跨学科东南亚项目、第九至十一章；七下英语Unit 3—8与Reading Plus；二下数学第5单元其余条目。本批不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。以下为同日前三批记录。
+
+2026-11-13第三批接续：先读 docs/plans/HANDOFF-SESSION-2026-11-13-LOWER-BATCH3.md。下册第三批候选已完成本地复核：七下数学按复核页把perpendicular拆为垂直定义（p4）、垂线基本事实（p5）、垂线段最短与点到直线的距离（p6）三项，旧行printed_page=3保留未改、仅以refine行补充；二下数学第2—5单元6题（倍数、数位与含零数、整十整百整千加减、加减笔算与进退位、加减各部分关系、数与运算关联）。共9题36个作答项，全部为完整有界要求的一个直接题型族，全部挂人工任务，新增configured为0。审阅包 learning_data/verification/lower-gap-candidates-batch3-20261113/review-v1/，候选数据 learning_service/data/family_chapter_lower_gap_candidates_batch3_v1.json，未注册未安装（批次 lower_gap_candidates_batch3 未加入BATCHES）；subject-v20提案只在审阅包内。第一批7题、第二批9题及其审阅包逐字节未改。定向9项通过；同批回归116项通过、0失败0跳过（314.27秒）。二下教材无原生文字层，p25/27/31、41/44/50/57、64/65/69/73、87/89/92由页面图像目视核对；七下数学p4/5/6使用原生文字层。线上仍subject-v5、1145题/schema14，本地math-v15/subject-v16。下一批：二下数学“数学连环画”与第5单元其余条目、七下英语Unit 2、七下生物其余小节、七下地理其余章节与项目（p108固碳图用目视核对值：面积1600/900/460/4000万公顷，碳储量17.1/15.4/8.0/88.0亿吨）。本批不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。以下为同日夜间的第二批记录。
+
+2026-11-13夜间接续：先读 docs/plans/HANDOFF-SESSION-2026-11-13-LOWER-BATCH2.md。下册第二批四个起始范围已完成本地候选复核：二下道法第一单元2题、七下道法第一单元3题、七下历史第一单元2题、七下地理第七章2题，共9题36个作答项；全部为完整有界要求的一个直接题型族，全部挂人工任务，新增configured为0。审阅包 learning_data/verification/lower-gap-candidates-batch2-20261113/review-v1/，候选数据 learning_service/data/family_chapter_lower_gap_candidates_batch2_v1.json，未注册未安装（批次 lower_gap_candidates_batch2 未加入BATCHES）；subject-v19提案只在审阅包内。第一批7题及其审阅包逐字节未改。两处待核对项已有结论：七下数学perpendicular旧定位p3实为对顶角，垂直定义在p4、垂线基本事实p5、垂线段最短与点到直线的距离p6，本轮未改旧计划也未出题；七下地理p108固碳图文字层数字乱码，目视核对为面积1600/900/460/4000万公顷、碳储量17.1/15.4/8.0/88.0亿吨，不得按文字层取数。线上仍subject-v5、1145题/schema14，本地math-v15/subject-v16。下一批：七下数学第七章按p4—p6展开三项后出候选，再二下数学第2—5单元、七下英语Unit 2、七下生物其余小节、七下地理其余章节。本批不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。以下为同日下午首批记录。
+
+2026-11-13傍晚接续：先读 docs/plans/HANDOFF-SESSION-2026-11-13-LOWER-CANDIDATES.md。下册首批三个起始范围已完成本地候选复核：二下数学第1单元2题、七下英语Unit 1三题、七下生物第三单元第一章两题，共7题28个作答项；6题为完整有界要求的一个直接题型族，萌发观察1题仅辅助并保留人工观察任务，新增configured为0。审阅包 learning_data/verification/lower-gap-candidates-20261113/review-v1/，候选数据 learning_service/data/family_chapter_lower_gap_candidates_v1.json，未注册未安装（未加入BATCHES）；subject-v18提案只在审阅包内。8项定向检查加同批回归共99项通过（0失败0跳过）；合成库以1145道旧题全部原行为基线，增量7题重复安装新增0，逐题作答正确、跨年级隔离与幂等通过，provider_calls为0。docs/README.md、current-state.md、RESUME-NEXT-WORK.txt已同步写入上午与下午两批本地结果。线上仍subject-v5、1145题/schema14，本地math-v15/subject-v16。下一批按交接第4节：二下道法、七下道法、七下历史、七下地理起始单元，再其余单元；七下数学perpendicular定位错误与七下地理p108乱码须先核对再出题。本批不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。以下为同日下午上册候选记录。
+
+2026-11-13下午接续：先读 docs/plans/HANDOFF-SESSION-2026-11-13-QUESTION-QUALITY.md。上册20项缺口已逐项做成原创本地候选并复核：20题、73个作答项，16项得到一个完整有界要求的直接题型族，4项仅辅助并附人工任务，新增configured为0；审阅包 learning_data/verification/upper-gap-candidates-20261113/review-v1/，候选数据 learning_service/data/family_chapter_upper_gap_candidates_v1.json，未注册未安装（未加入BATCHES）。91项不同检查通过；临时合成库保留1145道旧题原行，20题增量重复安装新增0，全部合成作答正确且provider_calls为0。修正3个既有测试文件把新增7册54个阅读范围误当作有配题的旧断言，备份在 preexisting-test-baselines/。下册已建立10册75范围初步清单（新增7册54范围68条新初步要求、旧3册21范围沿用61条），下册本轮新增题0、运行映射0、完整知识清单0；首批优先11范围。线上仍subject-v5、1145题/schema14，本地math-v15/subject-v16，subject-v17提案只在审阅包内。本批不提交推送、不导入生产、不迁移部署、不启动或调用C01、无外部模型/OCR/embedding，真实手机继续暂缓。下一步：下册首批二下数学第1单元、七下英语Unit 1、七下生物第一章（第三单元第一章）出本地候选并逐题复核。以下为同日上午的主站交接与历史记录。
+
+2026-11-13最新完整交接：先完整阅读 docs/plans/HANDOFF-SESSION-2026-11-13-MAIN-SITE.md 和 docs/releases/current-manifest.json。
+
+已上线教材20册/152目录范围（二年级6、七年级14），正式1145题（418/727）、schema14，线上subject-v5；新增7册只有原页阅读，无正式配题和关键词索引。本地math-v15/subject-v16、review-v17及3道数学纠错候选未发布。默认按新交接第7节为已审明的上册20项缺口编制本地候选并逐题复核，再下册；不要重复审已完成的同章题，不直接导入或部署。主站现有功能及P1/P2/P3建议见第6节，尚未实施。
+
+本轮仅只读运行/公开静态资源核对和文档整理，证据 learning_data/verification/session-handoff-20261113/read-only-state.json；5服务running、API/WebUI healthy，4个C01容器exited。保留所有既有改动和使用数据，不提交推送，不启动/重启/调用C01，不调用外部模型/OCR/embedding，真实手机验收继续暂缓。
+
+新会话默认命令：
+codex -C /home/deniskorfei/projects/open-webui '请完整阅读 docs/plans/HANDOFF-SESSION-2026-11-13-MAIN-SITE.md 和 docs/releases/current-manifest.json，按交接第7节继续题库质量：先为review-v17已审明的上册20项缺口编制本地候选并逐题复核，再处理下册及新增7册知识清单，不重复审已完成的同章题，不直接导入或部署。保留既有改动和使用数据，不提交推送，不启动、重启或调用C01，不调用外部模型/OCR/embedding，真实手机验收继续暂缓。'
+
+以下为历史接续记录，旧版本/旧命令/旧“下一步”不覆盖上述顺序。
+
+2026-11-12最新：按用户“将缺少的教材补齐”已上线新增7册原页阅读，当前二年级6册、七年级14册，共20册/152目录范围；新增二下数学、道法及七下英语、道法、历史、地理、生物。831个新增PDF原页全部渲染通过；66项教材/接口发布检查、99项片段兼容检查（模块有重叠）、390/1280两视口2项浏览器通过。50张表3383条既有行逐行哈希相同，1145题（418/727）和schema14保持；原13份PDF哈希相同。新7册仅原页阅读，无正式配题、无关键词索引，未用未审核OCR。线上覆盖仍subject-v5，本地math-v15/subject-v16及三道数学候选未发布。Compose learning_data/deployments/family-textbook-completion-20261112/compose.json；API/worker/gateway镜像sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6。C01四容器保持停止，无模型/OCR/embedding调用、不提交推送，真实手机验收继续暂缓。验收 docs/verification/TEXTBOOK-COMPLETION-2026-11-12.md。教材补齐请求已完成；题库质量接续仍为第5节已审明的上册20项缺口本地候选，再下册；新7册不得冒称题库或知识点覆盖完整。
+
+以下记录按各自时间点保留。
+
+2026-11-12当前续接：math-v15/subject-v16，仅本地候选；正式题ID418/727，线上仍subject-v5、1145题/schema14。本批逐项复核道法与七上史地生此前27项无直接题证据的要求，审阅同章正式题去重131道；5条辅助升直接、4条新增直接、7条新增辅助。7项首次有直接题型族；全学科112 configured、288 partial、258 gap，308 human、350 bounded。重复的动物分类动作仍只计1族，人口复合要求等部分证据继续辅助，configured数量未增加。剩余5项无映射、15项仅辅助，已审完同章候选并记录原因。当前证据 learning_data/verification/upper-subject-review-20261112/review-v17/（含 candidate-review-decisions.json），验收 docs/verification/UPPER-SUBJECT-KNOWLEDGE-REVIEW-2026-11-12.md；review-v16与数学review-v15保留各自历史口径。六模块83 passed，正式1145题内容逐项相同，人工任务和要求逐项相同。未导入、迁移、部署、重启服务/C01或调用模型/OCR/embedding；保留既有改动和使用数据，不提交推送，真实手机验收继续暂缓。下一步先为当前上册这20项明确缺口准备本地候选并复核，再按原顺序处理下册；不重复审已核对同章候选。
+
+以下续接记录按其记录时点保留，旧“当前/下一步”不代表本次待执行状态。
+
+2026-11-12续接：当前数学覆盖清单math-v15、全学科subject-v15；正式题ID仍为418/727，线上仍为subject-v5、1145题/schema14。subject-v15编辑映射为112 configured、280 partial、266 gap，308项human和350项bounded要求。数学与跨清单角色复核完成。七上语文20点/40项中3 configured、13 partial、24 gap；16项bounded要求均至少有一直接题型族（3项两族、13项一族），24项human保留人工。七上英语37点/74项中11 configured、24 partial、39 gap；35项bounded要求均至少有一直接题型族（11项两族、24项一族），39项human保留人工。七上史地生、二上/七上道法初筛后复核并修订7项现有题映射；其他科目仍有13项bounded要求没有已映射题、14项只有辅助题，尚待逐项审题。详见 docs/verification/UPPER-SUBJECT-KNOWLEDGE-REVIEW-2026-11-12.md 和 review-v16。六模块内容/覆盖回归82 passed；覆盖测试校验身体尺活动中8道长度计算题为辅助。候选题未导入、未迁移或部署，未重启服务/C01，未调用模型/OCR/embedding；真实手机验收暂缓；不提交或推送。下一步继续审核其他科目同章候选，再按优先序处理下册。
+
+2026-11-12数学单一解题动作最新本地候选为math-v14/subject-v13，逐章审阅目录 learning_data/verification/math-single-action-20261112/review-v14/，定向验收 docs/verification/MATH-SINGLE-ACTION-2026-11-12.md。正式题ID快照418/727；全学科映射112 configured、275 partial、271 gap，308人工要求、350 bounded要求。七上第2至6章逐项审阅；第4章math/subject分别为3/13、6/10 configured/partial；第5章未改映射，subject为3/13；第6章subject为5/27（12 human、20 bounded），math为4/28。三道第2/4章纠错题只在本地候选题库、不在正式快照；第6章两道题降为辅助，平面图形分类题补入辨析映射。线上仍为subject-v5、1145题/schema14，使用数据未动；未导入、迁移、部署、重启服务或调用模型/OCR/embedding。C01四容器停止、真实手机验收暂缓，不提交推送。下一步按交接第5节审二上数学第1章。旧的v8/v7段落留作历史。
+
+2026-11-12数学知识点质量续批已上线：10道新题覆盖5项此前没有直接题的要求；subject-v4，13册276点/658项中308项人工、350项bounded，92项达到两题型编辑目标。正式1131题/schema14，题版与旧行保留。报告 docs/verification/KNOWLEDGE-QUALITY-2026-11-12.md；本批审阅 learning_data/verification/math-gaps-20261112/review-after/，优先缺口 learning_data/verification/math-gaps-20261112/review-after/summary.json。下一步按原顺序二上/七上语文、七上英语，再其余学科，并审数学单一解题动作。Compose learning_data/deployments/family-math-gaps-20261112/compose.json；C01停止、真实手机暂缓、不提交推送。
+
+2026-11-12语文/英语知识点缺口续批已上线：新增14题，覆盖二上语文、七上语文和七上英语的13个教材范围；全学科映射升级subject-v5。正式1145题（二年级418、七年级727）、1071道章节题/schema14；658项要求当前为93 configured、294 partial、271 gap，其中308项需人工核对、350项bounded。该编辑状态不代表课标完整率或学生掌握率。题版与旧行保留，重复导入新增0。报告 docs/verification/KNOWLEDGE-QUALITY-2026-11-12.md；本批审阅 learning_data/verification/subject-gaps-20261112/review-after/。下一步继续审数学单一解题动作，再按优先序处理史地生、道德与法治和下册。Compose learning_data/deployments/family-subject-gaps-20261112/compose.json；API/worker sha256:34f037086c106495f0446e5153279fd1a3227c493bba1d64bdbd4c927850d05c，仅更新这两个服务。C01保持停止、真实手机暂缓、不提交推送。
+
+以下旧续接内容作为本批之前的历史保留。
+以下保留历史记录。
+2026-11-12完整会话交接：先读 docs/plans/HANDOFF-SESSION-2026-11-12-TEXTBOOKS.md。全部已接入13册/7学科/98目录范围已补题并做题型升级，共1121题（二年级410、七年级711），四档难度及普通/放大窗口图片上层悬浮翻页均已上线。最新Compose learning_data/deployments/family-reader-overlay-20261111/compose.json；API/worker sha256:e9b9237c22212f03f0eceaac97960f037b93cbd8c5bddbdbf8ce9b69e0b88bd9，schema14。
+下一步按交接第5节做知识点与题目质量缺口核对，再分批补题：先二上/七上数学，再当前上册语文/英语等；不把范围有题当整章完整覆盖。276点/658要求仍为草案，教师/课标/真实难度未完，人工任务暂无持久化完成记录。保留工作树与新使用数据、不提交推送；C01停止、真实手机暂缓。本轮仅只读核对与文档整理，无运行变更。新会话完整命令见交接第8节。
+
+以下保留逐批历史；旧“下一步/未部署/待授权”只描述对应历史阶段，不能据此重做。
+
+2026-11-11教材与放大窗口悬浮翻页已上线：先读 docs/verification/READER-OVERLAY-2026-11-11.md。当前Compose learning_data/deployments/family-reader-overlay-20261111/compose.json，API/worker sha256:e9b9237c22212f03f0eceaac97960f037b93cbd8c5bddbdbf8ce9b69e0b88bd9。放大翻页保留缩放、同步目录；1121题/schema14，4项浏览器通过。C01停止、真实手机暂缓，其余约定保留。
+
+以下保留历史记录。
+2026-11-11教材左右翻页与目录跟随已上线：先读 docs/verification/READER-NAVIGATION-2026-11-11.md。当前Compose learning_data/deployments/family-reader-navigation-20261111/compose.json，API/worker sha256:8f59022e3ea8907a11f7a583269046c7812480b05ac811979818b510b58617f5。跨章阅读保留练习范围与会话；1121题/schema14，19项API+4项浏览器通过。C01停止、真实手机暂缓，其余约定保留。
+
+以下保留历史记录。
+2026-11-11教材页标题对齐修正已上线：先读 docs/verification/READER-SUMMARY-2026-11-11.md。当前Compose learning_data/deployments/family-reader-summary-20261111/compose.json，API/worker sha256:5d06454f7f81be4e020b7796b56262371b92d89a5d4f27f43d59ecd81c1e8d1d。仅CSS调整，1121题／schema14不变；C01停止、真实手机暂缓，其余约定保留。
+
+以下保留历史记录。
+2026-11-11第四档挑战与题型升级已上线：新增98题，13册98范围各一道；正式共1121题（二年级410、七年级711）。多选、排序与数值／单选／短答组合，共261作答项，支持恢复与可读收藏。386项单元／集成及2项两视口浏览器检查通过，旧记录保留；schema14。教师复核、真实难度校准及整章穷尽仍待完成。
+先读 docs/verification/CHALLENGE-TIER-2026-11-11.md 和 docs/open-webui-reuse/challenge-tier.md。当前Compose learning_data/deployments/family-challenge-tier-20261111/compose.json；API/worker sha256:50ee80009a7e008f672193f61f99fbe2ba32aad9951a0fb6c3f46db6487576d8，gateway保持B11。最终源码 learning_data/releases/challenge-tier-20261111-final。challenge_variety批次98题已安装。C01停止、真实手机暂缓，不提交推送或用旧库覆盖新使用记录。
+
+以下保留历史记录。
+
+2026-11-10 知识点与短答升级已上线：新增67题，正式共1023题（二年级380、七年级643）；13册276个知识点、658项要求草案，84个短答项、25条常见错答反馈。188项单元/集成及2项浏览器检查通过，旧记录保留。清单与课程标准、教师复核、真实难度仍待完成，人工能力不由自动答题计达标。
+先读 docs/verification/SUBJECT-KNOWLEDGE-2026-11-10.md。当前Compose learning_data/deployments/family-subject-knowledge-20261110/compose.json；API/worker sha256:1e9e793c797398dda28a0aa7867a7cce39162ab0d97baadcb32bdbbc665ae604，gateway保持B11。最终源码 learning_data/releases/subject-knowledge-20261110-final-r2。subject_knowledge批次67题已经导入，不重复补导。C01停止、真实家庭手机暂缓、不得提交推送或用旧库覆盖新使用记录。
+
+以下保留历史记录。
+
+2026-11-10 全学科题型扩充已上线：新增180题，覆盖其余12册90范围；累计13册7学科均已做题型升级，正式共956题（二年级366、七年级590）。新增453个作答项、11道图表题，78道旧非数学题校正展示难度；自动进阶回避空档。164项单元/集成、2项两视口浏览器检查最终通过，旧记录完整保留。完整知识点、课程标准、听说写作实操与教师复核仍未完成。
+先读 docs/verification/OTHER-TEXTBOOKS-VARIETY-2026-11-10.md。当前Compose learning_data/deployments/family-other-textbooks-variety-20261110/compose.json，API/worker sha256:034bb31b3a9c270b909b966dac8b8b108fb44289fc275997a6f3ec3cf6eaf181，gateway保持B11。最终源码 learning_data/releases/other-textbooks-variety-20261110-final-r3。三批180题已导入，不重复重做；C01停止、手机暂缓、不得提交推送或用旧库覆盖新记录。后续细化各章节知识点与独立表达/操作缺口，不把范围有题当全覆盖。
+
+以下保留历史记录。
+
+2026-11-10 二上分步作答已上线：先读 docs/verification/MATH-G2-MULTISTEP-2026-11-10.md。新增16题、48作答项（8正常、8困难、8图表），支持逐格填数/下拉判断、逐项核对、草稿恢复、冻结题版与收藏标签。全部正确才算本题答对，单个正确结果不代表推理过程完成。
+当前Compose learning_data/deployments/family-math-g2-multistep-20261110/compose.json；API/worker镜像20785bf7404c…，gateway保持B11，schema13；118源码文件、74运行文件每服务匹配。151单元/集成与8浏览器最终通过，失败和复验日志全部保留。正式总776题（二年级322、七年级454），章节702，二上常规数学248。旧行保全，旧镜像不认识新题号和numeric-fields-v1，不用旧库覆盖新增使用。
+二上能力35配置、33部分、8空白，32项无直接考查，仍是草案。预览 learning_data/verification/math-g2-multistep-20261110/review/multistep.html。后续继续质量修正，再按用户顺序推进当前上册语文、英语等学科；C01停止、手机暂缓、未提交推送，历史证据和既有改动保留。
+以下保留历史交接。
+
+2026-11-10 二上题型与难度修正已上线：先读 docs/verification/MATH-G2-CHALLENGE-2026-11-10.md。新增48题（16正常、32困难、21图表），35道旧题重新分档；题型轮换、新题优先和编排顺序已生效。选择正常/困难体验，自动仍从简单开始。二上常规数学232题，全部学科总760题（二年级306、七年级454）；覆盖31配置、35部分、10空白，仍是草案，未完成教师/课程标准复核。
+当前Compose learning_data/deployments/family-math-g2-challenge-20261110/compose.json；API/worker镜像d11f66866887…，gateway保持B11，schema13。115源码文件、71运行文件每服务匹配，141单元/集成与10浏览器最终通过，原始失败和修复复验日志保留。48题预览在 learning_data/verification/math-g2-challenge-20261109/review/challenges.html。全部旧记录保全，不用旧库覆盖新增使用。
+后续补题按题型、难度和同模板去重标准继续，再按用户顺序推进当前上册语文、英语等学科。C01继续停止、手机继续暂缓，不提交推送，保留既有改动与历史证据。
+以下保留历史交接。
+
+2026-11-09 七上知识点续批已上线：先读 docs/verification/MATH-KNOWLEDGE-G7-2026-11-09.md。新增136题，正式共712题（二年级258、七年级454），13册98范围都有起步题。七上34知识点都有练习；v3校正旧题证据与题型计数后，6/136能力达到两题型目标、130部分、52项无直接考查题。不能称完整覆盖。9项任务单见 docs/open-webui-reuse/math-g7-practical-tasks.md。
+当前Compose learning_data/deployments/family-math-knowledge-g7-20261109/compose.json；API/worker镜像3d9e797fb2ef…，gateway仍B11，schema13。132项单元/集成、5项浏览器通过；全部旧行保全。下一批按用户顺序推进当前上册语文、英语等学科知识点与薄弱题型。数学口述/实操/教师复核仍待完成，不恢复C01，不催暂缓手机，不提交推送，不用旧库覆盖新增使用。
+以下保留历史交接。
+
+2026-11-09 二上知识点续批已上线：先读 docs/verification/MATH-KNOWLEDGE-G2-2026-11-09.md。新增88题、总576题，二上19知识点都有映射，28/76能力达到两种对应题型目标；39道解释辨认题仅计辅助。7项口述/实测任务单在 docs/open-webui-reuse/math-g2-practical-tasks.md，未计自动判分或配题达标。下一批继续七上概念/辨错缺口；课程标准与教师复核仍待完成。
+当前Compose是 learning_data/deployments/family-math-knowledge-g2-20261109/compose.json；API/worker新镜像1a3006365702…，网关仍B11。127项单元/集成和5项不同浏览器检查通过，旧行逐表保全。不要重复导入旧题、盲切旧镜像或用旧库覆盖新增使用记录；C01不恢复，手机仍按用户暂缓。代码未提交/推送，保留全部既有工作树改动。
+以下是历史交接。
+
+2026-11-09 最新章节补题交接：先读 docs/verification/CHAPTER-PRACTICE-2026-11-09.md 和 docs/releases/current-manifest.json。414道本地自编题已按数学180→其他上册189→其余45导入并上线，13本/98目录范围均有起步题；旧记录逐行保全。当前Compose为 learning_data/deployments/family-chapter-practice-20261109/compose.json，仅API/worker升级，gateway仍B11。
+二上/七上数学53知识点、212能力项缺口表为草案；下一批按知识点补概念理解、易错辨析、迁移与测量/表达任务，并核对教材原页/课程标准。不可把“每章有题”记为完整覆盖，不顺带安装历史12道备用题，不恢复C01模型/OCR调用，不用旧备份覆盖新增作答。152项定向检查、5项浏览器检查通过；final-review为本批审阅包。工作树未提交/推送，保留既有改动。
+以下为此前任务的历史续接记录。
+
+当前接续（2026-11-09，最终）：本批部署与C01技术/助手验收已完成。先读 docs/plans/HANDOFF-SESSION-2026-11-09-DEPLOY-C01.md 和 docs/verification/C01-real-model-2026-11-09.md。正式WebUI0.12.5/Tool1.2.1/schema13、99源码/9静态；原24/24、开发补充3/3同一v17通过，189/300请求（185生成）、固定订阅增量CNY0。追加60分钟用53.59分钟，STOP和原计数保留，4个隔离服务已停止。
+
+下一步仅按用户新要求处理真人教学反馈或独立外部事项；教学样本 docs/verification/C01-teaching-review-2026-11-09.md，真人签署pending，C01技术范围complete、全项pending/open。手机继续暂缓，B07独立备份和真实1/3/7天观察等不自动完成；不自动恢复模型服务/续批，不扩展C02–C05，不提交推送。验收提示未写入生产模型默认设置。
+
+以下全部为历次授权与阶段历史，不是当前待执行指令；原模型时间等待已经由明确追加授权解决且批次已完成。
+
+最新授权：用户已同意追加60分钟完成剩余验收。新窗口从下一次真实生成开始；累计300次上限、2000输出tokens和其他限制保持，首轮41次请求保留。当前正在恢复隔离环境和冻结第二轮；不得将首轮待授权历史误作当前阻塞。
+
+当前首读：docs/plans/HANDOFF-SESSION-2026-11-09-DEPLOY-C01.md。正式部署已完成；C01首轮16/24执行，14项当前通过/2待修复，总41/300请求，固定订阅增量0元。原60分钟窗口到期已STOP，追加时间待用户明确批准；不得清零预算继续。剩余05/13复验、17–24及最终提示影响回归。Goal/C01保持未完成，手机继续暂缓。下文为保留的历次记录。
+
+最新执行（2026-11-09 部署已完成，C01继续）：正式家庭API/worker/网关已运行B11候选，schema13，Tool1.2.1，9静态资源已发布；HTTPS入口与本地真实只读链路通过。证据 learning_data/verification/deploy-c01-20261108T162720Z。用户已授权本批真实模型，确认固定订阅，并将请求上限提高至300；2000输出tokens/次、60分钟和30元上限保持。模型尚未调用，继续装配隔离服务材料及原生WebUI调度验收。旧禁止部署/模型段落为历史，已被本轮明确授权替代；手机暂缓不变。
+
+当前新会话入口（2026-11-09完整交接）：先读 docs/plans/HANDOFF-SESSION-2026-11-09-C01.md，再核对git和机器台账。25项：14 complete、6 open、5 deferred；B10原12/12通过，B11桌面7项和HP102w/Chrome三页打印通过、手机按用户指令暂缓，C01的24情景与Tool夹具已完成但真实模型0执行。
+先按2026-11-09交接第5节，冻结C01无模型的隔离服务/网关联调准备方案；复用已有合成测试，逐项登记Tool协议层与真实服务层差异，再按相关变化验证。此建议尚未执行。真实模型调用仍等待限制变更、模型/预算/材料范围和实际复核者明确；B11手机继续暂缓。
+已有11本地提交未推送，交接前50个公开未提交路径；当前以git状态为准。保留旧证据和原900样本/P95/12秒限制。当前已跨日，旧C01包不可直接verify或回拨日期；新工作需要新目录。新会话命令与完整提示在交接第9节。本次仅文档整理，未运行工程测试、提交/推送/部署。
+
+以下保留逐批历史，不据旧下一步重做已完成任务。
+
+最新接续（C01离线Tool夹具）：C01离线Tool协议夹具完成：合成PDF/PNG、书章符号绑定及完整回包已固定，六个只读方法的22个预设Tool步骤通过，10项定向检查通过。24个模型情景仍全部not_run；本批没有运行真实网关/服务/模型，不是选工具或教学质量验收。B11手机继续按用户指令暂缓，桌面与打印结果保持；运行候选、原性能基线和12秒预算不变。
+先读 docs/verification/C01-tool-fixtures-2026-11-08.md 和 docs/open-webui-reuse/real-model-acceptance.md。C01离线用例及Tool协议夹具已准备；真实执行仍等待明确改变调用限制、提供方/模型版本、公开或合成材料范围、预算与实际复核者/教学阈值。届时先另建隔离服务/网关环境并冻结材料与提示，再执行；本批不能代替端到端环境或真实模型验收。手机暂缓，不重跑未变检查。
+本批证据：learning_data/verification/c01-tool-fixtures-20261108T153801Z。保留首次沙箱停滞/超时与中断记录，脚本未改后沙箱外通过，不覆盖旧输出。
+
+以下保留历史记录。
+
+最新接续（手机暂缓 / C01离线准备）：用户已明确暂缓B11真实家庭手机验收，记录为deferred_by_user，设备及结果仍为空；桌面浏览器7项与HP 102w/Chrome三页纸张通过保持，B11仍ready/candidate_only/pending/open。继续完成C01获准的离线准备：24个合成情景、六方法契约、人工评分规则与空白执行记录已冻结。真实模型执行仍deferred/gated，未调用、未评分、未部署。
+先读 docs/verification/C01-offline-preparation-2026-11-08.md 与 docs/open-webui-reuse/real-model-acceptance.md。C01离线情景准备完成；真实执行等待限制变更、提供方/模型版本、公开或合成材料、调用预算、兼容隔离环境及实际复核者/教学阈值明确后另行冻结。B11手机按用户指令暂缓，不重复催验；其他外部验收继续独立保留。
+本次独立证据：learning_data/verification/c01-offline-preparation-20261108T152941Z。原B10基线/P95门槛/12秒预算、B11候选及全部历史证据保持；不要重跑旧封存脚本或未变工程检查。
+
+以下保留历史记录。
+
+最新接续（B11实际纸张打印通过）：B11实际纸张打印已通过：用户反馈HP 102w、Chrome、3页正常；原文与此前提供的三页复习卡PDF哈希已独立保存。桌面浏览器7项通过和入口问题关闭保持，桌面与纸张范围现均通过。B11只剩真实家庭手机验收，仍为ready/candidate_only/pending/open；候选、原性能基线和12秒预算保持，未提交/推送/部署。
+B11剩余真实家庭手机验收：记录设备/系统/浏览器及入口、触屏/双指缩放/软键盘、中文公式、切档隔离和断连恢复等实际反馈。桌面浏览器7项和HP 102w三页纸张打印已通过，不重复未变验收；手机未知项继续留空。
+先读 docs/verification/B11-paper-print-2026-11-08.md。以下为历史。
+
+最新接续（B11桌面浏览器7项通过）：B11本机真实桌面浏览器7项已通过：user01已保存家庭学习入口复验通过且备注为空，和先前6项反馈合并计7项；原DNS问题按验收环境修复并经人工复验关闭，失败/诊断证据全保留。环境Ubuntu24.04.4/WSL2/WSLg＋Chrome146.0.7680.177，纸张打印未做、家庭手机待验。运行候选及B10原12/12门槛、12秒预算不变，B11总状态仍pending/open，未提交/推送/部署。
+桌面浏览器7项已通过，无需重复未变检查。B11下一步收集真实家庭手机的系统/浏览器、触屏/双指缩放/软键盘及相关流程反馈；实际纸张打印与可读性另验。暂无手机或打印结果继续留空，不代签、不自动发布候选。
+先读 docs/verification/B11-desktop-acceptance-2026-11-08.md。以下为历史。
+
+最新接续（B11真实桌面反馈）：B11已收到本机真实桌面反馈：user01三次相同保存按一次处理，6项通过；家庭学习入口虽勾选通过，但备注与后续确认有DNS错误，单列待复验。小型探针复现验收拦截环境的303跳转漏接，修正本地会话的跳转/Cookie传递后，真实网关登录入口技术复查通过，新窗口只等待入口人工复验。纸张打印未做、家庭手机未验；运行候选、B10原12/12门槛和12秒预算保持，B11继续pending/open。
+在当前“B11 家庭学习入口回验”窗口中，从主站侧栏进入家庭学习并提交登录页，再保存唯一入口项；读取本批 recheck-session/human-feedback.jsonl 或用户明确反馈后再判定桌面入口通过。已有6项真实桌面通过保留，不整套重做。纸张打印和家庭手机继续独立待验，未发布/调用真实模型。
+先读 docs/verification/B11-desktop-feedback-2026-11-08.md。以下为历史。
+
+最新接续（B11 本机桌面）：已按用户“使用本机来做真实桌面”启动 B11 独立可见 Chrome 146.0.7680.177 窗口；环境为 Ubuntu 24.04.4 / WSL2 / WSLg，报告屏幕1920×1080、无视口模拟。主站与合成家庭档案第五章连接成功，操作记录页已打开。人工逐项反馈尚待填写，桌面/手机验收均未记通过；未部署或调用模型。
+先读 docs/verification/B11-desktop-session-2026-11-08.md。使用当前 B11 独立 Chrome 窗口的“B11 本机桌面验收”页实际操作并保存逐项反馈；读取本批 human-feedback.jsonl 后再更新设备验收。启动自检不等于用户验收，纸张打印与打印预览分别记录，家庭手机仍待真实设备。若窗口关闭，另建会话记录再启动，不覆盖本批证据。
+以下为历史。
+
+最新接续（2026-11-08 B11）：B11本地工程验证完成：修复上游编辑器失效/异步替换时的填入保护、断网同档案草稿恢复、填入焦点及切档历史聊天提示，补齐缩放和触控尺寸。54项单元/契约、21项浏览器用例及固定WebUI0.12.5原生两视口通过；99文件源码候选、9资源静态候选/回退校验完成。B10后端及原性能12/12证据保持。用户确认暂无实际设备记录，B11为ready/candidate_only/pending/open，未提交/推送/部署。
+先读 docs/plans/HANDOFF-SESSION-2026-11-08-B11.md。B11本地检查已完成：待实际桌面与家庭手机的系统/浏览器/操作反馈及打印体验，按B11设备矩阵逐项记录；暂无记录不代填通过、不重复未变本地验收。A09发布和A09/B02/B05家庭反馈、B04待解、B07独立副本与B08观察端另列；C01–C05保持deferred，真实模型/OCR/部署限制不变。
+以下保留此前历史。
+
+最新接续（2026-11-08 读取调度）：B10读取调度本地出口完成：先冻结线程诊断及两项隔离试验，采纳保持原检查体的进程内读取作用域串行调度；195个不同单元/契约用例通过，原900请求矩阵全部成功且输出一致，原P95门槛12/12通过。98文件schema13候选及旧97文件回退校验通过，UI/Tool未变证据按hash复用；未提交/推送/部署。B10为ready/candidate_only/passed/complete，B11尚未启动。
+先读 docs/verification/B10-thread-scheduling-2026-11-08.md。继续B11：先冻结WebUI0.12.5与当前98文件候选的DOM/Tool接入契约、键盘焦点/缩放/中文公式/打印/断网恢复及切档隔离检查；本地合成与实际家庭桌面/手机矩阵分别记录，真实设备资料未知留空。B10原基线、12秒预算及全部历史失败证据保留，不重跑未变候选择优。
+以下保留此前历史。
+
+最新接续（2026-11-08 原页阶段）：B10原页逐请求阶段归因完成：3组450请求成功且输出与原基线一致、各组合成数据库前后不变。暖原页材料P50约11.92ms，服务函数体外约319.90ms；只读连接初始化变体和GET围栏透传变体的并发P95均未达预设采纳门槛，均只保留隔离证据。工作区运行代码及97文件候选不变；原验收10/12，B10仍in_progress/pending/open，B11未启动。
+先读 docs/verification/B10-page-stages-2026-11-08.md。继续B10：先冻结原TestClient执行环境/线程调度归因（保留当前材料、门户生命周期和身份/证据调用），区分墙钟耗时、线程CPU及等待；本批两个变体和前批async变体均未采纳，不重复相同候选择优。原始900样本、12秒预算和P95门槛不变；只有新证据支持运行实现变化后再做正确性与原矩阵验收。
+以下保留此前历史。
+
+最新接续（2026-11-08 portal归因）：B10 portal归因与隔离异步依赖试验完成：3组450请求全部成功、输出与原基线一致、各组合成数据库前后不变。复用portal使四并发暖原页P95由561.10降至352.25ms；两个内存依赖改async的隔离变体为580.47ms，未达预设采纳条件，未应用到工作区运行代码。原验收10/12，B10保持in_progress/pending/open，B11未启动。
+先读 docs/verification/B10-portal-attribution-2026-11-08.md。继续B10：按原两项未达配置冻结原页阶段归因，细分SQLite连接初始化/读取、冷PDF校验/渲染/PNG及请求调度，保留原调用序列和校验。已测portal改善属于测试拓扑，异步get_settings/get_db变体未达采纳条件，不重跑择优；只有新测量支持明确实现变化时才跑相关正确性与原900请求验收，原基线/12秒/P95门槛不变。
+以下保留此前历史。
+
+最新接续（2026-11-08 HTTP诊断）：B10本地HTTP对照诊断完成：旧95/新97文件候选×TestClient/隔离loopback，48配置、3600请求全部成功且输出与原基线一致。运行源码未变；HTTP与TestClient的传输/进程/portal拓扑不同，不将差值单独归因于网络或依赖函数。本批不实施缺乏单变量证据的运行优化；原性能验收仍10/12，B10保持in_progress/pending/open，B11未启动。
+先读 docs/verification/B10-http-diagnostic-2026-11-08.md。继续B10：先独立冻结仅改变TestClient portal生命周期的暖原页1/4并发归因对照（每配置30波），保持材料、调用序列和新97文件运行代码一致；结合服务阶段耗时决定后续运行优化。原900样本基线、12秒预算和P95门槛不变，未达2项继续保留。
+以下保留此前交接历史。
+
+当前新会话入口（2026-11-08 B10续批后）：先读 docs/plans/HANDOFF-SESSION-2026-11-08-B10.md，其中包含全部25项状态、Git与未提交范围、不可改写证据、B10下一步及可直接复制的新会话指令。主线继续B10本地HTTP对照诊断；原性能门槛10/12通过，两项原页P95未达，B11未启动，不重做B01。11个本地提交尚未推送，B10续批19文件封存与本次交接文档增量分开保留；当前工作区共20个未提交文件，实际以git状态为准。沿用不部署、不推送、不调用真实模型/OCR、不写生产向量库/Goal、不读取受限配置或正式数据的边界；B07/B08外部条件及A09等家庭验收继续单列。
+
+终端入口：
+cd /home/deniskorfei/projects/open-webui
+git status --short --branch
+cat docs/plans/HANDOFF-SESSION-2026-11-08-B10.md
+
+以下保留逐批历史记录，当前执行顺序以以上新交接和台账recommended_next_task为准。
+
+最新续批（B10尾延迟，2026-11-08）：同步只读操作内复用连接，原页每请求连接12→4、检索14→6、会话2→1，SELECT数量和身份/证据校验顺序保留。166项定向单元/契约与2项浏览器通过；900性能请求成功且输出一致，原门槛10/12通过，原页单请求冷缓存/四并发暖缓存仍未达。97文件schema13候选及旧95文件回退兼容已校验。本批未提交/部署，B10仍in_progress/pending/open，下一步先冻结loopback诊断；旧失败、此前11个本地提交和A09等独立验收保持。 先读 docs/verification/B10-tail-latency-2026-11-08.md 与 docs/open-webui-reuse/study-read-latency.md。原有禁用部署/真实模型/OCR/生产向量库/Goal及受限数据访问的边界持续有效。
+
 Git交付更新（2026-11-08）：B01–B10已按10个独立候选提交到本地main，覆盖93个不同公开文件，终点1021ff80268d；交付记录与台账另作文档提交。未推送/部署，既有源码及历史证据保留。B10的4/12性能配置仍未达标，下一项继续B10尾延迟；B07/B08外部条件、B05反馈、B04待解、B02真实观察和A09发布/家庭验收保持独立。详见 docs/releases/B01-B10-git-delivery-2026-11-08.md。旧段落“未提交”均为当时历史状态。
 
 最新执行（B10，2026-11-08）：B10首批缓存与12秒总截止候选完成，248项不同单元/契约和2项浏览器通过；前后各900性能样本全部成功且输出一致，但冻结P95门槛仅8/12配置通过，4项未达。追加300样本诊断已定位到需继续细分的会话复核/服务调度链路；不降低身份/证据检查。95文件schema13源码候选及B09回退兼容已校验，Tool候选1.2.1；未提交/部署。B10工程in_progress、验收pending、总状态open，下一项继续B10尾延迟，不先记为完成。B07独立备份、B08外部观察端、B05家庭反馈、B04待解、B02真实观察与A09发布/家庭验收仍单列。先读 docs/verification/B10-study-performance-2026-11-08.md 和 docs/open-webui-reuse/study-performance.md。保留B01–B10及全部失败证据；不部署、不调用真实模型/OCR、不写生产向量库或Goal、不读取受限配置或正式数据。
@@ -59,3 +236,4 @@ A09 最新证据：learning_data/verification/a09-static-samples-20261107T223140
 教材原图、正文片段、运行资料继续留忽略目录并单独备份，不混入公开提交。二下数学 106 页 OCR 已完成，完整页双重审核通过仍为 0；下一步是完整页复核，不重跑全书 OCR。助手核验、教师签署、整页审核、题目判分资格不得混写。
 
 每批留下新的独立证据目录，避免旧脚本覆盖固定输出。按实际改动做必要验证，更新 JSON 台账和交付清单；工程完成、发布、家长反馈和真实模型验收分开记录。等待外部条件时继续其他依赖满足的本地任务，不伪造反馈或放宽约束。
+历史记录（math-v11/subject-v10阶段）：审阅目录 learning_data/verification/math-single-action-20261112/review-v11/；当时二上与七上数学仍有5项/64项bounded要求只有一个直接题型族，这不是待新增题数。review-v11逐项JSON实际合计107 configured、280 partial、271 gap；早期摘要中的107/281/270是加总错误，已由当前交接更正。此前54项定向测试通过。该候选未部署、未导入；线上仍为subject-v5、1145题/schema14，C01停止、手机暂缓、不提交推送。该阶段“下一步审第2章”已完成，当前接续见本文件顶部。

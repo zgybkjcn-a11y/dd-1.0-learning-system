@@ -1,0 +1,210 @@
+{
+  "schema": "dd-b11-device-acceptance-v1",
+  "date": "2026-11-08",
+  "webui_version": "0.12.5",
+  "tool_version": "1.2.1",
+  "service_schema": 13,
+  "user_response": "手机验收暂缓，记录下就行。继续下一步",
+  "acceptance_state": "pending",
+  "automated_evidence_is_real_device_feedback": false,
+  "required_checks": [
+    "侧栏与课本聊天入口",
+    "键盘焦点、Esc关闭与填入后的焦点",
+    "触屏、双指缩放与软键盘",
+    "中文公式与320 CSS px重排",
+    "公开复习卡打印与实际纸张可读性",
+    "断网和恢复时草稿保留、同一档案恢复",
+    "切档后旧输入清空、历史聊天提示与新聊天引导",
+    "已有草稿不覆盖、没有自动发送"
+  ],
+  "devices": [
+    {
+      "kind": "desktop",
+      "device": "本机桌面 / WSLg 图形窗口",
+      "os": "Ubuntu 24.04.4 LTS / WSL2 / WSLg",
+      "browser": "Google Chrome 146.0.7680.177",
+      "operator": "user01",
+      "tested_at": "2026-11-08T15:12:19.678955+00:00",
+      "results": {
+        "keyboard": {
+          "state": "passed",
+          "source": "actual_user_feedback",
+          "scope": "local_desktop_candidate"
+        },
+        "draft": {
+          "state": "passed",
+          "source": "actual_user_feedback",
+          "scope": "local_desktop_candidate"
+        },
+        "zoom": {
+          "state": "passed",
+          "source": "actual_user_feedback",
+          "scope": "local_desktop_candidate"
+        },
+        "recovery": {
+          "state": "passed",
+          "source": "actual_user_feedback",
+          "scope": "controlled_family_transport_failure"
+        },
+        "profile": {
+          "state": "passed",
+          "source": "actual_user_feedback",
+          "scope": "local_desktop_candidate"
+        },
+        "print_preview": {
+          "state": "passed",
+          "source": "actual_user_feedback",
+          "scope": "local_desktop_candidate"
+        },
+        "navigation": {
+          "state": "passed",
+          "source": "actual_user_recheck_feedback",
+          "operator": "user01",
+          "submitted_at": "2026-11-08T15:12:19.678955+00:00",
+          "scope": "native_family_entry_in_corrected_local_acceptance_harness",
+          "evidence": "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/human-feedback.jsonl"
+        },
+        "paper_print": {
+          "state": "passed",
+          "source": "explicit_user_message_in_conversation",
+          "recorded_at": "2026-11-08T15:22:40.466913+00:00",
+          "printer_model": "HP 102w",
+          "printer_model_as_reported": "hp 102w",
+          "software": "Chrome",
+          "pages": 3,
+          "user_result": "3页正常",
+          "performed_at_exact": null,
+          "print_os": null,
+          "print_browser_version": null,
+          "print_driver": null,
+          "actual_print_settings": null,
+          "evidence": "../../learning_data/verification/b11-paper-print-20261108T152240Z/user-print-feedback.json"
+        }
+      },
+      "issues": [
+        {
+          "id": "B11-DESKTOP-ENTRY-001",
+          "state": "closed_after_human_recheck",
+          "summary": "主站家庭学习入口登录跳转在拦截浏览器中触发临时域名DNS错误",
+          "runtime_candidate_defect_confirmed": false,
+          "root_cause": "Fulfilled HTTP303 destination escaped the browser interception; repaired local harness only.",
+          "technical_recheck": "passed",
+          "human_recheck": "passed",
+          "closed_at": "2026-11-08T15:12:19.678955+00:00",
+          "closure_evidence": "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/human-feedback.jsonl"
+        }
+      ],
+      "environment_observed_at": "2026-11-08T14:32:31.939199+00:00",
+      "acceptance_state": "passed",
+      "session_record": "B11-desktop-session-2026-11-08.md",
+      "candidate": "B11 2026-11-08 / WebUI 0.12.5 / Tool 1.2.1 / schema13",
+      "viewport_emulated": false,
+      "reported_screen": {
+        "width": 1920,
+        "height": 1080,
+        "availWidth": 1920,
+        "availHeight": 1080
+      },
+      "print_preview": "passed",
+      "paper_print": "passed",
+      "feedback_report": "B11-desktop-acceptance-2026-11-08.md",
+      "feedback_submissions": 5,
+      "distinct_response_sets": 3,
+      "last_recheck_session": "learning_data/verification/b11-desktop-feedback-20261108T144933Z/recheck-session/session-ready.json",
+      "acceptance_history": [
+        {
+          "recorded_at": "2026-11-08T15:16:03.298805+00:00",
+          "prior_state": "partial_pending_navigation_recheck",
+          "navigation_result": {
+            "state": "pending_recheck",
+            "user_selected": "passed",
+            "review_override_reason": "备注与用户后续确认入口DNS错误；技术修复不能替代人工复验"
+          },
+          "navigation_issue": {
+            "id": "B11-DESKTOP-ENTRY-001",
+            "state": "harness_repaired_pending_human_recheck",
+            "summary": "主站家庭学习入口登录跳转在拦截浏览器中触发临时域名DNS错误",
+            "runtime_candidate_defect_confirmed": false,
+            "root_cause": "Fulfilled HTTP303 destination escaped the browser interception; repaired local harness only.",
+            "technical_recheck": "passed",
+            "human_recheck": null
+          },
+          "superseded_by": "actual_user_entry_recheck"
+        },
+        {
+          "recorded_at": "2026-11-08T15:22:40.466913+00:00",
+          "prior_state": "browser_checks_passed_paper_pending",
+          "paper_print_result": {
+            "state": "not_performed",
+            "source": "user_selected_pending"
+          },
+          "superseded_by": "actual_user_paper_print_feedback"
+        }
+      ],
+      "test_time_basis": "user_feedback_submission_time",
+      "browser_checks_passed": 7,
+      "browser_checks_total": 7,
+      "feedback_rounds": {
+        "initial": {
+          "submissions": 3,
+          "distinct_sets": 1,
+          "accepted_checks": 6
+        },
+        "entry_recheck": {
+          "submissions": 1,
+          "accepted_checks": 1
+        },
+        "paper_print": {
+          "source": "conversation",
+          "submissions": 1,
+          "accepted_checks": 1
+        }
+      },
+      "paper_print_recorded_at": "2026-11-08T15:22:40.466913+00:00",
+      "paper_print_report": "B11-paper-print-2026-11-08.md"
+    },
+    {
+      "kind": "family_phone",
+      "device": null,
+      "os": null,
+      "browser": null,
+      "operator": null,
+      "tested_at": null,
+      "results": null,
+      "issues": null,
+      "scheduling_state": "deferred_by_user",
+      "acceptance_state": "pending",
+      "recorded_at": "2026-11-08T15:34:06.770233+00:00",
+      "source": "explicit_user_message_in_conversation",
+      "instruction": "手机验收暂缓，记录下就行。继续下一步",
+      "resume_condition": "用户明确恢复家庭手机验收时再安排",
+      "evidence": "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/user-instruction.json"
+    }
+  ],
+  "user_response_history": [
+    {
+      "response": "暂无，先完成本地验证",
+      "scope": "此前暂无设备记录"
+    },
+    {
+      "response": "使用本机来做真实桌面",
+      "scope": "授权本机可见浏览器实际操作"
+    },
+    {
+      "response": "入口已复验",
+      "scope": "本机用户提交入口通过；桌面浏览器7项通过，纸张与手机未验",
+      "recorded_at": "2026-11-08T15:16:03.298805+00:00"
+    },
+    {
+      "response": "打印机：hp 102w; 打印软件Chrome; 3页正常",
+      "scope": "实际纸张打印3页正常；家庭手机仍待验",
+      "recorded_at": "2026-11-08T15:22:40.466913+00:00"
+    },
+    {
+      "response": "手机验收暂缓，记录下就行。继续下一步",
+      "scope": "仅暂缓家庭手机验收，不记通过；桌面和纸张结果保持",
+      "recorded_at": "2026-11-08T15:34:06.770233+00:00"
+    }
+  ],
+  "latest_user_instruction": "手机验收暂缓，记录下就行。继续下一步"
+}

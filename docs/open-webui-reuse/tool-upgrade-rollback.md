@@ -1,6 +1,12 @@
 # 既有只读 Tool 升级与回退（A08）
 
-本地维护候选已实现并验证，正式 Tool 未升级。目标固定为 `dd_family_study_readonly_v1`；新脚本 `scripts/upgrade_readonly_study_tool.py` 独立于首次注册脚本，不创建 Tool、不重绑账号、不改分享范围。仅支持固定 WebUI 0.12.5 SQLite 表结构和 A07 Tool 1.2.0，未来版本须重新验证及更新 pin。
+2026-11-09已按用户本批授权完成正式升级，见[部署验收](../verification/DEPLOY-B11-C01-2026-11-09.md)。目标固定为 `dd_family_study_readonly_v1`；新脚本 `scripts/upgrade_readonly_study_tool.py` 独立于首次注册脚本，不创建 Tool、不重绑账号、不改分享范围。当前脚本仅支持固定 WebUI 0.12.5 SQLite 表结构和 B11 Tool 1.2.1；未来版本仍须重新验证及更新 pin。以下A07/A08说明保留历史适用范围，不能当作当前候选pin。
+
+## 2026-11-09当前维护候选
+
+当前Tool1.2.1 SHA256为 `3da7d6a0b9a6575c7fd89e62daf92afde1cce91f3af6cc6c8d0dfe5c0ccb504b`；脚本固定B11相容后端17文件，六方法规格/metadata仍逐阶段核验。`tests/fixtures/readonly_study_tool_121_native.json` 与旧120证据分开，53项维护检查和原生升级/回退/缓存刷新通过。
+
+正式操作先把API/worker/gateway迁至99文件候选及schema13、发布9静态资源，再对同一个Tool ID执行prepare/dry-run/apply/verify，保留归属、配置、分享和历史。当前入口已重新开放；不能直接用维护前快照覆盖新增数据，也不能用旧应用读schema13。完整备份与后续回退边界见上方部署验收。
 
 ## 准备输入与操作范围
 

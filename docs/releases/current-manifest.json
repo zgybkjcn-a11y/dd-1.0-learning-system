@@ -1,15 +1,17 @@
 {
   "schema": "dd-current-delivery-manifest-v1",
-  "task_id": "B01",
-  "observed_at": "2026-11-08T10:10:50.136476+08:00",
+  "task_id": "SUBJECT-GAPS-2026-11-12",
+  "observed_at": "2026-11-12T16:59:29+08:00",
+  "updated_at": "2026-11-13T10:56:05.073910+08:00",
   "timezone": "Asia/Shanghai",
   "path_base": "repository_root",
   "unknown_policy": "null 表示未核对或未知，具体原因见相邻说明；历史事实不冒充本次运行验收。",
   "state_document": "docs/releases/current-state.md",
-  "verification_report": "docs/verification/A01-current-state-2026-11-07.md",
+  "verification_report": "docs/verification/SUBJECT-GAPS-2026-11-12.md",
   "observation_record": {
-    "path": "learning_data/verification/a01-current-state-20261107T0858Z/observations.json",
-    "sha256": "7a1e1ccfcc08afd750baa05c50879feedbc2f4276192d46f02eccfa073e2841e"
+    "path": "learning_data/verification/subject-gaps-20261112/health-after.json",
+    "sha256": "a8bb8f70a01cc039c0ec74a8d8e4e224b8a80d12e2f0a845c4ccc48a8fb102a7",
+    "timestamp_basis": "post-deployment file capture"
   },
   "workspace": {
     "branch": "main",
@@ -143,189 +145,150 @@
   },
   "components": {
     "family_service": {
-      "state": "deployed",
-      "checked_at": "2026-11-07T17:00:53+08:00",
-      "evidence_basis": "targeted_container_observation_and_historical_build_record",
-      "image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+      "state": "deployed_verified",
+      "checked_at": "2026-11-12T22:30:24.047623+08:00",
+      "image_id": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker",
+        "learning-gateway"
+      ],
+      "gateway_image_id": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
       "compose": {
-        "path": "learning_data/deployments/family-math-20261105/compose-main-study-20261106.json",
-        "sha256": "14aea4914267865bc7e43c5530b31477138bf582c8990895a340cd1b5b21600d"
+        "path": "learning_data/deployments/family-textbook-completion-20261112/compose.json",
+        "sha256": "78af49ccb0d3e57079970e1e37234384ae8614d6dd0e12705a0989b5e1c60248"
       },
       "containers": [
         {
-          "name": "/dd-family-math-learning-api-1",
-          "id": "c5c33e53f1d8c4ef591714cf1b9f39db92728bb66b5a5fb778ef5a9c2daf3bf6",
-          "image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
-          "configured_image": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
-          "status": "running",
-          "started_at": "2026-11-06T15:27:02.332499123Z",
-          "health": "healthy"
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
+          "state": "running",
+          "started_at": "2026-11-12T14:25:22.72750497Z",
+          "health": "healthy",
+          "status": "running"
         },
         {
-          "name": "/dd-family-math-learning-gateway-1",
-          "id": "adbd59e120daf45063d55ea2941a2ac2f3e2c6368ca187d6d27a757ac235218a",
-          "image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
-          "configured_image": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
-          "status": "running",
-          "started_at": "2026-11-06T15:27:08.88539056Z",
-          "health": null
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
+          "state": "running",
+          "started_at": "2026-11-12T14:25:29.872486036Z",
+          "health": null,
+          "status": "running"
         },
         {
-          "name": "/dd-family-math-learning-worker-1",
-          "id": "7cd1abfce2d8a36601b21f50034c62081569aab69aee0d729304b1d726f00f60",
-          "image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
-          "configured_image": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
-          "status": "running",
-          "started_at": "2026-11-06T15:27:09.321933966Z",
-          "health": null
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
+          "state": "running",
+          "started_at": "2026-11-12T14:25:29.446058752Z",
+          "health": null,
+          "status": "running"
         }
       ],
+      "runtime_schema_revision": 14,
       "source": {
-        "manifest_path": "learning_data/releases/dd-study-workbench-20261106-source-v2/manifest.json",
-        "manifest_sha256": "f63c213ebfc70d729dd34611b573f8180a4bae2a18cf30d91047f4830f3b371a",
-        "archive_path": "learning_data/releases/dd-study-workbench-20261106-source-v2/source.tar.gz",
-        "actual_archive_sha256": "baf54a0124c02bfe61047346cd9e4dc524a868cfa673c8d41270110276907b8e",
-        "build_record_path": "learning_data/verification/study-workbench-20261106/build/build.json",
-        "build_record_sha256": "9eace405f1ddecd88cdfd6fe715a820608fe4c7057151d9c830a2f36cfbaf3b6",
-        "git_head": "0fa02712ceda049b14d4b556faef3fdb2fa985ed",
-        "worktree_dirty": true,
-        "source_profile": "reuse-runtime-study-workbench-v1",
-        "source_set_sha256": "ad18b0aa5e0670e694939facb018ab5ca8380fa04849e1f71347f03e8bd9b727",
-        "archive_sha256": "baf54a0124c02bfe61047346cd9e4dc524a868cfa673c8d41270110276907b8e",
-        "schema_revision": 11,
-        "image_digest": null,
-        "source_file_count": 70,
-        "build_image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
-        "registry_image_digest": null,
-        "source_matches_build": true,
-        "image_matches_running": true
+        "manifest_path": "learning_data/releases/textbook-completion-20261112-final/manifest.json",
+        "source_file_count": 134,
+        "profile": "reuse-runtime-textbook-completion-v12",
+        "schema_revision": 14,
+        "source_set_sha256": "4ebfaede6a2b5605f3f23c7fb2bc3d7784638b9b893227f1bfefa8ba0ac108e7",
+        "archive_sha256": "fb59e665812f1bca8c4ef66201f15da9f6030878ffb3bc5b3f2036f3138ab7c4",
+        "services": [
+          "learning-api",
+          "learning-worker",
+          "learning-gateway"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/textbook-completion-20261112/runtime-hashes.json",
+        "verified_runtime_files_per_service": 90,
+        "manifest_state_scope": "Source sealing identity; deployment evidence recorded separately."
       },
-      "runtime_schema_revision": null,
-      "runtime_schema_note": "封包声明 schema11，本次未读运行数据库；未重新构建或逐文件读取运行容器。",
       "evidence": [
-        "docs/verification/study-workbench-2026-11-06.md",
-        "docs/verification/A01-current-state-2026-11-07.md"
+        "learning_data/verification/textbook-completion-20261112/live-check.json",
+        "learning_data/verification/textbook-completion-20261112/health-after.json",
+        "learning_data/verification/textbook-completion-20261112/data-preservation.json",
+        "learning_data/verification/textbook-completion-20261112/originals-installed.json"
       ],
       "rollback": {
-        "target_image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
-        "status": "retain_current_version_for_future_upgrade",
-        "recovery_acceptance": "pending_B07",
-        "instructions": "保留当前 Compose 与镜像。未来升级按对应候选和数据版本回退，不用历史 Compose 整栈覆盖。"
+        "previous_compose": "learning_data/deployments/family-subject-gaps-20261112/compose.json",
+        "previous_api_worker_image_id": "sha256:34f037086c106495f0446e5153279fd1a3227c493bba1d64bdbd4c927850d05c",
+        "previous_gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+        "backup": "learning_data/verification/textbook-completion-20261112/private/backup",
+        "status": "same_schema_keep_current_data_and_new_PDFs",
+        "instructions": "保留当前数据卷与新增PDF；恢复先前Compose镜像，不用旧备份覆盖新使用记录。"
       }
     },
     "open_webui": {
-      "state": "deployed",
-      "checked_at": "2026-11-07T17:00:53+08:00",
-      "evidence_basis": "targeted_container_observation_version_from_historical_evidence",
+      "state": "deployed_verified",
+      "checked_at": "2026-11-12T16:31:12.565053+08:00",
+      "version": "0.12.5",
       "container": {
         "name": "/open-webui",
-        "id": "85f4f281f82f9e0629959d4f5ca8237e9ab71776c9ae60a410582f3ef7b9c16f",
-        "image_id": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
-        "configured_image": "ghcr.io/open-webui/open-webui:main",
-        "status": "running",
-        "started_at": "2026-11-03T05:36:24.203201071Z",
-        "health": "healthy"
+        "image": "sha256:0b399a8ba34558e181d316750455f2a95376a38cd60a61b9c942e138898944bd",
+        "started_at": "2026-11-08T17:02:51.134209393Z",
+        "health": "healthy",
+        "compose": "docker-compose.yml"
       },
-      "version": "0.12.5",
-      "version_evidence": "docs/verification/main-chat-study-2026-11-07.md",
-      "current_source_git_sha": null,
-      "unknown_reason": "本次仅定向检查容器镜像/运行状态，未读取应用或正式 data。",
       "evidence": [
-        "docs/verification/A01-current-state-2026-11-07.md",
-        "docs/verification/main-chat-study-2026-11-07.md"
+        "docs/verification/DEPLOY-B11-C01-2026-11-09.md"
       ],
+      "current_source_git_sha": null,
       "rollback": {
-        "status": "not_changed",
-        "instructions": "保留现有主站；不以旧 P0 容器替换。"
+        "status": "image_unchanged",
+        "retained_tag": "open-webui:rollback-dd-20261109"
       }
     },
     "proxy": {
-      "state": "deployed",
-      "checked_at": "2026-11-07T17:00:53+08:00",
-      "evidence_basis": "targeted_container_and_configuration_observation",
+      "state": "deployed_verified",
+      "checked_at": "2026-11-12T16:31:12.565053+08:00",
       "container": {
         "name": "/dd-family-math-learning-proxy-1",
-        "id": "e241a79ffa3b6325b8bec45023a13bc0e7ddcf8d2308bd6ab3d3967c8ddba356",
-        "image_id": "sha256:1d13701a5f9f3fb01aaa88cef2344d65b6b5bf6b7d9fa4cf0dca557a8d7702ba",
-        "configured_image": "nginx@sha256:1d13701a5f9f3fb01aaa88cef2344d65b6b5bf6b7d9fa4cf0dca557a8d7702ba",
-        "status": "running",
-        "started_at": "2026-11-06T15:47:21.812625111Z",
-        "health": null
+        "image": "sha256:1d13701a5f9f3fb01aaa88cef2344d65b6b5bf6b7d9fa4cf0dca557a8d7702ba",
+        "started_at": "2026-11-08T23:22:54.493127507Z",
+        "health": null,
+        "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
       },
       "config": {
-        "path": "learning_data/deployments/family-math-20261105/main-study-20261106/nginx.conf",
-        "sha256": "fcb3e8131090dbc5f89ad2b07186b0d17b897658a1c8cf9e18562bd3b7d0676a",
-        "static_aliases": [
-          "/opt/dd-main-study/chat-20261107/family-bridge.js",
-          "/opt/dd-main-study/chat-20261107/study.js",
-          "/opt/dd-main-study/chat-20261107/study.css"
-        ],
-        "main_upstream": "http://open-webui:8080",
-        "proxy_pass": "variable $webui"
+        "path": "learning_data/deployments/family-b11-c01-20261109/nginx.conf",
+        "sha256": "47522e68f75a2f2e39c15bc3df2e1d7f55f4ae90e15f480d3226feab99e1ad34"
       },
       "evidence": [
-        "docs/verification/A01-current-state-2026-11-07.md"
-      ],
-      "rollback": {
-        "path": "learning_data/verification/main-study-samples-20261107/candidate/nginx.before.conf",
-        "sha256": "fcb3e8131090dbc5f89ad2b07186b0d17b897658a1c8cf9e18562bd3b7d0676a",
-        "matches_current_config": true,
-        "instructions": "仅适用于未来这组静态候选；先校验当前与候选哈希，再按候选操作单校验/reload；本批未执行。"
-      }
+        "docs/verification/DEPLOY-B11-C01-2026-11-09.md"
+      ]
     },
     "static_live": {
-      "state": "deployed",
-      "checked_at": "2026-11-07T17:00:53+08:00",
-      "evidence_basis": "three_anonymous_https_gets_and_local_hashes",
-      "snapshot": "chat-20261107",
+      "state": "deployed_verified",
+      "checked_at": "2026-11-09T07:43:18.335771+08:00",
+      "file_count": 9,
+      "snapshot": "learning_data/deployments/family-b11-c01-20261109/assets",
       "files": [
         {
           "url": "https://172.19.116.53/static/loader.js",
-          "path": "learning_data/deployments/family-math-20261105/main-study-20261106/assets/chat-20261107/study.js",
-          "file": "study.js",
-          "local_sha256": "6e2325ad44c246351e00f4f8bc480dbcdcef4912f90085696793b208524db7e4",
-          "observed_at": "2026-11-07T17:00:51+08:00",
+          "sha256": "0955ec052579989af015d2532db4661e29b5dbefbbb161012fb09225220f4794",
           "status": 200,
-          "sha256": "6e2325ad44c246351e00f4f8bc480dbcdcef4912f90085696793b208524db7e4",
-          "cache_control": "no-store",
-          "content_type": "application/javascript",
-          "matches_snapshot": true
+          "cache_control": "no-store"
         },
         {
           "url": "https://172.19.116.53/static/custom.css",
-          "path": "learning_data/deployments/family-math-20261105/main-study-20261106/assets/chat-20261107/study.css",
-          "file": "study.css",
-          "local_sha256": "b7ea956e897b0bf12a26f55e0213b794a924ff8c10e02647e83de8027514627a",
-          "observed_at": "2026-11-07T17:00:51+08:00",
+          "sha256": "d276f5ce533f7c1df0a6e63a628f5ef29b95ee421391639ad9b9034eb22ebf76",
           "status": 200,
-          "sha256": "b7ea956e897b0bf12a26f55e0213b794a924ff8c10e02647e83de8027514627a",
-          "cache_control": "no-store",
-          "content_type": "text/css",
-          "matches_snapshot": true
+          "cache_control": "no-store"
         },
         {
           "url": "https://172.19.116.53/static/dd-family-bridge.js",
-          "path": "learning_data/deployments/family-math-20261105/main-study-20261106/assets/chat-20261107/family-bridge.js",
-          "file": "family-bridge.js",
-          "local_sha256": "8bfe564373befe4d3bb64cfc4d91b67880545217f00d293da415938cce4f0347",
-          "observed_at": "2026-11-07T17:00:51+08:00",
+          "sha256": "a3c455ded7b165a3e5178c67f31b797a484eada68b04dae08a4d8ca354f498f4",
           "status": 200,
-          "sha256": "8bfe564373befe4d3bb64cfc4d91b67880545217f00d293da415938cce4f0347",
-          "cache_control": "no-store",
-          "content_type": "application/javascript",
-          "matches_snapshot": true
+          "cache_control": "no-store"
+        },
+        {
+          "url": "https://172.19.116.53/static/dd-study-mermaid.min.js",
+          "sha256": "198b19442f86f0b46a17e56d3abf744c3a28a3427e66fa8dada3b589a77babcc",
+          "status": 200,
+          "cache_control": "no-store"
         }
       ],
-      "http_boundary": "Three anonymous static GETs only; local public CA verified; no cookies, redirects or environment proxy.",
       "evidence": [
-        "docs/verification/A01-current-state-2026-11-07.md",
-        "docs/verification/main-chat-study-2026-11-07.md"
+        "docs/verification/DEPLOY-B11-C01-2026-11-09.md"
       ],
-      "actual_parent_acceptance": "pending",
-      "rollback": {
-        "status": "retained_as_static_candidate_rollback_target",
-        "snapshot": "chat-20261107"
-      }
+      "actual_device_acceptance": "B11 desktop7 passed and HP102w3pages passed; phone deferred_by_user"
     },
     "static_samples": {
       "state": "committed_not_deployed",
@@ -462,28 +425,21 @@
           "parent_feedback": "pending",
           "deployment_performed": false
         }
-      }
+      },
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "tool_live": {
-      "state": "historically_deployed_not_reread",
-      "checked_at": "2026-11-07T17:00:53+08:00",
-      "evidence_basis": "historical_registration_record_only",
-      "tool_id": "dd_family_study_readonly_v1",
-      "version": "1.0.0",
-      "historical_source_sha256": "733ad01dc38ed6b09fcae69047ff731e0eb83d59b0a2dd2432595a3508c6a650",
-      "current_source_sha256": null,
-      "unknown_reason": "未读取正式 Tool 数据库；本次不能保证注册记录后未被修改。",
-      "historical_visibility": "private_no_shares",
-      "current_visibility": null,
+      "state": "deployed_verified",
+      "checked_at": "2026-11-09T07:43:18.335771+08:00",
+      "id": "dd_family_study_readonly_v1",
+      "version": "1.2.1",
+      "source_sha256": "3da7d6a0b9a6575c7fd89e62daf92afde1cce91f3af6cc6c8d0dfe5c0ccb504b",
+      "owner_and_sharing_preserved": true,
+      "configuration_preserved": true,
       "evidence": [
-        "docs/verification/main-chat-study-2026-11-07.md",
-        "docs/verification/textbook-evidence-2026-11-07.md"
-      ],
-      "rollback": {
-        "status": "upgrade_rollback_not_implemented",
-        "task": "A08",
-        "instructions": "不得重跑注册脚本覆盖不同源码；保留当前注册记录。"
-      }
+        "docs/verification/DEPLOY-B11-C01-2026-11-09.md",
+        "learning_data/verification/deploy-c01-20261108T162720Z/tool-production-container-verify.json"
+      ]
     },
     "page_evidence_candidate": {
       "state": "uncommitted_not_deployed",
@@ -773,7 +729,8 @@
         "source_manifest": "learning_data/verification/a05-chapter-retrieval-20261107T131135Z/source-manifest.json",
         "source_manifest_sha256": "2d5d228834888970f85734399eac15cefd25c0360bbc778af55ae8a0886d19f0",
         "real_model_acceptance": "not_run"
-      }
+      },
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "passage_sample": {
       "state": "integrated_local_candidate_disabled_by_default",
@@ -910,7 +867,8 @@
         "synthetic_unit_tests_passed": 29,
         "actual_bundle_revalidated": false
       },
-      "runtime_candidate": "passage_runtime_candidate"
+      "runtime_candidate": "passage_runtime_candidate",
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "content_baseline": {
       "state": "historical_inventory_not_runtime_recounted",
@@ -949,7 +907,8 @@
       "rollback": {
         "status": "no_content_write",
         "instructions": "本批未导入或更新内容；不得用片段试点替代整页审核。"
-      }
+      },
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "api_contract": {
       "state": "local_snapshot_only",
@@ -974,7 +933,8 @@
         "paths": 71,
         "schemas": 24,
         "evidence_basis": "local_json_count"
-      }
+      },
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "portable_tests_candidate": {
       "state": "uncommitted_local_acceptance_passed",
@@ -1100,7 +1060,8 @@
         "status": "local_only",
         "instructions": "仅撤销 A03 测试/文档编辑；两份原有测试依 files-before 对照保留原改动，不 reset/clean。",
         "preserved_input_directory": "learning_data/verification/a03-portable-tests-20261107T091348Z/files-before"
-      }
+      },
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "study_errors_candidate": {
       "state": "uncommitted_not_deployed",
@@ -1155,7 +1116,8 @@
         "status": "local_only",
         "input_directory": "learning_data/verification/a04-study-errors-20261107T101647Z/files-before",
         "instructions": "只撤销 A04 增量，保留 A02 及此前候选；不整体回退工作树。"
-      }
+      },
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "retrieval_evaluation_candidate": {
       "state": "local_candidate_not_committed",
@@ -1213,7 +1175,8 @@
         "used_for_tuning": true,
         "original_baseline_preserved": true,
         "exposure_log": "learning_data/verification/a05-chapter-retrieval-20261107T131135Z/exposure-log.json"
-      }
+      },
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "chapter_retrieval_candidate": {
       "state": "uncommitted_not_deployed",
@@ -1276,7 +1239,8 @@
         "runtime_module": "learning_service/passage_retrieval.py",
         "report": "docs/verification/A07-runtime-passages-2026-11-07.md",
         "status": "integrated_local_candidate_default_off"
-      }
+      },
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "passage_runtime_candidate": {
       "state": "uncommitted_not_deployed",
@@ -1324,7 +1288,8 @@
         "source_set_sha256": "51d567440c966fae7f6c772bc921f71f1a591cca6c8e0f466bab0cf74712c285",
         "archive_sha256": "068bd2eb8eb8414df453f0797d8dd58650958a3d1d1ae2e78e1d03bdca6f9d97",
         "image_digest": null
-      }
+      },
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "tool_lifecycle_candidate": {
       "state": "uncommitted_not_deployed",
@@ -1352,7 +1317,8 @@
       "formal_tool_read": false,
       "formal_tool_upgraded": false,
       "commit_sha": null,
-      "backend_scope_limit": "给定A07源目录hash检查，不代替活动部署对应证据。"
+      "backend_scope_limit": "给定A07源目录hash检查，不代替活动部署对应证据。",
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
     },
     "chapter_coverage_candidate": {
       "state": "independent_offline_candidate_not_submitted_or_deployed",
@@ -1370,12 +1336,328 @@
       "actual_review_records_read": false,
       "teacher_reviewed": false,
       "eligible_as_grading_basis": false,
-      "next_task": "B02"
+      "next_task": "B02",
+      "observation_scope": "historical_local_candidate; current deployed components tracked separately"
+    },
+    "chapter_practice": {
+      "state": "deployed_verified",
+      "report": "docs/verification/KNOWLEDGE-QUALITY-2026-11-12.md",
+      "authorship": "local_assistant_authored",
+      "teacher_reviewed": false,
+      "added_questions": 1057,
+      "total_questions": 1131,
+      "questions_by_grade": {
+        "2": 414,
+        "7": 717
+      },
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "newly_populated_scopes": 93,
+      "empty_scopes_after": 0,
+      "batches": [
+        {
+          "id": "math",
+          "questions": 180
+        },
+        {
+          "id": "upper",
+          "questions": 189
+        },
+        {
+          "id": "remaining",
+          "questions": 45
+        },
+        {
+          "id": "math_g2_depth",
+          "questions": 88
+        },
+        {
+          "id": "math_g7_depth",
+          "questions": 136
+        },
+        {
+          "id": "math_g2_challenge",
+          "questions": 48
+        },
+        {
+          "id": "math_g2_multistep",
+          "questions": 16
+        },
+        {
+          "id": "math_g7_multistep",
+          "questions": 12
+        },
+        {
+          "id": "upper_variety",
+          "questions": 126
+        },
+        {
+          "id": "remaining_variety",
+          "questions": 42
+        },
+        {
+          "id": "subject_knowledge",
+          "questions": 67
+        },
+        {
+          "id": "challenge_variety",
+          "questions": 98
+        },
+        {
+          "id": "math_gaps",
+          "questions": 10
+        }
+      ],
+      "reserve_questions_installed": 0,
+      "review_packet": "learning_data/verification/challenge-tier-20261111/review",
+      "math_knowledge_plan": {
+        "state": "draft",
+        "books": [
+          "math-g2-upper",
+          "math-g7-upper"
+        ],
+        "points": 53,
+        "requirements": 212,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "requirement_target": "two_distinct_question_families",
+        "scope": "question_allocation_only_not_learner_mastery",
+        "production_requirements_meeting_target": {
+          "math-g2-upper": 35,
+          "math-g7-upper": 7
+        },
+        "version": "2026-11-10-v6-g7-multistep",
+        "supporting_questions_do_not_meet_task_target": true
+      },
+      "subject_knowledge_plan": {
+        "version": "subject-coverage-v4-math-gaps",
+        "points": 276,
+        "requirements": 658,
+        "scopes": 98,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "manual_requirements_explicitly_marked": 308,
+        "bounded_requirements": 350,
+        "review_packet": "learning_data/verification/math-gaps-20261112/review-after",
+        "configured_bounded_requirements": 92
+      },
+      "latest_batch": {
+        "id": "math_gaps",
+        "questions": 10,
+        "installed": true
+      }
+    },
+    "math_g2_depth": {
+      "state": "deployed_verified",
+      "report": "docs/verification/MATH-KNOWLEDGE-G2-2026-11-09.md",
+      "added_questions": 88,
+      "assistant_reviewed": true,
+      "teacher_reviewed": false,
+      "mapped_knowledge_points": 19,
+      "total_knowledge_points": 19,
+      "requirements": 76,
+      "configured_requirements": 28,
+      "partially_configured_requirements": 33,
+      "unconfigured_requirements": 15,
+      "supporting_questions": 39,
+      "practical_tasks": 7,
+      "practical_tasks_automatically_graded": false,
+      "practical_tasks_document": "docs/open-webui-reuse/math-g2-practical-tasks.md"
+    },
+    "math_g2_challenge": {
+      "state": "deployed_verified",
+      "report": "docs/verification/MATH-G2-CHALLENGE-2026-11-10.md",
+      "added_questions": 48,
+      "visual_questions": 21,
+      "normal_questions": 16,
+      "hard_questions": 32,
+      "reclassified_old_questions": 35,
+      "old_row_preservation_verified": true,
+      "regular_g2_upper_math_questions": 232,
+      "regular_g2_upper_math_tiers": {
+        "easy": 56,
+        "normal": 128,
+        "hard": 48
+      },
+      "input_modes": [
+        "numeric",
+        "option_index"
+      ],
+      "task_family_rotation": true,
+      "assistant_reviewed": true,
+      "teacher_reviewed": false,
+      "full_knowledge_coverage": false,
+      "configured_requirements": 31,
+      "partially_configured_requirements": 35,
+      "unconfigured_requirements": 10,
+      "supporting_mappings": 55,
+      "review_page": "learning_data/verification/math-g2-challenge-20261109/review/challenges.html"
+    },
+    "math_g2_multistep": {
+      "state": "deployed_verified",
+      "report": "docs/verification/MATH-G2-MULTISTEP-2026-11-10.md",
+      "added_questions": 16,
+      "response_fields": 48,
+      "visual_questions": 8,
+      "normal_questions": 8,
+      "hard_questions": 8,
+      "regular_g2_upper_math_questions": 248,
+      "regular_g2_upper_math_tiers": {
+        "easy": 56,
+        "normal": 136,
+        "hard": 56
+      },
+      "validator": "numeric-fields-v1",
+      "all_fields_required_for_correct": true,
+      "draft_and_collection_labels_verified": true,
+      "assistant_reviewed": true,
+      "teacher_reviewed": false,
+      "full_knowledge_coverage": false,
+      "configured_requirements": 35,
+      "partially_configured_requirements": 33,
+      "unconfigured_requirements": 8,
+      "supporting_mappings": 60,
+      "review_page": "learning_data/verification/math-g2-multistep-20261110/review/multistep.html"
+    },
+    "other_textbook_variety": {
+      "state": "deployed_verified",
+      "report": "docs/verification/OTHER-TEXTBOOKS-VARIETY-2026-11-10.md",
+      "added_questions": 180,
+      "response_fields": 453,
+      "books": 12,
+      "scopes": 90,
+      "subjects": 7,
+      "difficulty": {
+        "easy": 20,
+        "normal": 152,
+        "hard": 8
+      },
+      "old_tiers_corrected": 78,
+      "old_tier_corrections": {
+        "easy": 15,
+        "normal": 63
+      },
+      "visual_questions": 11,
+      "assistant_reviewed": true,
+      "teacher_reviewed": false,
+      "full_knowledge_coverage": false,
+      "old_rows_preserved": true,
+      "available_tier_fallback": true,
+      "task_family_rotation_all_books": true,
+      "review_page": "learning_data/verification/other-textbooks-variety-20261110/review-final/variety.html",
+      "scope_task_matrix": "learning_data/verification/other-textbooks-variety-20261110/scope-task-matrix.json"
+    },
+    "subject_knowledge": {
+      "state": "deployed_verified",
+      "report": "docs/verification/SUBJECT-KNOWLEDGE-2026-11-10.md",
+      "added_questions": 67,
+      "fields": 187,
+      "text_fields": 84,
+      "feedback_rules": 25,
+      "books": 13,
+      "subjects": 7,
+      "scopes": 66,
+      "protocol": "short-fields-v2",
+      "teacher_reviewed": false,
+      "student_calibrated": false,
+      "full_curriculum_coverage": false,
+      "old_rows_preserved": true,
+      "review_page": "learning_data/verification/subject-knowledge-20261110/review/questions.html",
+      "coverage_review": "learning_data/verification/subject-knowledge-20261110/review/knowledge.html"
+    },
+    "challenge_tier": {
+      "state": "deployed_verified",
+      "report": "docs/verification/CHALLENGE-TIER-2026-11-11.md",
+      "added_questions": 98,
+      "books": 13,
+      "subjects": 7,
+      "scopes": 98,
+      "response_fields": 261,
+      "field_types": {
+        "number": 63,
+        "multi": 97,
+        "order": 32,
+        "choice": 39,
+        "text": 30
+      },
+      "protocol": "structured-fields-v3",
+      "teacher_reviewed": false,
+      "student_calibrated": false,
+      "full_curriculum_coverage": false,
+      "old_rows_preserved": true,
+      "usage": "docs/open-webui-reuse/challenge-tier.md"
+    },
+    "current_api_contract": {
+      "path": "docs/contracts/openapi-v1.json",
+      "sha256": "812d553b1378607e66d7cf70610e8cdf0a8b2bb76f507fa5a6b2eaf1050ef7b3",
+      "evidence": "learning_data/verification/textbook-completion-20261112/compatibility.log",
+      "workspace_difficulty_includes_challenge": true
+    },
+    "reader_title_layout": {
+      "state": "deployed_verified",
+      "report": "docs/verification/READER-SUMMARY-2026-11-11.md",
+      "viewports": [
+        900,
+        390
+      ],
+      "keyboard_and_click_toggle": true
+    },
+    "textbook_reader_navigation": {
+      "state": "deployed_verified",
+      "report": "docs/verification/READER-OVERLAY-2026-11-11.md",
+      "viewports": [
+        390,
+        1280
+      ],
+      "side_buttons": true,
+      "current_page_contents": true,
+      "sticky_desktop_contents": true,
+      "cross_chapter_reading": true,
+      "practice_scope_preserved": true,
+      "floating_buttons": true,
+      "zoom_paging": true,
+      "zoom_scale_preserved": true,
+      "in_dialog_retry": true
+    },
+    "knowledge_quality": {
+      "state": "deployed_editorial_draft",
+      "report": "docs/verification/KNOWLEDGE-QUALITY-2026-11-12.md",
+      "review_packet": "learning_data/verification/subject-gaps-20261112/review-after",
+      "version": "subject-coverage-v5-language-gaps-2026-11-12",
+      "points": 276,
+      "requirements": 658,
+      "human_requirements": 308,
+      "bounded_requirements": 350,
+      "configured_bounded_requirements": 93,
+      "mapping_decisions": 57,
+      "math_points_reviewed": 53,
+      "math_human_requirements": 75,
+      "manual_task_persistence": false,
+      "inventory_complete": false,
+      "teacher_reviewed": false,
+      "curriculum_standard_crosscheck": "pending",
+      "student_calibrated": false,
+      "added_questions": 14,
+      "math_gaps_resolved": 5
+    },
+    "textbook_catalogue": {
+      "state": "deployed_verified",
+      "books": 20,
+      "by_grade": {
+        "2": 6,
+        "7": 14
+      },
+      "directory_scopes": 152,
+      "reading_only_books": 7,
+      "source_manifest": "learning_data/textbooks/missing-lower-20261112/verified-source-manifest.json",
+      "report": "docs/verification/TEXTBOOK-COMPLETION-2026-11-12.md"
     }
   },
   "compatibility": [
     {
-      "id": "current_live",
+      "id": "current_live_math_g2_multistep_tool121_schema13",
       "components": [
         "family_service",
         "open_webui",
@@ -1383,128 +1665,38 @@
         "static_live",
         "tool_live"
       ],
-      "status": "runtime_observed_tool_historical",
+      "status": "deployed_verified",
       "evidence": [
-        "docs/verification/main-chat-study-2026-11-07.md",
-        "docs/verification/A01-current-state-2026-11-07.md"
+        "docs/verification/MATH-G2-MULTISTEP-2026-11-10.md",
+        "docs/verification/DEPLOY-B11-C01-2026-11-09.md"
       ],
-      "limit": "容器和静态资源可核对；Tool 仅历史证据，真实聊天与家长验收待反馈。"
+      "limit": "仅API/worker更新，旧镜像不认识分步判分规则；模型与真人教学验收保持原记录，真实家庭手机暂缓。"
     },
     {
-      "id": "static_samples_on_current_service",
-      "components": [
-        "family_service",
-        "open_webui",
-        "static_samples",
-        "tool_live"
-      ],
-      "status": "historical_UI_evidence_reused_A09_packaging_and_rollback_verified_not_deployed",
+      "id": "pre_upgrade_restore",
+      "status": "schema11_copy_with_old_runtime_verified",
       "evidence": [
-        "docs/verification/main-study-samples-2026-11-07.md",
-        "docs/verification/A09-static-samples-2026-11-08.md"
+        "learning_data/verification/deploy-c01-20261108T162720Z/old-runtime-restore-check.json"
       ],
-      "limit": "固定旧桥接九文件；A09本地封包与回退验证，不含A07桥接，实际发布/设备反馈pending。"
-    },
-    {
-      "id": "page_evidence_paired_candidate",
-      "components": [
-        "page_evidence_candidate",
-        "open_webui",
-        "study_errors_candidate",
-        "chapter_retrieval_candidate"
-      ],
-      "status": "local_synthetic_browser_native_verified_not_deployed",
-      "evidence": [
-        "docs/verification/textbook-evidence-2026-11-07.md",
-        "docs/verification/A04-study-errors-2026-11-07.md",
-        "docs/verification/A05-chapter-retrieval-2026-11-07.md"
-      ],
-      "limit": "当前页级与片段服务/网关、Tool1.2.0与引用桥接组成候选，默认关闭片段；未构建部署。",
-      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
-      "tool_candidate_version": "1.2.0"
-    },
-    {
-      "id": "new_tool_on_old_service",
-      "components": [
-        "family_service",
-        "page_evidence_candidate"
-      ],
-      "status": "unsupported",
-      "evidence": [
-        "docs/verification/textbook-evidence-2026-11-07.md"
-      ],
-      "limit": "历史正式服务缺页级evidence字段，不支持只换新Tool。A05页级服务的兼容另列。",
-      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
-      "tool_candidate_version": "1.2.0"
-    },
-    {
-      "id": "old_tool_on_new_service",
-      "components": [
-        "tool_live",
-        "page_evidence_candidate"
-      ],
-      "status": "historical_100_and_112_sources_synthetically_verified",
-      "evidence": [
-        "docs/verification/textbook-evidence-2026-11-07.md"
-      ],
-      "limit": "使用历史hash一致的1.0.0和1.1.2源码对A07服务验证，仅页定位、不获得片段正文权限；未回读正式Tool。",
-      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
-      "tool_candidate_version": "1.2.0"
-    },
-    {
-      "id": "passage_service_tool",
-      "components": [
-        "passage_sample",
-        "page_evidence_candidate"
-      ],
-      "status": "local_verified_disabled_by_default",
-      "evidence": [
-        "docs/plans/DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md"
-      ],
-      "limit": "完整引文/JSON/citation/原页及失效保护通过；未部署/真实模型/家长验收。",
-      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
-      "tool_candidate_version": "1.2.0"
-    },
-    {
-      "id": "tool_120_on_a05_service",
-      "components": [
-        "page_evidence_candidate",
-        "chapter_retrieval_candidate"
-      ],
-      "status": "isolated_a05_service_source_compatibility",
-      "evidence": [
-        "docs/verification/A07-runtime-passages-2026-11-07.md"
-      ],
-      "limit": "A05的149文件源码副本仅替换Tool为1.2.0，独立跑原30项Tool集成检查；不等于历史线上服务兼容。"
-    },
-    {
-      "id": "tool_upgrade_rollback_120",
-      "components": [
-        "tool_lifecycle_candidate",
-        "passage_runtime_candidate"
-      ],
-      "status": "synthetic_and_native_verified_not_formally_applied",
-      "evidence": [
-        "docs/verification/A08-tool-lifecycle-2026-11-07.md"
-      ],
-      "limit": "固定0.12.5 SQLite/A07后端/1.2.0候选；准备包绑定原数据库和完整目标状态，正式部署映射另核。"
+      "limit": "入口开放后禁止用旧快照覆盖新数据或旧应用读取schema13。"
     }
   ],
   "differences_from_plan_baseline": [],
   "known_gaps": [
-    "正式 Tool 源码/可见性本次未复核。",
-    "运行数据库 schema 和内容数量未重计；设备/真实模型验收无新证据。",
-    "source manifest 的未部署状态描述封包当时阶段；运行状态依据独立构建/发布记录与本次容器观察。",
-    "A03 本地 515 项必要测试通过；GitHub workflow 尚未提交执行，实物材料组未运行。",
-    "A06 历史基线召回2/20、拒绝2/10；A05已在有界离线候选解决原30项回归缺陷，已暴露题集不能冒称外部盲测。",
-    "A07本地集成已通过，默认关闭；未构建/部署候选镜像，A08本地升级/回退机制已通过，正式应用、实际模型与家长体验待验收。",
-    "A07无实时撤回推送，打开/导航/可见性变化时核验；历史聊天文字不追溯删除。",
-    "A09本地独立静态包与回退已验证；尚未发布或取得家长真实设备反馈。"
+    "真人教学签署pending；C01技术/助手范围完成，全项验收待真人确认。",
+    "模型仅别名、无不可变版本；经过修订的合成开发验收，不是盲测或真实学习效果保证。",
+    "v17提示及合成上下文仅用于隔离验收，生产模型默认配置未变。",
+    "冻结中的工具定义摘要记录错误已独立核对185次实际定义一致，原值和实际hash并列保留。",
+    "家庭手机由用户暂缓；真实1/3/7天学习观察未被合成数据代替。",
+    "本机完整备份不等于B07独立故障域验收。",
+    "B08外部观察端、B04未解问题及其他原台账缺口保留。",
+    "13册98范围已有第四档挑战题；276点658要求草案未穷尽课程。挑战难度尚无真实学生校准或教师签署，人工能力不能由自动题替代；真实家庭手机暂缓。",
+    "新增7册仅原页阅读，未配正式题、无关键词索引，尚未建立完整知识点清单；不以原页可见冒称题库完整。"
   ],
-  "next_task": "B10",
-  "runtime_observed_at": "2026-11-07T17:00:53+08:00",
-  "update_scope": "B09首批证据路由/类型与家庭API网关接入候选：286单元/契约+2浏览器，schema13/91文件，OpenAPI76路径44模型。首批本地出口完成、全应用拆分未完成；正式运行观察仍为A01，未部署。",
-  "latest_verification_report": "docs/verification/B10-study-performance-2026-11-08.md",
+  "next_task": null,
+  "runtime_observed_at": "2026-11-12T22:30:24.047623+08:00",
+  "update_scope": "补齐7本人教现行新版下册原页阅读，总20册；题库1145与使用数据不变，未发布本地覆盖候选。",
+  "latest_verification_report": "docs/verification/TEXTBOOK-COMPLETION-2026-11-12.md",
   "source_delivery": {
     "task": "A02",
     "state": "organized_pending_commit",
@@ -1695,46 +1887,83 @@
         "schema_revision": 13,
         "committed": false,
         "deployed": false
+      },
+      {
+        "task": "B10",
+        "batch": "tail-latency",
+        "state": "correctness_passed_performance_pending_candidate_only",
+        "manifest": "learning_data/verification/b10-tail-latency-20261108T082121Z/increment-manifest.json",
+        "patch": "learning_data/verification/b10-tail-latency-20261108T082121Z/b10-tail-increment.patch",
+        "report": "docs/verification/B10-tail-latency-2026-11-08.md",
+        "source_release": "learning_data/verification/b10-tail-latency-20261108T082121Z/release-final/manifest.json",
+        "schema_revision": 13,
+        "committed": false,
+        "deployed": false
+      },
+      {
+        "task": "B10",
+        "batch": "thread-scheduling",
+        "state": "local_engineering_passed_candidate_only",
+        "manifest": "learning_data/verification/b10-thread-scheduling-20261108T130841Z/increment-manifest.json",
+        "patch": "learning_data/verification/b10-thread-scheduling-20261108T130841Z/b10-thread-increment.patch",
+        "report": "docs/verification/B10-thread-scheduling-2026-11-08.md",
+        "source_release": "learning_data/verification/b10-thread-scheduling-20261108T130841Z/release-final/manifest.json",
+        "schema_revision": 13,
+        "committed": false,
+        "deployed": false
+      },
+      {
+        "task": "B11",
+        "state": "local_engineering_passed_actual_devices_pending",
+        "manifest": "learning_data/verification/b11-host-compatibility-20261108T134454Z/increment-manifest.json",
+        "patch": "learning_data/verification/b11-host-compatibility-20261108T134454Z/b11-increment.patch",
+        "report": "docs/verification/B11-host-compatibility-2026-11-08.md",
+        "source_release": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "static_manifest": "learning_data/verification/b11-host-compatibility-20261108T134454Z/static-packet/manifest.json",
+        "schema_revision": 13,
+        "committed": false,
+        "deployed": false
       }
     ]
   },
   "latest_local_candidate": {
-    "task": "B10",
-    "engineering_state": "in_progress",
+    "task": "B11",
+    "batch": "host-compatibility",
+    "engineering_state": "ready",
     "delivery_state": "candidate_only",
     "acceptance_state": "pending",
     "completion_state": "open",
-    "state": "correctness_passed_performance_not_met",
-    "unit_contract_tests": 248,
-    "browser_tests": 2,
+    "state": "passed",
+    "unit_contract_tests": 54,
+    "browser_tests": 21,
+    "native_frontend_configurations": 2,
     "browser_version": "145.0.7632.6",
     "browser_widths": [
-      390,
-      1280
+      1280,
+      390
     ],
-    "source_files": 95,
+    "css_reflow_width": 320,
+    "css_zoom": 2,
+    "touch_emulation": true,
+    "actual_device_feedback": false,
+    "source_files": 99,
+    "static_files": 9,
     "schema_revision": 13,
-    "openapi_paths": 76,
-    "openapi_schemas": 44,
     "tool_candidate_version": "1.2.1",
-    "performance_samples_before": 900,
-    "performance_samples_after": 900,
-    "performance_configurations": 12,
-    "performance_configurations_passed": 8,
-    "diagnostic_samples": 300,
-    "payload_hashes_unchanged": true,
+    "b10_performance_reused": true,
+    "b10_performance_configurations_passed": 12,
     "total_budget_seconds": 12,
-    "thresholds_changed": false,
-    "deployment_performed": false,
     "real_model_or_ocr_calls": 0,
-    "source_profile": "reuse-runtime-study-performance-v1",
-    "verification_report": "docs/verification/B10-study-performance-2026-11-08.md",
-    "release_manifest": "learning_data/verification/b10-study-performance-20261108T061922Z/release-final/manifest.json",
+    "deployment_performed": false,
+    "source_profile": "reuse-runtime-study-host-compatibility-v1",
+    "verification_report": "docs/verification/B11-host-compatibility-2026-11-08.md",
+    "release_manifest": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+    "static_manifest": "learning_data/verification/b11-host-compatibility-20261108T134454Z/static-packet/manifest.json",
+    "archive_sha256": "4b7b5282b9d786725a7683e817598f0fa12380ccbfdc8a281d021f08ad876187",
     "runtime_published": false,
     "actual_family_devices": "not_verified",
-    "native_open_webui_version": "0.12.5",
-    "native_methods": 6,
-    "native_citation_events": 4
+    "committed": false,
+    "base_commit": "60e8498a18926c9fcc7f5eda810c8606876be249"
   },
   "local_candidate_history": [
     {
@@ -1756,6 +1985,137 @@
       "whole_app_refactor_complete": false,
       "actual_family_devices": "not_verified",
       "runtime_published": false
+    },
+    {
+      "task": "B10",
+      "engineering_state": "in_progress",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "pending",
+      "completion_state": "open",
+      "state": "correctness_passed_performance_not_met",
+      "unit_contract_tests": 248,
+      "browser_tests": 2,
+      "browser_version": "145.0.7632.6",
+      "browser_widths": [
+        390,
+        1280
+      ],
+      "source_files": 95,
+      "schema_revision": 13,
+      "openapi_paths": 76,
+      "openapi_schemas": 44,
+      "tool_candidate_version": "1.2.1",
+      "performance_samples_before": 900,
+      "performance_samples_after": 900,
+      "performance_configurations": 12,
+      "performance_configurations_passed": 8,
+      "diagnostic_samples": 300,
+      "payload_hashes_unchanged": true,
+      "total_budget_seconds": 12,
+      "thresholds_changed": false,
+      "deployment_performed": false,
+      "real_model_or_ocr_calls": 0,
+      "source_profile": "reuse-runtime-study-performance-v1",
+      "verification_report": "docs/verification/B10-study-performance-2026-11-08.md",
+      "release_manifest": "learning_data/verification/b10-study-performance-20261108T061922Z/release-final/manifest.json",
+      "runtime_published": false,
+      "actual_family_devices": "not_verified",
+      "native_open_webui_version": "0.12.5",
+      "native_methods": 6,
+      "native_citation_events": 4
+    },
+    {
+      "task": "B10",
+      "batch": "tail-latency",
+      "engineering_state": "in_progress",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "pending",
+      "completion_state": "open",
+      "state": "correctness_passed_performance_not_met",
+      "unit_contract_tests": 166,
+      "browser_tests": 2,
+      "browser_version": "145.0.7632.6",
+      "browser_widths": [
+        390,
+        1280
+      ],
+      "source_files": 97,
+      "schema_revision": 13,
+      "openapi_paths": 76,
+      "openapi_schemas": 44,
+      "tool_candidate_version": "1.2.1",
+      "performance_samples_before": 900,
+      "performance_samples_after": 900,
+      "performance_configurations": 12,
+      "performance_configurations_passed": 10,
+      "diagnostic_samples_before": 450,
+      "diagnostic_samples_after": 450,
+      "payload_hashes_unchanged": true,
+      "total_budget_seconds": 12,
+      "thresholds_changed": false,
+      "deployment_performed": false,
+      "real_model_or_ocr_calls": 0,
+      "native_evidence_reused": true,
+      "native_open_webui_version": "0.12.5",
+      "native_methods": 6,
+      "native_citation_events": 4,
+      "source_profile": "reuse-runtime-study-read-connections-v1",
+      "verification_report": "docs/verification/B10-tail-latency-2026-11-08.md",
+      "release_manifest": "learning_data/verification/b10-tail-latency-20261108T082121Z/release-final/manifest.json",
+      "runtime_published": false,
+      "actual_family_devices": "not_verified",
+      "committed": false,
+      "base_commit": "60e8498a18926c9fcc7f5eda810c8606876be249"
+    },
+    {
+      "task": "B10",
+      "batch": "thread-scheduling",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
+      "state": "passed",
+      "unit_contract_tests": 195,
+      "unit_contract_runs": [
+        194,
+        19
+      ],
+      "overlapping_unit_contract_tests": 18,
+      "browser_tests_rerun": 0,
+      "browser_evidence_reused_tests": 2,
+      "browser_version": "145.0.7632.6",
+      "browser_widths": [
+        390,
+        1280
+      ],
+      "source_files": 98,
+      "schema_revision": 13,
+      "openapi_paths": 76,
+      "openapi_schemas": 44,
+      "tool_candidate_version": "1.2.1",
+      "performance_samples_before": 900,
+      "performance_samples_after": 900,
+      "performance_configurations": 12,
+      "performance_configurations_passed": 12,
+      "diagnostic_samples": 450,
+      "payload_hashes_unchanged": true,
+      "total_budget_seconds": 12,
+      "thresholds_changed": false,
+      "deployment_performed": false,
+      "real_model_or_ocr_calls": 0,
+      "native_evidence_reused": true,
+      "native_tests_rerun": 0,
+      "native_open_webui_version": "0.12.5",
+      "native_methods": 6,
+      "native_citation_events": 4,
+      "source_profile": "reuse-runtime-study-read-scheduling-v1",
+      "verification_report": "docs/verification/B10-thread-scheduling-2026-11-08.md",
+      "release_manifest": "learning_data/verification/b10-thread-scheduling-20261108T130841Z/release-final/manifest.json",
+      "archive_sha256": "fd3caecb07fa54b435adbfeb807347ba1d03d85c138021c307ac3db55032648f",
+      "runtime_published": false,
+      "actual_family_devices": "not_verified",
+      "committed": false,
+      "base_commit": "60e8498a18926c9fcc7f5eda810c8606876be249"
     }
   ],
   "latest_git_delivery": {
@@ -1825,5 +2185,3020 @@
     "remote_ci": "not_run",
     "family_acceptance": "pending",
     "status_scope": "Git delivery only; engineering and acceptance statuses unchanged"
+  },
+  "latest_device_acceptance": {
+    "task": "B11",
+    "recorded_at": "2026-11-08T15:34:06.770233+00:00",
+    "scope": "actual_local_desktop_browser_and_paper_print",
+    "device": "Ubuntu24.04.4 / WSL2 / WSLg",
+    "browser": "Google Chrome146.0.7680.177",
+    "operator": "user01",
+    "submitted_at": "2026-11-08T15:12:19.678955+00:00",
+    "state": "desktop_and_paper_passed_phone_deferred",
+    "checks_passed": 7,
+    "checks_total": 7,
+    "family_phone": "deferred_by_user",
+    "paper_print": "passed",
+    "candidate_archive_sha256": "4b7b5282b9d786725a7683e817598f0fa12380ccbfdc8a281d021f08ad876187",
+    "report": "docs/verification/B11-desktop-acceptance-2026-11-08.md",
+    "b11_acceptance_state": "pending",
+    "b11_completion_state": "open",
+    "does_not_replace_historical_automated_candidate_validation": true,
+    "paper_print_details": {
+      "state": "passed",
+      "source": "explicit_user_message_in_conversation",
+      "recorded_at": "2026-11-08T15:22:40.466913+00:00",
+      "printer_model": "HP 102w",
+      "printer_model_as_reported": "hp 102w",
+      "software": "Chrome",
+      "pages": 3,
+      "user_result": "3页正常",
+      "performed_at_exact": null,
+      "print_os": null,
+      "print_browser_version": null,
+      "print_driver": null,
+      "actual_print_settings": null,
+      "evidence": "../../learning_data/verification/b11-paper-print-20261108T152240Z/user-print-feedback.json"
+    },
+    "paper_print_report": "docs/verification/B11-paper-print-2026-11-08.md",
+    "check_count_scope": "browser_checks_only; physical printing recorded separately",
+    "phone_deferral": {
+      "scheduling_state": "deferred_by_user",
+      "acceptance_state": "pending",
+      "recorded_at": "2026-11-08T15:34:06.770233+00:00",
+      "source": "explicit_user_message_in_conversation",
+      "instruction": "手机验收暂缓，记录下就行。继续下一步",
+      "resume_condition": "用户明确恢复家庭手机验收时再安排",
+      "evidence": "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/user-instruction.json"
+    }
+  },
+  "device_acceptance_history": [
+    {
+      "task": "B11",
+      "recorded_at": "2026-11-08T15:16:03.298805+00:00",
+      "scope": "actual_local_desktop_browser",
+      "device": "Ubuntu24.04.4 / WSL2 / WSLg",
+      "browser": "Google Chrome146.0.7680.177",
+      "operator": "user01",
+      "submitted_at": "2026-11-08T15:12:19.678955+00:00",
+      "state": "browser_checks_passed_paper_pending",
+      "checks_passed": 7,
+      "checks_total": 7,
+      "family_phone": "pending",
+      "paper_print": "not_performed",
+      "candidate_archive_sha256": "4b7b5282b9d786725a7683e817598f0fa12380ccbfdc8a281d021f08ad876187",
+      "report": "docs/verification/B11-desktop-acceptance-2026-11-08.md",
+      "b11_acceptance_state": "pending",
+      "b11_completion_state": "open",
+      "does_not_replace_historical_automated_candidate_validation": true
+    },
+    {
+      "task": "B11",
+      "recorded_at": "2026-11-08T15:22:40.466913+00:00",
+      "scope": "actual_local_desktop_browser_and_paper_print",
+      "device": "Ubuntu24.04.4 / WSL2 / WSLg",
+      "browser": "Google Chrome146.0.7680.177",
+      "operator": "user01",
+      "submitted_at": "2026-11-08T15:12:19.678955+00:00",
+      "state": "desktop_and_paper_passed_phone_pending",
+      "checks_passed": 7,
+      "checks_total": 7,
+      "family_phone": "pending",
+      "paper_print": "passed",
+      "candidate_archive_sha256": "4b7b5282b9d786725a7683e817598f0fa12380ccbfdc8a281d021f08ad876187",
+      "report": "docs/verification/B11-desktop-acceptance-2026-11-08.md",
+      "b11_acceptance_state": "pending",
+      "b11_completion_state": "open",
+      "does_not_replace_historical_automated_candidate_validation": true,
+      "paper_print_details": {
+        "state": "passed",
+        "source": "explicit_user_message_in_conversation",
+        "recorded_at": "2026-11-08T15:22:40.466913+00:00",
+        "printer_model": "HP 102w",
+        "printer_model_as_reported": "hp 102w",
+        "software": "Chrome",
+        "pages": 3,
+        "user_result": "3页正常",
+        "performed_at_exact": null,
+        "print_os": null,
+        "print_browser_version": null,
+        "print_driver": null,
+        "actual_print_settings": null,
+        "evidence": "../../learning_data/verification/b11-paper-print-20261108T152240Z/user-print-feedback.json"
+      },
+      "paper_print_report": "docs/verification/B11-paper-print-2026-11-08.md",
+      "check_count_scope": "browser_checks_only; physical printing recorded separately"
+    }
+  ],
+  "latest_offline_preparation": {
+    "state": "complete",
+    "scope": "offline_scenario_preparation_only",
+    "recorded_at": "2026-11-08T15:34:06.770233+00:00",
+    "scenarios": 24,
+    "tool_methods": 6,
+    "material_source": "assistant_authored_synthetic_only",
+    "fixture_implementation": "specification_only",
+    "real_model_calls": 0,
+    "real_model_acceptance": null,
+    "teacher_review": null,
+    "report": "docs/verification/C01-offline-preparation-2026-11-08.md",
+    "freeze": "learning_data/verification/c01-offline-preparation-20261108T152941Z/scenario-freeze.json"
+  },
+  "latest_offline_tool_fixtures": {
+    "state": "complete",
+    "scope": "offline_tool_protocol_fixtures_only",
+    "recorded_at": "2026-11-08T15:45:25.591245+00:00",
+    "scenarios": 24,
+    "tool_steps_checked": 22,
+    "cases_without_tool_steps": 2,
+    "tool_methods": 6,
+    "targeted_checks_passed": 10,
+    "model_cases_executed": 0,
+    "real_model_calls": 0,
+    "model_acceptance": null,
+    "teaching_score": null,
+    "gateway_service_executed": false,
+    "runtime_candidate_changed": false,
+    "report": "docs/verification/C01-tool-fixtures-2026-11-08.md",
+    "packet_manifest": "learning_data/verification/c01-tool-fixtures-20261108T153801Z/packet-v1/manifest.json",
+    "replay_summary": "learning_data/verification/c01-tool-fixtures-20261108T153801Z/replay-v1-unsandboxed/summary.json",
+    "failure_evidence": "learning_data/verification/c01-tool-fixtures-20261108T153801Z/replay-v1/C01-01.json"
+  },
+  "deployment_history": [
+    {
+      "recorded_at": "2026-11-09T07:43:18.335771+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/deploy-c01-20261108T162720Z",
+      "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 13,
+      "runtime_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "source_files": 99,
+      "public_origin": "https://172.19.116.53",
+      "backup_verification": "learning_data/verification/deploy-c01-20261108T162720Z/backup-verification-summary.json",
+      "model_acceptance": "in_progress_not_run",
+      "generation_calls": 0,
+      "phone": "deferred_by_user"
+    },
+    {
+      "recorded_at": "2026-11-09T07:43:18.335771+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/deploy-c01-20261108T162720Z",
+      "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 13,
+      "runtime_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "source_files": 99,
+      "public_origin": "https://172.19.116.53",
+      "backup_verification": "learning_data/verification/deploy-c01-20261108T162720Z/backup-verification-summary.json",
+      "model_acceptance": "technical_and_assistant_passed",
+      "generation_calls": 185,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/DEPLOY-B11-C01-2026-11-09.md",
+      "final_health_evidence": "learning_data/verification/deploy-c01-20261108T162720Z/production-final-health.json"
+    },
+    {
+      "recorded_at": "2026-11-09T16:46:51.122998+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/chapter-practice-20261109",
+      "compose": "learning_data/deployments/family-chapter-practice-20261109/compose.json",
+      "compose_sha256": "6b76a0655dc663d62e75792aec07c66947b5c3f581def01b284a8a7352fd4fe5",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 13,
+      "runtime_image": "sha256:ad47946229786ba6b713656e9929d695716909f3887fd7dae91805cda1be1ea7",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 108,
+      "source_manifest": "learning_data/releases/chapter-practice-coverage-20261109/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 414,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "unit_integration_checks": 152,
+      "browser_checks": 5,
+      "backup_verification": "learning_data/verification/chapter-practice-20261109/private/verify-receipt.json",
+      "data_preservation_evidence": "learning_data/verification/chapter-practice-20261109/data-preservation.json",
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/CHAPTER-PRACTICE-2026-11-09.md",
+      "final_health_evidence": "learning_data/verification/chapter-practice-20261109/final-health.json"
+    },
+    {
+      "recorded_at": "2026-11-09T21:08:42.376183+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/math-knowledge-g2-20261109",
+      "compose": "learning_data/deployments/family-math-knowledge-g2-20261109/compose.json",
+      "compose_sha256": "e8f17775845946e0d94abea6a767a9781f3c8d511460be693c7e0b95ff244891",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 13,
+      "runtime_image": "sha256:1a3006365702e6d5f8820c0730f333fac8d64b1745969f2e45cffca1de807c79",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 110,
+      "source_manifest": "learning_data/releases/math-knowledge-g2-20261109-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 88,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "unit_integration_checks": 127,
+      "browser_checks": 5,
+      "backup_verification": "learning_data/verification/math-knowledge-g2-20261109/private/verify-receipt.json",
+      "data_preservation_evidence": "learning_data/verification/math-knowledge-g2-20261109/data-preservation.json",
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/MATH-KNOWLEDGE-G2-2026-11-09.md",
+      "final_health_evidence": "learning_data/verification/math-knowledge-g2-20261109/final-health.json",
+      "total_questions": 576,
+      "browser_recheck": {
+        "initial_passed": 4,
+        "initial_failed": 1,
+        "failed_case_recheck_passed": 1,
+        "failure": "existing desktop next-question click timed out; assertions and timeout unchanged"
+      }
+    },
+    {
+      "recorded_at": "2026-11-09T23:41:14.092762+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/math-knowledge-g7-20261109",
+      "compose": "learning_data/deployments/family-math-knowledge-g7-20261109/compose.json",
+      "compose_sha256": "6edd4650891a0549a9973898c2094b94ffeed2d9c8a4896c0c5e67dfbe4c7799",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 13,
+      "runtime_image": "sha256:3d9e797fb2ef442f1b2758b1c65f841c06829ed262cf710c1435f56ecb643153",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 112,
+      "source_manifest": "learning_data/releases/math-knowledge-g7-20261109-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 136,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "unit_integration_checks": 132,
+      "browser_checks": 5,
+      "backup_verification": "learning_data/verification/math-knowledge-g7-20261109/private/verify-receipt.json",
+      "data_preservation_evidence": "learning_data/verification/math-knowledge-g7-20261109/data-preservation.json",
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/MATH-KNOWLEDGE-G7-2026-11-09.md",
+      "final_health_evidence": "learning_data/verification/math-knowledge-g7-20261109/final-health.json",
+      "total_questions": 712,
+      "coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 28,
+          "partial": 33,
+          "gap": 15
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 6,
+          "partial": 130,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      }
+    },
+    {
+      "recorded_at": "2026-11-10T00:16:56.387028+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/math-g2-challenge-20261109",
+      "compose": "learning_data/deployments/family-math-g2-challenge-20261110/compose.json",
+      "compose_sha256": "12c1379657c58a8232ea27df17bcdf13505a4feb5ae831bb5099e91943df657e",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 13,
+      "runtime_image": "sha256:d11f66866887e9d720ea38ac8904eb5e60e3e5ae67964369c791319c4825545d",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 115,
+      "source_manifest": "learning_data/releases/math-g2-challenge-20261110-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 48,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "unit_integration_checks": 141,
+      "browser_checks": 10,
+      "backup_verification": "learning_data/verification/math-g2-challenge-20261109/private/verify-receipt.json",
+      "data_preservation_evidence": "learning_data/verification/math-g2-challenge-20261109/data-preservation.json",
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/MATH-G2-CHALLENGE-2026-11-10.md",
+      "final_health_evidence": "learning_data/verification/math-g2-challenge-20261109/final-health.json",
+      "total_questions": 760,
+      "coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 31,
+          "partial": 35,
+          "gap": 10,
+          "without_direct_tasks": 33
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 6,
+          "partial": 130,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "reclassified_questions": 35,
+      "visual_questions": 21,
+      "questions_by_grade": {
+        "2": 306,
+        "7": 454
+      }
+    },
+    {
+      "recorded_at": "2026-11-10T00:54:58.163300+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/math-g2-multistep-20261110",
+      "compose": "learning_data/deployments/family-math-g2-multistep-20261110/compose.json",
+      "compose_sha256": "e959189eec63b2eba1094b3106b0ac29c276c8ba1dd5e53f9f6318d0ab01fb4a",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 13,
+      "runtime_image": "sha256:20785bf7404cce7be5d5e484cec51a8973e4ea7d89b3c8658e19906b08e9e0fc",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 118,
+      "source_manifest": "learning_data/releases/math-g2-multistep-20261110-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 16,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "unit_integration_checks": 151,
+      "browser_checks": 8,
+      "backup_verification": "learning_data/verification/math-g2-multistep-20261110/private/verify-receipt.json",
+      "data_preservation_evidence": "learning_data/verification/math-g2-multistep-20261110/data-preservation.json",
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/MATH-G2-MULTISTEP-2026-11-10.md",
+      "final_health_evidence": "learning_data/verification/math-g2-multistep-20261110/final-health.json",
+      "total_questions": 776,
+      "coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 35,
+          "partial": 33,
+          "gap": 8,
+          "without_direct_tasks": 32
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 6,
+          "partial": 130,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "reclassified_questions": 0,
+      "visual_questions": 8,
+      "questions_by_grade": {
+        "2": 322,
+        "7": 454
+      },
+      "response_fields": 48
+    },
+    {
+      "recorded_at": "2026-11-10T02:04:24.877391+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/other-textbooks-variety-20261110",
+      "compose": "learning_data/deployments/family-other-textbooks-variety-20261110/compose.json",
+      "compose_sha256": "824c2d8539620a4a8aebcb469ea2298232750a47c17e37193ea7d5a204bf0a25",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 13,
+      "runtime_image": "sha256:034bb31b3a9c270b909b966dac8b8b108fb44289fc275997a6f3ec3cf6eaf181",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 122,
+      "source_manifest": "learning_data/releases/other-textbooks-variety-20261110-final-r3/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 180,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "unit_integration_checks": 164,
+      "browser_checks": 2,
+      "backup_verification": "learning_data/verification/other-textbooks-variety-20261110/private/verify-receipt.json",
+      "data_preservation_evidence": "learning_data/verification/other-textbooks-variety-20261110/data-preservation.json",
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/OTHER-TEXTBOOKS-VARIETY-2026-11-10.md",
+      "final_health_evidence": "learning_data/verification/other-textbooks-variety-20261110/final-health.json",
+      "total_questions": 956,
+      "coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 35,
+          "partial": 33,
+          "gap": 8,
+          "without_direct_tasks": 32
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 7,
+          "partial": 129,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "reclassified_questions": 78,
+      "visual_questions": 11,
+      "questions_by_grade": {
+        "2": 366,
+        "7": 590
+      },
+      "response_fields": 453,
+      "upgraded_books_this_batch": 12,
+      "upgraded_scopes_this_batch": 90,
+      "all_integrated_books_have_variety_upgrade": true,
+      "subjects": 7,
+      "review_packet": "learning_data/verification/other-textbooks-variety-20261110/review-final",
+      "practical_tasks_document": "docs/open-webui-reuse/other-textbook-variety.md"
+    },
+    {
+      "recorded_at": "2026-11-10T08:57:00.982776+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/subject-knowledge-20261110",
+      "compose": "learning_data/deployments/family-subject-knowledge-20261110/compose.json",
+      "compose_sha256": "24ccd92ce8c00e09c8f8a7da27a63c121b077a1f2786086c2e1a59d314bc9073",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 13,
+      "runtime_image": "sha256:1e9e793c797398dda28a0aa7867a7cce39162ab0d97baadcb32bdbbc665ae604",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 125,
+      "source_manifest": "learning_data/releases/subject-knowledge-20261110-final-r2/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 67,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "unit_integration_checks": 188,
+      "browser_checks": 2,
+      "backup_verification": "learning_data/verification/subject-knowledge-20261110/private/verify-receipt.json",
+      "data_preservation_evidence": "learning_data/verification/subject-knowledge-20261110/data-preservation.json",
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/SUBJECT-KNOWLEDGE-2026-11-10.md",
+      "final_health_evidence": "learning_data/verification/subject-knowledge-20261110/final-health.json",
+      "total_questions": 1023,
+      "questions_by_grade": {
+        "2": 380,
+        "7": 643
+      },
+      "all_integrated_books_have_variety_upgrade": true,
+      "subjects": 7,
+      "review_packet": "learning_data/verification/subject-knowledge-20261110/review",
+      "legacy_math_coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 35,
+          "partial": 33,
+          "gap": 8,
+          "without_direct_tasks": 32
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 7,
+          "partial": 129,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "short_answer_fields": 84,
+      "feedback_rules": 25,
+      "subject_knowledge_points": 276,
+      "subject_requirements": 658,
+      "subject_coverage": [
+        {
+          "points": 71,
+          "requirements": 180,
+          "manual_requirements": 54,
+          "bounded_or_legacy_status": {
+            "partial": 60,
+            "configured": 42,
+            "gap": 24
+          },
+          "bounded_or_legacy_without_direct": 53,
+          "unmapped_questions": 72
+        },
+        {
+          "points": 205,
+          "requirements": 478,
+          "manual_requirements": 179,
+          "bounded_or_legacy_status": {
+            "partial": 214,
+            "configured": 42,
+            "gap": 43
+          },
+          "bounded_or_legacy_without_direct": 116,
+          "unmapped_questions": 243
+        }
+      ]
+    },
+    {
+      "recorded_at": "2026-11-11T21:02:32.135450+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/challenge-tier-20261111",
+      "compose": "learning_data/deployments/family-challenge-tier-20261111/compose.json",
+      "compose_sha256": "8c243ee29adaf9625b4b18eae2549ced9ce228ec5a44bc4c3511dfb93c3ab0e9",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 14,
+      "runtime_image": "sha256:50ee80009a7e008f672193f61f99fbe2ba32aad9951a0fb6c3f46db6487576d8",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 128,
+      "source_manifest": "learning_data/releases/challenge-tier-20261111-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 98,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "unit_integration_checks": 386,
+      "browser_checks": 2,
+      "backup_verification": "learning_data/verification/challenge-tier-20261111/private/verify-receipt.json",
+      "data_preservation_evidence": "learning_data/verification/challenge-tier-20261111/data-preservation.json",
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/CHALLENGE-TIER-2026-11-11.md",
+      "final_health_evidence": "learning_data/verification/challenge-tier-20261111/final-health.json",
+      "total_questions": 1121,
+      "questions_by_grade": {
+        "2": 410,
+        "7": 711
+      },
+      "all_integrated_books_have_variety_upgrade": true,
+      "subjects": 7,
+      "review_packet": "learning_data/verification/challenge-tier-20261111/review",
+      "legacy_math_coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 35,
+          "partial": 33,
+          "gap": 8,
+          "without_direct_tasks": 32
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 7,
+          "partial": 129,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "subject_knowledge_points": 276,
+      "subject_requirements": 658,
+      "new_response_fields": 261,
+      "difficulty_levels": [
+        "easy",
+        "normal",
+        "hard",
+        "challenge"
+      ],
+      "upgraded_books_this_batch": 13,
+      "upgraded_scopes_this_batch": 98
+    },
+    {
+      "recorded_at": "2026-11-11T21:20:59.672548+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/reader-summary-20261111",
+      "compose": "learning_data/deployments/family-reader-summary-20261111/compose.json",
+      "compose_sha256": "8854009c2417432aad4526a36e4d98d5fc75cf203a22233054d94b029d5b3730",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 14,
+      "runtime_image": "sha256:5d06454f7f81be4e020b7796b56262371b92d89a5d4f27f43d59ecd81c1e8d1d",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 128,
+      "source_manifest": "learning_data/releases/reader-summary-20261111-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 0,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/READER-SUMMARY-2026-11-11.md",
+      "final_health_evidence": "learning_data/verification/reader-summary-20261111/final-health.json",
+      "total_questions": 1121,
+      "questions_by_grade": {
+        "2": 410,
+        "7": 711
+      },
+      "all_integrated_books_have_variety_upgrade": true,
+      "subjects": 7,
+      "review_packet": "learning_data/verification/challenge-tier-20261111/review",
+      "legacy_math_coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 35,
+          "partial": 33,
+          "gap": 8,
+          "without_direct_tasks": 32
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 7,
+          "partial": 129,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "subject_knowledge_points": 276,
+      "subject_requirements": 658,
+      "difficulty_levels": [
+        "easy",
+        "normal",
+        "hard",
+        "challenge"
+      ],
+      "layout_viewports": [
+        900,
+        390
+      ],
+      "change": "reader summary title starts beside native disclosure marker",
+      "database_import": false
+    },
+    {
+      "recorded_at": "2026-11-11T21:40:20.549589+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/reader-navigation-20261111",
+      "compose": "learning_data/deployments/family-reader-navigation-20261111/compose.json",
+      "compose_sha256": "a939d6a92b73c7a4c5cf510ebf12cbce9d84136c97d996e3f7ad061c43f5ad9d",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 14,
+      "runtime_image": "sha256:8f59022e3ea8907a11f7a583269046c7812480b05ac811979818b510b58617f5",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 128,
+      "source_manifest": "learning_data/releases/reader-navigation-20261111-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 0,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/READER-NAVIGATION-2026-11-11.md",
+      "final_health_evidence": "learning_data/verification/reader-navigation-20261111/final-health.json",
+      "total_questions": 1121,
+      "questions_by_grade": {
+        "2": 410,
+        "7": 711
+      },
+      "all_integrated_books_have_variety_upgrade": true,
+      "subjects": 7,
+      "review_packet": "learning_data/verification/challenge-tier-20261111/review",
+      "legacy_math_coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 35,
+          "partial": 33,
+          "gap": 8,
+          "without_direct_tasks": 32
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 7,
+          "partial": 129,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "subject_knowledge_points": 276,
+      "subject_requirements": 658,
+      "difficulty_levels": [
+        "easy",
+        "normal",
+        "hard",
+        "challenge"
+      ],
+      "change": "page-side previous/next controls; whole-book paging; contents follow actual page",
+      "database_import": false,
+      "browser_viewports": [
+        390,
+        1280
+      ],
+      "unit_integration_checks": 19,
+      "browser_checks": 4
+    },
+    {
+      "recorded_at": "2026-11-11T21:54:53.635663+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/reader-overlay-20261111",
+      "compose": "learning_data/deployments/family-reader-overlay-20261111/compose.json",
+      "compose_sha256": "c5eedf83aee615bd36f856da0cda204c099afbf368efc6eeca5809aa58ca30eb",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 14,
+      "runtime_image": "sha256:e9b9237c22212f03f0eceaac97960f037b93cbd8c5bddbdbf8ce9b69e0b88bd9",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 128,
+      "source_manifest": "learning_data/releases/reader-overlay-20261111-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 0,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/READER-OVERLAY-2026-11-11.md",
+      "final_health_evidence": "learning_data/verification/reader-overlay-20261111/final-health.json",
+      "total_questions": 1121,
+      "questions_by_grade": {
+        "2": 410,
+        "7": 711
+      },
+      "all_integrated_books_have_variety_upgrade": true,
+      "subjects": 7,
+      "review_packet": "learning_data/verification/challenge-tier-20261111/review",
+      "legacy_math_coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 35,
+          "partial": 33,
+          "gap": 8,
+          "without_direct_tasks": 32
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 7,
+          "partial": 129,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "subject_knowledge_points": 276,
+      "subject_requirements": 658,
+      "difficulty_levels": [
+        "easy",
+        "normal",
+        "hard",
+        "challenge"
+      ],
+      "change": "floating previous/next controls on images in reader and zoom dialog; preserve zoom while paging",
+      "database_import": false,
+      "browser_viewports": [
+        390,
+        1280
+      ],
+      "browser_checks": 4
+    },
+    {
+      "recorded_at": "2026-11-12T12:09:34.975509+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/knowledge-quality-20261112",
+      "compose": "learning_data/deployments/family-knowledge-quality-20261112/compose.json",
+      "compose_sha256": "b6d1e3fbdaff24c674d246335c72773b98f913bdf6ccd659c0f55757f5d778f0",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 14,
+      "runtime_image": "sha256:d8b95f909086605e803b5785448cf44ba926927122e77b42d3455f2cdd6b4336",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 129,
+      "source_manifest": "learning_data/releases/knowledge-quality-20261112-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 0,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/KNOWLEDGE-QUALITY-2026-11-12.md",
+      "final_health_evidence": "learning_data/verification/knowledge-quality-20261112/final-health.json",
+      "total_questions": 1121,
+      "questions_by_grade": {
+        "2": 410,
+        "7": 711
+      },
+      "all_integrated_books_have_variety_upgrade": true,
+      "subjects": 7,
+      "review_packet": "learning_data/verification/knowledge-quality-20261112/review-final",
+      "legacy_math_coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 35,
+          "partial": 33,
+          "gap": 8,
+          "without_direct_tasks": 32
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 7,
+          "partial": 129,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "subject_knowledge_points": 276,
+      "subject_requirements": 658,
+      "difficulty_levels": [
+        "easy",
+        "normal",
+        "hard",
+        "challenge"
+      ],
+      "change": "review math knowledge mappings; explicitly separate bounded editorial targets and human performance tasks",
+      "database_import": false,
+      "browser_viewports": [
+        390,
+        1280
+      ],
+      "browser_checks": 2,
+      "unit_integration_checks": 93,
+      "mapping_decisions": 33,
+      "subject_coverage_version": "subject-coverage-v3-math-quality",
+      "human_requirements": 308,
+      "manual_task_persistence": false
+    },
+    {
+      "recorded_at": "2026-11-12T15:02:45.207163+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/math-gaps-20261112",
+      "compose": "learning_data/deployments/family-math-gaps-20261112/compose.json",
+      "compose_sha256": "3291e654e156dabe91ca91628c2f67ad03b8522db9df94ce4865b2421ce4f86c",
+      "runtime_image": "sha256:8c62fd6735fcc5eab2fc9c778186131dff3519e586b1ccf2298089f7c3e73a33",
+      "schema_revision": 14,
+      "added_questions": 10,
+      "total_questions": 1131,
+      "questions_by_grade": {
+        "2": 414,
+        "7": 717
+      },
+      "source_files": 131,
+      "source_manifest": "learning_data/releases/math-gaps-20261112-final/manifest.json",
+      "subject_coverage_version": "subject-coverage-v4-math-gaps",
+      "report": "docs/verification/KNOWLEDGE-QUALITY-2026-11-12.md"
+    },
+    {
+      "recorded_at": "2026-11-12T16:27:43.209639+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/subject-gaps-20261112",
+      "compose": "learning_data/deployments/family-subject-gaps-20261112/compose.json",
+      "compose_sha256": "6a7ead53ea150d231d685f11274d0d5678b91394f61811a28d6e155d15dfce7c",
+      "runtime_image": "sha256:34f037086c106495f0446e5153279fd1a3227c493bba1d64bdbd4c927850d05c",
+      "schema_revision": 14,
+      "added_questions": 14,
+      "total_questions": 1145,
+      "questions_by_grade": {
+        "2": 418,
+        "7": 727
+      },
+      "source_files": 133,
+      "source_manifest": "learning_data/releases/subject-gaps-20261112-final/manifest.json",
+      "subject_coverage_version": "subject-coverage-v5-language-gaps-2026-11-12",
+      "report": "docs/verification/SUBJECT-GAPS-2026-11-12.md",
+      "test_results": "learning_data/verification/subject-gaps-20261112/test-results.json",
+      "data_preservation": "learning_data/verification/subject-gaps-20261112/data-preservation.json"
+    },
+    {
+      "recorded_at": "2026-11-12T16:27:43.209639+08:00",
+      "state": "deployed_verified",
+      "evidence_directory": "learning_data/verification/subject-gaps-20261112",
+      "compose": "learning_data/deployments/family-subject-gaps-20261112/compose.json",
+      "compose_sha256": "6a7ead53ea150d231d685f11274d0d5678b91394f61811a28d6e155d15dfce7c",
+      "webui_version": "0.12.5",
+      "tool_version": "1.2.1",
+      "schema_revision": 14,
+      "runtime_image": "sha256:34f037086c106495f0446e5153279fd1a3227c493bba1d64bdbd4c927850d05c",
+      "runtime_image_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "static_files": 9,
+      "static_updated": false,
+      "source_files": 133,
+      "source_manifest": "learning_data/releases/subject-gaps-20261112-final/manifest.json",
+      "public_origin": "https://172.19.116.53",
+      "added_questions": 14,
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "full_knowledge_coverage": false,
+      "external_model_or_ocr_calls": 0,
+      "phone": "deferred_by_user",
+      "report": "docs/verification/SUBJECT-GAPS-2026-11-12.md",
+      "final_health_evidence": "learning_data/verification/subject-gaps-20261112/health-after.json",
+      "total_questions": 1145,
+      "questions_by_grade": {
+        "2": 418,
+        "7": 727
+      },
+      "all_integrated_books_have_variety_upgrade": true,
+      "subjects": 7,
+      "review_packet": "learning_data/verification/subject-gaps-20261112/review-after",
+      "legacy_math_coverage": {
+        "grade2": {
+          "points": 19,
+          "configured": 35,
+          "partial": 33,
+          "gap": 8,
+          "without_direct_tasks": 32
+        },
+        "grade7": {
+          "points": 34,
+          "configured": 7,
+          "partial": 129,
+          "gap": 0,
+          "without_direct_tasks": 52
+        },
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending"
+      },
+      "subject_knowledge_points": 276,
+      "subject_requirements": 658,
+      "difficulty_levels": [
+        "easy",
+        "normal",
+        "hard",
+        "challenge"
+      ],
+      "change": "add fourteen original Chinese and English questions across thirteen textbook scopes; preserve all older question versions and usage data",
+      "database_import": "additive_14_existing_rows_preserved",
+      "browser_viewports": [
+        390,
+        1280
+      ],
+      "browser_checks": 2,
+      "unit_integration_checks": 50,
+      "release_compatibility_checks": 29,
+      "browser_recheck": "legacy_desktop_assertion_failed_mobile_interrupted; prior two-viewport deployment acceptance retained separately",
+      "mapping_decisions": 14,
+      "subject_coverage_version": "subject-coverage-v5-language-gaps-2026-11-12",
+      "human_requirements": 308,
+      "manual_task_persistence": false,
+      "configured_bounded_requirements": 93,
+      "changed_services": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "challenge_or_model_acceptance": "not_run",
+      "c01": "four_containers_exited",
+      "source_profile": "reuse-runtime-subject-gaps-v11",
+      "source_set_sha256": "65a46c7f57f16c85e8306b06f813ac3667e22f2daf494e8cc5e9cf657580239b",
+      "archive_sha256": "5aea72cae9933fdd8055a62f0105f6c25c7c8d2882814b9de253cc5664fcb91a",
+      "bounded_requirements": 350
+    }
+  ],
+  "latest_deployment": {
+    "recorded_at": "2026-11-12T22:30:24.047623+08:00",
+    "state": "deployed_verified",
+    "evidence_directory": "learning_data/verification/textbook-completion-20261112",
+    "compose": "learning_data/deployments/family-textbook-completion-20261112/compose.json",
+    "compose_sha256": "78af49ccb0d3e57079970e1e37234384ae8614d6dd0e12705a0989b5e1c60248",
+    "source_manifest": "learning_data/releases/textbook-completion-20261112-final/manifest.json",
+    "source_profile": "reuse-runtime-textbook-completion-v12",
+    "source_files": 134,
+    "source_set_sha256": "4ebfaede6a2b5605f3f23c7fb2bc3d7784638b9b893227f1bfefa8ba0ac108e7",
+    "archive_sha256": "fb59e665812f1bca8c4ef66201f15da9f6030878ffb3bc5b3f2036f3138ab7c4",
+    "runtime_image": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
+    "runtime_image_scope": [
+      "learning-api",
+      "learning-worker",
+      "learning-gateway"
+    ],
+    "gateway_image": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
+    "changed_services": [
+      "learning-api",
+      "learning-worker",
+      "learning-gateway"
+    ],
+    "schema_revision": 14,
+    "webui_version": "0.12.5",
+    "tool_version": "1.2.1",
+    "public_origin": "https://172.19.116.53",
+    "textbooks": 20,
+    "textbooks_by_grade": {
+      "2": 6,
+      "7": 14
+    },
+    "subjects": 7,
+    "directory_scopes": 152,
+    "added_textbooks": 7,
+    "added_directory_scopes": 54,
+    "new_original_pdf_pages": 831,
+    "added_questions": 0,
+    "total_questions": 1145,
+    "questions_by_grade": {
+      "2": 418,
+      "7": 727
+    },
+    "questioned_textbooks": 13,
+    "all_integrated_books_have_variety_upgrade": false,
+    "new_textbooks_reading_only": true,
+    "new_textbook_keyword_search": false,
+    "full_knowledge_coverage": false,
+    "database_import": false,
+    "migration": false,
+    "static_updated": false,
+    "external_model_or_ocr_calls": 0,
+    "embedding_calls": 0,
+    "phone": "deferred_by_user",
+    "c01": "four_containers_exited",
+    "subject_coverage_version": "subject-coverage-v5-language-gaps-2026-11-12",
+    "local_coverage_candidates_published": false,
+    "report": "docs/verification/TEXTBOOK-COMPLETION-2026-11-12.md",
+    "unit_integration_release_checks": 66,
+    "compatibility_checks": 99,
+    "test_groups_overlap": true,
+    "browser_viewports": [
+      390,
+      1280
+    ],
+    "browser_checks": 2,
+    "data_preservation": "learning_data/verification/textbook-completion-20261112/data-preservation.json",
+    "final_health_evidence": "learning_data/verification/textbook-completion-20261112/health-after.json",
+    "change": "add seven current PEP lower textbooks for original page reading; preserve all existing questions, learning data and unpublished quality candidates"
+  },
+  "component_history_reference": "learning_data/verification/deploy-c01-20261108T162720Z/manifest-before-final-reconciliation.json",
+  "compatibility_history": [
+    {
+      "id": "current_live",
+      "components": [
+        "family_service",
+        "open_webui",
+        "proxy",
+        "static_live",
+        "tool_live"
+      ],
+      "status": "runtime_observed_tool_historical",
+      "evidence": [
+        "docs/verification/main-chat-study-2026-11-07.md",
+        "docs/verification/A01-current-state-2026-11-07.md"
+      ],
+      "limit": "容器和静态资源可核对；Tool 仅历史证据，真实聊天与家长验收待反馈。"
+    },
+    {
+      "id": "static_samples_on_current_service",
+      "components": [
+        "family_service",
+        "open_webui",
+        "static_samples",
+        "tool_live"
+      ],
+      "status": "historical_UI_evidence_reused_A09_packaging_and_rollback_verified_not_deployed",
+      "evidence": [
+        "docs/verification/main-study-samples-2026-11-07.md",
+        "docs/verification/A09-static-samples-2026-11-08.md"
+      ],
+      "limit": "固定旧桥接九文件；A09本地封包与回退验证，不含A07桥接，实际发布/设备反馈pending。"
+    },
+    {
+      "id": "page_evidence_paired_candidate",
+      "components": [
+        "page_evidence_candidate",
+        "open_webui",
+        "study_errors_candidate",
+        "chapter_retrieval_candidate"
+      ],
+      "status": "local_synthetic_browser_native_verified_not_deployed",
+      "evidence": [
+        "docs/verification/textbook-evidence-2026-11-07.md",
+        "docs/verification/A04-study-errors-2026-11-07.md",
+        "docs/verification/A05-chapter-retrieval-2026-11-07.md"
+      ],
+      "limit": "当前页级与片段服务/网关、Tool1.2.0与引用桥接组成候选，默认关闭片段；未构建部署。",
+      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
+      "tool_candidate_version": "1.2.0"
+    },
+    {
+      "id": "new_tool_on_old_service",
+      "components": [
+        "family_service",
+        "page_evidence_candidate"
+      ],
+      "status": "unsupported",
+      "evidence": [
+        "docs/verification/textbook-evidence-2026-11-07.md"
+      ],
+      "limit": "历史正式服务缺页级evidence字段，不支持只换新Tool。A05页级服务的兼容另列。",
+      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
+      "tool_candidate_version": "1.2.0"
+    },
+    {
+      "id": "old_tool_on_new_service",
+      "components": [
+        "tool_live",
+        "page_evidence_candidate"
+      ],
+      "status": "historical_100_and_112_sources_synthetically_verified",
+      "evidence": [
+        "docs/verification/textbook-evidence-2026-11-07.md"
+      ],
+      "limit": "使用历史hash一致的1.0.0和1.1.2源码对A07服务验证，仅页定位、不获得片段正文权限；未回读正式Tool。",
+      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
+      "tool_candidate_version": "1.2.0"
+    },
+    {
+      "id": "passage_service_tool",
+      "components": [
+        "passage_sample",
+        "page_evidence_candidate"
+      ],
+      "status": "local_verified_disabled_by_default",
+      "evidence": [
+        "docs/plans/DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md"
+      ],
+      "limit": "完整引文/JSON/citation/原页及失效保护通过；未部署/真实模型/家长验收。",
+      "latest_local_evidence": "docs/verification/A07-runtime-passages-2026-11-07.md",
+      "tool_candidate_version": "1.2.0"
+    },
+    {
+      "id": "tool_120_on_a05_service",
+      "components": [
+        "page_evidence_candidate",
+        "chapter_retrieval_candidate"
+      ],
+      "status": "isolated_a05_service_source_compatibility",
+      "evidence": [
+        "docs/verification/A07-runtime-passages-2026-11-07.md"
+      ],
+      "limit": "A05的149文件源码副本仅替换Tool为1.2.0，独立跑原30项Tool集成检查；不等于历史线上服务兼容。"
+    },
+    {
+      "id": "tool_upgrade_rollback_120",
+      "components": [
+        "tool_lifecycle_candidate",
+        "passage_runtime_candidate"
+      ],
+      "status": "synthetic_and_native_verified_not_formally_applied",
+      "evidence": [
+        "docs/verification/A08-tool-lifecycle-2026-11-07.md"
+      ],
+      "limit": "固定0.12.5 SQLite/A07后端/1.2.0候选；准备包绑定原数据库和完整目标状态，正式部署映射另核。"
+    },
+    [
+      {
+        "id": "current_live_b11_tool121_schema13",
+        "components": [
+          "family_service",
+          "open_webui",
+          "proxy",
+          "static_live",
+          "tool_live"
+        ],
+        "status": "deployed_verified",
+        "evidence": [
+          "docs/verification/DEPLOY-B11-C01-2026-11-09.md"
+        ],
+        "limit": "C01同一v17合成隔离原24/24、补充3/3通过；真人教学签署pending、手机暂缓，生产模型默认提示未变。"
+      },
+      {
+        "id": "pre_upgrade_restore",
+        "status": "schema11_copy_with_old_runtime_verified",
+        "evidence": [
+          "learning_data/verification/deploy-c01-20261108T162720Z/old-runtime-restore-check.json"
+        ],
+        "limit": "入口开放后禁止用旧快照覆盖新数据或旧应用读取schema13。"
+      }
+    ],
+    [
+      {
+        "id": "current_live_math_g2_challenge_tool121_schema13",
+        "components": [
+          "family_service",
+          "open_webui",
+          "proxy",
+          "static_live",
+          "tool_live"
+        ],
+        "status": "deployed_verified",
+        "evidence": [
+          "docs/verification/MATH-G2-CHALLENGE-2026-11-10.md",
+          "docs/verification/DEPLOY-B11-C01-2026-11-09.md"
+        ],
+        "limit": "本批只更新API/worker；模型验收和真人教学签署仍按原记录，手机暂缓。"
+      },
+      {
+        "id": "pre_upgrade_restore",
+        "status": "schema11_copy_with_old_runtime_verified",
+        "evidence": [
+          "learning_data/verification/deploy-c01-20261108T162720Z/old-runtime-restore-check.json"
+        ],
+        "limit": "入口开放后禁止用旧快照覆盖新数据或旧应用读取schema13。"
+      }
+    ]
+  ],
+  "known_gaps_history": [
+    "正式 Tool 源码/可见性本次未复核。",
+    "运行数据库 schema 和内容数量未重计；设备/真实模型验收无新证据。",
+    "source manifest 的未部署状态描述封包当时阶段；运行状态依据独立构建/发布记录与本次容器观察。",
+    "A03 本地 515 项必要测试通过；GitHub workflow 尚未提交执行，实物材料组未运行。",
+    "A06 历史基线召回2/20、拒绝2/10；A05已在有界离线候选解决原30项回归缺陷，已暴露题集不能冒称外部盲测。",
+    "A07本地集成已通过，默认关闭；未构建/部署候选镜像，A08本地升级/回退机制已通过，正式应用、实际模型与家长体验待验收。",
+    "A07无实时撤回推送，打开/导航/可见性变化时核验；历史聊天文字不追溯删除。",
+    "A09本地独立静态包与回退已验证；尚未发布或取得家长真实设备反馈。",
+    [
+      "真人教学签署pending；C01技术/助手范围完成，全项验收待真人确认。",
+      "模型仅别名、无不可变版本；经过修订的合成开发验收，不是盲测或真实学习效果保证。",
+      "v17提示及合成上下文仅用于隔离验收，生产模型默认配置未变。",
+      "冻结中的工具定义摘要记录错误已独立核对185次实际定义一致，原值和实际hash并列保留。",
+      "家庭手机由用户暂缓；真实1/3/7天学习观察未被合成数据代替。",
+      "本机完整备份不等于B07独立故障域验收。",
+      "B08外部观察端、B04未解问题及其他原台账缺口保留。"
+    ],
+    [
+      "真人教学签署pending；C01技术/助手范围完成，全项验收待真人确认。",
+      "模型仅别名、无不可变版本；经过修订的合成开发验收，不是盲测或真实学习效果保证。",
+      "v17提示及合成上下文仅用于隔离验收，生产模型默认配置未变。",
+      "冻结中的工具定义摘要记录错误已独立核对185次实际定义一致，原值和实际hash并列保留。",
+      "家庭手机由用户暂缓；真实1/3/7天学习观察未被合成数据代替。",
+      "本机完整备份不等于B07独立故障域验收。",
+      "B08外部观察端、B04未解问题及其他原台账缺口保留。",
+      "二上题型提高后仍有10项能力无映射、33项无直接考查；题目难度未经学生数据校准，完整知识清单、课程标准及教师复核待完成。"
+    ],
+    [
+      "真人教学签署pending；C01技术/助手范围完成，全项验收待真人确认。",
+      "模型仅别名、无不可变版本；经过修订的合成开发验收，不是盲测或真实学习效果保证。",
+      "v17提示及合成上下文仅用于隔离验收，生产模型默认配置未变。",
+      "冻结中的工具定义摘要记录错误已独立核对185次实际定义一致，原值和实际hash并列保留。",
+      "家庭手机由用户暂缓；真实1/3/7天学习观察未被合成数据代替。",
+      "本机完整备份不等于B07独立故障域验收。",
+      "B08外部观察端、B04未解问题及其他原台账缺口保留。",
+      "二上分步题上线后仍有8项能力无映射、32项无直接考查；口述、作图、实测、课程标准、教师复核和真实难度校准待完成。"
+    ],
+    [
+      "真人教学签署pending；C01技术/助手范围完成，全项验收待真人确认。",
+      "模型仅别名、无不可变版本；经过修订的合成开发验收，不是盲测或真实学习效果保证。",
+      "v17提示及合成上下文仅用于隔离验收，生产模型默认配置未变。",
+      "冻结中的工具定义摘要记录错误已独立核对185次实际定义一致，原值和实际hash并列保留。",
+      "家庭手机由用户暂缓；真实1/3/7天学习观察未被合成数据代替。",
+      "本机完整备份不等于B07独立故障域验收。",
+      "B08外部观察端、B04未解问题及其他原台账缺口保留。",
+      "全学科本轮升级完成，但二上8项能力无映射、32项无直接考查，七上52项无直接考查；非数学仅有范围任务清单，课程标准完整性、独立表达听说与实操、教师复核及真实难度校准仍待完成。"
+    ],
+    [
+      "真人教学签署pending；C01技术/助手范围完成，全项验收待真人确认。",
+      "模型仅别名、无不可变版本；经过修订的合成开发验收，不是盲测或真实学习效果保证。",
+      "v17提示及合成上下文仅用于隔离验收，生产模型默认配置未变。",
+      "冻结中的工具定义摘要记录错误已独立核对185次实际定义一致，原值和实际hash并列保留。",
+      "家庭手机由用户暂缓；真实1/3/7天学习观察未被合成数据代替。",
+      "本机完整备份不等于B07独立故障域验收。",
+      "B08外部观察端、B04未解问题及其他原台账缺口保留。",
+      "已建立13册276点658要求草案；尚未穷尽章节知识或逐条对照课程标准。233项新清单要求明确人工核对，旧数学独立表达和操作缺口保留。教师复核、真实学生难度校准与真实手机验收仍待完成。"
+    ]
+  ],
+  "latest_model_acceptance": {
+    "state": "technical_and_assistant_passed",
+    "scope": "synthetic_isolated_native_acceptance",
+    "recorded_at": "2026-11-09T11:10:40.724265+08:00",
+    "report": "docs/verification/C01-real-model-2026-11-09.md",
+    "summary": "learning_data/verification/deploy-c01-20261108T162720Z/c01-final-summary.json",
+    "audit": "learning_data/verification/deploy-c01-20261108T162720Z/c01-final-audit.json",
+    "final_selection": "learning_data/verification/deploy-c01-20261108T162720Z/c01-final-selection.json",
+    "accepted_config": "docs/quality/c01-accepted-config-2026-11-09.json",
+    "freeze_revision": "v17",
+    "freeze_sha256": "02fb28c49f7df5645512d3e3813961676022c997dc566e1866e5efebc9280905",
+    "cases_planned": 24,
+    "cases_executed": 24,
+    "latest_passed": 24,
+    "latest_failed": 0,
+    "supplemental_cases_planned": 3,
+    "supplemental_cases_passed": 3,
+    "generation_requests": 185,
+    "provider_requests_including_discovery": 189,
+    "discovery_reserved_count": 4,
+    "request_limit": 300,
+    "incremental_cost_CNY": 0,
+    "billing_basis": "user_confirmed_fixed_subscription_fee_excluded",
+    "usage_provider_reported": {
+      "prompt_tokens": 979150,
+      "completion_tokens": 14821,
+      "total_tokens": 993971
+    },
+    "round2_minutes": 53.5914137562116,
+    "extra_window_authorization": "learning_data/verification/deploy-c01-20261108T162720Z/budget-amendment-extra60.json",
+    "time_extension": "authorized_and_completed",
+    "assistant_teaching_passed": 5,
+    "assistant_teaching_scores": {
+      "C01-03": 8,
+      "C01-05": 7,
+      "C01-22": 8,
+      "C01-23": 7,
+      "C01-24": 8
+    },
+    "human_review": "pending",
+    "teaching_samples": "docs/verification/C01-teaching-review-2026-11-09.md",
+    "generation_stopped": true,
+    "isolated_services_stopped": true,
+    "production_model_defaults_changed": false,
+    "development_not_blind": true,
+    "tool_definition_reconciliation": {
+      "freeze_recorded_sha256": "bea0d8fbaff67e6c6c72e9db019da4e4c0bcc206b41e5272965f9d818120b999",
+      "actual_native_specs_file_sha256": "59024fb46751658038a824957a5fe721e204cecbe2984440c9df735357dc6032",
+      "all_185_requests_definitions_identical": true,
+      "note": "Old freeze digest does not identify native-specs bytes; original preserved. Actual definitions independently recovered from all 185 provider requests and exported with actual digest. No prompt/tool/runtime behavior changed during final audit."
+    }
+  },
+  "model_acceptance_history": [
+    {
+      "report": "docs/verification/C01-real-model-2026-11-09.md",
+      "summary": "learning_data/verification/deploy-c01-20261108T162720Z/c01-round1-summary.json",
+      "state": "round2_in_progress",
+      "cases_planned": 24,
+      "cases_executed": 16,
+      "latest_passed": 14,
+      "latest_failed": 2,
+      "generation_requests": 37,
+      "provider_requests_including_discovery": 41,
+      "request_limit": 300,
+      "incremental_cost_CNY": 0,
+      "human_review": "pending",
+      "time_extension": "authorized_extra3600_seconds",
+      "extra_window_authorization": "learning_data/verification/deploy-c01-20261108T162720Z/budget-amendment-extra60.json"
+    }
+  ],
+  "next_action": "按2026-11-13交接第7节，先为review-v17已审明的上册20项缺口编制本地候选并逐题复核，再处理下册及新增7册知识清单；不直接导入或部署。第6节主站优化为待实施建议。保留既有改动和使用数据，不提交推送，C01保持停止且不调用，真实手机验收继续暂缓。",
+  "family_service_history": [
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-09T07:43:18.335771+08:00",
+      "image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "compose": {
+        "path": "learning_data/deployments/family-b11-c01-20261109/compose.json",
+        "sha256": "af3bcd8ff816654807faa339deaa164624621404e14ee0bf3dd9266da247084b"
+      },
+      "containers": [
+        {
+          "name": "/dd-family-math-learning-api-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "started_at": "2026-11-08T16:48:49.131804358Z",
+          "health": "healthy",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        },
+        {
+          "name": "/dd-family-math-learning-worker-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "started_at": "2026-11-08T23:22:53.30819056Z",
+          "health": null,
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        },
+        {
+          "name": "/dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "started_at": "2026-11-08T16:49:01.620658972Z",
+          "health": null,
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 13,
+      "source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      },
+      "evidence": [
+        "docs/verification/DEPLOY-B11-C01-2026-11-09.md",
+        "learning_data/verification/deploy-c01-20261108T162720Z/migration-rehearsal.json"
+      ],
+      "rollback": {
+        "target_image_id": "sha256:16e21fac6e9942c6492d0a069650d5a9b3a94a4b6a6eb4ea35032b75855732c0",
+        "backup": "learning_data/verification/deploy-c01-20261108T162720Z/private/full-backup",
+        "status": "before_reopen_restore_verified_post_reopen_requires_new_data_preservation",
+        "instructions": "入口已开放；不能运行before-reopen回退或旧应用读schema13，也不能用旧快照覆盖新数据。"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-09T15:22:44.770287+08:00",
+      "image_id": "sha256:ad47946229786ba6b713656e9929d695716909f3887fd7dae91805cda1be1ea7",
+      "compose": {
+        "path": "learning_data/deployments/family-chapter-practice-20261109/compose.json",
+        "sha256": "6b76a0655dc663d62e75792aec07c66947b5c3f581def01b284a8a7352fd4fe5"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:ad47946229786ba6b713656e9929d695716909f3887fd7dae91805cda1be1ea7",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-09T07:19:31.972526402Z",
+          "compose": "learning_data/deployments/family-chapter-practice-20261109/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:ad47946229786ba6b713656e9929d695716909f3887fd7dae91805cda1be1ea7",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T07:19:38.162960366Z",
+          "compose": "learning_data/deployments/family-chapter-practice-20261109/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-08T16:49:01.620658972Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 13,
+      "source": {
+        "manifest_path": "learning_data/releases/chapter-practice-coverage-20261109/manifest.json",
+        "source_file_count": 108,
+        "profile": "reuse-runtime-chapter-practice-v1",
+        "schema_revision": 13,
+        "source_set_sha256": "3d4cf14075a2da4e6ae81f5efd0b61bbda26bd29a31dfde92718b350ad3971d8",
+        "archive_sha256": "633b10a2e89651ce9800f53bd4ed8ba19f0c8bddd790fa984130da7a269980b4",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/chapter-practice-20261109/runtime-hashes.json",
+        "verified_runtime_files_per_service": 64,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/CHAPTER-PRACTICE-2026-11-09.md",
+        "learning_data/verification/chapter-practice-20261109/final-health.json",
+        "learning_data/verification/chapter-practice-20261109/live-read.json",
+        "learning_data/verification/chapter-practice-20261109/data-preservation.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+        "backup": "learning_data/verification/chapter-practice-20261109/private/backup",
+        "status": "requires_preserving_new_usage_and_question_compatibility",
+        "instructions": "服务已恢复；保全新增作答后再停用或修复指定新题。旧B11镜像不识别新题范围，不能直接切回继续挑战，也不能用旧快照覆盖新记录。"
+      },
+      "checked_at_basis": "final-health.json file capture timestamp",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-09T21:06:33.151094+08:00",
+      "image_id": "sha256:1a3006365702e6d5f8820c0730f333fac8d64b1745969f2e45cffca1de807c79",
+      "compose": {
+        "path": "learning_data/deployments/family-math-knowledge-g2-20261109/compose.json",
+        "sha256": "e8f17775845946e0d94abea6a767a9781f3c8d511460be693c7e0b95ff244891"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:1a3006365702e6d5f8820c0730f333fac8d64b1745969f2e45cffca1de807c79",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-09T13:06:01.775932044Z",
+          "compose": "learning_data/deployments/family-math-knowledge-g2-20261109/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:1a3006365702e6d5f8820c0730f333fac8d64b1745969f2e45cffca1de807c79",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T13:06:13.494747141Z",
+          "compose": "learning_data/deployments/family-math-knowledge-g2-20261109/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-08T16:49:01.620658972Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 13,
+      "source": {
+        "manifest_path": "learning_data/releases/math-knowledge-g2-20261109-final/manifest.json",
+        "source_file_count": 110,
+        "profile": "reuse-runtime-math-knowledge-v2",
+        "schema_revision": 13,
+        "source_set_sha256": "51f291188ae15533ec07b954addc4765873866376ee941203183bc9c48d2d7b7",
+        "archive_sha256": "7fcc4fd40911f13322416884ca947cc1c08bc8d215b49c247c4dca886d13b0e9",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/math-knowledge-g2-20261109/runtime-hashes.json",
+        "verified_runtime_files_per_service": 66,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/MATH-KNOWLEDGE-G2-2026-11-09.md",
+        "learning_data/verification/math-knowledge-g2-20261109/final-health.json",
+        "learning_data/verification/math-knowledge-g2-20261109/live-read.json",
+        "learning_data/verification/math-knowledge-g2-20261109/data-preservation.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:ad47946229786ba6b713656e9929d695716909f3887fd7dae91805cda1be1ea7",
+        "backup": "learning_data/verification/math-knowledge-g2-20261109/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "上一镜像不识别本批88题；服务恢复后先保全新增使用记录，再定向停用或修复，不用旧快照覆盖当前库。"
+      },
+      "checked_at_basis": "final-health.json file capture timestamp",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-09T23:41:14.092762+08:00",
+      "image_id": "sha256:3d9e797fb2ef442f1b2758b1c65f841c06829ed262cf710c1435f56ecb643153",
+      "compose": {
+        "path": "learning_data/deployments/family-math-knowledge-g7-20261109/compose.json",
+        "sha256": "6edd4650891a0549a9973898c2094b94ffeed2d9c8a4896c0c5e67dfbe4c7799"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:3d9e797fb2ef442f1b2758b1c65f841c06829ed262cf710c1435f56ecb643153",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-09T15:38:45.560799955Z",
+          "compose": "learning_data/deployments/family-math-knowledge-g7-20261109/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:3d9e797fb2ef442f1b2758b1c65f841c06829ed262cf710c1435f56ecb643153",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T15:38:51.470114088Z",
+          "compose": "learning_data/deployments/family-math-knowledge-g7-20261109/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T15:18:36.474931364Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 13,
+      "source": {
+        "manifest_path": "learning_data/releases/math-knowledge-g7-20261109-final/manifest.json",
+        "source_file_count": 112,
+        "profile": "reuse-runtime-math-knowledge-v3",
+        "schema_revision": 13,
+        "source_set_sha256": "07dc5976eb13254275227ad1433a6ae64786fbee647382b20057910f53f6e045",
+        "archive_sha256": "4e107b4d7c8c529a56758bb6dedc1e6f9521b8043afa8f0cbad4182d28307bee",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/math-knowledge-g7-20261109/runtime-hashes.json",
+        "verified_runtime_files_per_service": 68,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/MATH-KNOWLEDGE-G7-2026-11-09.md",
+        "learning_data/verification/math-knowledge-g7-20261109/final-health.json",
+        "learning_data/verification/math-knowledge-g7-20261109/live-read.json",
+        "learning_data/verification/math-knowledge-g7-20261109/data-preservation.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:1a3006365702e6d5f8820c0730f333fac8d64b1745969f2e45cffca1de807c79",
+        "backup": "learning_data/verification/math-knowledge-g7-20261109/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "上一镜像不识别本批136题；服务恢复后先保全新增使用记录，再定向停用或修复，不用旧快照覆盖当前库。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-10T00:16:56.387028+08:00",
+      "image_id": "sha256:d11f66866887e9d720ea38ac8904eb5e60e3e5ae67964369c791319c4825545d",
+      "compose": {
+        "path": "learning_data/deployments/family-math-g2-challenge-20261110/compose.json",
+        "sha256": "12c1379657c58a8232ea27df17bcdf13505a4feb5ae831bb5099e91943df657e"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:d11f66866887e9d720ea38ac8904eb5e60e3e5ae67964369c791319c4825545d",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-09T16:13:25.855943916Z",
+          "compose": "learning_data/deployments/family-math-g2-challenge-20261110/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:d11f66866887e9d720ea38ac8904eb5e60e3e5ae67964369c791319c4825545d",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T16:13:31.894892327Z",
+          "compose": "learning_data/deployments/family-math-g2-challenge-20261110/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T15:18:36.474931364Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 13,
+      "source": {
+        "manifest_path": "learning_data/releases/math-g2-challenge-20261110-final/manifest.json",
+        "source_file_count": 115,
+        "profile": "reuse-runtime-math-challenge-v4",
+        "schema_revision": 13,
+        "source_set_sha256": "e41d226021c58bc04f3a65df72def97db0aebdc25d5e7d8c6b974ef9013e7d37",
+        "archive_sha256": "e319502bdb2d50789a4092488235209b38c68bf63b97a1943240b850cb0aa9a4",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/math-g2-challenge-20261109/runtime-hashes.json",
+        "verified_runtime_files_per_service": 71,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/MATH-G2-CHALLENGE-2026-11-10.md",
+        "learning_data/verification/math-g2-challenge-20261109/final-health.json",
+        "learning_data/verification/math-g2-challenge-20261109/live-read.json",
+        "learning_data/verification/math-g2-challenge-20261109/data-preservation.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:3d9e797fb2ef442f1b2758b1c65f841c06829ed262cf710c1435f56ecb643153",
+        "backup": "learning_data/verification/math-g2-challenge-20261109/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "上一镜像不识别48个新题号；先保全新增使用记录并处理题号兼容，不能用旧快照覆盖当前库。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-10T00:54:58.163300+08:00",
+      "image_id": "sha256:20785bf7404cce7be5d5e484cec51a8973e4ea7d89b3c8658e19906b08e9e0fc",
+      "compose": {
+        "path": "learning_data/deployments/family-math-g2-multistep-20261110/compose.json",
+        "sha256": "e959189eec63b2eba1094b3106b0ac29c276c8ba1dd5e53f9f6318d0ab01fb4a"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:20785bf7404cce7be5d5e484cec51a8973e4ea7d89b3c8658e19906b08e9e0fc",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-09T16:51:07.59117459Z",
+          "compose": "learning_data/deployments/family-math-g2-multistep-20261110/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:20785bf7404cce7be5d5e484cec51a8973e4ea7d89b3c8658e19906b08e9e0fc",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T16:51:13.498847816Z",
+          "compose": "learning_data/deployments/family-math-g2-multistep-20261110/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T15:18:36.474931364Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 13,
+      "source": {
+        "manifest_path": "learning_data/releases/math-g2-multistep-20261110-final/manifest.json",
+        "source_file_count": 118,
+        "profile": "reuse-runtime-math-multistep-v5",
+        "schema_revision": 13,
+        "source_set_sha256": "685d5fe6e8d68ea0647e93a7331cbbead039d3bb8ad562f236bf3eabad36330c",
+        "archive_sha256": "c8e070a676f77cab3b0d7bb6c46cdfbe524751483f6c39b8d69768d67a545e96",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/math-g2-multistep-20261110/runtime-hashes.json",
+        "verified_runtime_files_per_service": 74,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/MATH-G2-MULTISTEP-2026-11-10.md",
+        "learning_data/verification/math-g2-multistep-20261110/final-health.json",
+        "learning_data/verification/math-g2-multistep-20261110/live-read.json",
+        "learning_data/verification/math-g2-multistep-20261110/data-preservation.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:d11f66866887e9d720ea38ac8904eb5e60e3e5ae67964369c791319c4825545d",
+        "backup": "learning_data/verification/math-g2-multistep-20261110/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "旧镜像不识别16个新题号与numeric-fields-v1规则；保全新增记录并处理兼容，不能用旧快照覆盖当前库。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-10T02:04:24.877391+08:00",
+      "image_id": "sha256:034bb31b3a9c270b909b966dac8b8b108fb44289fc275997a6f3ec3cf6eaf181",
+      "compose": {
+        "path": "learning_data/deployments/family-other-textbooks-variety-20261110/compose.json",
+        "sha256": "824c2d8539620a4a8aebcb469ea2298232750a47c17e37193ea7d5a204bf0a25"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:034bb31b3a9c270b909b966dac8b8b108fb44289fc275997a6f3ec3cf6eaf181",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-09T18:03:47.004786957Z",
+          "compose": "learning_data/deployments/family-other-textbooks-variety-20261110/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:034bb31b3a9c270b909b966dac8b8b108fb44289fc275997a6f3ec3cf6eaf181",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T18:03:55.387968623Z",
+          "compose": "learning_data/deployments/family-other-textbooks-variety-20261110/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T15:18:36.474931364Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 13,
+      "source": {
+        "manifest_path": "learning_data/releases/other-textbooks-variety-20261110-final-r3/manifest.json",
+        "source_file_count": 122,
+        "profile": "reuse-runtime-other-textbooks-v6",
+        "schema_revision": 13,
+        "source_set_sha256": "c5540264468b60b94430f1120ac4e651ef9fa065cbc590c7652ea76f896f9840",
+        "archive_sha256": "9267d4a05594b198523d07e30862577dc57225a596cfc5df27cf0a657ed78e23",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/other-textbooks-variety-20261110/runtime-hashes.json",
+        "verified_runtime_files_per_service": 78,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/OTHER-TEXTBOOKS-VARIETY-2026-11-10.md",
+        "learning_data/verification/other-textbooks-variety-20261110/final-health.json",
+        "learning_data/verification/other-textbooks-variety-20261110/live-read.json",
+        "learning_data/verification/other-textbooks-variety-20261110/data-preservation.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:20785bf7404cce7be5d5e484cec51a8973e4ea7d89b3c8658e19906b08e9e0fc",
+        "backup": "learning_data/verification/other-textbooks-variety-20261110/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "旧镜像不识别本批180个题号；先保全新增使用记录并处理兼容，不能用旧快照覆盖当前库。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-10T08:57:00.982776+08:00",
+      "image_id": "sha256:1e9e793c797398dda28a0aa7867a7cce39162ab0d97baadcb32bdbbc665ae604",
+      "compose": {
+        "path": "learning_data/deployments/family-subject-knowledge-20261110/compose.json",
+        "sha256": "24ccd92ce8c00e09c8f8a7da27a63c121b077a1f2786086c2e1a59d314bc9073"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:1e9e793c797398dda28a0aa7867a7cce39162ab0d97baadcb32bdbbc665ae604",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-10T00:55:51.706677266Z",
+          "compose": "learning_data/deployments/family-subject-knowledge-20261110/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:1e9e793c797398dda28a0aa7867a7cce39162ab0d97baadcb32bdbbc665ae604",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-10T00:55:58.076316953Z",
+          "compose": "learning_data/deployments/family-subject-knowledge-20261110/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-09T15:18:36.474931364Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 13,
+      "source": {
+        "manifest_path": "learning_data/releases/subject-knowledge-20261110-final-r2/manifest.json",
+        "source_file_count": 125,
+        "profile": "reuse-runtime-subject-knowledge-v7",
+        "schema_revision": 13,
+        "source_set_sha256": "9d53fcc5391a76cd65b9471a7dab395ea61cfc0672cc9a78f004d60fac004c98",
+        "archive_sha256": "5b71d477cc7788cf78f1d12dcace12c8c0146a1ba39fe763b485dc54787a8f1e",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/subject-knowledge-20261110/runtime-hashes.json",
+        "verified_runtime_files_per_service": 81,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/SUBJECT-KNOWLEDGE-2026-11-10.md",
+        "learning_data/verification/subject-knowledge-20261110/final-health.json",
+        "learning_data/verification/subject-knowledge-20261110/live-read.json",
+        "learning_data/verification/subject-knowledge-20261110/data-preservation.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:034bb31b3a9c270b909b966dac8b8b108fb44289fc275997a6f3ec3cf6eaf181",
+        "backup": "learning_data/verification/subject-knowledge-20261110/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "旧镜像不识别新增67题及short-fields-v2；需保全新使用记录并处理兼容，不得用旧快照覆盖当前库。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-11T21:02:32.135450+08:00",
+      "image_id": "sha256:50ee80009a7e008f672193f61f99fbe2ba32aad9951a0fb6c3f46db6487576d8",
+      "compose": {
+        "path": "learning_data/deployments/family-challenge-tier-20261111/compose.json",
+        "sha256": "8c243ee29adaf9625b4b18eae2549ced9ce228ec5a44bc4c3511dfb93c3ab0e9"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:50ee80009a7e008f672193f61f99fbe2ba32aad9951a0fb6c3f46db6487576d8",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-11T12:59:46.404182877Z",
+          "compose": "learning_data/deployments/family-challenge-tier-20261111/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:50ee80009a7e008f672193f61f99fbe2ba32aad9951a0fb6c3f46db6487576d8",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-11T12:59:52.6897492Z",
+          "compose": "learning_data/deployments/family-challenge-tier-20261111/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-10T07:22:31.948253314Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 14,
+      "source": {
+        "manifest_path": "learning_data/releases/challenge-tier-20261111-final/manifest.json",
+        "source_file_count": 128,
+        "profile": "reuse-runtime-challenge-tier-v8",
+        "schema_revision": 13,
+        "source_set_sha256": "a38d6efece6ea7d0a16effdb9f7d4392460f4321385202ddfc9792a92a706a0a",
+        "archive_sha256": "3dd8d6e2c85c8ed4a341cb7c4ac25e687c19628eccb725259b8d6f81f38e7658",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/challenge-tier-20261111/runtime-hashes.json",
+        "verified_runtime_files_per_service": 84,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/CHALLENGE-TIER-2026-11-11.md",
+        "learning_data/verification/challenge-tier-20261111/final-health.json",
+        "learning_data/verification/challenge-tier-20261111/live-read.json",
+        "learning_data/verification/challenge-tier-20261111/data-preservation.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:1e9e793c797398dda28a0aa7867a7cce39162ab0d97baadcb32bdbbc665ae604",
+        "backup": "learning_data/verification/challenge-tier-20261111/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "旧镜像不支持挑战档、structured-fields-v3及schema14。回退须处理协议与数据库兼容并保全上线后使用记录，不得用旧库覆盖当前库。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-11T21:20:59.672548+08:00",
+      "image_id": "sha256:5d06454f7f81be4e020b7796b56262371b92d89a5d4f27f43d59ecd81c1e8d1d",
+      "compose": {
+        "path": "learning_data/deployments/family-reader-summary-20261111/compose.json",
+        "sha256": "8854009c2417432aad4526a36e4d98d5fc75cf203a22233054d94b029d5b3730"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:5d06454f7f81be4e020b7796b56262371b92d89a5d4f27f43d59ecd81c1e8d1d",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-11T13:19:46.86720006Z",
+          "compose": "learning_data/deployments/family-reader-summary-20261111/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:5d06454f7f81be4e020b7796b56262371b92d89a5d4f27f43d59ecd81c1e8d1d",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-11T13:19:52.972719107Z",
+          "compose": "learning_data/deployments/family-reader-summary-20261111/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-10T07:22:31.948253314Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 14,
+      "source": {
+        "manifest_path": "learning_data/releases/reader-summary-20261111-final/manifest.json",
+        "source_file_count": 128,
+        "profile": "reuse-runtime-challenge-tier-v8",
+        "schema_revision": 13,
+        "source_set_sha256": "4fc07aadc9dca9d23bb2daf4f56002539ee018bc344a4e93c253483f1826159c",
+        "archive_sha256": "dcd7a3ba860cc20901980a373f1992cd695517a2d1d0ffef1dea5f3835d96f2b",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/reader-summary-20261111/runtime-hashes.json",
+        "verified_runtime_files_per_service": 84,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/READER-SUMMARY-2026-11-11.md",
+        "learning_data/verification/reader-summary-20261111/final-health.json",
+        "learning_data/verification/reader-summary-20261111/live-check.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:50ee80009a7e008f672193f61f99fbe2ba32aad9951a0fb6c3f46db6487576d8",
+        "backup": "learning_data/verification/challenge-tier-20261111/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "本次仅教材标题CSS布局修正，可使用上一份同schema14、同题库镜像回退；保留当前数据卷。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-11T21:40:20.549589+08:00",
+      "image_id": "sha256:8f59022e3ea8907a11f7a583269046c7812480b05ac811979818b510b58617f5",
+      "compose": {
+        "path": "learning_data/deployments/family-reader-navigation-20261111/compose.json",
+        "sha256": "a939d6a92b73c7a4c5cf510ebf12cbce9d84136c97d996e3f7ad061c43f5ad9d"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:8f59022e3ea8907a11f7a583269046c7812480b05ac811979818b510b58617f5",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-11T13:39:48.98826985Z",
+          "compose": "learning_data/deployments/family-reader-navigation-20261111/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:8f59022e3ea8907a11f7a583269046c7812480b05ac811979818b510b58617f5",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-11T13:39:54.890015608Z",
+          "compose": "learning_data/deployments/family-reader-navigation-20261111/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-10T07:22:31.948253314Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 14,
+      "source": {
+        "manifest_path": "learning_data/releases/reader-navigation-20261111-final/manifest.json",
+        "source_file_count": 128,
+        "profile": "reuse-runtime-challenge-tier-v8",
+        "schema_revision": 13,
+        "source_set_sha256": "06053dce0b2fb1042e26c5cfbaf69d4853fcb768ac04808050f0daf6dc46194f",
+        "archive_sha256": "24a576be1cf3a499155de14f371ea81e1d58117b9aca67f35db64b7b9a3a9c56",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/reader-navigation-20261111/runtime-hashes.json",
+        "verified_runtime_files_per_service": 84,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/READER-NAVIGATION-2026-11-11.md",
+        "learning_data/verification/reader-navigation-20261111/final-health.json",
+        "learning_data/verification/reader-navigation-20261111/live-check.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:5d06454f7f81be4e020b7796b56262371b92d89a5d4f27f43d59ecd81c1e8d1d",
+        "backup": "learning_data/verification/challenge-tier-20261111/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "教材翻页与目录同步为前端更新，可用上一份同schema14、同题库镜像回退；保留当前数据卷。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-11T21:54:53.635663+08:00",
+      "image_id": "sha256:e9b9237c22212f03f0eceaac97960f037b93cbd8c5bddbdbf8ce9b69e0b88bd9",
+      "compose": {
+        "path": "learning_data/deployments/family-reader-overlay-20261111/compose.json",
+        "sha256": "c5eedf83aee615bd36f856da0cda204c099afbf368efc6eeca5809aa58ca30eb"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:e9b9237c22212f03f0eceaac97960f037b93cbd8c5bddbdbf8ce9b69e0b88bd9",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-11T13:54:10.067833623Z",
+          "compose": "learning_data/deployments/family-reader-overlay-20261111/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:e9b9237c22212f03f0eceaac97960f037b93cbd8c5bddbdbf8ce9b69e0b88bd9",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-11T13:54:16.517818539Z",
+          "compose": "learning_data/deployments/family-reader-overlay-20261111/compose.json"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-10T07:22:31.948253314Z",
+          "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json"
+        }
+      ],
+      "runtime_schema_revision": 14,
+      "source": {
+        "manifest_path": "learning_data/releases/reader-overlay-20261111-final/manifest.json",
+        "source_file_count": 128,
+        "profile": "reuse-runtime-challenge-tier-v8",
+        "schema_revision": 14,
+        "source_set_sha256": "b8647a939ba9e723c78704c41aff50ecac1cbdfc6ca0d9d47e2ceab0282798d4",
+        "archive_sha256": "c5f8eb9426828d2c0a11964fca190879011d59e290713999753a041d47ed4feb",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/reader-overlay-20261111/runtime-hashes.json",
+        "verified_runtime_files_per_service": 84,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/READER-OVERLAY-2026-11-11.md",
+        "learning_data/verification/reader-overlay-20261111/final-health.json",
+        "learning_data/verification/reader-overlay-20261111/live-check.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:8f59022e3ea8907a11f7a583269046c7812480b05ac811979818b510b58617f5",
+        "backup": "learning_data/verification/challenge-tier-20261111/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "本次为教材图片悬浮翻页与放大翻页前端更新，可用上一份同schema14、同题库镜像回退；保留当前数据卷。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-12T12:09:34.975509+08:00",
+      "image_id": "sha256:d8b95f909086605e803b5785448cf44ba926927122e77b42d3455f2cdd6b4336",
+      "compose": {
+        "path": "learning_data/deployments/family-knowledge-quality-20261112/compose.json",
+        "sha256": "b6d1e3fbdaff24c674d246335c72773b98f913bdf6ccd659c0f55757f5d778f0"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:d8b95f909086605e803b5785448cf44ba926927122e77b42d3455f2cdd6b4336",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-12T03:46:20.623677157Z"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:d8b95f909086605e803b5785448cf44ba926927122e77b42d3455f2cdd6b4336",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-12T03:46:26.636289762Z"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-10T07:22:31.948253314Z"
+        }
+      ],
+      "runtime_schema_revision": 14,
+      "source": {
+        "manifest_path": "learning_data/releases/knowledge-quality-20261112-final/manifest.json",
+        "source_file_count": 129,
+        "profile": "reuse-runtime-knowledge-quality-v9",
+        "schema_revision": 14,
+        "source_set_sha256": "f048dadbf2ac7162e4e007a07e2a859c6064a09964fdff5bb3e6e86549dc0b71",
+        "archive_sha256": "0c44bbe0017786b599e97cc7253f0cc36fe741f2be8c5fd18dae03bbf7cbac25",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/knowledge-quality-20261112/runtime-hashes.json",
+        "verified_runtime_files_per_service": 85,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "docs/verification/KNOWLEDGE-QUALITY-2026-11-12.md",
+        "learning_data/verification/knowledge-quality-20261112/live-check.json",
+        "learning_data/verification/knowledge-quality-20261112/runtime-hashes.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:e9b9237c22212f03f0eceaac97960f037b93cbd8c5bddbdbf8ce9b69e0b88bd9",
+        "backup": "learning_data/verification/challenge-tier-20261111/private/backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "本批只改清单与展示，同schema14、同1121题。回退使用前一悬浮翻页镜像并保留当前数据卷，禁止用旧数据库覆盖新增使用记录。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-12T16:31:12.565053+08:00",
+      "image_id": "sha256:34f037086c106495f0446e5153279fd1a3227c493bba1d64bdbd4c927850d05c",
+      "compose": {
+        "path": "learning_data/deployments/family-subject-gaps-20261112/compose.json",
+        "sha256": "6a7ead53ea150d231d685f11274d0d5678b91394f61811a28d6e155d15dfce7c"
+      },
+      "containers": [
+        {
+          "name": "dd-family-math-learning-api-1",
+          "image": "sha256:34f037086c106495f0446e5153279fd1a3227c493bba1d64bdbd4c927850d05c",
+          "status": "running",
+          "health": "healthy",
+          "started_at": "2026-11-12T08:27:43.209639709Z"
+        },
+        {
+          "name": "dd-family-math-learning-worker-1",
+          "image": "sha256:34f037086c106495f0446e5153279fd1a3227c493bba1d64bdbd4c927850d05c",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-12T08:27:49.119370733Z"
+        },
+        {
+          "name": "dd-family-math-learning-gateway-1",
+          "image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+          "status": "running",
+          "health": null,
+          "started_at": "2026-11-10T07:22:31.948253314Z"
+        }
+      ],
+      "runtime_schema_revision": 14,
+      "source": {
+        "manifest_path": "learning_data/releases/subject-gaps-20261112-final/manifest.json",
+        "source_file_count": 133,
+        "profile": "reuse-runtime-subject-gaps-v11",
+        "schema_revision": 14,
+        "source_set_sha256": "65a46c7f57f16c85e8306b06f813ac3667e22f2daf494e8cc5e9cf657580239b",
+        "archive_sha256": "5aea72cae9933fdd8055a62f0105f6c25c7c8d2882814b9de253cc5664fcb91a",
+        "services": [
+          "learning-api",
+          "learning-worker"
+        ],
+        "runtime_hashes_verified": "learning_data/verification/subject-gaps-20261112/runtime-hashes.json",
+        "verified_runtime_files_per_service": 89,
+        "manifest_state_scope": "Historical source sealing state; deployment evidence is recorded separately."
+      },
+      "evidence": [
+        "learning_data/verification/subject-gaps-20261112/live-check.json",
+        "learning_data/verification/subject-gaps-20261112/health-after.json",
+        "learning_data/verification/subject-gaps-20261112/data-preservation.json"
+      ],
+      "rollback": {
+        "previous_image_id": "sha256:8c62fd6735fcc5eab2fc9c778186131dff3519e586b1ccf2298089f7c3e73a33",
+        "backup": "learning_data/verification/subject-gaps-20261112/private/production-backup",
+        "status": "preserve_new_usage_and_question_compatibility_before_rollback",
+        "instructions": "仅API/worker更新，同schema14；恢复旧镜像前须保留当前数据卷与新作答记录，禁止覆盖线上库。"
+      },
+      "checked_at_basis": "post-deployment read-only checks and final-health.json capture",
+      "image_id_scope": [
+        "learning-api",
+        "learning-worker"
+      ],
+      "gateway_image_id": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+      "gateway_source": {
+        "manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "source_file_count": 99,
+        "profile": "reuse-runtime-study-host-compatibility-v1",
+        "schema_revision": 13,
+        "runtime_hashes_verified": "learning_data/verification/deploy-c01-20261108T162720Z/active-runtime-before-tool.json"
+      }
+    }
+  ],
+  "observation_history": [
+    {
+      "task_id": "B01",
+      "observed_at": "2026-11-09T11:10:40.724265+08:00",
+      "verification_report": "docs/verification/A01-current-state-2026-11-07.md",
+      "observation_record": {
+        "path": "learning_data/verification/a01-current-state-20261107T0858Z/observations.json",
+        "sha256": "7a1e1ccfcc08afd750baa05c50879feedbc2f4276192d46f02eccfa073e2841e"
+      }
+    },
+    {
+      "task_id": "CHAPTER-PRACTICE",
+      "observed_at": "2026-11-09T15:22:44.770287+08:00",
+      "verification_report": "docs/verification/CHAPTER-PRACTICE-2026-11-09.md",
+      "observation_record": {
+        "path": "learning_data/verification/chapter-practice-20261109/final-health.json",
+        "sha256": "b552b98ca961272af96919416d225421659792c48b7e86ad908cf12e7525af64",
+        "timestamp_basis": "evidence file capture timestamp"
+      }
+    },
+    {
+      "path": "learning_data/verification/math-knowledge-g2-20261109/final-health.json",
+      "sha256": "47caefbfacee03148b35001d00c9702b5cee1320c5edc21bc6a6dc94adbc5e5b",
+      "timestamp_basis": "evidence file capture timestamp"
+    },
+    {
+      "path": "learning_data/verification/math-knowledge-g7-20261109/final-health.json",
+      "sha256": "64d1ae8ec82981031e89ed40c581bb5f74a4493a0a447620d3c97d555d403951",
+      "timestamp_basis": "post-deployment file capture"
+    },
+    {
+      "path": "learning_data/verification/math-g2-challenge-20261109/final-health.json",
+      "sha256": "a3d877adcb3a3ff6b8f4ceeaf2414c1ad93bd82e690497d33b214ebb46c25f83",
+      "timestamp_basis": "post-deployment file capture"
+    }
+  ],
+  "chapter_practice_history": [
+    {
+      "state": "deployed_verified",
+      "report": "docs/verification/MATH-KNOWLEDGE-G2-2026-11-09.md",
+      "authorship": "local_assistant_authored",
+      "teacher_reviewed": false,
+      "added_questions": 502,
+      "total_questions": 576,
+      "questions_by_grade": {
+        "2": 258,
+        "7": 318
+      },
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "newly_populated_scopes": 93,
+      "empty_scopes_after": 0,
+      "batches": [
+        {
+          "id": "math",
+          "questions": 180
+        },
+        {
+          "id": "upper",
+          "questions": 189
+        },
+        {
+          "id": "remaining",
+          "questions": 45
+        },
+        {
+          "id": "math_g2_depth",
+          "questions": 88
+        }
+      ],
+      "reserve_questions_installed": 0,
+      "review_packet": "learning_data/verification/math-knowledge-g2-20261109/review",
+      "math_knowledge_plan": {
+        "state": "draft",
+        "books": [
+          "math-g2-upper",
+          "math-g7-upper"
+        ],
+        "points": 53,
+        "requirements": 212,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "requirement_target": "two_distinct_question_families",
+        "scope": "question_allocation_only_not_learner_mastery",
+        "production_requirements_meeting_target": {
+          "math-g2-upper": 28,
+          "math-g7-upper": 8
+        },
+        "version": "2026-11-09-v2-g2-depth",
+        "supporting_questions_do_not_meet_task_target": true
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "report": "docs/verification/MATH-G2-CHALLENGE-2026-11-10.md",
+      "authorship": "local_assistant_authored",
+      "teacher_reviewed": false,
+      "added_questions": 686,
+      "total_questions": 760,
+      "questions_by_grade": {
+        "2": 306,
+        "7": 454
+      },
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "newly_populated_scopes": 93,
+      "empty_scopes_after": 0,
+      "batches": [
+        {
+          "id": "math",
+          "questions": 180
+        },
+        {
+          "id": "upper",
+          "questions": 189
+        },
+        {
+          "id": "remaining",
+          "questions": 45
+        },
+        {
+          "id": "math_g2_depth",
+          "questions": 88
+        },
+        {
+          "id": "math_g7_depth",
+          "questions": 136
+        },
+        {
+          "id": "math_g2_challenge",
+          "questions": 48
+        }
+      ],
+      "reserve_questions_installed": 0,
+      "review_packet": "learning_data/verification/math-g2-challenge-20261109/review",
+      "math_knowledge_plan": {
+        "state": "draft",
+        "books": [
+          "math-g2-upper",
+          "math-g7-upper"
+        ],
+        "points": 53,
+        "requirements": 212,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "requirement_target": "two_distinct_question_families",
+        "scope": "question_allocation_only_not_learner_mastery",
+        "production_requirements_meeting_target": {
+          "math-g2-upper": 31,
+          "math-g7-upper": 6
+        },
+        "version": "2026-11-09-v4-g2-challenge",
+        "supporting_questions_do_not_meet_task_target": true
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "report": "docs/verification/MATH-G2-MULTISTEP-2026-11-10.md",
+      "authorship": "local_assistant_authored",
+      "teacher_reviewed": false,
+      "added_questions": 702,
+      "total_questions": 776,
+      "questions_by_grade": {
+        "2": 322,
+        "7": 454
+      },
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "newly_populated_scopes": 93,
+      "empty_scopes_after": 0,
+      "batches": [
+        {
+          "id": "math",
+          "questions": 180
+        },
+        {
+          "id": "upper",
+          "questions": 189
+        },
+        {
+          "id": "remaining",
+          "questions": 45
+        },
+        {
+          "id": "math_g2_depth",
+          "questions": 88
+        },
+        {
+          "id": "math_g7_depth",
+          "questions": 136
+        },
+        {
+          "id": "math_g2_challenge",
+          "questions": 48
+        },
+        {
+          "id": "math_g2_multistep",
+          "questions": 16
+        }
+      ],
+      "reserve_questions_installed": 0,
+      "review_packet": "learning_data/verification/math-g2-multistep-20261110/review",
+      "math_knowledge_plan": {
+        "state": "draft",
+        "books": [
+          "math-g2-upper",
+          "math-g7-upper"
+        ],
+        "points": 53,
+        "requirements": 212,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "requirement_target": "two_distinct_question_families",
+        "scope": "question_allocation_only_not_learner_mastery",
+        "production_requirements_meeting_target": {
+          "math-g2-upper": 35,
+          "math-g7-upper": 6
+        },
+        "version": "2026-11-10-v5-g2-multistep",
+        "supporting_questions_do_not_meet_task_target": true
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "report": "docs/verification/OTHER-TEXTBOOKS-VARIETY-2026-11-10.md",
+      "authorship": "local_assistant_authored",
+      "teacher_reviewed": false,
+      "added_questions": 882,
+      "total_questions": 956,
+      "questions_by_grade": {
+        "2": 366,
+        "7": 590
+      },
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "newly_populated_scopes": 93,
+      "empty_scopes_after": 0,
+      "batches": [
+        {
+          "id": "math",
+          "questions": 180
+        },
+        {
+          "id": "upper",
+          "questions": 189
+        },
+        {
+          "id": "remaining",
+          "questions": 45
+        },
+        {
+          "id": "math_g2_depth",
+          "questions": 88
+        },
+        {
+          "id": "math_g7_depth",
+          "questions": 136
+        },
+        {
+          "id": "math_g2_challenge",
+          "questions": 48
+        },
+        {
+          "id": "math_g2_multistep",
+          "questions": 16
+        },
+        {
+          "id": "math_g7_multistep",
+          "questions": 12
+        },
+        {
+          "id": "upper_variety",
+          "questions": 126
+        },
+        {
+          "id": "remaining_variety",
+          "questions": 42
+        }
+      ],
+      "reserve_questions_installed": 0,
+      "review_packet": "learning_data/verification/other-textbooks-variety-20261110/review-final",
+      "math_knowledge_plan": {
+        "state": "draft",
+        "books": [
+          "math-g2-upper",
+          "math-g7-upper"
+        ],
+        "points": 53,
+        "requirements": 212,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "requirement_target": "two_distinct_question_families",
+        "scope": "question_allocation_only_not_learner_mastery",
+        "production_requirements_meeting_target": {
+          "math-g2-upper": 35,
+          "math-g7-upper": 7
+        },
+        "version": "2026-11-10-v6-g7-multistep",
+        "supporting_questions_do_not_meet_task_target": true
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "report": "docs/verification/SUBJECT-KNOWLEDGE-2026-11-10.md",
+      "authorship": "local_assistant_authored",
+      "teacher_reviewed": false,
+      "added_questions": 949,
+      "total_questions": 1023,
+      "questions_by_grade": {
+        "2": 380,
+        "7": 643
+      },
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "newly_populated_scopes": 93,
+      "empty_scopes_after": 0,
+      "batches": [
+        {
+          "id": "math",
+          "questions": 180
+        },
+        {
+          "id": "upper",
+          "questions": 189
+        },
+        {
+          "id": "remaining",
+          "questions": 45
+        },
+        {
+          "id": "math_g2_depth",
+          "questions": 88
+        },
+        {
+          "id": "math_g7_depth",
+          "questions": 136
+        },
+        {
+          "id": "math_g2_challenge",
+          "questions": 48
+        },
+        {
+          "id": "math_g2_multistep",
+          "questions": 16
+        },
+        {
+          "id": "math_g7_multistep",
+          "questions": 12
+        },
+        {
+          "id": "upper_variety",
+          "questions": 126
+        },
+        {
+          "id": "remaining_variety",
+          "questions": 42
+        },
+        {
+          "id": "subject_knowledge",
+          "questions": 67
+        }
+      ],
+      "reserve_questions_installed": 0,
+      "review_packet": "learning_data/verification/subject-knowledge-20261110/review",
+      "math_knowledge_plan": {
+        "state": "draft",
+        "books": [
+          "math-g2-upper",
+          "math-g7-upper"
+        ],
+        "points": 53,
+        "requirements": 212,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "requirement_target": "two_distinct_question_families",
+        "scope": "question_allocation_only_not_learner_mastery",
+        "production_requirements_meeting_target": {
+          "math-g2-upper": 35,
+          "math-g7-upper": 7
+        },
+        "version": "2026-11-10-v6-g7-multistep",
+        "supporting_questions_do_not_meet_task_target": true
+      },
+      "subject_knowledge_plan": {
+        "version": "2026-11-10-v1-knowledge",
+        "points": 276,
+        "requirements": 658,
+        "scopes": 98,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "manual_requirements_explicitly_marked": 233
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "report": "docs/verification/CHALLENGE-TIER-2026-11-11.md",
+      "authorship": "local_assistant_authored",
+      "teacher_reviewed": false,
+      "added_questions": 1047,
+      "total_questions": 1121,
+      "questions_by_grade": {
+        "2": 410,
+        "7": 711
+      },
+      "textbooks": 13,
+      "directory_scopes": 98,
+      "newly_populated_scopes": 93,
+      "empty_scopes_after": 0,
+      "batches": [
+        {
+          "id": "math",
+          "questions": 180
+        },
+        {
+          "id": "upper",
+          "questions": 189
+        },
+        {
+          "id": "remaining",
+          "questions": 45
+        },
+        {
+          "id": "math_g2_depth",
+          "questions": 88
+        },
+        {
+          "id": "math_g7_depth",
+          "questions": 136
+        },
+        {
+          "id": "math_g2_challenge",
+          "questions": 48
+        },
+        {
+          "id": "math_g2_multistep",
+          "questions": 16
+        },
+        {
+          "id": "math_g7_multistep",
+          "questions": 12
+        },
+        {
+          "id": "upper_variety",
+          "questions": 126
+        },
+        {
+          "id": "remaining_variety",
+          "questions": 42
+        },
+        {
+          "id": "subject_knowledge",
+          "questions": 67
+        },
+        {
+          "id": "challenge_variety",
+          "questions": 98
+        }
+      ],
+      "reserve_questions_installed": 0,
+      "review_packet": "learning_data/verification/challenge-tier-20261111/review",
+      "math_knowledge_plan": {
+        "state": "draft",
+        "books": [
+          "math-g2-upper",
+          "math-g7-upper"
+        ],
+        "points": 53,
+        "requirements": 212,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "requirement_target": "two_distinct_question_families",
+        "scope": "question_allocation_only_not_learner_mastery",
+        "production_requirements_meeting_target": {
+          "math-g2-upper": 35,
+          "math-g7-upper": 7
+        },
+        "version": "2026-11-10-v6-g7-multistep",
+        "supporting_questions_do_not_meet_task_target": true
+      },
+      "subject_knowledge_plan": {
+        "version": "subject-coverage-v3-math-quality",
+        "points": 276,
+        "requirements": 658,
+        "scopes": 98,
+        "inventory_complete": false,
+        "teacher_reviewed": false,
+        "curriculum_standard_crosscheck": "pending",
+        "manual_requirements_explicitly_marked": 308,
+        "bounded_requirements": 350,
+        "review_packet": "learning_data/verification/knowledge-quality-20261112/review-final"
+      }
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-12T15:02:45.207163+08:00",
+      "image_id": "sha256:8c62fd6735fcc5eab2fc9c778186131dff3519e586b1ccf2298089f7c3e73a33",
+      "compose": {
+        "path": "learning_data/deployments/family-math-gaps-20261112/compose.json",
+        "sha256": "3291e654e156dabe91ca91628c2f67ad03b8522db9df94ce4865b2421ce4f86c"
+      },
+      "runtime_schema_revision": 14,
+      "source": {
+        "manifest_path": "learning_data/releases/math-gaps-20261112-final/manifest.json",
+        "profile": "reuse-runtime-math-gaps-v10",
+        "source_file_count": 131,
+        "runtime_hashes_verified": "learning_data/verification/math-gaps-20261112/runtime-hashes.json",
+        "verified_runtime_files_per_service": 87
+      },
+      "evidence": [
+        "learning_data/verification/math-gaps-20261112/final-health.json",
+        "learning_data/verification/math-gaps-20261112/data-preservation.json"
+      ]
+    },
+    {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-12T16:31:12.565053+08:00",
+      "image_id": "sha256:34f037086c106495f0446e5153279fd1a3227c493bba1d64bdbd4c927850d05c",
+      "compose": {
+        "path": "learning_data/deployments/family-subject-gaps-20261112/compose.json",
+        "sha256": "6a7ead53ea150d231d685f11274d0d5678b91394f61811a28d6e155d15dfce7c"
+      },
+      "runtime_schema_revision": 14,
+      "source": {
+        "manifest_path": "learning_data/releases/subject-gaps-20261112-final/manifest.json",
+        "profile": "reuse-runtime-subject-gaps-v11",
+        "source_file_count": 133,
+        "runtime_hashes_verified": "learning_data/verification/subject-gaps-20261112/runtime-hashes.json",
+        "verified_runtime_files_per_service": 89
+      },
+      "evidence": [
+        "learning_data/verification/subject-gaps-20261112/health-after.json",
+        "learning_data/verification/subject-gaps-20261112/data-preservation.json"
+      ]
+    }
+  ],
+  "latest_session_handoff": {
+    "document": "docs/plans/HANDOFF-SESSION-2026-11-13-MAIN-SITE.md",
+    "recorded_at": "2026-11-13T10:56:05.073910+08:00",
+    "read_only_observation": "learning_data/verification/session-handoff-20261113/read-only-state.json",
+    "scope": "consolidated_textbooks_question_quality_main_site_recommendations_documentation_only",
+    "runtime_changed": false,
+    "production_database_read": false,
+    "main_site_suggestions_implemented": false,
+    "previous_document": "docs/plans/HANDOFF-SESSION-2026-11-12-TEXTBOOKS.md"
   }
 }

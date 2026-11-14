@@ -2,7 +2,7 @@
   "schema": "dd-next-work-tracker-v1",
   "plan_version": "1.0",
   "created_at": "2026-11-07",
-  "updated_at": "2026-11-08",
+  "updated_at": "2026-11-12T09:11:13.108287+08:00",
   "timezone": "Asia/Shanghai",
   "purpose": "下一阶段 25 项实施任务台账；不等同于 Goal 或发布证明。",
   "documents": {
@@ -20,7 +20,17 @@
     "chapter_content_coverage": "../open-webui-reuse/chapter-content-coverage.md",
     "practice_reserve": "../open-webui-reuse/practice-reserve.md",
     "passage_review_workbench": "../open-webui-reuse/passage-review-workbench.md",
-    "study_performance": "../open-webui-reuse/study-performance.md"
+    "study_performance": "../open-webui-reuse/study-performance.md",
+    "handoff": "HANDOFF-SESSION-2026-11-09-C01.md",
+    "study_read_latency": "../open-webui-reuse/study-read-latency.md",
+    "study_http_diagnostic": "../verification/B10-http-diagnostic-2026-11-08.md",
+    "study_portal_attribution": "../verification/B10-portal-attribution-2026-11-08.md",
+    "study_page_stages": "../verification/B10-page-stages-2026-11-08.md",
+    "study_read_scheduling": "../open-webui-reuse/study-read-scheduling.md",
+    "study_thread_scheduling": "../verification/B10-thread-scheduling-2026-11-08.md",
+    "host_compatibility": "../open-webui-reuse/host-compatibility.md",
+    "device_matrix": "../verification/B11-device-matrix-2026-11-08.json",
+    "real_model_acceptance": "../open-webui-reuse/real-model-acceptance.md"
   },
   "baseline": {
     "git_head": "deef3199f558ba72bbe3f2ff0c704586674a2232",
@@ -40,7 +50,15 @@
     "commit_push_deploy": "A01-A09 cumulative candidate committed and pushed per user instruction; deployment, formal Tool changes and family acceptance remain separate.",
     "dependency_satisfaction": "Required local deliverables and checks may satisfy dependencies while submission, deployment or feedback remain pending.",
     "evidence_paths": "Paths are relative to this tracker. Baseline evidence is historical, not new acceptance.",
-    "completion": "All applicable engineering, delivery and acceptance exits require evidence; planning alone completes no task."
+    "completion": "All applicable engineering, delivery and acceptance exits require evidence; planning alone completes no task.",
+    "session_exception": {
+      "authorization": "2026-11-09 user deployment/C01 request and amendments",
+      "scope": "compatible deployment, 300 total provider requests, one additional60min window, session Goal only",
+      "status": "authorized_work_completed_model_stopped",
+      "production_vector_writes": false,
+      "business_goal_writes": false,
+      "new_model_batches_allowed_automatically": false
+    }
   },
   "estimate_basis": {
     "unit": "focused_hours",
@@ -66,7 +84,7 @@
     },
     "p3": null
   },
-  "recommended_next_task": "B10",
+  "recommended_next_task": null,
   "latest_git_delivery": {
     "scope": "B01-B10",
     "recorded_at": "2026-11-08T15:53:05.782206+08:00",
@@ -1489,10 +1507,10 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者",
       "assigned_person": null,
-      "engineering_state": "in_progress",
+      "engineering_state": "ready",
       "delivery_state": "candidate_only",
-      "acceptance_state": "pending",
-      "completion_state": "open",
+      "acceptance_state": "passed",
+      "completion_state": "complete",
       "estimate_hours": {
         "min": 8,
         "max": 16
@@ -1504,7 +1522,7 @@
       },
       "acceptance_summary": "样本数与阈值可复核，超时/取消一致，改源/撤回失效且缓存不绕过授权。",
       "required_conditions": [],
-      "next_action": "继续B10尾延迟：保留现有12配置/1800样本及4项未达结果，细分会话复核、SQLite和ASGI/线程排队；增加loopback对照时先独立冻结旧/新候选与至少30样本配置，不删除身份检查或放宽预算/门槛。",
+      "next_action": "继续B11：先冻结WebUI0.12.5与当前98文件候选的DOM/Tool接入契约、键盘焦点/缩放/中文公式/打印/断网恢复及切档隔离检查；本地合成与实际家庭桌面/手机矩阵分别记录，真实设备资料未知留空。B10原基线、12秒预算及全部历史失败证据保留，不重跑未变候选择优。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
@@ -1518,7 +1536,19 @@
         "../../tests/benchmark_study_performance.py",
         "../../tests/benchmark_study_breakdown.py",
         "../open-webui-reuse/study-performance.md",
-        "../../learning_data/verification/b10-study-performance-20261108T061922Z/release-final/manifest.json"
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/release-final/manifest.json",
+        "../../learning_service/study_read_db.py",
+        "../../tests/test_study_read_db.py",
+        "../../tests/benchmark_study_read_path.py",
+        "../../docs/open-webui-reuse/study-read-latency.md",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/release-final/manifest.json",
+        "../../tests/benchmark_study_http.py",
+        "../../tests/benchmark_study_portals.py",
+        "../../tests/benchmark_study_page_stages.py",
+        "../../tests/benchmark_study_thread_scheduling.py",
+        "../../tests/test_study_read_scheduling.py",
+        "../open-webui-reuse/study-read-scheduling.md",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/release-final/manifest.json"
       ],
       "evidence": [
         "../verification/B10-study-performance-2026-11-08.md",
@@ -1537,22 +1567,84 @@
         "../../learning_data/verification/b10-study-performance-20261108T061922Z/browser-r2.xml",
         "../../learning_data/verification/b10-study-performance-20261108T061922Z/source-package-validation-final.json",
         "../../learning_data/verification/b10-study-performance-20261108T061922Z/delivery-validation.json",
-        "../../learning_data/verification/b10-study-performance-20261108T061922Z/native-result.json"
+        "../../learning_data/verification/b10-study-performance-20261108T061922Z/native-result.json",
+        "../../docs/verification/B10-tail-latency-2026-11-08.md",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/inputs-before.json",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/plan-before.json",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/implementation-plan-before.json",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/diagnostic-comparison.json",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/performance-after/samples.jsonl",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/performance-comparison.json",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/unit-final.xml",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/browser.xml",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/read-invariants.json",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/source-package-validation-final.json",
+        "../../learning_data/verification/b10-tail-latency-20261108T082121Z/delivery-validation.json",
+        "../verification/B10-http-diagnostic-2026-11-08.md",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/inputs-before.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/plan-before.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/harness-freeze-v1.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/diagnostic-comparison.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/diagnostic-validation.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/optimization-decision.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/delivery-validation.json",
+        "../verification/B10-portal-attribution-2026-11-08.md",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/inputs-before.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/plan-before.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/harness-freeze.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/async-trial-plan-v2-before.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/async-trial-freeze-v2.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/portal-comparison.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/async-trial-decision.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/delivery-validation.json",
+        "../verification/B10-page-stages-2026-11-08.md",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/inputs-before.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/plan-before.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/harness-freeze.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/readonly-trial-plan-before.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/fence-trial-plan-before.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/page-stage-comparison.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/readonly-trial-decision.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/fence-trial-decision.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/delivery-validation.json",
+        "../verification/B10-thread-scheduling-2026-11-08.md",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/inputs-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/plan-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/harness-freeze.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/interval-plan-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/interval-freeze.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/serialized-plan-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/serialized-freeze.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/thread-comparison.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/serialized-decision.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/validation-plan-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/validation.xml",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/package-tests.xml",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/performance-comparison.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/serialized-trial-source/learning_data/verification/original-matrix/samples.jsonl",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/adoption-decision.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/input-reuse-validation.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/source-package-validation-final.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/delivery-validation.json"
       ],
-      "blockers": [
-        "冻结性能门槛4/12配置未达：单请求原页冷/暖、四并发原页暖、单请求片段检索暖；保留失败，不放宽检查/门槛。"
-      ],
+      "blockers": [],
       "last_updated": "2026-11-08",
       "local_validation": {
-        "state": "correctness_passed_performance_not_met",
-        "unit_contract_tests": 248,
-        "browser_tests": 2,
+        "state": "passed",
+        "unit_contract_tests": 195,
+        "unit_contract_runs": [
+          194,
+          19
+        ],
+        "overlapping_unit_contract_tests": 18,
+        "browser_tests_rerun": 0,
+        "browser_evidence_reused_tests": 2,
         "browser_version": "145.0.7632.6",
         "browser_widths": [
           390,
           1280
         ],
-        "source_files": 95,
+        "source_files": 98,
         "schema_revision": 13,
         "openapi_paths": 76,
         "openapi_schemas": 44,
@@ -1560,22 +1652,23 @@
         "performance_samples_before": 900,
         "performance_samples_after": 900,
         "performance_configurations": 12,
-        "performance_configurations_passed": 8,
-        "diagnostic_samples": 300,
+        "performance_configurations_passed": 12,
+        "diagnostic_samples": 450,
         "payload_hashes_unchanged": true,
         "total_budget_seconds": 12,
         "thresholds_changed": false,
         "deployment_performed": false,
         "real_model_or_ocr_calls": 0,
+        "native_evidence_reused": true,
+        "native_tests_rerun": 0,
         "native_open_webui_version": "0.12.5",
         "native_methods": 6,
-        "native_citation_events": 4,
-        "native_exit_code": 0
+        "native_citation_events": 4
       },
       "acceptance_limits": [
         "仅合成ASGI/loopback与模拟浏览器，不能外推线上延迟或家庭设备体验。",
         "缓存依赖本地可信元数据，底层同步IO/原生渲染是协作取消，不声称强制即时终止。",
-        "冻结P95门槛未全通过，B10不complete，B11未启动。"
+        "本地合成原矩阵12/12通过；真实HTTP负载、多进程/更高并发与家庭设备体验未验收，B11尚未启动。"
       ],
       "git_delivery": {
         "commit_sha": "1021ff80268dd330c19f4767da1a16720e15d793",
@@ -1584,6 +1677,152 @@
         "pushed": false,
         "deployed": false,
         "record": "../releases/B01-B10-git-delivery-2026-11-08.md"
+      },
+      "local_validation_history": [
+        {
+          "state": "correctness_passed_performance_not_met",
+          "unit_contract_tests": 248,
+          "browser_tests": 2,
+          "browser_version": "145.0.7632.6",
+          "browser_widths": [
+            390,
+            1280
+          ],
+          "source_files": 95,
+          "schema_revision": 13,
+          "openapi_paths": 76,
+          "openapi_schemas": 44,
+          "tool_candidate_version": "1.2.1",
+          "performance_samples_before": 900,
+          "performance_samples_after": 900,
+          "performance_configurations": 12,
+          "performance_configurations_passed": 8,
+          "diagnostic_samples": 300,
+          "payload_hashes_unchanged": true,
+          "total_budget_seconds": 12,
+          "thresholds_changed": false,
+          "deployment_performed": false,
+          "real_model_or_ocr_calls": 0,
+          "native_open_webui_version": "0.12.5",
+          "native_methods": 6,
+          "native_citation_events": 4,
+          "native_exit_code": 0
+        },
+        {
+          "state": "correctness_passed_performance_not_met",
+          "unit_contract_tests": 166,
+          "browser_tests": 2,
+          "browser_version": "145.0.7632.6",
+          "browser_widths": [
+            390,
+            1280
+          ],
+          "source_files": 97,
+          "schema_revision": 13,
+          "openapi_paths": 76,
+          "openapi_schemas": 44,
+          "tool_candidate_version": "1.2.1",
+          "performance_samples_before": 900,
+          "performance_samples_after": 900,
+          "performance_configurations": 12,
+          "performance_configurations_passed": 10,
+          "diagnostic_samples_before": 450,
+          "diagnostic_samples_after": 450,
+          "payload_hashes_unchanged": true,
+          "total_budget_seconds": 12,
+          "thresholds_changed": false,
+          "deployment_performed": false,
+          "real_model_or_ocr_calls": 0,
+          "native_evidence_reused": true,
+          "native_open_webui_version": "0.12.5",
+          "native_methods": 6,
+          "native_citation_events": 4
+        }
+      ],
+      "uncommitted_followup": {
+        "report": "../verification/B10-tail-latency-2026-11-08.md",
+        "base_commit": "60e8498a18926c9fcc7f5eda810c8606876be249",
+        "committed": false,
+        "pushed": false,
+        "deployed": false,
+        "http_diagnostic_report": "../verification/B10-http-diagnostic-2026-11-08.md",
+        "portal_attribution_report": "../verification/B10-portal-attribution-2026-11-08.md",
+        "page_stage_report": "../verification/B10-page-stages-2026-11-08.md",
+        "thread_scheduling_report": "../verification/B10-thread-scheduling-2026-11-08.md"
+      },
+      "http_diagnostic": {
+        "state": "completed_runtime_unchanged",
+        "recorded_at": "2026-11-08T19:17:23.254078+08:00",
+        "configurations": 48,
+        "requests": 3600,
+        "errors": 0,
+        "output_hashes_match_original": true,
+        "benchmark_tests": 4,
+        "unit_contract_tests_rerun": 0,
+        "browser_tests_rerun": 0,
+        "runtime_changed": false,
+        "acceptance_replaced": false,
+        "performance_acceptance_passed": 10,
+        "performance_acceptance_total": 12,
+        "source_candidate_files": 97,
+        "report": "../verification/B10-http-diagnostic-2026-11-08.md",
+        "decision": "retain_runtime_pending_single_variable_attribution",
+        "startup_interruptions_before_samples": 2
+      },
+      "portal_attribution": {
+        "recorded_at": "2026-11-08T20:40:34.572078+08:00",
+        "state": "complete_trial_rejected_runtime_unchanged",
+        "benchmark_tests": 3,
+        "requests": 450,
+        "errors": 0,
+        "configurations": 6,
+        "outputs_match_original": true,
+        "database_unchanged_within_each_run": true,
+        "control_portals": 620,
+        "persistent_portals": 2,
+        "warm_page_concurrency4_p95_ms": {
+          "control": 561.1047300044447,
+          "persistent": 352.2462220280431,
+          "async_trial": 580.4705659975298
+        },
+        "runtime_changed": false,
+        "trial_adopted": false,
+        "original_acceptance_passed": 10,
+        "original_acceptance_total": 12,
+        "report": "../verification/B10-portal-attribution-2026-11-08.md"
+      },
+      "page_stage_diagnostic": {
+        "recorded_at": "2026-11-08T21:05:52.573938+08:00",
+        "state": "complete_two_trials_rejected_runtime_unchanged",
+        "benchmark_tests": 3,
+        "requests": 450,
+        "errors": 0,
+        "configurations": 6,
+        "outputs_match_original": true,
+        "database_unchanged_within_each_run": true,
+        "warm_page_concurrency4_p95_ms": {
+          "control": 580.0937819876708,
+          "readonly_trial": 585.6008100090548,
+          "fence_trial": 620.6627830397338
+        },
+        "runtime_changed": false,
+        "trials_adopted": 0,
+        "original_acceptance_passed": 10,
+        "original_acceptance_total": 12,
+        "report": "../verification/B10-page-stages-2026-11-08.md"
+      },
+      "thread_scheduling": {
+        "recorded_at": "2026-11-08T21:35:38.271069+08:00",
+        "state": "adopted_correctness_and_original_acceptance_passed",
+        "diagnostic_requests": 450,
+        "diagnostic_errors": 0,
+        "interval_restored": true,
+        "interval_sensitivity_met": false,
+        "serialized_selected": true,
+        "runtime_changed": true,
+        "original_acceptance_passed": 12,
+        "original_acceptance_total": 12,
+        "report": "../verification/B10-thread-scheduling-2026-11-08.md"
       }
     },
     {
@@ -1598,9 +1837,9 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者、家长",
       "assigned_person": null,
-      "engineering_state": "planned",
-      "delivery_state": "not_scheduled",
-      "acceptance_state": "not_started",
+      "engineering_state": "ready",
+      "delivery_state": "candidate_only",
+      "acceptance_state": "pending",
       "completion_state": "open",
       "estimate_hours": {
         "min": 6,
@@ -1613,16 +1852,168 @@
       },
       "acceptance_summary": "固定版本工程测试与实际设备反馈各有证据，DOM 不匹配时安全停用受影响入口。",
       "required_conditions": [
-        "至少一台实际桌面和家庭手机的系统/浏览器/操作反馈待收集。"
+        "真实家庭手机验收由用户暂缓；未来恢复时仍需设备/系统/浏览器及逐项操作反馈。"
       ],
-      "next_action": "整理 WebUI DOM/Tool 注入契约和桌面/手机矩阵，检查焦点、缩放、换档提示与离线恢复。",
+      "next_action": "按用户指令暂缓家庭手机验收，保持未知设备与结果为空；收到恢复指令再安排，不重复未变桌面/打印检查。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
-      "artifacts": [],
-      "evidence": [],
-      "blockers": [],
-      "last_updated": "2026-11-07"
+      "artifacts": [
+        "../../deploy/open-webui-reuse/main-study/study.js",
+        "../../deploy/open-webui-reuse/main-study/study.css",
+        "../../deploy/open-webui-reuse/main-study/family-bridge.js",
+        "../../tests/test_main_study_host.py",
+        "../../tests/test_main_study_bridge.py",
+        "../open-webui-reuse/host-compatibility.md",
+        "../verification/B11-device-matrix-2026-11-08.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/release-final/manifest.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/static-packet/manifest.json"
+      ],
+      "evidence": [
+        "../verification/B11-host-compatibility-2026-11-08.md",
+        "../verification/B11-device-matrix-2026-11-08.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/inputs-before.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/plan-before.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/webui-build-manifest.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/host-final.xml",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/bridge-final.xml",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/tool.xml",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/package.xml",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/native-final/browser-preview.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/b10-evidence-reuse.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/adjustments.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/static-packet/manifest.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/source-package-validation-final.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/delivery-validation.json",
+        "../verification/B11-desktop-session-2026-11-08.md",
+        "../../learning_data/verification/b11-desktop-session-20261108T142929Z/plan-before.json",
+        "../../learning_data/verification/b11-desktop-session-20261108T142929Z/session-freeze.json",
+        "../../learning_data/verification/b11-desktop-session-20261108T142929Z/session-ready.json",
+        "../../learning_data/verification/b11-desktop-session-20261108T142929Z/preparation-validation.json",
+        "../verification/B11-desktop-feedback-2026-11-08.md",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/inputs-before.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/session-snapshot/human-feedback.jsonl",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/feedback-review-before-diagnosis.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/user-dns-clarification.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/navigation-diagnosis.xml",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/redirect-probe.xml",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/redirect-probe-v2.xml",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/redirect-probe-v3.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/redirect-analysis.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/entry-recheck-plan-before.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/recheck-session/entry-repair-check.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/recheck-session/session-ready.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/feedback-validation.json",
+        "../verification/B11-desktop-acceptance-2026-11-08.md",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/inputs-before.json",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/human-feedback.jsonl",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/redirect-relay.jsonl",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/entry-repair-check.json",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/acceptance-validation.json",
+        "../verification/B11-paper-print-2026-11-08.md",
+        "../../learning_data/verification/b11-paper-print-20261108T152240Z/inputs-before.json",
+        "../../learning_data/verification/b11-paper-print-20261108T152240Z/user-print-feedback.json",
+        "../../learning_data/verification/b11-paper-print-20261108T152240Z/print-feedback-validation.json",
+        "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/user-instruction.json",
+        "../verification/C01-offline-preparation-2026-11-08.md"
+      ],
+      "blockers": [
+        "家庭手机未验且用户明确暂缓；桌面浏览器7项和实际纸张打印已通过，不能替代手机。"
+      ],
+      "last_updated": "2026-11-08",
+      "local_validation": {
+        "state": "passed",
+        "unit_contract_tests": 54,
+        "browser_tests": 21,
+        "native_frontend_configurations": 2,
+        "browser_version": "145.0.7632.6",
+        "browser_widths": [
+          1280,
+          390
+        ],
+        "css_reflow_width": 320,
+        "css_zoom": 2,
+        "touch_emulation": true,
+        "actual_device_feedback": false,
+        "source_files": 99,
+        "static_files": 9,
+        "schema_revision": 13,
+        "tool_candidate_version": "1.2.1",
+        "b10_performance_reused": true,
+        "b10_performance_configurations_passed": 12,
+        "total_budget_seconds": 12,
+        "real_model_or_ocr_calls": 0,
+        "deployment_performed": false
+      },
+      "device_feedback": {
+        "desktop": {
+          "state": "passed",
+          "device": "本机桌面 / WSLg 图形窗口",
+          "os": "Ubuntu 24.04.4 LTS / WSL2 / WSLg",
+          "browser": "Google Chrome 146.0.7680.177",
+          "operator": "user01",
+          "tested_at": "2026-11-08T15:12:19.678955+00:00",
+          "passed_checks": [
+            "keyboard",
+            "draft",
+            "zoom",
+            "recovery",
+            "profile",
+            "print_preview",
+            "navigation",
+            "paper_print"
+          ],
+          "pending_recheck": [],
+          "not_performed": [],
+          "report": "../verification/B11-desktop-acceptance-2026-11-08.md",
+          "browser_checks_passed": 7,
+          "browser_checks_total": 7,
+          "closed_issues": [
+            "B11-DESKTOP-ENTRY-001"
+          ],
+          "paper_print": "passed",
+          "paper_print_details": {
+            "state": "passed",
+            "source": "explicit_user_message_in_conversation",
+            "recorded_at": "2026-11-08T15:22:40.466913+00:00",
+            "printer_model": "HP 102w",
+            "printer_model_as_reported": "hp 102w",
+            "software": "Chrome",
+            "pages": 3,
+            "user_result": "3页正常",
+            "performed_at_exact": null,
+            "print_os": null,
+            "print_browser_version": null,
+            "print_driver": null,
+            "actual_print_settings": null,
+            "evidence": "../../learning_data/verification/b11-paper-print-20261108T152240Z/user-print-feedback.json"
+          },
+          "paper_print_report": "../verification/B11-paper-print-2026-11-08.md"
+        },
+        "family_phone": null,
+        "latest_user_instruction": "手机验收暂缓，记录下就行。继续下一步",
+        "historical_no_records_response": "暂无，先完成本地验证"
+      },
+      "desktop_session": {
+        "state": "closed_after_human_entry_recheck_passed",
+        "recorded_at": "2026-11-08T14:34:00.320720+00:00",
+        "evidence": "learning_data/verification/b11-desktop-session-20261108T142929Z/session-ready.json",
+        "human_feedback": "learning_data/verification/b11-desktop-feedback-20261108T144933Z/session-snapshot/human-feedback.jsonl",
+        "automated_startup_is_acceptance": false,
+        "current_recheck": "learning_data/verification/b11-desktop-feedback-20261108T144933Z/recheck-session/session-ready.json",
+        "human_recheck_evidence": "learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/human-feedback.jsonl",
+        "human_recheck_submitted_at": "2026-11-08T15:12:19.678955+00:00",
+        "exit_record": "learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/final-session-ended.json"
+      },
+      "phone_deferral": {
+        "scheduling_state": "deferred_by_user",
+        "acceptance_state": "pending",
+        "recorded_at": "2026-11-08T15:34:06.770233+00:00",
+        "source": "explicit_user_message_in_conversation",
+        "instruction": "手机验收暂缓，记录下就行。继续下一步",
+        "resume_condition": "用户明确恢复家庭手机验收时再安排",
+        "evidence": "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/user-instruction.json"
+      }
     },
     {
       "id": "C01",
@@ -1637,30 +2028,191 @@
       "dependency_scope": "required_local_artifacts",
       "owner_role": "工程执行者、内容复核者、家长",
       "assigned_person": null,
-      "engineering_state": "deferred",
+      "engineering_state": "ready",
       "delivery_state": "not_applicable",
-      "acceptance_state": "gated",
-      "completion_state": "deferred",
+      "acceptance_state": "pending",
+      "completion_state": "open",
       "estimate_hours": null,
       "actual_hours": null,
       "specification": {
         "document": "DD-1.0-NEXT-IMPLEMENTATION-2026-11-07.md",
         "section": "C01"
       },
-      "acceptance_summary": "真实选工具/范围/引用/缺证据/提示注入/引导分别验收，伪引文与范围泄漏零容忍。",
+      "acceptance_summary": "原24/24、开发补充3/3在同一v17冻结下通过；4/4逐字引文、33原生citation核对，六方法自动选择；assistant教学5/5阈值通过，真人签署pending。",
       "required_conditions": [
-        "当前禁止真实生成/embedding 调用；需明确新指令、提供方/版本、预算与可用相容组合。"
+        "本批固定订阅生成已经结束；累计189/300请求、185生成，输出2000/次、增量费用CNY0；追加60分钟实用53.59分钟。",
+        "真人教学签署独立pending；不自动恢复模型服务，后续新批次需明确新额度及冻结。"
       ],
-      "next_action": "当前只准备冻结情景；限制明确改变后再固定模型、公开材料和调用预算。",
+      "next_action": "审阅 docs/verification/C01-teaching-review-2026-11-09.md 原句样本；仅在收到真实教师/家长意见后登记签署。本批技术工作已结束，不自动续跑或开展C02–C05。",
       "baseline_evidence": [
         "../PROJECT-REVIEW-2026-11-07.md"
       ],
-      "artifacts": [],
-      "evidence": [],
-      "blockers": [
-        "当前禁止真实生成/embedding 调用；需明确新指令、提供方/版本、预算与可用相容组合。"
+      "artifacts": [
+        "../quality/c01-scenarios-v1.json",
+        "../quality/c01-run-record.template.json",
+        "../open-webui-reuse/real-model-acceptance.md",
+        "../../scripts/prepare_c01_tool_fixtures.py",
+        "../../tests/test_c01_tool_fixtures.py",
+        "../verification/C01-teaching-review-2026-11-09.md",
+        "../quality/c01-accepted-config-2026-11-09.json",
+        "../quality/c01-accepted-prompt-2026-11-09.txt",
+        "../quality/c01-accepted-tools-2026-11-09.json"
       ],
-      "last_updated": "2026-11-07"
+      "evidence": [
+        "../verification/C01-offline-preparation-2026-11-08.md",
+        "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/inputs-before.json",
+        "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/plan-before.json",
+        "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/scenario-freeze.json",
+        "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/preparation-validation.json",
+        "../verification/C01-tool-fixtures-2026-11-08.md",
+        "../../learning_data/verification/c01-tool-fixtures-20261108T153801Z/plan-before.json",
+        "../../learning_data/verification/c01-tool-fixtures-20261108T153801Z/harness-freeze-v1.json",
+        "../../learning_data/verification/c01-tool-fixtures-20261108T153801Z/packet-v1/manifest.json",
+        "../../learning_data/verification/c01-tool-fixtures-20261108T153801Z/replay-v1-unsandboxed/summary.json",
+        "../../learning_data/verification/c01-tool-fixtures-20261108T153801Z/fixtures-v1-unsandboxed.xml",
+        "../../learning_data/verification/c01-tool-fixtures-20261108T153801Z/delivery-validation.json",
+        "../verification/DEPLOY-B11-C01-2026-11-09.md",
+        "../verification/C01-real-model-2026-11-09.md",
+        "../../learning_data/verification/deploy-c01-20261108T162720Z/c01-final-summary.json",
+        "../../learning_data/verification/deploy-c01-20261108T162720Z/c01-final-audit.json",
+        "../../learning_data/verification/deploy-c01-20261108T162720Z/c01-assistant-teaching-final.json",
+        "../../learning_data/verification/deploy-c01-20261108T162720Z/final-delivery-validation.json"
+      ],
+      "blockers": [
+        "全项真人教学签署尚未收到；非本批技术或会话Goal阻塞。"
+      ],
+      "last_updated": "2026-11-09",
+      "offline_preparation": {
+        "state": "complete",
+        "scope": "offline_scenario_preparation_only",
+        "recorded_at": "2026-11-08T15:34:06.770233+00:00",
+        "scenarios": 24,
+        "tool_methods": 6,
+        "material_source": "assistant_authored_synthetic_only",
+        "fixture_implementation": "specification_only",
+        "real_model_calls": 0,
+        "real_model_acceptance": null,
+        "teacher_review": null,
+        "report": "docs/verification/C01-offline-preparation-2026-11-08.md",
+        "freeze": "learning_data/verification/c01-offline-preparation-20261108T152941Z/scenario-freeze.json"
+      },
+      "offline_tool_fixtures": {
+        "state": "complete",
+        "scope": "offline_tool_protocol_fixtures_only",
+        "recorded_at": "2026-11-08T15:45:25.591245+00:00",
+        "scenarios": 24,
+        "tool_steps_checked": 22,
+        "cases_without_tool_steps": 2,
+        "tool_methods": 6,
+        "targeted_checks_passed": 10,
+        "model_cases_executed": 0,
+        "real_model_calls": 0,
+        "model_acceptance": null,
+        "teaching_score": null,
+        "gateway_service_executed": false,
+        "runtime_candidate_changed": false,
+        "report": "docs/verification/C01-tool-fixtures-2026-11-08.md",
+        "packet_manifest": "learning_data/verification/c01-tool-fixtures-20261108T153801Z/packet-v1/manifest.json",
+        "replay_summary": "learning_data/verification/c01-tool-fixtures-20261108T153801Z/replay-v1-unsandboxed/summary.json",
+        "failure_evidence": "learning_data/verification/c01-tool-fixtures-20261108T153801Z/replay-v1/C01-01.json"
+      },
+      "active_deployment_acceptance": {
+        "recorded_at": "2026-11-09T07:43:18.335771+08:00",
+        "state": "deployed_verified",
+        "evidence_directory": "learning_data/verification/deploy-c01-20261108T162720Z",
+        "compose": "learning_data/deployments/family-b11-c01-20261109/compose.json",
+        "webui_version": "0.12.5",
+        "tool_version": "1.2.1",
+        "schema_revision": 13,
+        "runtime_image": "sha256:1aa1a09316e8d9d944a0b97ce3ed994668319c618f2d36c096d9ebacea641138",
+        "static_files": 9,
+        "source_files": 99,
+        "public_origin": "https://172.19.116.53",
+        "backup_verification": "learning_data/verification/deploy-c01-20261108T162720Z/backup-verification-summary.json",
+        "model_acceptance": "technical_and_assistant_passed",
+        "generation_calls": 185,
+        "phone": "deferred_by_user",
+        "report": "docs/verification/DEPLOY-B11-C01-2026-11-09.md",
+        "final_health_evidence": "learning_data/verification/deploy-c01-20261108T162720Z/production-final-health.json"
+      },
+      "real_model_round1": {
+        "report": "docs/verification/C01-real-model-2026-11-09.md",
+        "summary": "learning_data/verification/deploy-c01-20261108T162720Z/c01-round1-summary.json",
+        "state": "incomplete_time_budget_exhausted",
+        "cases_planned": 24,
+        "cases_executed": 16,
+        "latest_passed": 14,
+        "latest_failed": 2,
+        "generation_requests": 37,
+        "provider_requests_including_discovery": 41,
+        "request_limit": 300,
+        "incremental_cost_CNY": 0,
+        "human_review": "pending",
+        "time_extension": "awaiting_user_decision"
+      },
+      "time_extension_authorization": {
+        "user_confirmation": "同意追加60分钟，完成剩余验收",
+        "added_seconds": 3600,
+        "starts": "next generation",
+        "cumulative_request_limit": 300
+      },
+      "technical_scope_state": "complete",
+      "technical_acceptance_state": "passed",
+      "assistant_teaching_state": "passed",
+      "human_teaching_state": "pending",
+      "completion_scope_note": "本批授权部署/技术/助手评审出口完成；C01全项保留真人验收pending/open，不阻塞用户允许的会话Goal完成。",
+      "real_model_final": {
+        "state": "technical_and_assistant_passed",
+        "scope": "synthetic_isolated_native_acceptance",
+        "recorded_at": "2026-11-09T11:10:40.724265+08:00",
+        "report": "docs/verification/C01-real-model-2026-11-09.md",
+        "summary": "learning_data/verification/deploy-c01-20261108T162720Z/c01-final-summary.json",
+        "audit": "learning_data/verification/deploy-c01-20261108T162720Z/c01-final-audit.json",
+        "final_selection": "learning_data/verification/deploy-c01-20261108T162720Z/c01-final-selection.json",
+        "accepted_config": "docs/quality/c01-accepted-config-2026-11-09.json",
+        "freeze_revision": "v17",
+        "freeze_sha256": "02fb28c49f7df5645512d3e3813961676022c997dc566e1866e5efebc9280905",
+        "cases_planned": 24,
+        "cases_executed": 24,
+        "latest_passed": 24,
+        "latest_failed": 0,
+        "supplemental_cases_planned": 3,
+        "supplemental_cases_passed": 3,
+        "generation_requests": 185,
+        "provider_requests_including_discovery": 189,
+        "discovery_reserved_count": 4,
+        "request_limit": 300,
+        "incremental_cost_CNY": 0,
+        "billing_basis": "user_confirmed_fixed_subscription_fee_excluded",
+        "usage_provider_reported": {
+          "prompt_tokens": 979150,
+          "completion_tokens": 14821,
+          "total_tokens": 993971
+        },
+        "round2_minutes": 53.5914137562116,
+        "extra_window_authorization": "learning_data/verification/deploy-c01-20261108T162720Z/budget-amendment-extra60.json",
+        "time_extension": "authorized_and_completed",
+        "assistant_teaching_passed": 5,
+        "assistant_teaching_scores": {
+          "C01-03": 8,
+          "C01-05": 7,
+          "C01-22": 8,
+          "C01-23": 7,
+          "C01-24": 8
+        },
+        "human_review": "pending",
+        "teaching_samples": "docs/verification/C01-teaching-review-2026-11-09.md",
+        "generation_stopped": true,
+        "isolated_services_stopped": true,
+        "production_model_defaults_changed": false,
+        "development_not_blind": true,
+        "tool_definition_reconciliation": {
+          "freeze_recorded_sha256": "bea0d8fbaff67e6c6c72e9db019da4e4c0bcc206b41e5272965f9d818120b999",
+          "actual_native_specs_file_sha256": "59024fb46751658038a824957a5fe721e204cecbe2984440c9df735357dc6032",
+          "all_185_requests_definitions_identical": true,
+          "note": "Old freeze digest does not identify native-specs bytes; original preserved. Actual definitions independently recovered from all 185 provider requests and exported with actual digest. No prompt/tool/runtime behavior changed during final audit."
+        }
+      }
     },
     {
       "id": "C02",
@@ -2077,6 +2629,271 @@
         "../releases/B01-B10-git-delivery-2026-11-08.md"
       ],
       "next_action": "继续B10尾延迟：保留现有12配置/1800样本及4项未达结果，细分会话复核、SQLite和ASGI/线程排队；增加loopback对照时先独立冻结旧/新候选与至少30样本配置，不删除身份检查或放宽预算/门槛。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T16:37:27.736332+08:00",
+      "task_ids": [
+        "B10"
+      ],
+      "summary": "只读操作内连接复用，保留原校验顺序及最新提交可见性；166单元/契约+2浏览器通过，原性能门槛10/12通过、2项未达。97文件schema13候选与旧95文件回退兼容已验证；本批未提交/部署，B10继续in_progress/pending/open。",
+      "evidence": [
+        "../verification/B10-tail-latency-2026-11-08.md"
+      ],
+      "next_action": "继续B10：先冻结旧95文件/新97文件候选的合成loopback HTTP诊断，每配置至少30样本，区分TestClient调度与本地传输；保留原900样本矩阵和两项未达结果，不降低身份/证据检查、12秒预算或P95门槛。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T16:48:15.926334+08:00",
+      "task_ids": [
+        "B10"
+      ],
+      "summary": "生成本会话完整交接和新会话命令：列明25项状态、11个本地提交、B10两项性能未达、未提交范围及后续loopback诊断。仅文档续接，25项任务对象及工程/验收状态不变；旧封存证据保留，交接文档增量单独保存。",
+      "evidence": [
+        "HANDOFF-SESSION-2026-11-08-B10.md",
+        "../../learning_data/verification/handoff-b10-20261108T084500Z/validation.json"
+      ],
+      "next_action": "继续B10：先冻结旧95文件/新97文件候选的合成loopback HTTP诊断，每配置至少30样本，区分TestClient调度与本地传输；保留原900样本矩阵和两项未达结果，不降低身份/证据检查、12秒预算或P95门槛。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T19:17:23.254078+08:00",
+      "task_ids": [
+        "B10"
+      ],
+      "summary": "B10本地HTTP对照诊断完成：旧95/新97文件候选×TestClient/隔离loopback，48配置、3600请求全部成功且输出与原基线一致。运行源码未变；HTTP与TestClient的传输/进程/portal拓扑不同，不将差值单独归因于网络或依赖函数。本批不实施缺乏单变量证据的运行优化；原性能验收仍10/12，B10保持in_progress/pending/open，B11未启动。",
+      "evidence": [
+        "../verification/B10-http-diagnostic-2026-11-08.md",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/inputs-before.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/plan-before.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/harness-freeze-v1.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/diagnostic-comparison.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/diagnostic-validation.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/optimization-decision.json",
+        "../../learning_data/verification/b10-http-diagnostic-20261108T085904Z/delivery-validation.json"
+      ],
+      "next_action": "继续B10：先独立冻结仅改变TestClient portal生命周期的暖原页1/4并发归因对照（每配置30波），保持材料、调用序列和新97文件运行代码一致；结合服务阶段耗时决定后续运行优化。原900样本基线、12秒预算和P95门槛不变，未达2项继续保留。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T20:40:34.572078+08:00",
+      "task_ids": [
+        "B10"
+      ],
+      "summary": "B10 portal归因与隔离异步依赖试验完成：3组450请求全部成功、输出与原基线一致、各组合成数据库前后不变。复用portal使四并发暖原页P95由561.10降至352.25ms；两个内存依赖改async的隔离变体为580.47ms，未达预设采纳条件，未应用到工作区运行代码。原验收10/12，B10保持in_progress/pending/open，B11未启动。",
+      "evidence": [
+        "../verification/B10-portal-attribution-2026-11-08.md",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/inputs-before.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/plan-before.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/harness-freeze.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/async-trial-plan-v2-before.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/async-trial-freeze-v2.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/portal-comparison.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/async-trial-decision.json",
+        "../../learning_data/verification/b10-portal-attribution-20261108T112240Z/delivery-validation.json"
+      ],
+      "next_action": "继续B10：按原两项未达配置冻结原页阶段归因，细分SQLite连接初始化/读取、冷PDF校验/渲染/PNG及请求调度，保留原调用序列和校验。已测portal改善属于测试拓扑，异步get_settings/get_db变体未达采纳条件，不重跑择优；只有新测量支持明确实现变化时才跑相关正确性与原900请求验收，原基线/12秒/P95门槛不变。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T21:05:52.573938+08:00",
+      "task_ids": [
+        "B10"
+      ],
+      "summary": "B10原页逐请求阶段归因完成：3组450请求成功且输出与原基线一致、各组合成数据库前后不变。暖原页材料P50约11.92ms，服务函数体外约319.90ms；只读连接初始化变体和GET围栏透传变体的并发P95均未达预设采纳门槛，均只保留隔离证据。工作区运行代码及97文件候选不变；原验收10/12，B10仍in_progress/pending/open，B11未启动。",
+      "evidence": [
+        "../verification/B10-page-stages-2026-11-08.md",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/inputs-before.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/plan-before.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/harness-freeze.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/readonly-trial-plan-before.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/fence-trial-plan-before.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/page-stage-comparison.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/readonly-trial-decision.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/fence-trial-decision.json",
+        "../../learning_data/verification/b10-page-stages-20261108T125320Z/delivery-validation.json"
+      ],
+      "next_action": "继续B10：先冻结原TestClient执行环境/线程调度归因（保留当前材料、门户生命周期和身份/证据调用），区分墙钟耗时、线程CPU及等待；本批两个变体和前批async变体均未采纳，不重复相同候选择优。原始900样本、12秒预算和P95门槛不变；只有新证据支持运行实现变化后再做正确性与原矩阵验收。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T21:35:38.271069+08:00",
+      "task_ids": [
+        "B10"
+      ],
+      "summary": "B10读取调度本地出口完成：先冻结线程诊断及两项隔离试验，采纳保持原检查体的进程内读取作用域串行调度；195个不同单元/契约用例通过，原900请求矩阵全部成功且输出一致，原P95门槛12/12通过。98文件schema13候选及旧97文件回退校验通过，UI/Tool未变证据按hash复用；未提交/推送/部署。B10为ready/candidate_only/passed/complete，B11尚未启动。",
+      "evidence": [
+        "../verification/B10-thread-scheduling-2026-11-08.md",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/inputs-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/plan-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/harness-freeze.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/interval-plan-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/interval-freeze.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/serialized-plan-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/serialized-freeze.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/thread-comparison.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/serialized-decision.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/validation-plan-before.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/validation.xml",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/package-tests.xml",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/performance-comparison.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/serialized-trial-source/learning_data/verification/original-matrix/samples.jsonl",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/adoption-decision.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/input-reuse-validation.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/source-package-validation-final.json",
+        "../../learning_data/verification/b10-thread-scheduling-20261108T130841Z/delivery-validation.json"
+      ],
+      "next_action": "继续B11：先冻结WebUI0.12.5与当前98文件候选的DOM/Tool接入契约、键盘焦点/缩放/中文公式/打印/断网恢复及切档隔离检查；本地合成与实际家庭桌面/手机矩阵分别记录，真实设备资料未知留空。B10原基线、12秒预算及全部历史失败证据保留，不重跑未变候选择优。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T22:20:56.087728+08:00",
+      "task_ids": [
+        "B11"
+      ],
+      "summary": "B11本地工程验证完成：修复上游编辑器失效/异步替换时的填入保护、断网同档案草稿恢复、填入焦点及切档历史聊天提示，补齐缩放和触控尺寸。54项单元/契约、21项浏览器用例及固定WebUI0.12.5原生两视口通过；99文件源码候选、9资源静态候选/回退校验完成。B10后端及原性能12/12证据保持。用户确认暂无实际设备记录，B11为ready/candidate_only/pending/open，未提交/推送/部署。",
+      "evidence": [
+        "../verification/B11-host-compatibility-2026-11-08.md",
+        "../verification/B11-device-matrix-2026-11-08.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/inputs-before.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/plan-before.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/webui-build-manifest.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/host-final.xml",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/bridge-final.xml",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/tool.xml",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/package.xml",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/native-final/browser-preview.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/b10-evidence-reuse.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/adjustments.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/static-packet/manifest.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/source-package-validation-final.json",
+        "../../learning_data/verification/b11-host-compatibility-20261108T134454Z/delivery-validation.json"
+      ],
+      "next_action": "B11本地检查已完成：待实际桌面与家庭手机的系统/浏览器/操作反馈及打印体验，按B11设备矩阵逐项记录；暂无记录不代填通过、不重复未变本地验收。A09发布和A09/B02/B05家庭反馈、B04待解、B07独立副本与B08观察端另列；C01–C05保持deferred，真实模型/OCR/部署限制不变。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T14:34:00.320720+00:00",
+      "task_ids": [
+        "B11"
+      ],
+      "summary": "已按用户“使用本机来做真实桌面”启动 B11 独立可见 Chrome 146.0.7680.177 窗口；环境为 Ubuntu 24.04.4 / WSL2 / WSLg，报告屏幕1920×1080、无视口模拟。主站与合成家庭档案第五章连接成功，操作记录页已打开。人工逐项反馈尚待填写，桌面/手机验收均未记通过；未部署或调用模型。",
+      "evidence": [
+        "../verification/B11-desktop-session-2026-11-08.md",
+        "../../learning_data/verification/b11-desktop-session-20261108T142929Z/session-ready.json"
+      ],
+      "next_action": "使用当前 B11 独立 Chrome 窗口的“B11 本机桌面验收”页实际操作并保存逐项反馈；读取本批 human-feedback.jsonl 后再更新设备验收。启动自检不等于用户验收，纸张打印与打印预览分别记录，家庭手机仍待真实设备。若窗口关闭，另建会话记录再启动，不覆盖本批证据。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T15:09:59.450572+00:00",
+      "task_ids": [
+        "B11"
+      ],
+      "summary": "B11已收到本机真实桌面反馈：user01三次相同保存按一次处理，6项通过；家庭学习入口虽勾选通过，但备注与后续确认有DNS错误，单列待复验。小型探针复现验收拦截环境的303跳转漏接，修正本地会话的跳转/Cookie传递后，真实网关登录入口技术复查通过，新窗口只等待入口人工复验。纸张打印未做、家庭手机未验；运行候选、B10原12/12门槛和12秒预算保持，B11继续pending/open。",
+      "evidence": [
+        "../verification/B11-desktop-feedback-2026-11-08.md",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/inputs-before.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/session-snapshot/human-feedback.jsonl",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/feedback-review-before-diagnosis.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/user-dns-clarification.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/navigation-diagnosis.xml",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/redirect-probe.xml",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/redirect-probe-v2.xml",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/redirect-probe-v3.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/redirect-analysis.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/entry-recheck-plan-before.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/recheck-session/entry-repair-check.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/recheck-session/session-ready.json",
+        "../../learning_data/verification/b11-desktop-feedback-20261108T144933Z/feedback-validation.json"
+      ],
+      "next_action": "在当前“B11 家庭学习入口回验”窗口中，从主站侧栏进入家庭学习并提交登录页，再保存唯一入口项；读取本批 recheck-session/human-feedback.jsonl 或用户明确反馈后再判定桌面入口通过。已有6项真实桌面通过保留，不整套重做。纸张打印和家庭手机继续独立待验，未发布/调用真实模型。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T15:16:03.298805+00:00",
+      "task_ids": [
+        "B11"
+      ],
+      "summary": "B11本机真实桌面浏览器7项已通过：user01已保存家庭学习入口复验通过且备注为空，和先前6项反馈合并计7项；原DNS问题按验收环境修复并经人工复验关闭，失败/诊断证据全保留。环境Ubuntu24.04.4/WSL2/WSLg＋Chrome146.0.7680.177，纸张打印未做、家庭手机待验。运行候选及B10原12/12门槛、12秒预算不变，B11总状态仍pending/open，未提交/推送/部署。",
+      "evidence": [
+        "../verification/B11-desktop-acceptance-2026-11-08.md",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/inputs-before.json",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/human-feedback.jsonl",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/redirect-relay.jsonl",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/recheck-snapshot/entry-repair-check.json",
+        "../../learning_data/verification/b11-desktop-acceptance-20261108T151405Z/acceptance-validation.json"
+      ],
+      "next_action": "桌面浏览器7项已通过，无需重复未变检查。B11下一步收集真实家庭手机的系统/浏览器、触屏/双指缩放/软键盘及相关流程反馈；实际纸张打印与可读性另验。暂无手机或打印结果继续留空，不代签、不自动发布候选。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T15:22:40.466913+00:00",
+      "task_ids": [
+        "B11"
+      ],
+      "summary": "B11实际纸张打印已通过：用户反馈HP 102w、Chrome、3页正常；原文与此前提供的三页复习卡PDF哈希已独立保存。桌面浏览器7项通过和入口问题关闭保持，桌面与纸张范围现均通过。B11只剩真实家庭手机验收，仍为ready/candidate_only/pending/open；候选、原性能基线和12秒预算保持，未提交/推送/部署。",
+      "evidence": [
+        "../verification/B11-paper-print-2026-11-08.md",
+        "../../learning_data/verification/b11-paper-print-20261108T152240Z/inputs-before.json",
+        "../../learning_data/verification/b11-paper-print-20261108T152240Z/user-print-feedback.json",
+        "../../learning_data/verification/b11-paper-print-20261108T152240Z/print-feedback-validation.json"
+      ],
+      "next_action": "B11剩余真实家庭手机验收：记录设备/系统/浏览器及入口、触屏/双指缩放/软键盘、中文公式、切档隔离和断连恢复等实际反馈。桌面浏览器7项和HP 102w三页纸张打印已通过，不重复未变验收；手机未知项继续留空。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T15:34:06.770233+00:00",
+      "task_ids": [
+        "B11",
+        "C01"
+      ],
+      "summary": "用户已明确暂缓B11真实家庭手机验收，记录为deferred_by_user，设备及结果仍为空；桌面浏览器7项与HP 102w/Chrome三页纸张通过保持，B11仍ready/candidate_only/pending/open。继续完成C01获准的离线准备：24个合成情景、六方法契约、人工评分规则与空白执行记录已冻结。真实模型执行仍deferred/gated，未调用、未评分、未部署。",
+      "evidence": [
+        "../verification/C01-offline-preparation-2026-11-08.md",
+        "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/user-instruction.json",
+        "../../learning_data/verification/c01-offline-preparation-20261108T152941Z/preparation-validation.json"
+      ],
+      "next_action": "C01离线情景准备完成；真实执行等待限制变更、提供方/模型版本、公开或合成材料、调用预算、兼容隔离环境及实际复核者/教学阈值明确后另行冻结。B11手机按用户指令暂缓，不重复催验；其他外部验收继续独立保留。"
+    },
+    {
+      "date": "2026-11-08",
+      "timestamp": "2026-11-08T15:45:25.591245+00:00",
+      "task_ids": [
+        "C01"
+      ],
+      "summary": "C01离线Tool协议夹具完成：合成PDF/PNG、书章符号绑定及完整回包已固定，六个只读方法的22个预设Tool步骤通过，10项定向检查通过。24个模型情景仍全部not_run；本批没有运行真实网关/服务/模型，不是选工具或教学质量验收。B11手机继续按用户指令暂缓，桌面与打印结果保持；运行候选、原性能基线和12秒预算不变。",
+      "evidence": [
+        "../verification/C01-tool-fixtures-2026-11-08.md",
+        "../../learning_data/verification/c01-tool-fixtures-20261108T153801Z/replay-v1-unsandboxed/summary.json"
+      ],
+      "next_action": "C01离线用例及Tool协议夹具已准备；真实执行仍等待明确改变调用限制、提供方/模型版本、公开或合成材料范围、预算与实际复核者/教学阈值。届时先另建隔离服务/网关环境并冻结材料与提示，再执行；本批不能代替端到端环境或真实模型验收。手机暂缓，不重跑未变检查。"
+    },
+    {
+      "date": "2026-11-09",
+      "timestamp": "2026-11-09T00:03:38.807675+08:00",
+      "task_ids": [],
+      "summary": "汇总B10完成、B11桌面/打印通过与手机暂缓、C01两批离线准备，建立新会话交接；25任务状态未改，下一批推荐无模型隔离服务/网关联调准备，尚未执行。",
+      "evidence": [
+        "HANDOFF-SESSION-2026-11-09-C01.md",
+        "../../learning_data/verification/session-handoff-20261108T160109Z/handoff-validation.json"
+      ],
+      "next_action": "先按2026-11-09交接第5节，冻结C01无模型的隔离服务/网关联调准备方案；复用已有合成测试，逐项登记Tool协议层与真实服务层差异，再按相关变化验证。此建议尚未执行。真实模型调用仍等待限制变更、模型/预算/材料范围和实际复核者明确；B11手机继续暂缓。"
+    },
+    {
+      "at": "2026-11-09T07:43:18.335771+08:00",
+      "scope": "deployment+C01 authorization",
+      "summary": "现有家庭服务/schema13/Tool1.2.1/静态资源发布通过；真实模型待执行，固定订阅与300请求已获用户确认；不关闭其他家庭/备份/手机验收。"
+    },
+    {
+      "date": "2026-11-09",
+      "task": "C01",
+      "change": "用户授权相容部署完成；固定订阅/请求300。模型首轮37次生成、16情景执行、14当前通过/2待修复，时间上限拦截续跑，Goal与C01保持未完成。"
+    },
+    {
+      "date": "2026-11-09",
+      "task": "C01",
+      "change": "用户批准追加60分钟后，同一v17原24/24+补充3/3技术通过，assistant教学5/5；累计189请求/185生成/CNY0，隔离4服务停止。发布清单/报告/交接完成，技术范围complete；真人签署pending、全项open，其他任务不变。"
     }
   ],
   "current_candidate_tool_version": "1.2.1",
@@ -2090,6 +2907,19 @@
       "deployed": false,
       "remote_ci": "not_run",
       "family_acceptance": "pending"
+    }
+  ],
+  "recommended_next_action": "继续已获授权的全学科题库质量主线：先按2026-11-12交接第5节核对正式知识点缺口，优先二上/七上数学，再当前上册语文/英语等，分批补题与准确映射。悬浮翻页已上线不重做；手机暂缓、C01停止、外部签署保留pending，不提交推送。",
+  "latest_session_handoff": {
+    "document": "docs/plans/HANDOFF-SESSION-2026-11-12-TEXTBOOKS.md",
+    "recorded_at": "2026-11-12T09:11:13.108287+08:00",
+    "state": "textbook_variety_and_reader_deployed_coverage_quality_pending"
+  },
+  "session_handoff_history": [
+    {
+      "document": "docs/plans/HANDOFF-SESSION-2026-11-09-DEPLOY-C01.md",
+      "recorded_at": "2026-11-09T11:10:40.724265+08:00",
+      "state": "authorized_deployment_and_technical_scope_complete_human_pending"
     }
   ]
 }

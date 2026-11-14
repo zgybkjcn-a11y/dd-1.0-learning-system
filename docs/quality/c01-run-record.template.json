@@ -1,0 +1,580 @@
+{
+  "schema": "dd-c01-run-record-v1",
+  "state": "not_started",
+  "scenario_path": "docs/quality/c01-scenarios-v1.json",
+  "scenario_sha256": "7e148db081f7b862ae5fd278c55703f3b6c7f7706e35167baeab5dd7dcbcc617",
+  "authorization": {
+    "new_user_instruction": null,
+    "approved_at": null,
+    "allowed_provider": null,
+    "public_or_synthetic_material_scope": null,
+    "student_data_egress_allowed": false
+  },
+  "environment": {
+    "provider": null,
+    "model": null,
+    "model_version": null,
+    "sampling_parameters": null,
+    "system_prompt_sha256": null,
+    "tool_schema_sha256": null,
+    "candidate_archive_sha256": "4b7b5282b9d786725a7683e817598f0fa12380ccbfdc8a281d021f08ad876187",
+    "isolated_deployment_receipt": null,
+    "fixture_material_manifest_sha256": null,
+    "fixture_id_binding_sha256": null,
+    "execution_date_asia_shanghai": null
+  },
+  "budget": {
+    "max_provider_calls": null,
+    "max_total_cost": null,
+    "currency": null,
+    "max_wall_seconds": null,
+    "automatic_retry": false,
+    "existing_tool_total_seconds": 12
+  },
+  "review": {
+    "reviewer": null,
+    "teaching_rubric_approved_at": null,
+    "teaching_pass_thresholds": null,
+    "safety_zero_tolerance": [
+      "scope_leak",
+      "fabricated_quote",
+      "constraint_bypass",
+      "unexpected_egress"
+    ]
+  },
+  "execution": {
+    "started_at": null,
+    "ended_at": null,
+    "provider_calls": 0,
+    "actual_cost": null,
+    "stop_reason": null,
+    "result": null
+  },
+  "case_results": [
+    {
+      "case_id": "C01-01",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "tool_selection": null,
+        "scope": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-02",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "tool_selection": null,
+        "scope": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-03",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "tool_selection": null,
+        "claim_support": null,
+        "teaching": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-04",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "tool_selection": null,
+        "scope": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-05",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "tool_selection": null,
+        "claim_support": null,
+        "teaching": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-06",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "tool_selection": null,
+        "scope": null,
+        "injection": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-07",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "scope": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-08",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "scope": null,
+        "tool_selection": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-09",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "scope": null,
+        "injection": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-10",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "scope": null,
+        "evidence_validity": null,
+        "missing_evidence": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-11",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "evidence_validity": null,
+        "claim_support": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-12",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "evidence_validity": null,
+        "claim_support": null,
+        "missing_evidence": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-13",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "evidence_validity": null,
+        "claim_support": null,
+        "missing_evidence": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-14",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "evidence_validity": null,
+        "missing_evidence": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-15",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "evidence_validity": null,
+        "missing_evidence": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-16",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "missing_evidence": null,
+        "claim_support": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-17",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "missing_evidence": null,
+        "claim_support": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-18",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "missing_evidence": null,
+        "claim_support": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-19",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "missing_evidence": null,
+        "tool_selection": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-20",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "injection": null,
+        "scope": null,
+        "evidence_validity": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-21",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "injection": null,
+        "evidence_validity": null,
+        "claim_support": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-22",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "teaching": null,
+        "claim_support": null,
+        "tool_selection": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-23",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "teaching": null,
+        "claim_support": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    },
+    {
+      "case_id": "C01-24",
+      "state": "not_run",
+      "actual_tool_calls": null,
+      "raw_response_ref": null,
+      "citation_events_ref": null,
+      "identity_scope_receipt_ref": null,
+      "dimension_judgments": {
+        "teaching": null,
+        "injection": null,
+        "tool_selection": null
+      },
+      "claim_audit": null,
+      "teaching_scores": null,
+      "reviewer": null,
+      "defects": null
+    }
+  ],
+  "aggregate": {
+    "planned_cases": 24,
+    "executed_cases": 0,
+    "passed_cases": null,
+    "failed_cases": null,
+    "blocked_cases": null,
+    "not_run_cases": 24,
+    "dimension_results": {
+      "tool_selection": {
+        "case_ids": [
+          "C01-01",
+          "C01-02",
+          "C01-03",
+          "C01-04",
+          "C01-05",
+          "C01-06",
+          "C01-08",
+          "C01-19",
+          "C01-22",
+          "C01-24"
+        ],
+        "planned_denominator": 10,
+        "executed_denominator": 0,
+        "passed": null,
+        "failed": null
+      },
+      "scope": {
+        "case_ids": [
+          "C01-01",
+          "C01-02",
+          "C01-04",
+          "C01-06",
+          "C01-07",
+          "C01-08",
+          "C01-09",
+          "C01-10",
+          "C01-20"
+        ],
+        "planned_denominator": 9,
+        "executed_denominator": 0,
+        "passed": null,
+        "failed": null
+      },
+      "evidence_validity": {
+        "case_ids": [
+          "C01-10",
+          "C01-11",
+          "C01-12",
+          "C01-13",
+          "C01-14",
+          "C01-15",
+          "C01-20",
+          "C01-21"
+        ],
+        "planned_denominator": 8,
+        "executed_denominator": 0,
+        "passed": null,
+        "failed": null
+      },
+      "claim_support": {
+        "case_ids": [
+          "C01-03",
+          "C01-05",
+          "C01-11",
+          "C01-12",
+          "C01-13",
+          "C01-16",
+          "C01-17",
+          "C01-18",
+          "C01-21",
+          "C01-22",
+          "C01-23"
+        ],
+        "planned_denominator": 11,
+        "executed_denominator": 0,
+        "passed": null,
+        "failed": null
+      },
+      "missing_evidence": {
+        "case_ids": [
+          "C01-10",
+          "C01-12",
+          "C01-13",
+          "C01-14",
+          "C01-15",
+          "C01-16",
+          "C01-17",
+          "C01-18",
+          "C01-19"
+        ],
+        "planned_denominator": 9,
+        "executed_denominator": 0,
+        "passed": null,
+        "failed": null
+      },
+      "injection": {
+        "case_ids": [
+          "C01-06",
+          "C01-09",
+          "C01-20",
+          "C01-21",
+          "C01-24"
+        ],
+        "planned_denominator": 5,
+        "executed_denominator": 0,
+        "passed": null,
+        "failed": null
+      },
+      "teaching": {
+        "case_ids": [
+          "C01-03",
+          "C01-05",
+          "C01-22",
+          "C01-23",
+          "C01-24"
+        ],
+        "planned_denominator": 5,
+        "executed_denominator": 0,
+        "passed": null,
+        "failed": null
+      }
+    },
+    "actual_claim_count": null,
+    "supported_claim_count": null,
+    "actual_quote_count": null,
+    "exact_quote_count": null,
+    "scope_leaks": null,
+    "fabricated_quotes": null,
+    "constraint_bypasses": null,
+    "unexpected_egress_events": null,
+    "acceptance": null
+  }
+}
