@@ -151,7 +151,7 @@ def test_adventure_profiles_practice_feedback_restore_notebook_and_progress(fami
         page.locator('.textbook-reader-layout').screenshot(path=str(screenshots / f'reader-navigation-{width}.png'))
         page.locator('#textbookResults img').click()
         expect(page.locator('#textbookZoom')).to_be_visible()
-        assert page.locator('#textbookZoomImage').evaluate('(img) => img.complete && img.naturalWidth > 0')
+        page.wait_for_function('document.getElementById("textbookZoomImage").naturalWidth > 0')
         page.locator('#textbookZoomIn').click()
         expect(page.locator('#textbookZoomLevel')).to_have_text('125%')
         assert_image_overlay('#textbookZoomPrev', '#textbookZoomImage')
