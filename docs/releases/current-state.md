@@ -1,5 +1,7 @@
 # DD-1.0 当前状态与交付清单
 
+2026-11-15生产升级：按用户授权把 `ea95d1b` 的服务代码部署到本机生产（api/worker/gateway 镜像 `sha256:6f6ad8a1…`，Compose `learning_data/deployments/family-code-upgrade-20261115/compose.json`）。切换前停写并完成一致性备份与校验（schema14、integrity ok、外键错误 0），切换后 `/health`、WebUI、proxy 正常，50 张表逐行哈希与备份完全一致；1145 题、99 次作答、schema14 不变。学科覆盖清单由 subject-v5 切到 v16、数学覆盖由 v13 切到 v15（行数仍 276/53），下册八批候选仍未注册未安装，未导入题目、未迁移数据库、未调用外部模型/OCR/embedding、C01 未启动。回退用 11-12 Compose 与旧镜像 `6014a237…`，保留当前数据卷。验收见[代码升级报告](../verification/CODE-UPGRADE-2026-11-15.md)。
+
 2026-11-14会话总结（第五至八批）：下册本地候选第五至八批完成，共27题/108个作答项（全部直接族），连同前四批八批共61条候选行/244个作答项，覆盖清单58条可出候选的新初步要求（清单68条，另10条仅参照）。全部未注册未安装，正式题仍1145题（418/727）、schema14、线上subject-v5、本地math-v15/subject-v16。最后一批定向8项通过、15模块回归160项通过（0失败0跳过，476.25秒），合成安装1145→1149、重复安装新增0、provider_calls为0。下册清单已无剩余可出候选，详见[HANDOFF-SESSION-2026-11-14-LOWER-BATCH5-8-SESSION-SUMMARY](../plans/HANDOFF-SESSION-2026-11-14-LOWER-BATCH5-8-SESSION-SUMMARY.md)。
 
 2026-11-14第八批：下册第八批候选在本地完成（[续办交接](../plans/HANDOFF-SESSION-2026-11-14-LOWER-BATCH8.md)、[复核报告](../verification/LOWER-GAP-CANDIDATES-BATCH8-2026-11-14.md)）。三个范围各一处有界要求（历史第四单元两条要求分列）：北宋建立与中央集权、明朝建立与强化皇权、史料出处与史事要素、节日延续与文明特征。共4题/16个作答项，全部直接族且全部挂人工任务，新增configured为0；候选未注册未安装，正式题仍1145题（418/727）、schema14、线上subject-v5，本地math-v15/subject-v16。七下历史使用原生文字层，未使用OCR。定向8项通过；同批回归共160项通过、0失败0跳过（476.25秒），记录见`learning_data/verification/lower-gap-candidates-batch8-20261114/test-results.json`。本轮未访问生产数据库、未导入/迁移/部署、未提交推送、C01未启动、无外部模型/OCR/embedding，真实手机仍暂缓。

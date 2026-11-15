@@ -79,6 +79,10 @@
 
 修复后全量：**1292 通过、0 失败、0 错误、0 跳过**（62 分 17 秒），本地记录 `learning_data/verification/full-suite-20261114/`（junit 与 summary，`learning_data/` 不入版本库）。另有 2 项 local_materials 由 pytest.ini 默认跳过。
 
+### 2.6 生产部署（2026-11-15）
+
+按用户授权，把 `ea95d1b` 的服务代码部署到本机生产：新镜像 `sha256:6f6ad8a1…`，Compose `learning_data/deployments/family-code-upgrade-20261115/compose.json`。停写后完成一致性备份与校验（schema14、integrity ok），切换后 `/health`、WebUI、proxy 正常，50 张表逐行哈希与备份一致；1145 题、99 次作答、schema14 不变。学科覆盖切到 subject-v16、数学 v15（行数仍 276/53）。下册八批候选仍未注册未安装，未导入题目、未迁移数据库、未调用外部模型，C01 未启动。回退方式与证据见[代码升级报告](../verification/CODE-UPGRADE-2026-11-15.md)。
+
 ## 三、还有哪些没做
 
 ### 3.1 下册清单
