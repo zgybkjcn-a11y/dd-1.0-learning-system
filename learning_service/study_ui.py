@@ -136,7 +136,7 @@ SCRIPT = r'''
         const state = await call('/api/v1/practice-workspace', {method: 'PUT', headers: {'Content-Type':'application/json'},
           body: JSON.stringify({expected_revision: practiceWorkspace?.revision || 0, book_id:gameBook,
             chapter_id:gameChapter, difficulty:gameDifficulty, pool:gamePool, ...options})});
-        acceptPracticeWorkspace(state); return state;
+        acceptPracticeWorkspace(state); loadStudyPath(); return state;
       } catch (error) {
         if (!(error instanceof StaleContextError)) {
           await reloadPracticeWorkspace();

@@ -778,6 +778,17 @@ _UI_HTML = """<!doctype html>
     .game-nav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
     .family-game main > section { border: 0; border-radius: 24px; padding: 25px 27px; background: var(--paper); box-shadow: 0 3px 0 #e8eadf; margin-bottom: 20px; }
     .family-game #gameHero { position: relative; overflow: hidden; min-height: 310px; padding: 32px; background: var(--hero); box-shadow: 0 5px 0 #c9e5d9; }
+    .family-game #studyPath { padding: 20px 24px; }
+    .study-path-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: baseline; justify-content: space-between; }
+    .study-path-head h2 { margin: 0; font-size: 16px; letter-spacing: .5px; }
+    .study-path-steps { display: grid; gap: 10px; margin-top: 12px; }
+    .study-path-step { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; padding: 12px 14px; border-radius: 16px; background: var(--accent-soft); }
+    .study-path-step > div { min-width: 0; flex: 1 1 220px; }
+    .study-path-step strong { display: block; font-size: 14px; font-weight: 800; }
+    .study-path-step p { margin: 4px 0 0; color: #5b6d63; font-size: 12px; line-height: 1.6; }
+    .family-game[data-grade="7"] .study-path-step p { color: #b9b2cf; }
+    .study-path-step button { flex: none; border: 0; border-radius: 11px; padding: 10px 15px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 800; }
+    .study-path-step button:focus-visible { outline: 3px solid #d9a92a; outline-offset: 2px; }
     .family-game[data-grade="7"] #gameHero { color: #fff; box-shadow: 0 5px 0 #d8d1f0; }
     .family-game #gameHero::before { content: ""; position: absolute; inset: 0; background-image: radial-gradient(#ffffff65 1px, transparent 1px); background-size: 23px 23px; opacity: .65; pointer-events: none; }
     .hero-copy { position: relative; z-index: 1; max-width: 61%; }
@@ -881,8 +892,8 @@ _UI_HTML = """<!doctype html>
     .family-game #mistakes .review-card > p { color: #4f6546; font-weight: 750; font-size: 14px; margin: 0 0 12px; }
     .family-game #mistakes .review-card button { font-size: 10px; border: 0; padding: 4px 0; color: var(--accent); background: transparent; }
     .family-game[data-view="home"] #testSection, .family-game[data-view="home"] #mistakeSection,
-    .family-game[data-view="practice"] #gameHero, .family-game[data-view="practice"] #todaySection, .family-game[data-view="practice"] #mistakeSection,
-    .family-game[data-view="notebook"] #gameHero, .family-game[data-view="notebook"] #todaySection, .family-game[data-view="notebook"] #testSection { display: none; }
+    .family-game[data-view="practice"] #gameHero, .family-game[data-view="practice"] #todaySection, .family-game[data-view="practice"] #mistakeSection, .family-game[data-view="practice"] #studyPath,
+    .family-game[data-view="notebook"] #gameHero, .family-game[data-view="notebook"] #todaySection, .family-game[data-view="notebook"] #testSection, .family-game[data-view="notebook"] #studyPath { display: none; }
     .family-game button:focus-visible, .family-game a:focus-visible, .family-game input:focus-visible, .family-game textarea:focus-visible, .family-game select:focus-visible { outline: 3px solid #e9b843; outline-offset: 3px; }
     .family-game input:focus, .family-game textarea:focus, .family-game select:focus { border-color: var(--accent); }
     .family-game button:disabled { cursor: default; opacity: .5; }
@@ -1003,6 +1014,11 @@ _UI_HTML = """<!doctype html>
         <svg class="junior-scene" viewBox="0 0 330 285"><ellipse cx="166" cy="255" rx="117" ry="16" fill="#a8d9bc" opacity=".55"/><path d="M59 194Q167 141 271 194L240 230Q171 259 84 229Z" fill="#73b997"/><path d="M59 194Q157 153 271 194Q190 220 59 194Z" fill="#a5d787"/><path d="M104 221l12 25 37 17 49-2 30-24 8-17" fill="#82a790"/><path d="M96 198l23-25m104 25l-17-20" stroke="#d0eaa6" stroke-width="7" stroke-linecap="round"/><rect x="234" y="125" width="5" height="60" rx="2" fill="#6e8b79"/><path d="M239 125l35 9-35 11Z" fill="#ffa970"/><path d="M159 183l-24 20m59-20l25 21" stroke="#b77e30" stroke-width="11" stroke-linecap="round"/><path d="M137 146l-20-8m82 8l20-15" stroke="#d6963d" stroke-width="13" stroke-linecap="round"/><rect x="130" y="91" width="73" height="106" rx="35" fill="#f6bd59"/><path d="M131 133h72v16h-72Z" fill="#facd76"/><ellipse cx="150" cy="126" rx="5" ry="7" fill="#594c39"/><ellipse cx="183" cy="126" rx="5" ry="7" fill="#594c39"/><path d="M151 145q16 15 31 0" stroke="#865830" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M143 94l-8-13 15-5 10 14m26 4l10-16 12 7-10 12" fill="#82a76d"/><rect x="157" y="165" width="20" height="18" rx="5" fill="#fdf2cf"/><text x="162" y="179" fill="#ad7f37" font-size="15" font-weight="bold">+</text><circle cx="90" cy="87" r="30" fill="#ffffffa8"/><text x="76" y="95" fill="#609d83" font-size="25" font-weight="bold">×</text><circle cx="247" cy="69" r="23" fill="#fff0b9"/><text x="238" y="77" fill="#bf9544" font-size="25">7</text><path d="M222 108l6 7-6 7-6-7Z" fill="#70b9ac"/><path d="M71 135l5 6-5 6-5-6Z" fill="#f3b66c"/><path d="M178 51l3-7 3 7 7 3-7 3-3 7-3-7-7-3Z" fill="#f9f1ce"/></svg>
         <svg class="senior-scene" viewBox="0 0 330 285"><circle cx="189" cy="129" r="96" fill="#7160ad" opacity=".18"/><circle cx="189" cy="129" r="77" fill="none" stroke="#8d78be" stroke-dasharray="3 8" opacity=".5"/><ellipse cx="172" cy="191" rx="136" ry="28" fill="none" stroke="#7a62a9" stroke-width="2" transform="rotate(-24 172 191)"/><circle cx="162" cy="177" r="70" fill="#7660b8"/><path d="M103 169q74-41 123-4m-124 36q58-15 114 11" stroke="#9078c5" stroke-width="10" fill="none"/><g transform="rotate(22 182 105)"><path d="M161 80l-22 29 18 20m46-50l23 32-21 16" fill="#f2ac8b"/><path d="M163 58q19-37 38 0l6 62h-50Z" fill="#eeefce"/><path d="M171 31q11-17 22 0l7 24h-35Z" fill="#d7ec8d"/><circle cx="182" cy="77" r="13" fill="#6ba8b7"/><circle cx="182" cy="77" r="8" fill="#badbe4"/><path d="M165 121l17 32 18-32Z" fill="#f5be75"/><path d="M172 122l10 20 10-20Z" fill="#fff1b7"/></g><circle cx="77" cy="69" r="19" fill="#b7b3dc"/><path d="M47 78q33-20 60-6" stroke="#dedbf0" stroke-width="5" fill="none"/><path d="M249 71l4-9 4 9 9 4-9 4-4 9-4-9-9-4Z" fill="#deeaa4"/><path d="M247 221l3-6 3 6 6 3-6 3-3 6-3-6-6-3Z" fill="#ddcbef"/><circle cx="60" cy="199" r="3" fill="#ddd4ec"/><circle cx="288" cy="140" r="3" fill="#c8d79c"/><circle cx="221" cy="31" r="2" fill="#e9e2f2"/><text x="122" y="242" fill="#b9a4db" font-size="16" font-weight="bold">− (−) = +</text></svg>
       </div>
+    </section>
+    <section id="studyPath" class="game-only" hidden aria-labelledby="studyPathTitle">
+      <div class="study-path-head"><h2 id="studyPathTitle">今天从这里开始</h2><span id="studyPathTotal" class="section-caption"></span></div>
+      <div id="studyPathSteps" class="study-path-steps"></div>
+      <p id="studyPathNotice" class="chapter-note"></p>
     </section>
     <section id="todaySection">
       <div class="section-heading game-only"><div><span class="section-eyebrow">CHOOSE YOUR ADVENTURE</span><h2>选好课本，开始冒险</h2></div><span id="challengeCount" class="section-caption">先选择你的档案</span></div>
@@ -1294,6 +1310,7 @@ _UI_HTML = """<!doctype html>
       $('gameFeedback').hidden = true; $('gamePracticeEmpty').hidden = false;
       $('gameNotice').textContent = message;
       $('practicePicker').hidden = true; $('practicePicker').open = false; $('familyReview').hidden = true;
+      $('studyPath').hidden = true; $('studyPathSteps').replaceChildren(); $('studyPathTotal').textContent = ''; $('studyPathNotice').textContent = '';
       setGameView('home', false); updateGameTheme(); updateGameAnswerControls();
     }
     function renderGameProfiles(items) {
@@ -2429,6 +2446,52 @@ _UI_HTML = """<!doctype html>
       }
       finally { if (epoch === contextEpoch && generation === textbookGeneration) { $('textbookPageInput').disabled = false; $('textbookJump').disabled = false; syncReaderPageButtons(); } }
     }
+    let studyPathGeneration = 0;
+    function runStudyPathStep(step) {
+      if (step.kind === 'resume') {
+        reloadPracticeWorkspace().then(() => { if ($('testItem').value) setGameView('practice'); });
+      } else if (step.kind === 'review') {
+        setGameView('home'); $('familyReview').hidden = false; $('familyReview').scrollIntoView({block:'start'});
+      } else if (step.kind === 'practice') {
+        setGameView('home'); $('textbookMap').scrollIntoView({block:'start'}); $('startAdventure').onclick();
+      } else if (step.kind === 'reading') {
+        setGameView('home'); $('textbookReader').open = true; $('textbookReader').scrollIntoView({block:'start'});
+        if (step.printed_page) { $('textbookPageInput').value = String(step.printed_page); $('textbookJump').onclick(); }
+      } else {
+        setGameView('home'); $('textbookMap').scrollIntoView({block:'start'});
+      }
+    }
+    function renderStudyPath(data) {
+      const steps = Array.isArray(data.steps) ? data.steps.slice(0, 4) : [];
+      const container = $('studyPathSteps'); container.replaceChildren();
+      $('studyPath').hidden = !steps.length;
+      if (!steps.length) return;
+      $('studyPathTotal').textContent = '约 ' + (data.total_minutes || 0) + ' 分钟' + (data.next_time?.length ? ' · 其余下次再做' : '');
+      steps.forEach((step) => {
+        const card = document.createElement('article'); card.className = 'study-path-step';
+        const text = document.createElement('div');
+        const title = document.createElement('strong'); title.textContent = step.title;
+        const reason = document.createElement('p'); reason.textContent = step.reason;
+        text.append(title, reason);
+        const button = document.createElement('button'); button.type = 'button';
+        button.textContent = {resume:'继续这一题', review:'去做复习', practice:'开始练习', reading:'打开原页', choose:'去选择'}[step.kind] || '开始';
+        button.onclick = () => runStudyPathStep(step);
+        card.append(text, button); container.append(card);
+      });
+      $('studyPathNotice').textContent = data.notice || '';
+    }
+    async function loadStudyPath() {
+      if (!familyGameMode || !$('learner').value) { $('studyPath').hidden = true; return; }
+      const generation = ++studyPathGeneration, epoch = contextEpoch;
+      try {
+        const data = await call('/api/v1/study-path');
+        if (epoch !== contextEpoch || generation !== studyPathGeneration) return;
+        renderStudyPath(data);
+      } catch (error) {
+        if (error instanceof StaleContextError) return;
+        $('studyPath').hidden = true;
+      }
+    }
     $('loadToday').onclick = async () => {
       const generation = ++gameRefreshGeneration, epoch = contextEpoch;
       if (familyGameMode) { gameLoadingChoices = true; updateChapterControls(); }
@@ -2454,6 +2517,7 @@ _UI_HTML = """<!doctype html>
           $('heroGraded').textContent = String(gameGraded); $('heroIndependent').textContent = String(progress.attempts.independent || 0);
           if (textbookBooks.length) renderGameChapters(); else await loadTextbooks();
           await restorePracticeWorkspace(recovery);
+          await loadStudyPath();
         }
       } catch (e) { if (!(e instanceof StaleContextError)) { $('today').textContent = '暂未加载学习进度，请稍后返回首页重试。'; if (familyGameMode) $('familyReview').hidden = false; } }
       finally { if (familyGameMode && epoch === contextEpoch && generation === gameRefreshGeneration) { gameLoadingChoices = false; updateChapterControls(); } }
@@ -4028,6 +4092,18 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             cards = conn.execute("SELECT state,stage,COUNT(*) AS count FROM review_cards WHERE learner_id=? AND active=1 GROUP BY state,stage", (learner_id,)).fetchall()
             attempts = conn.execute("SELECT COUNT(*) AS total,SUM(CASE WHEN assessment_eligibility=1 THEN 1 ELSE 0 END) AS independent,SUM(CASE WHEN status='graded' THEN 1 ELSE 0 END) AS graded FROM attempts WHERE learner_id=?", (learner_id,)).fetchone()
         return {"learner_id": learner_id, "cards": [dict(row) for row in cards], "attempts": dict(attempts), "evidence_note": "仅可信服务端判分且无辅助的结果计入独立证据。"}
+
+    @app.get("/api/v1/study-path")
+    def study_path(ctx: Context = Depends(get_context), db: Database = Depends(get_db)):
+        from .study_path import PathError, compose
+        learner_id = learner_for(ctx, db=db)
+        try:
+            with db.session() as conn:
+                return compose(conn, learner_id)
+        except PathError:
+            raise APIError(404, "LEARNER_NOT_FOUND", "学习者不存在")
+        except (OSError, ValueError, KeyError, TypeError):
+            raise APIError(503, "PRACTICE_UNAVAILABLE", "学习记录版本校验未通过，请稍后重试")
 
     @app.get('/api/v1/practice-workspace')
     def get_practice_workspace(ctx: Context = Depends(get_context), db: Database = Depends(get_db)):

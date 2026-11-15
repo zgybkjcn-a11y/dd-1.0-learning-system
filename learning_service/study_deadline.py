@@ -63,5 +63,6 @@ def check_deadline():
 
 def is_study_path(path):
     return (path in {'/api/v1/textbooks', '/api/v1/textbooks/search',
-                     '/api/v1/math-references', '/api/v1/study-support'}
+                     '/api/v1/math-references', '/api/v1/study-support',
+                     '/api/v1/study-path'}
             or path.startswith('/api/v1/textbooks/'))

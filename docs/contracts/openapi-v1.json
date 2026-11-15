@@ -1376,6 +1376,22 @@
         }
       }
     },
+    "/api/v1/study-path": {
+      "get": {
+        "summary": "Study Path",
+        "operationId": "study_path_api_v1_study_path_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {}
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/v1/practice-workspace": {
       "get": {
         "summary": "Get Practice Workspace",
@@ -4455,6 +4471,11 @@
             "type": "string",
             "title": "Collection"
           },
+          "search_available": {
+            "type": "boolean",
+            "title": "Search Available",
+            "default": true
+          },
           "reader_url": {
             "anyOf": [
               {
@@ -4472,11 +4493,6 @@
             },
             "type": "array",
             "title": "Chapters"
-          },
-          "search_available": {
-            "type": "boolean",
-            "title": "Search Available",
-            "default": true
           }
         },
         "additionalProperties": false,
