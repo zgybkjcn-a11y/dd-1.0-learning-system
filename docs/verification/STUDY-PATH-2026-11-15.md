@@ -1,6 +1,6 @@
-# 2026-11-15 今日学习路径 · 本地实现与验收
+# 2026-11-15 今日学习路径 · 本地实现、发布与验收
 
-按用户确认的范围实现"今日路径"：**只做家庭页、不显示今日完成计数、总建议 25 分钟**。本轮只改本地工作树：未提交、未推送、未部署、未访问生产数据库、未迁移、未注册任何候选批次、未调用外部模型/OCR/embedding，C01 未启动，真实手机验收继续暂缓。
+按用户确认的范围实现"今日路径"：**只做家庭页、不显示今日完成计数、总建议 25 分钟**。同日按用户授权发布到本机生产：停写备份、切换镜像、逐表比对通过。未迁移数据库、未注册候选批次、未调用外部模型/OCR/embedding，C01 未启动、未重启 proxy 与 open-webui，真实手机验收继续暂缓。
 
 范围定义见 [候选范围](../plans/STUDY-PATH-CANDIDATE-SCOPE-2026-11-15.md)，使用与边界见 [今日学习路径说明](../open-webui-reuse/study-path.md)。
 
@@ -66,10 +66,29 @@
 - 主站"知识路线"未改（P1 单列）。
 - 未做掌握度、跨册自适应排序、周月计划、提醒推送、服务端阅读位置。
 - 未做图形 + 数学视觉扩展。
-- 未发布：镜像未重建，生产仍运行代码升级后的旧镜像。
+
+## 生产发布（2026-11-15 晚）
+
+按用户授权把本批代码发布到本机生产。
+
+| 项目 | 记录 |
+| --- | --- |
+| 镜像 | `dd-learning:study-path-20261115` = `sha256:933c8ceadddf…` |
+| Compose | `learning_data/deployments/family-study-path-20261115/compose.json`（`30ea04b8…`），仅换 api/worker/gateway |
+| 隔离冒烟 | 生产数据副本在 `127.0.0.1:31998` 启动：`/health` ok、schema14、1145 题、77 路径含新接口 |
+| 停写与备份 | 三容器停止后备份到 `learning_data/verification/study-path-release-20261115/private/snapshot`，回执 passed，校验 schema14 / integrity ok / 外键 0 |
+| 切换后验收 | `/health` 返回 `{"status": true}`，`/learning/ui` 303；api healthy，worker/gateway running；proxy 与 open-webui 未重启 |
+| 数据保全 | live 库与备份逐表行哈希：50 表、0 不一致；1145 题、99 次作答、2 名学习者、schema14 不变 |
+| 新接口 | 容器内 OpenAPI 77 路径且含 `/api/v1/study-path`；未认证请求返回 401 `UNTRUSTED_CONTEXT`（路由存在，非 404） |
+| CI | run 43726542097（commit `1615efa`）单元 1173 通过、浏览器 53 通过 |
+| 回退 | `family-code-upgrade-20261115/compose.json` + 旧镜像 `sha256:6f6ad8a1…`，保留数据卷 |
+
+发布期间修过一次 CI 失败：C01 冻结场景固定了只读 Tool 源码哈希，本批同步 `study_deadline.py` 后失效；按约定把场景升到 `c01-synthetic-v2` 并记录原因，未改写场景与历史结论。
+
+证据：`learning_data/verification/study-path-release-20261115/`（`pre-state.txt`、`backup-receipt.json`、`backup-verify.json`、`deployment.json`）。
 
 ## 下一步
 
-1. 在本地家庭页实际走一遍四类步骤（续做、复习、练习、阅读），记录两视口截图与操作路径。
-2. 决定是否随下一批服务代码一起发布；发布仍需单独授权，并沿用停写备份、隔离冒烟与回表比对流程。
-3. 如决定发布，需重建 `dd-learning` 镜像并更新 `docs/releases/current-manifest.json` 的镜像与 compose 记录。
+1. 在家庭成员档上实际走一遍四类步骤（续做、复习、练习、阅读），记录两视口截图与操作路径。
+2. 观察一周：路径是否常被复习步占满 25 分钟、`next_time` 是否造成"练习总被推后"的错觉；如有，调整为按张数分配或分两次。
+3. 教师签署与课标交叉审核仍未完成，本卡片不宣称掌握度。

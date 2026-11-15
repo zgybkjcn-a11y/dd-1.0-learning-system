@@ -1,6 +1,6 @@
 # DD-1.0 当前状态与交付清单
 
-2026-11-15学习路径本地候选：家庭页新增"今天从这里开始"只读卡片，把续做、到期复习、自动进阶建议与教材阅读兜底按固定顺序合成最多四步、总建议25分钟；新增只读接口 `/api/v1/study-path` 与 `learning_service/study_path.py`，零写入、不建表、不调模型，全程不显示完成计数与掌握度。定向9项、两视口浏览器2项、相关6模块91项、扩展16模块315项、浏览器5模块10项、工具升级53项通过。**未提交、未推送、未部署**；生产仍运行代码升级后的镜像（`sha256:6f6ad8a1…`），题库仍1145题、schema14，候选批次仍未注册。验收见[STUDY-PATH-2026-11-15](../verification/STUDY-PATH-2026-11-15.md)。
+2026-11-15学习路径已发布：家庭页新增"今天从这里开始"只读卡片，把续做、到期复习、自动进阶建议与教材阅读兜底按固定顺序合成最多四步、总建议25分钟，超出预算的步骤进入下次；新增只读接口 `/api/v1/study-path` 与 `learning_service/study_path.py`，零写入、不建表、不调模型，不显示完成计数与掌握度。按用户授权发布到本机生产：镜像 `sha256:933c8ceadddf…`，Compose `learning_data/deployments/family-study-path-20261115/compose.json`；停写后一致性备份与校验通过（schema14、integrity ok、外键0），切换后 `/health`、`/learning/ui` 正常，50张表逐行哈希与备份一致，1145题、99次作答、schema14不变；proxy 与 open-webui 未重启。CI run 43726542097（commit `1615efa`）单元1173、浏览器53通过。回退用11-15代码升级Compose与旧镜像 `6f6ad8a1…`。验收见[STUDY-PATH-2026-11-15](../verification/STUDY-PATH-2026-11-15.md)。
 
 2026-11-15生产升级：按用户授权把 `ea95d1b` 的服务代码部署到本机生产（api/worker/gateway 镜像 `sha256:6f6ad8a1…`，Compose `learning_data/deployments/family-code-upgrade-20261115/compose.json`）。切换前停写并完成一致性备份与校验（schema14、integrity ok、外键错误 0），切换后 `/health`、WebUI、proxy 正常，50 张表逐行哈希与备份完全一致；1145 题、99 次作答、schema14 不变。学科覆盖清单由 subject-v5 切到 v16、数学覆盖由 v13 切到 v15（行数仍 276/53），下册八批候选仍未注册未安装，未导入题目、未迁移数据库、未调用外部模型/OCR/embedding、C01 未启动。回退用 11-12 Compose 与旧镜像 `6014a237…`，保留当前数据卷。验收见[代码升级报告](../verification/CODE-UPGRADE-2026-11-15.md)。
 

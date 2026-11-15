@@ -2,16 +2,16 @@
   "schema": "dd-current-delivery-manifest-v1",
   "task_id": "SUBJECT-GAPS-2026-11-12",
   "observed_at": "2026-11-12T16:59:29+08:00",
-  "updated_at": "2026-11-15T08:10:00Z",
+  "updated_at": "2026-11-15T15:55:00Z",
   "timezone": "Asia/Shanghai",
   "path_base": "repository_root",
   "unknown_policy": "null 表示未核对或未知，具体原因见相邻说明；历史事实不冒充本次运行验收。",
   "state_document": "docs/releases/current-state.md",
   "verification_report": "docs/verification/SUBJECT-GAPS-2026-11-12.md",
   "observation_record": {
-    "path": "learning_data/verification/code-upgrade-20261115/deployment.json",
-    "sha256": "58c6e8d2490b85affd3c430d74624878b138b91a6589d03153087f60c121bad4",
-    "timestamp_basis": "post-deployment container and health capture"
+    "path": "learning_data/verification/study-path-release-20261115/deployment.json",
+    "sha256": "789d02bb1f759bfda423c18a863a59ce3b2febc68f9bf8feb2069ffa49ae9d7a",
+    "timestamp_basis": "post-deployment container, backup and health capture"
   },
   "workspace": {
     "branch": "main",
@@ -146,40 +146,37 @@
   "components": {
     "family_service": {
       "state": "deployed_verified",
-      "checked_at": "2026-11-15T08:09:15Z",
-      "image_id": "sha256:6f6ad8a1b29d0035df0ecf4bf49399924ac2e61f551e1287b57d3f17955f6d86",
+      "checked_at": "2026-11-15T15:55:00Z",
+      "image_id": "sha256:933c8ceadddf79d6d07b3b41edb44494c4100e1ff61813629f493fa3048b5f36",
       "image_id_scope": [
         "learning-api",
         "learning-worker",
         "learning-gateway"
       ],
-      "gateway_image_id": "sha256:6f6ad8a1b29d0035df0ecf4bf49399924ac2e61f551e1287b57d3f17955f6d86",
+      "gateway_image_id": "sha256:933c8ceadddf79d6d07b3b41edb44494c4100e1ff61813629f493fa3048b5f36",
       "compose": {
-        "path": "learning_data/deployments/family-code-upgrade-20261115/compose.json",
-        "sha256": "1a42db9eb540cd24ef5b55e6f0980cc301d71e918168dbba5cc9b4986bd9bf09"
+        "path": "learning_data/deployments/family-study-path-20261115/compose.json",
+        "sha256": "30ea04b8050f31ccfa297b315a061b5c3594a3783886313aa88b98a58bca3f99"
       },
       "containers": [
         {
           "name": "dd-family-math-learning-api-1",
-          "image": "sha256:6f6ad8a1b29d0035df0ecf4bf49399924ac2e61f551e1287b57d3f17955f6d86",
+          "image": "sha256:933c8ceadddf79d6d07b3b41edb44494c4100e1ff61813629f493fa3048b5f36",
           "state": "running",
-          "started_at": "2026-11-15T08:09:07.496860017Z",
           "health": "healthy",
           "status": "running"
         },
         {
           "name": "dd-family-math-learning-worker-1",
-          "image": "sha256:6f6ad8a1b29d0035df0ecf4bf49399924ac2e61f551e1287b57d3f17955f6d86",
+          "image": "sha256:933c8ceadddf79d6d07b3b41edb44494c4100e1ff61813629f493fa3048b5f36",
           "state": "running",
-          "started_at": "2026-11-15T08:09:14.689492164Z",
           "health": null,
           "status": "running"
         },
         {
           "name": "dd-family-math-learning-gateway-1",
-          "image": "sha256:6f6ad8a1b29d0035df0ecf4bf49399924ac2e61f551e1287b57d3f17955f6d86",
+          "image": "sha256:933c8ceadddf79d6d07b3b41edb44494c4100e1ff61813629f493fa3048b5f36",
           "state": "running",
-          "started_at": "2026-11-15T08:09:14.239114911Z",
           "health": null,
           "status": "running"
         }
@@ -205,12 +202,9 @@
         "learning_data/verification/code-upgrade-20261115/deployment.json"
       ],
       "rollback": {
-        "previous_compose": "learning_data/deployments/family-textbook-completion-20261112/compose.json",
-        "previous_api_worker_image_id": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
-        "previous_gateway_image_id": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
-        "backup": "learning_data/verification/code-upgrade-20261115/private/snapshot",
-        "status": "same_schema_keep_current_data",
-        "instructions": "保留当前数据卷与新增写入；用上一版 Compose 恢复三个家庭服务镜像，不用备份覆盖新数据。"
+        "image_id": "sha256:6f6ad8a1b29d0035df0ecf4bf49399924ac2e61f551e1287b57d3f17955f6d86",
+        "compose": "learning_data/deployments/family-code-upgrade-20261115/compose.json",
+        "previous_image_retained": true
       },
       "runtime_source_identity": {
         "kind": "git_commit_working_tree_build",
@@ -3255,23 +3249,23 @@
     }
   ],
   "latest_deployment": {
-    "recorded_at": "2026-11-12T22:30:24.047623+08:00",
+    "recorded_at": "2026-11-15T23:55:00+08:00",
     "state": "deployed_verified",
-    "evidence_directory": "learning_data/verification/textbook-completion-20261112",
-    "compose": "learning_data/deployments/family-textbook-completion-20261112/compose.json",
-    "compose_sha256": "78af49ccb0d3e57079970e1e37234384ae8614d6dd0e12705a0989b5e1c60248",
+    "evidence_directory": "learning_data/verification/study-path-release-20261115",
+    "compose": "learning_data/deployments/family-study-path-20261115/compose.json",
+    "compose_sha256": "30ea04b8050f31ccfa297b315a061b5c3594a3783886313aa88b98a58bca3f99",
     "source_manifest": "learning_data/releases/textbook-completion-20261112-final/manifest.json",
     "source_profile": "reuse-runtime-textbook-completion-v12",
     "source_files": 134,
     "source_set_sha256": "4ebfaede6a2b5605f3f23c7fb2bc3d7784638b9b893227f1bfefa8ba0ac108e7",
     "archive_sha256": "fb59e665812f1bca8c4ef66201f15da9f6030878ffb3bc5b3f2036f3138ab7c4",
-    "runtime_image": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
+    "runtime_image": "sha256:933c8ceadddf79d6d07b3b41edb44494c4100e1ff61813629f493fa3048b5f36",
     "runtime_image_scope": [
       "learning-api",
       "learning-worker",
       "learning-gateway"
     ],
-    "gateway_image": "sha256:6014a23756647d72fea8afaa074fc05b4fab7cff6e804d570bc34cc23e21c6f6",
+    "gateway_image": "sha256:933c8ceadddf79d6d07b3b41edb44494c4100e1ff61813629f493fa3048b5f36",
     "changed_services": [
       "learning-api",
       "learning-worker",
@@ -3311,7 +3305,7 @@
     "c01": "four_containers_exited",
     "subject_coverage_version": "subject-coverage-v5-language-gaps-2026-11-12",
     "local_coverage_candidates_published": false,
-    "report": "docs/verification/TEXTBOOK-COMPLETION-2026-11-12.md",
+    "report": "docs/verification/STUDY-PATH-2026-11-15.md",
     "unit_integration_release_checks": 66,
     "compatibility_checks": 99,
     "test_groups_overlap": true,
@@ -3320,9 +3314,13 @@
       1280
     ],
     "browser_checks": 2,
-    "data_preservation": "learning_data/verification/textbook-completion-20261112/data-preservation.json",
+    "data_preservation": {
+      "tables_compared": 50,
+      "mismatched_tables": 0,
+      "method": "live learning.db 与一致性备份逐表行哈希比较"
+    },
     "final_health_evidence": "learning_data/verification/textbook-completion-20261112/health-after.json",
-    "change": "add seven current PEP lower textbooks for original page reading; preserve all existing questions, learning data and unpublished quality candidates"
+    "change": "deploy the read-only today's study path: new GET /api/v1/study-path and the family home card"
   },
   "component_history_reference": "learning_data/verification/deploy-c01-20261108T162720Z/manifest-before-final-reconciliation.json",
   "compatibility_history": [
