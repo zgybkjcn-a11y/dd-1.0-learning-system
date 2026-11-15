@@ -1,6 +1,6 @@
 {
   "schema": "dd-c01-offline-scenarios-v1",
-  "version": "c01-synthetic-v1",
+  "version": "c01-synthetic-v2",
   "prepared_on": "2026-11-08",
   "state": "frozen_offline_specification",
   "author_role": "assistant",
@@ -11,7 +11,7 @@
     "webui_version": "0.12.5",
     "tool_version": "1.2.1",
     "tool_path": "deploy/open-webui-reuse/readonly_study_tools.py",
-    "tool_sha256": "3da7d6a0b9a6575c7fd89e62daf92afde1cce91f3af6cc6c8d0dfe5c0ccb504b",
+    "tool_sha256": "e6623328ccf7202739559ed728c246f606977786249a9b0df13ba4b5156c93e0",
     "schema_revision": 13,
     "archive_sha256": "4b7b5282b9d786725a7683e817598f0fa12380ccbfdc8a281d021f08ad876187",
     "static_manifest_path": "learning_data/verification/b11-host-compatibility-20261108T134454Z/static-packet/manifest.json",
@@ -1101,5 +1101,7 @@
     "reviewer": null,
     "score": null,
     "cost": null
-  }
+  },
+  "refrozen_on": "2026-11-15",
+  "refreeze_reason": "只读Tool源码中的内嵌 study_deadline 副本加入 /api/v1/study-path 预算路径，六只读方法的规格、参数与返回契约未变；据此重新冻结工具哈希，未重跑或改写任何C01场景、夹具与既有验收结论，生产Tool仍为1.2.1（sha256:3da7d6a0…）未升级。"
 }
