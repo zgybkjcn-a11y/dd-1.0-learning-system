@@ -99,6 +99,11 @@ def test_study_support_in_authenticated_family_workbench(reference_family,tmp_pa
         # Leave a previous scope's response pending while opening biology.
         delay[0]=True;page.locator('#textbookChapter').select_option('2')
         page.wait_for_function('document.getElementById("studySupportStatus").textContent.includes("正在")')
+        # The status is painted when the request starts; the route handler
+        # records it a moment later, so poll briefly instead of racing.
+        for _ in range(100):
+            if pending: break
+            page.wait_for_timeout(50)
         assert pending
         page.locator('#textbookSubject').select_option('biology')
         expect(page.locator('#studySteps')).to_contain_text('观察结构')

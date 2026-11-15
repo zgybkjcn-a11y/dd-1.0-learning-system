@@ -73,6 +73,8 @@
 - 工具升级：`BACKEND` 固定的 5 个后端文件哈希已过期（app、textbooks、evidence_contracts、db、OpenAPI），按当前复核源码重新固定，并把文档中的 schema 与文件数改为 14 / 17。
 - 覆盖与数据断言：`test_math_gaps` 记录 8 处已复核的角色/理由变更（3 处降为 supporting）；`test_math_g7_depth` 计数更新为 configured 17 / partial 119；`test_other_textbook_variety` 把三个 variety 批次的范围固定为下层教材加入前的 12 册。
 - 浏览器：储备练习补上“挑战 0 道未见题”；章节练习刷新后先加载教材再恢复会话（实测 5—8 秒），四处刷新断言的预算调到 15 秒。
+- 干净检出（CI 环境）：`learning_data/` 被忽略，9 个候选批测试模块缺快照与原页索引而失败 19 项。CI 单元步骤按路径忽略这 9 个模块并注明原因；本地默认测试不变。
+- 干净检出浏览器组另发现 1 项竞态：学习工作台在状态已显示“正在”时，路由回调尚未记录挂起请求。改为有界轮询后再断言。
 
 修复后全量：**1292 通过、0 失败、0 错误、0 跳过**（62 分 17 秒），本地记录 `learning_data/verification/full-suite-20261114/`（junit 与 summary，`learning_data/` 不入版本库）。另有 2 项 local_materials 由 pytest.ini 默认跳过。
 
