@@ -4,7 +4,7 @@
 
 ## 2026-11-09当前维护候选
 
-当前Tool1.2.1 SHA256为 `3da7d6a0b9a6575c7fd89e62daf92afde1cce91f3af6cc6c8d0dfe5c0ccb504b`；脚本固定schema14相容后端17文件，六方法规格/metadata仍逐阶段核验。`tests/fixtures/readonly_study_tool_121_native.json` 与旧120证据分开，53项维护检查和原生升级/回退/缓存刷新通过。
+已部署 Tool 1.2.1 SHA256 仍为 `3da7d6a0b9a6575c7fd89e62daf92afde1cce91f3af6cc6c8d0dfe5c0ccb504b`；2026-11-15 本地候选源码随今日学习路径同步内嵌 `study_deadline.py` 后为 `e6623328ccf7202739559ed728c246f606977786249a9b0df13ba4b5156c93e0`，**尚未升级到生产**，脚本与 native 证据已按候选重固定。脚本固定schema14相容后端17文件，六方法规格/metadata仍逐阶段核验。`tests/fixtures/readonly_study_tool_121_native.json` 与旧120证据分开，53项维护检查和原生升级/回退/缓存刷新通过。
 
 正式操作先把API/worker/gateway迁至99文件候选及schema14、发布9静态资源，再对同一个Tool ID执行prepare/dry-run/apply/verify，保留归属、配置、分享和历史。当前入口已重新开放；不能直接用维护前快照覆盖新增数据，也不能用旧应用读schema14。完整备份与后续回退边界见上方部署验收。
 
