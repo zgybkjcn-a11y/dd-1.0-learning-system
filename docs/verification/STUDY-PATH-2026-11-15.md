@@ -101,6 +101,24 @@
 - 回归：`test_placements_load_the_chapter_bank_once`（一次请求内题库装载次数 ≤ 1）、`test_bulk_placements_match_the_single_lookup`（批量结果与逐个查询逐项相等）。
 - 只读 Tool：Tool 源码未变，`CANDIDATE_SHA256` 与 C01 冻结场景不变；只重新固定 `BACKEND` 里的 `learning_service/textbooks.py`。
 
+### 验证与生产发布（2026-11-16）
+
+| 项目 | 结果 |
+| --- | --- |
+| 本地浏览器回归 | `test_chapter_batches_in_family_browser[1280]` 通过 11:06（修复前 4:19 失败、15:22 失败） |
+| 本地单元/契约回归 | 23 个模块 427 项通过 |
+| CI | run 43794230563（commit `0f28b95`）单元 1175 通过、浏览器 53 通过；同用例由 722 秒降到 373 秒 |
+| 镜像 | `dd-learning:study-path-fix-20261116` = `sha256:539a0dc2e7b0…` |
+| 隔离冒烟 | 生产数据副本在 `127.0.0.1:31998`：`/health` ok、schema14、1145 题、77 路径；接口冷 0.787 秒、热 0.013 秒 |
+| 停写与备份 | 三容器停止后备份至 `learning_data/verification/study-path-fix-20261116/private/snapshot`，回执 passed，校验 schema14 / integrity ok / 外键 0 |
+| Compose | `learning_data/deployments/family-study-path-fix-20261116/compose.json`（`21b350a2…`），仅换 api/worker/gateway |
+| 切换后验收 | `/health` `{"status": true}`、`/learning/ui` 303、api healthy、worker/gateway running；proxy 与 open-webui 未重启 |
+| 数据保全 | live 库与备份逐表行哈希：50 表、0 不一致；1145 题、99 次作答、2 名学习者、schema14 不变 |
+| 新接口 | 容器内 OpenAPI 77 路径含 `/api/v1/study-path`；未认证请求 401 `UNTRUSTED_CONTEXT` |
+| 回退 | `family-study-path-20261115/compose.json` + 旧镜像 `sha256:933c8ceadddf…`，保留数据卷 |
+
+证据：`learning_data/verification/study-path-fix-20261116/`（`pre-state.txt`、`backup-receipt.json`、`backup-verify.json`、`deployment.json`）。
+
 ## 下一步
 
 1. 在家庭成员档上实际走一遍四类步骤（续做、复习、练习、阅读），记录两视口截图与操作路径。
