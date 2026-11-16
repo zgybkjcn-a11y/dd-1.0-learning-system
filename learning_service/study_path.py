@@ -63,9 +63,13 @@ def _due_cards(conn, learner_id, now):
 
 
 def _available(conn, learner_id, book_id, chapter_id):
-    """Installed question versions placed in the given textbook scope."""
-    from .practice import question
-    from .textbooks import practice_scope
+    """Installed question versions placed in the given textbook scope.
+
+    Placement is resolved for every approved version at once: the chapter bank
+    is intentionally uncached, so asking `practice_scope` per version loads and
+    verifies the whole bank hundreds of times per request.
+    """
+    from .textbooks import practice_scopes
 
     rows = conn.execute(
         'SELECT v.id FROM question_versions v JOIN questions q ON q.id=v.question_id '
@@ -75,14 +79,12 @@ def _available(conn, learner_id, book_id, chapter_id):
         "WHERE v.approval='approved' AND q.approval='approved' "
         'AND (q.visibility=? OR q.learner_id=?)',
         (learner_id, 'shared', learner_id)).fetchall()
-    count = 0
-    for row in rows:
-        item = question(row['id'])
-        placed = practice_scope(row['id']) or (item and {
-            'book_id': item['book_id'], 'chapter_id': item['chapter_id']})
-        if placed and placed['book_id'] == book_id and (not chapter_id or placed['chapter_id'] == chapter_id):
-            count += 1
-    return count
+    if not rows:
+        return 0
+    scopes = practice_scopes([row['id'] for row in rows])
+    return sum(1 for row in rows
+               if (scope := scopes.get(row['id'])) and scope['book_id'] == book_id
+               and (not chapter_id or scope['chapter_id'] == chapter_id))
 
 
 def _guidance(conn, learner_id, scope):

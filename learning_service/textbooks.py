@@ -559,6 +559,17 @@ def catalogue(curriculum_id):
     return deepcopy([book for book in BOOKS if book['grade']==grade])
 
 
+def _starter_scope(question_version_id):
+    for objective, count, book in [
+        ('objective-math-g2-multiplication', 4, 'math-g2-upper'),
+        ('objective-math-g7-subtract-negative-v1', 6, 'math-g7-upper'),
+    ]:
+        for index in range(1, count + 1):
+            if question_version_id == f'family-starter-{objective}-{index}-v1':
+                return {'book_id': book, 'chapter_id': '2' if index == 1 or book == 'math-g7-upper' else '5'}
+    return None
+
+
 def practice_scope(question_version_id):
     """Explicit placements of existing authored versions, never inferred from OCR.
 
@@ -569,14 +580,35 @@ def practice_scope(question_version_id):
     from .practice import placement
     curated = placement(question_version_id)
     if curated: return curated
-    for objective, count, book in [
-        ('objective-math-g2-multiplication', 4, 'math-g2-upper'),
-        ('objective-math-g7-subtract-negative-v1', 6, 'math-g7-upper'),
-    ]:
-        for index in range(1, count + 1):
-            if question_version_id == f'family-starter-{objective}-{index}-v1':
-                return {'book_id': book, 'chapter_id': '2' if index == 1 or book == 'math-g7-upper' else '5'}
-    return None
+    return _starter_scope(question_version_id)
+
+
+def practice_scopes(question_version_ids):
+    """The same placements for many versions, loading each authored bank once.
+
+    `practice_scope` re-reads and re-verifies the chapter bank on every call
+    (it is deliberately uncached so an edited bank cannot pass unnoticed), so
+    a caller that needs hundreds of placements must ask once here instead.
+    """
+    from .practice import bank as practice_bank
+
+    ids = list(question_version_ids)
+    chapters = {}
+    if any(item.startswith('family-chapter-') for item in ids):
+        from .chapter_practice import bank as chapter_bank
+        chapters = chapter_bank()
+    core, reserve = practice_bank(), None
+    scopes = {}
+    for version_id in ids:
+        item = chapters.get(version_id) or core.get(version_id)
+        if item is None and version_id.startswith('family-reserve-'):
+            if reserve is None:
+                from .reserve_practice import bank as reserve_bank
+                reserve = reserve_bank() or {}
+            item = reserve.get(version_id)
+        scopes[version_id] = ({'book_id': item['book_id'], 'chapter_id': item['chapter_id']}
+                              if item else _starter_scope(version_id))
+    return scopes
 
 
 def learning_scope(curriculum_id, book_id, chapter_id=None):

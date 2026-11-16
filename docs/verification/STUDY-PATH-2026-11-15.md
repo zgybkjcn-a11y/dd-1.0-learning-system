@@ -87,6 +87,20 @@
 
 证据：`learning_data/verification/study-path-release-20261115/`（`pre-state.txt`、`backup-receipt.json`、`backup-verify.json`、`deployment.json`）。
 
+## 发布后修正（2026-11-16）：放置查询改为每次请求只装载一次
+
+本地全量回归唯一的失败是 `tests/test_chapter_practice_browser.py::test_chapter_batches_in_family_browser[1280]`：点击档案卡后 `#textbookSubject` 持续为空且禁用，30 秒超时。CI 同一用例两个视口都通过，属于本机时序下才越线的耗时问题，不是路由错误。
+
+定位：`study_path._available()` 对每个已批准题版各调用一次 `practice_scope()`/`question()`，而 `chapter_practice.bank()` 是刻意不缓存的（每次都读盘并校验 sha256）。家庭库有 418 个已批准版本，等于一次请求把整套章节题库重复装载数百次。生产库副本上实测 `compose` 为 4.4–6.4 秒；`loadToday` 在等待期间保持 `gameLoadingChoices`，课本下拉框全程禁用，最终超过 Playwright 的 30 秒上限。
+
+修正：
+
+- `learning_service/textbooks.py`：新增 `practice_scopes()`，一次装载章节/核心/备用题库后批量给出放置；起始题规则提取为 `_starter_scope()`，`practice_scope()` 的语义与返回值不变。
+- `learning_service/study_path.py`：`_available()` 改用 `practice_scopes()` 一次性解析。
+- 实测（同一生产库副本）：冷启动 0.65 秒、热 0.01–0.06 秒；修复前 4.4–6.4 秒。
+- 回归：`test_placements_load_the_chapter_bank_once`（一次请求内题库装载次数 ≤ 1）、`test_bulk_placements_match_the_single_lookup`（批量结果与逐个查询逐项相等）。
+- 只读 Tool：Tool 源码未变，`CANDIDATE_SHA256` 与 C01 冻结场景不变；只重新固定 `BACKEND` 里的 `learning_service/textbooks.py`。
+
 ## 下一步
 
 1. 在家庭成员档上实际走一遍四类步骤（续做、复习、练习、阅读），记录两视口截图与操作路径。

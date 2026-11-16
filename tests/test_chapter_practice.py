@@ -124,6 +124,19 @@ def test_each_chapter_can_launch_and_representative_answers_grade(family):
     assert len(seen) == 98 and len(graded_subjects) == 7
 
 
+def test_bulk_placements_match_the_single_lookup():
+    """One-bank-per-request lookup must agree with the per-version rule."""
+    from learning_service.reserve_practice import bank as reserve_bank
+    from learning_service.textbooks import practice_scopes
+
+    ids = (list(chapter.bank())[:40] + list(bank())[:20] + list(reserve_bank())[:5]
+           + ['family-starter-objective-math-g2-multiplication-1-v1',
+              'family-starter-objective-math-g7-subtract-negative-v1-6-v1',
+              'family-starter-objective-math-g2-multiplication-9-v1'])
+    scopes = practice_scopes(ids)
+    assert scopes == {question_id: practice_scope(question_id) for question_id in ids}
+
+
 def test_tampered_bank_and_stored_version_fail_closed(family, tmp_path, monkeypatch):
     _, db, api, headers = family
     chapter.install(db, 'math')

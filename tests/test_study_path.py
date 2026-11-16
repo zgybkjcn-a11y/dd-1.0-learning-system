@@ -205,6 +205,32 @@ def test_resume_disappears_once_the_item_is_graded(family):
     assert 'resume' not in kinds
 
 
+def test_placements_load_the_chapter_bank_once(family, monkeypatch):
+    """The chapter bank is uncached by design, so one request must ask it once.
+
+    Counting the placements per version made this endpoint reload and re-verify
+    the whole bank for every approved question (about four seconds on the family
+    database), which kept the page's textbook selector disabled while loading.
+    """
+    from learning_service import chapter_practice
+
+    _, db, client, headers = family
+    chapter_practice.install(db, 'math')
+    sample = next(q for q in chapter_practice.bank('math').values() if q['book_id'].startswith('math-g2'))
+    calls = []
+    original = chapter_practice.bank
+
+    def counting(*args, **kwargs):
+        calls.append(args)
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(chapter_practice, 'bank', counting)
+    assert set_scope(client, headers, 2, sample['book_id'], sample['chapter_id']).status_code == 200
+    data = client.get(PATH, headers=headers_for(headers, 2)).json()
+    assert [step['kind'] for step in data['steps']] == ['practice']
+    assert len(calls) <= 1
+
+
 def test_untrusted_caller_is_rejected(family):
     _, _, client, _ = family
     response = client.get(PATH)
