@@ -21,19 +21,18 @@ def _parse(raw):
     return data
 
 
-def report(curriculum, available_ids):
+def report(curriculum, available_ids, questions=None):
     raw = PATH.read_bytes()
     if PATH.is_symlink() or hashlib.sha256(raw).hexdigest() != SHA256:
         raise ValueError('coverage plan changed')
     data = _parse(raw)
-    return render_report(data,curriculum,available_ids)
+    return render_report(data,curriculum,available_ids,questions)
 
 
-def render_report(data,curriculum,available_ids):
-    from .practice import bank
-    from .reserve_practice import bank as reserves
-    from .chapter_practice import bank as chapters
-    questions = bank() | reserves() | chapters()
+def render_report(data,curriculum,available_ids,questions=None):
+    if questions is None:
+        from .practice import banks
+        questions = banks()
     books = {b['id']: b for b in catalogue(curriculum)}
     result = []
     for row in data['rows']:

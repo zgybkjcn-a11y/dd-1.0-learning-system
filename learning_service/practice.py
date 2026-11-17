@@ -277,8 +277,37 @@ def question(version_id: str):
     return item
 
 
-def metadata(version_id: str):
-    item = question(version_id)
+def questions(version_ids):
+    """Bulk `question()`: each authored bank is loaded and verified once.
+
+    The chapter and reserve banks are deliberately uncached, so asking
+    `question` per version re-reads every bank file hundreds of times.
+    """
+    ids = list(version_ids)
+    chapters, reserve = {}, {}
+    if any(version_id.startswith('family-chapter-') for version_id in ids):
+        from .chapter_practice import bank as chapter_bank
+        chapters = chapter_bank()
+    if any(version_id.startswith('family-reserve-') for version_id in ids):
+        from .reserve_practice import bank as reserve_bank
+        reserve = reserve_bank()
+    core = bank()
+    return {version_id: chapters.get(version_id) or core.get(version_id) or reserve.get(version_id)
+            for version_id in ids}
+
+
+def banks():
+    """Every authored question version, each bank file read and verified once.
+
+    Callers that need the whole inventory (the coverage reports, for example)
+    share one dict instead of asking each module to load its bank again.
+    """
+    from .chapter_practice import bank as chapter_bank
+    from .reserve_practice import bank as reserve_bank
+    return bank() | chapter_bank() | reserve_bank()
+
+
+def metadata_for(version_id: str, item):
     if not item: return None
     if version_id.startswith('family-chapter-'):
         from .chapter_practice import metadata as chapter_metadata
@@ -288,6 +317,10 @@ def metadata(version_id: str):
         return reserve_metadata(item)
     from .practice_design import presentation
     return {k: item[k] for k in ('title', 'difficulty', 'extension', 'source')} | presentation(item)
+
+
+def metadata(version_id: str):
+    return metadata_for(version_id, question(version_id))
 
 
 def numeric_answer(raw: str, units: list[str]) -> Fraction | None:
@@ -358,7 +391,8 @@ def guidance(records: list[dict]) -> dict:
     return {'difficulty': LEVELS[level], 'streak': streak, 'reason': reason}
 
 
-def learner_guidance(conn, learner_id: str) -> dict:
+def learner_guidance(conn, learner_id: str, questions=None) -> dict:
+    """Difficulty guidance per book/chapter; `questions` reuses a bulk caller's load."""
     from .practice_design import presentation
     records = conn.execute(
         "SELECT ti.question_version_id,a.assistance,a.assessment_eligibility,g.outcome "
@@ -367,7 +401,8 @@ def learner_guidance(conn, learner_id: str) -> dict:
         "WHERE a.learner_id=? AND a.status='graded' ORDER BY a.submitted_at,a.rowid", (learner_id,)).fetchall()
     scoped = {}
     for row in records:
-        q = question(row['question_version_id'])
+        version_id = row['question_version_id']
+        q = question(version_id) if questions is None else questions.get(version_id)
         if not q: continue
         for key in (q['book_id'] + '|', q['book_id'] + '|' + q['chapter_id']):
             scoped.setdefault(key, []).append({**dict(row), 'difficulty': presentation(q).get('difficulty', q['difficulty'])})

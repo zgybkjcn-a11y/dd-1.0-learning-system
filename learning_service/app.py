@@ -24,7 +24,9 @@ from starlette.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
 
 from .config import Settings
-from .practice import (metadata as practice_metadata, learner_guidance, grade_numeric,
+from .practice import (metadata_for as practice_metadata_for,
+                       banks as practice_banks, questions as practice_questions,
+                       learner_guidance, grade_numeric,
                        CollectionError, collection_preview, saved_review_choices,
                        question_snapshot, frozen_question, workspace_state, update_workspace,
                        prepare_workspace_session, attach_workspace_session)
@@ -44,6 +46,7 @@ from .browser_auth import AuthError, BrowserSessions, CSRF_COOKIE, SESSION_COOKI
 from .learner_context import ContextConflict, read_context, select_context
 from .variant_review import VariantReviewRequest, VariantRevokeRequest, fingerprint as variant_fingerprint, checked_draft, publish as publish_variant, review_audit
 from .textbooks import (practice_scope as textbook_practice_scope,
+                        practice_scopes_from as textbook_practice_scopes_from,
                         learning_scope as textbook_learning_scope)
 
 
@@ -63,17 +66,17 @@ FORBIDDEN_AGENT_ACTIONS = {
 }
 
 
-def _validate_reserve_version(conn, question_version_id):
+def _validate_reserve_version(conn, question_version_id, questions=None):
     if question_version_id.startswith('family-chapter-'):
         from .chapter_practice import validate_installed
         try:
-            validate_installed(conn, question_version_id)
+            validate_installed(conn, question_version_id, questions)
         except (OSError, ValueError, KeyError, TypeError):
             raise APIError(503, 'PRACTICE_CHAPTER_UNAVAILABLE', '章节练习版本校验未通过，请稍后重试')
     if question_version_id.startswith('family-reserve-'):
         from .reserve_practice import validate_installed
         try:
-            validate_installed(conn, question_version_id)
+            validate_installed(conn, question_version_id, questions)
         except (OSError, ValueError, KeyError, TypeError):
             raise APIError(503, 'PRACTICE_RESERVE_UNAVAILABLE', '备用题版本校验未通过，请稍后重试')
 
@@ -4471,33 +4474,48 @@ def create_app(settings: Settings | None = None, database: Database | None = Non
             objectives = conn.execute(
                 "SELECT o.id,o.title FROM review_objectives o JOIN knowledge_points k ON k.id=o.knowledge_point_id "
                 "JOIN learners l ON l.curriculum_id=k.curriculum_id WHERE l.id=? ORDER BY o.id", (learner_id,)).fetchall()
+            version_ids = [row['question_version_id'] for row in rows]
+            # One verified read of each authored bank for the whole request: candidates,
+            # placement, validation, guidance and both coverage reports share it. A bank
+            # that is not part of this deployment (the reserve trial set, for example)
+            # must not block candidates that never reference it.
             try:
-                practice_guidance = learner_guidance(conn, learner_id)
+                loaded_banks = practice_banks()
+                loaded = {version_id: loaded_banks.get(version_id) for version_id in version_ids}
+            except (OSError, ValueError, KeyError, TypeError):
+                loaded_banks = None
+                try:
+                    loaded = practice_questions(version_ids)
+                except (OSError, ValueError, KeyError, TypeError):
+                    raise APIError(503, 'PRACTICE_UNAVAILABLE', '练习题版本校验未通过，请稍后重试')
+            try:
+                practice_guidance = learner_guidance(conn, learner_id, loaded_banks)
             except (OSError, ValueError, KeyError, TypeError):
                 raise APIError(503, 'PRACTICE_UNAVAILABLE', '练习题版本校验未通过，请稍后重试')
             items = []
+            scopes = textbook_practice_scopes_from(loaded)
             for row in rows:
+                version_id = row['question_version_id']
                 try:
-                    info = practice_metadata(row['question_version_id'])
+                    info = practice_metadata_for(version_id, loaded.get(version_id))
                 except (OSError, ValueError, KeyError, TypeError):
                     raise APIError(503, 'PRACTICE_UNAVAILABLE', '练习题版本校验未通过，请稍后重试')
-                if row['question_version_id'].startswith('family-chapter-'):
-                    _validate_reserve_version(conn, row['question_version_id'])
-                if row['question_version_id'].startswith('family-reserve-'):
+                if version_id.startswith('family-chapter-'):
+                    _validate_reserve_version(conn, version_id, loaded)
+                if version_id.startswith('family-reserve-'):
                     from .reserve_practice import unseen
-                    _validate_reserve_version(conn, row['question_version_id'])
-                    info['reserve_unseen'] = unseen(conn, learner_id, row['question_version_id'])
-                items.append({**dict(row),
-                              'textbook_scope': textbook_practice_scope(row['question_version_id']), 'practice': info})
+                    _validate_reserve_version(conn, version_id, loaded)
+                    info['reserve_unseen'] = unseen(conn, learner_id, version_id)
+                items.append({**dict(row), 'textbook_scope': scopes.get(version_id), 'practice': info})
             curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
             from .practice_coverage import report as coverage_report
             try:
-                coverage = coverage_report(curriculum, {item['question_version_id'] for item in items})
+                coverage = coverage_report(curriculum, {item['question_version_id'] for item in items}, loaded_banks)
             except (OSError, ValueError, KeyError, TypeError):
                 coverage = {'status': 'unavailable', 'items': []}
             from .subject_coverage import report as subject_report
             try:
-                subject_coverage=subject_report(curriculum,{item['question_version_id'] for item in items})
+                subject_coverage=subject_report(curriculum,{item['question_version_id'] for item in items},loaded_banks)
             except (OSError,ValueError,KeyError,TypeError):
                 subject_coverage={'status':'unavailable','items':[]}
         return {"items": items, "coverage_plan": coverage, "subject_coverage_plan":subject_coverage,

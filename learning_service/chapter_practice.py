@@ -140,8 +140,9 @@ def metadata(q):
         'chapter_supplement': True, 'teacher_reviewed': False, 'batch': q['batch']} | presentation(q)
 
 
-def validate_installed(conn, version_id):
-    q = bank().get(version_id)
+def validate_installed(conn, version_id, questions=None):
+    """Verify one installed version; `questions` lets a bulk caller reuse its load."""
+    q = (bank() if questions is None else questions).get(version_id)
     row = conn.execute('SELECT v.*,q.objective_id,q.visibility,q.approval AS question_approval,'
                        'k.curriculum_id,o.knowledge_point_id FROM question_versions v '
                        'JOIN questions q ON q.id=v.question_id '

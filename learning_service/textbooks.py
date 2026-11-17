@@ -583,6 +583,13 @@ def practice_scope(question_version_id):
     return _starter_scope(question_version_id)
 
 
+def practice_scopes_from(loaded):
+    """Placements for an already loaded {version_id: item} mapping."""
+    return {version_id: ({'book_id': item['book_id'], 'chapter_id': item['chapter_id']}
+                         if item else _starter_scope(version_id))
+            for version_id, item in loaded.items()}
+
+
 def practice_scopes(question_version_ids):
     """The same placements for many versions, loading each authored bank once.
 
@@ -590,25 +597,9 @@ def practice_scopes(question_version_ids):
     (it is deliberately uncached so an edited bank cannot pass unnoticed), so
     a caller that needs hundreds of placements must ask once here instead.
     """
-    from .practice import bank as practice_bank
+    from .practice import questions
 
-    ids = list(question_version_ids)
-    chapters = {}
-    if any(item.startswith('family-chapter-') for item in ids):
-        from .chapter_practice import bank as chapter_bank
-        chapters = chapter_bank()
-    core, reserve = practice_bank(), None
-    scopes = {}
-    for version_id in ids:
-        item = chapters.get(version_id) or core.get(version_id)
-        if item is None and version_id.startswith('family-reserve-'):
-            if reserve is None:
-                from .reserve_practice import bank as reserve_bank
-                reserve = reserve_bank() or {}
-            item = reserve.get(version_id)
-        scopes[version_id] = ({'book_id': item['book_id'], 'chapter_id': item['chapter_id']}
-                              if item else _starter_scope(version_id))
-    return scopes
+    return practice_scopes_from(questions(question_version_ids))
 
 
 def learning_scope(curriculum_id, book_id, chapter_id=None):

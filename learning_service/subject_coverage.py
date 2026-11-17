@@ -31,16 +31,20 @@ def _parse(raw):
     return data
 
 
-def report(curriculum,available_ids):
+def report(curriculum,available_ids,questions=None):
     from .chapter_practice import bank
     from .textbooks import catalogue
     raw=PATH.read_bytes()
     if PATH.is_symlink() or hashlib.sha256(raw).hexdigest()!=SHA256:
         raise ValueError('subject coverage plan changed')
     data=_parse(raw)
-    result=render_report(data,curriculum,available_ids)
+    result=render_report(data,curriculum,available_ids,questions)
     books={b['id']:b for b in catalogue(curriculum)}
-    questions=bank()
+    if questions is None:
+        questions=bank()
+    else:
+        # The section inventory counts authored chapter exercises only.
+        questions={qid:q for qid,q in questions.items() if qid.startswith('family-chapter-')}
     sections=[]
     for scope in data['section_inventory']:
         if scope['book_id'] not in books:continue

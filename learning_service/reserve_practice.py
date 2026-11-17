@@ -111,8 +111,9 @@ def stored(q):
     }
 
 
-def validate_version(row):
-    q = bank().get(row['id'])
+def validate_version(row, questions=None):
+    """Verify one stored version; `questions` lets a bulk caller reuse its load."""
+    q = (bank() if questions is None else questions).get(row['id'])
     if q is None or row['objective_id'] != OBJECTIVE or row['visibility'] != 'shared':
         raise ValueError('reserve placement/ownership changed')
     expected = stored(q)
@@ -121,7 +122,7 @@ def validate_version(row):
     return q
 
 
-def validate_installed(conn, question_version_id):
+def validate_installed(conn, question_version_id, questions=None):
     row = conn.execute('SELECT v.*,q.objective_id,q.visibility,q.approval AS question_approval,'
                        'k.curriculum_id,o.knowledge_point_id FROM question_versions v '
                        'JOIN questions q ON q.id=v.question_id '
@@ -131,7 +132,7 @@ def validate_installed(conn, question_version_id):
     if (row is None or row['approval'] != 'approved' or row['question_approval'] != 'approved'
             or row['curriculum_id'] != 'math-g7-v1' or row['knowledge_point_id'] != 'kp-family-word-g7-ch2'):
         raise ValueError('reserve approval or curriculum changed')
-    return validate_version(row)
+    return validate_version(row, questions)
 
 
 def unseen(conn, learner_id, question_version_id):

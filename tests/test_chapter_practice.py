@@ -137,6 +137,56 @@ def test_bulk_placements_match_the_single_lookup():
     assert scopes == {question_id: practice_scope(question_id) for question_id in ids}
 
 
+def test_bulk_question_lookup_and_metadata_match_per_version():
+    """Bulk loading must return exactly what the per-version helpers return."""
+    from learning_service.practice import metadata, metadata_for, question, questions
+    from learning_service.reserve_practice import bank as reserve_bank
+
+    ids = (list(chapter.bank())[:40] + list(bank())[:20] + list(reserve_bank())[:5]
+           + ['family-starter-objective-math-g2-multiplication-1-v1', 'missing-version'])
+    loaded = questions(ids)
+    assert loaded == {version_id: question(version_id) for version_id in ids}
+    assert ({version_id: metadata_for(version_id, item) for version_id, item in loaded.items()}
+            == {version_id: metadata(version_id) for version_id in ids})
+
+
+def test_question_choices_loads_the_bank_once_per_request(family, monkeypatch):
+    """Candidates must not re-read the chapter bank or re-look each one up."""
+    from learning_service import practice
+
+    _, db, api, headers = family
+    chapter.install(db, 'math')
+    h = {**headers, 'X-Learner-Id': 'family-g2'}
+    answered = next(q for q in chapter.bank('math').values() if q['grade'] == 2)
+    session = api.post('/api/v1/test-sessions', headers=h, json={'question_version_id': answered['id']}).json()
+    test_item = session['items'][0]
+    token = api.post(f"/api/v1/test-items/{test_item['test_item_id']}/submission-challenges", headers=h).json()
+    answer = api.post(f"/api/v1/test-items/{test_item['test_item_id']}/answers",
+                      headers={**h, 'Idempotency-Key': answered['id']},
+                      json={'challenge_id': token['challenge_id'], 'nonce': token['nonce'],
+                            'raw_answer': answered['answer']})
+    assert answer.status_code == 202, answer.text
+    run_worker_once(db, api.app.state.settings)
+    calls = []
+    original = chapter.bank
+
+    def counting(*args, **kwargs):
+        calls.append(args)
+        return original(*args, **kwargs)
+
+    def forbid(version_id):
+        raise AssertionError('per-version lookup in question-choices: %s' % version_id)
+
+    monkeypatch.setattr(chapter, 'bank', counting)
+    monkeypatch.setattr(practice, 'question', forbid)
+    response = api.get('/api/v1/question-choices', headers=h)
+    assert response.status_code == 200, response.text
+    chapter_items = [item for item in response.json()['items']
+                     if item['question_version_id'].startswith('family-chapter-')]
+    assert len(chapter_items) > 20
+    assert len(calls) == 1, 'chapter bank loaded %d times for %d items' % (len(calls), len(chapter_items))
+
+
 def test_tampered_bank_and_stored_version_fail_closed(family, tmp_path, monkeypatch):
     _, db, api, headers = family
     chapter.install(db, 'math')
