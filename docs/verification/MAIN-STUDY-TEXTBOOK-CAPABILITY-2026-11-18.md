@@ -50,7 +50,7 @@
 | 只读工具 | `tests/test_readonly_tool_upgrade.py` 53 项、`test_runtime_passages.py` + `test_c01_tool_fixtures.py` 62 项通过 |
 | 主站浏览器 | `test_main_study_bridge.py` 1280/390 各 1 项通过；`test_main_study_host.py` 19 项通过 |
 | 全量非浏览器 | `pytest tests -q -m "not browser and not local_materials"`：**1267 通过**、55 排除，566.96 秒（文案修复后；修复前同集合 1263 通过、573.78 秒） |
-| CI | 见发布记录 |
+| CI | run 44279792862（commit `14c2cac`）：单元/契约 **1190 通过**（55 排除，179.85 秒）、浏览器 **53 通过**（651.66 秒），0 失败 |
 
 ## 生产发布（2026-11-18，用户授权）
 

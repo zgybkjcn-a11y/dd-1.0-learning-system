@@ -10,7 +10,7 @@
   "verification_report": "docs/verification/MAIN-STUDY-TEXTBOOK-CAPABILITY-2026-11-18.md",
   "observation_record": {
     "path": "learning_data/verification/main-study-capability-20261118/deployment.json",
-    "sha256": "45a795ee0054bc9790a9196bb8d16d683b04aed6582060f1d3aa6463273f17cf",
+    "sha256": "4ecb7f443a910338ae857ae4a1d07abeacf2841f80e9f2f4ca09124b17b63961",
     "timestamp_basis": "post-deployment container, backup, database, route and capability capture"
   },
   "workspace": {
@@ -3367,12 +3367,10 @@
       "question_choices_first": 1.061
     },
     "ci": {
-      "run": 44248722760,
-      "head": "1ce73348ea034cd0a8395cc576c8586d77fdd8c9",
-      "unit": "1181 passed, 55 deselected",
-      "browser": "53 passed",
-      "job_timeout_minutes": 120,
-      "note": "run 44239101847 was cancelled at the old 75-minute limit"
+      "run": 44279792862,
+      "head": "14c2cac6670286998b55f5dfac9b9820e13ec0db",
+      "unit": "1190 passed, 55 deselected",
+      "browser": "53 passed"
     },
     "static_release": {
       "recorded_at": "2026-11-18T14:53:00+08:00",
