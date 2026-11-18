@@ -12,7 +12,9 @@ permissions:
 jobs:
   synthetic-tests:
     runs-on: ubuntu-24.04
-    timeout-minutes: 75
+    # Unit/contracts take ~52 min and the browser suite ~30-40 min on
+    # ubuntu-24.04; 75 min cancelled run 44239101847 mid-browser, so allow 120.
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
         with:

@@ -38,7 +38,7 @@
 | 第四档空态 | 选中“挑战”时显示真实空态，练习链接数为 0；选“正常”时同样显示真实缺失的难度 |
 | 统一入口 | 显示当前档案与第二章节，含错题收藏入口；`study-path` 经网关返回 200 |
 | 网关边界 | 新增 `GET study-path` 转发与 `POST/PUT` 拒绝测试；未认证为 401 |
-| 全量非浏览器 | 见当日回归记录（本文件随发布更新） |
+| 全量非浏览器 | `python -m pytest tests -q -m "not browser and not local_materials"`：1258 通过，55 排除（browser/local_materials），3721.47 秒 |
 | 章节练习浏览器 | `test_chapter_practice_browser.py`、`test_challenge_tier_browser.py` 见当日回归记录 |
 
 ## 未做与边界

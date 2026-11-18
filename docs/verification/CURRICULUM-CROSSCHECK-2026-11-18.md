@@ -52,7 +52,7 @@
 - `learning_service/chapter_practice.py` 的 `BATCHES` 新增上述 9 个批次及 sha256；`chapter.bank()` 由 1074 题变为 1155 题，范围由 98 个变为 142 个。
 - 候选数据文件的 `status` 改为 `assistant_crosschecked`，顶层与逐题 `curriculum_standard_crosscheck` 记为 `assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory`，逐题 `review.deployment_status` 为 `registered_family_bank`。
 - 覆盖计划仍为 subject-v16 / math-v15，尚未把这些题目写成计划映射；因此覆盖报告里的 configured/partial/gap **不会**因本次登记自动变化，需另做计划升版。
-- 题目可从本地题库读取并安装，但生产库是否已安装以发布/部署证据为准。
+- 题目可从本地题库读取并安装。**2026-11-18 已按用户授权安装到本机生产**：9 批全部新增 81 题，正式库由 1145 题增至 1226 题（二年级可选题 418→436）；安装同时新增 44 个知识点与 44 个复核目标，审计事件 +9；停写备份、逐表比对与切换后冒烟见 `docs/verification/QUESTION-BANK-PROMOTION-2026-11-18.md`。
 - 安装入口为 `scripts/install_registered_batches.py`（`--dry-run` 只校验题库），逐批调用 `chapter.install`，只新增缺失题版，不删除或覆盖旧题、题版和使用记录。
 
 ## 局限
