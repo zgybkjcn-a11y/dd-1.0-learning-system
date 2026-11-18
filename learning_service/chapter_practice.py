@@ -42,7 +42,7 @@ BATCHES = {
 }
 
 
-@lru_cache(maxsize=16)
+@lru_cache(maxsize=64)
 def _parse(raw):
     from .practice import arithmetic, LEVELS
     from .textbooks import learning_scope, PDF_SHA256

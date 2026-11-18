@@ -25,8 +25,12 @@ def test_practice_catalogue_chapters_have_real_questions_and_all_levels():
     assert len(set(chapter.bank())-set(chapter.bank('math_gaps'))) == 1145
     assert len(chapter.bank()) == 1155
     assert len({q['prompt'] for q in chapter.bank().values()}) == 1155
+    # One bank load for all 1155 placements; the single-lookup rule is checked
+    # against it in test_bulk_placements_match_the_single_lookup.
+    from learning_service.textbooks import practice_scopes
+    scopes = practice_scopes(list(chapter.bank()))
     for q in chapter.bank().values():
-        assert practice_scope(q['id']) == {'book_id': q['book_id'], 'chapter_id': q['chapter_id']}
+        assert scopes[q['id']] == {'book_id': q['book_id'], 'chapter_id': q['chapter_id']}
         key = json.loads(chapter.stored(q)['answer_key_json'])
         if 'responses' in q:
             from learning_service.practice_response import grade_fields, grade_short_fields
