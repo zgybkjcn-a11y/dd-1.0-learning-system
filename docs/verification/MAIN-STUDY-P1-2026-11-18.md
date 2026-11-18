@@ -42,9 +42,26 @@
 | 章节练习浏览器 | CI run 44248722760（commit `1ce7334`）浏览器 53 项通过（704.06 秒），含 `test_chapter_practice_browser.py`、`test_challenge_tier_browser.py` |
 | CI | run 44248722760：单元/契约 1181 通过（55 排除，225.59 秒）、浏览器 53 通过，0 失败 |
 
+## 生产发布（2026-11-18）
+
+按用户随后授权，主站 P1 静态资源已发布到本机生产，仅重建 `learning-proxy`：
+
+| 项目 | 结果 |
+| --- | --- |
+| 静态目录 | 新发布目录 `learning_data/deployments/family-main-study-p1-20261118/assets` 挂到 `/opt/dd-main-study`；旧目录保留 |
+| 文件 | `study.js` `0955ec05…`→`9703f0f3…`；`study.css` `d276f5ce…`→`113fdfe4…`；`SOURCES.md` 补 P1 说明；`family-bridge.js`、`vendor/mermaid-11.12.1.min.js` 逐字节不变 |
+| Compose | `learning_data/deployments/family-main-study-p1-20261118/compose.json`（`9b4ccea1…`），相对上一版仅改 proxy 的静态 bind source；nginx 配置未改（`47522e68…`） |
+| 切换 | `docker compose … up -d learning-proxy`；api/worker/gateway、open-webui 与 C01 均未重启 |
+| 匿名读取 | 四个静态路由 200、no-store、MIME 正确，哈希与发布目录逐字节一致；`node --check study.js` 通过 |
+| 服务路由 | `/health` 200、`/learning/ui` 303、未认证 `question-choices` 401 |
+| 部署后浏览器 | `scripts/probe_main_study.py`（`DD_MAIN_STUDY_DEPLOYED=1`，复用线上真实静态字节、API 全部合成拦截）1280/390 两视口通过，页面错误 0、模型调用 0 |
+| 回退 | 用 `family-question-bank-cache-20261118/compose.json` 重建 `learning-proxy`，旧静态目录仍在 |
+
+证据：`learning_data/verification/main-study-p1-20261118/`（`pre-state.txt`、`post-state.txt`、`deployment.json`、`deployed-probe/`）。
+
 ## 未做与边界
 
-- 主站静态资源未发布到生产；本轮只做本地实现与合成浏览器验收，生产仍为 11-17 版本，直到另行授权。
+- P1 的两项能力已上线；浏览器探针未模拟家庭登录，挑战空态与统一入口的行为由同字节的合成浏览器用例（CI 浏览器 53 项）覆盖。
 - “教材能力状态”未实现；不向不存在的索引发请求，也不展示虚假练习覆盖。
 - 统一入口的顺序来自 `study-path` 的既有只读规则（续做 → 到期复习 → 练习/阅读 → 选范围），不代表掌握程度；未完成题切换仍由家庭页的确认流程处理。
 - 未调用外部模型/OCR/embedding，未启动 C01，真实手机验收继续暂缓。

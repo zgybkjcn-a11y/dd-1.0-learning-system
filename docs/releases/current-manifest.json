@@ -1,8 +1,8 @@
 {
   "schema": "dd-current-delivery-manifest-v1",
   "task_id": "QUESTION-BANK-PROMOTION-2026-11-18",
-  "observed_at": "2026-11-18T14:20:00+08:00",
-  "updated_at": "2026-11-18T06:20:00Z",
+  "observed_at": "2026-11-18T14:53:00+08:00",
+  "updated_at": "2026-11-18T06:53:00Z",
   "timezone": "Asia/Shanghai",
   "path_base": "repository_root",
   "unknown_policy": "null 表示未核对或未知，具体原因见相邻说明；历史事实不冒充本次运行验收。",
@@ -10,7 +10,7 @@
   "verification_report": "docs/verification/QUESTION-BANK-PROMOTION-2026-11-18.md",
   "observation_record": {
     "path": "learning_data/verification/question-bank-promotion-20261118/deployment.json",
-    "sha256": "0cbf431dc314c9e900b07c7479bcf03b653876263e18e5cea33e45f202e15d6a",
+    "sha256": "3251b4940e4bc5ebd23a30c76985e66e8f8a070713d55b7e586008c9e2c011f0",
     "timestamp_basis": "post-deployment container, backup, database and route capture; includes cache-fix follow-up"
   },
   "workspace": {
@@ -1654,6 +1654,20 @@
       "reading_only_books": 7,
       "source_manifest": "learning_data/textbooks/missing-lower-20261112/verified-source-manifest.json",
       "report": "docs/verification/TEXTBOOK-COMPLETION-2026-11-12.md"
+    },
+    "static_assets": {
+      "state": "deployed_verified",
+      "checked_at": "2026-11-18T14:53:00+08:00",
+      "directory": "learning_data/deployments/family-main-study-p1-20261118/assets",
+      "compose": {
+        "path": "learning_data/deployments/family-main-study-p1-20261118/compose.json",
+        "sha256": "9b4ccea10cacad6606d48ffa76715c9aee418d8602173623edfa063fde04f11a"
+      },
+      "proxy_container": "dd-family-math-learning-proxy-1",
+      "served_hashes": {
+        "/static/loader.js": "9703f0f33820869a84bca3f5ed5079b70b2cc08bf5085cbb56ccdb17447ed0ea",
+        "/static/custom.css": "113fdfe406f85084de7d4234992c470a20f313be74ca36bad923b10138e0eef5"
+      }
     }
   },
   "compatibility": [
@@ -3357,6 +3371,53 @@
       "browser": "53 passed",
       "job_timeout_minutes": 120,
       "note": "run 44239101847 was cancelled at the old 75-minute limit"
+    },
+    "static_release": {
+      "recorded_at": "2026-11-18T14:53:00+08:00",
+      "state": "deployed_verified",
+      "directory": "learning_data/deployments/family-main-study-p1-20261118/assets",
+      "compose": "learning_data/deployments/family-main-study-p1-20261118/compose.json",
+      "compose_sha256": "9b4ccea10cacad6606d48ffa76715c9aee418d8602173623edfa063fde04f11a",
+      "changed_files": {
+        "study.js": {
+          "before": "0955ec052579989af015d2532db4661e29b5dbefbbb161012fb09225220f4794",
+          "after": "9703f0f33820869a84bca3f5ed5079b70b2cc08bf5085cbb56ccdb17447ed0ea"
+        },
+        "study.css": {
+          "before": "d276f5ce533f7c1df0a6e63a628f5ef29b95ee421391639ad9b9034eb22ebf76",
+          "after": "113fdfe406f85084de7d4234992c470a20f313be74ca36bad923b10138e0eef5"
+        },
+        "SOURCES.md": {
+          "before": "821e16cbb26f44b01675dd6e8211c1f77c0380b43771734df3bc9d1b2cf2ca7f",
+          "after": "27d8bfe1663ecc185d47f1ffbbe6a00a78e6d4081bf1b5b065ae876e1c272c4d"
+        }
+      },
+      "unchanged_files": [
+        "family-bridge.js",
+        "vendor/mermaid-11.12.1.min.js"
+      ],
+      "nginx_config_sha256": "47522e68f75a2f2e39c15bc3df2e1d7f55f4ae90e15f480d3226feab99e1ad34",
+      "services_recreated": [
+        "learning-proxy"
+      ],
+      "anonymous_routes": {
+        "/static/loader.js": 200,
+        "/static/custom.css": 200,
+        "/static/dd-family-bridge.js": 200,
+        "/static/dd-study-mermaid.min.js": 200
+      },
+      "browser_probe": {
+        "script": "scripts/probe_main_study.py",
+        "viewports": [
+          1280,
+          390
+        ],
+        "passed": true,
+        "page_errors": 0,
+        "model_calls": 0
+      },
+      "evidence": "learning_data/verification/main-study-p1-20261118/deployment.json",
+      "rollback": "up -d learning-proxy with family-question-bank-cache-20261118/compose.json"
     }
   },
   "component_history_reference": "learning_data/verification/deploy-c01-20261108T162720Z/manifest-before-final-reconciliation.json",
