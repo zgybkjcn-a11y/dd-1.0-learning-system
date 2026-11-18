@@ -203,7 +203,7 @@
       <section class="dd-study-family" aria-label="家庭学习连接">
         <div class="dd-study-family-heading"><strong>家庭学习资料</strong><button type="button" id="dd-study-sync">同步家庭范围</button></div>
         <p id="dd-study-family-status" role="status">正在连接家庭学习…</p>
-        <div id="dd-study-family-scope" hidden><p id="dd-study-profile"></p><div class="dd-study-fields"><label>课本<select id="dd-study-book"></select></label><label>章节（可选）<select id="dd-study-chapter"></select></label></div></div>
+        <div id="dd-study-family-scope" hidden><p id="dd-study-profile"></p><div class="dd-study-fields"><label>课本<select id="dd-study-book"></select></label><label>章节（可选）<select id="dd-study-chapter"></select></label></div><p id="dd-study-book-capability" role="status"></p></div>
         <p><a id="dd-study-family-continue" href="${familyUrl}" target="_blank" rel="noopener">打开家庭学习 / 切换档案</a></p>
       </section>
       <section class="dd-study-today" id="dd-study-today" hidden aria-label="今天从哪里继续">
@@ -424,6 +424,7 @@
       field('family-scope').hidden = false; field('family-content').hidden = false;
       field('profile').textContent = '当前档案：' + profile.display_name + ' · ' + gradeLabel();
       field('family-status').textContent = '已连接 · ' + book.subject_title + ' · ' + data.scope.chapter_title;
+      renderBookCapability(book);
       panel.querySelector('.dd-study-eyebrow').textContent = gradeLabel() + ' · 学科伴学';
       field('source').value = gradeLabel() + ' · ' + book.title + ' · ' + data.scope.chapter_title + '；' + book.edition;
       restoreDraft(session);
@@ -690,6 +691,20 @@
     lines.push('原图未发送给聊天模型；以上页码是核对位置，不能当作你已读过该页。非数学当前仅提供阅读步骤，缺少精确概念映射时请先让我补材料。',
       '参考结构：faststudy-knowledge；相关图谱元数据许可 CC BY-NC-SA 4.0，教材版权归出版社。');
     return lines.join('\n');
+  }
+  function renderBookCapability(book) {
+    const element = field('book-capability'), capability = book?.capabilities;
+    if (!element) return;
+    if (!capability) { element.hidden = true; element.textContent = ''; return; }
+    element.hidden = false;
+    // Only facts returned by the service; never infer practice or coverage here.
+    const facts = [];
+    facts.push(capability.page_reading ? '原页可读' : '原页暂不可读');
+    facts.push(capability.keyword_search ? '可检索' : '暂不支持关键词检索');
+    facts.push(capability.installed_questions ? '已安装练习 ' + capability.installed_questions + ' 道'
+      : '没有已安装练习');
+    if (capability.mapped_questions) facts.push('局部知识映射 ' + capability.mapped_questions + ' 道');
+    element.textContent = book.title + '：' + facts.join(' · ') + '。' + (capability.note || '');
   }
   function renderFamilyCards() {
     const container = field('family-cards'); container.replaceChildren();

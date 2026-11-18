@@ -50,7 +50,12 @@ def test_catalogue_preserves_optional_fields_and_scope_payloads_exactly(family,g
     _,_,api,headers=family;headers={**headers,'X-Learner-Id':f'family-g{grade}'}
     books=catalogue(f'math-g{grade}-v1')
     response=api.get('/api/v1/textbooks',headers=headers)
-    assert response.status_code==200 and response.json()['items']==books
+    # Catalogue fields stay byte-identical; capabilities are added per book.
+    assert response.status_code==200
+    items=response.json()['items']
+    assert [{k:v for k,v in book.items() if k!='capabilities'} for book in items]==books
+    assert all(set(book['capabilities'])=={'page_reading','keyword_search','installed_questions',
+                                          'mapped_questions','knowledge_mapping','note'} for book in items)
     for book in books:
         for query in ('','synthetic'):
             body={'book_id':book['id'],'query':query}

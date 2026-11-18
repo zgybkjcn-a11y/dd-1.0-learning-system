@@ -16,6 +16,7 @@ from .evidence_contracts import PassageDetail, TextbookCatalogue, TextbookSearch
 from .textbooks import (catalogue as textbook_catalogue, subject_catalogue as textbook_subjects,
                         search_scope as textbook_search_scope, page_scope as textbook_page_scope,
                         render_page as render_textbook_page)
+from .textbook_capabilities import book_capabilities
 from . import textbook_passages
 
 
@@ -51,7 +52,10 @@ def create_study_router(*, get_context, get_db, get_settings, learner_for) -> AP
         learner_id = learner_for(ctx, db=db)
         with db.session() as conn:
             curriculum = conn.execute('SELECT curriculum_id FROM learners WHERE id=?', (learner_id,)).fetchone()[0]
-        return {'items': textbook_catalogue(curriculum), 'subjects': textbook_subjects(curriculum),
+            capabilities = book_capabilities(conn, curriculum)
+        items = [{**book, 'capabilities': capabilities[book['id']]} if book['id'] in capabilities else book
+                 for book in textbook_catalogue(curriculum)]
+        return {'items': items, 'subjects': textbook_subjects(curriculum),
                 'grade_notice': '二年级英语按学校安排暂未开设。' if curriculum=='math-g2-v1' else
                                 '七年级开设以上七门学科；物理从八年级、化学从九年级开始。' if curriculum=='math-g7-v1' else ''}
 

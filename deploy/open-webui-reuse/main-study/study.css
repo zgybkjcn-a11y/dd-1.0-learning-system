@@ -130,3 +130,16 @@
 #dd-study-review > .dd-review-toolbar { display: flex; flex-wrap: wrap; gap: 8px; position: sticky; top: 0; background: #edf2f7; padding: 8px 0; }
 #dd-study-review button { font: inherit; padding: 8px 12px; border: 1px solid #bdcede; border-radius: 8px; color: #17436c; background: white; cursor: pointer; }
 #dd-study-review :focus-visible { outline: 3px solid #60a5fa; outline-offset: 3px; }
+#dd-study-book-capability {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(127, 127, 127, .12);
+  font-size: 13px;
+  line-height: 1.5;
+}
+#dd-study-book-capability[hidden] { display: none; }
+.dark #dd-study-book-capability { background: #203047; color: #cbd9ea; }
+@media (max-width: 520px) {
+  #dd-study-book-capability { font-size: 12.5px; padding: 9px 10px; }
+}

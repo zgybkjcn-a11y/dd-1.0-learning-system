@@ -97,6 +97,13 @@ def test_family_main_shared_materials_and_identity_races(reference_family, tmp_p
         expect(main.locator('#dd-study-today-steps')).to_contain_text('当前档案')
         expect(main.locator('#dd-study-today-steps')).to_contain_text('第二章')
         expect(main.locator('#dd-study-today-steps a[href*="#mistakeSection"]')).to_have_count(1)
+        # Book capability comes from the service; the panel must not invent it.
+        capability = main.locator('#dd-study-book-capability')
+        expect(capability).to_be_visible()
+        expect(capability).to_contain_text('原页可读')
+        expect(capability).to_contain_text('已安装练习')
+        text = capability.inner_text()
+        assert '掌握' not in text and '覆盖率' not in text
         main.locator('#dd-study-read-page').click()
         expect(main.locator('#dd-study-page')).to_be_visible()
         main.wait_for_function('document.querySelector("#dd-study-page img").naturalWidth > 0')

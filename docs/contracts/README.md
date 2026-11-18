@@ -6,6 +6,8 @@
 
 2026-11-04 当前源码契约为66 paths /24 schemas、schema11：在首批schema10/61/22基础上增加受限变式审核/撤销与可投放版本列表；learner-context支持显式清空选择。P0 当前仍运行旧 schema 7 / 56 paths 快照，本轮没有更新或复验它。
 
+2026-11-18 为 77 paths / 45 schemas：`TextbookBook` 新增可选 `capabilities` 与 `TextbookCapabilities`（主站教材能力状态），路径数不变。快照按 FastAPI 生成顺序序列化（未排序），这样重新生成只产生真实差异。
+
 重新生成：
 
 ```bash
@@ -19,7 +21,7 @@ with tempfile.TemporaryDirectory(prefix='dd-local-openapi-') as directory:
     p = Path(directory)
     contract = create_app(Settings(p, p / 'learning.db', p / 'attachments', '', '', False)).openapi()
 Path('docs/contracts/openapi-v1.json').write_text(
-    json.dumps(contract, ensure_ascii=False, indent=2, sort_keys=True) + '\n',
+    json.dumps(contract, ensure_ascii=False, indent=2) + '\n',
     encoding='utf-8',
 )
 PY

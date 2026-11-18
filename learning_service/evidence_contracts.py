@@ -17,6 +17,16 @@ class TextbookChapter(Contract):
     page_end: int = Field(ge=1, le=999)
 
 
+class TextbookCapabilities(Contract):
+    """What the deployed data supports for this book; derived, never asserted."""
+    page_reading: bool
+    keyword_search: bool
+    installed_questions: int = Field(ge=0)
+    mapped_questions: int = Field(ge=0)
+    knowledge_mapping: Literal['local_sample', 'none']
+    note: str
+
+
 class TextbookBook(Contract):
     id: str
     grade: Literal[2, 7]
@@ -30,6 +40,7 @@ class TextbookBook(Contract):
     collection: str
     search_available: bool = True
     reader_url: str | None = None
+    capabilities: TextbookCapabilities | None = None
     chapters: list[TextbookChapter]
 
 

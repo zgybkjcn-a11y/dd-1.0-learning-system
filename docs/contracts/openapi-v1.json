@@ -4487,6 +4487,16 @@
             ],
             "title": "Reader Url"
           },
+          "capabilities": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/TextbookCapabilities"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "chapters": {
             "items": {
               "$ref": "#/components/schemas/TextbookChapter"
@@ -4511,6 +4521,52 @@
           "chapters"
         ],
         "title": "TextbookBook"
+      },
+      "TextbookCapabilities": {
+        "properties": {
+          "page_reading": {
+            "type": "boolean",
+            "title": "Page Reading"
+          },
+          "keyword_search": {
+            "type": "boolean",
+            "title": "Keyword Search"
+          },
+          "installed_questions": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Installed Questions"
+          },
+          "mapped_questions": {
+            "type": "integer",
+            "minimum": 0.0,
+            "title": "Mapped Questions"
+          },
+          "knowledge_mapping": {
+            "type": "string",
+            "enum": [
+              "local_sample",
+              "none"
+            ],
+            "title": "Knowledge Mapping"
+          },
+          "note": {
+            "type": "string",
+            "title": "Note"
+          }
+        },
+        "additionalProperties": false,
+        "type": "object",
+        "required": [
+          "page_reading",
+          "keyword_search",
+          "installed_questions",
+          "mapped_questions",
+          "knowledge_mapping",
+          "note"
+        ],
+        "title": "TextbookCapabilities",
+        "description": "What the deployed data supports for this book; derived, never asserted."
       },
       "TextbookCatalogue": {
         "properties": {
