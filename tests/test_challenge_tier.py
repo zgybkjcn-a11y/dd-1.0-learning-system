@@ -32,8 +32,8 @@ def test_inventory_prior_bytes_and_coverage_mappings():
   assert all(m['role']=='supporting' for m in b['mappings'][len(a['mappings']):])
  # Pinned old banks still load with their original digests; baseline plan is immutable.
  assert hashlib.sha256(Path('learning_service/data/family_subject_coverage_plan_v1.json').read_bytes()).hexdigest()=='2d55b184245224650c329e6d199a342adaad6780062b25c2be68d63b4066d43b'
- assert len(set(chapter.bank())-set(chapter.bank('math_gaps')))==1064
- assert len(chapter.bank())==1074
+ assert len(set(chapter.bank())-set(chapter.bank('math_gaps')))==1145
+ assert len(chapter.bank())==1155
  from learning_service.reserve_practice import bank as reserve
  assert len(reserve())==12 and {q['difficulty'] for q in reserve().values()}=={'easy','normal','hard'}
  for grade in (2,7):subject_coverage.report(f'math-g{grade}-v1',set(chapter.bank()))

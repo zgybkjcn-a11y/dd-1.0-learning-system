@@ -42,8 +42,9 @@ def proposal():
         raise ValueError("candidate differs from reviewed authoring source")
     if sha(SUBJECT.read_bytes()) != EXPECTED_SUBJECT_SHA:
         raise ValueError("subject-v16 base changed")
-    if BATCH in chapter.BATCHES:
-        raise ValueError("candidate must remain unregistered")
+    registered = chapter.BATCHES.get(BATCH)
+    if registered is not None and registered != sha(DESTINATION.read_bytes()):
+        raise ValueError("registered candidate differs from reviewed source")
     _, _, questions = chapter._parse(raw)
     decisions = json.loads((BASE_REVIEW / "candidate-review-decisions.json").read_bytes())
     gaps = {r["point_id"]: r for r in decisions["items"]
@@ -128,7 +129,7 @@ def export(destination):
         "by_book": dict(Counter(q["book_id"] for q in questions.values())),
         "formal_snapshot_questions": 1145, "formal_snapshot_by_grade": {"2": 418, "7": 727},
         "formal_coverage_unchanged": counts(installed_before), "candidate_inclusive": counts(proposed),
-        "new_configured_requirements": 0, "manual_followups": 4, "local_bank_registered": False,
+        "new_configured_requirements": 0, "manual_followups": 4, "local_bank_registered": BATCH in chapter.BATCHES,
         "teacher_reviewed": False, "curriculum_standard_crosscheck": "pending", "student_calibrated": False,
         "runtime_subject_version": "subject-coverage-v5-language-gaps-2026-11-12",
         "local_base": "math-v15 / subject-v16", "proposal_version": after["version"],

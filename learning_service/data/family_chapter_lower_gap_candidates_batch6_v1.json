@@ -1,9 +1,9 @@
 {
   "format": "dd-family-chapter-practice-v1",
   "batch": "lower_gap_candidates_batch6",
-  "status": "local_candidate_not_registered",
+  "status": "assistant_crosschecked",
   "teacher_reviewed": false,
-  "curriculum_standard_crosscheck": "pending",
+  "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
   "student_calibrated": false,
   "questions": [
     {
@@ -43,8 +43,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "12、60、80 均独立复算；钟面 12 大格、每大格 5 小格、1 时=60 分、1 分=60 秒与“时针转 1 大格是 1 时”在第 2、3 页原页图像中逐项核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "数出钟面的大格数",
           "b": "由大格与小格关系算出小格总数",
@@ -232,8 +232,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "40、35、30 均独立复算（9:00−8:20=40 分，9:45−9:10=35 分，10:30−10:00=30 分）；作息表式样与“需要时间／时刻”两种记录对应第 5 页，1 时=60 分的关系对应第 3 页。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由起止时刻求第一段经过时间",
           "b": "求第二段经过时间",
@@ -421,8 +421,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "第 33 页单元目标列出“talk about what is happening by using the present continuous tense”；第 37 页 Grammar Focus 与 3a、3b 给出 be+doing 的陈述、疑问与否定形式。四句为本地自编，未抄录教材例句。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "按主语选 be 动词构成疑问句",
           "b": "构成第三人称单数的现在进行时",
@@ -634,8 +634,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "第 41 页单元目标列出用现在进行时和一般现在时谈天气活动；第 45 页 Grammar Focus 与 3a、3b 给出两种时态的对照例句。四句为本地自编，未抄录教材练习。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "用现在进行时描述此刻的天气",
           "b": "用一般现在时描述常年规律",
@@ -847,8 +847,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "第 49 页单元目标列出用一般过去时谈过去的事与写日记；第 53 页 Grammar Focus 与 3a、3b 给出过去时间状语和 did 问答。四句为本地自编，未抄录教材练习。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "用不规则动词的过去式填空",
           "b": "用 did 回答一般过去时疑问句",
@@ -1060,8 +1060,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "第 57 页单元目标列出用一般过去时和一般现在时讲故事、给故事编结尾；第 61 页 Grammar Focus 与 3a、3b 给出两种时态的对照与老鼠、狮子的情节。四句为本地自编，未抄录教材练习。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "用 be 动词过去式交代故事背景",
           "b": "在习惯与过去之间切换时态",
@@ -1272,8 +1272,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "300 种、八条腕、无骨头、三颗心脏、断腕可再生均取自第 65 页原文；该材料标为 Unit 1 的 Reading Plus，与本单元动物主题直接相连。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "从材料中读出种类数量",
           "b": "从材料中读出心脏数量",

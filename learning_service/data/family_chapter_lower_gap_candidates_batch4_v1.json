@@ -1,9 +1,9 @@
 {
   "format": "dd-family-chapter-practice-v1",
   "batch": "lower_gap_candidates_batch4",
-  "status": "local_candidate_not_registered",
+  "status": "assistant_crosschecked",
   "teacher_reviewed": false,
-  "curriculum_standard_crosscheck": "pending",
+  "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
   "student_calibrated": false,
   "questions": [
     {
@@ -43,8 +43,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "11÷5=2……1、11-5×2=1、5×2=10 均独立复算；第 83 页示例与第 84 页“故事—数学问题—提纲”流程支持对应关系。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由总数和每天用量求天数",
           "b": "求余下的数量",
@@ -222,8 +222,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项均对应第 9 页单元目标与第 13 页 Grammar Focus、3b 的 can、have to/must、can't/mustn't 语境；句子为本地自编，答案唯一。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "用 must 表达必须",
           "b": "用 mustn't 表达禁止",
@@ -422,8 +422,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项对应第 29、31、33、38 页的光合作用与呼吸作用实验和结论；场所、原料、实质与实验结论均逐项核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "指出光合作用的场所",
           "b": "指出光合作用的原料",
@@ -620,8 +620,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "(12+15+18)/3=15 独立复算；变量控制、记录指标与修订要求对应第 51、52 页“确定任务—制订方案—实施方案—展示交流”的流程。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "确定单变量对照中的自变量",
           "b": "选择与生长相关的记录指标",
@@ -821,8 +821,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项对应第 58、60、64 页的生殖系统、受精与胚胎发育、青春期变化；题目只用普遍规律，未索取任何个人或家庭身体数据。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "对应男性主要生殖器官与功能",
           "b": "指出受精发生的场所",
@@ -1020,8 +1020,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "(2.8+3.0+3.2)/3=3.0 独立复算；糖类、蛋白质、铁的作用与平均值方法对应第 70、71、74 页的六类营养物质与“设置重复组”。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "对应糖类与能量供应",
           "b": "对应蛋白质与建造修复",
@@ -1214,8 +1214,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项对应第 92、93、98 页的呼吸系统组成、胸廓变化与气体成分表；气体方向与数据表一致，题目不要求实际肺活量测量。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "说出呼吸系统的两部分",
           "b": "联系胸廓变化与吸气",
@@ -1422,8 +1422,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项对应第 20、21 页日本位置与地形图、板块交界和火山地震说明；岛屿名称、板块名称与地形描述均逐项核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "指认日本的四个大岛",
           "b": "说出日本所处的两大板块",
@@ -1635,8 +1635,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "6960、128.5、220 均独立复算；表内数字取自教材第 108 页图 1 的目视核对值（文字层对应数字为乱码），并在题干与表题注明出处、单位与统计口径。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "合计四类森林面积",
           "b": "合计四类森林碳储量",

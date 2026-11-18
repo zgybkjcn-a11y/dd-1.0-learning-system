@@ -282,3 +282,10 @@ def test_gateway_forwards_reference_queries_without_retrieval_or_model_call(gate
     assert response.status_code==200 and response.json()['mapping_status']=='unmapped'
     assert bridge.calls[-1][2]=='/api/v1/math-references?chapter_id=2'
     assert not any('/retrieval/' in path for _,_,path,_,_ in bridge.calls)
+
+
+def test_reviewed_mappings_have_no_fourth_tier_questions():
+    """The main study page may offer '挑战' only where a mapping really has it."""
+    data = references.load_reference()
+    assert len(data['question_mappings']) == 20
+    assert {m['difficulty'] for m in data['question_mappings'].values()} == {'easy', 'normal', 'hard'}

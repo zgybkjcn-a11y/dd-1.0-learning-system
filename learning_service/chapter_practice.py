@@ -28,6 +28,17 @@ BATCHES = {
     'subject_gaps': '19634b63ce45375319b8b041d1000b855a9c6a1fbb2f9cc824faaf0da96ca3c7',
     'math_g7_action_candidates': '61026253b37bde71555d7780833da6b231a77c746b4308a3fce4bdc2f207e713',
     'math_g7_chapter4_action_candidates': '9d0479b06dea7a68eb627016f41210cafad1be508f62c428d9ec720c524945d6',
+    # Gap candidates cross-checked on 2026-11-18 against the local subject-v16 / math-v15
+    # plans and the lower knowledge inventory; teacher sign-off is still false.
+    'upper_gap_candidates': 'e30814735731f7857d9a9e1a731a67ac1d01dcb5c14fd1e017890f7c8996c8c2',
+    'lower_gap_candidates': '459710d3765195b78b22b6199dcde34e14b558c7743d6e60aa7197d2900bbebe',
+    'lower_gap_candidates_batch2': '798e11abee6245a0f5154215bd9de9f6e38138d239fd7a7426cc51f23bd015a2',
+    'lower_gap_candidates_batch3': '80eac595bbb1ffdf3c22c84ea0ab78b3ee5b3e7363bd56ac0b176e1145d38714',
+    'lower_gap_candidates_batch4': '8b8bd33973b908a794b0bf93143b9d19bcc6914397abeb203374e53dd50ff88b',
+    'lower_gap_candidates_batch5': 'f14402cb4c46534b3396273ef010c0a5e1284415ab824bc70ae624bf4cf05f22',
+    'lower_gap_candidates_batch6': '0f9d732d1480f5cf04a68e6d867c0d0fde6363782eefa44abc777725c8f8273b',
+    'lower_gap_candidates_batch7': 'b2352e8b047b7015dec84489d79e7770cb0f7674db504a4d1d024af3a0d25cb8',
+    'lower_gap_candidates_batch8': '704708888e992367a4ad8a8aa8b10888fd1b52a7496fb7357ae8670e02ec5700',
 }
 
 
@@ -180,7 +191,7 @@ def install(db, batch):
             if tuple(scope) != (curriculum, kp):
                 raise ValueError('chapter objective changed')
             if conn.execute('SELECT 1 FROM question_versions WHERE id=?', (q['id'],)).fetchone():
-                validate_installed(conn, q['id'])
+                validate_installed(conn, q['id'], questions)
                 continue
             values = stored(q)
             conn.execute("INSERT INTO questions(id,visibility,approval,objective_id,created_at) VALUES (?,'shared','approved',?,?)",

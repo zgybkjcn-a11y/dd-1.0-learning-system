@@ -88,8 +88,9 @@ def proposal():
     if sha(SNAPSHOT.read_bytes()) != EXPECTED_SNAPSHOT_SHA:
         raise ValueError("installed ID snapshot changed")
     verify_sources()
-    if BATCH in chapter.BATCHES:
-        raise ValueError("candidate must remain unregistered")
+    registered = chapter.BATCHES.get(BATCH)
+    if registered is not None and registered != sha(DESTINATION.read_bytes()):
+        raise ValueError("registered candidate differs from reviewed source")
     _, _, questions = chapter._parse(raw)
     plan = json.loads(SUBJECT.read_bytes())
     inventory = json.loads(INVENTORY.read_bytes())
@@ -224,7 +225,7 @@ def export(destination):
                            "method": "local_page_image_view_no_OCR",
                            "note": "以渲染后的原页图像核对图例、地图或分布图，不使用 OCR。"}
                    for point, pages in FIGURE_VERIFIED.items()},
-               "local_bank_registered": False, "teacher_reviewed": False,
+               "local_bank_registered": BATCH in chapter.BATCHES, "teacher_reviewed": False,
                "curriculum_standard_crosscheck": "pending", "student_calibrated": False,
                "runtime_subject_version": "subject-coverage-v5-language-gaps-2026-11-12",
                "local_base": "math-v15 / subject-v16",

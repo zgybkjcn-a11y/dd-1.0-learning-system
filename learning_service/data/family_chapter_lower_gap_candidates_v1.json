@@ -1,9 +1,9 @@
 {
   "format": "dd-family-chapter-practice-v1",
   "batch": "lower_gap_candidates",
-  "status": "local_candidate_not_registered",
+  "status": "assistant_crosschecked",
   "teacher_reviewed": false,
-  "curriculum_standard_crosscheck": "pending",
+  "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
   "student_calibrated": false,
   "questions": [
     {
@@ -44,8 +44,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "23÷5=4…3与26÷4=6…2独立复算；错误选项分别违反余数范围或漏掉余数；题目自编，未使用教材原题或插图。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由分组求商",
           "b": "由分组求余数",
@@ -205,8 +205,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "22÷5、40÷6独立复算；四个选项对应四种不同问法，正确答案唯一；数据为自编，未使用教材原题。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "求完整组数",
           "b": "求剩余数量",
@@ -361,8 +361,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "卡片为自编材料，三项选择与一项短答逐条对照卡片文字；because项接受句号与it is / it's 共四种写法，不接受其他理由。朗读与自主介绍不在本题范围。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "匹配栖息地与能力",
           "b": "匹配外形",
@@ -513,8 +513,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "mice/sheep 两个答案按教材通行口径核对；sheep 复数同形，故带 are 的句子唯一正确；描述题四个选项与卡片有可判断的差异。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "写出不规则复数mice",
           "b": "写出单复数同形的sheep",
@@ -673,8 +673,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "短文为自编材料，四项答案逐项对应原文；没有把阅读选择题说成写作或口语能力。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "概括短文主旨",
           "b": "提取动物失去家园的原因",
@@ -831,8 +831,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "三项环境条件与自身条件按第5页口径核对；对照设计要求只改变温度；9+9+9=27 独立复算。读表不等于做过实验，故只计辅助并保留人工任务。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "辨认萌发的环境条件",
           "b": "辨认种子自身条件",
@@ -1032,8 +1032,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "根尖各区域功能、传粉与受精定义逐项按第9、17、18页口径核对；没有把开花等同于结果，也没有把传粉等同于受精。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "区分分生区与伸长区的作用",
           "b": "辨认吸收水和无机盐的部位",

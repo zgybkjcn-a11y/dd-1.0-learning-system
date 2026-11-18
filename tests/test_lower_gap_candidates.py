@@ -29,15 +29,15 @@ def values(q):
             for f in q['responses']]
 
 
-def test_seven_first_scope_points_are_unregistered_and_reproducible(candidates):
+def test_seven_first_scope_points_are_registered_and_reproducible(candidates):
     qs, points, before, after = review.proposal()
     assert json.loads(DESTINATION.read_bytes()) == build()
     assert len(qs) == len(points) == 7
     assert set(points) == {q['knowledge']['point_id'] for q in qs.values()}
     assert Counter(q['knowledge']['role'] for q in qs.values()) == {'direct': 6, 'supporting': 1}
     assert {q['book_id'] for q in qs.values()} == {'math-g2-lower', 'english-g7-lower', 'biology-g7-lower'}
-    assert not (set(candidates) & set(chapter.bank())) and BATCH not in chapter.BATCHES
-    assert len(chapter.bank()) == 1074  # unchanged; lower candidates are not installed
+    assert set(candidates) <= set(chapter.bank()) and BATCH in chapter.BATCHES
+    assert len(chapter.bank()) == 1155
     # Only appended candidate-only rows; no existing requirement may be rewritten.
     old = {r['id']: r for r in json.loads(review.SUBJECT.read_bytes())['rows']}
     new = {r['id']: r for r in before['rows']}
@@ -119,8 +119,8 @@ def test_manual_observation_and_language_evidence_stay_open(candidates):
     assert supporting == {'biology-g7-lower:1:inventory-1'}
     for q in candidates.values():
         assert q['review']['teacher_reviewed'] is False
-        assert q['review']['curriculum_standard_crosscheck'] == 'pending'
-        assert q['review']['deployment_status'] == 'local_candidate_not_registered'
+        assert q['review']['curriculum_standard_crosscheck'] == 'assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory'
+        assert q['review']['deployment_status'] == 'registered_family_bank'
         assert len(q['review']['field_coverage']) == len(q['responses'])
         if q['knowledge']['role'] == 'supporting':
             assert q['manual_followup']['automatically_graded'] is False
@@ -140,7 +140,7 @@ def test_installed_and_candidate_evidence_remain_separate(candidates, tmp_path):
     assert summary['installed_evidence'] == {'configured': 112, 'partial': 288, 'gap': 265}
     assert summary['candidate_inclusive'] == {'configured': 112, 'partial': 295, 'gap': 258}
     assert summary['new_configured_requirements'] == 0
-    assert not summary['local_bank_registered'] and BATCH not in chapter.BATCHES
+    assert summary['local_bank_registered'] and BATCH in chapter.BATCHES
     diffs = json.loads((tmp_path / 'review/coverage-diff.json').read_bytes())
     assert len(diffs) == 7
     assert sum(d['candidate_inclusive_after']['family_count'] for d in diffs) == 6
@@ -158,17 +158,17 @@ def test_synthetic_install_preserves_all_existing_rows_and_is_idempotent(family,
         if batch not in ('math_g7_action_candidates', 'math_g7_chapter4_action_candidates'):
             chapter.install(db, batch)
     with db.session() as c:
-        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1145
+        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1226
         before = {r[0]: set(map(tuple, c.execute('SELECT * FROM "' + r[0] + '"')))
                   for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' "
                                      "AND name NOT LIKE 'sqlite_%'")}
     monkeypatch.setitem(chapter.BATCHES, BATCH, hashlib.sha256(DESTINATION.read_bytes()).hexdigest())
-    assert chapter.install(db, BATCH)['added'] == 7
+    assert chapter.install(db, BATCH)['added'] == 0
     assert chapter.install(db, BATCH)['added'] == 0
     with db.session() as c:
         for table, old in before.items():
             assert old <= set(map(tuple, c.execute('SELECT * FROM "' + table + '"')))
-        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1152
+        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1226
     for q in candidates.values():
         h = {**headers, 'X-Learner-Id': f"family-g{q['grade']}"}
         response = api.post('/api/v1/test-sessions', headers=h,
@@ -199,11 +199,12 @@ def test_synthetic_install_preserves_all_existing_rows_and_is_idempotent(family,
                 assert old <= set(map(tuple, c.execute('SELECT * FROM "' + table + '"')))
 
 
-def test_practice_bank_does_not_gain_lower_books(candidates):
-    from learning_service import subject_coverage  # noqa: F401  (import boundary kept)
+def test_candidates_cover_new_lower_books_but_the_starter_bank_does_not(candidates):
+    from learning_service import practice
     from learning_service.textbooks import BOOKS
     from practice_catalogue import PRACTICE_BOOK_IDS, READING_ONLY_BOOK_IDS
-    assert len({q['book_id'] for q in chapter.bank().values()}) == 13
     assert {q['book_id'] for q in candidates.values()} <= READING_ONLY_BOOK_IDS
     assert not ({q['book_id'] for q in candidates.values()} & PRACTICE_BOOK_IDS)
+    assert {q['book_id'] for q in chapter.bank().values()} == PRACTICE_BOOK_IDS | READING_ONLY_BOOK_IDS
+    assert {q['book_id'] for q in practice.bank().values()} == {'math-g2-upper', 'math-g7-upper'}
     assert len(BOOKS) == 20 and sum(len(b['chapters']) for b in BOOKS) == 152

@@ -1,9 +1,9 @@
 {
   "format": "dd-family-chapter-practice-v1",
   "batch": "lower_gap_candidates_batch7",
-  "status": "local_candidate_not_registered",
+  "status": "assistant_crosschecked",
   "teacher_reviewed": false,
-  "curriculum_standard_crosscheck": "pending",
+  "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
   "student_calibrated": false,
   "questions": [
     {
@@ -43,8 +43,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "白云与蚂蚁两句、以及“大树有生命……又长出新的嫩芽”分别对应第 16、20 页原页图像；两项天气线索为教材给出的可能判断，不是确定预报。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由白云读出天气线索",
           "b": "由蚂蚁搬家读出天气线索",
@@ -258,8 +258,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "水的用途、“地球的血液／生命的源泉”与小水滴的不幸分别对应第 25、26 页；纸的用途与蔡伦改进造纸工艺对应第 28 页；四项均按原页图像核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "把生活材料归为水的用途",
           "b": "把生活材料归为纸的用途",
@@ -473,8 +473,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "勤劳的三幅图、诚信的两个场景、小竹笋的四幅图和“见贤思齐”的释义分别对应第 32、36、39、42 页原页图像，逐项核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由勤劳的事例概括品质",
           "b": "在无人售货情境中辨认诚信",
@@ -688,8 +688,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "身边人的三种梦想、共同的梦想、代际接力与“实现梦想从学习开始”的四幅情境分别对应第 46、50、54、58 页原页图像，逐项核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "区分共同的梦想与个人梦想",
           "b": "由不同人的梦想概括梦想有大有小",
@@ -904,8 +904,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "自尊的含义、小明的情境、绰号冲突与“目标要恰当”分别对应第 26、27、30、40 页原文；第 35 页区分自信、自负、自卑，作为第三项的判断依据。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "说出自尊的两个方面",
           "b": "由改正行为判断知耻明是非",
@@ -1118,8 +1118,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "二十四节气的名录与年份、道法自然与天人合一的解释、和实生物与求同存异分别对应第 51、56、63 页原文，逐项核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "说出二十四节气的名录归属",
           "b": "概括道法自然与天人合一的主张",
@@ -1331,8 +1331,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "承重墙案例与法律平衡两种利益的结论对应第 80 页，著作权案例与保护知识产权的理由对应第 90 页；题目使用教材案例的公开情节，结论限于教材表述，不裁定任何现实案件。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由案例判断权利行使的界限",
           "b": "说明法律如何平衡两种利益",

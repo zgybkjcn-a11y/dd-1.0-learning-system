@@ -29,13 +29,13 @@ def values(q):
             else Fraction(f['answer']) for f in q['responses']]
 
 
-def test_exact_twenty_gaps_are_unregistered_and_reproducible(candidates):
+def test_exact_twenty_gaps_are_registered_and_reproducible(candidates):
     qs, gaps, before, after = review.proposal()
     assert json.loads(DESTINATION.read_bytes()) == build()
     assert len(qs) == len(gaps) == 20
     assert Counter(q['knowledge']['role'] for q in qs.values()) == {'direct': 16, 'supporting': 4}
-    assert not (set(candidates) & set(chapter.bank())) and BATCH not in chapter.BATCHES
-    assert len(chapter.bank()) == 1074  # includes the three older, uninstalled math candidates
+    assert set(candidates) <= set(chapter.bank()) and BATCH in chapter.BATCHES
+    assert len(chapter.bank()) == 1155
     for old, new in zip(before['rows'], after['rows'], strict=True):
         assert {k: v for k, v in old.items() if k != 'mappings'} == {k: v for k, v in new.items() if k != 'mappings'}
         assert new['mappings'][:len(old['mappings'])] == old['mappings']
@@ -119,7 +119,7 @@ def test_open_performance_is_not_automatically_completed(candidates):
                           'ethics-g7-upper:2:teacher', 'biology-g7-upper:1:observation'}
     for q in candidates.values():
         assert q['review']['teacher_reviewed'] is False
-        assert q['review']['curriculum_standard_crosscheck'] == 'pending'
+        assert q['review']['curriculum_standard_crosscheck'] == 'assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory'
         assert len(q['review']['field_coverage']) == len(q['responses'])
         if q['knowledge']['role'] == 'supporting':
             assert q['manual_followup']['automatically_graded'] is False
@@ -132,7 +132,7 @@ def test_installed_and_candidate_evidence_remain_separate(candidates, tmp_path):
     assert summary['formal_coverage_unchanged'] == {'configured': 112, 'partial': 288, 'gap': 258}
     assert summary['candidate_inclusive'] == {'configured': 112, 'partial': 293, 'gap': 253}
     assert summary['new_configured_requirements'] == 0
-    assert not summary['local_bank_registered'] and BATCH not in chapter.BATCHES
+    assert summary['local_bank_registered'] and BATCH in chapter.BATCHES
     diffs = json.loads((tmp_path / 'review/coverage-diff.json').read_bytes())
     assert len(diffs) == 20 and sum(d['candidate_inclusive_after']['family_count'] for d in diffs) == 16
     assert all(d['formal_after']['family_count'] == 0 for d in diffs)
@@ -145,16 +145,16 @@ def test_synthetic_install_preserves_all_existing_rows_and_is_idempotent(family,
         if batch not in ('math_g7_action_candidates', 'math_g7_chapter4_action_candidates'):
             chapter.install(db, batch)
     with db.session() as c:
-        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1145
+        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1226
         before = {r[0]: set(map(tuple, c.execute('SELECT * FROM "' + r[0] + '"')))
                   for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")}
     monkeypatch.setitem(chapter.BATCHES, BATCH, hashlib.sha256(DESTINATION.read_bytes()).hexdigest())
-    assert chapter.install(db, BATCH)['added'] == 20
+    assert chapter.install(db, BATCH)['added'] == 0
     assert chapter.install(db, BATCH)['added'] == 0
     with db.session() as c:
         for table, old in before.items():
             assert old <= set(map(tuple, c.execute('SELECT * FROM "' + table + '"')))
-        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1165
+        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1226
     for q in candidates.values():
         h = {**headers, 'X-Learner-Id': f"family-g{q['grade']}"}
         response = api.post('/api/v1/test-sessions', headers=h,
@@ -184,7 +184,7 @@ def test_synthetic_install_preserves_all_existing_rows_and_is_idempotent(family,
                 assert old <= set(map(tuple, c.execute('SELECT * FROM "' + table + '"')))
 
 
-def test_readable_catalogue_does_not_imply_practice_coverage():
+def test_readable_catalogue_does_not_expand_the_formal_practice_catalogue():
     from learning_service.textbooks import BOOKS
     from learning_service import subject_coverage
     from practice_catalogue import PRACTICE_BOOKS, PRACTICE_BOOK_IDS, READING_ONLY_BOOK_IDS
@@ -193,6 +193,9 @@ def test_readable_catalogue_does_not_imply_practice_coverage():
     assert not (PRACTICE_BOOK_IDS & READING_ONLY_BOOK_IDS)
     assert {b['id'] for b in BOOKS} == PRACTICE_BOOK_IDS | READING_ONLY_BOOK_IDS
     assert sum(len(b['chapters']) for b in BOOKS if b['id'] in READING_ONLY_BOOK_IDS) == 54
-    assert {q['book_id'] for q in chapter.bank().values()} == PRACTICE_BOOK_IDS
+    # The 2026-11-18 authored candidates add the seven new lower books to the
+    # chapter question bank, but not to the formal practice catalogue, and the
+    # coverage plan still has no rows for them.
+    assert {q['book_id'] for q in chapter.bank().values()} == PRACTICE_BOOK_IDS | READING_ONLY_BOOK_IDS
     plan = json.loads(subject_coverage.PATH.read_bytes())
     assert not ({r['book_id'] for r in plan['rows']} & READING_ONLY_BOOK_IDS)

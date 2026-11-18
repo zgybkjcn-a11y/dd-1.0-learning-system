@@ -21,10 +21,10 @@ def test_practice_catalogue_chapters_have_real_questions_and_all_levels():
             for level in ('easy', 'normal', 'hard'):
                 assert coverage[book['id'], ch['id'], level] >= (4 if book['subject'] == 'math' else 1)
     assert sum(len(chapter.bank(b)) for b in ('math', 'upper', 'remaining')) == 414
-    assert len(set(chapter.bank())-set(chapter.bank('math_gaps'))-set(chapter.bank('subject_gaps'))) == 1050
-    assert len(set(chapter.bank())-set(chapter.bank('math_gaps'))) == 1064
-    assert len(chapter.bank()) == 1074
-    assert len({q['prompt'] for q in chapter.bank().values()}) == 1074
+    assert len(set(chapter.bank())-set(chapter.bank('math_gaps'))-set(chapter.bank('subject_gaps'))) == 1131
+    assert len(set(chapter.bank())-set(chapter.bank('math_gaps'))) == 1145
+    assert len(chapter.bank()) == 1155
+    assert len({q['prompt'] for q in chapter.bank().values()}) == 1155
     for q in chapter.bank().values():
         assert practice_scope(q['id']) == {'book_id': q['book_id'], 'chapter_id': q['chapter_id']}
         key = json.loads(chapter.stored(q)['answer_key_json'])
@@ -121,7 +121,7 @@ def test_each_chapter_can_launch_and_representative_answers_grade(family):
         run_worker_once(db, api.app.state.settings)
         graded = api.get('/api/v1/attempts/' + answer.json()['attempt_id'], headers=h).json()
         assert graded['outcome'] == 'correct' and graded['feedback'] == q['explanation']
-    assert len(seen) == 98 and len(graded_subjects) == 7
+    assert len(seen) == 142 and len(graded_subjects) == 7
 
 
 def test_bulk_placements_match_the_single_lookup():

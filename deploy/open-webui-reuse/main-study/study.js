@@ -25,8 +25,9 @@
   const scopePrefix = 'dd-study-family-scope-v1:';
   const family = {session: null, books: [], data: null, generation: 0, controller: null, busy: false, blocked: false};
   const route = {data: null, generation: 0, controller: null};
+  const today = {generation: 0, controller: null};
   const routePreferences = new Map();
-  const difficulties = {easy: '简单', normal: '正常', hard: '困难'};
+  const difficulties = {easy: '简单', normal: '正常', hard: '困难', challenge: '挑战'};
   let pageDialog, pageUrl, pageNumber, classroomDialog, reviewDialog, printFrame;
   let mermaidLoader;
   let suspendedDraft = null, contextChanged = false, insertFocus = null;
@@ -205,13 +206,19 @@
         <div id="dd-study-family-scope" hidden><p id="dd-study-profile"></p><div class="dd-study-fields"><label>课本<select id="dd-study-book"></select></label><label>章节（可选）<select id="dd-study-chapter"></select></label></div></div>
         <p><a id="dd-study-family-continue" href="${familyUrl}" target="_blank" rel="noopener">打开家庭学习 / 切换档案</a></p>
       </section>
+      <section class="dd-study-today" id="dd-study-today" hidden aria-label="今天从哪里继续">
+        <div class="dd-study-family-heading"><strong>今天从这里继续</strong><button type="button" id="dd-study-today-retry">重新读取</button></div>
+        <p id="dd-study-today-status" role="status">正在读取当前档案的学习安排…</p>
+        <div id="dd-study-today-steps"></div>
+        <p class="dd-study-tip">顺序按本机已有学习记录给出，不代表掌握程度；每个入口都回到同一档案与课本。可随时打开完整家庭学习页查看或切换。</p>
+      </section>
       <div class="dd-study-fields"><label>学科<select id="dd-study-subject">${Object.keys(subjects).map(s => `<option>${s}</option>`).join('')}</select></label><label>学习主题<input id="dd-study-topic" maxlength="160" placeholder="例如：有理数的加减法" /></label></div>
       <fieldset class="dd-study-modes"><legend>这次怎样学</legend>
         <label><input type="radio" name="dd-study-mode" value="source" checked /><span><strong>资料伴读</strong><small>读资料 → 找依据 → 自己解释</small></span></label>
         <label><input type="radio" name="dd-study-mode" value="lesson" /><span><strong>分步学习</strong><small>定目标 → 讲一小步 → 检查理解</small></span></label>
       </fieldset>
       <div class="dd-study-steps" id="dd-study-steps"></div>
-      <details id="dd-study-route" class="dd-study-route"><summary>知识路线与关联练习</summary><p>选一个数学知识点，回顾基础，再独立试一道题。</p><p id="dd-study-route-status" role="status">连接家庭学习后，可查看已有数学映射。</p><div id="dd-study-route-controls" hidden><label>想理解的知识点<select id="dd-study-route-concept"></select></label><button type="button" id="dd-study-route-retry">重新读取</button></div><div id="dd-study-route-cards"></div><div id="dd-study-route-practice" hidden><label>关联题难度<select id="dd-study-route-difficulty"><option value="">全部难度</option><option value="easy">简单</option><option value="normal">正常</option><option value="hard">困难</option></select></label><div id="dd-study-route-questions"></div></div><p class="dd-study-tip">知识路线参考 faststudy-knowledge；部分关联题改编自 cn-math-taxonomy。先修关系帮助回顾，不代表已经掌握或确定的错因。当前仅有局部数学映射。</p></details>
+      <details id="dd-study-route" class="dd-study-route"><summary>知识路线与关联练习</summary><p>选一个数学知识点，回顾基础，再独立试一道题。</p><p id="dd-study-route-status" role="status">连接家庭学习后，可查看已有数学映射。</p><div id="dd-study-route-controls" hidden><label>想理解的知识点<select id="dd-study-route-concept"></select></label><button type="button" id="dd-study-route-retry">重新读取</button></div><div id="dd-study-route-cards"></div><div id="dd-study-route-practice" hidden><label>关联题难度<select id="dd-study-route-difficulty"><option value="">全部难度</option><option value="easy">简单</option><option value="normal">正常</option><option value="hard">困难</option><option value="challenge">挑战</option></select></label><div id="dd-study-route-questions"></div></div><p class="dd-study-tip">知识路线参考 faststudy-knowledge；部分关联题改编自 cn-math-taxonomy。先修关系帮助回顾，不代表已经掌握或确定的错因。当前仅有局部数学映射。</p></details>
       <section class="dd-study-classroom-entry"><strong>跟着课本上一节小课</strong><p>围绕一个知识点，依次观察、解释，再回到原页核对。</p><div class="dd-study-actions"><button type="button" id="dd-study-classroom-open" disabled>开始分步课堂</button><button type="button" id="dd-study-classroom-download" disabled>下载离线课堂</button></div><p id="dd-study-classroom-notice">连接家庭学习后，可按当前课本和章节打开。</p></section>
       <label class="dd-study-block">教材与页码（可选）<input id="dd-study-source" maxlength="240" placeholder="例如：人教版七年级上册数学，第二章，第…页" /></label>
       <label class="dd-study-block">要读的材料或自己的疑问（可选）<textarea id="dd-study-material" rows="3" maxlength="6000" placeholder="贴入需要讨论的一小段材料，或写出自己卡住的地方。"></textarea></label>
@@ -220,7 +227,7 @@
       <details id="dd-study-preview-box"><summary>预览学习请求</summary><textarea id="dd-study-preview" rows="9" readonly aria-label="学习请求预览"></textarea></details>
       <div class="dd-study-actions"><button type="button" id="dd-study-insert">填入聊天框</button><button type="button" id="dd-study-download">下载学习提纲</button></div>
       <p class="dd-study-status" id="dd-study-status" role="status">填入后可以编辑；点击聊天发送按钮才会发送。</p>
-      <details class="dd-study-sources"><summary>开源采用与使用说明</summary><p>数学练习采用 <a href="https://github.com/xiaoyang111222/cn-math-taxonomy/tree/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab" target="_blank" rel="noopener noreferrer">cn-math-taxonomy</a> 的 29 道改编题（CC BY-NC 4.0）。章节、概念、先修关系和出处组织参考 <a href="https://github.com/dangjian/faststudy-knowledge/tree/508748a2c8dddc1253100b2d10d91c9526903f67" target="_blank" rel="noopener noreferrer">faststudy-knowledge</a>（代码 MIT；图谱数据 CC BY-NC-SA 4.0）。当前家庭非商业使用；教材版权归出版社。</p><p>当前精确映射为 20 道题、18 个概念；仅覆盖二上第二/三/五单元、七上第二/五章的局部内容。faststudy 的数学示例与本地教材版本不同，本地章节和原页单独核对；该项目本身不含题库。</p><p>资料伴读参考 <a href="https://github.com/HKUDS/DeepTutor/tree/60fb3bdfddb30b7740c7ce3bd9b28d908f2af6db" target="_blank" rel="noopener noreferrer">DeepTutor</a> 的资料范围和来源引用设计（Apache-2.0）；分步学习参考 <a href="https://github.com/THU-MAIC/OpenMAIC/tree/5bd8cc840ee6397d063e1fe6aba974b9f0401593" target="_blank" rel="noopener noreferrer">OpenMAIC</a> 的分段课堂与可导出学习内容设计（MIT）。</p><p>本面板由本项目编写，提供学习请求和提纲。未安装这两个项目的引擎；引用与讲解仍需对照原资料核对，不作为正式判分依据。</p></details>`;
+      <details class="dd-study-sources"><summary>开源采用与使用说明</summary><p>数学练习采用 <a href="https://github.com/xiaoyang111222/cn-math-taxonomy/tree/cf73951cf4b5d2bdbc8a75bb9cb9e961e55277ab" target="_blank" rel="noopener noreferrer">cn-math-taxonomy</a> 的 29 道改编题（CC BY-NC 4.0）。章节、概念、先修关系和出处组织参考 <a href="https://github.com/dangjian/faststudy-knowledge/tree/508748a2c8dddc1253100b2d10d91c9526903f67" target="_blank" rel="noopener noreferrer">faststudy-knowledge</a>（代码 MIT；图谱数据 CC BY-NC-SA 4.0）。当前家庭非商业使用；教材版权归出版社。</p><p>当前精确映射为 20 道题、18 个概念；仅覆盖二上第二/三/五单元、七上第二/五章的局部内容。这 20 道映射题目前只有简单/正常/困难三档，没有挑战档；选择“挑战”会如实显示暂无。faststudy 的数学示例与本地教材版本不同，本地章节和原页单独核对；该项目本身不含题库。</p><p>资料伴读参考 <a href="https://github.com/HKUDS/DeepTutor/tree/60fb3bdfddb30b7740c7ce3bd9b28d908f2af6db" target="_blank" rel="noopener noreferrer">DeepTutor</a> 的资料范围和来源引用设计（Apache-2.0）；分步学习参考 <a href="https://github.com/THU-MAIC/OpenMAIC/tree/5bd8cc840ee6397d063e1fe6aba974b9f0401593" target="_blank" rel="noopener noreferrer">OpenMAIC</a> 的分段课堂与可导出学习内容设计（MIT）。</p><p>本面板由本项目编写，提供学习请求和提纲。未安装这两个项目的引擎；引用与讲解仍需对照原资料核对，不作为正式判分依据。</p></details>`;
     document.body.append(panel);
     panel.querySelector('#dd-study-close').onclick = () => panel.close();
     panel.addEventListener('close', () => {
@@ -253,6 +260,7 @@
     field('route').addEventListener('toggle', () => { if (field('route').open && !route.data) loadRoute(); });
     field('route-concept').onchange = loadRoute;
     field('route-retry').onclick = loadRoute;
+    field('today-retry').onclick = loadToday;
     field('route-difficulty').onchange = renderRouteQuestions;
     panel.addEventListener('input', refresh);
     panel.addEventListener('change', refresh);
@@ -356,10 +364,12 @@
   }
   function clearReferences() {
     route.generation++; route.controller?.abort(); route.data = null;
+    today.generation++; today.controller?.abort();
     field('route-controls').hidden = true; field('route-practice').hidden = true;
     field('route-concept').replaceChildren(); field('route-cards').replaceChildren(); field('route-questions').replaceChildren();
     field('route-graph').replaceChildren();
     field('route-status').textContent = '请同步家庭学习范围后查看。';
+    field('today').hidden = true; field('today-steps').replaceChildren();
     family.data = null;
     field('family-content').hidden = true; field('family-cards').replaceChildren();
     if (pageDialog?.open) pageDialog.close();
@@ -448,6 +458,7 @@
         for (const id of ['subject', 'book', 'chapter']) field(id).disabled = family.blocked;
         refresh();
         if (family.data && field('route').open) loadRoute();
+        if (family.data) loadToday(); else field('today').hidden = true;
       }
     }
   }
@@ -472,7 +483,11 @@
       if (data.scope.book_id !== scope.book_id || data.scope.chapter_id !== scope.chapter_id || data.scope.grade !== scope.grade ||
           data.reference_only !== true || data.eligible_as_grading_basis !== false || data.concepts.length !== 1 || data.concepts[0].id !== concept) throw new Error('Scope mismatch');
       route.data = data;
-      field('route-status').textContent = '已找到 ' + data.questions.length + ' 道关联题；知识映射为局部样本。';
+      const inScope = data.questions.filter(q => q.book_id === scope.book_id &&
+        (!scope.chapter_id || q.chapter_id === scope.chapter_id));
+      const challenge = inScope.filter(q => q.difficulty === 'challenge').length;
+      field('route-status').textContent = '已找到 ' + inScope.length + ' 道关联题' +
+        (challenge ? '（其中挑战 ' + challenge + ' 道）' : '（当前映射没有挑战档）') + '；知识映射为局部样本。';
       const container = field('route-cards'), names = new Map([...data.concepts, ...data.prerequisites].map(n => [n.id, n.title]));
       for (const node of [...data.prerequisites].sort((a, b) => b.depth - a.depth).concat(data.concepts)) {
         const article = document.createElement('article'), title = document.createElement('strong'), description = document.createElement('p');
@@ -506,6 +521,61 @@
         field('family-status').textContent = '登录或档案已变化，请同步家庭范围后继续。';
       }
     }
+  }
+  function studyLink(scope) {
+    return '/learning/ui#' + new URLSearchParams({studyBook: scope.book_id, studyChapter: scope.chapter_id || '',
+      studyRevision: family.session.context_version});
+  }
+  async function loadToday() {
+    if (!panel || !family.session || family.blocked || !family.data) { if (panel) field('today').hidden = true; return; }
+    const generation = ++today.generation, familyGeneration = family.generation;
+    today.controller?.abort(); today.controller = new AbortController();
+    const signal = today.controller.signal, session = family.session;
+    const current = () => generation === today.generation && familyGeneration === family.generation;
+    field('today').hidden = false; field('today-steps').replaceChildren();
+    field('today-status').textContent = '正在读取当前档案的学习安排…';
+    try {
+      const data = await familyGet('study-path', session, signal);
+      const checked = await familyGet('auth/session', null, signal);
+      if (!current()) return;
+      if (signature(checked) !== signature(session) || data.learner_id !== session.learner_id) throw new Error('Context changed');
+      renderToday(data);
+    } catch (error) {
+      if (!current() || error.name === 'AbortError') return;
+      field('today-status').textContent = '学习安排暂时无法读取；可重新读取，或打开家庭学习页继续。';
+      const link = document.createElement('a'); link.href = familyUrl; link.target = '_blank'; link.rel = 'noopener';
+      link.textContent = '打开家庭学习页'; field('today-steps').replaceChildren(link);
+    }
+  }
+  function renderToday(data) {
+    const practiceScope = data.scope, scope = practiceScope || family.data.scope, container = field('today-steps');
+    const summary = document.createElement('p');
+    summary.textContent = '当前档案 · ' + gradeLabel() + ' · ' + (scope.book_title || scope.title) + ' · ' +
+      (scope.chapter_title || '整本书') + (practiceScope ? '' : '（练习范围尚未选择）');
+    container.append(summary);
+    field('today-status').textContent = (data.notice || '按已有记录给出建议顺序，不代表掌握程度。') +
+      (data.total_minutes ? ' 约 ' + data.total_minutes + ' 分钟。' : '');
+    const names = {resume: '继续上次练习', review: '做到期复习', practice: '练习当前章节',
+      reading: '先读原页', choose: '选择课本和章节'};
+    for (const step of data.steps || []) {
+      const article = document.createElement('article'), title = document.createElement('strong'), reason = document.createElement('p');
+      title.textContent = step.title || names[step.kind] || '学习安排';
+      reason.textContent = step.reason || '';
+      if (step.kind === 'practice' && difficulties[step.difficulty]) reason.textContent += ' 建议难度：' + difficulties[step.difficulty] + '。';
+      if (step.kind === 'reading' && Number.isInteger(step.printed_page)) reason.textContent += ' 书内第 ' + step.printed_page + ' 页。';
+      article.append(title, reason);
+      const link = document.createElement('a');
+      link.href = step.kind === 'choose' ? '/learning/ui' : studyLink(scope);
+      link.target = '_blank'; link.rel = 'noopener';
+      link.textContent = step.kind === 'choose' ? '去家庭学习选择 ↗' : names[step.kind] ? names[step.kind] + ' ↗' : '打开家庭学习 ↗';
+      article.append(link); container.append(article);
+    }
+    const more = document.createElement('p');
+    for (const [text, hash] of [['查看错题收藏', '#mistakeSection'], ['打开完整家庭学习页', '#todaySection']]) {
+      const link = document.createElement('a'); link.href = '/learning/ui' + hash; link.target = '_blank'; link.rel = 'noopener';
+      link.textContent = text; link.style.marginRight = '12px'; more.append(link);
+    }
+    container.append(more);
   }
   async function renderRouteGraph(data, current) {
     const root = field('route-graph');
@@ -571,8 +641,18 @@
     if (!route.data || !family.data || family.busy || family.blocked) return;
     field('route-practice').hidden = false;
     const scope = family.data.scope, difficulty = value('route-difficulty');
-    const questions = route.data.questions.filter(q => q.book_id === scope.book_id && (!scope.chapter_id || q.chapter_id === scope.chapter_id) && (!difficulty || q.difficulty === difficulty));
-    if (!questions.length) { const p = document.createElement('p'); p.textContent = '这个知识点在所选难度下暂无关联题，可换难度或回到课本核对。'; container.append(p); }
+    const inScope = route.data.questions.filter(q => q.book_id === scope.book_id && (!scope.chapter_id || q.chapter_id === scope.chapter_id));
+    const questions = inScope.filter(q => !difficulty || q.difficulty === difficulty);
+    if (!questions.length) {
+      const p = document.createElement('p');
+      if (!inScope.length) p.textContent = '这个知识点当前没有已核对的关联题，可回到课本核对。';
+      else {
+        const available = [...new Set(inScope.map(q => difficulties[q.difficulty]).filter(Boolean))];
+        p.textContent = '这个知识点当前没有已核对的“' + (difficulties[difficulty] || '该难度') + '”题；已核对映射只有' +
+          (available.join('、') || '其他难度') + '。可换难度或回到课本核对，不能把其他难度当作挑战题。';
+      }
+      container.append(p);
+    }
     for (const q of questions) {
       if (!/^[A-Za-z0-9_-]{1,128}$/.test(q.question_version_id)) continue;
       const article = document.createElement('article'), title = document.createElement('strong'), meta = document.createElement('p');

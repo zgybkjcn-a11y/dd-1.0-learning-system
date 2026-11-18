@@ -1,9 +1,9 @@
 {
   "format": "dd-family-chapter-practice-v1",
   "batch": "lower_gap_candidates_batch8",
-  "status": "local_candidate_not_registered",
+  "status": "assistant_crosschecked",
   "teacher_reviewed": false,
-  "curriculum_standard_crosscheck": "pending",
+  "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
   "student_calibrated": false,
   "questions": [
     {
@@ -44,8 +44,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "960 年建国、979 年灭北汉、通判分知州之权与崇文抑武的代价分别对应第 44、45、46 页原文，逐项核对；两项年份以教材纪年为准。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "说出北宋建立的年份",
           "b": "区分结束分裂的年份",
@@ -255,8 +255,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "1368 年建国、1421 年迁都、废丞相与六部直接负责、八股文规定分别对应第 86、87、88 页原文，逐项核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "说出明朝建立的年份",
           "b": "区分迁都的年份",
@@ -465,8 +465,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "《旧唐书·魏征传》出处、“以人为镜”释义、1127 年与东京、以及《新唐书》互证文字分别对应第 130、131 页原文；第四项的边界限定在“今魏征殂逝”一句。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "辨认史料的出处",
           "b": "理解史料中词语的含义",
@@ -677,8 +677,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "《岁朝村庆图》与“高度一致”的结论、民族节日表述、连续性表述分别对应第 128页原文；第三项的边界限定在一幅绘画能证明的范围。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由绘画内容说明习俗的延续",
           "b": "辨认教材对民族节日的表述",

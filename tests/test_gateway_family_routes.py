@@ -60,3 +60,22 @@ def test_gateway_new_allowlist_entries_do_not_expand_other_methods_or_paths(stac
     result=stack['gateway'].request(method,'/learning'+path,headers=stack['headers'])
     assert result.status_code==404 and result.json()['error']['code']=='ROUTE_REJECTED'
     assert len(stack['bridge'].calls)==before
+
+
+def test_gateway_study_path_is_forwarded_with_the_session(stack):
+    gateway=stack['gateway'];headers=stack['headers']
+    result=gateway.get('/learning/api/v1/study-path',headers=headers)
+    assert result.status_code==200,result.text
+    data=result.json(); assert data['learner_id'] and data['steps'] and data['notice']
+    assert {'kind','title','reason','minutes'} <= set(data['steps'][0])
+    assert stack['bridge'].calls[-1][2]=='/api/v1/study-path'
+    gateway.cookies.clear()
+    assert gateway.get('/learning/api/v1/study-path').status_code==401
+
+
+@pytest.mark.parametrize('method,path',[('POST','/api/v1/study-path'),('PUT','/api/v1/study-path')])
+def test_gateway_study_path_stays_read_only(stack,method,path):
+    before=len(stack['bridge'].calls)
+    result=stack['gateway'].request(method,'/learning'+path,headers=stack['headers'])
+    assert result.status_code==404 and result.json()['error']['code']=='ROUTE_REJECTED'
+    assert len(stack['bridge'].calls)==before

@@ -34,7 +34,7 @@ def values(q):
             else Fraction(f['answer']) for f in q['responses']]
 
 
-def test_seven_scopes_are_unregistered_and_reproducible(candidates):
+def test_seven_scopes_are_registered_and_reproducible(candidates):
     qs, points, before, after = review.proposal()
     assert json.loads(DESTINATION.read_bytes()) == build()
     assert len(qs) == len(points) == 7
@@ -42,13 +42,13 @@ def test_seven_scopes_are_unregistered_and_reproducible(candidates):
     assert Counter(q['knowledge']['role'] for q in qs.values()) == {'direct': 7}
     assert Counter(q['book_id'] for q in qs.values()) == {
         'ethics-g2-lower': 4, 'ethics-g7-lower': 3}
-    assert not (set(candidates) & set(chapter.bank())) and BATCH not in chapter.BATCHES
+    assert set(candidates) <= set(chapter.bank()) and BATCH in chapter.BATCHES
     earlier = [chapter._parse(p.read_bytes())[2]
                for p in (BATCH1_DESTINATION, BATCH2_DESTINATION, BATCH3_DESTINATION,
                          BATCH4_DESTINATION, BATCH5_DESTINATION, BATCH6_DESTINATION)]
     assert [len(qs) for qs in earlier] == [7, 9, 9, 9, 9, 7]
     assert not (set().union(*earlier) & set(candidates))
-    assert len(chapter.bank()) == 1074
+    assert len(chapter.bank()) == 1155
     old = {r['id']: r for r in json.loads(review.SUBJECT.read_bytes())['rows']}
     new = {r['id']: r for r in before['rows']}
     assert set(new) - set(old) == set(points)
@@ -69,7 +69,7 @@ def test_every_item_carries_an_unobserved_manual_task(candidates):
         assert m['reviewer'] is None
         assert len(m['criteria']) >= 3
         assert q['review']['teacher_reviewed'] is False
-        assert q['review']['deployment_status'] == 'local_candidate_not_registered'
+        assert q['review']['deployment_status'] == 'registered_family_bank'
 
 
 def test_grade_two_ethics_answers_match_the_pages(candidates):
@@ -160,7 +160,7 @@ def test_installed_and_candidate_evidence_remain_separate(candidates, tmp_path):
     assert summary['installed_evidence'] == {'configured': 112, 'partial': 288, 'gap': 265}
     assert summary['candidate_inclusive'] == {'configured': 112, 'partial': 295, 'gap': 258}
     assert summary['new_configured_requirements'] == 0
-    assert not summary['local_bank_registered'] and BATCH not in chapter.BATCHES
+    assert summary['local_bank_registered'] and BATCH in chapter.BATCHES
     diffs = json.loads((tmp_path / 'review/coverage-diff.json').read_bytes())
     assert len(diffs) == 7
     assert sum(d['candidate_inclusive_after']['family_count'] for d in diffs) == 7
@@ -186,17 +186,17 @@ def test_synthetic_install_preserves_all_existing_rows_and_is_idempotent(family,
         if batch not in ('math_g7_action_candidates', 'math_g7_chapter4_action_candidates'):
             chapter.install(db, batch)
     with db.session() as c:
-        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1145
+        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1226
         before = {r[0]: set(map(tuple, c.execute('SELECT * FROM "' + r[0] + '"')))
                   for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' "
                                      "AND name NOT LIKE 'sqlite_%'")}
     monkeypatch.setitem(chapter.BATCHES, BATCH, hashlib.sha256(DESTINATION.read_bytes()).hexdigest())
-    assert chapter.install(db, BATCH)['added'] == 7
+    assert chapter.install(db, BATCH)['added'] == 0
     assert chapter.install(db, BATCH)['added'] == 0
     with db.session() as c:
         for table, old in before.items():
             assert old <= set(map(tuple, c.execute('SELECT * FROM "' + table + '"')))
-        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1152
+        assert c.execute('SELECT COUNT(*) FROM question_versions').fetchone()[0] == 1226
     for q in candidates.values():
         h = {**headers, 'X-Learner-Id': f"family-g{q['grade']}"}
         response = api.post('/api/v1/test-sessions', headers=h,

@@ -1,9 +1,9 @@
 {
   "format": "dd-family-chapter-practice-v1",
   "batch": "lower_gap_candidates_batch5",
-  "status": "local_candidate_not_registered",
+  "status": "assistant_crosschecked",
   "teacher_reviewed": false,
-  "curriculum_standard_crosscheck": "pending",
+  "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
   "student_calibrated": false,
   "questions": [
     {
@@ -44,8 +44,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "55% 取自第 104 页血液分层说明；血液组成、红细胞两面凹形状与血红蛋白特性、贫血初步判断分别对应第 104、106 页原文，四项均只用文字结论。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由分层比例说出血浆占比",
           "b": "概括血液的组成",
@@ -250,8 +250,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "180 升取自第 127 页原文；泌尿系统组成、肾单位结构与滤过、重吸收内容分别对应第 125、127 页；每天约 1.5 升的尿量只用于干扰项说明，不与原尿量混同。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "说出泌尿系统的组成器官",
           "b": "说出肾单位的组成",
@@ -455,8 +455,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项对应第 130 页“背景资料—确定任务—制订方案”与第 131 页“实施方案—展示交流—评价维度表”；比例与设计图要点位于方案设计一行，逐项按原页核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "说出模型制作的基本原理",
           "b": "按检验环节判断做法",
@@ -668,8 +668,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "42 处与“截至 2021 年第 44 届”取自第 55 页原文；表 1 的三个符号和越南三项遗产的类别已按第 55 页原页核对；第 56 页图 1 的图例框为空白，需学生自主设计，第四项据此设置。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "读取带时间口径的统计值",
           "b": "按表 1 符号判断遗产类别",
@@ -873,8 +873,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "三大洲、五个海名与两条通道的连接关系按第 58 页图 9.1 与第 59 页文字、框图逐项核对；里海为湖泊由第 59 页活动第 2 题要求据图判断，图 9.1 上里海四周均为陆地。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "说出西亚联系的三大洲",
           "b": "从五个名称中辨出湖泊",
@@ -1088,8 +1088,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "地形、平原占比、农业人口 2% 与地区专门化说明分别对应第 92、93 页；农业带（区）形成的多条件结论对应第 94 页“综合地形、气候、水源、市场等多种条件”；第 90、93 页地图已按原页核实地形与农业带分布。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "概括美国本土的地形分布",
           "b": "说明农业地区专门化的含义",
@@ -1294,8 +1294,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "海陆主体、气温、降水、风速、生物与温差成因分别对应第 110、111、112 页原文；比较指标已在题干中限定，四项数值与描述逐项核对。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "比较两地的海陆主体",
           "b": "用海陆、海拔与海水温度解释温差",
@@ -1499,8 +1499,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "第 17 页单元目标列出“share how often you do sport or exercise”与“use possessive pronouns to identify ownership”；第 21 页 Grammar Focus 与 3a、3b 给出 twice a week、yours/mine/his 与频率副词。四句为本地自编，未抄录教材练习。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "用次数短语回答频率问题",
           "b": "用第二人称名词性物主代词指代",
@@ -1712,8 +1712,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "第 25 页单元目标列出 countable and uncountable nouns；第 29 页 Grammar Focus 给出可数、不可数与两者皆可三类词表，fish 属于“可数与不可数”一组；题目要求按语境判断，避免把可数性绝对化。句子为本地自编。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "判断食品名词的可数性",
           "b": "按语境使用名词复数形式",

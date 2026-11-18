@@ -70,6 +70,13 @@ def host(playwright, launch_browser, tmp_path):
                     result = dict(reference_only=True, scope=dict(book_id='math-g7-upper', chapter_id='', grade=7,
                         subject_title='数学', title='合成数学课本', chapter_title='整本书'),
                         concepts=[], prerequisites=[], study_steps=[], sources=[], page_links=[])
+                elif parsed.path.endswith('/study-path'):
+                    result = dict(learner_id=state['learner'], scope=None,
+                        steps=[dict(kind='choose', title='先选课本和章节',
+                                    reason='还没有选择课本和章节。', minutes=1, enabled=True)],
+                        next_time=[], total_minutes=1, budget_minutes=25,
+                        notice='按已有记录给出建议顺序，不代表掌握程度；数据来自本机学习记录。',
+                        as_of='2026-11-18T00:00:00Z')
                 else: raise AssertionError(parsed.path)
                 route.fulfill(status=200, json=result)
 

@@ -1,9 +1,9 @@
 {
   "format": "dd-family-chapter-practice-v1",
   "batch": "lower_gap_candidates_batch3",
-  "status": "local_candidate_not_registered",
+  "status": "assistant_crosschecked",
   "teacher_reviewed": false,
-  "curriculum_standard_crosscheck": "pending",
+  "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
   "student_calibrated": false,
   "questions": [
     {
@@ -42,8 +42,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四个判断均只依据第 4 页垂直定义、垂线与垂足的文字；相邻角互补与旋转 90° 均为本地独立复算，未引用原图数据。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由一个直角判断互相垂直",
           "b": "由垂直推出相邻角为直角",
@@ -239,8 +239,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项均对应第 5 页探究与例 2 的文字结论；“有且只有一条”对直线上、直线外两种位置都成立。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "判断过直线上一点的垂线条数",
           "b": "判断过直线外一点的垂线条数",
@@ -452,8 +452,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "第 6 页支持垂线段最短与点到直线的距离定义；三角形三边 6、8、10 满足 6²+8²=10²，距离与最长边的结论均独立复算。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "比较垂线段与斜线段的长短",
           "b": "说明点到直线的距离取垂线段长度",
@@ -657,8 +657,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项均在第 25、27、31 页的倍数主题内自编；6÷3=2、2×4=8、8÷4=2、9÷3=3 均独立复算，答案唯一。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由两个数量求几倍",
           "b": "由一份量和倍数求几倍量",
@@ -841,8 +841,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项对应第 41 页 10 个一百是一千、第 44 页含零读数与数位组成、第 50 页“2500 里有几个百”；数值均独立复算。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由十进制单位换算计数单位",
           "b": "读写含零的数并说明零的占位",
@@ -1029,8 +1029,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "80+50=130、900+600=1500、1700-900=800、2000-1000=1000 均独立复算；与第 57 页“8 个十加 5 个十是 13 个十”的算法一致。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "整十数相加",
           "b": "整百数相加",
@@ -1204,8 +1204,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "271+31=302、445+298=743、213-145=68、278-98=180 均独立复算；进退位规则与第 64、69 页文字一致。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "处理一次进位的加法",
           "b": "处理连续进位的加法",
@@ -1382,8 +1382,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "709-460=249、836-478=358、664-375=289 均独立复算；关系式与第 73 页“和=加数+加数、加数=和-另一个加数”一致。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由和与一个加数求另一个加数",
           "b": "用文字表述同一关系",
@@ -1557,8 +1557,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "32÷8=4、45÷7=6……3 独立复算；归类依据第 87 页“数与运算”关系图与第 89 页“数量间的乘除关系”四例；第 92 页支持商与余数的读法。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由两个数量求倍数",
           "b": "求两位数的商",

@@ -30,8 +30,8 @@ def build():
         q["source"].update(topic_printed_pages=pages, evidence_limit=source_limit)
         q["design"].update(core_actions=actions, difficulty_rationale=difficulty)
         q["review"].update(status="assistant_checked", content_check=review,
-                            curriculum_standard_crosscheck="pending",
-                            deployment_status="local_candidate_not_registered")
+                            curriculum_standard_crosscheck='assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory',
+                            deployment_status="registered_family_bank")
         q["common_error_feedback"] = error
         # Bind authored misconception feedback to a real wrong displayed option.
         field = next(f for f in q["responses"] if f["kind"] == "choice")
@@ -364,8 +364,8 @@ def build():
         review="原页100/102/120支持灭菌冷却、环境条件与食品发酵；未给未经核验的食用或操作配方，冷藏说明为题内补充。",
         error="发酵需要适用活菌，冷藏是抑制，灭菌需有效条件，三者不是同一件事。")
     return {"format": "dd-family-chapter-practice-v1", "batch": BATCH,
-            "status": "local_candidate_not_registered", "teacher_reviewed": False,
-            "curriculum_standard_crosscheck": "pending", "student_calibrated": False,
+            "status": "assistant_crosschecked", "teacher_reviewed": False,
+            "curriculum_standard_crosscheck": 'assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory', "student_calibrated": False,
             "questions": batch.questions}
 
 
@@ -376,4 +376,4 @@ if __name__ == "__main__":
             raise FileExistsError("Refuse to overwrite a different reviewed candidate")
     else:
         DESTINATION.write_bytes(raw)
-    print(f"Local only: {DESTINATION.relative_to(ROOT)} (20 candidates; not registered)")
+    print(f"Local only: {DESTINATION.relative_to(ROOT)} (20 candidates; registered in local bank)")

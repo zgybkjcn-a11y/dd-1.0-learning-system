@@ -182,7 +182,7 @@ class LoginNonces:
 # Explicit public business routes. Adding an API route does not expose it here.
 ID = r"[A-Za-z0-9_-]{1,128}"
 ROUTES = {
-    "GET": [r"/ui", r"/health", r"/api/v1/(?:auth/session|learners|learner-context|review-tasks|progress|mistakes|question-choices)",
+    "GET": [r"/ui", r"/health", r"/api/v1/(?:auth/session|learners|learner-context|review-tasks|progress|study-path|mistakes|question-choices)",
             rf"/api/v1/(?:documents|import-batches|mistakes|learning-drafts|diagnoses|test-sessions|test-items|attempts|operations|visual-assets|agent-runs|jobs|assets)/{ID}",
             rf"/api/v1/import-batches/{ID}/items", rf"/api/v1/source-pages/{ID}/content",
             r"/api/v1/admin/(?:metrics|provider-calls|variant-jobs)", rf"/api/v1/admin/variant-jobs/{ID}", rf"/api/v1/admin/exports/{ID}"],
@@ -450,7 +450,7 @@ def create_gateway(settings: GatewaySettings | None = None, transport=None) -> F
         payload = await body_bytes(request, 4096 if path == '/api/v1/textbooks/search' else 25 * 1024 * 1024)
         target = path + ("?" + request.url.query if request.url.query else "")
         result = await send(settings.learning_url, request.method, target, headers, payload, timeout=30, limit=32 * 1024 * 1024)
-        study_route = path in {'/api/v1/textbooks', '/api/v1/textbooks/search', '/api/v1/math-references', '/api/v1/study-support'} or path.startswith('/api/v1/textbooks/')
+        study_route = path in {'/api/v1/textbooks', '/api/v1/textbooks/search', '/api/v1/math-references', '/api/v1/study-support', '/api/v1/study-path'} or path.startswith('/api/v1/textbooks/')
         if study_route and result.status >= 400:
             code = service_error(result)
             raise GatewayError(code or 'STUDY_REQUEST_UNAVAILABLE', result.status)

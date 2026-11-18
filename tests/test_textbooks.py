@@ -206,8 +206,9 @@ def test_new_lower_books_browse_without_unreviewed_text_or_vector_calls(retrieva
     assert not any(call[2] == '/api/v1/retrieval/query/doc' for call in bridge.calls)
 
 
-def test_added_lower_book_page_boundaries_and_no_question_placements():
+def test_added_lower_book_page_boundaries_and_authored_question_placements():
     from learning_service.chapter_practice import bank
+    from learning_service.practice import bank as starter_bank
     from learning_service.textbooks import page_scope, subject_catalogue
     expected = {'math-g2-lower': (1, 97, 6), 'ethics-g2-lower': (1, 61, 5),
                 'english-g7-lower': (1, 119, 9), 'ethics-g7-lower': (1, 104, 7),
@@ -221,7 +222,11 @@ def test_added_lower_book_page_boundaries_and_no_question_placements():
         assert book['search_available'] is False and book['collection'] == ''
         assert page_scope(curriculum, book['id'], start)[1] == start + offset
         assert page_scope(curriculum, book['id'], end)[1] == end + offset
-        assert not any(q['book_id'] == book['id'] for q in bank().values())
+        # 2026-11-18 cross-checked candidates add authored chapter questions to
+        # these books; they remain reading-only in the practice catalogue and
+        # the starter word bank gains nothing for them.
+        assert any(q['book_id'] == book['id'] for q in bank().values())
+        assert not any(q['book_id'] == book['id'] for q in starter_bank().values())
         with pytest.raises(ValueError): page_scope(curriculum, book['id'], end + 1)
         with pytest.raises(ValueError): page_scope(f"math-g{9-book['grade']}-v1", book['id'], start)
     for grade in (2, 7):

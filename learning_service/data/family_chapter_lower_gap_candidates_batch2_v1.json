@@ -1,9 +1,9 @@
 {
   "format": "dd-family-chapter-practice-v1",
   "batch": "lower_gap_candidates_batch2",
-  "status": "local_candidate_not_registered",
+  "status": "assistant_crosschecked",
   "teacher_reviewed": false,
-  "curriculum_standard_crosscheck": "pending",
+  "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
   "student_calibrated": false,
   "questions": [
     {
@@ -44,8 +44,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "三条记录与教材第2、5、9页的“天天锻炼”“我分享，我快乐”“真诚赞美多助人”主题对应；选项两两互不重叠，正确项唯一。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "辨认锻炼身体的行为",
           "b": "辨认分享快乐的行为",
@@ -233,8 +233,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "表格三行数字为自编；1→3 次、10→20 分钟与“字歪→老师夸进步”逐项对应；结论只承认记录中显示的进步，不外推为全部书写能力。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "读取记录中的次数",
           "b": "辨认持续行动的记录",
@@ -446,8 +446,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项与第3—5页的“生理变化”“心理矛盾”“正确对待发育差异”“求助老师家长心理医生”逐条对应；不要求学生填写本人身高体重或发育情况。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "辨认生理变化",
           "b": "辨认心理矛盾",
@@ -637,8 +637,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项与第10—11页的“身体警戒线”“勇于说不”“快速离开”“寻求帮助”和“相信自己没有错”逐条对应；情境为自编，不含具体侵害细节，不收集真实遭遇。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "辨认行为越界",
           "b": "选择拒绝与离开的做法",
@@ -832,8 +832,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项与第14—17页“情绪表现”“影响情绪的因素”“注意转移法”“认知调节”逐条对应；情境为自编，未使用教材小杰看球赛的原文对话。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "辨认情绪表现",
           "b": "辨认触发因素",
@@ -1023,8 +1023,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "581、589、618 三个年份按第4、7页核对；第四项的干扰项与第5—6页结论相反（运河加强南北交流、科举扩大统治基础），可据材料排除。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "读出建立年份",
           "b": "读出统一年份",
@@ -1186,8 +1186,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "四项与第5—6页的运河走向、五大水系、进士科与“依才能取士”逐条对应；干扰项与原文结论相反，答案唯一。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "区分类别为工程",
           "b": "区分类别为制度",
@@ -1378,8 +1378,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "81°N与11°S按第2页文字核对；剖面数值为自编示意值，未复制教材图7.6；第四项据此排除“全洲都在4500米以上”和“面积最大”这两类越界结论。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "读出纬度数值",
           "b": "由纬度范围判断半球",
@@ -1578,8 +1578,8 @@
         "method": "semantic_conditions_answer_and_explanation_check",
         "difficulty_calibration": "author_trial_not_student_calibrated",
         "content_check": "50人/千米²、40000元/人、乙密度100人/千米²、乙人均120000元/人 均独立复算；表格明示年份并注明为自编练习数据，未使用教材2020年真实统计值。",
-        "curriculum_standard_crosscheck": "pending",
-        "deployment_status": "local_candidate_not_registered",
+        "curriculum_standard_crosscheck": "assistant_crosscheck_passed_2026-11-18_against_local_plan_or_inventory",
+        "deployment_status": "registered_family_bank",
         "field_coverage": {
           "a": "由人口与面积求密度",
           "b": "由经济总量与人口求人均",

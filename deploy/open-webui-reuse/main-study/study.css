@@ -60,10 +60,19 @@
 #dd-study-page img.enlarged { width: 160%; cursor: zoom-out; }
 .dark .dd-study-family { background: #19382f; border-color: #386150; }
 .dark #dd-study-family-cards article { background: #203047; }
+.dd-study-today { margin: 16px 0; padding: 14px; border: 1px solid #c9d9ec; border-radius: 12px; background: #f5f9fe; overflow-wrap: anywhere; }
+.dd-study-today article { margin: 10px 0; padding: 10px; border: 1px solid #dbe6f3; border-radius: 9px; background: white; }
+.dd-study-today p { margin: 6px 0; }
+.dd-study-today a { color: #17436c; font-weight: 600; }
+.dd-study-today button { padding: 5px 9px; border: 1px solid #b2c9bc; border-radius: 7px; cursor: pointer; background: #fff; color: #164532; }
+.dark .dd-study-today { background: #1b2b3f; border-color: #35506e; }
+.dark .dd-study-today article { background: #203047; border-color: #40526a; }
+.dark .dd-study-today a { color: #9ec5ef; }
 @media (max-width: 520px) { #dd-study-panel .dd-study-family .dd-study-fields { grid-template-columns: 1fr; } }
 @media (pointer: coarse), (max-width: 520px) {
   .dd-study-nav a, .dd-study-nav button, #dd-chat-study a, #dd-chat-study button,
-  #dd-study-panel button, #dd-study-page button, #dd-study-classroom button, #dd-study-review button { min-height: 44px; }
+  #dd-study-panel button, .dd-study-today a, #dd-study-page button, #dd-study-classroom button, #dd-study-review button { min-height: 44px; }
+  .dd-study-today a { display: inline-flex; align-items: center; }
   #dd-study-panel input:not([type=radio]), #dd-study-panel select, #dd-study-panel textarea { font-size: 16px; }
 }
 .dd-study-classroom-entry { margin: 14px 0; padding: 14px; border: 1px solid #cbdcf4; border-radius: 12px; background: #f2f6fd; }
