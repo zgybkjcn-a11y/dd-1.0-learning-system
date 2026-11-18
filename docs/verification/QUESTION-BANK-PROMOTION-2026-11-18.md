@@ -14,7 +14,8 @@
 | 项目 | 结果 |
 | --- | --- |
 | 旧版本 | 镜像 `sha256:9962c9a7…`，Compose `family-question-choices-bulk-20261117/compose.json` |
-| 新版本 | 镜像 `dd-learning:question-bank-20261118` = `sha256:d6e9883f…`；Compose `family-question-bank-20261118/compose.json`（`f6411496…`），仅换 api/worker/gateway |
+| 首次新版本 | 镜像 `dd-learning:question-bank-20261118` = `sha256:d6e9883f…`；Compose `family-question-bank-20261118/compose.json`（`f6411496…`），仅换 api/worker/gateway |
+| 当前运行版本 | 缓存修复重发：镜像 `dd-learning:question-bank-cache-20261118` = `sha256:de8a6472…`（源码 `1ce7334`）；Compose `family-question-bank-cache-20261118/compose.json`（`9c0c4dcc…`），见下节 |
 | 停写与备份 | api/worker/gateway 停止后备份至 `learning_data/verification/question-bank-promotion-20261118/private/snapshot`；回执 passed、校验 passed（`c7329aa0…`），schema14 / integrity ok / 外键 0 |
 | 安装预演 | `--dry-run` 读盘校验 9 批共 81 题 |
 | 安装结果 | 9 批各新增 20/7/9/9/9/9/7/7/4 题，合计新增 81；回执 `install-receipt.json` |
@@ -27,6 +28,23 @@
 | 统一入口 | 网关未认证 `study-path` 返回 401 `WEBUI_LOGIN_REQUIRED`（转发生效，旧版本为 404 `ROUTE_REJECTED`）；`family-g2` `study-path` 200，步骤 `resume`+`practice`，15 分钟 |
 
 证据：`learning_data/verification/question-bank-promotion-20261118/`（`pre-state.txt`、`post-state.txt`、`install-receipt.json`、`smoke.json`、`deployment.json`、`data-preservation.json`，备份在 `private/`）。
+
+## 缓存修复重发（r2）
+
+首次发布后实测发现回归：登记 9 批后题库文件由 16 个增至 25 个，超过 `chapter_practice._parse` 的 16 条缓存，每次装载都重新解析并 deepcopy 全部批次。线上 `study-path` 约 10.3 秒、`question-choices` 热约 0.9 秒（11-17 版本热 0.14 秒）。修复为把缓存上限提到 64（文件仍每次读取并校验 sha256），并把章节练习测试改为一次批量 placement。
+
+| 项目 | 结果 |
+| --- | --- |
+| 镜像 | `dd-learning:question-bank-cache-20261118` = `sha256:de8a6472…`（源码 `1ce7334`） |
+| 停写与备份 | 再次停止 api/worker/gateway；备份至 `private/r2/snapshot`，passed、校验 passed（`8b79be35…`），schema14 / integrity ok / 外键 0 |
+| 切换 | Compose `family-question-bank-cache-20261118/compose.json`；proxy 未重启 |
+| 数据保全 | 50 表与切换前备份逐表行哈希完全一致（代码切换不写库）；1226 题、99 次作答、28 条审计事件、schema14 不变 |
+| 延迟 | `question-choices` 首请求 1.137s、热 0.124–0.136s；`study-path` 0.092–0.120s（修复前 10.1–10.4s） |
+| 路由 | `/health` 200、`/learning/ui` 303、未认证 `question-choices` 401、`family-g2` 436 项、OpenAPI 77 路径 |
+| 测试 | 本地全量非浏览器 1258 通过（8分35秒，修复前 62分01秒）；两个重测用例 719.9s→0.9s、692.1s→34.7s |
+| CI | run 44248722760（commit `1ce7334`）：单元/契约 1181 通过（55 排除，225.59 秒）、浏览器 53 通过（704.06 秒），0 失败。此前 run 44239101847 因单元步骤被缓存抖动拖到 52 分钟、浏览器步骤在 75 分钟 job 上限被取消；job 上限已提到 120 分钟 |
+
+证据：`learning_data/verification/question-bank-promotion-20261118/cache-fix-r2/`（`pre-state.txt`、`post-state.txt`、`smoke.json`、`deployment.json`、`data-preservation.json`、备份回执；快照在 `private/r2/`）。
 
 ## 与主站 P1 的关系
 

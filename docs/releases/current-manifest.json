@@ -1,8 +1,8 @@
 {
   "schema": "dd-current-delivery-manifest-v1",
   "task_id": "QUESTION-BANK-PROMOTION-2026-11-18",
-  "observed_at": "2026-11-18T13:43:04+08:00",
-  "updated_at": "2026-11-18T05:43:04Z",
+  "observed_at": "2026-11-18T14:20:00+08:00",
+  "updated_at": "2026-11-18T06:20:00Z",
   "timezone": "Asia/Shanghai",
   "path_base": "repository_root",
   "unknown_policy": "null 表示未核对或未知，具体原因见相邻说明；历史事实不冒充本次运行验收。",
@@ -10,8 +10,8 @@
   "verification_report": "docs/verification/QUESTION-BANK-PROMOTION-2026-11-18.md",
   "observation_record": {
     "path": "learning_data/verification/question-bank-promotion-20261118/deployment.json",
-    "sha256": "c1b33cf9b2e773714a329193a63389974c2a5f3420e1aba1619ea3580f93cffc",
-    "timestamp_basis": "post-deployment container, backup, database and route capture"
+    "sha256": "0cbf431dc314c9e900b07c7479bcf03b653876263e18e5cea33e45f202e15d6a",
+    "timestamp_basis": "post-deployment container, backup, database and route capture; includes cache-fix follow-up"
   },
   "workspace": {
     "branch": "main",
@@ -146,36 +146,36 @@
   "components": {
     "family_service": {
       "state": "deployed_verified",
-      "checked_at": "2026-11-18T13:17:00+08:00",
-      "image_id": "sha256:d6e9883f7e5377632b9022ffee71f0af8c2ed87c8a4f8863d2fc328127b3f085",
+      "checked_at": "2026-11-18T14:20:00+08:00",
+      "image_id": "sha256:de8a6472e012e0a061c4ba6a91f833df26d2d3108d2a9653ea8e82576c36858a",
       "image_id_scope": [
         "learning-api",
         "learning-worker",
         "learning-gateway"
       ],
-      "gateway_image_id": "sha256:d6e9883f7e5377632b9022ffee71f0af8c2ed87c8a4f8863d2fc328127b3f085",
+      "gateway_image_id": "sha256:de8a6472e012e0a061c4ba6a91f833df26d2d3108d2a9653ea8e82576c36858a",
       "compose": {
-        "path": "learning_data/deployments/family-question-bank-20261118/compose.json",
-        "sha256": "f6411496a21c33c7a74abd1c7d7f2efc7a8d94eb4e623b27aef5616c482bdadc"
+        "path": "learning_data/deployments/family-question-bank-cache-20261118/compose.json",
+        "sha256": "9c0c4dcc5995147474993d508e055f4bf3753c9b396502f3138162a6c4394331"
       },
       "containers": [
         {
           "name": "dd-family-math-learning-api-1",
-          "image": "sha256:d6e9883f7e5377632b9022ffee71f0af8c2ed87c8a4f8863d2fc328127b3f085",
+          "image": "sha256:de8a6472e012e0a061c4ba6a91f833df26d2d3108d2a9653ea8e82576c36858a",
           "state": "running",
           "health": "healthy",
           "status": "running"
         },
         {
           "name": "dd-family-math-learning-worker-1",
-          "image": "sha256:d6e9883f7e5377632b9022ffee71f0af8c2ed87c8a4f8863d2fc328127b3f085",
+          "image": "sha256:de8a6472e012e0a061c4ba6a91f833df26d2d3108d2a9653ea8e82576c36858a",
           "state": "running",
           "health": null,
           "status": "running"
         },
         {
           "name": "dd-family-math-learning-gateway-1",
-          "image": "sha256:d6e9883f7e5377632b9022ffee71f0af8c2ed87c8a4f8863d2fc328127b3f085",
+          "image": "sha256:de8a6472e012e0a061c4ba6a91f833df26d2d3108d2a9653ea8e82576c36858a",
           "state": "running",
           "health": null,
           "status": "running"
@@ -1696,8 +1696,8 @@
     "81 道候选与既有题目均为作者设定难度，teacher_reviewed=false；真实学生难度校准、人工任务观察与真实手机验收仍待完成。"
   ],
   "next_task": null,
-  "runtime_observed_at": "2026-11-18T13:17:00+08:00",
-  "update_scope": "81 道课标交叉核对候选已安装进正式题库（1145→1226）；新 7 册知识点清单；主站 P1（第四档与统一入口）仅本地实现，静态资源未发布。",
+  "runtime_observed_at": "2026-11-18T14:20:00+08:00",
+  "update_scope": "81 道课标交叉核对候选安装进正式题库（1145→1226）；解析缓存修复后重发镜像；新 7 册知识点清单；主站 P1 仅本地实现，静态资源未发布。",
   "latest_verification_report": "docs/verification/QUESTION-BANK-PROMOTION-2026-11-18.md",
   "source_delivery": {
     "task": "A02",
@@ -3254,18 +3254,18 @@
     }
   ],
   "latest_deployment": {
-    "recorded_at": "2026-11-18T13:17:00+08:00",
+    "recorded_at": "2026-11-18T14:20:00+08:00",
     "state": "deployed_verified",
     "evidence_directory": "learning_data/verification/question-bank-promotion-20261118",
-    "compose": "learning_data/deployments/family-question-bank-20261118/compose.json",
-    "compose_sha256": "f6411496a21c33c7a74abd1c7d7f2efc7a8d94eb4e623b27aef5616c482bdadc",
-    "runtime_image": "sha256:d6e9883f7e5377632b9022ffee71f0af8c2ed87c8a4f8863d2fc328127b3f085",
+    "compose": "learning_data/deployments/family-question-bank-cache-20261118/compose.json",
+    "compose_sha256": "9c0c4dcc5995147474993d508e055f4bf3753c9b396502f3138162a6c4394331",
+    "runtime_image": "sha256:de8a6472e012e0a061c4ba6a91f833df26d2d3108d2a9653ea8e82576c36858a",
     "runtime_image_scope": [
       "learning-api",
       "learning-worker",
       "learning-gateway"
     ],
-    "gateway_image": "sha256:d6e9883f7e5377632b9022ffee71f0af8c2ed87c8a4f8863d2fc328127b3f085",
+    "gateway_image": "sha256:de8a6472e012e0a061c4ba6a91f833df26d2d3108d2a9653ea8e82576c36858a",
     "changed_services": [
       "learning-api",
       "learning-worker",
@@ -3327,12 +3327,36 @@
       },
       "method": "live learning.db 与一致性备份逐表按行哈希比较；备份每一行都仍在 live 中"
     },
-    "final_health_evidence": "learning_data/verification/question-bank-promotion-20261118/smoke.json",
-    "change": "install 81 cross-checked gap candidates into the formal bank; gateway forwards read-only GET /api/v1/study-path",
+    "final_health_evidence": "learning_data/verification/question-bank-promotion-20261118/cache-fix-r2/smoke.json",
+    "change": "install 81 cross-checked gap candidates into the formal bank; gateway forwards read-only GET /api/v1/study-path; raise the chapter parse cache so 25 batches stay warm",
     "question_choices_items_by_family": {
       "family-g2": 436,
       "family-g7": "not_measured_shared_context_409",
       "note": "family-g2 实测 436 项（旧 418）；总量 1226。"
+    },
+    "source_commit": "1ce73348ea034cd0a8395cc576c8586d77fdd8c9",
+    "first_release_image": "sha256:d6e9883f7e5377632b9022ffee71f0af8c2ed87c8a4f8863d2fc328127b3f085",
+    "first_release_compose": "learning_data/deployments/family-question-bank-20261118/compose.json",
+    "follow_up": {
+      "reason": "25 个批次超出 _parse 的 16 条缓存；study-path 约 10.3s",
+      "fix": "缓存上限 16→64；章节练习测试改用一次批量 placement",
+      "backup_manifest_sha256": "8b79be3507b4e5d73557362084a4f08bab3193f045b93a8e3dd0a57a8f50b220",
+      "tables_compared": 50,
+      "mismatched_tables": 0
+    },
+    "latency_seconds": {
+      "question_choices_first": 1.137,
+      "question_choices_warm": 0.124,
+      "study_path": 0.092,
+      "study_path_before_fix": 10.385
+    },
+    "ci": {
+      "run": 44248722760,
+      "head": "1ce73348ea034cd0a8395cc576c8586d77fdd8c9",
+      "unit": "1181 passed, 55 deselected",
+      "browser": "53 passed",
+      "job_timeout_minutes": 120,
+      "note": "run 44239101847 was cancelled at the old 75-minute limit"
     }
   },
   "component_history_reference": "learning_data/verification/deploy-c01-20261108T162720Z/manifest-before-final-reconciliation.json",
